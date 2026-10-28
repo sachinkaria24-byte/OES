@@ -2,6 +2,7 @@
 const audits = [
   ["coxeterSpine", "auditCoxeterSpine"],
   ["ledgerJoins", "auditLedgerJoins"],
+  ["pauliBath", "auditPauliBath"],
 ];
 let total = 0;
 for (const [file, fn] of audits) {

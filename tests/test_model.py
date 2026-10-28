@@ -141,6 +141,13 @@ def test_pauli_generator_is_the_bath_on_its_half_periods():
     assert all(pauli.values()), pauli
 
 
+def test_pauli_file_is_current():
+    import json
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent
+    assert json.loads((root / "data" / "pauli_half_periods.json").read_text()) == counts.pauli_table()
+
+
 def test_every_circle_map_kills_the_commutator():
     maps = counts.circle_maps()
     assert all(maps.values()), maps

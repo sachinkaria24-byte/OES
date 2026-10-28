@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.43,
+  "1-carrier": 0.51,
   "2-spectral": 0.0,
-  "3-spacetime": 6.3,
-  "4-native": 39.52,
-  "5-observer": 4.96,
-  "6-gravity": 3.26,
-  "7-cosmology": 0.86,
-  "8-frontier": 25.96,
-  "9-joins": 5.92,
-  "10-literal": 17.61,
-  "11-glue": 0.1,
+  "3-spacetime": 6.27,
+  "4-native": 42.19,
+  "5-observer": 7.56,
+  "6-gravity": 3.59,
+  "7-cosmology": 0.7,
+  "8-frontier": 23.52,
+  "9-joins": 4.86,
+  "10-literal": 15.55,
+  "11-glue": 0.09,
   "12-binding": 0.06,
-  "13-gates": 0.39,
-  "14-recurrence": 37.82,
-  "15-court": 1.16,
-  "16-handover": 0.72,
-  "17-waves": 0.31,
-  "18-snapshot": 0.46,
-  "19-spine": 2.01,
+  "13-gates": 0.27,
+  "14-recurrence": 38.44,
+  "15-court": 1.18,
+  "16-handover": 0.73,
+  "17-waves": 0.32,
+  "18-snapshot": 0.44,
+  "19-spine": 1.86,
   "20-canon": 4.53,
-  "21-ledger": 22.39,
-  "22-counts": 11.81
+  "21-ledger": 21.77,
+  "22-counts": 11.84
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 291,
-   "total": 291
+   "passed": 292,
+   "total": 292
   },
   "OBSTRUCTION": {
    "passed": 41,
@@ -95,8 +95,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 35,
-   "total": 35
+   "passed": 36,
+   "total": 36
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
@@ -111,8 +111,8 @@
    "total": 17
   },
   "REPORTED": {
-   "passed": 37,
-   "total": 37
+   "passed": 38,
+   "total": 38
   }
  },
  "checks": [
@@ -4641,13 +4641,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-20:23) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 398 readings from 47 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-20:31) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 412 readings from 48 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 47,
-    "claims": 398,
+    "notes": 48,
+    "claims": 412,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -5101,7 +5101,7 @@
   },
   {
    "layer": "22-counts",
-   "name": "PETERSEN_PROJ replayed and joined to the carrier: A^2 + A - 2I = J; the projectors J/10, (4I + 2A - J)/6 and (5I - 5A + J)/15 have denominators 10, 6, 15 (the gap products 2 x 5, 2 x 3, 3 x 5) and traces 1, 5, 4, and add to I over 30. The Petersen graph is the complement of the line graph of K5, so A = J + I - M^T M commutes with the edge stiffness and its projectors are the carrier's: sector 8, the five dark (zero) modes, sector 3. 648 = det(3I + J), the carrier's vertex block. The Hodge 5 is 5I - B^T B = 5 P_cyc on the cycles, not A^2",
+   "name": "PETERSEN_PROJ replayed and joined to the carrier: A^2 + A - 2I = J; the projectors J/10, (4I + 2A - J)/6 and (5I - 5A + J)/15 have denominators 10, 6, 15 (the gap products 2 x 5, 2 x 3, 3 x 5) and traces 1, 5, 4, and add to I over 30. The Petersen graph is the complement of the line graph of K5, so A = J + I - M^T M commutes with the edge stiffness and its projectors are the carrier's: sector 8, the five zero modes (ker M), sector 3. 648 = det(3I + J), the carrier's vertex block. The Hodge 5 is 5I - B^T B = 5 P_cyc on the cycles, not A^2",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -5169,12 +5169,25 @@
   },
   {
    "layer": "22-counts",
-   "name": "CHAIN_ENERGY: the stored mass determinant 216 is det(3W) for the source metric W of layer 10 (det W = 8/9), the same integer as the golden step; the datum's 2 is the kinetic energy of the dark 4-cycle v0, not a frequency, and its 32 is the potential energy in the sectors 3 and 8",
+   "name": "data/pauli_half_periods.json writes the map out: the eight Dynkin words, and for each of the 256 half-periods its word and its band value. Every relation is checked again from the file alone; ports/ts/pauliBath.ts replays it in the sibling's app",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the simple roots in the file form the E8 Dynkin diagram": true,
+    "the eight words are antisymmetric and anticommute exactly along the diagram": true,
+    "every row: its Dynkin product is +- its word, eps is the band at its half-period, L(word) = eps word": true,
+    "256 rows with 256 distinct words; eps = 0, 224, 256 on 1, 120, 135 rows": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "CHAIN_ENERGY: the stored mass determinant 216 is det(3W) for the source metric W of layer 10 (det W = 8/9), the same integer as the golden step; the datum's 2 is the kinetic energy of the zero-stiffness 4-cycle v0, not a frequency, and its 32 is the potential energy in the sectors 3 and 8",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "the stored mass determinant 216 is det(3W) for the source metric W = N^T N of layer 10 (3W is integral, det W = 8/9 = 216 / 3^5)": true,
-    "the datum's 2 is kinetic: v0 is a dark mode (in ker M), and its energy is 1/2 |v0|^2 = 2": 1.0,
+    "the datum's 2 is kinetic: v0 is a zero mode (in ker M), and its energy is 1/2 |v0|^2 = 2": 1.0,
     "the 32 is potential, half the quadratic form 64, held by the sectors 3 and 8 (12 + 20)": true
    },
    "note": ""
@@ -5191,6 +5204,27 @@
     "135 / 5 = 27; 32 x 27 = 864; 540 / 135 = 4; 8 x 28 = 224; 8 x 32 = 256": true,
     "224 = 4 x 56; 256 = 4 x 64; 224 x 4 - 893 = 3": true,
     "1 + 120 + 135 = 256; 240 -+ 16 = 224, 256; 50 = 10 + 40; 9 = 6 + 3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "Drive check 20:33: the sibling's MASS_KERNEL (20:31) adopts the kinetic 2 in ker M and the potential 32, and records the Pauli map as not replayed in its build. The separate model's revised status (20:28) has Petersen = J + I - M^T M with the same projectors, the six-site A = 241I - J and C*C = 183 Pc + 495 Pu (layer 22's M_1 and M_2 - M_1^2), and keeps the canon's two-dimensional dark plane apart from the rank-5 kernel; its 33,003 validation instances and 693-file clean replay are recorded, not rerun",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the 20:33 arithmetic: 2 + 32 = 34 with 32 = 20 + 12, 3^5 x 8/9 = 216, 183 Pc + 495 Pu = 183 I + 52 J, and the powers of a generator of C120",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "2 + 32 = 34; 1/2 x 4 = 2; 40 + 6 + 18 = 64; 40 / 2 = 20; (6 + 18) / 2 = 12; 20 + 12 = 32": true,
+    "3^5 x 8/9 = 216": true,
+    "183 P_c + 495 P_u = 183 I + 52 J on six sites (P_u = J/6)": true,
+    "in C120 the sixth power of a generator has order 20 and the 24th has order 5": true
    },
    "note": ""
   },

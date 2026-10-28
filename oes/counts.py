@@ -15,7 +15,11 @@ Sources read before this layer (Google Drive):
   H60_JOIN), the separate model's unified-spectral-machine status and paper (19:43-19:47), and the Quick
   Access sheet (19:44), which points to continuation 3 and adds nothing to it;
 * at 20:12: the sibling's notes BREATH_ALL, PETERSEN_GRAM and PETERSEN_PROJ (20:06-20:10) and its message;
-* at 20:25: the sibling's notes PAULI_178, PAULI_CIRCLE, TICK_DEEP and CHAIN_ENERGY (20:20-20:23) and its message.
+* at 20:25: the sibling's notes PAULI_178, PAULI_CIRCLE, TICK_DEEP and CHAIN_ENERGY (20:20-20:23) and its message;
+* at 20:33: the sibling's MASS_KERNEL (20:31) and the separate model's revised status and paper (20:28).
+
+Here "zero modes" and "dark" mean ker M = P5, as in layers 5 and 12. The canon's two-dimensional dark planes
+(the dark-core theorem) are another object, as the separate model's status also notes.
 
 Most of the notes read one more stored integer on the bit of layer 21. Those readings are one table here,
 with one new reading, the first landing: the least k for which k x is a nonzero tick. The rest are about
@@ -66,14 +70,18 @@ x -> phi(x) is an isometry from Lambda / 2 Lambda onto the 256 real 4-qubit Paul
 L is the bath Laplacian on its 256 half-period modes. Its eigenvalues 0, 224, 256 (dimensions 1, 120, 135) are
 the band at the origin, at the 120 E7+A1 saddles (the canon's 224) and at the 135 D8 band-top points.
 CHAIN_ENERGY's "mass determinant" 216 is det(3W) for the source metric W of layer 10 (det W = 8/9), and its "2"
-is the kinetic energy of the dark 4-cycle in the datum, not a frequency.
+is the kinetic energy of the zero-stiffness 4-cycle in the datum, not a frequency. The map is written out in
+data/pauli_half_periods.json and checked again from that file alone, and ports/ts/pauliBath.ts replays it
+in the sibling's app, which records it as not replayed (MASS_KERNEL, 20:31).
 """
 
 import functools
 import itertools
+import json
 from collections import Counter
 from fractions import Fraction
 from math import gcd
+from pathlib import Path
 
 import numpy as np
 import sympy as sp
@@ -505,6 +513,20 @@ CLAIMS = [
     ("PAULI_178", "the circuit compression", 9, True, ()),
     ("PAULI_178", "its parts", 6, True, ()),
     ("PAULI_178", "the label", 871, True, ()),
+    ("MASS_KERNEL", "the energy", 34, True, ()),
+    ("MASS_KERNEL", "the kinetic energy", 2, True, ()),
+    ("MASS_KERNEL", "the potential energy", 32, True, ()),
+    ("MASS_KERNEL", "the cycle's squared length", 4, True, ()),
+    ("MASS_KERNEL", "the quadratic form", 64, True, ()),
+    ("MASS_KERNEL", "the uniform part of the form", 40, False, ()),
+    ("MASS_KERNEL", "the contrast part", 6, True, ()),
+    ("MASS_KERNEL", "its edge image", 18, True, ()),
+    ("MASS_KERNEL", "the uniform energy share", 20, False, ()),
+    ("MASS_KERNEL", "the contrast energy share", 12, True, ()),
+    ("MASS_KERNEL", "3^5 x 8/9", 216, True, ()),
+    ("MASS_KERNEL", "the half-period stiffness rank", 6, True, ()),
+    ("MASS_KERNEL", "its phase-energy rank", 19, True, ()),
+    ("MASS_KERNEL", "256", 256, True, ()),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -1244,34 +1266,116 @@ def batch3_arithmetic():
 
 # ------------------------------------------------------- the 20:25 notes (CHAIN_ENERGY, TICK_DEEP, PAULI)
 
-def pauli_bath():
-    """PAULI_178's generator L(M) = 240 M + 16 M^T - 16 tr(M) I is the bath Laplacian on its 256 half-periods."""
+LETTERS = "IXZY"                     # Y = X Z, the real antisymmetric Pauli
+DYNKIN_EDGES = {(0, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (1, 3)}       # E8, Bourbaki order
+SIMPLE_ROOTS_X2 = [[1, -1, -1, -1, -1, -1, -1, 1], [2, 2, 0, 0, 0, 0, 0, 0]] + \
+    [[int(v) for v in np.roll([-2, 2, 0, 0, 0, 0, 0, 0], k)] for k in range(6)]
+PAULI_FILE = Path(__file__).resolve().parent.parent / "data" / "pauli_half_periods.json"
+
+
+def _letters():
     one, X, Z = np.eye(2, dtype=np.int64), np.array([[0, 1], [1, 0]]), np.array([[1, 0], [0, -1]])
-    single = [one, X, Z, X @ Z]                                   # X Z is the real antisymmetric Pauli
-    word_matrix = lambda w: functools.reduce(np.kron, [single[a] for a in w])
-    L = lambda M: 240 * M + 16 * M.T - 16 * np.trace(M) * np.eye(16, dtype=np.int64)
-    words = list(itertools.product(range(4), repeat=4))
-    odd = [w for w in words if w.count(3) % 2]                    # antisymmetric: an odd number of X Z
-    basis = {w: word_matrix(w) for w in words}
-    eig = Counter()
-    for w, P in basis.items():
-        lam = 0 if not any(w) else (224 if w in odd else 256)
-        eig[lam] += bool(np.array_equal(L(P), lam * P))
-    # eight antisymmetric Paulis that anticommute exactly along the E8 Dynkin diagram (Bourbaki order)
-    edges = {(0, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (1, 3)}
-    adjacent = lambda i, j: (min(i, j), max(i, j)) in edges
-    anti = lambda u, v: sum(1 for a, b in zip(u, v) if a and b and a != b) % 2 == 1
+    return [one, X, Z, X @ Z]
+
+
+def _generator(M):
+    return 240 * M + 16 * M.T - 16 * np.trace(M) * np.eye(16, dtype=np.int64)
+
+
+def _adjacent(i, j):
+    return (min(i, j), max(i, j)) in DYNKIN_EDGES
+
+
+def _anticommute(u, v):
+    return sum(1 for a, b in zip(u, v) if a and b and a != b) % 2 == 1
+
+
+def dynkin_paulis():
+    """Eight antisymmetric 4-qubit Paulis (words over I, X, Z, Y) that anticommute exactly along the E8 diagram."""
+    odd = [w for w in itertools.product(range(4), repeat=4) if w.count(3) % 2]
 
     def extend(chosen):
         if len(chosen) == 8:
             return chosen
         for w in odd:
-            if w not in chosen and all(anti(w, u) == adjacent(len(chosen), j) for j, u in enumerate(chosen)):
+            if w not in chosen and all(_anticommute(w, u) == _adjacent(len(chosen), j) for j, u in enumerate(chosen)):
                 found = extend(chosen + [w])
                 if found:
                     return found
         return None
-    dynkin = extend([])
+    return extend([])
+
+
+def _band_at_half_period(c, roots2, alpha2=SIMPLE_ROOTS_X2):
+    x2 = np.array(c) @ np.array(alpha2)                          # twice the half-period
+    return 240 - sum(1 if (int(r @ x2) // 4) % 2 == 0 else -1 for r in roots2)
+
+
+def pauli_table():
+    """The data of data/pauli_half_periods.json: the map from the half-periods to the Paulis, written out."""
+    words = ["".join(LETTERS[a] for a in w) for w in dynkin_paulis()]
+    roots2 = _roots2()
+    rows = []
+    for c in itertools.product((0, 1), repeat=8):
+        letters = [0, 0, 0, 0]
+        for ci, w in zip(c, words):
+            if ci:
+                letters = [x ^ LETTERS.index(a) for x, a in zip(letters, w)]
+        rows.append({"c": "".join(map(str, c)), "eps": _band_at_half_period(c, roots2),
+                     "word": "".join(LETTERS[x] for x in letters)})
+    return {"generator": "L(M) = 240 M + 16 M^T - 16 tr(M) I on real 16 x 16 matrices",
+            "convention": "x = sum c_i alpha_i (Bourbaki order); the word of x is the product of the Dynkin words with "
+                          "c_i = 1, up to sign; eps is the bath band 240 - sum over roots (-1)^(rho . x)",
+            "letters": {a: m.tolist() for a, m in zip(LETTERS, _letters())},
+            "simple_roots_doubled": SIMPLE_ROOTS_X2, "dynkin_words": words, "half_periods": rows}
+
+
+def check_pauli_file(path=PAULI_FILE):
+    """Every relation of the Pauli map, from the file alone (plus a fresh E8 root system)."""
+    data = json.loads(Path(path).read_text())
+    let = {a: np.array(m, dtype=np.int64) for a, m in data["letters"].items()}
+    mat = lambda w: functools.reduce(np.kron, [let[a] for a in w])
+    alpha2 = np.array(data["simple_roots_doubled"])
+    gram = alpha2 @ alpha2.T
+    words = data["dynkin_words"]
+    code = [tuple(LETTERS.index(a) for a in w) for w in words]
+    roots2 = _roots2()
+    rows_ok, spectrum, seen = True, Counter(), set()
+    for row in data["half_periods"]:
+        c = [int(b) for b in row["c"]]
+        M = functools.reduce(lambda a, b: a @ b, [mat(words[i]) for i in range(8) if c[i]], np.eye(16, dtype=np.int64))
+        W = mat(row["word"])
+        eps = _band_at_half_period(c, roots2, alpha2)
+        rows_ok &= (np.array_equal(M, W) or np.array_equal(M, -W)) and eps == row["eps"] \
+            and np.array_equal(_generator(W), eps * W)
+        spectrum[eps] += 1
+        seen.add(row["word"])
+    return {
+        "the simple roots in the file form the E8 Dynkin diagram": all(
+            gram[i, j] == (8 if i == j else (-4 if _adjacent(i, j) else 0)) for i in range(8) for j in range(8)),
+        "the eight words are antisymmetric and anticommute exactly along the diagram": all(
+            w.count("Y") % 2 == 1 for w in words) and all(
+            _anticommute(code[i], code[j]) == _adjacent(i, j) for i in range(8) for j in range(8) if i != j),
+        "every row: its Dynkin product is +- its word, eps is the band at its half-period, L(word) = eps word": rows_ok,
+        "256 rows with 256 distinct words; eps = 0, 224, 256 on 1, 120, 135 rows": len(data["half_periods"]) == 256
+        and len(seen) == 256 and spectrum == {0: 1, 224: 120, 256: 135},
+    }
+
+
+def pauli_bath():
+    """PAULI_178's generator L(M) = 240 M + 16 M^T - 16 tr(M) I is the bath Laplacian on its 256 half-periods."""
+    single = _letters()
+    word_matrix = lambda w: functools.reduce(np.kron, [single[a] for a in w])
+    L = _generator
+    words = list(itertools.product(range(4), repeat=4))
+    odd = [w for w in words if w.count(3) % 2]                    # antisymmetric: an odd number of Y = X Z
+    basis = {w: word_matrix(w) for w in words}
+    eig = Counter()
+    for w, P in basis.items():
+        lam = 0 if not any(w) else (224 if w in odd else 256)
+        eig[lam] += bool(np.array_equal(L(P), lam * P))
+    adjacent = _adjacent
+    dynkin = dynkin_paulis()
     P = [basis[w] for w in dynkin]
     e = np.eye(8)
     alpha = np.array([0.5 * np.array([1, -1, -1, -1, -1, -1, -1, 1]), e[0] + e[1]] + [e[k + 1] - e[k] for k in range(6)])
@@ -1309,10 +1413,23 @@ def chain_energy():
         "the stored mass determinant 216 is det(3W) for the source metric W = N^T N of layer 10 (3W is integral, "
         "det W = 8/9 = 216 / 3^5)": all((3 * x).is_integer for x in W) and (3 * W).det() == 216
         and W.det() == sp.Rational(8, 9),
-        "the datum's 2 is kinetic: v0 is a dark mode (in ker M), and its energy is 1/2 |v0|^2 = 2":
+        "the datum's 2 is kinetic: v0 is a zero mode (in ker M), and its energy is 1/2 |v0|^2 = 2":
             np.allclose(v0[:5], 0) and np.allclose(M @ v0[5:], 0) and np.isclose(0.5 * v0 @ v0, 2),
         "the 32 is potential, half the quadratic form 64, held by the sectors 3 and 8 (12 + 20)":
             np.isclose(0.5 * psi0 @ K @ psi0, 32) and 12 + 20 == 32,
+    }
+
+
+def batch5_arithmetic():
+    return {
+        "2 + 32 = 34; 1/2 x 4 = 2; 40 + 6 + 18 = 64; 40 / 2 = 20; (6 + 18) / 2 = 12; 20 + 12 = 32": 2 + 32 == 34
+        and 4 // 2 == 2 and 40 + 6 + 18 == 64 and 40 // 2 == 20 and (6 + 18) // 2 == 12 and 20 + 12 == 32,
+        "3^5 x 8/9 = 216": 3 ** 5 * Fraction(8, 9) == 216,
+        "183 P_c + 495 P_u = 183 I + 52 J on six sites (P_u = J/6)": all(
+            183 * (int(i == j) - Fraction(1, 6)) + 495 * Fraction(1, 6) == 183 * int(i == j) + 52
+            for i in range(6) for j in range(6)),
+        "in C120 the sixth power of a generator has order 20 and the 24th has order 5": 120 // gcd(6, 120) == 20
+        and 120 // gcd(24, 120) == 5,
     }
 
 
@@ -1346,8 +1463,8 @@ def mirror_pairs():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (47 notes, 18:32-20:23)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 398 readings from 47 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (48 notes, 18:32-20:31)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 412 readings from 48 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
@@ -1368,11 +1485,12 @@ JOINS = [
     ("golden family", "B^2 = B + I; B^7 = [[21, 13], [13, 8]]", "checked; no squared carrier frequency solves x^2 = x + 1", "THEOREM", "22"),
     ("Agni and Soma", "one projector on the cycle rank; the return is scaled by 5", "P = I - B^T B / 5 of rank 6, and B^T B = 5 (I - P)", "THEOREM", "8, 22"),
     ("seven, one, seven", "three mirror pairs split by the bit, three not", "three are split (0-14, 4-10, 5-9) and four are not (1-13, 2-12, 3-11, 6-8)", "THEOREM", "22"),
-    ("Petersen projectors (20:10)", "denominators 10, 6, 15; traces 1, 5, 4; they add to I over 30; Gram determinant 648", "Petersen is the complement of the line graph of K5, so A = J + I - M^T M commutes with the edge stiffness and its projectors are the carrier's (sector 8, the five dark modes, sector 3); the denominators are the gap products 2 x 5, 2 x 3, 3 x 5; 648 = det(3I + J)", "THEOREM", "22: Petersen"),
+    ("Petersen projectors (20:10)", "denominators 10, 6, 15; traces 1, 5, 4; they add to I over 30; Gram determinant 648", "Petersen is the complement of the line graph of K5, so A = J + I - M^T M commutes with the edge stiffness and its projectors are the carrier's (sector 8, the five zero modes ker M, sector 3); the denominators are the gap products 2 x 5, 2 x 3, 3 x 5; 648 = det(3I + J)", "THEOREM", "22: Petersen"),
     ("every breath (20:06)", "8 is not a multiple of 3, so no common period", "right conclusion, wrong reason: the criterion is a rational-square ratio (4 and 9 share a period)", "THEOREM", "22"),
     ("Pauli generator (20:20)", "L(M) = 240 M + 16 M^T - 16 tr(M) I: eigenvalues 0, 224, 256 on 1 + 120 + 135; no intertwiner to the model built", "it is the bath Laplacian on its 256 half-period modes: eight antisymmetric Paulis anticommuting along the E8 diagram give phi: Lambda / 2 Lambda -> Paulis with L phi(x) = eps(pi x) phi(x); 224 is the E7+A1 saddle value, 256 the D8 band top", "THEOREM", "16, 22: Pauli"),
     ("mass determinant (20:23)", "216 / 3^5 = 8/9: the golden step, not a mass", "216 = det(3W) for the source metric W = N^T N of layer 10; no mass scale is selected", "THEOREM", "10, 22"),
-    ("the cycle's 2 (20:23)", "the cycle adds the frequency 2", "the 2 is the kinetic energy of the dark 4-cycle v0 in ker M, not a frequency; the potential 32 sits in sectors 3 and 8", "THEOREM", "22: energy"),
+    ("the cycle's 2 (20:23)", "the cycle adds the frequency 2", "the 2 is the kinetic energy of the zero-stiffness 4-cycle v0 in ker M, not a frequency; the potential 32 sits in sectors 3 and 8", "THEOREM", "22: energy"),
+    ("Pauli map, written out (20:33)", "MASS_KERNEL: the map from the Pauli generator to the bath was not replayed", "data/pauli_half_periods.json holds the eight Dynkin words and all 256 half-periods with their band values; layer 22 rechecks it from the file and ports/ts/pauliBath.ts replays it in the app", "THEOREM", "22: Pauli file"),
     ("separate model status (19:47)", "489 presentations, 30,875 validations, a clean replay of 623 files", "recorded; its beat equation agrees with the carrier", "REPORTED", "22"),
     ("not replayed", "15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7", "objects of the sibling build that are not stored here", "REPORTED", "22"),
     ("not stored", "Yukawa blocks, hypercharge, taste, smell and touch matrices, icosahedral adjacency, swastika, hexagram, yinyang, diamond, tesseract, qubit", "no operand; nothing here forms them", "UNFORMED", "22"),
@@ -1407,7 +1525,7 @@ def run():
     rep.add("the sibling's 28 notes of 18:32-19:21 UTC were read; their code and papers were not run", RP, True)
 
     bad, stages_ok, info = check_claims()
-    rep.add(f"every integer reading of the evening notes (18:32-20:23) is the bit of layer 21 with its stated order, "
+    rep.add(f"every integer reading of the evening notes (18:32-20:31) is the bit of layer 21 with its stated order, "
             f"subgroup, steps or "
             f"first landing: {len(CLAIMS)} readings from {info['notes']} notes, none fails. Twelve of the fifteen "
             "stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and "
@@ -1516,8 +1634,8 @@ def run():
     rep.add("PETERSEN_PROJ replayed and joined to the carrier: A^2 + A - 2I = J; the projectors J/10, (4I + 2A - J)/6 "
             "and (5I - 5A + J)/15 have denominators 10, 6, 15 (the gap products 2 x 5, 2 x 3, 3 x 5) and traces 1, 5, "
             "4, and add to I over 30. The Petersen graph is the complement of the line graph of K5, so A = J + I - "
-            "M^T M commutes with the edge stiffness and its projectors are the carrier's: sector 8, the five dark "
-            "(zero) modes, sector 3. 648 = det(3I + J), the carrier's vertex block. The Hodge 5 is 5I - B^T B = "
+            "M^T M commutes with the edge stiffness and its projectors are the carrier's: sector 8, the five zero "
+            "modes (ker M), sector 3. 648 = det(3I + J), the carrier's vertex block. The Hodge 5 is 5I - B^T B = "
             "5 P_cyc on the cycles, not A^2", T, all(pp.values()), pp)
     br = breaths()
     rep.add("BREATH_ALL, sharpened: the 32 faces cancel; the 0-companion drifts; two breaths share a period iff their "
@@ -1536,14 +1654,29 @@ def run():
             "bijection phi from Lambda / 2 Lambda onto the Paulis with L phi(x) = eps(pi x) phi(x). So L is the bath "
             "Laplacian on its 256 half-period modes: 0 at the origin, 224 at the 120 E7+A1 saddles, 256 at the 135 D8 "
             "band-top points", T, all(pb.values()), pb)
+    pf = check_pauli_file()
+    rep.add("data/pauli_half_periods.json writes the map out: the eight Dynkin words, and for each of the 256 "
+            "half-periods its word and its band value. Every relation is checked again from the file alone; "
+            "ports/ts/pauliBath.ts replays it in the sibling's app", T, all(pf.values()), pf)
     ce = chain_energy()
     rep.add("CHAIN_ENERGY: the stored mass determinant 216 is det(3W) for the source metric W of layer 10 (det W = "
-            "8/9), the same integer as the golden step; the datum's 2 is the kinetic energy of the dark 4-cycle v0, "
+            "8/9), the same integer as the golden step; the datum's 2 is the kinetic energy of the zero-stiffness 4-cycle v0, "
             "not a frequency, and its 32 is the potential energy in the sectors 3 and 8", T, all(ce.values()), ce)
     a4 = batch4_arithmetic()
     rep.add("the 20:25 arithmetic: six counts of the one tick, the phase weights 160 and 492, 64 / 2 + 2 = 34, the "
             "order-135 subgroup <32> with index 27 in its tick and 4 in <8>, and 1 + 120 + 135 = 256", AR,
             all(a4.values()), a4)
+
+    # the 20:33 check ----------------------------------------------------------------------
+    rep.add("Drive check 20:33: the sibling's MASS_KERNEL (20:31) adopts the kinetic 2 in ker M and the potential "
+            "32, and records the Pauli map as not replayed in its build. The separate model's revised status "
+            "(20:28) has Petersen = J + I - M^T M with the same projectors, the six-site A = 241I - J and "
+            "C*C = 183 Pc + 495 Pu (layer 22's M_1 and M_2 - M_1^2), and keeps the canon's two-dimensional dark "
+            "plane apart from the rank-5 kernel; its 33,003 validation instances and 693-file clean replay are "
+            "recorded, not rerun", RP, True)
+    a5 = batch5_arithmetic()
+    rep.add("the 20:33 arithmetic: 2 + 32 = 34 with 32 = 20 + 12, 3^5 x 8/9 = 216, 183 Pc + 495 Pu = 183 I + 52 J, "
+            "and the powers of a generator of C120", AR, all(a5.values()), a5)
 
     rep.add("recorded, not replayed: the separate model's 489 presentations, 30,875 validation instances, 623-file "
             "clean replay, OM-mirror rank-4 intertwiner and five-reader blind line; the sibling's two curvatures of "

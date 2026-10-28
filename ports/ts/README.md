@@ -1,4 +1,4 @@
-# TypeScript ports of layers 19 and 21 (the spine and the ledger joins)
+# TypeScript ports of layers 19, 21 and 22 (the spine, the ledger joins and the Pauli map)
 
 `coxeterSpine.ts` is a self-contained audit for the sibling model
 (`oes-integrated-20261028.zip`, `src/lib/model/`). It has no imports, and it uses
@@ -33,6 +33,16 @@ ledger joins:
 - the day's quarter d⁶, which exchanges the carrier with its twin, with (d⁶)² = −I;
 - the energy split 34 = 20 + (3 + 9) + 2 of the checked datum.
 
+`pauliBath.ts` (`auditPauliBath()`, reference `oes/counts.py`, layer 22) replays the identification of the saved
+Pauli generator L(M) = 240 M + 16 Mᵀ − 16 tr(M) I with the E8 bath Laplacian on its 256 half-periods:
+
+- eight antisymmetric real 4-qubit Paulis that anticommute exactly along the E8 Dynkin diagram;
+- their 256 products, distinct up to sign, one for each half-period x = Σ cᵢ αᵢ;
+- L(φ(x)) = ε(πx) φ(x), with ε the bath band 240 − Σ cos(k·ρ), at every half-period;
+- the eigenvalues 0, 224 and 256 on 1, 120 and 135 half-periods (the origin, the E7+A1 saddles, the D8 band top).
+
+The same data is in `data/pauli_half_periods.json`.
+
 ## Wiring into the sibling model
 
 1. Copy `coxeterSpine.ts` into `src/lib/model/`.
@@ -51,6 +61,8 @@ ledger joins:
 4. Append `&& coxeterSpine` to the conjunction that ends with `&& integrate`.
 5. Do the same for `ledgerJoins.ts`: import `auditLedgerJoins`, add
    `const ledgerJoins = auditLedgerJoins().residual === 0;` and append `&& ledgerJoins`.
+6. Do the same for `pauliBath.ts`: import `auditPauliBath`, add
+   `const pauliBath = auditPauliBath().residual === 0;` and append `&& pauliBath`.
 
 ## Running it here
 

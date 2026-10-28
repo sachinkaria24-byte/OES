@@ -7,9 +7,9 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 22 layers in **449 checks**. Of these, 412 hold: THEOREM 291, OBSTRUCTION 41, ARITHMETIC 35, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 37 are REPORTED records.
-- `python -m pytest` runs 37 tests.
-- `ports/ts/` holds two drop-in audits for the sibling's app (35 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
+- `python verify.py` replays 22 layers in **452 checks**. Of these, 414 hold: THEOREM 292, OBSTRUCTION 41, ARITHMETIC 36, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 38 are REPORTED records.
+- `python -m pytest` runs 38 tests.
+- `ports/ts/` holds three drop-in audits for the sibling's app (41 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
 ## Abstract
@@ -304,9 +304,9 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 ## 8. The evening notes (layer 22)
 
-At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more and at 20:25 four more. Layer 22 replays all of them in 37 checks.
+At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more and at 20:33 one more. Layer 22 replays all of them in 40 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 398 readings from 47 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 412 readings from 48 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -366,7 +366,8 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 **The 20:25 notes (THEOREM).**
 
 - **The Pauli generator is the bath.** The sibling's saved generator L(M) = 240M + 16Mᵀ − 16 (tr M) I on real 16 × 16 matrices has eigenvalues 0, 224 and 256 on 1 + 120 + 135 Pauli directions. Eight antisymmetric 4-qubit Paulis anticommute exactly along the E8 Dynkin diagram, so their products give a bijection φ from the 256 half-periods Λ/2Λ onto the Paulis, with L φ(x) = ε(πx) φ(x). So L is the bath Laplacian on its half-period modes: 0 at the origin, 224 at the 120 E7+A1 saddles (the canon's 224) and 256 at the 135 D8 band-top points.
-- **Mass and energy.** The "mass determinant" 216 is det(3W) for the source metric W of layer 10 (det W = 8/9). The datum's "2" is the kinetic energy of a dark 4-cycle, not a frequency.
+- **Mass and energy.** The "mass determinant" 216 is det(3W) for the source metric W of layer 10 (det W = 8/9). The datum's "2" is the kinetic energy of a zero-stiffness 4-cycle in ker M, not a frequency.
+- **Written out.** `data/pauli_half_periods.json` lists the eight Dynkin words (IIIY, IIXY, IIYX, IYZI, XIXY, ZXXY, IZXY, IXXY) and all 256 half-periods with their words and band values. The layer rechecks it from the file alone, and `ports/ts/pauliBath.ts` replays it in the sibling's app, where it had been recorded as not replayed.
 
 **Not replayed (REPORTED), not formed (UNFORMED).**
 
@@ -456,15 +457,15 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 37 | the evening notes: 398 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath |
+| 22 | counts | 40 | the evening notes: 412 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath, written out |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 22 layers, 449 checks, about 4 minutes
-python -m pytest -q           # 37 tests
-node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the two TypeScript audits
+python verify.py              # 22 layers, 452 checks, about 4 minutes
+python -m pytest -q           # 38 tests
+node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 88 notes of 17:01–20:23 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.
+Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 89 notes of 17:01–20:31 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.
