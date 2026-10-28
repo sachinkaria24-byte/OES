@@ -57,60 +57,61 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.42,
-  "2-spectral": 0.0,
-  "3-spacetime": 4.15,
-  "4-native": 34.64,
-  "5-observer": 0.19,
-  "6-gravity": 2.99,
-  "7-cosmology": 0.78,
-  "8-frontier": 23.58,
-  "9-joins": 4.57,
-  "10-literal": 13.31,
+  "1-carrier": 0.51,
+  "2-spectral": 0.01,
+  "3-spacetime": 6.67,
+  "4-native": 44.54,
+  "5-observer": 6.3,
+  "6-gravity": 3.93,
+  "7-cosmology": 0.81,
+  "8-frontier": 29.23,
+  "9-joins": 6.76,
+  "10-literal": 17.17,
   "11-glue": 0.1,
-  "12-binding": 0.02,
-  "13-gates": 0.02,
-  "14-recurrence": 31.07,
-  "15-court": 1.18,
-  "16-handover": 0.72,
-  "17-waves": 0.31,
-  "18-snapshot": 0.54,
-  "19-spine": 1.91,
-  "20-canon": 3.93
+  "12-binding": 0.07,
+  "13-gates": 0.13,
+  "14-recurrence": 38.21,
+  "15-court": 1.48,
+  "16-handover": 0.87,
+  "17-waves": 0.46,
+  "18-snapshot": 0.49,
+  "19-spine": 2.39,
+  "20-canon": 4.81,
+  "21-ledger": 25.84
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 256,
-   "total": 256
+   "passed": 268,
+   "total": 268
   },
   "OBSTRUCTION": {
-   "passed": 39,
-   "total": 39
+   "passed": 40,
+   "total": 40
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 30,
-   "total": 30
+   "passed": 31,
+   "total": 31
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
    "total": 8
   },
   "UNFORMED": {
-   "passed": 16,
-   "total": 16
+   "passed": 17,
+   "total": 17
   },
   "CONDITIONAL": {
-   "passed": 16,
-   "total": 16
+   "passed": 17,
+   "total": 17
   },
   "REPORTED": {
-   "passed": 26,
-   "total": 26
+   "passed": 29,
+   "total": 29
   }
  },
  "checks": [
@@ -4297,6 +4298,325 @@
   {
    "layer": "20-canon",
    "name": "the separate model's 17,914 checks were not rerun; the items above were rebuilt from its definitions",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "canon re-read 18:20 UTC: Quick Access 00_FULL_RECONCILIATION_20261028 (review cutoff 17:19:41) keeps OMSOON736 controlling, no new Matrix ID, every frozen gate retained; it still lists the 14:37 build of this repository as the latest One Machine status",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "the sibling's CANON_READ (17:06) adopts layer 20: '360000 is not a step' removed, both harmonic quartics named with their Laplacians, 5 and 25 dual to the tick, fixed determinants 25/81/256, the order-120 extension. It notes the order-24 element was not constructed; it is constructed here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "the tick bit: for every x mod 4320, 864 lies in <x> iff 5 does not divide x (iff x e5 != 0 with e5 = 3456). So 24 of the 48 subgroups hold the tick (the divisors of 864), each subgroup holds all five levels or only 0, width x index = 864 for every width prime to 5, 16 of the 24 have order divisible by 20, and the bit is not additive (2 and 3 hold it, 5 does not)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "bit": true,
+    "48 subgroups": true,
+    "24 hold the tick": true,
+    "all five or none": true,
+    "width x index = 864": true,
+    "16 of order 20k": true,
+    "not additive": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "every tick sentence of the sibling's ledger is that bit: 129 sentences from 35 joins (energy, golden, observer loop, mirrors, phase, charge, spin, heat, monopole, field, Einstein, two 36s, sign tensor, Om, karma, japa, mantra, bubbles, horizon, above and below, tick bounds, gravity dots, K5 chain, levels, pada, SM time, cakra, smear, readout, alpha, Hubble, height), with their step counts and indices, and 38 stated subgroup orders",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "failures": [],
+    "joins": {
+     "energy": 8,
+     "telescopes": 1,
+     "golden": 5,
+     "observer loop": 4,
+     "mirrors": 4,
+     "W0 reverse": 2,
+     "phase": 15,
+     "charge": 7,
+     "spin": 2,
+     "heat": 1,
+     "monopole": 6,
+     "field": 1,
+     "Einstein line": 3,
+     "two 36s": 6,
+     "sign tensor": 4,
+     "observer": 3,
+     "Om": 2,
+     "karma": 1,
+     "japa": 1,
+     "mantra": 1,
+     "bubbles": 1,
+     "horizon": 1,
+     "above and below": 17,
+     "tick bounds": 6,
+     "gravity dots": 4,
+     "K5 chain": 1,
+     "levels": 4,
+     "pada": 1,
+     "SM time": 4,
+     "cakra": 2,
+     "smear": 2,
+     "readout": 1,
+     "alpha": 2,
+     "Hubble": 1,
+     "height": 5
+    }
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "readings that ride on the bit are counts: 6 + 15 + 15 = 21 + 15 = 36, wings 21 + 7 + 77 = 105, 98 + 62 = 160, 30/36 = 5/6, 250 x 4320 = 1080000, 432 x 2 = 288 x 3 = 108 x 8 = 216 x 4 = 144 x 6 = 864, 27 x 192 = 864 mod 4320, the monopole chain <120> < <60> < <30> < <10>",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "12 + 24 = 36 and 6 + 15 + 15 = 21 + 15 = 36, not 18 + 18": true,
+    "21 + 7 + 77 = 105, wings 0..6 and 8..14": true,
+    "98 + 62 = 160 and the weights sum to 492 = 41 x 12": true,
+    "30 / 36 = 5 / 6 and 3 x 4 + 2 x 9 = 30": true,
+    "250 x 4320 = 9000 x 120 = 1080000": true,
+    "432 x 2 = 288 x 3 = 108 x 8 = 216 x 4 = 144 x 6 = 864": true,
+    "4 x 180 + 144 = 864 and 15 x 144 = 10 x 216 = 2160": true,
+    "1080 + 3240 = 4320, and 27 x 192 = 5184 = 864 mod 4320": true,
+    "monopole chain <120> < <60> < <30> < <10>": true,
+    "the five tick levels are 0, 24, 48, 72, 96 atlases": true,
+    "1296, 432 and 2160 share the coset 432; the sun lies in 576": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "the tick is the commutator of the day and the Coxeter clock: d c' d^-1 c'^-1 = c'^6 = r r'. The day-Coxeter group has order 120, centre <c'^5> (the shared <720>, order 6) and derived group the tick (order 5); the day acts on the tick by doubling, d (r r') d^-1 = (r r')^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "[d, c'] = c'^6 = r r'": true,
+    "d (r r') d^-1 = (r r')^2": true,
+    "|G| = 120": true,
+    "centre <c'^5>, order 6": true,
+    "derived group = the tick": true,
+    "abelianization cyclic of order 24, generated by d": true,
+    "five day clocks": true,
+    "tick rotates them": true,
+    "day doubles them": true,
+    "centre fixes them": true,
+    "G / centre is not abelian (the affine 20, not a cyclic 20)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "the five conjugate day clocks are permuted as the affine group of the pentagon: the tick rotates them x -> x + 1, the day doubles them x -> 2x (pentagon to pentagram), the centre fixes them. The sibling's 'doubling and rotation give 20 affine maps' is the day-Coxeter group modulo its centre",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "tick": {
+     "0": 1,
+     "1": 2,
+     "2": 3,
+     "3": 4,
+     "4": 0
+    },
+    "day": {
+     "0": 0,
+     "1": 2,
+     "2": 4,
+     "3": 1,
+     "4": 3
+    },
+    "centre": {
+     "0": 0,
+     "1": 1,
+     "2": 2,
+     "3": 3,
+     "4": 4
+    }
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "the golden clock: the 24 elements of order 20 in the Coxeter normalizer all have twist 11, and v with v^2 = c'^3 has v^4 = c'^6 = r r' (every fourth golden step is the tick). Three cyclic 20s share that law: <216> on the circle, <v> on the bath, B = [[1,1],[1,0]] mod 5 (order 20, B^4 unipotent of order 5). The affine 20 of the five day clocks is not cyclic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "24 elements of order 20, all twist 11": true,
+    "v^4 = c'^6 = r r'": true,
+    "B = [[1,1],[1,0]] has order 20 mod 5": true,
+    "B^4 is unipotent of order 5 mod 5": true,
+    "<216> has order 20 and 4 x 216 = 864": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "mirrors: the circle's negation x -> -x (fixing 0 and 2160, swapping 864 <-> 3456, 1728 <-> 2592 and the golden steps 1080 <-> 3240) is realized by the 30 elements with twist -1, each inverting the clock and the tick; 10 are involutions keeping the carrier, acting on it as the pentagon reflection i -> -i (five) or its negative (five)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "30 elements with twist -1": true,
+    "each inverts the clock and the tick": true,
+    "10 involutions keep the carrier": true,
+    "on the carrier: pentagon reflections (5) and their negatives (5)": true,
+    "on the circle x -> -x fixes 0 and 2160 only": true,
+    "it swaps 864 <-> 3456 and 1728 <-> 2592": true,
+    "it swaps the golden steps 1080 <-> 3240": true,
+    "acts": {
+     "reflection": 5,
+     "minus a reflection": 5
+    }
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "on the fifteen atoms the graph reflection keeps D^2 and fixes three atoms; the involution i -> 14 - i (above and below) fixes one atom, has eigenspaces 8 + 7 and does not keep D^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "graph reflection keeps D^2": true,
+    "it fixes three atoms": true,
+    "the 15-atom involution does not keep D^2": true,
+    "it fixes one atom and has eigenspaces 8 + 7": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "carrier exchange: the stabilizer of the pair {A4, A4'} in W(E8) has 57600 elements. The 28800 that keep both act on the index-5 glue by +-1; the 28800 that exchange them act by +-2 (doubling) and have orders 4, 8, 12 or 20. No involution exchanges the carrier and its twin",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "keep": 28800,
+    "exchange": 28800,
+    "exchange orders": {
+     "4": 6240,
+     "8": 7200,
+     "12": 9600,
+     "20": 5760
+    },
+    "keep acts on the glue by": {
+     "1": 14400,
+     "4": 14400
+    },
+    "exchange acts on the glue by": {
+     "3": 14400,
+     "2": 14400
+    },
+    "glue classes of the 200 mixed roots": {
+     "1": 50,
+     "2": 50,
+     "3": 50,
+     "4": 50
+    },
+    "involutive exchange": false
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "data/clocks.json holds explicit elements of W(E8) (standard coordinates, x 4): the Coxeter clock, the tick r r', the day (order 24), the golden clock (order 20) and the mirror; every relation is re-checked from the file alone. This is the order-24 element the sibling build lacks",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "all seven preserve the 240 roots": true,
+    "coxeter: order 30, coxeter^15 = -I": true,
+    "tick = coxeter^6 = r r'": true,
+    "day: order 24, day^4 = coxeter^5, twist 7": true,
+    "[day, coxeter] = tick": true,
+    "golden: order 20, golden^4 = tick, twist 11": true,
+    "mirror: involution inverting the clock": true,
+    "mirror on the carrier is the pentagon reflection": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "energy: D^2 is block diagonal, so the vertex and edge sectors never exchange energy. The checked datum has quadratic form 64 = 40 + 6 + 18 and energy 34 = 20 + (3 + 9) + 2 (uniform, vertex contrast, edge image, cycle); E_V = 23 and E_E = 11 are conserved along the motion",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "D^2 is block diagonal (vertices | edges)": true,
+    "quadratic form 64 = 40 + 6 + 18": true,
+    "energy 34 = 20 + (3 + 9) + 2": true,
+    "sectors 0, 3, 8 carry 2, 12, 20": true,
+    "E_V = 23 and E_E = 11 along the motion": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "decoupling: under canonical quantization of S the oscillating modes evolve by U_V(t) x U_E(t), so the carrier never entangles vertices with edges; entanglement could only sit in initial data. 'Entanglement is not stored' is sharpened to: the carrier cannot create it",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": "conditional on a quantization the canon does not store; the classical statement (no energy exchange) is the THEOREM above"
+  },
+  {
+   "layer": "21-ledger",
+   "name": "spin counts: the 112 integer roots are D8 and the 128 half-integer roots are one W(D8) orbit (a half-spin weight set), so 248 = so(16) + 128. [W(E8) : W(D8)] = 135 is the band-top D8 family, and the half-turn's 256 fixed momenta are 1 + 120 + 135. SU(2) is not derived",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "112 integer roots, closed under their reflections (D8)": true,
+    "the 128 half-integer roots are one W(D8) orbit (a half-spin weight set)": true,
+    "so(16) + 128 = 120 + 128 = 248 = 8 + 240": true,
+    "[W(E8) : W(D8)] = 135 = the band-top D8 family of the critical census": true,
+    "half-turn fixed momenta 256 = 1 + 120 (E7+A1) + 135 (D8)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "field: the stored source equation q'' + 4q = 0 has frequency 2, but 4 is not in spec D^2 = {0, 3, 8}: the source oscillator is not one of the fifteen carrier modes",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "SMEAR_JOIN replayed: the 81-cell complex of the 4-cube has Laplacian spectrum 0, 2, 4, 6, 8 with multiplicities 1, 8, 24, 32, 16 (tensor power of the interval) and trace 432",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "0": 1,
+    "2": 8,
+    "4": 24,
+    "6": 32,
+    "8": 16
+   },
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "not stored and not formed here: source infinity, foam, the double slit, entanglement, a Bell count, the photoelectric effect, a work function, electron, photon, proton, Compton and Bohr lengths, and 19 Standard-Model parameters. No operand is stored, and the action has no dimensionful constant (TIME_BIND unbound), so no length can be formed",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "21-ledger",
+   "name": "the sibling's archive counts (17,914 checks, 151 check groups, 22,158 role-chain instances) were not rerun here",
    "status": "REPORTED",
    "passed": true,
    "value": null,

@@ -1,7 +1,7 @@
 import pytest
 
 from oes import (binding, canon_sync, carrier, cosmology, court, frontier, gates, gatework, glue, gravity,
-                 handover, joins, literal, native, observer, recurrence, snapshot, spacetime,
+                 handover, joins, ledger, literal, native, observer, recurrence, snapshot, spacetime,
                  spectral, spine, waves)
 
 LAYERS = {
@@ -25,6 +25,7 @@ LAYERS = {
     "snapshot": snapshot.run,
     "spine": spine.run,
     "canon": canon_sync.run,
+    "ledger": ledger.run,
 }
 
 
@@ -93,6 +94,27 @@ def test_tick_turns_two_carriers():
     assert np.array_equal(spine.mpow(cp, 6), r @ rp)
     assert np.array_equal(spine.mpow(cp, 15), -spine.I8)
     assert round(abs(np.linalg.det((spine.mpow(cp, 6) - spine.I8).astype(float)))) == 25
+
+
+def test_tick_is_one_bit():
+    from math import gcd
+    for x in range(4320):
+        assert (864 % gcd(x, 4320) == 0) == (x % 5 != 0)
+
+
+def test_day_and_coxeter_commutator_is_the_tick():
+    import numpy as np
+    _, cp, _, _, g, _ = spine.spine_clock()
+    d = spine.day_clock()
+    assert np.array_equal(d @ cp @ spine.inverse(d) @ spine.inverse(cp), g)
+
+
+def test_clock_file_and_ledger_page_are_current():
+    import json
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent
+    assert json.loads((root / "data" / "clocks.json").read_text()) == json.loads(json.dumps(ledger.clock_matrices()))
+    assert (root / "docs" / "LEDGER.md").read_text() == ledger.ledger_markdown()
 
 
 def test_typescript_port_of_the_spine():

@@ -12,7 +12,7 @@ import sys
 import time
 
 from oes import (binding, canon_sync, carrier, cosmology, court, frontier, gates, gatework, glue, gravity,
-                 handover, joins, literal, native, observer, recurrence, snapshot, spacetime,
+                 handover, joins, ledger, literal, native, observer, recurrence, snapshot, spacetime,
                  spectral, spine, waves)
 
 
@@ -39,6 +39,7 @@ def main(argv):
         ("18-snapshot", snapshot.run),
         ("19-spine", spine.run),
         ("20-canon", canon_sync.run),
+        ("21-ledger", ledger.run),
     ]
     checks, timing = [], {}
     for name, fn in layers:

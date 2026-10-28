@@ -6,7 +6,7 @@ This repository holds a checked mathematical model of the OES canon at the OMSOO
 
 ```
 pip install -r requirements.txt
-python verify.py          # all 20 layers, ~3 min, writes results.json
+python verify.py          # all 21 layers, ~4 min, writes results.json
 python verify.py --fast   # skips the nonlinear E8-bath flow
 python -m pytest -q
 ```
@@ -33,15 +33,18 @@ python -m pytest -q
 | 18 snapshot | `oes/snapshot.py` | the 14:16 Drive snapshot rebuilt from matrices: density of the nine bath frequencies on T⁹ (Besicovitch), all eleven Hessians and coherent coefficients, walk asymptotics 1 − 2/n + (23/15)/n², Agni = Curl², the five-port Hankel, the cube, Spanda (rank-19 correction), the 4320-circle | THEOREM, SELECTED_REFERENCE, ARITHMETIC, OBSTRUCTION |
 | 19 spine | `oes/spine.py` | the integrated spine rebuilt: every 4320-circle statement checked by one lemma (six corrected), the tower refined through the Coxeter subgroup (36 × 4 × 3 × 2 × 5), the E8 Coxeter clock (Φ₃₀, exponents = units mod 30) acting on the bath, its tick = two K5 carriers (c′⁶ = rr′), fixed momenta 25/81/256 = the A4+A4, E6+A2, E7+A1 + D8 Morse points, the day turning the Coxeter clock by the exponent 7, and which parts of the circle can act on the bath at all | THEOREM, OBSTRUCTION, SELECTED_REFERENCE, ARITHMETIC |
 | 20 canon | `oes/canon_sync.py` | the latest canon read and reconciled (16:30 UTC, re-read 16:49): the contrast-plane harmonic correction, the bath's maximal group speed √30 proved, the Canon Check's preparation identities and scalar bound, the sibling's circle notes (two duality errors corrected), the day–Coxeter group of order 120, the separate model's observer, sensor census, flag geometry and transfer functions rebuilt, and the 16:31–16:43 notes: Coxeter powers with their fixed momenta Φₙ(1)^(8/φ(n)), the atlas factor, sun and moon, and why the two clocks cannot commute on the bath | THEOREM, OBSTRUCTION, CONDITIONAL, ARITHMETIC, REPORTED |
+| 21 ledger | `oes/ledger.py` | the sibling's 28 Oct ledger unified (canon re-read 18:20 UTC): every tick join is one bit (864 ∈ ⟨x⟩ iff 5 ∤ x; 129 sentences from 35 joins checked), the tick is the commutator of the day and Coxeter clocks (d c′ d⁻¹ c′⁻¹ = c′⁶ = r r′), the day–Coxeter group (order 120) permutes its five day clocks as the affine group of the pentagon (tick = rotation, day = doubling), the golden clock (v⁴ = tick), the mirror (the pentagon reflection on the carrier), no involution exchanges the carrier and its twin (every exchange doubles the glue), the energy's four conserved pieces, 240 = D8 + half-spin, and the explicit clock matrices in `data/clocks.json` | THEOREM, ARITHMETIC, OBSTRUCTION, CONDITIONAL, UNFORMED, REPORTED |
 
 Part II of `docs/MODEL.md` is the path from the mathematics to the operands and the physical gates.
 
 Papers are in `docs/paper/`:
 
-- `one-machine-20261028-verified.pdf` covers layers 1–18.
-- `one-machine-20261028-spine.pdf` covers layer 19: the integrated spine, the E8 Coxeter clock and the two-carrier tick.
+- **`one-machine-20261028-unified.pdf` is the current paper.** It covers all 21 layers with one ledger.
+- `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) are kept as history.
 
-`ports/ts/coxeterSpine.ts` is a drop-in TypeScript audit with the layer-19 checks for the sibling model. See `ports/ts/README.md`.
+[`docs/LEDGER.md`](docs/LEDGER.md) lists every join of both builds with its status and the layer that checks it. `data/clocks.json` holds the explicit clock matrices (the Coxeter clock, the tick, the day, the golden clock and the mirror) as elements of W(E8).
+
+`ports/ts/` holds two drop-in TypeScript audits for the sibling model: `coxeterSpine.ts` (layer 19) and `ledgerJoins.ts` (layer 21). See `ports/ts/README.md`.
 
 Two constructions are not the canon's originals:
 

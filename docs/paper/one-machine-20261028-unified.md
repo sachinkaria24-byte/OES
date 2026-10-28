@@ -1,0 +1,381 @@
+# One Machine: the unified edition
+
+**OES end-to-end model, 28 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20) and the sibling's 28 October ledger of joins (layer 21). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
+
+**AUTH = NOT_PASS · ScientificGold = FALSE · TIME_BIND = UNBOUND · DYN_BIND = NOT_INSTALLED · SCR6 = NOT_RUN_OPERAND_ABSENT · PredictionFreeze = NOT_TRIGGERED.** No gate moves, and no term is added to the action.
+
+**Custody.**
+
+- Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
+- `python verify.py` replays 21 layers in **412 checks**. Of these, 383 hold: THEOREM 268, OBSTRUCTION 40, ARITHMETIC 31, CONDITIONAL 17, UNFORMED 17, SELECTED_REFERENCE 8, REMOVED 2. The other 29 are REPORTED records.
+- `python -m pytest` runs 31 tests.
+- `ports/ts/` holds two drop-in audits for the sibling's app (35 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
+- This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
+
+## Abstract
+
+The model has one datum, the signless incidence of K5. It has one action, fifteen oscillators with stiffness D², and one bath, the E8 root lattice. Everything else is a map between these three objects, a count, or a gate. This edition does three things.
+
+**It collapses the ledger.** The sibling's 28 October ledger states about forty joins. The 129 sentences of the form "X contains every tick" or "X misses every nonzero tick" all carry one bit: the tick 864 lies in ⟨X⟩ exactly when 5 does not divide X. All 129 are checked against that one line, together with their step counts, their indices and 38 stated subgroup orders. The numbers that ride on the bit are shared integers, and no map joins them.
+
+**It puts every clock in one group.** The normalizer of the Coxeter clock in W(E8) has order 240. In it:
+
+- the tick is the commutator of the day clock and the Coxeter clock: d c′ d⁻¹ c′⁻¹ = c′⁶ = r r′, two carrier rotations at once;
+- the day–Coxeter group has order 120, centre ⟨c′⁵⟩ and derived group the tick. It permutes its five day clocks as the affine group of the pentagon: the tick rotates them and the day doubles them, pentagon to pentagram;
+- the golden clock has order 20, and its fourth power is the tick;
+- the circle's mirror x ↦ −x is an involution that acts on the carrier as the pentagon reflection, fixing three atoms;
+- the carrier and its twin can be exchanged only by elements of order 4, 8, 12 or 20, never by an involution, and every exchange doubles their index-5 glue.
+
+The order-24 day element, which the sibling's build reports as not constructed, is given explicitly.
+
+**It states what is physical and what is not.**
+
+- The energy splits into four conserved pieces, and the vertex and edge sectors never exchange energy.
+- The 240 roots are D8 plus one half-spin orbit.
+- The source oscillator, of frequency 2, is not a carrier mode.
+- Compton and Bohr lengths, the photoelectric effect, the double slit and entanglement stay unformed. No operand is stored for them, and the action has no dimensionful constant.
+
+## 0. The model on one page
+
+| object | definition | what is proved | layer |
+|---|---|---|---|
+| datum | signless incidence M of Kₙ (n × C(n,2)) | dim ker M = n holds only at n = 5 | 1 |
+| carrier | D = [[0, M], [Mᵀ, 0]] on ℓ²(V ⊔ E), dim 15 | spec D² = {0⁵, 3⁸, 8²}, Tr D² = 40, Tr D⁴ = 200 | 1 |
+| action | S = ∫ ½\|ψ̇\|² − ½⟨ψ, D²ψ⟩ | 15 oscillators: 5 free, 8 at √3, 2 at 2√2; four conserved energies | 1, 21 |
+| spectral triple | (ℂ<sup>V</sup> ⊕ ℂ<sup>E</sup>, ℓ²(V ⊔ E), D, γ) | heat trace 5 + 8e<sup>−3β</sup> + 2e<sup>−8β</sup>; Witten index −5 | 2, 5 |
+| observer | Kalman readouts of (ψ, ψ̇) | dark sector P5 ⊕ P5; five channels complete it | 5, 20 |
+| bath | E8 root lattice, Δ = 240 − A | band [0, 256]; 11 critical families, 243,600 points, Morse sum 0; group speed √30 | 3, 16, 20 |
+| walks | W_n = closed walks of length n | one shift operator of order 16 and degree 58; its 11 in-band roots are the 11 critical values | 14, 16 |
+| native action | source q on P5 ⊕ P5, quadratic port W_AS, six-site clique | q̈ + 4q = 0 at the origin; sharp quartic 40/9 | 4, 10 |
+| glue | E8 ⊃ A4 ⊕ A4′ | index 5, glue x ↦ ±2x; no involution exchanges the two | 11, 21 |
+| waves | Hodge complex on the K5 edges | sound (4) and light (6) are isochronous at √5; Agni = Curl² | 17 |
+| circle | Z/4320 = 2⁵·3³·5 | one lemma; the tower 36 × 4 × 3 × 2 × 5; the tick bit | 19, 21 |
+| clocks | the normalizer of ⟨c′⟩ in W(E8), order 240 | every circle unit realized; the tick = [day, Coxeter] | 19, 21 |
+| curvature, cosmology | Lin–Lu–Yau; spectral action on M⁴ × F | discretely flat bath; G and Λ_cc only with external inputs (CONDITIONAL) | 6, 7 |
+| gates | AUTH, TIME_BIND, DYN_BIND, PredictionFreeze, W_L, T3081 | none moves | 13 |
+
+## 1. The datum, the action and the energy
+
+**The datum.** For the complete graph Kₙ, the signless incidence M (vertex × edge) has dim ker M = n exactly when n = 5, for every n. This is the only input. The fifteen atoms are the 5 vertices and the 10 edges of K5.
+
+**The carrier and its action.**
+
+- D = [[0, M], [Mᵀ, 0]] is odd, with grading γ = +1 on vertices and −1 on edges.
+- D² = diag(MMᵀ, MᵀM), with MMᵀ = 3I + J on the vertices. The spectrum is {0⁵, 3⁸, 8²}, so Tr D² = 40 and Tr D⁴ = 200. The kernel ker D = P5 ⊂ ℓ²(E) is the irreducible 5 of S5.
+- The action S = ∫ ½|ψ̇|² − ½⟨ψ, D²ψ⟩ has no other term. A relative constant between its two terms is a rescaling of t.
+- Its Euler–Lagrange equation ψ̈ + D²ψ = 0 is solved in closed form sector by sector. The frequencies are 0, √3 and 2√2, and their squared ratio 8/3 is not a rational square.
+
+**Four conserved energies (THEOREM, layers 5 and 21).** D² is block diagonal in V ⊕ E, so the vertex and edge sectors never exchange energy. Each spectral sector λ ∈ {0, 3, 8} is also invariant. Together these give four conserved pieces.
+
+The sibling's checked datum takes:
+
+- vertex value (1, −1, 0, 0, 0) + (1, 1, 1, 1, 1);
+- edge value Mᵀ applied to the contrast;
+- velocity the alternating cycle on the edges 01, 12, 23, 03.
+
+Its quadratic form is 64 = 40 + 6 + 18, and its energy is
+
+> 34 = 20 (uniform vertex mode) + 3 (vertex contrast) + 9 (edge image of the contrast) + 2 (the cycle).
+
+The vertex energy E_V = 23 and the edge energy E_E = 11 stay constant along the exact motion. The ledger's "34 = 12 + 20 + 2" is the spectral grouping of the same four pieces, with 12 = 3 + 9.
+
+**Decoupling, quantized (CONDITIONAL).** Under canonical quantization of S, the oscillating modes evolve by U_V(t) ⊗ U_E(t). The carrier therefore never entangles vertices with edges; entanglement can only be present in the initial data. The ledger's "entanglement is not stored" becomes a sharper statement: the carrier cannot create it. The quantization is a choice the canon does not store.
+
+**Symmetries of the action (THEOREM).**
+
+- The graph reflection of the pentagon, i ↦ −i on the vertices, keeps D² and fixes three atoms (one vertex and two edges).
+- The fifteen-atom involution i ↦ 14 − i (the ledger's "above and below") fixes one atom and has eigenspaces of ranks 8 and 7. It sends a vertex to an edge, so it does not keep D².
+
+**The harmonic quartic (THEOREM).** The S5-invariant quartics on the contrast plane are spanned by |x|⁴ and Σxᵢ⁴. For the plane's own Laplacian, the harmonic line is 2|x|⁴ − 5Σxᵢ⁴. For the ambient Laplacian of ℝ⁵, it is 3|x|⁴ − 7Σxᵢ⁴. Neither enters the action: coupling a quartic would add a dimensionful constant.
+
+**The source is not a carrier mode (OBSTRUCTION).** The stored source equation is q̈ + 4q = 0, with frequency 2. Since 4 ∉ spec D² = {0, 3, 8}, the source oscillator is not one of the fifteen carrier modes.
+
+## 2. The spectral triple and the observer
+
+**Spectral content (THEOREM, layer 2).**
+
+- The heat trace is Z(β) = 5 + 8e<sup>−3β</sup> + 2e<sup>−8β</sup>.
+- The moments are Tr D<sup>2k</sup> = 15, 40, 200, 1240, 8840.
+- The spectral zeta function is ζ<sub>D</sub>(s) = 8·3<sup>−s</sup> + 2·8<sup>−s</sup>.
+- The spectral dimension tends to 0 in both the UV and the IR. The carrier has no emergent continuum dimension.
+
+**Observation (THEOREM, layers 5 and 20).**
+
+- A scalar readout of x = (ψ, ψ̇) sees at most 6 of the 30 dimensions, two for each spectral line.
+- The Witten index is Tr γ e<sup>−βD²</sup> = −5.
+- The dark sector, reachable by edge forcing but invisible to Dψ, is the native source space P5 ⊕ P5 (10 dimensions).
+
+Five fixed channels are necessary and sufficient to complete the observer. With H = [D; L], the reconstruction R satisfies RH = I₁₅, and P₀ = I − 11K/24 + K²/24 with K = D². Of the 252 five-edge sensor designs, 162 are complete and 90 have rank 4. Every complete design has determinant 1/162. The 72 optimal designs have minimum eigenvalue (3 − √5)/6.
+
+## 3. The bath
+
+**Roots (THEOREM, layers 3 and 21).**
+
+- The 240 roots of E8 are 112 integer roots, which form D8, and 128 half-integer roots, which form one W(D8)-orbit (a half-spin weight set). So 248 = so(16) + 128.
+- The root frame is Σααᵀ = 60I₈, and the root graph is 56-regular.
+- [W(E8) : W(D8)] = 135. This is the D8 family at the top of the band, and the half-turn's 256 fixed momenta are 1 + 120 + 135.
+- The ledger's "SU(2) is not derived" stands.
+
+**The band and its critical points (THEOREM, layers 3, 14, 16).** The symbol is ε(k) = 240 − Σ cos(α·k), with range [0, 256]. The critical census lists λ = 240 − ε, the number of points and the Morse index:
+
+| family | λ | points | index | | family | λ | points | index |
+|---|---|---|---|---|---|---|---|---|
+| E8 | 240 | 1 | 0 | | A6+A1 (edge) | −185/16 | 69,120 | 6 |
+| E7+A1 | 16 | 120 | 1 | | A7 (edge) | −320/27 | 17,280 | 7 |
+| E6+A2 | −3 | 2,240 | 2 | | A7+A1 | −12 | 8,640 | 7 |
+| D5+A3 | −8 | 15,120 | 3 | | A8 | −12 | 1,920 | 8 |
+| A4+A4 | −10 | 48,384 | 4 | | D8 | −16 | 135 | 8 |
+| A5+A2+A1 | −11 | 80,640 | 5 | | | | | |
+
+- There are 243,600 points in all, and the Morse sum is 0 = χ(T⁸).
+- The eleven values of λ are exactly the eleven in-band roots of the walk operator below, so the band geometry and the walk data are one statement.
+
+**The walks (THEOREM, layer 14).**
+
+- W₀…W₉₀ are exact from two independent engines, and W₀…W₆₀₀ are known modulo primes.
+- Every recurrence with (r+1)(d+2) ≤ 455 is excluded.
+- The annihilator is one operator L₁₆, of order 16 and degree 58, the same modulo four primes. Its characteristic polynomial has the eleven in-band roots, (z+12)² among them, and five roots outside the band.
+- Asymptotically, W_n = (16/π⁴)·240ⁿ·n⁻⁴·(1 − 2/n + (23/15)/n² + O(n⁻³)).
+
+**Speed and density.**
+
+- The long-wave dispersion is ε = 30|k|² − (3/2)|k|⁴ + (1/24)|k|⁶ + …, so the sound speed is √30 (layer 3). This is also the bath's maximal group speed, as a supremum that is never attained: |∇ε|² ≤ 120ε, by the frame and Cauchy–Schwarz (layer 20).
+- The nine positive critical energies have distinct square-free parts, so their frequencies are independent over ℚ and their flow is dense on T⁹ (layer 18).
+
+**Open.** The convexity collar (223.58, 224) remains open.
+
+## 4. The carrier inside the bath
+
+**Native action (layers 4 and 10).**
+
+- The source q = (a, b) lives in P5 ⊕ P5, with mass M_s = I/4.
+- The port g = W_AS(a ∧ b) is quadratic onto the six-dimensional cycle space L6, with W_ASᵀW_AS = (10/9)P and sharp quartic constant 40/9.
+- The six-site clique has A_bb = 241I − J and exterior coupling BB* = 183P_c + 495P_u.
+- At linear order the source obeys q̈ + 4q = 0 and has no linear channel into the bath. Its frequency-4 harmonic lies inside the band through a thin channel.
+- The printed chart T₆ preserves the contrast lattice, and T₆|V_c has determinant 31, so 155 = 5 × 31.
+
+**Glue (THEOREM, layers 11 and 21).** The carrier's own root system A4 = {eᵢ − eⱼ : i, j ≤ 5} sits in E8, and its orthogonal complement is a twin A4′. The index is [E8 : A4 ⊕ A4′] = 5, and the glue is x ↦ ±2x. Layer 21 completes the picture with the stabilizer of the pair {A4, A4′} in W(E8), which has 57,600 elements:
+
+- the 28,800 elements that keep each carrier act on the glue Z/5 by ±1;
+- the 28,800 elements that exchange the carrier and its twin act on the glue by ±2, the doubling;
+- every exchange has order 4, 8, 12 or 20. **No involution exchanges the carrier and its twin.**
+
+The day's quarter d⁶ (§6) is one such exchange, with (d⁶)² = −I. The two carriers cannot be swapped as a mirror pair; on the bath, "above and below" is a quarter-turn on the glue.
+
+**Waves (THEOREM, layer 17).**
+
+- On the K5 edges, sound is the four longitudinal modes and light is the six transverse cycle modes.
+- d₀d₀ᵀ + Curl² = 5I, so the two are isochronous at √5. Agni = 5I − G = Curl² is the light operator.
+- The two light helicities are the icosahedral 3 and 3′ of A5.
+- No S5- or A5-symmetric medium converts sound into light.
+
+## 5. The circle and the tick bit
+
+**One lemma (THEOREM, layer 19).** Z/4320 has one subgroup ⟨d⟩ for each divisor d of 4320, of order 4320/d. Containment is divisibility of the gcds, and meets and joins are lcms and gcds. Two consequences:
+
+- **Step and order are dual.** The atlas is the step 36, of order 120. The moon is the step 120, of order 36.
+- **The spine is a chain** through the Coxeter subgroup:
+
+    0 ⊂ ⟨864⟩ (tick, order 5) ⊂ ⟨432⟩ (yuga, 10) ⊂ ⟨144⟩ (Coxeter, 30) ⊂ ⟨36⟩ (atlas, 120) ⊂ Z/4320.
+
+    The tower is therefore 36 × 4 × 3 × 2 × 5, and every element has a unique address.
+
+By the Chinese remainder theorem, Z/4320 = Z/32 × Z/27 × Z/5, with orthogonal idempotents 3105, 2080 and 3456. The Coxeter step splits as 144 ≡ 2160 + 1440 + 864: half-turn plus sun plus tick.
+
+**The tick bit (THEOREM, layer 21).** For every x, 864 ∈ ⟨x⟩ ⟺ 5 ∤ x ⟺ 3456·x ≢ 0 (mod 4320). Consequences:
+
+- exactly 24 of the 48 subgroups hold the tick (the ⟨g⟩ with g | 864);
+- a subgroup holds all five tick levels {0, 864, 1728, 2592, 3456} or only 0;
+- every width x prime to 5 that divides 4320 satisfies x × index = 864;
+- 16 of the 24 have order divisible by 20;
+- the bit is not additive: 2 and 3 hold the tick, and 2 + 3 = 5 does not.
+
+**The ledger is the bit (THEOREM).** The sibling's ledger holds 129 tick sentences from 35 joins:
+
+- energy, telescopes, golden, observer loop, mirrors, W0 reverse, phase, charge, spin;
+- heat, monopole, field, Einstein line, two 36s, sign tensor, Om, karma, japa, mantra, bubbles, horizon;
+- above and below, tick bounds, gravity dots, K5 chain, levels, pada, SM time, cakra, smear, readout, alpha, Hubble, height.
+
+Every one of them is the residue of a number mod 5. Their step counts (for example 27 × 192 ≡ 864) and indices (for example 864 = 27 × gcd(224, 4320)) agree, as do 38 stated subgroup orders. The readings riding on the bit are counts (ARITHMETIC), for example:
+
+- 6 + 15 + 15 = 21 + 15 = 36, with no 18 + 18;
+- the wings 21 + 7 + 77 = 105;
+- the phase weights 98 + 62 = 160;
+- 30/36 = 5/6;
+- the monopole chain ⟨120⟩ ⊂ ⟨60⟩ ⊂ ⟨30⟩ ⊂ ⟨10⟩, none of which holds a tick.
+
+No map joins these numbers to the objects they name.
+
+## 6. One group for every clock
+
+**The Coxeter clock (SELECTED_REFERENCE; its properties are THEOREMs, layer 19).** Let c = s₁⋯s₈ be the product of the simple reflections of E8. It has order 30, characteristic polynomial Φ₃₀, and exponents equal to the units mod 30. It permutes the 240 roots in eight free orbits of 30, so it is a symmetry of the bath already in the model. The selected conjugate c′ = w c w⁻¹ satisfies
+
+> **c′⁶ = r r′**,
+
+the K5 vertex rotation r on the carrier A4 together with the twin rotation r′ on A4′: the tick turns two carriers. The other prime-order powers are:
+
+- the sun c′¹⁰, which turns four triangles (A2⁴);
+- the half-turn c′¹⁵ = −I, which flips eight edges (A1⁸).
+
+Their product is c′ = (−I)·c′¹⁰·c′⁶, which matches 144 ≡ 2160 + 1440 + 864.
+
+**Fixed momenta (THEOREM, layers 19 and 20).** On the Brillouin torus, c<sup>k</sup> fixes <span style="white-space:nowrap">|det(c<sup>k</sup> − I)| = Φ<sub>n</sub>(1)<sup>8/φ(n)</sup></span> momenta, where n = 30/gcd(k, 30). That gives 25, 81 and 256 at orders 5, 3 and 2, and 1 otherwise. By the gradient lemma these are critical points: the origin and 24 points of A4+A4, the origin and 80 of E6+A2, and all 256 half-periods.
+
+**The normalizer (THEOREM, layer 19).** The normalizer N of ⟨c′⟩ in W(E8) has order 240 = 30 × 8. Every unit m mod 30 is realized as a twist w c′ w⁻¹ = c′<sup>m</sup>, and the centralizer is ⟨c′⟩ itself. The circle's automorphisms of its Coxeter subgroup are therefore all realized on the bath. The table lists the named elements; each is in `data/clocks.json`.
+
+| element | circle | twist m | order | on the carrier |
+|---|---|---|---|---|
+| c′ (Coxeter clock) | step 144 | 1 | 30 | mixes A4 and A4′ |
+| c′⁶ = r r′ (tick) | step 864 | 1 | 5 | rotates the pentagon on each carrier |
+| d (day clock) | step 180 | 7 | 24 | d⁴ = c′⁵; d⁶ exchanges A4 and A4′ |
+| v (golden clock) | step 216 | 11 | 20 | v⁴ = the tick |
+| m (mirror) | x ↦ −x | 29 = −1 | 2 | the pentagon reflection, three atoms fixed |
+
+**The tick is a commutator (THEOREM, layer 21).** For the day clock d (order 24, characteristic polynomial Φ₂₄, d⁴ = c′⁵),
+
+> d c′ d⁻¹ c′⁻¹ = c′⁶ = r r′.
+
+The twist by 7 that the integrated build stops at and the two-carrier tick are therefore one fact. Write G = ⟨c′, d⟩. Then:
+
+- G has order 120, not the 720 of the abstract product;
+- its centre is ⟨c′⁵⟩ of order 6, the circle's shared subgroup ⟨720⟩;
+- its derived group is the tick, of order 5, and its abelianization is cyclic of order 24, generated by d;
+- the day acts on the tick by doubling: d (r r′) d⁻¹ = (r r′)².
+
+**Five day clocks (THEOREM, layer 21).** G has exactly five conjugates of ⟨d⟩. On them:
+
+- the tick acts as x ↦ x + 1;
+- the day acts as x ↦ 2x;
+- the centre acts trivially.
+
+So G modulo its centre is the affine group AGL(1, 5), the twenty affine maps of the pentagon. In it the rotation is the tick, and the doubling, which sends the pentagon to the pentagram, is the day. The ledger's statements "doubling and rotation give 20 affine maps" and "the stored doubling does not commute with the order-5 rotation" are this group, realized on the bath.
+
+**The golden clock (THEOREM, layer 21).** The 24 elements of order 20 in N all have twist 11. The one with v² = c′³ satisfies v⁴ = c′⁶ = r r′, so every fourth golden step is the tick. Three cyclic groups of order 20 obey the same law:
+
+- ⟨216⟩ on the circle, where 4 × 216 = 864;
+- ⟨v⟩ on the bath;
+- B = [[1,1],[1,0]] modulo 5, where B has order 20 (the Pisano period) and B⁴ is unipotent of order 5.
+
+The affine 20 of the five day clocks is not cyclic. The two kinds of 20 are different groups.
+
+**The mirror (THEOREM, layer 21).** The circle's negation x ↦ −x fixes only 0 and 2160. It swaps 864 ↔ 3456, 1728 ↔ 2592, and the golden steps 1080 ↔ 3240. It is realized by the 30 elements of N with twist −1, each of which inverts the clock, the tick and the sun. Ten of them are involutions that keep the carrier. On the carrier five act as a pentagon reflection, fixing one vertex and two edges, and five as its negative. The ledger's "graph reflection" and "negation on the circle" are one element of W(E8).
+
+**What can act on the bath (THEOREM, layer 19).** A subgroup of the circle acts faithfully on the bath lattice exactly when its order is one of
+
+> 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30.
+
+This follows from explicit elements, the degree bound, a Sylow argument for 16, and the automorphism groups of A2 (for 36) and A4 (for 40 and 60). So:
+
+- the maximal clocks are the Coxeter clock (30), the day (24), the golden clock (20) and ⟨240⟩ (18);
+- the atlas, moon, nakshatra, pada and Human Design gate cannot act. On the circle the day and the Coxeter clock commute and generate the atlas, but on the bath no element of order 24 commutes with c′.
+
+## 7. The canon and the sibling, reconciled
+
+**Position.** The Quick Access workbook has a new top sheet, 00_FULL_RECONCILIATION_20261028, with review cutoff 17:19:41 UTC. It keeps OMSOON736 as the controlling numbered baseline. No new Matrix ID was issued, and every frozen gate stays. It still lists this repository's 14:37 build (18 layers, 320 checks) as the latest One Machine status. This edition arrived after that cutoff.
+
+**The Canon Check (layer 20).**
+
+- Its preparation identities are replayed: the Bernstein ellipse, ‖C‖² = 495 and the optimal η* = 2 arcosh(d/8T). The horizon laws ε<sup>−1/2</sup> and ε<sup>−1/3</sup> stay CONDITIONAL on the inherited exterior contract.
+- Its scalar bound (r+1)(d+2) ≥ 195 follows from layer 14.
+
+**What the sibling adopted.** At 17:06 the sibling's CANON_READ adopted the corrections of layer 20:
+
+- "360000 is not a step" is removed;
+- both harmonic quartics are named with their Laplacians;
+- 5 and 25 are dual to the tick;
+- the fixed determinants 25, 81 and 256 are stated;
+- the day–Coxeter extension has order 120.
+
+Its 18:17 full edition keeps these, and twice notes that "the order-24 element was not constructed". Layer 21 constructs it, and `data/clocks.json` and `ports/ts/ledgerJoins.ts` carry it into the sibling's app.
+
+**The separate model, replayed (layer 20).** "Finite Spectral Dynamics with Complete Observation and Exact Cyclic Addresses" is rebuilt from its definitions:
+
+- the observer completion and the sensor census (§2);
+- the 25-coordinate flag geometry, with intersection determinant −48 and vertex distance exactly √(8/7);
+- the collocated transfer functions G_V = (z²+7)/((z²+3)(z²+8)) and G_E = 1/(2z²) + 2/(5(z²+3)) + 1/(10(z²+8)).
+
+## 8. The unified ledger
+
+`docs/LEDGER.md` lists every join of both builds with its status and the layer that checks it. A test keeps it current. In short:
+
+| join | unified statement | status |
+|---|---|---|
+| circle lemma, tower | subgroups = divisors; 36 × 4 × 3 × 2 × 5 | THEOREM |
+| all tick joins | one bit: 5 ∤ X | THEOREM (the readings are ARITHMETIC) |
+| rotor | c′⁶ = r r′ = [d, c′] | THEOREM |
+| golden subgroup | ⟨216⟩, ⟨v⟩, B mod 5: the fourth power is the tick | THEOREM |
+| oscillating tick | the day doubles its five conjugates; G/Z = AGL(1,5) | THEOREM |
+| mirrors, W0 reverse | twist −1 involutions; the pentagon reflection on the carrier | THEOREM |
+| above and below | no involutive exchange of carrier and twin; i ↦ 14 − i does not keep D² | THEOREM |
+| energy split | 34 = 20 + (3 + 9) + 2; E_V and E_E conserved | THEOREM |
+| observer | five channels; RH = I₁₅ | THEOREM |
+| spin counts | 240 = D8 + one half-spin orbit; 135 = the band-top D8 family | THEOREM |
+| field | q̈ + 4q = 0 is not a carrier mode | OBSTRUCTION |
+| sign tensor, entanglement | 10 + 10 is a count; the carrier cannot entangle V with E | CONDITIONAL |
+| charge, monopole, Einstein line, two 36s, Om, karma, bubbles, horizon | counts riding on the bit | ARITHMETIC |
+| order-24 element | constructed, in `data/clocks.json` | THEOREM |
+| source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
+
+## 9. What is not formed, and the gates
+
+**Not formed.**
+
+- The six SCR6 operands, the original seams, the 502- and 237-dimensional operators, the MPKG adapter, and the historical Agni, Soma, Suraj, Sawan and Om matrices.
+- The Krishna lift's operands, the epoch and the ayanamsha.
+- GKSL, SI units, BRST, BV and Einstein–Hilbert.
+
+The carrier action is constant-free, so it can predict only ratios such as √(8/3). A length or a mass needs one authenticated dimensionful datum, which is TIME_BIND.
+
+| Gate | State | What closes it |
+|---|---|---|
+| AUTH / SCR6 | NOT_PASS / operand absent | the owner's signature; the six SCR6 operands of a chosen physical child |
+| TIME_BIND | UNBOUND | one authenticated clock datum (frequency ratios are calibration-invariant) |
+| DYN_BIND | NOT_INSTALLED | the physical child, the generation multiplicity, the chirality index |
+| PredictionFreeze | NOT_TRIGGERED | the owner freezes the register before new comparisons |
+| W_L | NOT_PASS by evidence | the recorded PMNS candidate is excluded (χ² = 10.6 on 2 dof) |
+| T3081 | UNOPENED | the official host must be allowed |
+| ScientificGold | FALSE | a frozen prediction, independent data and a preregistered test |
+
+**Open mathematics.**
+
+- The convexity collar (223.58, 224).
+- The rational coefficients of L₁₆, and a proof that it annihilates W_n for every n.
+- A preparation protocol matching the ε<sup>−1/2</sup> and ε<sup>−1/3</sup> bounds.
+- The eight-dimensional dispersive constant.
+
+## Appendix A. The twenty-one layers
+
+| # | layer | checks | content |
+|---|---|---|---|
+| 1 | carrier | 36 | K5, D, spectrum, Lagrangian, exact motion, Petersen, Hodge block, edge tick, harmonic quartics |
+| 2 | spectral | 9 | heat trace, ζ_D, spectral dimension, moments |
+| 3 | spacetime | 34 | RP² pair, clock 125 → 120, E8 roots, walks, symbol, Green, clique |
+| 4 | native | 19 | source, port and bath action; W_AS; 40/9; radiation channel; nonlinear flow |
+| 5 | observer | 7 | readouts, dark sector, Witten index −5 |
+| 6 | gravity | 8 | Lin–Lu–Yau curvature; spectral action (CONDITIONAL) |
+| 7 | cosmology | 7 | FLRW with the carrier field (CONDITIONAL) |
+| 8 | frontier | 23 | band-edge orbit 135, the 224 saddle, saddle law, collar survey, coil |
+| 9 | joins | 24 | the maps that make the layers one object |
+| 10 | literal | 20 | the recovered operand file, every identity replayed |
+| 11 | glue | 11 | E8 = D8 + s; A4 ⊕ A4′ with x ↦ ±2x |
+| 12 | binding | 12 | DYN_BIND constraints |
+| 13 | gates | 12 | TIME_BIND courts, register, W_L, T3081, AUTH package |
+| 14 | recurrence | 16 | W₉₀ exact, W₆₀₀ mod p, exclusion, the order-16 operator |
+| 15 | court | 19 | Court U19.81 audited |
+| 16 | handover | 30 | the Locked Memory handover audited; critical census; T₆\|V_c |
+| 17 | waves | 18 | sound, light, frequency and phase on the K5 edges |
+| 18 | snapshot | 16 | the 14:16 snapshot rebuilt; T⁹ density; Hessians; asymptotics |
+| 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
+| 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
+| 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
+
+## Appendix B. Replay
+
+```
+pip install -r requirements.txt
+python verify.py              # 21 layers, 412 checks, about 4 minutes
+python -m pytest -q           # 31 tests
+node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the two TypeScript audits
+```
+
+The sibling's build was read from the Drive folder "One Machine 20261028": `one-machine-20261028-full.typ`/`.pdf`, `FULL_UPDATE_20261028.md` and forty join notes, 17:01–18:17 UTC. The canon was read from the Quick Access workbook, sheet 00_FULL_RECONCILIATION_20261028.
