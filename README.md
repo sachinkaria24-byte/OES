@@ -29,6 +29,7 @@ python -m pytest -q
 | 14 recurrence | `oes/recurrence.py`, `oes/walkfast.py`, `oes/ore.py` | canon W₀…W₅₅ replayed; exact W₉₀; a second engine (D8 + spinor) to W₆₀₀ mod primes; the W_n recurrence formed mod four primes: order 16, degree 58, 16 exact growth rates (11 in the band) | THEOREM, UNFORMED |
 | 15 court | `oes/court.py` | Court U19.81 audited claim by claim: script errors, true-moment envelopes, MDS code, clock-symmetry obstruction, cofactor 68 | THEOREM, OBSTRUCTION, UNFORMED, REPORTED |
 | 16 handover | `oes/handover.py` | the 28 Oct Locked Memory handover audited: alcove critical census (11 families, 243,600 points, Morse sum 0 = the recurrence's in-band roots), the literal 5-dim operand T₆\|V_c (det 31), corrections in `docs/HANDOVER_ADDENDUM.md` | THEOREM, OBSTRUCTION, ARITHMETIC, UNFORMED, REPORTED |
+| 17 waves | `oes/waves.py` | sound, light, frequency and phase on the K5 edges: Hodge split sound (4) + light (6) with d0d0ᵀ + Curl² = 5I, the canon's Hodge block A = −curl, helicities = the icosahedral 3 and 3′ locked to C5 phases, conversion selection rules, port frequency doubling, bath sound speed² 30 = 5 + 25 | THEOREM, CONDITIONAL, ARITHMETIC |
 
 Part II of `docs/MODEL.md` is the path from the mathematics to the operands and the physical gates.
 

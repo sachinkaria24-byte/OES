@@ -1,7 +1,8 @@
 import pytest
 
 from oes import (binding, carrier, cosmology, court, frontier, gates, gatework, glue, gravity,
-                 handover, joins, literal, native, observer, recurrence, spacetime, spectral)
+                 handover, joins, literal, native, observer, recurrence, spacetime, spectral,
+                 waves)
 
 LAYERS = {
     "carrier": carrier.run,
@@ -20,6 +21,7 @@ LAYERS = {
     "recurrence": recurrence.run,
     "court": court.run,
     "handover": handover.run,
+    "waves": waves.run,
 }
 
 
