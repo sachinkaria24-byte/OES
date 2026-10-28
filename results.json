@@ -53,33 +53,33 @@
   ]
  },
  "timing_s": {
-  "1-carrier": 0.41,
+  "1-carrier": 0.4,
   "2-spectral": 0.01,
-  "3-spacetime": 5.59,
-  "4-native": 79.03,
-  "5-observer": 0.25,
-  "6-gravity": 4.32,
-  "7-cosmology": 1.43,
-  "8-frontier": 3.36,
-  "9-joins": 6.35
+  "3-spacetime": 5.78,
+  "4-native": 72.81,
+  "5-observer": 0.19,
+  "6-gravity": 4.2,
+  "7-cosmology": 1.17,
+  "8-frontier": 29.56,
+  "9-joins": 7.0
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 108,
-   "total": 108
+   "passed": 110,
+   "total": 110
   },
   "OBSTRUCTION": {
-   "passed": 5,
-   "total": 5
+   "passed": 6,
+   "total": 6
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 16,
-   "total": 16
+   "passed": 18,
+   "total": 18
   },
   "SELECTED_REFERENCE": {
    "passed": 5,
@@ -94,8 +94,8 @@
    "total": 9
   },
   "REPORTED": {
-   "passed": 7,
-   "total": 7
+   "passed": 8,
+   "total": 8
   }
  },
  "checks": [
@@ -1274,6 +1274,80 @@
   },
   {
    "layer": "8-frontier",
+   "name": "224 level near the saddle: tangent curvature = (15/16) d^2 + O(d^4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "15/16",
+   "note": "exact from the order-4 expansion; the margin vanishes quadratically at the saddle, so no box grid can reach it"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "numerical replay of the saddle law on the true symbol (ratio -> 15/16)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "0.1": 0.9368857627805628,
+    "0.3": 0.9320025885045493
+   },
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "collar survey: min tangent curvature outside caps of radius d0 is positive, about 0.8-0.93 d0^2",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "0.2": 0.0301,
+    "0.3": 0.0831,
+    "0.5": 0.225,
+    "0.7": 0.424,
+    "0.9": 0.6645,
+    "1.1": 0.9277
+   },
+   "note": "8e6 samples + constrained optimisation; evidence, not a certificate"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "first-order box certificate outside a radius-1 cap needs box radius < 0.01: > 1e13 boxes in one Weyl chamber",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "0.2": 0.0003541176470588235,
+    "0.3": 0.0009776470588235293,
+    "0.5": 0.0026470588235294116,
+    "0.7": 0.004988235294117647,
+    "0.9": 0.00781764705882353,
+    "1.1": 0.010914117647058822
+   },
+   "note": "chamber shell volume ~4e-4; so the collar needs an analytic cap of radius ~1 plus a non-grid argument"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "coil: in Z/4320 pada step 40 (order 108) and yuga step 1728 (order 5) generate order 540, index 8, meeting only at 0; Pisano(5) = 20 | 540",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    108,
+    5,
+    540,
+    8,
+    [
+     0
+    ],
+    20
+   ],
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "U19.74: sum-of-squares lock r^2 = 9/40 on two copies of a 5-space, and a positive collar floor up to 224",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "the U19.74 note is not on Drive (latest court note found: U19.56); the 0741 paper also records it as not replayed. Numerically consistent with the survey below"
+  },
+  {
+   "layer": "8-frontier",
    "name": "band [0,256] exact: alcove branch-and-bound, 247,920 pieces, margin > 1e-6",
    "status": "REPORTED",
    "passed": true,
@@ -1330,7 +1404,7 @@
   },
   {
    "layer": "8-frontier",
-   "name": "certified curvature bound away from the 224 saddle (8-dim BnB ~1e10 pieces)",
+   "name": "certified collar 218.9323 < eps < 224: needs an analytic saddle cap of radius ~1 (margin 15/16 d^2) and a non-grid bound outside it",
    "status": "UNFORMED",
    "passed": true,
    "value": null,

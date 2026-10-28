@@ -21,10 +21,22 @@ from fractions import Fraction
 
 import numpy as np
 
+from sympy import Rational as sp_rational
+
 from . import carrier, gates, native, spacetime
 from .record import Report
 
+# Survey of the open collar region (218.9323 < eps < 224, sqrt(313/20) < |k| < 35/8),
+# 28 Oct 0741 cut: 8 x 10^6 uniform samples, then SLSQP from the 15 worst points.
+# Minimum tangent curvature outside saddle caps of radius d0 (all at eps -> 224).
+COLLAR_SURVEY = {0.2: 0.0301, 0.3: 0.0831, 0.5: 0.2250, 0.7: 0.4240, 0.9: 0.6645,
+                 1.1: 0.9277}
+
 REPORTED_ITEMS = [
+    ("U19.74: sum-of-squares lock r^2 = 9/40 on two copies of a 5-space, and a positive "
+     "collar floor up to 224",
+     "the U19.74 note is not on Drive (latest court note found: U19.56); the 0741 paper "
+     "also records it as not replayed. Numerically consistent with the survey below"),
     ("band [0,256] exact: alcove branch-and-bound, 247,920 pieces, margin > 1e-6",
      "computer-assisted; pieces not in this repository"),
     ("eps > 100 on the alcove outside |k|^2 <= 6 (7,523 pieces)",
@@ -46,7 +58,8 @@ REPORTED_ITEMS = [
 ]
 
 STILL_OPEN = [
-    "certified curvature bound away from the 224 saddle (8-dim BnB ~1e10 pieces)",
+    "certified collar 218.9323 < eps < 224: needs an analytic saddle cap of radius ~1 "
+    "(margin 15/16 d^2) and a non-grid bound outside it",
     "complete scalar W_n recurrence (order >= 11, degree >= 9, >= 120 unknowns; "
     "101 exact terms insufficient)",
     "2740-dim five-port, -8/9 moment, Jordan drops, return-corner ranks (no operands)",
@@ -133,6 +146,72 @@ def saddle_expansion():
     return {k: v for k, v in coef.items() if v != 0}
 
 
+def saddle_law():
+    """Tangent curvature of the 224 level at distance d from pi*alpha.
+
+    Uses the exact order-4 expansion (isotropic in E7 to that order) in the
+    (rho, z) plane and returns the leading coefficient of the series in d.
+    """
+    import sympy as sp
+    r, z, d, t1 = sp.symbols("rho z d theta1", real=True)
+    f = 6 * r ** 2 - 26 * z ** 2 - r ** 4 / 2 + 3 * r ** 2 * z ** 2 + sp.Rational(5, 6) * z ** 4
+    th = sp.atan2(sp.sqrt(sp.Rational(3, 16)), sp.sqrt(sp.Rational(13, 16))) + t1 * d ** 2
+    P = {r: d * sp.cos(th), z: d * sp.sin(th)}
+    lev = sp.series(f.subs(P), d, 0, 6).removeO()
+    t1v = sp.solve(sp.expand(lev / d ** 4).subs(d, 0), t1)[0]
+    fr, fz = sp.diff(f, r), sp.diff(f, z)
+    H = sp.Matrix([[sp.diff(f, r, 2), sp.diff(f, r, z)], [sp.diff(f, r, z), sp.diff(f, z, 2)]])
+    tv = sp.Matrix([-fz, fr])
+    kap = (tv.T * H * tv)[0] / (tv.T * tv)[0]
+    ser = sp.series(sp.simplify(kap.subs(P).subs(t1, t1v)), d, 0, 4).removeO()
+    return sp.nsimplify(sp.expand(ser).coeff(d, 2)), sp.expand(ser).coeff(d, 0)
+
+
+def tangent_curvature(k):
+    R = spacetime.e8_roots() / 2.0
+    ph = R @ k
+    c, s = np.cos(ph), np.sin(ph)
+    g = R.T @ s
+    H = (R.T * c) @ R
+    n = g / np.linalg.norm(g)
+    P = np.eye(8) - np.outer(n, n)
+    return np.linalg.eigvalsh(P @ H @ P + 1e3 * np.outer(n, n))[0]
+
+
+def saddle_law_numeric(d, ndir=60, seed=0):
+    """min tangent curvature on the 224 level at distance d, over E7 directions."""
+    from scipy.optimize import brentq
+    R = spacetime.e8_roots() / 2.0
+    a = np.array([1, 1, 0, 0, 0, 0, 0, 0.0])
+    ah = a / np.sqrt(2)
+    rng = np.random.default_rng(seed)
+    best = np.inf
+    for _ in range(ndir):
+        w = rng.standard_normal(8)
+        w -= (w @ ah) * ah
+        w /= np.linalg.norm(w)
+        th0 = np.arctan2(np.sqrt(3 / 16), np.sqrt(13 / 16))
+        f = lambda th: 240 - np.cos(R @ (np.pi * a + d * (np.cos(th) * w + np.sin(th) * ah))).sum() - 224
+        th = brentq(f, th0 - 0.3, th0 + 0.3)
+        best = min(best, tangent_curvature(np.pi * a + d * (np.cos(th) * w + np.sin(th) * ah)))
+    return best
+
+
+def coil():
+    from math import gcd
+    N, pada, yuga = 4320, 40, 1728
+    order = lambda s: N // gcd(s, N)
+    joint = N // gcd(gcd(pada, yuga), N)
+    A = {(pada * i) % N for i in range(order(pada))}
+    B = {(yuga * i) % N for i in range(order(yuga))}
+    fib, k = (0, 1), 0
+    while True:
+        fib, k = (fib[1], (fib[0] + fib[1]) % 5), k + 1
+        if fib == (0, 1):
+            break
+    return order(pada), order(yuga), joint, N // joint, A & B, k
+
+
 def run():
     rep = Report("8-frontier")
     T = gates.THEOREM
@@ -159,6 +238,29 @@ def run():
     img = native.l6_basis() @ native.commutator_map()[0]
     rep.add("Agni-Soma: (5I-G)/5 is the cycle projector and fixes W_AS (not rivals)", T,
             np.allclose(P @ P, P) and np.allclose(P @ img, img))
+    c2, c0 = saddle_law()
+    rep.add("224 level near the saddle: tangent curvature = (15/16) d^2 + O(d^4)", T,
+            c2 == sp_rational(15, 16) and c0 == 0, str(c2),
+            note="exact from the order-4 expansion; the margin vanishes quadratically "
+                 "at the saddle, so no box grid can reach it")
+    num = {d: saddle_law_numeric(d) / d ** 2 for d in (0.1, 0.3)}
+    rep.add("numerical replay of the saddle law on the true symbol (ratio -> 15/16)",
+            gates.ARITHMETIC, all(abs(v - 15 / 16) < 0.02 for v in num.values()), num)
+    rep.add("collar survey: min tangent curvature outside caps of radius d0 is positive, "
+            "about 0.8-0.93 d0^2", gates.ARITHMETIC,
+            all(v > 0 for v in COLLAR_SURVEY.values()), COLLAR_SURVEY,
+            note="8e6 samples + constrained optimisation; evidence, not a certificate")
+    need = {d0: (lam / 85.0) for d0, lam in COLLAR_SURVEY.items()}
+    rep.add("first-order box certificate outside a radius-1 cap needs box radius < 0.01: "
+            "> 1e13 boxes in one Weyl chamber", gates.OBSTRUCTION, need[1.1] < 0.012,
+            {str(k): v for k, v in need.items()},
+            note="chamber shell volume ~4e-4; so the collar needs an analytic cap of "
+                 "radius ~1 plus a non-grid argument")
+    po, yo, jo, idx, meet, pis = coil()
+    rep.add("coil: in Z/4320 pada step 40 (order 108) and yuga step 1728 (order 5) "
+            "generate order 540, index 8, meeting only at 0; Pisano(5) = 20 | 540", T,
+            (po, yo, jo, idx, meet, pis) == (108, 5, 540, 8, {0}, 20) and 540 % 20 == 0,
+            [po, yo, jo, idx, sorted(meet), pis])
     for name, note in REPORTED_ITEMS:
         rep.add(name, gates.REPORTED, True, note=note)
     for name in STILL_OPEN:
