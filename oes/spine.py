@@ -536,6 +536,14 @@ def normalizer():
     return tuple((m, w) for m in UNITS30 for w in conjugates_cyclic(cp, mpow(cp, m)))
 
 
+@lru_cache(maxsize=None)
+def day_clock():
+    """The selected day clock: order 24, d^4 = c'^5, d c' d^-1 = c'^7."""
+    _, cp, *_ = spine_clock()
+    return next(w for m, w in normalizer() if m == 7 and mat_order(w) == 24
+                and np.array_equal(mpow(w, 4), mpow(cp, 5)))
+
+
 # ------------------------------------------------------- what can act on the bath
 
 def min_dimension(m):
@@ -760,7 +768,7 @@ def run():
     rep.add("no element of order 24 commutes with c'. Elements of order 24 normalizing <c'> turn it by 7 or "
             "13 = 7^-1 (20 each)", T,
             Counter(m for m, _ in o24) == Counter({7: 20, 13: 20}))
-    day = next(wv for m, wv in o24 if m == 7 and np.array_equal(mpow(wv, 4), mpow(cp, 5)))
+    day = day_clock()
     rep.add("the day clock d: order 24, charpoly Phi_24 = x^8 - x^4 + 1, d^4 = c'^5 (the two clocks agree "
             "on the circle's common subgroup <720> = 4 x 180 = 5 x 144), and d c' d^-1 = c'^7", T,
             charpoly(day) == sp.Poly(sp.cyclotomic_poly(24, X), X)

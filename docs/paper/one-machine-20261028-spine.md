@@ -7,9 +7,9 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays all 19 layers in **370 checks**. Of these, 348 hold: THEOREM 243, OBSTRUCTION 36, ARITHMETIC 28, UNFORMED 16, CONDITIONAL 15, SELECTED_REFERENCE 8, REMOVED 2. The other 22 are REPORTED records.
-- This edition is layer 19, `oes/spine.py` (50 checks, about 3 seconds).
-- `python -m pytest` runs 26 tests.
+- `python verify.py` replays all 20 layers in **387 checks**. Of these, 362 hold: THEOREM 253, OBSTRUCTION 38, ARITHMETIC 29, CONDITIONAL 16, UNFORMED 16, SELECTED_REFERENCE 8, REMOVED 2. The other 25 are REPORTED records.
+- This edition is layer 19, `oes/spine.py` (50 checks, about 3 seconds). Layer 20, `oes/canon_sync.py` (16 checks), reconciles it with the canon as of 16:30 UTC (§12).
+- `python -m pytest` runs 27 tests.
 - `ports/ts/coxeterSpine.ts` ports the new checks to the sibling model's TypeScript as a drop-in audit (19 rows, residual 0).
 - The earlier verified paper (`one-machine-20261028-verified.pdf`) covers layers 1–18. Section 1 recalls only what is needed here.
 
@@ -247,7 +247,7 @@ The day's quarter d⁶ is the step 1080, of order 4. It fixes 16 momenta: the or
 
 ## 11. Status and what stays open
 
-- **Layer 19** holds 50 checks: THEOREM 29, OBSTRUCTION 14, SELECTED_REFERENCE 2, ARITHMETIC 2, REPORTED 2, UNFORMED 1.
+- **Layer 19** holds 50 checks: THEOREM 29, OBSTRUCTION 14, SELECTED_REFERENCE 2, ARITHMETIC 2, REPORTED 2, UNFORMED 1. **Layer 20** holds 16: THEOREM 9, OBSTRUCTION 2, CONDITIONAL 1, ARITHMETIC 1, REPORTED 3.
 - **Arithmetic only** (shared integers; no map joins them):
     - 69120 = |W(E8)|/|W(A6×A1)| is the size of the A6+A1 family and also the Human Design count;
     - exactly three families are whole numbers of circles: A6+A1 (16), A7 (4) and A7+A1 (2);
@@ -257,6 +257,28 @@ The day's quarter d⁶ is the step 1080, of order 4. It fixes 16 momenta: the or
     - the rational coefficients of the order-16 walk recurrence, and its proof for every n;
     - the six SCR6 operands, the epoch, the Krishna lift's operands, GKSL, SI, BRST, BV and Einstein–Hilbert.
 - **Owner decisions** remain the only route to moving a gate: AUTH, DYN_BIND, TIME_BIND, PredictionFreeze and T3081.
+
+## 12. Against the latest canon (16:30 UTC)
+
+Layer 20 reads the canon before anything is built on this edition.
+
+- **Position.** In the Quick Access workbook (updated 15:05 UTC, cutoff 14:59:48), OMSOON736 and the 10:04 Canon Check stay controlling. The earlier verified build is listed as a SELECTED REFERENCE. This edition arrived after the cutoff.
+- **What the sibling adopted.** The current sibling build (16:18 UTC) takes over the splitting 144 = 2160 + 1440 + 864 of Proposition 4. It also takes over the twist by 7, as "a separate extension in which the day element normalizes the Coxeter clock".
+    - In W(E8) that extension is realized, and it is smaller than the abstract one. The day and Coxeter clocks generate a group of order exactly **120**, because d⁴ = c′⁵.
+    - The semidirect product C₃₀ ⋊ C₂₄ of order 720 cannot embed, since the normalizer of ⟨c′⟩ has order 240.
+- **New errors in the sibling's notes.** "The step 5 generates the tick" and "the step 25 generates the tick subgroup, order 864" confuse step and order. ⟨5⟩ = ⟨25⟩ is the subgroup of order 864; the tick has order 5.
+- **Still uncorrected in the current sibling paper.** Items 3–6 of §10 are still there. The paper also states both 3s₂² − 7s₄ ("the unique primitive harmonic line") and "2s₂² − 5s₄ is invariant-harmonic, while 3s₂² − 7s₄ is not", without naming the Laplacian. They are the ambient and the contrast-plane answers. Layer 1 now records both.
+- **A canon claim proved.** The 12:32 update's "maximum group speed exactly √30" holds as a supremum. |∇ε|² ≤ 120ε everywhere, by Cauchy–Schwarz and the frame Σααᵀ = 60I. Equality holds only as k → 0.
+- **The Canon Check.**
+    - The identities behind its growing-time preparation laws (P1–P2) are replayed. The laws themselves, ε<sup>−1/2</sup> for the monopole and ε<sup>−1/3</sup> for the dipole, stay CONDITIONAL on the inherited exterior contract.
+    - Its scalar bound (r+1)(d+2) ≥ 195 follows from layer 14, which excludes every shape up to 455.
+- **The separate model** ("Finite Spectral Dynamics with Complete Observation and Exact Cyclic Addresses", 16:07 UTC) is rebuilt from its definitions:
+    - five channels are necessary and sufficient;
+    - of the 252 five-edge sensor designs, 162 are complete and 90 have rank 4, and 72 are optimal with minimum eigenvalue (3 − √5)/6;
+    - the 25-coordinate flag geometry has intersection det −48 and vertex distance exactly √(8/7);
+    - the collocated transfer functions follow from the spectral projectors.
+
+    Its root-to-circle intertwiner is rational, with the metric mismatch it reports. The two-carrier tick of §6 is the isometric version: c′⁶ = rr′ inside W(E8).
 
 ## Appendix A. The readings
 
@@ -294,8 +316,8 @@ The day's quarter d⁶ is the step 1080, of order 4. It fixes 16 momenta: the or
 ## Appendix B. Replay
 
 ```
-python verify.py              # 19 layers, 370 checks
-python -m pytest -q           # 26 tests
+python verify.py              # 20 layers, 387 checks
+python -m pytest -q           # 27 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the TypeScript port
 python -c "from oes import spine; print([c.name for c in spine.run().checks if not c.passed])"
 ```

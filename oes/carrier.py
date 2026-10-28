@@ -269,13 +269,23 @@ def contrast_moments():
     m2_ok = sp.expand((M2 - 10 * r2).subs(sub)) == 0
     m4_ok = sp.expand((M4 - 6 * r2 ** 2 - 10 * s4).subs(sub)) == 0
     lap = lambda f: sum(sp.diff(f, xi, 2) for xi in x)
+    # The contrast plane's own Laplacian is tr(P Hess) with P = I - J/5.
+    P = sp.eye(5) - sp.ones(5, 5) / 5
+    lap_plane = lambda f: sp.expand(sum(P[i, j] * sp.diff(f, x[i], x[j]) for i in range(5)
+                                        for j in range(5)).subs(sub))
     h = 3 * r2 ** 2 - 7 * s4
+    g = 2 * r2 ** 2 - 5 * s4
     half_ok = sp.expand((half - 5 * r2).subs(sub)) == 0
     return {"M2=10|x|^2 over the 20 roots": m2_ok,
             "correction: over the 10 pairs i<j the sum is 5|x|^2": half_ok, "M4=6|x|^4+10sum x^4 over the 20 roots": m4_ok,
             "lap|x|^4=28|x|^2": sp.expand(lap(r2 ** 2) - 28 * r2) == 0,
             "lap sum x^4=12|x|^2": sp.expand(lap(s4) - 12 * r2) == 0,
-            "3|x|^4-7sum x^4 harmonic": sp.expand(lap(h)) == 0}
+            "3|x|^4-7sum x^4 harmonic for the ambient Laplacian of R^5": sp.expand(lap(h)) == 0,
+            "on the contrast plane itself: lap|x|^4=24|x|^2, lap sum x^4=(48/5)|x|^2, so the harmonic "
+            "line is 2|x|^4-5sum x^4 and 3|x|^4-7sum x^4 is not (canon 28 Oct)":
+                lap_plane(r2 ** 2) == sp.expand((24 * r2).subs(sub))
+                and lap_plane(s4) == sp.expand((sp.Rational(48, 5) * r2).subs(sub))
+                and lap_plane(g) == 0 and lap_plane(h) != 0}
 
 
 # --------------------------------------------------------------------- checks

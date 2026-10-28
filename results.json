@@ -57,43 +57,44 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.37,
-  "2-spectral": 0.01,
-  "3-spacetime": 4.69,
-  "4-native": 37.9,
-  "5-observer": 0.19,
-  "6-gravity": 3.41,
-  "7-cosmology": 0.88,
-  "8-frontier": 24.89,
-  "9-joins": 6.47,
-  "10-literal": 14.56,
-  "11-glue": 0.12,
-  "12-binding": 0.03,
+  "1-carrier": 0.44,
+  "2-spectral": 0.0,
+  "3-spacetime": 4.48,
+  "4-native": 35.17,
+  "5-observer": 0.2,
+  "6-gravity": 3.21,
+  "7-cosmology": 0.75,
+  "8-frontier": 24.26,
+  "9-joins": 4.84,
+  "10-literal": 14.11,
+  "11-glue": 0.09,
+  "12-binding": 0.02,
   "13-gates": 0.13,
-  "14-recurrence": 33.99,
-  "15-court": 1.32,
+  "14-recurrence": 32.17,
+  "15-court": 1.31,
   "16-handover": 0.79,
-  "17-waves": 0.34,
-  "18-snapshot": 0.56,
-  "19-spine": 1.97
+  "17-waves": 0.37,
+  "18-snapshot": 0.5,
+  "19-spine": 2.07,
+  "20-canon": 4.62
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 243,
-   "total": 243
+   "passed": 253,
+   "total": 253
   },
   "OBSTRUCTION": {
-   "passed": 36,
-   "total": 36
+   "passed": 38,
+   "total": 38
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 28,
-   "total": 28
+   "passed": 29,
+   "total": 29
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
@@ -104,12 +105,12 @@
    "total": 16
   },
   "CONDITIONAL": {
-   "passed": 15,
-   "total": 15
+   "passed": 16,
+   "total": 16
   },
   "REPORTED": {
-   "passed": 22,
-   "total": 22
+   "passed": 25,
+   "total": 25
   }
  },
  "checks": [
@@ -405,7 +406,15 @@
   },
   {
    "layer": "1-carrier",
-   "name": "3|x|^4-7sum x^4 harmonic",
+   "name": "3|x|^4-7sum x^4 harmonic for the ambient Laplacian of R^5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "on the contrast plane itself: lap|x|^4=24|x|^2, lap sum x^4=(48/5)|x|^2, so the harmonic line is 2|x|^4-5sum x^4 and 3|x|^4-7sum x^4 is not (canon 28 Oct)",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -3995,6 +4004,229 @@
    "layer": "19-spine",
    "name": "birth time, epoch and ayanamsha: none is stored, so the sidereal readings stay counts",
    "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "canon position (Quick Access, 15:05 UTC, cutoff 14:59:48): OMSOON736 and the 10:04 Canon Check are controlling; the 14:37 build of this repository is a SELECTED REFERENCE and its replay SOURCE-REPORTED; layers 19-20 arrived after the cutoff",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "read 28 Oct 16:30 UTC; nothing here changes a canon grade"
+  },
+  {
+   "layer": "20-canon",
+   "name": "correction absorbed in layer 1: the contrast plane's harmonic quartic is 2|x|^4 - 5 sum x^4; 3|x|^4 - 7 sum x^4 is harmonic only for the ambient Laplacian of R^5",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "maximal group speed of the bath is sqrt30, as a supremum: |grad eps|^2 <= 120 eps everywhere (frame sum a a^T = 60 I and Cauchy-Schwarz), with equality only as k -> 0. The 12:32 claim 'maximum group speed exactly sqrt30' holds in this sense",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "max ratio (20000 samples)": 0.7019229678854264,
+    "ratio as k -> 0": [
+     0.9985009441210817,
+     0.999985000094202,
+     0.9999998499682985
+    ]
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "Canon Check P1/P2 identities replayed: 128 + 64(w + 1/w) = 64(v + 1/v)^2, |Im sqrt E| = 16 sinh(eta/2)|sin phi|, ||C||^2 = 495, eta* = 2 arcosh(d/8T) with exponent 2 sqrt(d^2 - 64T^2) - 2d arcosh(d/8T), strictly convex",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "ellipse": true,
+    "imaginary part": true,
+    "norm": true,
+    "critical point": true,
+    "convex": true,
+    "minimum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "growing-time preparation (Canon Check P2): at polynomial port budget the horizon grows at least like eps^(-1/2) for the monopole families and eps^(-1/3) for a dipole target",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": "proof received in the controlling Canon Check; its algebra is replayed above; it rests on the inherited exterior contract 0 <= D <= 256, C*C = 183P_c + 495P_u (layers 3-4) and on the static-tail asymptotics; necessary only, no matching protocol"
+  },
+  {
+   "layer": "20-canon",
+   "name": "Canon Check S1 ((r+1)(d+2) >= 195, r = 11 needs d >= 15) and its whole table follow from layer 14, which excludes every shape with (r+1)(d+2) <= 455 on W_0..W_600 mod p (so r = 11 needs d >= 36); the order-16, degree-58 operator has product 1020",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "2": [
+     48,
+     113
+    ],
+    "3": [
+     38,
+     91
+    ],
+    "4": [
+     32,
+     75
+    ],
+    "5": [
+     27,
+     65
+    ],
+    "6": [
+     24,
+     56
+    ],
+    "7": [
+     21,
+     50
+    ],
+    "8": [
+     19,
+     45
+    ],
+    "9": [
+     17,
+     41
+    ],
+    "10": [
+     16,
+     37
+    ],
+    "11": [
+     14,
+     35
+    ],
+    "12": [
+     13,
+     32
+    ],
+    "13": [
+     12,
+     30
+    ],
+    "14": [
+     12,
+     28
+    ]
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "circle notes of 15:57-16:18 replayed: CRT idempotents 3105, 2080, 3456 (squares, zero products, sum 1, orders 32, 27, 5), the primary split, the 234/522 joins, the orbit indices 5, 4, 20, 40, 720, the address 1234, and the C30240 register",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "idempotents": true,
+    "primary split": true,
+    "234 joins": true,
+    "orbit indices": true,
+    "address 1234": true,
+    "seven-clock register C30240": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "correction: CRT_JOIN 'the five added channels are the step 5, which generates the tick' and UPGRADE_JOIN 'the step 25 generates the tick subgroup, order 864'. <5> = <25> is the subgroup of order 864 (index 5); the tick <864> has order 5. The step 5 is dual to the tick",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "NORMALIZE refined: in W(E8) the day clock and the Coxeter clock generate a group of order exactly 120 (d^4 = c'^5, d c' d^-1 = c'^7). The abstract semidirect product C30 x| C24 of order 720 does not embed: the normalizer of <c'> has order 240",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 120,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "separate model, Theorem 2: five fixed channels are necessary (dim ker D = 5, and the dark sector moves freely) and sufficient: R H = I15, P0 = I - 11K/24 + K^2/24, D+ = (11D - D^3)/24, H^T W H = K + P0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "dark sector dim 5": true,
+    "P0 = I - 11K/24 + K^2/24": true,
+    "D+ is the pseudo-inverse": true,
+    "R H = I15": true,
+    "H^T W H = K + P0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "separate model, Theorem 3: of the 252 five-edge designs 162 are complete and 90 have rank 4; all complete designs have det 1/162; 72 are optimal with minimum eigenvalue (3 - sqrt5)/6, e.g. edges {01, 02, 03, 12, 14}",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "classes": {
+     "(x - 1)*(3*x - 1)**2*(18*x**2 - 15*x + 1)/162": 90,
+     "(2*x - 1)*(9*x**2 - 9*x + 1)**2/162": 72
+    },
+    "best": 0.12732200375003505
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "separate model, flag geometry: E: C^15 -> C^25 is an isometry with DE = ED, spec D^2 = {0^15, 3^8, 8^2}, real structure and grading, first-order condition, intersection det -48, and vertex distance exactly sqrt(8/7)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "E^T E = I": true,
+    "D E = E D_carrier": true,
+    "spec D^2 = {0^15, 3^8, 8^2}": true,
+    "J^2 = I, JD = DJ, Gamma D = -D Gamma": true,
+    "first-order condition": true,
+    "intersection Q = 2I - J, det -48": true,
+    "vertex distance sqrt(8/7)": true,
+    "d(0,1)": "2*sqrt(14)/7"
+   },
+   "note": "the distance is exact: by convexity and symmetry an optimal a is s(e0 - e1)"
+  },
+  {
+   "layer": "20-canon",
+   "name": "separate model, falsifiable transfer: every vertex has G_V = (z^2+7)/((z^2+3)(z^2+8)) and every edge G_E = 1/(2z^2) + 2/(5(z^2+3)) + 1/(10(z^2+8)) from the spectral projectors",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "COURT_CORRECTION: (16/5, -11/5, -1, 1/5, 0, 0, 0, 0) has square 403/25 (402/25 with fourth coordinate 0); 3 x 17280 + 2160 x 128 = 328320 and 17280 + 2160 x 128 = 293760",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "12:32 claims not replayed here and SOURCE-CLAIMED in the canon: strict convexity through E = 224 (collar 223.58 < E < 224 open) and a matching uniform t^(-9/4) upper bound",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "the separate model's 17,914 checks were not rerun; the items above were rebuilt from its definitions",
+   "status": "REPORTED",
    "passed": true,
    "value": null,
    "note": ""

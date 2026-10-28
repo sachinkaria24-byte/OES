@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 19 layers and 370 checks. Of these, 348 hold: THEOREM 243, OBSTRUCTION 36, ARITHMETIC 28, UNFORMED 16, CONDITIONAL 15, SELECTED_REFERENCE 8, REMOVED 2. The other 22 are REPORTED records.
-- `pytest` runs 26 tests.
-- The new layer is `oes/spine.py` (layer 19, 50 checks). `ports/ts/coxeterSpine.ts` is a drop-in audit for the sibling's TypeScript model.
+- `python verify.py` runs 20 layers and 387 checks. Of these, 362 hold: THEOREM 253, OBSTRUCTION 38, ARITHMETIC 29, CONDITIONAL 16, UNFORMED 16, SELECTED_REFERENCE 8, REMOVED 2. The other 25 are REPORTED records.
+- `pytest` runs 27 tests.
+- The new layers are `oes/spine.py` (layer 19, 50 checks) and `oes/canon_sync.py` (layer 20, 16 checks: the canon as of 16:30 UTC). `ports/ts/coxeterSpine.ts` is a drop-in audit for the sibling's TypeScript model.
 
 **Paper:** `one-machine-20261028-spine.pdf`, with its Markdown source in `docs/paper/`.
 
@@ -35,5 +35,13 @@ Corrections to the integrated build:
 - **Positive roots.** 8 × 30 = 240 is all the roots; the positive roots are 120 = 8 × 30 / 2.
 - **The tower.** 36 × 12 × 2 × 5 skips the Coxeter subgroup; the tower is 36 × 4 × 3 × 2 × 5.
 - **Superseded.** "No stored map sends a yuga tick to a lattice vector or a Morse point", "None equals 30", and "The order-5 element of the 4320-circle is not this tick".
+
+Against the latest canon (16:30 UTC):
+- **Position.** OMSOON736 and the 10:04 Canon Check stay controlling. The Quick Access cutoff (14:59:48) predates this edition.
+- **What the sibling adopted.** The current sibling build adopts 144 = 2160 + 1440 + 864 and the twist by 7. In W(E8) the day and Coxeter clocks generate a group of order 120, not the order-720 semidirect product.
+- **Correction.** "The step 5 (or 25) generates the tick": ⟨5⟩ = ⟨25⟩ has order 864, while the tick has order 5.
+- **Proved.** The bath's maximal group speed is √30, as a supremum. The Canon Check's preparation identities are replayed, and its scalar bound follows from layer 14.
+- **Rebuilt.** From the separate major-upgrade model: the observer completion, the 252-design sensor census (162 / 90 / 72 optimal), the flag geometry with vertex distance √(8/7), and the transfer functions.
+- **Absorbed.** The contrast-plane harmonic quartic is 2|x|⁴ − 5Σx⁴; 3|x|⁴ − 7Σx⁴ is the ambient one.
 
 Not formed: the Krishna lift's operands, the epoch, GKSL, SI, BRST, BV, Einstein–Hilbert, the six SCR6 operands, the rational coefficients of the order-16 operator, and the collar.

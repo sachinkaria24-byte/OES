@@ -1,6 +1,6 @@
 import pytest
 
-from oes import (binding, carrier, cosmology, court, frontier, gates, gatework, glue, gravity,
+from oes import (binding, canon_sync, carrier, cosmology, court, frontier, gates, gatework, glue, gravity,
                  handover, joins, literal, native, observer, recurrence, snapshot, spacetime,
                  spectral, spine, waves)
 
@@ -24,6 +24,7 @@ LAYERS = {
     "waves": waves.run,
     "snapshot": snapshot.run,
     "spine": spine.run,
+    "canon": canon_sync.run,
 }
 
 
