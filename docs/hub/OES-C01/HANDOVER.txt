@@ -1,0 +1,70 @@
+OES-C01 HANDOVER: replay the reported 21-layer / 412-check branch at a pinned commit
+Package: 20261028T222800Z_CLAUDE_OES-C01_pinned-replay_v01
+Agent: Claude (Claude Code session on the GitHub repository below)
+
+TASK
+OES-C01, suggested for Claude in OPEN_TASKS.csv of the OES collaboration hub (21:48 UTC):
+"Replay the full reported 21-layer/412-check branch at a pinned commit." Completion evidence asked for:
+commit hash, exact command, logs, discrepancies.
+
+CLAIM STATUS
+The work was done before a CLAIM file was filed. Filing a claim or this package in 01_CLAUDE_INBOX writes to
+the owner's Drive, and this session writes to Drive only when the owner approves it. Until then the package
+lives in the repository at docs/hub/OES-C01/.
+
+BASE
+Repository: github.com/sachinkaria24-byte/OES, branch claude/lagrangian-spectral-spacetime-model-t2253b
+Pinned commit for the reported state: f41b2788f16f0d2a492b54a32e26b1f9f43704b7 (19:07 UTC, 28 Oct 2026).
+Its docs/paper/STATUS_20261028_unified.md is the "STATUS_unified" that the canon sheet 00_CURRENT_20261028_1910
+and CURRENT_STATUS.csv cite: 21 layers, 412 checks (383 hold, 29 reported), 31 pytest tests.
+Second commit, the branch head when the replay ran: a296575b8fcefcb1286032dfb3e455817243bc3e (22:06 UTC).
+
+WHAT CHANGED
+Nothing in either commit. Each was checked out into its own clean git worktree and replayed as it stands.
+
+REPRODUCTION
+  git clone https://github.com/sachinkaria24-byte/OES && cd OES
+  git checkout f41b2788f16f0d2a492b54a32e26b1f9f43704b7      # or a296575b8fcefcb1286032dfb3e455817243bc3e
+  pip install -r requirements.txt
+  python verify.py                                             # about 2.5 minutes here
+  python -m pytest -q                                          # about 2 minutes
+  node --experimental-strip-types --no-warnings ports/ts/run.mjs   # node 22.6 or later
+Runtime: Python 3.13.17, numpy 2.5.3, sympy 1.14.0, node v22.22.0, Linux x86_64.
+
+CHECKS RUN AND RESULTS (logs/)
+f41b278:
+  verify.py: 21 layers, 412 checks, exit 0. THEOREM 268, OBSTRUCTION 40, ARITHMETIC 31, CONDITIONAL 17,
+             UNFORMED 17, SELECTED_REFERENCE 8, REMOVED 2 (383 hold) and 29 REPORTED records. 147 s.
+  pytest:    31 passed, exit 0.
+  TypeScript audits: residual 0, exit 0 (coxeterSpine and ledgerJoins).
+a296575:
+  verify.py: 22 layers, 472 checks, exit 0. THEOREM 305, OBSTRUCTION 41, ARITHMETIC 38, CONDITIONAL 17,
+             UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2 (429 hold) and 43 REPORTED records. 150 s.
+  pytest:    42 passed, exit 0.
+  TypeScript audits: residual 0, exit 0 (coxeterSpine, ledgerJoins, pauliBath).
+pytest and the TypeScript audits ran first (22:19-22:23 UTC). The first verify.py attempt did not start, because
+the timing wrapper /usr/bin/time is absent in this container; verify.py was then rerun without it (22:23-22:28 UTC).
+
+DISCREPANCIES
+None. The replay of f41b278 matches the reported 21 layers / 412 checks / 383 hold / 29 reported / 31 tests
+exactly.
+
+LIMITATIONS
+- A REPORTED check records another build's statement; it is not a replay of that statement.
+- A pass is a check on constructed matrices. It is not AUTH, not physical validation, and no gate moves.
+- The replay ran in the author's own environment (same agent that wrote the code). An independent replay by a
+  different agent is requested below.
+- The branch has moved on since: layer 23 (all dots joined) was added after a296575. It is not part of this replay.
+
+PROPOSED TARGET
+CURRENT_STATUS.csv, topic "Latest One Machine status": verification "Source-reported; full repository not
+rerun" can become REPLAY_PASS at commit f41b278 with this package as evidence (classification: REPLAY_PASS).
+
+REVIEWER REQUESTED
+A different agent (Gemini or Grok), or the release integrator, to rerun the commands above at f41b278.
+
+NEXT ACTION
+On the owner's approval: file CLAIM_OES-C01_CLAUDE_<UTC>.json and this package in 01_CLAUDE_INBOX, and a review
+request in 05_REVIEW_AND_CONFLICTS.
+
+AUTH = NOT_PASS. ScientificGold = FALSE. No gate changed.

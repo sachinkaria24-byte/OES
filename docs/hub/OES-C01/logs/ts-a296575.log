@@ -1,0 +1,48 @@
+OK  one lemma: <b> in <a> iff gcd(a,N) | gcd(b,N); meets are lcms (brute force on a grid) 
+OK  the order-10 subgroup is the multiples of 432 and contains the tick 864 
+OK  the tower through the Coxeter subgroup: indices 36, 4, 3, 2, 5 
+OK  every element has one address d0 + 36 d1 + 144 d2 + 432 d3 + 864 d4 
+OK  Coxeter step = tick + sun + half-turn: 864 + 1440 + 2160 = 144 mod 4320 
+OK  pada and tick are incomparable and generate the coil <8> (order 540), meeting only at 0 
+OK  correction: <40> n <6> = <120> has order 36 (the moon); the atlas <36> has order 120 
+OK  correction: 360000 = 1440 mod 4320 (the W0 scalar is the sun step) 
+OK  correction: 8 x 30 = 240 roots; the positive roots are 8 x 30 / 2 = 120 
+OK  c = s1...s8 has order 30 and c^15 = -I 
+OK  c permutes the 240 roots in 8 orbits of 30 (a symmetry of the bath) 
+OK  fixed Bloch momenta |det(c^k - I)|: 25 (tick), 81 (sun), 256 (half-turn), else 1 
+OK  c' is a Coxeter element in W(E8): order 30, 8 root orbits of 30 
+OK  the tick turns two carriers: c'^6 = r r' (r the K5 vertex rotation, r' the twin A4' rotation) 
+OK  the sun c'^10 permutes the roots in 80 triangles; c'^15 = -I 
+OK  c' = (-I) c'^10 c'^6: the half-turn times the sun times the tick 
+OK  the day d: order 24, d^4 = c'^5 (agrees on <720>), d c' = c'^7 d (the twist 7) 
+OK  d c'^-1 (the atlas 36 = 180 - 144 on the bath) has order 24, not 120 
+OK  degree bound: orders m | 4320 possible in GL8(Z) are 1..30 on the list plus 16, 36, 40, 60 
+coxeterSpine: residual 0, rows 19
+OK  the tick bit: 864 lies in <x> iff 5 does not divide x (all 4320 x) 
+OK  24 of the 48 subgroups hold the tick, each with all five levels or only 0 
+OK  the 80 tick values of the sibling ledger are that bit 
+OK  the bit is not additive: 2 and 3 hold the tick, 2 + 3 = 5 does not 
+OK  all seven matrices lie in W(E8) 
+OK  tick = c'^6 = r r' (two carrier rotations) 
+OK  the day d: order 24, d^4 = c'^5, d c' d^-1 = c'^7 (the order-24 element in W(E8)) 
+OK  the tick is the commutator: d c' d^-1 c'^-1 = c'^6 
+OK  the day doubles the tick: d (r r') d^-1 = (r r')^2 
+OK  the day-Coxeter group has order 120 and centre <c'^5> (order 6) 
+OK  five conjugate day clocks: the tick rotates them (x -> x + 1), the day doubles them (x -> 2x) 
+OK  the golden clock: order 20, v^4 = the tick, v c' v^-1 = c'^11 
+OK  B = [[1,1],[1,0]] has order 20 mod 5 and B^4 is unipotent; <216> has order 20 with 4 x 216 = 864 
+OK  the mirror: an involution inverting the clock and the tick, the pentagon reflection i -> -i on the carrier 
+OK  the day's quarter d^6 exchanges the carrier A4 and its twin, and (d^6)^2 = -I 
+OK  energy 34 = 20 + (3 + 9) + 2: quadratic form 64 = 40 + 6 + 18 and the cycle 4, E_V = 23, E_E = 11 
+ledgerJoins: residual 0, rows 16
+OK  the 240 roots of E8 
+OK  the simple roots form the E8 Dynkin diagram 
+OK  eight antisymmetric Paulis anticommute exactly along the diagram 
+OK  the 256 products are distinct up to sign: a bijection from the half-periods 
+OK  L(phi(x)) = eps(pi x) phi(x) at every half-period 
+OK  eps = 0, 224 (the E7+A1 saddles), 256 (the D8 band top) on 1, 120, 135 half-periods 
+OK  phi(x)^T = (-1)^(x.x/2) phi(x): the 120 antisymmetric products sit at the 120 saddles (eps = 224) 
+OK  GKSL: sum over the 120 antisymmetric A of A X A^T = 8 tr(X) I - 8 X^T, so -L(X) = 2 sum (A X A^T - X) 
+pauliBath: residual 0, rows 8
+residual 0
+EXIT 0

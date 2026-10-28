@@ -1,0 +1,79 @@
+{
+  "task": "OES-C01",
+  "package": "20261028T222800Z_CLAUDE_OES-C01_pinned-replay_v01",
+  "agent": "Claude",
+  "repository": "https://github.com/sachinkaria24-byte/OES",
+  "branch": "claude/lagrangian-spectral-spacetime-model-t2253b",
+  "runtime": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "sympy": "1.14.0",
+    "node": "v22.22.0",
+    "os": "Linux x86_64"
+  },
+  "commands": [
+    "python verify.py",
+    "python -m pytest -q",
+    "node --experimental-strip-types --no-warnings ports/ts/run.mjs"
+  ],
+  "results": {
+    "f41b2788f16f0d2a492b54a32e26b1f9f43704b7": {
+      "verify": {
+        "layers": 21,
+        "checks": 412,
+        "hold": 383,
+        "reported": 29,
+        "exit": 0,
+        "by_status": {
+          "THEOREM": 268,
+          "OBSTRUCTION": 40,
+          "ARITHMETIC": 31,
+          "CONDITIONAL": 17,
+          "UNFORMED": 17,
+          "SELECTED_REFERENCE": 8,
+          "REMOVED": 2,
+          "REPORTED": 29
+        }
+      },
+      "pytest": {
+        "passed": 31,
+        "exit": 0
+      },
+      "typescript": {
+        "residual": 0,
+        "exit": 0
+      }
+    },
+    "a296575b8fcefcb1286032dfb3e455817243bc3e": {
+      "verify": {
+        "layers": 22,
+        "checks": 472,
+        "hold": 429,
+        "reported": 43,
+        "exit": 0,
+        "by_status": {
+          "THEOREM": 305,
+          "OBSTRUCTION": 41,
+          "ARITHMETIC": 38,
+          "CONDITIONAL": 17,
+          "UNFORMED": 18,
+          "SELECTED_REFERENCE": 8,
+          "REMOVED": 2,
+          "REPORTED": 43
+        }
+      },
+      "pytest": {
+        "passed": 42,
+        "exit": 0
+      },
+      "typescript": {
+        "residual": 0,
+        "exit": 0
+      }
+    }
+  },
+  "discrepancies": [],
+  "classification": "REPLAY_PASS",
+  "independent_review": "NOT_RUN",
+  "AUTH": "NOT_PASS"
+}

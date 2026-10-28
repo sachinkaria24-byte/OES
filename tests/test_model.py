@@ -1,6 +1,6 @@
 import pytest
 
-from oes import (binding, canon_sync, carrier, cosmology, counts, court, frontier, gates, gatework, glue,
+from oes import (binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates, gatework, glue,
                  gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot, spacetime,
                  spectral, spine, waves)
 
@@ -27,6 +27,7 @@ LAYERS = {
     "canon": canon_sync.run,
     "ledger": ledger.run,
     "counts": counts.run,
+    "dots": dots.run,
 }
 
 
@@ -175,6 +176,45 @@ def test_two_clocks_generate_order_20_not_the_circle():
 def test_pauli_generator_is_the_quotient_bath_and_a_gksl_generator():
     out = counts.pauli_quotient()
     assert all(out.values()), out
+
+
+def test_k5_incidences_are_root_systems():
+    for check in (dots.k5_roots, dots.petersen_roots, dots.exterior):
+        out = check()
+        assert all(out.values()), out
+
+
+def test_triangle_port_heat_coefficient():
+    out = dots.triangle_port()
+    assert all(out.values()), out
+
+
+def test_glue_cosets_and_tick_momenta():
+    for check in (dots.glue_cosets, dots.tick_momenta):
+        out = check()
+        assert all(out.values()), out
+
+
+def test_atlas_and_four_cube():
+    for check in (dots.atlas, dots.primary_split, dots.four_cube, dots.hodge70):
+        out = check()
+        assert all(out.values()), out
+
+
+def test_all_dots_are_joined():
+    rep = dots.run()
+    assert all(c.passed for c in rep.checks)
+    assert len(dots.components([True] * len(dots.JOINS))) == 1
+    # without the source's two joins the source is cut off: the connectivity check can fail
+    cut = [not (j[0] == "kerM" and j[1] == "source") and not (j[0] == "source" and j[1] in ("cycles", "sixsite"))
+           for j in dots.JOINS]
+    assert len(dots.components(cut)) == 2
+
+
+def test_dots_page_is_current():
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent
+    assert (root / "docs" / "DOTS.md").read_text() == dots.dots_page()
 
 
 def test_typescript_port_of_the_spine():

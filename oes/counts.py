@@ -19,7 +19,9 @@ Sources read before this layer (Google Drive):
 * at 20:33: the sibling's MASS_KERNEL (20:31) and the separate model's revised status and paper (20:28);
 * at 21:05: the sibling's 15 notes of 20:34-21:03, from GOLDEN_FREQ to FAMILY_129;
 * at 21:36: the sibling's 19 notes of 21:09-21:38, from DARK_SPLIT to CRT_CLOCK, and the separate
-  model's revised status (21:05) and verification receipt (21:07).
+  model's revised status (21:05) and verification receipt (21:07);
+* at 22:08: the readings of the sibling's eight notes of 21:40-22:08, from PRIMARY_SPLIT to JOIN_CLOSURE. Their
+  structure is joined in layer 23 (oes/dots.py).
 
 Here "zero modes" and "dark" mean ker M = P5, as in layers 5 and 12. The canon's two-dimensional dark planes
 (the dark-core theorem) are another object, as the separate model's status also notes.
@@ -828,6 +830,99 @@ CLAIMS = [
     ("CRT_CLOCK", "the charge", 30, False, (("mod5", 0),)),
     ("CRT_CLOCK", "the flash", 180, False, (("mod5", 0),)),
     ("CRT_CLOCK", "multiplication by 7", 7, True, (("mod5", 2), ("gen",))),
+    ("PRIMARY_SPLIT", "the 2-part idempotent", 3105, False, ()),
+    ("PRIMARY_SPLIT", "the 27-part idempotent", 2080, False, ()),
+    ("PRIMARY_SPLIT", "the time idempotent, the fourth tick", 3456, True, ()),
+    ("PRIMARY_SPLIT", "the 2-clock generator", 135, False, (("order", 32),)),
+    ("PRIMARY_SPLIT", "the nakshatra, the 27-clock generator", 160, False, (("order", 27),)),
+    ("PRIMARY_SPLIT", "the tick", 864, True, (("order", 5),)),
+    ("PRIMARY_SPLIT", "the observer point, a pure 2-part", 1080, False, (("in", 135),)),
+    ("PRIMARY_SPLIT", "the half-turn, a pure 2-part", 2160, False, (("in", 135),)),
+    ("PRIMARY_SPLIT", "the satya block, pure time", 1728, True, (("in", 864),)),
+    ("PRIMARY_SPLIT", "the sun, nine nakshatras", 1440, False, (("in", 160),)),
+    ("PRIMARY_SPLIT", "half-turn + sun + tick, the tithi", 2160 + 1440 + 864, True, (("res", 144),)),
+    ("PRIMARY_SPLIT", "observer point + fourth tick, the mass step", 1080 + 3456, True, (("res", 216),)),
+    ("PRIMARY_SPLIT", "gravity's time part", 4 * 3456, True, (("res", 864),)),
+    ("PRIMARY_SPLIT", "the charge", 30, False, ()),
+    ("PRIMARY_SPLIT", "the flash", 180, False, ()),
+    ("PRIMARY_SPLIT", "the japa index", 10, False, ()),
+    ("PRIMARY_SPLIT", "the energy piece", 20, False, ()),
+    ("PRIMARY_SPLIT", "the pada unit", 40, False, ()),
+    ("PRIMARY_SPLIT", "the frequency", 2, True, ()),
+    ("PRIMARY_SPLIT", "malini", 1, True, (("gen",),)),
+    ("PRIMARY_SPLIT", "matrika", 0, None, ()),
+    ("DOUBLING_PARTS", "five doublings", 5, False, ()),
+    ("DOUBLING_PARTS", "2^5, the order of the 2-clock", 32, True, ()),
+    ("DOUBLING_PARTS", "four doublings", 4, True, ()),
+    ("DOUBLING_PARTS", "nine doublings", 9, True, ()),
+    ("DOUBLING_PARTS", "eighteen doublings", 18, True, ()),
+    ("DOUBLING_PARTS", "lcm(4, 18)", 36, True, ()),
+    ("AIR_801", "an entry", 108, True, ()),
+    ("AIR_801", "an entry", 801, True, ()),
+    ("AIR_801", "an entry", 106, True, ()),
+    ("AIR_801", "an entry", 901, True, ()),
+    ("AIR_801", "the determinant", 12402, True, (("res", 3762),)),
+    ("AIR_801", "its order in GL(2,5)", 24, True, ()),
+    ("AIR_801", "its projective order", 6, True, ()),
+    ("AIR_801", "the state count", 31, True, ()),
+    ("AIR_801", "the blind dimension", 6, True, ()),
+    ("AIR_801", "the visible dimension", 25, False, ()),
+    ("AIR_801", "the polynomial degree", 27, True, ()),
+    ("ATLAS_801", "the atlas step", 36, True, (("order", 120),)),
+    ("ATLAS_801", "the atlas order", 120, False, ()),
+    ("ATLAS_801", "thirty-six atlas steps", 36 * 36, True, ()),
+    ("ATLAS_801", "the determinant's address", 18, True, ()),
+    ("ATLAS_801", "the nakshatra's address", 16, True, ()),
+    ("ATLAS_801", "the 2-clock generator's address", 27, True, ()),
+    ("ATLAS_801", "six atlas steps", 216, True, (("steps", 4),)),
+    ("ATLAS_801", "twenty-four atlas steps", 24 * 36, True, (("res", 864),)),
+    ("ATLAS_801", "the visible count", 25, False, ()),
+    ("ATLAS_801", "the blind count", 6, True, ()),
+    ("GOLDEN_ATLAS", "the golden step, six atlas steps", 216, True, (("order", 20), ("in", 36))),
+    ("GOLDEN_ATLAS", "kali in golden steps", 2, True, ()),
+    ("GOLDEN_ATLAS", "dvapara in golden steps", 4, True, ()),
+    ("GOLDEN_ATLAS", "treta in golden steps", 6, True, ()),
+    ("GOLDEN_ATLAS", "satya in golden steps", 8, True, ()),
+    ("GOLDEN_ATLAS", "their sum", 20, False, ()),
+    ("GOLDEN_ATLAS", "twenty golden steps", 20 * 216, None, ()),
+    ("GOLDEN_ATLAS", "the integers 0..35 prime to 5", 28, True, ()),
+    ("GOLDEN_ATLAS", "the multiples of 5 among them", 8, True, ()),
+    ("GOLDEN_ATLAS", "the golden oscillation on the atlas", 24, True, ()),
+    ("ATLAS_CYCLE", "the kali count in atlas steps", 12, True, ()),
+    ("ATLAS_CYCLE", "the tick count in atlas steps", 24, True, ()),
+    ("ATLAS_CYCLE", "the golden-period count", 20, False, ()),
+    ("ATLAS_CYCLE", "on the 6-cycle", 4, True, ()),
+    ("ATLAS_CYCLE", "on the 6-cycle", 8, True, ()),
+    ("ATLAS_CYCLE", "on the 6-cycle", 16, True, ()),
+    ("ATLAS_CYCLE", "on the 6-cycle", 32, True, ()),
+    ("ATLAS_CYCLE", "on the 6-cycle", 28, True, ()),
+    ("CLOSURE_46", "the exterior dimension", 10, False, ()),
+    ("CLOSURE_46", "the rank", 6, True, ()),
+    ("CLOSURE_46", "the kernel", 4, True, ()),
+    ("CLOSURE_46", "the determinant of the change", 6, True, ()),
+    ("CLOSURE_46", "SL(2)", 3, True, ()),
+    ("CLOSURE_46", "the decomposable cone", 7, True, ()),
+    ("CLOSURE_46", "the four-cube numerator", 15, False, ()),
+    ("CLOSURE_46", "its denominator", 32, True, ()),
+    ("CLOSURE_46", "the root of the fraction", 72, True, ()),
+    ("CLOSURE_46", "its square", 5184, True, (("res", 864),)),
+    ("CLOSURE_46", "the denominator's root", 325, False, ()),
+    ("CLOSURE_46", "its square", 105625, False, ()),
+    ("CLOSURE_46", "the identity count", 1, True, ()),
+    ("CLOSURE_46", "the antisymmetric count", 120, False, ()),
+    ("CLOSURE_46", "the symmetric count", 135, False, ()),
+    ("CLOSURE_46", "frequency", 224, True, ()),
+    ("CLOSURE_46", "frequency", 256, True, ()),
+    ("CLOSURE_46", "the Coxeter order", 30, False, ()),
+    ("JOIN_CLOSURE", "1 + 120 + 135", 256, True, ()),
+    ("JOIN_CLOSURE", "256 - 224, the 2-clock order", 32, True, ()),
+    ("JOIN_CLOSURE", "the multiplicity", 1, True, ()),
+    ("JOIN_CLOSURE", "the multiplicity", 120, False, ()),
+    ("JOIN_CLOSURE", "the multiplicity", 135, False, ()),
+    ("JOIN_CLOSURE", "the exterior dimension", 10, False, ()),
+    ("JOIN_CLOSURE", "its split", 6, True, ()),
+    ("JOIN_CLOSURE", "its split", 4, True, ()),
+    ("JOIN_CLOSURE", "144 atlas laps, six ticks", 5184, True, (("res", 864),)),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -2250,8 +2345,8 @@ def batch7_arithmetic():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (82 notes, 18:32-21:38)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT)",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 705 readings from 82 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (90 notes, 18:32-22:08)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT), the 21:40-22:08 notes (primary split, doubling parts, 801, atlas, closure)",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 798 readings from 90 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
@@ -2307,14 +2402,16 @@ JOINS = [
 
 
 def ledger_page():
+    from . import dots                    # layer 23 imports this module, so its rows are read here
     lines = ["# The unified ledger", "",
-             "Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC) and of its evening "
-             "notes (18:32-19:21 UTC), what this repository proves about it, and where. Generated by "
+             "Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC), of its evening "
+             "notes (18:32-22:08 UTC) and of the canon rows that layer 23 joins, what this repository proves about it, "
+             "and where. Generated by "
              "`oes/counts.py` (`ledger_page()`); `tests/test_model.py` checks that this file is current.", "",
              "| join | the sibling's statement | unified statement | status | layer |",
              "|---|---|---|---|---|"]
     cell = lambda x: x.replace("|", "\\|")
-    for row in ledger.JOINS + JOINS:
+    for row in ledger.JOINS + JOINS + dots.LEDGER_ROWS:
         lines.append("| " + " | ".join(cell(x) for x in row) + " |")
     lines += ["", "AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.", ""]
     return "\n".join(lines)

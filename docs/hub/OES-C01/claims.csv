@@ -1,0 +1,7 @@
+claim_id,statement,classification,evidence
+OES-C01-1,"At f41b278, verify.py runs 21 layers and 412 checks: 383 hold (THEOREM 268, OBSTRUCTION 40, ARITHMETIC 31, CONDITIONAL 17, UNFORMED 17, SELECTED_REFERENCE 8, REMOVED 2) and 29 are REPORTED records; exit 0",REPLAY_PASS,logs/verify-f41b278.log
+OES-C01-2,"At f41b278, pytest passes 31 tests",REPLAY_PASS,logs/pytest-f41b278.log
+OES-C01-3,"At f41b278, the TypeScript audits end with residual 0",REPLAY_PASS,logs/ts-f41b278.log
+OES-C01-4,"The canon's reported status (21 layers, 412 checks, 383 hold, 29 reported, 31 tests) equals the replay at f41b278",REPLAY_PASS,logs/verify-f41b278.log; logs/pytest-f41b278.log
+OES-C01-5,"At a296575, verify.py runs 22 layers and 472 checks (429 hold, 43 REPORTED), pytest passes 42 tests and the TypeScript audits end with residual 0",REPLAY_PASS,logs/verify-a296575.log; logs/pytest-a296575.log; logs/ts-a296575.log
+OES-C01-6,"The 29 (and 43) REPORTED checks record other builds' statements; the replay confirms the records, not their content",SOURCE_REPORTED,HANDOVER.txt

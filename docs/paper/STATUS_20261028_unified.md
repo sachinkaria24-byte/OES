@@ -1,16 +1,16 @@
 # One Machine, the unified edition: 28 October 2026
 
-This puts the whole model in one text with one ledger: the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), and the sibling's evening notes with the canon's 19:10 continuation (layer 22). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
+This puts the whole model in one text with one ledger: the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), the sibling's evening notes with the canon's 19:10 continuation (layer 22), and one diagram that joins all the dots (layer 23). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
 
 AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 operands stay absent. No gate moves, and no term is added to the action.
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 22 layers and 472 checks. Of these, 429 hold: THEOREM 305, OBSTRUCTION 41, ARITHMETIC 38, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 43 are REPORTED records.
-- `pytest` runs 42 tests.
-- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 60 checks).
+- `python verify.py` runs 23 layers and 528 checks. Of these, 480 hold: THEOREM 351, OBSTRUCTION 42, ARITHMETIC 38, CONDITIONAL 17, UNFORMED 19, SELECTED_REFERENCE 11, REMOVED 2. The other 48 are REPORTED records.
+- `pytest` runs 49 tests.
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 56 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 33 dots and 47 checked joins as one diagram.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -27,9 +27,19 @@ New in this edition:
 - **Spin counts.** 240 = D8 (112) + one half-spin orbit (128). 135 = [W(E8) : W(D8)] is the band-top D8 family, and 256 = 1 + 120 + 135.
 - **Field.** The source q̈ + 4q = 0 is not a carrier mode, because 4 ∉ spec D² (OBSTRUCTION).
 
-New in layer 22 (the sibling's 83 notes of 18:32–21:38, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
+New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **Counts.** 705 more readings on the tick bit, from 82 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 33 dots and 47 joins (46 maps, one obstruction) form one connected diagram, and a test keeps `docs/DOTS.md` current.
+- **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
+- **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
+- **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
+- **The circle** splits as a 2-clock, a 27-clock and the time clock (3105 + 2080 + 3456 = 1), and the atlas is its quotient ℤ/36. The tick bit does not descend to the atlas.
+- **Corrections at 22:08.** An atlas address carries no tick bit; address 18 falls to the seam in one contraction; address 16 moves around the 6-cycle; 36 × 36 = 1296 meets the tick.
+- **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
+
+New in layer 22 (the sibling's 92 notes of 18:32–22:08, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
+
+- **Counts.** 798 more readings on the tick bit, from 90 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.

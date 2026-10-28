@@ -57,38 +57,39 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.49,
-  "2-spectral": 0.01,
-  "3-spacetime": 7.26,
-  "4-native": 41.34,
-  "5-observer": 0.44,
-  "6-gravity": 2.2,
-  "7-cosmology": 0.96,
-  "8-frontier": 27.87,
-  "9-joins": 6.69,
-  "10-literal": 17.17,
-  "11-glue": 0.1,
-  "12-binding": 0.03,
-  "13-gates": 0.14,
-  "14-recurrence": 35.04,
-  "15-court": 1.29,
-  "16-handover": 1.17,
-  "17-waves": 0.71,
-  "18-snapshot": 1.11,
-  "19-spine": 2.08,
-  "20-canon": 4.47,
-  "21-ledger": 23.02,
-  "22-counts": 14.11
+  "1-carrier": 0.43,
+  "2-spectral": 0.0,
+  "3-spacetime": 4.03,
+  "4-native": 31.11,
+  "5-observer": 0.15,
+  "6-gravity": 2.78,
+  "7-cosmology": 0.72,
+  "8-frontier": 21.91,
+  "9-joins": 4.55,
+  "10-literal": 13.05,
+  "11-glue": 0.08,
+  "12-binding": 0.02,
+  "13-gates": 0.08,
+  "14-recurrence": 30.73,
+  "15-court": 1.17,
+  "16-handover": 0.7,
+  "17-waves": 0.33,
+  "18-snapshot": 0.41,
+  "19-spine": 1.89,
+  "20-canon": 3.82,
+  "21-ledger": 19.17,
+  "22-counts": 11.52,
+  "23-dots": 2.64
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 305,
-   "total": 305
+   "passed": 351,
+   "total": 351
   },
   "OBSTRUCTION": {
-   "passed": 41,
-   "total": 41
+   "passed": 42,
+   "total": 42
   },
   "REMOVED": {
    "passed": 2,
@@ -99,20 +100,20 @@
    "total": 38
   },
   "SELECTED_REFERENCE": {
-   "passed": 8,
-   "total": 8
+   "passed": 11,
+   "total": 11
   },
   "UNFORMED": {
-   "passed": 18,
-   "total": 18
+   "passed": 19,
+   "total": 19
   },
   "CONDITIONAL": {
    "passed": 17,
    "total": 17
   },
   "REPORTED": {
-   "passed": 43,
-   "total": 43
+   "passed": 48,
+   "total": 48
   }
  },
  "checks": [
@@ -4641,13 +4642,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 705 readings from 82 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 798 readings from 90 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 82,
-    "claims": 705,
+    "notes": 90,
+    "claims": 798,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -5499,6 +5500,778 @@
   {
    "layer": "22-counts",
    "name": "not stored and not formed: Yukawa blocks, a hypercharge from the action, taste, smell and touch matrices, an icosahedral adjacency (the root graph has degree 56), a swastika, hexagram, yinyang or diamond intertwiner, a tesseract, a qubit",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> A4: the signed incidence: its columns are a positive system of A4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the ten columns of B (e_j - e_i, i < j) are a positive system of A4: with their negatives they are the 20 roots, and (0, 1, 2, 3, 4) is positive on each": true,
+    "B and M together list the twenty positive roots of D5 (+-e_i +- e_j)": true,
+    "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
+    "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
+    "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> D5: the two incidences: the twenty positive roots of D5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the ten columns of B (e_j - e_i, i < j) are a positive system of A4: with their negatives they are the 20 roots, and (0, 1, 2, 3, 4) is positive on each": true,
+    "B and M together list the twenty positive roots of D5 (+-e_i +- e_j)": true,
+    "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
+    "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
+    "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> D5: A4 is the sub-root-system e_i - e_j of D5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the ten columns of B (e_j - e_i, i < j) are a positive system of A4: with their negatives they are the 20 roots, and (0, 1, 2, 3, 4) is positive on each": true,
+    "B and M together list the twenty positive roots of D5 (+-e_i +- e_j)": true,
+    "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
+    "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
+    "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "D5 -> carrier: M M^T = h(D5) I - h(A4) P: spec D^2 = {0, h(D5) - h(A4), h(D5)} = {0, 3, 8}",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the ten columns of B (e_j - e_i, i < j) are a positive system of A4: with their negatives they are the 20 roots, and (0, 1, 2, 3, 4) is positive on each": true,
+    "B and M together list the twenty positive roots of D5 (+-e_i +- e_j)": true,
+    "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
+    "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
+    "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> K5 vertices: B is contraction with u = (1, 1, 1, 1, 1) on Lambda^2 R^5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B applied to the coordinates of a ^ b is the contraction (u.a) b - (u.b) a: B is contraction with u": true,
+    "the cycles ker B are Lambda^2 H (dimension 6) and the cuts, the image of B^T, are u ^ H (dimension 4), orthogonal to them": true,
+    "a vertex permutation acts on the oriented edges by its second compound, and commutes with B": true,
+    "the rotor plane is spanned by the invariant area forms of the rotation planes of the pentagon rotation (72 and 144 degrees) on H": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> zero modes: ker M is the space of relations among the roots e_i + e_j",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the ten columns of B (e_j - e_i, i < j) are a positive system of A4: with their negatives they are the 20 roots, and (0, 1, 2, 3, 4) is positive on each": true,
+    "B and M together list the twenty positive roots of D5 (+-e_i +- e_j)": true,
+    "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
+    "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
+    "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> Petersen: Petersen is the orthogonality graph of the roots e_i + e_j",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "M^T M is the Gram matrix of the roots e_i + e_j: 2 on the diagonal, 1 for edges that share a vertex, 0 for disjoint edges": true,
+    "the Petersen graph is their orthogonality graph, and that of the A4 roots in B: A = J + I - M^T M": true,
+    "the line graph is |<alpha_e, alpha_f>| = 1, and M^T M - 2I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Petersen -> carrier: the Petersen projectors are the carrier's edge projectors",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "M^T M - 2I is the line graph of K5 and the Petersen graph is its complement, so A = J + I - M^T M": true,
+    "A commutes with M^T M: A = 3 P8 + P0 - 2 P3 while M^T M = 8 P8 + 3 P3": true,
+    "A^2 + A - 2I = J (strongly regular 10, 3, 0, 1), so A^2 is not 5I": true,
+    "J/10, (4I + 2A - J)/6, (5I - 5A + J)/15 are idempotent, with least denominators 10, 6, 15 and traces 1, 5, 4": true,
+    "the denominators are the gap products 2 x 5, 2 x 3, 3 x 5 of the spectrum 3, 1, -2; only 6 avoids the spread 5": true,
+    "over 30 = 2 x 3 x 5 they add to I: 3J + 5(4I + 2A - J) + 2(5I - 5A + J) = 30I": true,
+    "on the K5 edges M^T M = J + I - A": true,
+    "so they are the carrier's edge projectors: J/10 on sector 8, (4I + 2A - J)/6 = I - M^T (M M^T)^-1 M on the five zero modes, (5I - 5A + J)/15 on sector 3": true,
+    "the shift ranks are 9, 5, 6": true,
+    "648 = det(M M^T) = det(3I + J) = 8 x 3^4, the carrier's vertex block": true,
+    "the Hodge 5 lives on the cycles: (5I - B^T B)/5 is idempotent of rank 6 and B kills it": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> cycles: ker B = Lambda^2 of the sum-zero hyperplane; cuts u ^ H",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B applied to the coordinates of a ^ b is the contraction (u.a) b - (u.b) a: B is contraction with u": true,
+    "the cycles ker B are Lambda^2 H (dimension 6) and the cuts, the image of B^T, are u ^ H (dimension 4), orthogonal to them": true,
+    "a vertex permutation acts on the oriented edges by its second compound, and commutes with B": true,
+    "the rotor plane is spanned by the invariant area forms of the rotation planes of the pentagon rotation (72 and 144 degrees) on H": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cycles -> rotor plane: the C5-fixed plane, spanned by the invariant area forms",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B applied to the coordinates of a ^ b is the contraction (u.a) b - (u.b) a: B is contraction with u": true,
+    "the cycles ker B are Lambda^2 H (dimension 6) and the cuts, the image of B^T, are u ^ H (dimension 4), orthogonal to them": true,
+    "a vertex permutation acts on the oriented edges by its second compound, and commutes with B": true,
+    "the rotor plane is spanned by the invariant area forms of the rotation planes of the pentagon rotation (72 and 144 degrees) on H": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "rotor plane -> E8: the rotor pair of near and far roots, turned by a Weyl doubling",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the rotation and the doubling of the vertices act on oriented edges compatibly with the boundary": true,
+    "the rotation fixes exactly a plane, and it lies in the cycle space": true,
+    "the plane is spanned by the oriented pentagon and pentagram, with Gram 5I": true,
+    "the doubling turns it a quarter: pentagon -> pentagram -> -pentagon, square -I": true,
+    "on the lattice the rotor pair has Gram 10I, and the coordinate doubling (a Weyl element) turns it a quarter": true,
+    "the source derivative is another operator: its companion squares to -4I, not -I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> datum: the datum's velocity is the alternating 4-cycle in ker M",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the datum's velocity is the alternating 4-cycle: +1, -1, +1, -1 around 0-1-2-3, vertex 4 silent, in ker M": true,
+    "|v0|^2 = 4, and the 1/2 is derived: the Legendre transform of the carrier Lagrangian, H = p v - L with p = dL/dv = v, is 1/2 |v|^2 + 1/2 psi D^2 psi; the zero-mode sector holds 2 of the conserved 34": 1.0,
+    "the involution 0 <-> 3, 1 <-> 2 fixes the cycle: it swaps the +1 edges 01 and 23 and fixes the -1 edges 12 and 03": true,
+    "the weights alternate with period 2, and a group map from Z/2 to the circle lands in {0, 2160}, which meets the tick only at 0; the rotor's tick and tock 864 and 1728 have order 5, so they are another pair": true,
+    "AC and DC: the cycle sums to 0 and its squares to 4 (mean 0, mean square 1); the constant port 1, 1, 1, 1 sums to 4 with mean 1 (AC_DC wrote mean 4); the second difference -1, 2, -1 sums to 0 and its squares 1, 4, 1 are not constant": true,
+    "q'' + 4q = 0 has 0 as its only constant solution; on the unit orbit q = cos 2t the conserved v^2 + 4q^2 is 4 at (1, 0) and (0, 2), the energy is 2, and energy = frequency because w^2 / 2 = w has the roots 0 and 2": true,
+    "W0_DEEP's spanda (reverse the first four of five bits) is the involution 0 <-> 3, 1 <-> 2 on subsets: 8 masks stay (the unions of {0, 3}, {1, 2}, {4}) and 24 move in 12 pairs, one of them 1 <-> 8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "datum -> carrier: H = 1/2 |v|^2 + 1/2 psi D^2 psi = 34, the zero modes holding 2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the datum's velocity is the alternating 4-cycle: +1, -1, +1, -1 around 0-1-2-3, vertex 4 silent, in ker M": true,
+    "|v0|^2 = 4, and the 1/2 is derived: the Legendre transform of the carrier Lagrangian, H = p v - L with p = dL/dv = v, is 1/2 |v|^2 + 1/2 psi D^2 psi; the zero-mode sector holds 2 of the conserved 34": 1.0,
+    "the involution 0 <-> 3, 1 <-> 2 fixes the cycle: it swaps the +1 edges 01 and 23 and fixes the -1 edges 12 and 03": true,
+    "the weights alternate with period 2, and a group map from Z/2 to the circle lands in {0, 2160}, which meets the tick only at 0; the rotor's tick and tock 864 and 1728 have order 5, so they are another pair": true,
+    "AC and DC: the cycle sums to 0 and its squares to 4 (mean 0, mean square 1); the constant port 1, 1, 1, 1 sums to 4 with mean 1 (AC_DC wrote mean 4); the second difference -1, 2, -1 sums to 0 and its squares 1, 4, 1 are not constant": true,
+    "q'' + 4q = 0 has 0 as its only constant solution; on the unit orbit q = cos 2t the conserved v^2 + 4q^2 is 4 at (1, 0) and (0, 2), the energy is 2, and energy = frequency because w^2 / 2 = w has the roots 0 and 2": true,
+    "W0_DEEP's spanda (reverse the first four of five bits) is the involution 0 <-> 3, 1 <-> 2 on subsets: 8 masks stay (the unions of {0, 3}, {1, 2}, {4}) and 24 move in 12 pairs, one of them 1 <-> 8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> source: the native source lives on ker M + ker M",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the source coordinates q = (a, b) live on ker M + ker M (an orthonormal basis of the five zero modes)": true,
+    "the port W_AS: Lambda^2 ker M -> cycles has rank 6 and kernel 4 (CLOSURE_46's split of the exterior square)": 1.0,
+    "W_AS(a ^ b) is the oriented K5 cycle [A(a), A(b)], in ker B": true,
+    "a change of pair by T scales the bivector by det T": true,
+    "the decomposable bivectors a ^ b form a cone of dimension 7 = 10 - 3 (the pair has 10 coordinates, SL(2) has 3)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> cycles: a ^ b -> [A(a), A(b)], an oriented K5 cycle (rank 6, kernel 4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the source coordinates q = (a, b) live on ker M + ker M (an orthonormal basis of the five zero modes)": true,
+    "the port W_AS: Lambda^2 ker M -> cycles has rank 6 and kernel 4 (CLOSURE_46's split of the exterior square)": 1.0,
+    "W_AS(a ^ b) is the oriented K5 cycle [A(a), A(b)], in ker B": true,
+    "a change of pair by T scales the bivector by det T": true,
+    "the decomposable bivectors a ^ b form a cone of dimension 7 = 10 - 3 (the pair has 10 coordinates, SL(2) has 3)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> carrier: 4 is not in spec D^2: the source is not a carrier mode",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "4 is not in spec D^2 = {0, 3, 8}": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> six-site port: the port metric and the boundary rotation of the native action",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the boundary rotation fixes x0 and has order 5, and the port metric W_p commutes with it": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> E8: the first five coordinates: A4 and D5 roots are E8 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the A4 and D5 roots, put in the first five coordinates, are E8 roots": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "D5 -> E8: the first five coordinates",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the A4 and D5 roots, put in the first five coordinates, are E8 roots": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> A4 + A4': index 5, root cosets 40, 50, 50, 50, 50, glue x -> +-2x",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "L0 = A4 + A4' has index 5 in E8 (Gram determinant 25 = 5^2)": true,
+    "the 240 roots fall into the five cosets of L0 as 40, 50, 50, 50, 50": true,
+    "the glue pairs the classes by x -> +-2x": true,
+    "the bath folded to E8 / L0 = Z/5 is 240 - sum n_c S_c, with spectrum 0 and 250 (four times)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 + A4' -> bath: the bath on E8 / L0 = Z/5: 0, 250^4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "L0 = A4 + A4' has index 5 in E8 (Gram determinant 25 = 5^2)": true,
+    "the 240 roots fall into the five cosets of L0 as 40, 50, 50, 50, 50": true,
+    "the glue pairs the classes by x -> +-2x": true,
+    "the bath folded to E8 / L0 = Z/5 is 240 - sum n_c S_c, with spectrum 0 and 250 (four times)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "W(E8) clocks -> tick momenta: the 25 fixed momenta of the tick g",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "|det(g - I)| = 25 fixed momenta of the tick, each fixed mod 2 pi Lambda": true,
+    "the bath is 0 at one of them and 250 at the other 24": true,
+    "five of them are the characters of E8 / L0, with the folded values 0, 250^4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "tick momenta -> bath: the bath is 0 once and 250 at the other 24",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "|det(g - I)| = 25 fixed momenta of the tick, each fixed mod 2 pi Lambda": true,
+    "the bath is 0 at one of them and 250 at the other 24": true,
+    "five of them are the characters of E8 / L0, with the folded values 0, 250^4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> bath: 240 - sum of the 240 root translations; frame 60 I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the alternating hexagon of layer 22 is the oriented triangle 0 -> 1 -> 2 -> 0 of K5, each A4 root of it with +1 and its reverse with -1": true,
+    "the triangle is a cycle of K5, so the port has charge 0 and dipole 0; it is odd": true,
+    "its Fourier transform is -8i sin(x/2) sin(y/2) sin(z/2), x + y + z = 0 for x = k . alpha, so its lowest moment is the cubic sum s (k.p)^3 = 6xyz": true,
+    "its moments are MOMENT_BIT's 1, 242, 58691, 14259954, 3470101592 (per unit norm)": true,
+    "the frame sum rho rho^T = 60 I gives eps(k) = 30 |k|^2 + O(|k|^4), and E[(xyz)^2] = 12 sigma^6 (Isserlis)": true,
+    "so <p, e^{-t Delta} p> / |p|^2 = t^-7 / (22394880000000 pi^4) (1 + O(1/t)): the canon's triangle-cycle heat, with exponent (8 + 2 x 3) / 2 = 7": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> half-periods: Lambda -> Lambda / 2 Lambda; 120 root classes",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 240 roots fall into 120 classes mod 2 Lambda, each {rho, -rho}": true,
+    "every character chi_x(v) = (-1)^(x.v) is 2 Lambda-periodic with Delta chi_x = eps(pi x) chi_x (checked at the origin and its 240 neighbours)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> Pauli algebra: the Walsh-Hadamard conjugate of the folded bath is L in the Pauli basis",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Delta on the 2 Lambda-periodic functions is a 256 x 256 integer matrix on the cosets of 2 Lambda (each root shifts a coset), with spectrum 0, 224, 256 on 1, 120, 135": true,
+    "the Walsh-Hadamard matrix (-1)^<x, v> squares to 256 I (det Cartan = 1) and conjugates it to diag eps(pi x), which is L in the Pauli basis: an operator identity, not a containment of three numbers": true,
+    "phi(x)^T = (-1)^(x.x/2) phi(x): the transpose sign is the E8 quadratic form mod 2, and the 120 antisymmetric products are the 120 root classes": true,
+    "no half-period mode is square-summable: |chi_x| = 1 at every lattice point, so over the ball of norm <= 4 its squared norm is the point count 1 + 240 + 2160 = 2401, and it grows with the ball": true,
+    "-L is a GKSL generator: sum over the 120 antisymmetric Paulis A of A X A^T = 8 tr(X) I - 8 X^T, so -L(X) = 2 sum_A (A X A^T - X), with L(I) = 0 and tr L(X) = 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Pauli algebra -> GKSL: -L(X) = 2 sum (A X A^T - X) over the 120 antisymmetric Paulis",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Delta on the 2 Lambda-periodic functions is a 256 x 256 integer matrix on the cosets of 2 Lambda (each root shifts a coset), with spectrum 0, 224, 256 on 1, 120, 135": true,
+    "the Walsh-Hadamard matrix (-1)^<x, v> squares to 256 I (det Cartan = 1) and conjugates it to diag eps(pi x), which is L in the Pauli basis: an operator identity, not a containment of three numbers": true,
+    "phi(x)^T = (-1)^(x.x/2) phi(x): the transpose sign is the E8 quadratic form mod 2, and the 120 antisymmetric products are the 120 root classes": true,
+    "no half-period mode is square-summable: |chi_x| = 1 at every lattice point, so over the ball of norm <= 4 its squared norm is the point count 1 + 240 + 2160 = 2401, and it grows with the ball": true,
+    "-L is a GKSL generator: sum over the 120 antisymmetric Paulis A of A X A^T = 8 tr(X) I - 8 X^T, so -L(X) = 2 sum_A (A X A^T - X), with L(I) = 0 and tr L(X) = 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cycles -> triangle port: the triangle 0-1-2 lifted to its A4 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the alternating hexagon of layer 22 is the oriented triangle 0 -> 1 -> 2 -> 0 of K5, each A4 root of it with +1 and its reverse with -1": true,
+    "the triangle is a cycle of K5, so the port has charge 0 and dipole 0; it is odd": true,
+    "its Fourier transform is -8i sin(x/2) sin(y/2) sin(z/2), x + y + z = 0 for x = k . alpha, so its lowest moment is the cubic sum s (k.p)^3 = 6xyz": true,
+    "its moments are MOMENT_BIT's 1, 242, 58691, 14259954, 3470101592 (per unit norm)": true,
+    "the frame sum rho rho^T = 60 I gives eps(k) = 30 |k|^2 + O(|k|^4), and E[(xyz)^2] = 12 sigma^6 (Isserlis)": true,
+    "so <p, e^{-t Delta} p> / |p|^2 = t^-7 / (22394880000000 pi^4) (1 + O(1/t)): the canon's triangle-cycle heat, with exponent (8 + 2 x 3) / 2 = 7": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "triangle port -> moments: MOMENT_BIT's moments; heat t^-7 / (22394880000000 pi^4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the alternating hexagon of layer 22 is the oriented triangle 0 -> 1 -> 2 -> 0 of K5, each A4 root of it with +1 and its reverse with -1": true,
+    "the triangle is a cycle of K5, so the port has charge 0 and dipole 0; it is odd": true,
+    "its Fourier transform is -8i sin(x/2) sin(y/2) sin(z/2), x + y + z = 0 for x = k . alpha, so its lowest moment is the cubic sum s (k.p)^3 = 6xyz": true,
+    "its moments are MOMENT_BIT's 1, 242, 58691, 14259954, 3470101592 (per unit norm)": true,
+    "the frame sum rho rho^T = 60 I gives eps(k) = 30 |k|^2 + O(|k|^4), and E[(xyz)^2] = 12 sigma^6 (Isserlis)": true,
+    "so <p, e^{-t Delta} p> / |p|^2 = t^-7 / (22394880000000 pi^4) (1 + O(1/t)): the canon's triangle-cycle heat, with exponent (8 + 2 x 3) / 2 = 7": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 vertices -> six-site port: the origin and the lifted vertices e_i + e_5: K5 coned off",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "all fifteen differences of the six sites are E8 roots (an A5 simplex)": true,
+    "the ten bonds between lifted vertices are the A4 roots e_i - e_j, the ten K5 edges": true,
+    "the five bonds to the origin are the spokes e_i + e_5": true,
+    "these are the sites of layer 22's six-site chain (241 I - J, 183 I + 52 J, 35366 I + 8134 J)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "six-site port -> moments: 241 I - J, 183 I + 52 J, 35366 I + 8134 J",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "all fifteen differences of the six sites are E8 roots (an A5 simplex)": true,
+    "the ten bonds between lifted vertices are the A4 roots e_i - e_j, the ten K5 edges": true,
+    "the five bonds to the origin are the spokes e_i + e_5": true,
+    "these are the sites of layer 22's six-site chain (241 I - J, 183 I + 52 J, 35366 I + 8134 J)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 vertices -> W(E8) clocks: r acts on the carrier's coordinates as the vertex rotation; g = r r' on A4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "r acts on the carrier's five coordinates as the vertex rotation i -> i + 1 and fixes the other three": true,
+    "the tick g = c'^6 = r r' agrees with r on the carrier's A4 (the sum-zero part)": true,
+    "k 144 -> c'^k is an isomorphism <144> -> <c'> of order 30, and it sends the tick 864 to g": true,
+    "the time coordinate kappa(x) = 4x mod 5 sends the tick to 1: the same rotation of the vertices": true,
+    "the day-Coxeter group acts on its five day clocks as AGL(1,5): the tick rotates, the day doubles": true,
+    "all twenty affine maps i -> a i + b of the vertices commute with D^2 on the 15 atoms": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> W(E8) clocks: the Coxeter subgroup <144> onto <c'>, 864 -> g",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "r acts on the carrier's five coordinates as the vertex rotation i -> i + 1 and fixes the other three": true,
+    "the tick g = c'^6 = r r' agrees with r on the carrier's A4 (the sum-zero part)": true,
+    "k 144 -> c'^k is an isomorphism <144> -> <c'> of order 30, and it sends the tick 864 to g": true,
+    "the time coordinate kappa(x) = 4x mod 5 sends the tick to 1: the same rotation of the vertices": true,
+    "the day-Coxeter group acts on its five day clocks as AGL(1,5): the tick rotates, the day doubles": true,
+    "all twenty affine maps i -> a i + b of the vertices commute with D^2 on the 15 atoms": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> time clock: the time part of the primary split",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "3105 + 2080 + 3456 = 1, each idempotent, pairwise products 0": true,
+    "every residue is the sum of its three parts": true,
+    "the pure clocks are <135> (order 32), <160> (order 27, the nakshatra) and <864> (order 5)": true,
+    "the observer clock <1080> is the order-4 subgroup of the 2-clock; the sun 1440 is pure 27-part; 1728 is pure time": true,
+    "the tithi is 2160 + 1440 + 864 and the mass step is 1080 + 3456": true,
+    "doubling: nilpotent on the 2-part (the generator dies at the fifth doubling), order 4 on the time clock, order 18 on the 27-clock (the ninth doubling is -1); after 36 = lcm(4, 18) the odd parts return": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> observer clock: the 2-part; the observer clock is its order-4 subgroup",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "3105 + 2080 + 3456 = 1, each idempotent, pairwise products 0": true,
+    "every residue is the sum of its three parts": true,
+    "the pure clocks are <135> (order 32), <160> (order 27, the nakshatra) and <864> (order 5)": true,
+    "the observer clock <1080> is the order-4 subgroup of the 2-clock; the sun 1440 is pure 27-part; 1728 is pure time": true,
+    "the tithi is 2160 + 1440 + 864 and the mass step is 1080 + 3456": true,
+    "doubling: nilpotent on the 2-part (the generator dies at the fifth doubling), order 4 on the time clock, order 18 on the 27-clock (the ninth doubling is -1); after 36 = lcm(4, 18) the odd parts return": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> 27-clock: the 27-part, generated by the nakshatra 160",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "3105 + 2080 + 3456 = 1, each idempotent, pairwise products 0": true,
+    "every residue is the sum of its three parts": true,
+    "the pure clocks are <135> (order 32), <160> (order 27, the nakshatra) and <864> (order 5)": true,
+    "the observer clock <1080> is the order-4 subgroup of the 2-clock; the sun 1440 is pure 27-part; 1728 is pure time": true,
+    "the tithi is 2160 + 1440 + 864 and the mass step is 1080 + 3456": true,
+    "doubling: nilpotent on the 2-part (the generator dies at the fifth doubling), order 4 on the time clock, order 18 on the 27-clock (the ninth doubling is -1); after 36 = lcm(4, 18) the odd parts return": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> K5 vertices: translation by 864 intertwined with the vertex rotor",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "4320 = 32 x 27 x 5 and x -> (x mod 32, x mod 27, x mod 5) is a bijection; a nonzero x meets the tick exactly when x mod 5 != 0": true,
+    "the time clock <864> is the residues with first two coordinates 0; 0, 864, 1728, 2592, 3456 have time coordinates 0, 4, 3, 2, 1 (CRT_CLOCK wrote 0, 4, 3, 1, 2)": true,
+    "the observer clock <1080> is 0, 1080, 2160, 3240 = (0, 0, 0), (24, 0, 0), (16, 0, 0), (8, 0, 0); doubling sends the half-turn (16, 0, 0) to 0, and its kernel is {0, 2160}": true,
+    "7 = (7, 7, 2) and 2 = (2, 2, 2): 7x = 2x exactly when 864 | x; x16 fixes every tick and x4 does not; on the observer clock x7 = x3, not x2": true,
+    "the yuga blocks 1728, 1296, 864, 432 have time coordinates 3, 1, 4, 2 and add up to the circle": true,
+    "216 = (24, 0, 1), 72 = (8, 18, 2), 30 = (30, 3, 0), 180 = (20, 18, 0)": true,
+    "the two clocks meet only in 0 (lcm(864, 1080) = 4320) and together generate <216> of order 20, not the circle (TORSION_JOIN): gcd(864, 1080) = 216": true,
+    "k x 216 is on the time clock iff 4 | k and on the observer clock iff 5 | k; 216 is on neither": true,
+    "x15 maps the circle onto <15> (288 points) and lands on the observer clock exactly on the multiples of the grain 72; 15 x 12 = 180, 15 x 8 = 120 and 15 x 16 = 240 land off it (TORSION_JOIN's 'only on the torsion of order dividing 4' holds for multiples of 72)": true,
+    "an address 40 p is on the observer clock exactly when 27 | p and on a nonzero tick never: the nine chart padas avoid both, but pada 27 gives 1080, so the factor 40 keeps addresses off the ticks, not off the observer clock": true,
+    "the misses, with 0, are the subgroup <5> of order 864: sums of misses miss, sums of meets need not meet (6 + 9 = 15)": true,
+    "two steps agree on a meeting step iff both meet (SIX_AGREE), for every pair of subgroups": true,
+    "an intertwiner exists (MATRIKA_WALK): with the time coordinate k(x) = 4x mod 5, Phi(v)(x) = v_k(x) carries the vertex rotor to translation by 864, injectively; two read-outs do the same for the rotor on the ten edges, so on the six cycles": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "W(E8) clocks -> day-Coxeter group: the day-Coxeter group, order 120, derived group the tick",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "r acts on the carrier's five coordinates as the vertex rotation i -> i + 1 and fixes the other three": true,
+    "the tick g = c'^6 = r r' agrees with r on the carrier's A4 (the sum-zero part)": true,
+    "k 144 -> c'^k is an isomorphism <144> -> <c'> of order 30, and it sends the tick 864 to g": true,
+    "the time coordinate kappa(x) = 4x mod 5 sends the tick to 1: the same rotation of the vertices": true,
+    "the day-Coxeter group acts on its five day clocks as AGL(1,5): the tick rotates, the day doubles": true,
+    "all twenty affine maps i -> a i + b of the vertices commute with D^2 on the 15 atoms": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "day-Coxeter group -> circle: every homomorphism to the circle kills the commutator",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "normal form c'^i d^j (i < 30, j < 4)": true,
+    "the clock has exactly 24 homomorphisms to the circle": true,
+    "every one kills the commutator c'^6 = [d, c']": true,
+    "every one sends c' into <720>, the shared order-6 subgroup": true,
+    "the cyclic embeddings c'^k -> 144 u k (u a unit mod 30) send c'^6 to a nonzero tick, 864 for u = 1": true,
+    "none of them extends to the clock": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "day-Coxeter group -> AGL(1,5): G / centre on the five day clocks: the tick rotates, the day doubles",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "r acts on the carrier's five coordinates as the vertex rotation i -> i + 1 and fixes the other three": true,
+    "the tick g = c'^6 = r r' agrees with r on the carrier's A4 (the sum-zero part)": true,
+    "k 144 -> c'^k is an isomorphism <144> -> <c'> of order 30, and it sends the tick 864 to g": true,
+    "the time coordinate kappa(x) = 4x mod 5 sends the tick to 1: the same rotation of the vertices": true,
+    "the day-Coxeter group acts on its five day clocks as AGL(1,5): the tick rotates, the day doubles": true,
+    "all twenty affine maps i -> a i + b of the vertices commute with D^2 on the 15 atoms": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> carrier: the twenty affine maps of the vertices commute with D^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "r acts on the carrier's five coordinates as the vertex rotation i -> i + 1 and fixes the other three": true,
+    "the tick g = c'^6 = r r' agrees with r on the carrier's A4 (the sum-zero part)": true,
+    "k 144 -> c'^k is an isomorphism <144> -> <c'> of order 30, and it sends the tick 864 to g": true,
+    "the time coordinate kappa(x) = 4x mod 5 sends the tick to 1: the same rotation of the vertices": true,
+    "the day-Coxeter group acts on its five day clocks as AGL(1,5): the tick rotates, the day doubles": true,
+    "all twenty affine maps i -> a i + b of the vertices commute with D^2 on the 15 atoms": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> atlas: onto Z/36 with kernel the seam <36>; doubling contracts it",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "x -> x mod 36 is a homomorphism of the circle onto Z/36 with kernel the seam <36> (order 120)": true,
+    "the tick, the yuga blocks, the golden step, the sun, the observer point and the half-turn are on the seam": true,
+    "the addresses of 901, 801, 106, 108, 12402, 160, 135, 256, 224, 120, 325, 105625 are 1, 9, 34, 0, 18, 16, 27, 4, 8, 12, 1, 1, and 5184 = 144 x 36": true,
+    "doubling contracts the atlas 36 -> 18 -> 9 -> 9: the multiples of 4, a seam, a 2-cycle {12, 24} and a 6-cycle 4 -> 8 -> 16 -> 32 -> 28 -> 20": true,
+    "address 18 reaches the seam in one contraction, 9 and 27 in two; 1 enters the cycle at 4 and 34 at 32": true,
+    "the tick bit does not descend to the atlas: every address holds 96 residues that meet and 24 that miss": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> circle: order 20 mod 5, the order of the golden step; 720 mod 4320",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "B has order 20 mod 5 (the order of the golden step 216), 24 mod 36, 48 mod 32, 72 mod 27 and 720 mod 4320": true,
+    "reduction mod 36 sends B (order 720) to B (order 24), and 24 atlas steps are one tick": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> atlas: order 24, the tick in atlas steps",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B has order 20 mod 5 (the order of the golden step 216), 24 mod 36, 48 mod 32, 72 mod 27 and 720 mod 4320": true,
+    "reduction mod 36 sends B (order 720) to B (order 24), and 24 atlas steps are one tick": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "stages -> circle: the fifteen indices as steps, with first landings",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "every reading holds and the stages land as stored": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "four-cube -> Pauli algebra: the four-cube's vertices are four qubits",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the four-cube complex has 16, 32, 24, 8, 1 cells (81 in all) and d^2 = 0": true,
+    "its Hodge Laplacian has spectrum 0, 2^8, 4^24, 6^32, 8^16 (layer 21's count, now on the complex)": true,
+    "the Hodge homotopy h = d^T Delta^+ has dh + hd = I - P0, h^2 = 0, rank 40 and norm 1/sqrt 2 (the canon's h81)": 1.0,
+    "its 16 vertices are the basis states of four qubits: the graph Laplacian is 4 - sum X_i, in the Pauli algebra": true,
+    "adjacent vertices have effective resistance 15/32, between |b|^2 / 8 = 1/4 and |b|^2 / 2 = 1 (CLOSURE_46)": "True"
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "W(E8) clocks -> Hodge 70: reflections swap the 35 + 35 halves, the clocks keep them",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Hodge star on Lambda^4 R^8 is an involution with 35 + 35 eigenvalues +1 and -1": true,
+    "a Weyl reflection anticommutes with it and swaps the halves": true,
+    "the Coxeter clock, the carrier rotation, the tick, the day and the golden clock have determinant 1 and keep the halves": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 33 dots and 47 joins form one connected diagram (the obstruction left out)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "A4",
+     "AGL",
+     "D5",
+     "E",
+     "E8",
+     "G120",
+     "L0",
+     "V",
+     "atlas",
+     "bath",
+     "c27",
+     "carrier",
+     "circle",
+     "clocks",
+     "cube",
+     "cycles",
+     "datum",
+     "gksl",
+     "golden",
+     "halfper",
+     "hodge",
+     "kerM",
+     "momenta",
+     "moments",
+     "observer",
+     "pauli",
+     "petersen",
+     "rotor",
+     "sixsite",
+     "source",
+     "stages",
+     "time",
+     "triangle"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AIR_801's matrix [[108, 801], [106, 901]]: det 12402; mod 5 a Singer cycle of order 24 in GL(2,5) and 6 in PGL(2,5); the clock polynomial has degree 27 and a simple root at 1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "det = 12402; mod 5 it is [[3, 1], [1, 1]] with determinant 2": true,
+    "its order in GL(2,5) is 24 and in PGL(2,5) 6 (its characteristic polynomial is irreducible mod 5: a Singer cycle)": true,
+    "(t^3 - 1)(1 + t^6 + ... + t^24) has degree 27 and a simple root at 1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 22:08 notes: the primary split, the doubling parts, the 801 matrix, the atlas, the bivector and the joined ledger as arithmetic, and four corrections (an address does not carry the tick bit; address 18 falls in one contraction; address 16 cycles; 36 atlas steps meet)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "PRIMARY_SPLIT and DOUBLING_PARTS: 3105 + 2080 + 3456 = 8641 = 2 x 4320 + 1; 2160 + 1440 + 864 = 4464 = 4320 + 144; 1080 + 3456 = 4536 = 4320 + 216; 4 x 3456 = 13824 = 3 x 4320 + 864; 2^5 = 32; 2^9 = 512 = 19 x 27 - 1": true,
+    "AIR_801 and ATLAS_801: 108 x 901 - 801 x 106 = 12402 = 344 x 36 + 18; 901 = 25 x 36 + 1; 801 = 22 x 36 + 9; 4 x 6 + 2 x 3 + 1 = 31; 6 x 36 = 216; 24 x 36 = 864; 5 + 7 + 4 + 5 + 5 + 5 + 5 = 36": true,
+    "GOLDEN_ATLAS and ATLAS_CYCLE: 216 = 6 x 36; 2 + 4 + 6 + 8 = 20; 20 x 216 = 4320; 432 = 12 x 36; of 0..35, 28 integers are prime to 5 and 8 are multiples": true,
+    "CLOSURE_46 and JOIN_CLOSURE: C(5, 2) = 10 = 6 + 4 = 7 + 3; 72^2 = 5184, 325^2 = 105625; 1 + 120 + 135 = 256; 256 - 224 = 32; 5184 = 6 x 864": true,
+    "GOLDEN_ATLAS, ATLAS_801 and ATLAS_CYCLE corrected: an address does not meet or miss the tick (1 and 145 share address 1, and 1 meets while 145 misses); the 28 and 8 count the integers 0..35": true,
+    "GOLDEN_ATLAS and ATLAS_CYCLE corrected: address 18 reaches the seam in one contraction, not two": true,
+    "GOLDEN_ATLAS corrected: address 16 does move under contraction (16 -> 32 -> 28 -> 20 -> 4 -> 8 -> 16); it stays among the nine": true,
+    "ATLAS_801 corrected: 36 atlas steps, 36 x 36 = 1296, meet the tick; the count that misses is the atlas order 120": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 22:08: the sibling's notes PRIMARY_SPLIT, DOUBLING_PARTS, AIR_801, ATLAS_801, GOLDEN_ATLAS, ATLAS_CYCLE, CLOSURE_46, JOINED_RECEIPT and JOIN_CLOSURE (21:40-22:08) and its paper one-machine-20261028-unify (21:43, seventeen checks); the separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04); the canon's coordination release OES_COORD_20261029 (one new sheet in each workbook, every prior cell kept, no gate changed) and the collaboration hub with its open tasks",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: separate model's joined model (22:02): 158 check groups, 12 review groups, 80 matrices, 63 typed relationships; sha256 b0c17731...",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: canon SMEAR (184 / 481): a rank-6 port T and a rank-4 projector P with minor -512 alpha^4 / 25; the operands are not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: source-to-cube bridge: rank 10 with an exact left decoder (canon); not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: AIR_801's 31 points: the orbit list 6 + 6 + 6 + 6 + 3 + 3 + 1 needs a permutation of 31 points; none is stored",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: air: no air operator is stored, and none is formed",
    "status": "UNFORMED",
    "passed": true,
    "value": null,

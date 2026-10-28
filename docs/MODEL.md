@@ -345,7 +345,7 @@ The canon's own state machine (S364 master lock) separates four kinds of transit
 
 > a new theorem head changes what is **known**; an authenticated root changes what can be **executed**; a binary receipt changes what can be **compared**; an independent warrant changes what can be **promoted**.
 
-So "doing the maths to get to the gates" means two things: drive every gate to the edge of its own transition type, and prove exactly what input closes the rest. Layers 10–22 do this.
+So "doing the maths to get to the gates" means two things: drive every gate to the edge of its own transition type, and prove exactly what input closes the rest. Layers 10–23 do this.
 
 ## 10. Operands recovered or formed
 
@@ -758,7 +758,7 @@ At 19:21 UTC Drive was checked again. Two sources were new:
 
 Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the rows of layer 21.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 705 such readings from 82 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25, 14 from 20:33, 74 from 21:05 and 219 from 21:36. Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 798 such readings from 90 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25, 14 from 20:33, 74 from 21:05, 219 from 21:36 and 93 from 22:08 (§24). Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
 
 - Twelve of the fifteen stages (Mālinī 1 … Pratyabhijñā 14) meet the tick, and 0, 5 and 10 do not. Their landings match SANSKRIT_DEEP and EVERY_WORD.
 - Buddhi (2) and Pratyabhijñā (14) generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -926,10 +926,91 @@ Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the 
   - Every character has |χ| = 1 at every lattice point, so no half-period mode is in ℓ². Over the ball of norm ≤ 4 its squared norm is the point count 1 + 240 + 2160 = 2401.
 - **GKSL (THEOREM).** The separate model reports a GKSL realization of −L by the 120 antisymmetric Paulis. It is replayed: Σ_A A X Aᵀ = 8 tr(X) I − 8 Xᵀ, so −L(X) = 2 Σ_A (A X Aᵀ − X), with L(I) = 0 and tr L(X) = 0. The semigroup parameter is not a bound time (TIME_BIND stays UNBOUND). The app audit `pauliBath.ts` gains this row and the transpose-sign row.
 - **The day's twist (THEOREM).** SIBLING_CUT says the conjugation that makes 7 the day's twist "was not replayed as a matrix". It is a matrix check: d c′ d⁻¹ = c′⁷ holds on the integer matrices of `data/clocks.json`, rechecked from the file alone (layer 21), and in the app audits `coxeterSpine.ts` and `ledgerJoins.ts`.
-- **Arithmetic (ARITHMETIC).** The six-site split 183P_c + 495P_u, the AC/DC sums, the calendar units (pada 40, tithi 144, nakshatra 160, sun 1440, moon step 120), the yuga blocks 1728, 1296, 864 and 432 and their sixths, the fifteen-fold landings, the six ways and their agreements, the frame and the moment. CHARTS_YUGA's address tower 69120 → 17280 → 4320 has two steps of 4; it wrote 16 and 4. In all, 705 readings from 82 notes hold.
+- **Arithmetic (ARITHMETIC).** The six-site split 183P_c + 495P_u, the AC/DC sums, the calendar units (pada 40, tithi 144, nakshatra 160, sun 1440, moon step 120), the yuga blocks 1728, 1296, 864 and 432 and their sixths, the fifteen-fold landings, the six ways and their agreements, the frame and the moment. CHARTS_YUGA's address tower 69120 → 17280 → 4320 has two steps of 4; it wrote 16 and 4. At that check, 705 readings from 82 notes held.
 - **Recorded, not rerun (REPORTED).** The separate model's 33,083 validation instances in 23 receipts, its fresh build of 720 exact outputs from 80 Python files and 2,385 inputs, and its archive (37,017,392 bytes, 3,379 payloads, SHA-256 b5199a90…). The archive was not downloaded, and nothing from it was executed. Not replayed: TICK_TOCK's stored return signs (0, +1, −1, +2), SPANDA_ALL's stored signed reversal and its 131, CHARTS_YUGA's Human Design gates, and the orientation identity K³ = −3K (no K is stored here). The chart padas are used only as reported integers.
 
-## 24. What stays open
+## 24. All dots joined (`oes/dots.py`)
+
+At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagram.
+
+- **A dot** is an object the model builds: a space with its operator, a lattice, a group, a circle or a port.
+- **A join** is a map between two dots. It is built and checked against the property that makes it that kind of map: an intertwiner, a homomorphism, an embedding or an isometry.
+- **An obstruction** is a proof that a claimed map does not exist.
+- **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
+
+The diagram has 33 dots and 47 joins: 46 maps and one obstruction. It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstruction and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without the source's two joins, the source is cut off.
+
+**New joins (THEOREM).**
+
+- **The K5 incidences are root systems.**
+  - The columns of the signed incidence B are a positive system of A4 (e_j − e_i, i < j). Together with the signless M, they list the twenty positive roots of D5.
+  - B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are the Coxeter identities Σ α αᵀ = h P, with h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8.
+  - So M Mᵀ = h(D5) I − h(A4) P = 3I + J, and the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}.
+  - The five zero modes are the linear relations among the ten roots e_i + e_j.
+- **Petersen.** MᵀM is the Gram matrix of the roots e_i + e_j. The Petersen graph is their orthogonality graph, and also that of the A4 roots in B. The line graph is |⟨α_e, α_f⟩| = 1.
+- **The edges are Λ²ℝ⁵.**
+  - B is contraction with u = (1, 1, 1, 1, 1).
+  - The cycles are Λ²H for the sum-zero hyperplane H (dimension 6), and the cuts are u ∧ H (dimension 4).
+  - A vertex permutation acts on the oriented edges by its second compound.
+  - The rotor plane is spanned by the invariant area forms of the two rotation planes (72° and 144°) of the pentagon rotation on H.
+- **The source and its port.**
+  - The native source q = (a, b) lives on ker M ⊕ ker M.
+  - Its port W_AS takes a ∧ b to the oriented K5 cycle [A(a), A(b)], with rank 6 and kernel 4. This is CLOSURE_46's split of the exterior square.
+  - A change of pair scales the bivector by its determinant, and the decomposable bivectors form a cone of dimension 7 = 10 − 3.
+  - The source is not a carrier mode, because 4 ∉ spec D². That join is the obstruction.
+- **The triangle port.** The alternating hexagon of MOMENT_BIT, which the canon calls its selected six-port, is the oriented triangle 0 → 1 → 2 → 0 of K5 lifted to its A4 roots: +1 on each oriented edge and −1 on its reverse.
+  - The triangle is a cycle, so the port has charge 0 and dipole 0.
+  - Its Fourier transform is −8i sin(x/2) sin(y/2) sin(z/2) with x + y + z = 0. So it vanishes to third order, with cubic moment 6xyz.
+  - With the frame Σ ρρᵀ = 60I the band is ε = 30|k|² + O(|k|⁴), and the Isserlis sum gives E[(xyz)²] = 12σ⁶.
+  - So ⟨p, e^{−tΔ}p⟩/|p|² = t⁻⁷/(22394880000000 π⁴) · (1 + O(1/t)). This derives, from K5, the canon's "selected triangle-cycle heat decays as t⁻⁷ with scalar coefficient 1/(22394880000000 π⁴)".
+- **The six-site port is K5 coned off.** Its six sites are the origin and the lifted vertices e_i + e_5. Its fifteen bonds are the ten K5 edges (A4 roots) and five spokes e_i + e_5.
+- **A4 + A4′ and the tick's momenta.**
+  - L0 = A4 ⊕ A4′ has index 5 in E8, and the 240 roots fall into its cosets as 40, 50, 50, 50, 50.
+  - The bath folded to E8/L0 = ℤ/5 has spectrum 0, 250⁴. This is the canon's L0 row.
+  - The tick g = r r′ has 25 fixed momenta. The bath is 0 at one of them and 250 at the other 24, and the five characters of E8/L0 are among them.
+- **One tick.**
+  - r acts on the carrier's five coordinates as the vertex rotation i ↦ i + 1, and g = c′⁶ = r r′ agrees with it on A4.
+  - k·144 ↦ c′^k maps the Coxeter subgroup ⟨144⟩ onto ⟨c′⟩ and sends 864 to g (SELECTED_REFERENCE). The time coordinate 4x mod 5 sends 864 to the same rotation.
+  - The day–Coxeter group acts on its day clocks as AGL(1,5), and all twenty affine maps of the vertices commute with D².
+- **The primary split.** 3105 + 2080 + 3456 = 1 splits the circle into three clocks:
+  - a 2-clock ⟨135⟩ of order 32, which holds the observer clock;
+  - a 27-clock ⟨160⟩, the nakshatra;
+  - the time clock ⟨864⟩.
+
+  Doubling kills the 2-part (its generator at the fifth doubling), has order 4 on the time clock and 18 on the 27-clock. After 36 doublings the odd parts return.
+- **The atlas.** The address x mod 36 maps the circle onto ℤ/36 with kernel the seam ⟨36⟩. Doubling contracts it 36 → 18 → 9 onto a seam, a 2-cycle {12, 24} and a 6-cycle 4 → 8 → 16 → 32 → 28 → 20. The golden companion has order 20 mod 5, 24 mod 36 and 720 mod 4320.
+- **The four-cube.** The canon's h81 is the 81-cell complex of the four-cube, with 16, 32, 24, 8 and 1 cells.
+  - Its Hodge spectrum is 0, 2⁸, 4²⁴, 6³², 8¹⁶.
+  - The Hodge homotopy h = dᵀΔ⁺ has dh + hd = I − P0, h² = 0, rank 40 and norm 1/√2.
+  - Its vertices are the basis states of four qubits, so its graph Laplacian 4 − Σ X_i lies in the Pauli algebra.
+  - Adjacent vertices have effective resistance 15/32 (CLOSURE_46).
+- **Hodge 70.** Λ⁴ℝ⁸ splits 35 + 35 under the Hodge star. A Weyl reflection swaps the halves, and the clocks, of determinant 1, keep them.
+- The joins of layers 1–22 are reused as they stand: the Petersen projectors, the rotor plane, the datum, the Pauli quotient with its GKSL form, the two clocks, the circle maps and the readings.
+
+**The 22:08 notes.** Between 21:40 and 22:08 the sibling posted eight notes, a receipt (JOINED_RECEIPT) and a paper (one-machine-20261028-unify, seventeen checks). The notes are PRIMARY_SPLIT, DOUBLING_PARTS, AIR_801, ATLAS_801, GOLDEN_ATLAS, ATLAS_CYCLE, CLOSURE_46 and JOIN_CLOSURE.
+- Their 93 readings are in §23's table, which now holds 798 readings from 90 notes. All hold.
+- AIR_801's matrix [[108, 801], [106, 901]] has determinant 12402. Mod 5 it is a Singer cycle, of order 24 in GL(2,5) and 6 in PGL(2,5), as the note says.
+
+Four statements are corrected:
+- **An atlas address does not meet or miss the tick.** 1 and 145 share address 1, and 1 meets while 145 misses. Every address holds 96 residues that meet and 24 that miss. The "28 and 8" of GOLDEN_ATLAS, ATLAS_801 and ATLAS_CYCLE count the integers 0–35.
+- **Address 18 reaches the seam in one contraction, not two** (GOLDEN_ATLAS, ATLAS_CYCLE).
+- **Address 16 does move under contraction**, around the 6-cycle. It stays among the nine (GOLDEN_ATLAS).
+- **Thirty-six atlas steps, 36 × 36 = 1296, meet the tick.** The count that misses is the atlas order 120 (ATLAS_801).
+
+**The hub's replay task.** The canon's coordination hub (21:46) suggests task OES-C01 for Claude: replay the reported 21-layer, 412-check branch at a pinned commit.
+- At commit f41b278 (19:07 UTC), `python verify.py` gives 412 checks in 147 s, and every check passes: THEOREM 268, OBSTRUCTION 40, ARITHMETIC 31, CONDITIONAL 17, UNFORMED 17, SELECTED_REFERENCE 8 and REMOVED 2 (383 hold), plus 29 REPORTED records.
+- `pytest` passes 31 tests, and the TypeScript audits end with residual 0.
+- This is what the canon's status sheet reports, with no discrepancy.
+- At a296575 (22:06 UTC) the same replay gives 472 checks and 42 tests.
+
+The logs and a handover are in [`docs/hub/OES-C01/`](hub/OES-C01/). They have not been filed to the hub's Drive inbox.
+
+**Recorded (REPORTED).**
+- The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
+- The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
+- Not joined: the canon's SMEAR operands, the source-to-cube bridge and AIR_801's 31-point orbit list (no operand is stored for any of them), and an air operator (UNFORMED).
+
+## 25. What stays open
 
 **Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
 - the six SCR6 operands;
@@ -984,6 +1065,7 @@ Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the 
 - the sibling's notes CLOSURE_234, JOIN_234, MORE_DOTS, NORMALIZE, ORBIT, UPGRADE_JOIN, CRT_JOIN, IDEMPOTENTS, PRIMARY_SPLIT and CURRENT, with `one-machine-20261028-current.pdf` (15SXt3dvbOQ9z-yu04PnGgVPU3N9S21lY, 16:18), and the separate model `finite-spectral-model-major-upgrade-20261028.pdf` (1gEEaontXS0I9HWCwBsQdJExCSVlJ_xcg, SHA-256 0869e6af…, 16:07): §21
 - the sibling's notes SPINE_CORRECTIONS (1JTVWtTwwzFsqFlwRLwVwcIgc0OiWn546), COXETER_POWERS (1wLHRLvSwKiXUjH5UwAGmea8JUdCeCoSS), ATLAS_FACTOR (1yVpWxmIdWSwIuK3MKuveMH-rJZU6Vrxd) and SUN_MOON (1mXN3YvX5Cr4elHVM9d_ipfewBx6n4dat), 16:31–16:43, with `one-machine-20261028-sun.pdf` (1gRY4ja60_mGdpnhZHzIbxvxgcL0Yu4hv, 16:43), and the 16:47 consolidation `CURRENT_20261028_2046.md` (16X9fB1FEUbUpiYCSOCllctIAIWx8OZmg) with `one-machine-20261028-2046.pdf` (1WOGfKAyTKKtD8UOi4ge96L23Zw0NEXti), whose text equals the 16:43 paper: the re-read of §21
 - the sibling's full edition `one-machine-20261028-full.typ` (15m9a4MohMky-q6leb23CJLstmkqrWrQy) and `.pdf` (107U4SIduxAJHPvFK7cuLjpNWU3tuf6Ph), `FULL_UPDATE_20261028.md` (1v-uVlvf5jPAJeesXz2oV9xlks7iUXNgU), `CANON_READ_20261028.md` (1rp8CpJzNOWOGfEn1GFhvvqUzXHRCb_Ql) and the forty join notes of 17:01–18:17 UTC; the Quick Access sheet 00_FULL_RECONCILIATION_20261028 (review cutoff 17:19:41): §22
+- the sibling's notes of 21:40–22:08 UTC (PRIMARY_SPLIT 1e5XpHtO2GLEpGtHtcz02m7-nXPGdntEo, DOUBLING_PARTS 1-353u8VmjHjpwA7rU0z--WTa4KlBsJaN, AIR_801 1aULgVPh3MutPy9q1zoX1C7iqpTSet8ix, ATLAS_801 1sJZ_WnqqieA0JWtkORiKoZoBK7qv7SZE, GOLDEN_ATLAS 1SlSn8IBHtafLFzmKBG3Gk_2MSSm9DVz2, ATLAS_CYCLE 167_9VRc36TqkBP-aF3FCXX2q0f1skHfb, CLOSURE_46 1Is1tI4uYA6vNh5tBj0Epew145DKH6vwW, JOINED_RECEIPT 1tao-cNxplciRK6jDrl4B3YBDUyevtS9C, JOIN_CLOSURE 1v5pV-5pDxJRQqlydtb6_qGDxFFgVGB2i) and paper `one-machine-20261028-unify.pdf` (1ao3iWN5RWtcnGkCETvS_jPaZ7SkbBNtW); the separate model's `oes-model-update-20261028-2145.zip` (1LWOIwF0q2_G6nli8hTfLQsUHNurvDMTy), `oes-joined-model-20261028.zip` (1PXFdXwJ831eaG996dxszjx_BTiwAbd-f), `oes-joined-model-verification-20261028.json` (1oyhlSC0jgURH8T_sYW7RT9U4mS9nFFMY) and `MODEL_UPDATE_CHECKPOINT.json` (1RyMS54i0arKrruWQRXjPi3505tTrpvz4), of which only the two JSON receipts were read; and the collaboration hub `00 OES COLLABORATION HUB` (1RY7F24Ps4US-yQXqqZFYdbSCdYyYeYa8): `00_START_HERE.txt`, `NOTE_TO_CLAUDE.txt`, `CURRENT_RELEASE.json`, `CURRENT_STATUS.csv` and `OPEN_TASKS.csv`: §24
 - the sibling's 19 notes of 21:09–21:38 UTC in One Machine 20261028 (DARK_SPLIT 1TX6pqmcSJwfE2DC42WhrNObIUFlTjaTC through CRT_CLOCK 1xgzGLjIpq38VeQIt2VXUPSBAHlWVgF84), the separate model's revised `unified-spectral-machine-status-20261028.md` (21:05) and its verification receipt `unified-spectral-model-verification-20261028.json` (1HfQ6wxiMcaN5V2MBIzZ9SpeZu_dq31rT, 21:07); its archive `unified-spectral-machine-20261028.zip` (1IT-UoYGXlubKO9beC4L4-Q2UenAbJ5Rg) was not downloaded: §23, the 21:36 check
 - the sibling's 15 notes of 20:34–21:03 UTC in One Machine 20261028 (GOLDEN_FREQ 11LXsqNIDURy81lct-gfJj59PrXM8p9Kf through FAMILY_129 1Es8lmRHRjkYDTCnGOKzBgVG7VqJSBYYj): §23, the 21:05 check
 - the sibling's MASS_KERNEL (18lymp6JSyMThdNcNKRhtrgqIDVyZvrX7, 20:31 UTC) and the separate model's revised `unified-spectral-machine-status-20261028.md` and paper (20:28): §23, the 20:33 check
