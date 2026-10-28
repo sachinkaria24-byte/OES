@@ -1,7 +1,7 @@
 import pytest
 
-from oes import (binding, canon_sync, carrier, cosmology, court, frontier, gates, gatework, glue, gravity,
-                 handover, joins, ledger, literal, native, observer, recurrence, snapshot, spacetime,
+from oes import (binding, canon_sync, carrier, cosmology, counts, court, frontier, gates, gatework, glue,
+                 gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot, spacetime,
                  spectral, spine, waves)
 
 LAYERS = {
@@ -26,6 +26,7 @@ LAYERS = {
     "spine": spine.run,
     "canon": canon_sync.run,
     "ledger": ledger.run,
+    "counts": counts.run,
 }
 
 
@@ -114,7 +115,20 @@ def test_clock_file_and_ledger_page_are_current():
     from pathlib import Path
     root = Path(__file__).resolve().parent.parent
     assert json.loads((root / "data" / "clocks.json").read_text()) == json.loads(json.dumps(ledger.clock_matrices()))
-    assert (root / "docs" / "LEDGER.md").read_text() == ledger.ledger_markdown()
+    assert (root / "docs" / "LEDGER.md").read_text() == counts.ledger_page()
+
+
+def test_hexagon_port_moments():
+    import numpy as np
+    a1, a2 = np.array([2, -2, 0, 0, 0, 0, 0, 0]), np.array([0, 2, -2, 0, 0, 0, 0, 0])
+    hexagon = [a1, a1 + a2, a2, -a1, -a1 - a2, -a2]
+    m = counts.lattice_moments(hexagon, [1, -1, 1, -1, 1, -1], 4)
+    assert [x // 6 for x in m] == [1, 242, 58691, 14259954, 3470101592]
+
+
+def test_every_circle_map_kills_the_commutator():
+    maps = counts.circle_maps()
+    assert all(maps.values()), maps
 
 
 def test_typescript_port_of_the_spine():

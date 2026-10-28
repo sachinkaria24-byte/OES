@@ -57,61 +57,62 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.51,
-  "2-spectral": 0.01,
-  "3-spacetime": 6.67,
-  "4-native": 44.54,
-  "5-observer": 6.3,
-  "6-gravity": 3.93,
-  "7-cosmology": 0.81,
-  "8-frontier": 29.23,
-  "9-joins": 6.76,
-  "10-literal": 17.17,
-  "11-glue": 0.1,
-  "12-binding": 0.07,
-  "13-gates": 0.13,
-  "14-recurrence": 38.21,
-  "15-court": 1.48,
-  "16-handover": 0.87,
-  "17-waves": 0.46,
-  "18-snapshot": 0.49,
-  "19-spine": 2.39,
-  "20-canon": 4.81,
-  "21-ledger": 25.84
+  "1-carrier": 0.58,
+  "2-spectral": 0.0,
+  "3-spacetime": 5.87,
+  "4-native": 39.44,
+  "5-observer": 0.19,
+  "6-gravity": 2.9,
+  "7-cosmology": 0.74,
+  "8-frontier": 24.05,
+  "9-joins": 5.96,
+  "10-literal": 16.38,
+  "11-glue": 0.09,
+  "12-binding": 0.02,
+  "13-gates": 0.12,
+  "14-recurrence": 32.7,
+  "15-court": 1.47,
+  "16-handover": 0.79,
+  "17-waves": 0.34,
+  "18-snapshot": 0.53,
+  "19-spine": 1.85,
+  "20-canon": 4.49,
+  "21-ledger": 21.84,
+  "22-counts": 12.45
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 268,
-   "total": 268
+   "passed": 281,
+   "total": 281
   },
   "OBSTRUCTION": {
-   "passed": 40,
-   "total": 40
+   "passed": 41,
+   "total": 41
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 31,
-   "total": 31
+   "passed": 32,
+   "total": 32
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
    "total": 8
   },
   "UNFORMED": {
-   "passed": 17,
-   "total": 17
+   "passed": 18,
+   "total": 18
   },
   "CONDITIONAL": {
    "passed": 17,
    "total": 17
   },
   "REPORTED": {
-   "passed": 29,
-   "total": 29
+   "passed": 33,
+   "total": 33
   }
  },
  "checks": [
@@ -4618,6 +4619,355 @@
    "layer": "21-ledger",
    "name": "the sibling's archive counts (17,914 checks, 151 check groups, 22,158 role-chain instances) were not rerun here",
    "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "canon continuation 3 read (00_CURRENT_20261028_1910, review cutoff 19:10:16 UTC): OMSOON736 controlling, AUTH = NOT_PASS, every frozen gate kept; it records this repository's 21 layers / 412 checks / 31 tests as source-reported, replays the sibling's nine-suite court and the six-port moments 1, 242, 58691, 14259954 (variance 127, central third moment -4736), lists the 4-cube spectrum 0, 2, 4, 6, 8 with multiplicities 1, 8, 24, 32, 16, and keeps the order-16 coefficients missing",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the sibling's 28 notes of 18:32-19:21 UTC were read; their code and papers were not run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "every integer reading of the 28 notes is the bit of layer 21 with its stated order, subgroup, steps or first landing: 223 readings from 27 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "failures": [],
+    "notes": 27,
+    "claims": 223,
+    "twelve stages meet, 0, 5 and 10 do not": true,
+    "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
+    "stage landings": {
+     "Matrka": null,
+     "Malini": [
+      864,
+      864
+     ],
+     "Buddhi": [
+      432,
+      864
+     ],
+     "Iccha": [
+      288,
+      864
+     ],
+     "Jnana": [
+      216,
+      864
+     ],
+     "Nyasa": null,
+     "Kriya": [
+      144,
+      864
+     ],
+     "Jiva": [
+      864,
+      1728
+     ],
+     "Karma": [
+      108,
+      864
+     ],
+     "Samskara": [
+      96,
+      864
+     ],
+     "Japa": null,
+     "Mantra": [
+      864,
+      864
+     ],
+     "Salina": [
+      72,
+      864
+     ],
+     "Prema": [
+      864,
+      2592
+     ],
+     "Pratyabhijna": [
+      432,
+      1728
+     ]
+    }
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the readings that ride on the bit are counts: sums, products, differences and the family quotient 3n^2 + n + 1 (31 only at n = 3)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "9 + 6 = 15; 36 x 6 = 216; 4 x 216 = 864; 36 x 7 - 36 x 6 = 36": true,
+    "288 + 72 + 180 = 540; 15 x 288 = 0 mod 4320; 15 x 3 x 36 = 1620": true,
+    "4320 mod 42 = 36; 5184 + 1145 + 524 + 196 + 66 = 7115; 6 x 864 = 5184 = 864 mod 4320": true,
+    "1 + 10 + 8 + 12 = 31; 11 + 30 = 41; 2 x 31 - 41 = 21 = 19 + 2": true,
+    "19 + 12 = 31; 23 - 19 = 4; 19 + 7 = 26": true,
+    "5 + 7 + 4 + 5 + 5 + 5 + 5 = 36; 25 + 7 = 32; 32 + 4 = 36; 46 x 36 = 1656; 12 x 72 = 864": true,
+    "4 + 6 = 10 = 1 + 5 + 4; 5 + 10 = 15; 19 + 4 = 23; 128 + 8 = 136": true,
+    "5 x 4 / 2 = 10; 3 = 4 - 1; 8 = 2 x 4; 4 x 6 = 24; 6 - 5 = 1": true,
+    "3n^2 + n + 1 = (9n^2 + n) - (6n^2 - 1), = 5, 15, 31, 53 at n = 1..4, and 31 only at n = 3": true,
+    "10 - 5 = 5; 84 - 53 = 31 = 6 + 15 + 10; 2^5 = 32; 3 x 15 = 45; 45 - 32 = 13": true,
+    "9/40 is not in spec D^2: 40 x {0, 3, 8} = {0, 120, 320} misses 9": true,
+    "the colour bookkeeping 2 (1/6) - 2/3 + 1/3 = 0": true,
+    "3 + 1 + 1 = 5; 1 + 5 = 6; 6 + 1 = 7; 7 + 1 + 7 = 15": true,
+    "5 + 5 + 1 + 1 = 12; 35 - 30 = 5; 2^5 - 1 = 31; 1370 - 12 = 1358; 3 x 1/3 = 1": true,
+    "the tick rotor 108 times is the third tick (108 = 3 mod 5); 8 x 108 = 864": true,
+    "0 + 1 + 10 + 11 = 22; 1 x 10 x 11 = 110; 11 - 10 = 1": true,
+    "15 - 2 = 13 = 7 + 6 = 6 x 2 + 1; 9361 - 7115 = 2246 = 1764 + 482": true,
+    "1822 + 109 + 5184 + 1764 + 482 = 9361 = 132 + 6948 + 1554 + 1 + 196 + 530; 5184 = 36 x 6 x 24": true,
+    "12 + 20 + 2 = 20 + 3 + 9 + 2 = 23 + 11 = 34; 112 + 128 = 240": true,
+    "441 - 21 = 420; 17 + 4 = 21; 155 + 134 = 289; 6 + 12 = 18; 30 - 18 = 12; 5 + 15 = 20; 5 + 14 = 19; 16 + 20 + 24 + 20 = 80": true,
+    "2 x 864 = 1728; 3 x 1728 = 864 mod 4320": true,
+    "120 (-2) + 60 + 90 + 96 = 6; 28 + 92 = 120; 125 = 5^3": true,
+    "the pentagon cuts (5 +- sqrt 5)/10 sum to 1 and multiply to 1/5": true,
+    "242 = 241 + 1 = 240 + 2; 30 / 6 = 5; 4 x 6 = 24": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "K5: cut rank 4, cycle rank 6; the signless kernel on the edges (dimension 5) is the zero-mode space of D^2, whose blocks are M M^T = 3I + J and M^T M; the star-tree cycles have Gram determinant 125, the spanning-tree count; fifteen 4-cycles",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "cut rank 4 and cycle rank 6": true,
+    "the signless kernel on the edges has dimension 5, and it is the zero-mode space of D^2": true,
+    "the vertex block of D^2 is M M^T = 3I + J": true,
+    "the edge Gram trace is 20, the directed edges": true,
+    "the six star-tree cycles span the cycle space": true,
+    "their Gram determinant is 125 = the spanning-tree count 5^3 (Kirchhoff)": true,
+    "K5 has fifteen 4-cycles = 5 x 3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "Petersen, the disjointness graph of the ten edges: degree 3, 15 edges, (A - 3)(A - 1)(A + 2) = 0, orthogonal projectors of ranks 1, 5, 4 adding to I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the disjointness graph of the ten edges has degree 3 and 15 edges": true,
+    "(A - 3)(A - 1)(A + 2) = 0": true,
+    "its spectral projectors are orthogonal and add to I, ranks 1, 5, 4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "pentagon and pentagram: C5^2 = 2I + pentagram; the doubling (order 4, 1 -> 2 -> 4 -> 3) carries one to the other; with the rotation it generates the 20 affine maps; doubling mod 6 is not a permutation",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C5^2 = 2I + pentagram, and the two edge sets partition K5": true,
+    "the doubling i -> 2i has order 4, fixes 0, cycles 1 -> 2 -> 4 -> 3, and carries the pentagon to the pentagram": true,
+    "rotation and doubling do not commute and generate 20 affine maps": true,
+    "doubling mod 6 is not a permutation: its image is {0, 2, 4}": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "companions: the breath companions of 3 and 8 square to -3I and -8I and no power is I; the golden companion has infinite order over Z and order 20 mod 5; the hourglass on 13 points has ranks 7 + 6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "breath companion of 3: M^2 = -3 I, M^4 = 9 I, det M = 3, so no power is I": true,
+    "breath companion of 8: M^2 = -8 I, M^4 = 64 I, det M = 8, so no power is I": true,
+    "golden companion: B^k = [[F(k+1), F(k)], [F(k), F(k-1)]] with F(k) > 0, so B has infinite order over Z; mod 5 it has order 20": true,
+    "the hourglass k -> 12 - k on 13 points: an involution with fixed rank 7 and odd rank 6": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "ROOT_WALK replayed: closed walks 1, 0, 56, 1512, 62160 at every root, from the A^2 row 56, 27, 12, 1, 0; the frame identity sum alpha alpha^T = 60 I8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "closed walks at every root: 1, 0, 56, 1512, 62160": true,
+    "A^2 at inner products 2, 1, 0, -1, -2 is 56, 27, 12, 1, 0, so 62160 = 56^2 + 56 x 27^2 + 126 x 12^2 + 56": true,
+    "the frame identity: the outer products of the 240 roots add to 60 I8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "MOMENT_BIT replayed: its seven moments are <p, Delta^n p> for the alternating A2 hexagon port on the infinite E8 lattice (Delta = 240 - sum of root translations), computed exactly; mu_7 = 50383499822338790 is new. Variance 127, central third moment -4736, K_R = [[242, 127], [127, 25998]]. Layer 8 records a 'rotor hex6' with these properties (m_1 = 242, Hankel determinants positive) but without its operand; this port supplies one. The canon's square port m_0..m_7 and the octagon's 58713, 14274162, 3476302936 are replayed",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "MOMENT_BIT's seven moments are those of the alternating hexagon port": true,
+    "variance 127, central third moment -4736": true,
+    "Jacobi: K_R = [[242, 127], [127, 25998]], alpha_1 = 25998/127": true,
+    "Hankel determinants 1, 127, 15930273, 3540294987045875": true,
+    "the square port m_0..m_7 are the canon's": true,
+    "the octagon port mu_2..mu_4 are the reported 58713, 14274162, 3476302936": true,
+    "hexagon": [
+     1,
+     242,
+     58691,
+     14259954,
+     3470101592,
+     845582723240,
+     206295748792515,
+     50383499822338790
+    ],
+    "square": [
+     4,
+     968,
+     234808,
+     57068232,
+     13892809056,
+     3386893240640,
+     826707839888400,
+     202013532870796200
+    ],
+    "octagon": [
+     1,
+     242,
+     58713,
+     14274162,
+     3476302936,
+     847863897080,
+     207058171151685
+    ],
+    "mu_7 (new)": 50383499822338790
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "square = (hexagon + octagon) / 2 at every order: the three ports' difference distributions are proportional on the shells 0, roots, norm 4, norm 6 and twice a root, each one Weyl orbit (240, 2160, 6720, 240); checked directly through n = 6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "square = (hexagon + octagon) / 2 through n = 6": true,
+    "the difference distributions are proportional on every shell used": true,
+    "the shells used are one Weyl orbit each (roots 240, norm 4: 2160, norm 6: 6720, twice a root)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the root-walk note's deep hole is the band vertex v* of layer 8: Delta's symbol 240 - sum cos(k . rho) is 256 at k = pi (1,1,1,1,0,0,0,0), so 256 lies in spec Delta",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "sup spec Delta = 256 is reported twice and proved by neither here: the alcove branch-and-bound recorded in layer 8 (247,920 pieces) and the root-walk note of 25 Oct (400-start search; Hankel of (256 - x) d mu positive through order 10)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the order-120 clock: element orders 1:1, 2:1, 3:2, 4:10, 5:4, 6:2, 8:20, 10:4, 12:20, 15:8, 24:40, 30:8; its only involution is the central -I = c'^15; it has 4 elements of order 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "element orders of the clock": {
+     "1": 1,
+     "2": 1,
+     "3": 2,
+     "4": 10,
+     "5": 4,
+     "6": 2,
+     "8": 20,
+     "10": 4,
+     "12": 20,
+     "15": 8,
+     "24": 40,
+     "30": 8
+    },
+    "it has one involution, -I = c'^15, and it is central": true,
+    "it has 4 elements of order 5 (S5 has 24 five-cycles)": true,
+    "it has no (2, 4, 5) generating pair": true,
+    "S5 has 120 (2, 4, 5) pairs and every one generates it": true,
+    "Riemann-Hurwitz for (2, 4, 5) and order 120: 2g - 2 = -240 + 60 + 90 + 96 = 6, g = 4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "ICOSA's Hurwitz value 6 = 2g - 2 (genus 4, signature (2, 4, 5)) belongs to S5, whose 120 (2, 4, 5) pairs all generate it. The stored clock has no (2, 4, 5) generating pair, so it does not realize that surface",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the commutator and 864 (canon continuation 3): the clock has exactly 24 homomorphisms to the circle; every one kills c'^6 = [d, c'] and sends c' into <720>. The Coxeter clock alone embeds by c'^k -> 144 k and then c'^6 -> 864, but no such embedding extends to the clock",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "normal form c'^i d^j (i < 30, j < 4)": true,
+    "the clock has exactly 24 homomorphisms to the circle": true,
+    "every one kills the commutator c'^6 = [d, c']": true,
+    "every one sends c' into <720>, the shared order-6 subgroup": true,
+    "the cyclic embeddings c'^k -> 144 u k (u a unit mod 30) send c'^6 to a nonzero tick, 864 for u = 1": true,
+    "none of them extends to the clock": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the energy splits are one conserved table (block x D^2 sector): vertex (0, 3, 20), edge (2, 9, 0). Its rows are 23 + 11, its columns the stored shares 2 + 12 + 20, its nonzero cells 20 + 3 + 9 + 2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the table, vertex (0, 3, 20) and edge (2, 9, 0)": true,
+    "every cell is conserved (each projector commutes with D^2)": true,
+    "rows 23 + 11, columns 2 + 12 + 20 (the stored shares), cells 20 + 3 + 9 + 2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "FOUR_NAMES, sharpened: an involution cannot lie in the order-15 clock, but it acts on it by x -> -x. In Z/120 orders 3 and 5 generate <8>; residues mod 108 and 160 fix one point (lcm 4320, 27 x 3 = 1 mod 40); the pada <40> misses the tick; the stage reflection fixes only Jiva and does not keep the bit; sqrt 3 and 2 sqrt 2 never return together",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "no element of order 2 lies in Z/15 (Lagrange), but x -> -x is an automorphism of Z/15 of order 2": true,
+    "in Z/120 an element of order 3 and one of order 5 always generate the order-15 subgroup <8>": true,
+    "residues mod 108 and mod 160 fix a point of the circle: lcm 4320, image 4320 of 17280 pairs; 27 x 3 = 1 mod 40": true,
+    "the order-108 subgroup is <40> and misses the tick; 8 steps of 108 are the tick; the tick rotor 108 times is 2592": true,
+    "the stage reflection k -> 14 - k fixes only Jiva (7), pairs Matrka-Pratyabhijna, Malini-Prema, Japa-Jnana, Mantra-Iccha, and does not keep the bit (Nyasa 5 -> Samskara 9)": true,
+    "sqrt 3 and 2 sqrt 2 have no common rational return: 8 m^2 = 3 n^2 needs the power of 3 to be even and odd (no solution with 0 < |m|, |n| <= 2000)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "not replayed: the sibling's permutations on the fifteen indices (6-cycle, 7-cycle, middle), the readers on the 24-cycle and their rank law, the Hodge degrees 31 and 41, the heat spectrum 0, 3, 6, 3 +- sqrt 5, the opposite-edge block and the graded clock of order 10, the 12 x 12 sense stiffness, the acoustic and optical matrices, the J7 and atlas row counts, and MOMENT_BIT's Hankel minimum of 24, probes and cutoff 7",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "not stored and not formed: Yukawa blocks, a hypercharge from the action, taste, smell and touch matrices, an icosahedral adjacency (the root graph has degree 56), a swastika, hexagram, yinyang or diamond intertwiner, a tesseract, a qubit",
+   "status": "UNFORMED",
    "passed": true,
    "value": null,
    "note": ""

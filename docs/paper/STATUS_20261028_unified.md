@@ -1,18 +1,18 @@
 # One Machine, the unified edition: 28 October 2026
 
-This puts the whole model in one text with one ledger: the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20) and the sibling's 28 October ledger of joins (layer 21). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
+This puts the whole model in one text with one ledger: the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), and the sibling's evening notes with the canon's 19:10 continuation (layer 22). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
 
 AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 operands stay absent. No gate moves, and no term is added to the action.
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 21 layers and 412 checks. Of these, 383 hold: THEOREM 268, OBSTRUCTION 40, ARITHMETIC 31, CONDITIONAL 17, UNFORMED 17, SELECTED_REFERENCE 8, REMOVED 2. The other 29 are REPORTED records.
-- `pytest` runs 31 tests.
-- The new layer is `oes/ledger.py` (layer 21, 19 checks).
+- `python verify.py` runs 22 layers and 432 checks. Of these, 399 hold: THEOREM 281, OBSTRUCTION 41, ARITHMETIC 32, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 33 are REPORTED records.
+- `pytest` runs 34 tests.
+- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 20 checks).
 - `ports/ts/ledgerJoins.ts` carries it into the sibling's app. Together with `coxeterSpine.ts` that is 35 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status.
 
-**Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) it is the Google Doc `one-machine-20261028-unified`.
+**Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
 New in this edition:
 
@@ -27,9 +27,19 @@ New in this edition:
 - **Spin counts.** 240 = D8 (112) + one half-spin orbit (128). 135 = [W(E8) : W(D8)] is the band-top D8 family, and 256 = 1 + 120 + 135.
 - **Field.** The source q̈ + 4q = 0 is not a carrier mode, because 4 ∉ spec D² (OBSTRUCTION).
 
+New in layer 22 (the sibling's 28 notes of 18:32–19:21 and the canon's 19:10 continuation):
+
+- **Counts.** 223 more readings on the tick bit, from 27 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
+- **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
+- **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.
+- **The commutator and 864.** Every one of the 24 maps from the clock to the circle kills the commutator. The tick reaches 864 only through the Coxeter clock alone.
+- **Energy.** The three splits are one conserved table: vertex (0, 3, 20) and edge (2, 9, 0). Its columns are the stored 2 + 12 + 20.
+
 Against the canon:
 
 - **Position.** The Quick Access sheet 00_FULL_RECONCILIATION_20261028 (review cutoff 17:19:41) keeps OMSOON736 controlling. No Matrix ID is new, and the frozen gates stay. That sheet still lists this repository's 14:37 build (18 layers, 320 checks).
-- **What the sibling adopted.** The sibling's CANON_READ (17:06) adopted the layer-20 corrections, and its 18:17 full edition keeps them.
+- **What the sibling adopted.** The sibling's CANON_READ (17:06) adopted the layer-20 corrections, and its 18:17 full edition keeps them. Its 19:05 ONE_BIT note adopts the commutator [d, c′] = c′⁶ of layer 21.
+- **Continuation 3.** The canon sheet 00_CURRENT_20261028_1910 (review cutoff 19:10:16) records the 21-layer build as source-reported. It keeps OMSOON736 and every frozen gate.
 
 Not formed: source infinity, foam, the double slit, entanglement as stored data, a Bell count, the photoelectric effect, a work function, electron, photon, proton, Compton and Bohr lengths, 19 Standard-Model parameters, the six SCR6 operands, the Krishna lift's operands, the epoch, GKSL, SI, BRST, BV and Einstein–Hilbert. Still open: the collar (223.58, 224) and the rational coefficients of the order-16 operator.

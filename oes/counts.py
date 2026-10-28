@@ -1,0 +1,979 @@
+"""Layer 22. Counts, graphs and moments (28 Oct 2026; Drive check 19:21 UTC).
+
+Sources read before this layer (Google Drive):
+
+* the sibling's 28 notes of 18:32-19:21 UTC in One Machine 20261028, each with a paper edition:
+  LEVEL_TICK, DEEP_FACTOR, SAKSIN_PASS, J7_S6, J7_SAKSIN, STEREO_JOIN, NINETEEN_JOIN, SANSKRIT_ALL,
+  SANSKRIT_DEEP, RANK_ALL, DYNAMIC_JOIN, K5_EDGE, PETERSEN_HODGE, FAMILY_SM, SENSE_JOIN, SENSE_DEEP,
+  FIVE_SENSES, FOUR_NAMES, EVERY_WORD, HINGE_LOOP, THROAT_JOIN, ONE_BIT, LEDGER_BIT, QUBIT_STAR, FIGURES,
+  ICOSA, ROOT_WALK, MOMENT_BIT;
+* the canon workbook sheet 00_CURRENT_20261028_1910 (continuation 3, review cutoff 19:10:16 UTC);
+* read only, to find what MOMENT_BIT's seven moments are: the Locked Memory notes of 24-25 Oct (the
+  Stieltjes handover to OMSOON4, the E8 root-walk replay and the V168R handover).
+
+Most of the notes read one more stored integer on the bit of layer 21. Those readings are one table here,
+with one new reading, the first landing: the least k for which k x is a nonzero tick. The rest are about
+objects that can be rebuilt, and are rebuilt:
+
+(a) the graphs: the K5 incidence ranks (cut 4, cycles 6, signless kernel 5 = the five zero modes of D^2)
+    and the spanning-tree count 125 as a cycle-Gram determinant; the Petersen graph and its projectors;
+    the pentagon and the pentagram with the doubling map between them; the breath and golden companions;
+(b) the root graph, its closed walks 1, 0, 56, 1512, 62160, and the seven moments of MOMENT_BIT. They are
+    <p, Delta^n p> for the alternating hexagon port of the E8 lattice, computed here exactly from the 240
+    roots, with mu_7 new. The canon's square and octagon ports are replayed too. square = (hexagon +
+    octagon) / 2 holds at every order, because the three ports have proportional difference
+    distributions on the Weyl orbits;
+(c) the order-120 clock: its element orders, its single involution, and the absence of a (2, 4, 5)
+    generating pair. ICOSA's Hurwitz value 6 = 2g - 2 (g = 4) belongs to S5, not to this clock.
+
+Three statements get a sharper form.
+- The canon notes that a commutator in a nonabelian group is not the circle element 864 without a map.
+  The maps are counted here. The clock has exactly 24 homomorphisms to the circle. Every one of them
+  kills the commutator c'^6 and sends c' into <720>. The Coxeter clock reaches 864 only on its own, by
+  c'^k -> 144 k, and that map does not extend to the clock.
+- The energy splits are not three competing claims. They are one table (block x D^2 sector): vertex
+  (0, 3, 20) and edge (2, 9, 0). Its rows give 23 + 11, its columns give the stored 2 + 12 + 20, and its
+  nonzero cells give 20 + 3 + 9 + 2. Every cell is conserved.
+- FOUR_NAMES says the carrier involution "does not act" on a clock of order 15. By Lagrange it cannot lie
+  in that clock, but it does act on it, by x -> -x.
+"""
+
+import itertools
+from collections import Counter
+from fractions import Fraction
+from math import gcd
+
+import numpy as np
+import sympy as sp
+
+from . import carrier, gates, handover, ledger, spine
+from .record import Report
+
+N = spine.N
+TICK = ledger.TICK
+LEVELS = ledger.LEVELS
+NONZERO = frozenset(LEVELS[1:])
+STAGES = ["Matrka", "Malini", "Buddhi", "Iccha", "Jnana", "Nyasa", "Kriya", "Jiva", "Karma", "Samskara",
+          "Japa", "Mantra", "Salina", "Prema", "Pratyabhijna"]
+
+
+# ------------------------------------------------------------------ the counts on the bit
+
+def first_landing(x):
+    """Least k >= 1 with k x a nonzero tick level mod 4320, and that level; None if <x> misses the tick."""
+    for k in range(1, N + 1):
+        y = k * x % N
+        if y in NONZERO:
+            return k, y
+        if y == 0:
+            return None
+    return None
+
+
+# (note, reading, x, bit, extra). bit True: <x> holds all five tick levels; False: x is not 0 and <x> meets
+# them only in 0; None: x is 0 on the circle. extra: ("order", o); ("same", y): the subgroup of y;
+# ("notsame", y); ("gen",): x generates the circle; ("notgen",); ("land", k, t): k steps first land on the
+# level t; ("noland",); ("steps", k): k x = 864; ("res", r): x = r mod 4320; ("mod5", r); ("notlevel",).
+CLAIMS = [
+    ("LEVEL_TICK", "levels meeting all five", 4, True, ()),
+    ("LEVEL_TICK", "levels meeting all five", 6, True, ()),
+    ("LEVEL_TICK", "levels meeting all five", 7, True, ()),
+    ("LEVEL_TICK", "levels meeting all five", 9, True, ()),
+    ("LEVEL_TICK", "levels meeting all five", 13, True, ()),
+    ("LEVEL_TICK", "levels meeting all five", 21, True, ()),
+    ("LEVEL_TICK", "levels meeting all five", 24, True, ()),
+    ("LEVEL_TICK", "levels meeting all five", 49, True, ()),
+    ("LEVEL_TICK", "levels meeting only 0", 5, False, ()),
+    ("LEVEL_TICK", "levels meeting only 0", 10, False, ()),
+    ("LEVEL_TICK", "the carrier count 9 + 6", 15, False, ()),
+    ("LEVEL_TICK", "moment denominator", 25, False, (("same", 5),)),
+    ("LEVEL_TICK", "moment denominator", 125, False, (("same", 5),)),
+    ("LEVEL_TICK", "moment denominator", 625, False, (("same", 5),)),
+    ("LEVEL_TICK", "moment denominator", 3125, False, (("same", 5),)),
+    ("LEVEL_TICK", "nonzero tick level", 1728, True, (("same", 864),)),
+    ("LEVEL_TICK", "nonzero tick level", 2592, True, (("same", 864),)),
+    ("LEVEL_TICK", "nonzero tick level", 3456, True, (("same", 864),)),
+    ("DEEP_FACTOR", "36 x 6, the golden step", 216, True, (("steps", 4),)),
+    ("DEEP_FACTOR", "36 x 7", 252, True, (("same", 36),)),
+    ("DEEP_FACTOR", "5 atlases", 180, False, ()),
+    ("DEEP_FACTOR", "8 atlases", 288, True, (("steps", 3),)),
+    ("DEEP_FACTOR", "2 atlases", 72, True, (("steps", 12),)),
+    ("DEEP_FACTOR", "15 atlases", 540, False, ()),
+    ("DEEP_FACTOR", "fifteen times three atlases", 1620, False, ()),
+    ("DEEP_FACTOR", "60 atlases", 2160, False, (("notlevel",),)),
+    ("DEEP_FACTOR", "90 atlases", 3240, False, (("notlevel",),)),
+    ("SAKSIN_PASS", "the cut", 4, True, ()),
+    ("SAKSIN_PASS", "the zero-mode multiplicity", 5, False, ()),
+    ("SAKSIN_PASS", "the axis 7 - 6 = 5 - 4", 1, True, (("gen",), ("land", 864, 864))),
+    ("SAKSIN_PASS", "one atlas", 36, True, (("steps", 24),)),
+    ("J7_S6", "the widths' product", 42, True, (("same", 6),)),
+    ("J7_S6", "the host width", 7, True, (("gen",),)),
+    ("J7_S6", "the conditional block 6 x 864", 5184, True, (("res", 864),)),
+    ("J7_S6", "J7 row 66 = 11 x 6", 66, True, (("same", 6),)),
+    ("J7_S6", "J7 row 196 = 4 x 49", 196, True, (("same", 4),)),
+    ("J7_S6", "J7 row 524 = 131 x 4", 524, True, (("same", 4),)),
+    ("J7_S6", "J7 row 1145 = 229 x 5", 1145, False, (("same", 5),)),
+    ("J7_S6", "the J7 list", 7115, False, (("same", 5),)),
+    ("J7_S6", "ancestry 1764 = 49 x 36", 1764, True, (("same", 36),)),
+    ("J7_S6", "the rest 2246 = 1123 x 2", 2246, True, (("same", 2),)),
+    ("STEREO_JOIN", "an equal half of 36", 18, True, ()),
+    ("STEREO_JOIN", "the stored piece", 15, False, ()),
+    ("STEREO_JOIN", "half of the twenty sign products", 10, False, (("order", 432),)),
+    ("STEREO_JOIN", "the reader cycle", 24, True, (("order", 180), ("steps", 36))),
+    ("STEREO_JOIN", "the torsion step", 2, True, ()),
+    ("NINETEEN_JOIN", "rank 19", 19, True, (("gen",),)),
+    ("NINETEEN_JOIN", "the complement", 12, True, (("order", 360), ("steps", 72))),
+    ("NINETEEN_JOIN", "the coordinate count", 26, True, (("order", 2160), ("notgen",))),
+    ("NINETEEN_JOIN", "the shear", 7, True, (("gen",),)),
+    ("NINETEEN_JOIN", "the Hodge defect 2 x 31 - 41", 21, True, ()),
+    ("NINETEEN_JOIN", "the frequency 2", 2, True, (("order", 2160), ("same", 26), ("notsame", 19))),
+    ("SANSKRIT_ALL", "Matrka", 0, None, ()),
+    ("SANSKRIT_ALL", "Nyasa", 5, False, ()),
+    ("SANSKRIT_ALL", "Japa", 10, False, ()),
+    ("SANSKRIT_ALL", "five of the fives", 25, False, (("same", 5),)),
+    ("SANSKRIT_ALL", "25 + the limitation 7", 32, True, (("steps", 27),)),
+    ("SANSKRIT_ALL", "32 + the inner instrument 4", 36, True, ()),
+    ("SANSKRIT_ALL", "15 stages x 36 addresses", 540, False, ()),
+    ("SANSKRIT_ALL", "the family context 24 x 36", 864, True, (("res", 864),)),
+    ("SANSKRIT_ALL", "the ordered pairs, 36 ticks", 36 * 864, True, (("res", 864),)),
+    ("SANSKRIT_ALL", "the term context 46 x 36", 1656, True, (("same", 72),)),
+    ("SANSKRIT_DEEP", "the japa count", 108, True, (("mod5", 3), ("order", 40), ("steps", 8))),
+    ("RANK_ALL", "rank", 1, True, ()),
+    ("RANK_ALL", "rank", 2, True, ()),
+    ("RANK_ALL", "rank", 3, True, ()),
+    ("RANK_ALL", "the cut", 4, True, ()),
+    ("RANK_ALL", "the cycle space", 6, True, ()),
+    ("RANK_ALL", "rank", 7, True, ()),
+    ("RANK_ALL", "rank", 8, True, ()),
+    ("RANK_ALL", "rank", 12, True, ()),
+    ("RANK_ALL", "the phase rank", 19, True, ()),
+    ("RANK_ALL", "the clock rank", 23, True, ()),
+    ("RANK_ALL", "the fiber radical", 128, True, (("same", 32),)),
+    ("RANK_ALL", "the kernel", 5, False, ()),
+    ("RANK_ALL", "the image", 10, False, ()),
+    ("RANK_ALL", "rank", 30, False, ()),
+    ("RANK_ALL", "kernel + image", 15, False, ()),
+    ("RANK_ALL", "128 + the fiber rank", 136, True, ()),
+    ("DYNAMIC_JOIN", "the kernel multiplicity", 5, False, ()),
+    ("DYNAMIC_JOIN", "squared frequency 3", 3, True, (("steps", 288),)),
+    ("DYNAMIC_JOIN", "squared frequency 8", 8, True, (("steps", 108),)),
+    ("DYNAMIC_JOIN", "the source frequency", 2, True, (("steps", 432),)),
+    ("DYNAMIC_JOIN", "the source stiffness", 4, True, ()),
+    ("K5_EDGE", "one edge", 1, True, ()),
+    ("K5_EDGE", "the two ends", 2, True, ()),
+    ("K5_EDGE", "degree, cut, source stiffness", 4, True, ()),
+    ("K5_EDGE", "the cycles", 6, True, ()),
+    ("K5_EDGE", "vertices, signless kernel", 5, False, ()),
+    ("K5_EDGE", "edges", 10, False, ()),
+    ("K5_EDGE", "directed edges, gram trace", 20, False, ()),
+    ("K5_EDGE", "four six-cycles", 24, True, ()),
+    ("K5_EDGE", "the step 18", 18, True, (("steps", 48),)),
+    ("PETERSEN_HODGE", "the degree", 3, True, ()),
+    ("PETERSEN_HODGE", "eigenvalue 1", 1, True, (("gen",),)),
+    ("PETERSEN_HODGE", "its rank", 5, False, ()),
+    ("PETERSEN_HODGE", "the ten vertices", 10, False, ()),
+    ("PETERSEN_HODGE", "the fifteen edges", 15, False, ()),
+    ("PETERSEN_HODGE", "Hodge factor", 6, True, ()),
+    ("PETERSEN_HODGE", "Hodge factor", 8, True, ()),
+    ("PETERSEN_HODGE", "Hodge exponent", 30, False, ()),
+    ("PETERSEN_HODGE", "the surface degree", 31, True, ()),
+    ("PETERSEN_HODGE", "the defect", 21, True, ()),
+    ("PETERSEN_HODGE", "the cycle Gram determinant", 125, False, (("same", 5),)),
+    ("PETERSEN_HODGE", "Hodge-Dirac dimension", 502, True, ()),
+    ("PETERSEN_HODGE", "observer dimension", 237, True, ()),
+    ("FAMILY_SM", "raw count at n = 1", 10, False, ()),
+    ("FAMILY_SM", "one family", 5, False, ()),
+    ("FAMILY_SM", "three families", 31, True, (("gen",),)),
+    ("FAMILY_SM", "raw count at n = 3", 84, True, (("same", 12),)),
+    ("FAMILY_SM", "orbit at n = 3", 53, True, (("gen",),)),
+    ("FAMILY_SM", "the carrier 32 x 3", 96, True, (("steps", 9),)),
+    ("FAMILY_SM", "one exterior algebra", 32, True, ()),
+    ("FAMILY_SM", "three generations", 45, False, ()),
+    ("FAMILY_SM", "their difference", 13, True, (("gen",),)),
+    ("SENSE_JOIN", "five families of five", 25, False, (("same", 5),)),
+    ("SENSE_JOIN", "36 less one family", 31, True, (("gen",),)),
+    ("SENSE_JOIN", "the squared-entry weight", 8, True, (("steps", 108),)),
+    ("SENSE_DEEP", "the shared addresses", 3, True, ()),
+    ("SENSE_DEEP", "the jiva 1 + 5", 6, True, ()),
+    ("SENSE_DEEP", "the karma step", 1, True, (("gen",),)),
+    ("SENSE_DEEP", "the host 6 + 1", 7, True, (("gen",),)),
+    ("SENSE_DEEP", "the observer 7 + 1 + 7", 15, False, ()),
+    ("FIVE_SENSES", "the stiffness size", 12, True, (("steps", 72),)),
+    ("FIVE_SENSES", "the rank", 10, False, ()),
+    ("FIVE_SENSES", "the kernel", 2, True, ()),
+    ("FIVE_SENSES", "the japa count on the five-cycle", 108, True, (("mod5", 3), ("steps", 8))),
+    ("FIVE_SENSES", "jiva copies 5 x 6", 30, False, ()),
+    ("FIVE_SENSES", "host copies 5 x 7", 35, False, ()),
+    ("FIVE_SENSES", "nonempty subsets of five", 31, True, (("gen",),)),
+    ("FIVE_SENSES", "the mass", 3, True, ()),
+    ("FIVE_SENSES", "the other coordinates 1370 - 12", 1358, True, ()),
+    ("FOUR_NAMES", "Matrka", 0, None, (("noland",),)),
+    ("FOUR_NAMES", "Malini", 1, True, (("gen",), ("land", 864, 864))),
+    ("FOUR_NAMES", "Mantra", 11, True, (("gen",),)),
+    ("FOUR_NAMES", "Japa", 10, False, (("noland",),)),
+    ("FOUR_NAMES", "the pada order-108 subgroup <40>", 40, False, (("order", 108),)),
+    ("FOUR_NAMES", "the four stages' sum", 22, True, (("same", 2),)),
+    ("FOUR_NAMES", "the three nonzero stages' product", 110, False, ()),
+    ("EVERY_WORD", "Nyasa: its order is the tick element", 5, False, (("order", 864), ("notlevel",))),
+    ("EVERY_WORD", "the limitation", 7, True, (("gen",),)),
+    ("EVERY_WORD", "the inner instrument", 4, True, ()),
+    ("HINGE_LOOP", "the nest 15 - 2", 13, True, (("gen",),)),
+    ("HINGE_LOOP", "the fixed rank", 7, True, (("gen",),)),
+    ("HINGE_LOOP", "the odd rank", 6, True, ()),
+    ("HINGE_LOOP", "the carrier", 15, False, ()),
+    ("HINGE_LOOP", "36 odd ranks, the golden step", 216, True, (("steps", 4),)),
+    ("HINGE_LOOP", "ancestry rows", 1764, True, (("same", 36),)),
+    ("HINGE_LOOP", "generic hinges", 482, True, (("same", 2),)),
+    ("HINGE_LOOP", "the J7 list", 7115, False, ()),
+    ("THROAT_JOIN", "throat class", 1822, True, (("order", 2160), ("same", 2))),
+    ("THROAT_JOIN", "throat class", 109, True, (("order", 4320), ("gen",))),
+    ("THROAT_JOIN", "the mediated class", 5184, True, (("order", 5), ("res", 864))),
+    ("THROAT_JOIN", "throat class", 1764, True, (("order", 120),)),
+    ("THROAT_JOIN", "throat class", 482, True, (("order", 2160), ("same", 2))),
+    ("THROAT_JOIN", "grade", 132, True, (("order", 360),)),
+    ("THROAT_JOIN", "grade", 6948, True, (("order", 120),)),
+    ("THROAT_JOIN", "grade", 1554, True, (("order", 720),)),
+    ("THROAT_JOIN", "grade", 1, True, (("gen",),)),
+    ("THROAT_JOIN", "grade", 196, True, (("order", 1080),)),
+    ("THROAT_JOIN", "grade", 530, False, (("order", 432), ("same", 10))),
+    ("ONE_BIT", "2 and 3", 2, True, ()),
+    ("ONE_BIT", "2 and 3", 3, True, ()),
+    ("ONE_BIT", "their sum", 5, False, ()),
+    ("ONE_BIT", "4 and 6", 4, True, ()),
+    ("ONE_BIT", "4 and 6", 6, True, ()),
+    ("ONE_BIT", "their sum", 10, False, ()),
+    ("ONE_BIT", "the order-24 subgroup of the circle", 180, False, (("order", 24),)),
+    ("ONE_BIT", "the golden step", 216, True, (("order", 20), ("steps", 4))),
+    ("LEDGER_BIT", "21", 21, True, ()),
+    ("LEDGER_BIT", "its square", 441, True, ()),
+    ("LEDGER_BIT", "their difference", 420, False, ()),
+    ("LEDGER_BIT", "17", 17, True, ()),
+    ("LEDGER_BIT", "the chart determinant", 155, False, ()),
+    ("LEDGER_BIT", "the count", 134, True, ()),
+    ("LEDGER_BIT", "155 + 134", 289, True, ()),
+    ("LEDGER_BIT", "6 + 12", 18, True, ()),
+    ("LEDGER_BIT", "30", 30, False, ()),
+    ("LEDGER_BIT", "30 - 18", 12, True, ()),
+    ("LEDGER_BIT", "5 + 15", 20, False, ()),
+    ("LEDGER_BIT", "14", 14, True, ()),
+    ("LEDGER_BIT", "5 + 14", 19, True, ()),
+    ("LEDGER_BIT", "cluster", 16, True, ()),
+    ("LEDGER_BIT", "cluster", 24, True, ()),
+    ("LEDGER_BIT", "the four clusters", 80, False, ()),
+    ("QUBIT_STAR", "the affine maps, read as a step", 20, False, ()),
+    ("QUBIT_STAR", "the golden step", 216, True, (("order", 20), ("steps", 4))),
+    ("QUBIT_STAR", "twice the tick", 1728, True, ()),
+    ("QUBIT_STAR", "the doubling's order", 4, True, ()),
+    ("FIGURES", "the hexagon", 6, True, ()),
+    ("FIGURES", "4-cycles in K5", 15, False, ()),
+    ("FIGURES", "the hourglass loop", 2, True, ()),
+    ("ICOSA", "the clock", 120, False, ()),
+    ("ICOSA", "120 / 5", 24, True, ()),
+    ("ICOSA", "120 / 10", 12, True, ()),
+    ("ICOSA", "half the clock", 60, False, ()),
+    ("ICOSA", "120 / 4", 30, False, ()),
+    ("ICOSA", "the Hurwitz value", 6, True, ()),
+    ("ICOSA", "crop cells", 28, True, (("order", 1080), ("land", 216, 1728))),
+    ("ICOSA", "crop cells", 92, True, (("order", 1080), ("land", 216, 2592))),
+    ("ICOSA", "spanning trees of K5", 125, False, ()),
+    ("ROOT_WALK", "walks of length 0", 1, True, ()),
+    ("ROOT_WALK", "walks of length 1", 0, None, ()),
+    ("ROOT_WALK", "the degree", 56, True, (("order", 540), ("land", 108, 1728))),
+    ("ROOT_WALK", "walks of length 3", 1512, True, (("same", 216),)),
+    ("ROOT_WALK", "walks of length 4", 62160, False, (("res", 1680), ("same", 240), ("order", 18))),
+    ("ROOT_WALK", "integer roots", 112, True, ()),
+    ("ROOT_WALK", "half-integer roots", 128, True, ()),
+    ("ROOT_WALK", "all roots", 240, False, ()),
+    ("ROOT_WALK", "the frame constant", 60, False, ()),
+    ("MOMENT_BIT", "the load 241 + 1", 242, True, (("same", 2), ("order", 2160))),
+    ("MOMENT_BIT", "moment 0", 1, True, ()),
+    ("MOMENT_BIT", "moment 2", 58691, True, ()),
+    ("MOMENT_BIT", "moment 3", 14259954, True, ()),
+    ("MOMENT_BIT", "moment 4", 3470101592, True, ()),
+    ("MOMENT_BIT", "moment 5", 845582723240, False, ()),
+    ("MOMENT_BIT", "moment 6", 206295748792515, False, ()),
+    ("MOMENT_BIT", "the reported minimum", 24, True, ()),
+    ("MOMENT_BIT", "the stored index", 5, False, ()),
+    ("MOMENT_BIT", "probe", 51, True, ()),
+    ("MOMENT_BIT", "probe", 146, True, ()),
+    ("MOMENT_BIT", "probe", 941, True, (("gen",),)),
+    ("MOMENT_BIT", "the infrared cutoff", 7, True, (("gen",),)),
+]
+
+# SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
+STAGE_LANDINGS = {0: None, 1: (864, 864), 2: (432, 864), 3: (288, 864), 4: (216, 864), 5: None, 6: (144, 864),
+                  7: (864, 1728), 8: (108, 864), 9: (96, 864), 10: None, 11: (864, 864), 12: (72, 864),
+                  13: (864, 2592), 14: (432, 1728)}
+
+
+def check_claim(x, bit, extra):
+    r = x % N
+    if bit is None:
+        ok = r == 0
+    else:
+        ok = r != 0 and ledger.contains_tick(r) == bit == (x % 5 != 0)
+    for e in extra:
+        kind = e[0]
+        if kind == "order":
+            ok &= spine.order(r) == e[1]
+        elif kind == "same":
+            ok &= gcd(r, N) == gcd(e[1] % N, N)
+        elif kind == "notsame":
+            ok &= gcd(r, N) != gcd(e[1] % N, N)
+        elif kind == "gen":
+            ok &= gcd(r, N) == 1
+        elif kind == "notgen":
+            ok &= gcd(r, N) != 1
+        elif kind == "land":
+            ok &= first_landing(r) == (e[1], e[2])
+        elif kind == "noland":
+            ok &= first_landing(r) is None
+        elif kind == "steps":
+            ok &= ledger.steps_to_tick(r) == e[1]
+        elif kind == "res":
+            ok &= r == e[1]
+        elif kind == "mod5":
+            ok &= x % 5 == e[1]
+        elif kind == "notlevel":
+            ok &= r not in LEVELS
+        else:
+            raise ValueError(kind)
+    return bool(ok)
+
+
+def check_claims():
+    bad = [(note, reading, x) for note, reading, x, bit, extra in CLAIMS if not check_claim(x, bit, extra)]
+    stages = {k: first_landing(k) for k in range(15)}
+    meets = [k for k in range(15) if ledger.contains_tick(k)]
+    same_two = gcd(2, N) == gcd(14, N) and stages[2][0] == stages[14][0] and stages[2][1] != stages[14][1]
+    return bad, stages == STAGE_LANDINGS, {
+        "notes": len({c[0] for c in CLAIMS}), "claims": len(CLAIMS),
+        "twelve stages meet, 0, 5 and 10 do not": meets == [1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14],
+        "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": same_two,
+        "stage landings": {STAGES[k]: v for k, v in stages.items()},
+    }
+
+
+def note_arithmetic():
+    n = sp.symbols("n")
+    q = 3 * n ** 2 + n + 1
+    vals = [int(q.subs(n, k)) for k in range(1, 5)]
+    r5 = sp.sqrt(5)
+    cuts = ((5 + r5) / 10, (5 - r5) / 10)
+    return {
+        "9 + 6 = 15; 36 x 6 = 216; 4 x 216 = 864; 36 x 7 - 36 x 6 = 36": 9 + 6 == 15 and 36 * 6 == 216
+        and 4 * 216 == TICK and 36 * 7 - 36 * 6 == 36,
+        "288 + 72 + 180 = 540; 15 x 288 = 0 mod 4320; 15 x 3 x 36 = 1620": 288 + 72 + 180 == 540
+        and 15 * 288 % N == 0 and 15 * 3 * 36 == 1620,
+        "4320 mod 42 = 36; 5184 + 1145 + 524 + 196 + 66 = 7115; 6 x 864 = 5184 = 864 mod 4320":
+            N % 42 == 36 and 5184 + 1145 + 524 + 196 + 66 == 7115 and 6 * TICK == 5184 and 5184 % N == TICK,
+        "1 + 10 + 8 + 12 = 31; 11 + 30 = 41; 2 x 31 - 41 = 21 = 19 + 2": 1 + 10 + 8 + 12 == 31 and 11 + 30 == 41
+        and 2 * 31 - 41 == 21 == 19 + 2,
+        "19 + 12 = 31; 23 - 19 = 4; 19 + 7 = 26": 19 + 12 == 31 and 23 - 19 == 4 and 19 + 7 == 26,
+        "5 + 7 + 4 + 5 + 5 + 5 + 5 = 36; 25 + 7 = 32; 32 + 4 = 36; 46 x 36 = 1656; 12 x 72 = 864":
+            5 + 7 + 4 + 5 * 4 == 36 and 25 + 7 == 32 and 32 + 4 == 36 and 46 * 36 == 1656 and 12 * 72 == TICK,
+        "4 + 6 = 10 = 1 + 5 + 4; 5 + 10 = 15; 19 + 4 = 23; 128 + 8 = 136": 4 + 6 == 10 == 1 + 5 + 4
+        and 5 + 10 == 15 and 19 + 4 == 23 and 128 + 8 == 136,
+        "5 x 4 / 2 = 10; 3 = 4 - 1; 8 = 2 x 4; 4 x 6 = 24; 6 - 5 = 1": 5 * 4 // 2 == 10 and 3 == 4 - 1
+        and 8 == 2 * 4 and 4 * 6 == 24,
+        "3n^2 + n + 1 = (9n^2 + n) - (6n^2 - 1), = 5, 15, 31, 53 at n = 1..4, and 31 only at n = 3":
+            sp.expand(q - ((9 * n ** 2 + n) - (6 * n ** 2 - 1))) == 0 and vals == [5, 15, 31, 53]
+            and sp.solve(sp.Eq(q, 31), n) == [sp.Rational(-10, 3), 3],
+        "10 - 5 = 5; 84 - 53 = 31 = 6 + 15 + 10; 2^5 = 32; 3 x 15 = 45; 45 - 32 = 13": 10 - 5 == 5
+        and 84 - 53 == 31 == 6 + 15 + 10 and 2 ** 5 == 32 and 45 - 32 == 13,
+        "9/40 is not in spec D^2: 40 x {0, 3, 8} = {0, 120, 320} misses 9": all(40 * lam != 9 for lam in (0, 3, 8)),
+        "the colour bookkeeping 2 (1/6) - 2/3 + 1/3 = 0": 2 * Fraction(1, 6) - Fraction(2, 3) + Fraction(1, 3) == 0,
+        "3 + 1 + 1 = 5; 1 + 5 = 6; 6 + 1 = 7; 7 + 1 + 7 = 15": 3 + 1 + 1 == 5 and 1 + 5 == 6 and 6 + 1 == 7
+        and 7 + 1 + 7 == 15,
+        "5 + 5 + 1 + 1 = 12; 35 - 30 = 5; 2^5 - 1 = 31; 1370 - 12 = 1358; 3 x 1/3 = 1":
+            5 + 5 + 1 + 1 == 12 and 35 - 30 == 5 and 2 ** 5 - 1 == 31 and 1370 - 12 == 1358,
+        "the tick rotor 108 times is the third tick (108 = 3 mod 5); 8 x 108 = 864": 108 * TICK % N == 2592
+        and 108 % 5 == 3 and 8 * 108 == TICK,
+        "0 + 1 + 10 + 11 = 22; 1 x 10 x 11 = 110; 11 - 10 = 1": 0 + 1 + 10 + 11 == 22 and 1 * 10 * 11 == 110,
+        "15 - 2 = 13 = 7 + 6 = 6 x 2 + 1; 9361 - 7115 = 2246 = 1764 + 482": 15 - 2 == 13 == 7 + 6 == 6 * 2 + 1
+        and 9361 - 7115 == 2246 == 1764 + 482,
+        "1822 + 109 + 5184 + 1764 + 482 = 9361 = 132 + 6948 + 1554 + 1 + 196 + 530; 5184 = 36 x 6 x 24":
+            1822 + 109 + 5184 + 1764 + 482 == 9361 == 132 + 6948 + 1554 + 1 + 196 + 530 and 5184 == 36 * 6 * 24,
+        "12 + 20 + 2 = 20 + 3 + 9 + 2 = 23 + 11 = 34; 112 + 128 = 240": 12 + 20 + 2 == 20 + 3 + 9 + 2
+        == 23 + 11 == 34 and 112 + 128 == 240,
+        "441 - 21 = 420; 17 + 4 = 21; 155 + 134 = 289; 6 + 12 = 18; 30 - 18 = 12; 5 + 15 = 20; 5 + 14 = 19; "
+        "16 + 20 + 24 + 20 = 80": 21 ** 2 - 21 == 420 and 17 + 4 == 21 and 155 + 134 == 289 and 6 + 12 == 18
+        and 30 - 18 == 12 and 5 + 15 == 20 and 5 + 14 == 19 and 16 + 20 + 24 + 20 == 80,
+        "2 x 864 = 1728; 3 x 1728 = 864 mod 4320": 2 * TICK == 1728 and 3 * 1728 % N == TICK,
+        "120 (-2) + 60 + 90 + 96 = 6; 28 + 92 = 120; 125 = 5^3": 120 * (-2) + 60 + 90 + 96 == 6 and 28 + 92 == 120
+        and 125 == 5 ** 3,
+        "the pentagon cuts (5 +- sqrt 5)/10 sum to 1 and multiply to 1/5": sp.simplify(sum(cuts) - 1) == 0
+        and sp.simplify(cuts[0] * cuts[1] - sp.Rational(1, 5)) == 0,
+        "242 = 241 + 1 = 240 + 2; 30 / 6 = 5; 4 x 6 = 24": 242 == 241 + 1 == 240 + 2 and 30 // 6 == 5 and 4 * 6 == 24,
+    }
+
+
+# ----------------------------------------------------------------------- (a) graphs
+
+def k5_graphs():
+    E = carrier.edges()
+    M = np.array(carrier.signless_incidence(), dtype=np.int64)
+    B = np.array(carrier.signed_incidence(), dtype=np.int64)
+    K = np.array(carrier.D2(), dtype=np.int64)
+    rank = lambda X: int(np.linalg.matrix_rank(X))
+    idx = {e: k for k, e in enumerate(E)}
+    Z = []
+    for i, j in E:                              # fundamental cycles of the star tree at vertex 0
+        if i:
+            z = np.zeros(len(E), dtype=np.int64)
+            z[idx[(0, i)]], z[idx[(i, j)]], z[idx[(0, j)]] = 1, 1, -1
+            Z.append(z)
+    Z = np.array(Z)
+    L = B @ B.T
+    four = {frozenset(frozenset((p[k], p[(k + 1) % 4])) for k in range(4))
+            for quad in itertools.combinations(range(5), 4) for p in itertools.permutations(quad)}
+    J5 = np.ones((5, 5), dtype=np.int64)
+    return {
+        "cut rank 4 and cycle rank 6": rank(B) == 4 and len(E) - rank(B) == 6,
+        "the signless kernel on the edges has dimension 5, and it is the zero-mode space of D^2":
+            len(E) - rank(M) == 5 and np.array_equal(K[5:, 5:], M.T @ M)
+            and carrier.spectrum_multiplicities()[0] == 5,
+        "the vertex block of D^2 is M M^T = 3I + J": np.array_equal(K[:5, :5], M @ M.T)
+        and np.array_equal(M @ M.T, 3 * np.eye(5, dtype=np.int64) + J5),
+        "the edge Gram trace is 20, the directed edges": int(np.trace(B.T @ B)) == 20 == 5 * 4,
+        "the six star-tree cycles span the cycle space": not (B @ Z.T).any() and rank(Z) == 6,
+        "their Gram determinant is 125 = the spanning-tree count 5^3 (Kirchhoff)":
+            round(np.linalg.det((Z @ Z.T).astype(float))) == 125 == round(np.linalg.det(L[1:, 1:].astype(float))),
+        "K5 has fifteen 4-cycles = 5 x 3": len(four) == 15,
+    }
+
+
+def petersen():
+    E = carrier.edges()
+    A = sp.Matrix(len(E), len(E), lambda a, b: int(not set(E[a]) & set(E[b])))
+    I = sp.eye(len(E))
+    proj = {}
+    for lam in (3, 1, -2):
+        X = I
+        for mu in (3, 1, -2):
+            if mu != lam:
+                X = X * (A - mu * I) / (lam - mu)
+        proj[lam] = X
+    ortho = all(proj[a] * proj[b] == (proj[a] if a == b else sp.zeros(len(E))) for a in proj for b in proj)
+    return {
+        "the disjointness graph of the ten edges has degree 3 and 15 edges": all(sum(A.row(i)) == 3 for i in range(10))
+        and sum(A) == 30,
+        "(A - 3)(A - 1)(A + 2) = 0": (A - 3 * I) * (A - I) * (A + 2 * I) == sp.zeros(10),
+        "its spectral projectors are orthogonal and add to I, ranks 1, 5, 4": ortho
+        and sum(proj.values(), sp.zeros(10)) == I and [proj[k].trace() for k in (3, 1, -2)] == [1, 5, 4],
+    }
+
+
+def _closure(gens):
+    one = np.eye(len(gens[0]), dtype=np.int64)
+    seen, todo = {one.tobytes()}, [one]
+    while todo:
+        x = todo.pop()
+        for s in gens:
+            y = x @ s
+            if y.tobytes() not in seen:
+                seen.add(y.tobytes())
+                todo.append(y)
+    return seen
+
+
+def _order(M):
+    one, P, k = np.eye(len(M), dtype=np.int64), M.copy(), 1
+    while not np.array_equal(P, one):
+        P, k = P @ M, k + 1
+    return k
+
+
+def pentagon():
+    perm = lambda f: np.array([[int(f(j) == i) for j in range(5)] for i in range(5)], dtype=np.int64)
+    C5 = np.array([[int((i - j) % 5 in (1, 4)) for j in range(5)] for i in range(5)], dtype=np.int64)
+    P5 = np.array([[int((i - j) % 5 in (2, 3)) for j in range(5)] for i in range(5)], dtype=np.int64)
+    I5, J5 = np.eye(5, dtype=np.int64), np.ones((5, 5), dtype=np.int64)
+    s, r = perm(lambda i: 2 * i % 5), perm(lambda i: (i + 1) % 5)
+    group = _closure([s, r])
+    cyc, x = [1], 2
+    while x != 1:
+        cyc.append(x)
+        x = 2 * x % 5
+    return {
+        "C5^2 = 2I + pentagram, and the two edge sets partition K5": np.array_equal(C5 @ C5, 2 * I5 + P5)
+        and np.array_equal(C5 + P5, J5 - I5),
+        "the doubling i -> 2i has order 4, fixes 0, cycles 1 -> 2 -> 4 -> 3, and carries the pentagon to the "
+        "pentagram": _order(s) == 4 and s[0, 0] == 1 and cyc == [1, 2, 4, 3] and np.array_equal(s @ C5 @ s.T, P5),
+        "rotation and doubling do not commute and generate 20 affine maps": not np.array_equal(s @ r, r @ s)
+        and len(group) == 20,
+        "doubling mod 6 is not a permutation: its image is {0, 2, 4}": sorted({2 * i % 6 for i in range(6)}) == [0, 2, 4],
+    }
+
+
+def companions():
+    I2 = sp.eye(2)
+    out = {}
+    for w2 in (3, 8):
+        Mw = sp.Matrix([[0, 1], [-w2, 0]])
+        out[f"breath companion of {w2}: M^2 = -{w2} I, M^4 = {w2 ** 2} I, det M = {w2}, so no power is I"] = \
+            Mw ** 2 == -w2 * I2 and Mw ** 4 == w2 ** 2 * I2 and Mw.det() == w2
+    Bm = sp.Matrix([[1, 1], [1, 0]])
+    fib = all(Bm ** k == sp.Matrix([[sp.fibonacci(k + 1), sp.fibonacci(k)], [sp.fibonacci(k), sp.fibonacci(k - 1)]])
+              for k in range(1, 41))
+    mod5 = [k for k in range(1, 41) if (Bm ** k).applyfunc(lambda t: t % 5) == I2]
+    out["golden companion: B^k = [[F(k+1), F(k)], [F(k), F(k-1)]] with F(k) > 0, so B has infinite order over "
+        "Z; mod 5 it has order 20"] = fib and mod5 == [20, 40]
+    T = np.array([[int(j == 12 - i) for j in range(13)] for i in range(13)])
+    out["the hourglass k -> 12 - k on 13 points: an involution with fixed rank 7 and odd rank 6"] = \
+        np.array_equal(T @ T, np.eye(13, dtype=int)) and int(np.trace(T)) == 1 \
+        and np.linalg.matrix_rank(T + np.eye(13)) == 7 and np.linalg.matrix_rank(T - np.eye(13)) == 6
+    return out
+
+
+# --------------------------------------------------------- (b) the root graph and the moments
+
+def root_graph():
+    R = handover.e8_roots()
+    G = np.rint(R @ R.T).astype(np.int64)
+    A = (G == 1).astype(np.int64)
+    diag = [np.diag(np.linalg.matrix_power(A, k)) for k in range(5)]
+    A2 = A @ A
+    by_ip = {ip: sorted({int(v) for v in A2[0][G[0] == ip]}) for ip in (2, 1, 0, -1, -2)}
+    shells = Counter(int(v) for v in G[0])
+    return {
+        "closed walks at every root: 1, 0, 56, 1512, 62160": all(len(set(d.tolist())) == 1 for d in diag)
+        and [int(d[0]) for d in diag] == [1, 0, 56, 1512, 62160],
+        "A^2 at inner products 2, 1, 0, -1, -2 is 56, 27, 12, 1, 0, so 62160 = 56^2 + 56 x 27^2 + 126 x 12^2 + 56":
+            by_ip == {2: [56], 1: [27], 0: [12], -1: [1], -2: [0]} and shells == {2: 1, 1: 56, 0: 126, -1: 56, -2: 1}
+            and 56 ** 2 + 56 * 27 ** 2 + 126 * 12 ** 2 + 56 * 1 == 62160,
+        "the frame identity: the outer products of the 240 roots add to 60 I8": np.allclose(R.T @ R, 60 * np.eye(8)),
+    }
+
+
+# The E8 lattice in doubled coordinates: all entries even or all odd, sum = 0 mod 4. Roots have norm 8.
+def _roots2():
+    R = [list(v) for v in np.rint(2 * handover.e8_roots()).astype(np.int64)]
+    return np.array(R, dtype=np.int64)
+
+
+_BASE, _OFF = 64, 32
+_W = _BASE ** np.arange(8, dtype=np.int64)
+
+
+def _code(P):
+    return (np.asarray(P, dtype=np.int64) + _OFF) @ _W
+
+
+def _delta(keys, vals, rc):
+    """(Delta f)(x) = 240 f(x) - sum over roots f(x + r): exact on a sparse integer vector."""
+    k = np.concatenate([keys, (keys[:, None] + rc[None, :]).ravel()])
+    v = np.concatenate([240 * vals, -np.repeat(vals, len(rc))])
+    o = np.argsort(k, kind="stable")
+    k, v = k[o], v[o]
+    start = np.flatnonzero(np.r_[True, k[1:] != k[:-1]])
+    s = np.add.reduceat(v, start)
+    keep = s != 0
+    return k[start][keep], s[keep]
+
+
+def _dot(a, b):
+    _, i, j = np.intersect1d(a[0], b[0], assume_unique=True, return_indices=True)
+    return int(np.dot(a[1][i].astype(object), b[1][j].astype(object)))
+
+
+def _adjacency_form(u, rc):
+    """<u, A u>, A the sum of the 240 root translations."""
+    keys, vals = u
+    total = 0
+    for c in rc:
+        t = keys + c
+        pos = np.searchsorted(keys, t)
+        pos[pos >= len(keys)] = 0
+        hit = keys[pos] == t
+        total += int(np.dot(vals[hit].astype(object), vals[pos[hit]].astype(object)))
+    return total
+
+
+def lattice_moments(points, signs, nmax):
+    """<v, Delta^n v> for n <= nmax, v = sum of signs at the points, on the infinite E8 lattice (exact)."""
+    rc = _roots2() @ _W
+    keys = _code(points)
+    order = np.argsort(keys)
+    pows = [(keys[order], np.asarray(signs, dtype=np.int64)[order])]
+    while 2 * len(pows) <= nmax:
+        pows.append(_delta(*pows[-1], rc))
+    out = []
+    for n in range(nmax + 1):
+        j = n // 2
+        if n - j < len(pows):
+            out.append(_dot(pows[j], pows[n - j]))
+        else:                                   # n = 2j + 1: <u, Delta u> = 240 |u|^2 - <u, A u>
+            out.append(240 * _dot(pows[j], pows[j]) - _adjacency_form(pows[j], rc))
+    return out
+
+
+def ports():
+    a1, a2 = np.array([2, -2, 0, 0, 0, 0, 0, 0]), np.array([0, 2, -2, 0, 0, 0, 0, 0])
+    hexagon = [a1, a1 + a2, a2, -a1, -a1 - a2, -a2]          # the six roots of an A2, in angular order
+    r, s = np.array([2, 2, 0, 0, 0, 0, 0, 0]), np.array([0, 0, 2, 2, 0, 0, 0, 0])
+    square = [0 * r, r, r + s, s]
+    a, b, c, d = (np.roll(r, 2 * k) for k in range(4))       # four orthogonal roots, a + b + c + d = 2 x root
+    octagon = [0 * a, a, a + b, a + b + c, a + b + c + d, b + c + d, c + d, d]
+    return {"hexagon": (hexagon, [1, -1] * 3), "square": (square, [1, -1] * 2), "octagon": (octagon, [1, -1] * 4)}
+
+
+HEXAGON_REPORTED = [1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515]
+SQUARE_CANON = [4, 968, 234808, 57068232, 13892809056, 3386893240640, 826707839888400, 202013532870796200]
+OCTAGON_REPORTED = {2: 58713, 3: 14274162, 4: 3476302936}
+
+
+def _shell(w, roots):
+    n = int(w @ w)
+    return (n, n == 32 and bool((w % 2 == 0).all()) and tuple(w // 2) in roots)
+
+
+def difference_distribution(points, signs, roots):
+    D = Counter()
+    for (p, x), (q, y) in itertools.product(zip(points, signs), repeat=2):
+        D[_shell(np.asarray(p) - np.asarray(q), roots)] += x * y
+    return D
+
+
+def weyl_orbit(v, simple):
+    seen, todo = {tuple(v)}, [np.asarray(v)]
+    while todo:
+        x = todo.pop()
+        for a in simple:
+            y = x - ((x @ a) // 4) * a
+            t = tuple(y)
+            if t not in seen:
+                seen.add(t)
+                todo.append(y)
+    return seen
+
+
+def shell_counts(norms):
+    out = Counter()
+    for parity, vals in ((0, (-4, -2, 0, 2, 4)), (1, (-3, -1, 1, 3))):
+        X = np.array(list(itertools.product(vals, repeat=8)), dtype=np.int64)
+        X = X[X.sum(1) % 4 == 0]
+        nn = (X * X).sum(1)
+        for n in norms:
+            out[n] += int((nn == n).sum())
+    return out
+
+
+def moment_checks():
+    P = ports()
+    m = {name: lattice_moments(pts, sg, 7 if name != "octagon" else 6) for name, (pts, sg) in P.items()}
+    hexm = [Fraction(x, 6) for x in m["hexagon"]]
+    octm = [Fraction(x, 8) for x in m["octagon"]]
+    sqm = [Fraction(x, 4) for x in m["square"]]
+    mu = [sp.Integer(int(x)) for x in hexm]
+    var = mu[2] - mu[1] ** 2
+    third = mu[3] - 3 * mu[1] * mu[2] + 2 * mu[1] ** 3
+    KR = sp.Matrix([[mu[1], mu[2] - mu[1] ** 2], [mu[2] - mu[1] ** 2, mu[3] - 2 * mu[1] * mu[2] + mu[1] ** 3]])
+    hankel = [sp.Matrix(k, k, lambda i, j: mu[i + j]).det() for k in range(1, 5)]
+    # why square = (hexagon + octagon) / 2 at every order
+    R2 = _roots2()
+    roots = {tuple(v) for v in R2}
+    dist = {name: difference_distribution(pts, sg, roots) for name, (pts, sg) in P.items()}
+    keys = set().union(*dist.values())
+    proportional = all(Fraction(dist["square"][k], 4) == (Fraction(dist["hexagon"][k], 6)
+                                                         + Fraction(dist["octagon"][k], 8)) / 2 for k in keys)
+    simple = np.array([[1, -1, -1, -1, -1, -1, -1, 1], [2, 2, 0, 0, 0, 0, 0, 0]]
+                      + [list(np.roll([-2, 2, 0, 0, 0, 0, 0, 0], k)) for k in range(6)], dtype=np.int64)
+    counts = shell_counts((16, 24))
+    orbit4 = weyl_orbit(np.array([2, 2, 2, 2, 0, 0, 0, 0]), simple)
+    orbit6 = weyl_orbit(np.array([4, 2, 2, 0, 0, 0, 0, 0]), simple)
+    orbit2 = weyl_orbit(R2[0], simple)
+    used = {k for k in keys if dist["square"][k] or dist["hexagon"][k] or dist["octagon"][k]}
+    transitive = len(orbit2) == 240 and len(orbit4) == counts[16] == 2160 and len(orbit6) == counts[24] == 6720
+    # the deep hole: k = pi (1,1,1,1,0,0,0,0); every root pairs with w to an integer t, cos(pi t) = (-1)^t
+    w = np.array([1, 1, 1, 1, 0, 0, 0, 0])
+    t = (R2 @ w) // 2
+    hole = 240 - sum(1 if x % 2 == 0 else -1 for x in t)
+    replay = {
+        "MOMENT_BIT's seven moments are those of the alternating hexagon port": [int(x) for x in hexm[:7]]
+        == HEXAGON_REPORTED and all(x.denominator == 1 for x in hexm),
+        "variance 127, central third moment -4736": var == 127 and third == -4736,
+        "Jacobi: K_R = [[242, 127], [127, 25998]], alpha_1 = 25998/127": KR == sp.Matrix([[242, 127], [127, 25998]]),
+        "Hankel determinants 1, 127, 15930273, 3540294987045875": hankel == [1, 127, 15930273, 3540294987045875],
+        "the square port m_0..m_7 are the canon's": [int(x) for x in m["square"]] == SQUARE_CANON,
+        "the octagon port mu_2..mu_4 are the reported 58713, 14274162, 3476302936":
+            all(octm[k] == v for k, v in OCTAGON_REPORTED.items()),
+    }
+    identity = {
+        "square = (hexagon + octagon) / 2 through n = 6": all(sqm[n] == (hexm[n] + octm[n]) / 2 for n in range(7)),
+        "the difference distributions are proportional on every shell used": proportional,
+        "the shells used are one Weyl orbit each (roots 240, norm 4: 2160, norm 6: 6720, twice a root)":
+            transitive and used <= {(0, False), (8, False), (16, False), (24, False), (32, True)},
+    }
+    values = {"hexagon": [int(x) for x in hexm], "square": [int(x) for x in m["square"]],
+              "octagon": [int(x) for x in octm], "mu_7 (new)": int(hexm[7])}
+    return replay, identity, hole == 256, values
+
+
+# ------------------------------------------------------------------- (c) the order-120 clock
+
+def clock_120():
+    _, cp, _, _, g, _ = spine.spine_clock()
+    d = spine.day_clock()
+    mp = spine.mpow
+    G = ledger.closure([cp, d])
+    I8 = spine.I8
+    orders = Counter(spine.mat_order(x) for x in G)
+    invol = [x for x in G if spine.mat_order(x) == 2]
+    central = all(np.array_equal(invol[0] @ x, x @ invol[0]) for x in G) if len(invol) == 1 else False
+    pairs = [(a, b) for a in G if spine.mat_order(a) in (1, 2) for b in G
+             if spine.mat_order(b) in (1, 2, 4) and np.array_equal(mp(a @ b, 5), I8)]
+    generating = [p for p in pairs if len(ledger.closure(list(p))) == 120]
+    # S5 has (2, 4, 5) generating pairs
+    S5 = list(itertools.permutations(range(5)))
+    comp = lambda p, q: tuple(p[q[i]] for i in range(5))
+
+    def order(p):
+        k, x = 1, p
+        while x != tuple(range(5)):
+            x, k = comp(p, x), k + 1
+        return k
+
+    def span(gens):
+        seen, todo = {tuple(range(5))}, [tuple(range(5))]
+        while todo:
+            x = todo.pop()
+            for h in gens:
+                y = comp(h, x)
+                if y not in seen:
+                    seen.add(y)
+                    todo.append(y)
+        return len(seen)
+    s5_pairs = [(a, b) for a in S5 if order(a) == 2 for b in S5 if order(b) == 4 and order(comp(a, b)) == 5]
+    return {
+        "element orders of the clock": dict(sorted(orders.items())),
+        "it has one involution, -I = c'^15, and it is central": len(invol) == 1 and central
+        and np.array_equal(invol[0], -I8) and np.array_equal(mp(cp, 15), -I8),
+        "it has 4 elements of order 5 (S5 has 24 five-cycles)": orders[5] == 4
+        and sum(order(p) == 5 for p in S5) == 24,
+        "it has no (2, 4, 5) generating pair": len(pairs) == 2 and not generating,
+        "S5 has 120 (2, 4, 5) pairs and every one generates it": len(s5_pairs) == 120
+        and all(span(p) == 120 for p in s5_pairs),
+        "Riemann-Hurwitz for (2, 4, 5) and order 120: 2g - 2 = -240 + 60 + 90 + 96 = 6, g = 4":
+            120 * (-2) + 120 * (1 - Fraction(1, 2)) + 120 * (1 - Fraction(1, 4)) + 120 * (1 - Fraction(1, 5)) == 6,
+    }
+
+
+def circle_maps():
+    """Every homomorphism from the day-Coxeter clock G = <c', d> to Z/4320."""
+    _, cp, _, _, g, _ = spine.spine_clock()
+    d = spine.day_clock()
+    mp = spine.mpow
+    G = ledger.closure([cp, d])
+    word = {(mp(cp, i) @ mp(d, j)).tobytes(): (i, j) for i in range(30) for j in range(4)}
+    if len(word) != 120 or not np.array_equal(mp(d, 4), mp(cp, 5)):
+        return {"normal form c'^i d^j (i < 30, j < 4)": False}
+    elems = [(x, word[x.tobytes()]) for x in G]
+    # a homomorphism kills the commutator c'^6, so phi(c') = a with 6a = 0, and 4 phi(d) = phi(d^4) = 5a
+    cands = [(a, b) for a in range(0, N, 720) for b in range(N) if (4 * b - 5 * a) % N == 0]
+    phi = lambda w, a, b: (w[0] * a + w[1] * b) % N
+    homs = [(a, b) for a, b in cands
+            if all(phi(word[(x @ y).tobytes()], a, b) == (phi(wx, a, b) + phi(wy, a, b)) % N
+                   for x, wx in elems for y, wy in elems)]
+    iota = [144 * u % N for u in range(30) if gcd(u, 30) == 1]
+    return {
+        "normal form c'^i d^j (i < 30, j < 4)": True,
+        "the clock has exactly 24 homomorphisms to the circle": len(homs) == 24,
+        "every one kills the commutator c'^6 = [d, c']": all(6 * a % N == 0 for a, _ in homs),
+        "every one sends c' into <720>, the shared order-6 subgroup": all(a % 720 == 0 for a, _ in homs),
+        "the cyclic embeddings c'^k -> 144 u k (u a unit mod 30) send c'^6 to a nonzero tick, 864 for u = 1":
+            {6 * x % N for x in iota} == set(NONZERO) and 6 * 144 == TICK,
+        "none of them extends to the clock": not any(a in iota for a, _ in homs),
+    }
+
+
+def energy_table():
+    """Energy of the checked datum by block (vertex, edge) and D^2 sector (0, 3, 8), along the motion."""
+    L = carrier.CarrierLagrangian()
+    psi0, v0 = carrier.canon_initial_datum()
+    K = np.array(carrier.D2(), float)
+    cells = {}
+    for name, sl in (("vertex", slice(0, 5)), ("edge", slice(5, 15))):
+        w, U = np.linalg.eigh(K[sl, sl])
+        for lam in (0, 3, 8):
+            V = U[:, np.isclose(w, lam)]
+            P = np.zeros((15, 15))
+            P[sl, sl] = V @ V.T
+            cells[(name, lam)] = P
+    energy = lambda P, p, v: 0.5 * (P @ v) @ (P @ v) + 0.5 * (P @ p) @ K @ (P @ p)
+    times = [0.0, 0.37, 1.9, 5.3, 11.7]
+    traj = [L.solve(psi0, v0, t) for t in times]
+    table = {k: [energy(P, p, v) for p, v in traj] for k, P in cells.items()}
+    want = {("vertex", 0): 0, ("vertex", 3): 3, ("vertex", 8): 20, ("edge", 0): 2, ("edge", 3): 9, ("edge", 8): 0}
+    commute = all(np.allclose(P @ K, K @ P) for P in cells.values())
+    return {
+        "the table, vertex (0, 3, 20) and edge (2, 9, 0)": all(np.allclose(table[k], want[k]) for k in want),
+        "every cell is conserved (each projector commutes with D^2)": commute
+        and all(np.allclose(v, v[0]) for v in table.values()),
+        "rows 23 + 11, columns 2 + 12 + 20 (the stored shares), cells 20 + 3 + 9 + 2":
+            [sum(want[(b, s)] for s in (0, 3, 8)) for b in ("vertex", "edge")] == [23, 11]
+            and [want[("vertex", s)] + want[("edge", s)] for s in (0, 3, 8)] == [2, 12, 20],
+    }
+
+
+def small_groups():
+    z15 = range(15)
+    neg = {x: -x % 15 for x in z15}
+    hom = all(neg[(x + y) % 15] == (neg[x] + neg[y]) % 15 for x in z15 for y in z15)
+    o3 = [x for x in range(120) if 120 // gcd(x, 120) == 3]
+    o5 = [x for x in range(120) if 120 // gcd(x, 120) == 5]
+    crt = {(x % 108, x % 160) for x in range(N)}
+    refl = {k: 14 - k for k in range(15)}
+    return {
+        "no element of order 2 lies in Z/15 (Lagrange), but x -> -x is an automorphism of Z/15 of order 2":
+            all(2 * x % 15 for x in range(1, 15)) and hom and len(set(neg.values())) == 15
+            and any(neg[x] != x for x in z15) and all(neg[neg[x]] == x for x in z15),
+        "in Z/120 an element of order 3 and one of order 5 always generate the order-15 subgroup <8>":
+            all(gcd(gcd(a, b), 120) == 8 for a in o3 for b in o5),
+        "residues mod 108 and mod 160 fix a point of the circle: lcm 4320, image 4320 of 17280 pairs; "
+        "27 x 3 = 1 mod 40": len(crt) == N == 108 * 160 // gcd(108, 160) and 27 * 3 % 40 == 1,
+        "the order-108 subgroup is <40> and misses the tick; 8 steps of 108 are the tick; the tick rotor 108 "
+        "times is 2592": spine.order(40) == 108 and not ledger.contains_tick(40) and 8 * 108 == TICK
+        and 108 * TICK % N == 2592,
+        "the stage reflection k -> 14 - k fixes only Jiva (7), pairs Matrka-Pratyabhijna, Malini-Prema, Japa-Jnana, "
+        "Mantra-Iccha, and does not keep the bit (Nyasa 5 -> Samskara 9)":
+            [k for k in refl if refl[k] == k] == [7] and (refl[0], refl[1], refl[10], refl[11]) == (14, 13, 4, 3)
+            and ledger.contains_tick(refl[5]) != ledger.contains_tick(5),
+        "sqrt 3 and 2 sqrt 2 have no common rational return: 8 m^2 = 3 n^2 needs the power of 3 to be even and odd "
+        "(no solution with 0 < |m|, |n| <= 2000)": not any(8 * mm * mm == 3 * nn * nn for mm in range(1, 2001)
+                                                          for nn in (int(round((8 * mm * mm / 3) ** 0.5)),)),
+    }
+
+
+# ----------------------------------------------------------------------------- ledger rows
+
+JOINS = [
+    ("counts on the bit (28 notes, 18:32-19:21)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 223 readings from 27 notes, none fails", "THEOREM", "22: claims"),
+    ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
+    ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
+    ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
+    ("pentagon, pentagram", "C5^2 = 2I + pentagram; doubling and rotation give 20 maps", "the doubling 1 -> 2 -> 4 -> 3 carries C5 to the pentagram; AGL(1,5)", "THEOREM", "22: graphs, 21"),
+    ("breath and golden companions", "squares are -3I and -8I; no positive golden power is I", "det M = 3 or 8, so no power is I; B has infinite order over Z and order 20 mod 5", "THEOREM", "22: companions"),
+    ("root walks", "1, 0, 56, 1512, 62160 at one root", "A^2 at inner products 2, 1, 0, -1, -2 is 56, 27, 12, 1, 0; frame 60 I8", "THEOREM", "22: root graph"),
+    ("reported moments", "seven moments, not replayed", "replayed: <p, Delta^n p> for the alternating A2 hexagon port on the E8 lattice (it supplies an operand for layer 8's rotor hex6); mu_7 = 50383499822338790 new", "THEOREM", "22: moments"),
+    ("square and octagon ports", "square = (hexagon + octagon) / 2", "the three difference distributions are proportional on Weyl orbits, so the identity holds at every order", "THEOREM", "22: moments"),
+    ("the deep hole", "spec Delta in [0, 256], not [0, 480]", "256 is attained at the band vertex v* = pi (1,1,1,1,0,0,0,0) of layer 8; the bound 256 itself stays reported", "THEOREM", "8, 22: moments"),
+    ("Hurwitz value", "120 (-2) + 60 + 90 + 96 = 6", "2g - 2 = 6 for (2, 4, 5): S5 realizes it (genus 4); the stored clock has one involution and no (2, 4, 5) generating pair", "OBSTRUCTION", "22: clock"),
+    ("commutator and 864 (canon)", "a commutator is not 864 without a map", "24 homomorphisms clock -> circle, all kill c'^6 and send c' into <720>; c'^k -> 144 k reaches 864 but does not extend", "THEOREM", "22: circle maps"),
+    ("energy shares (canon, ONE_BIT)", "stored 12 + 20 + 2 against 20 + 3 + 9 + 2 and 23 + 11", "one conserved table: vertex (0, 3, 20), edge (2, 9, 0); rows 23 + 11, columns 2 + 12 + 20", "THEOREM", "22: energy"),
+    ("involution and the order-15 clock", "the involution does not act on the joint clock", "it cannot lie in it (Lagrange) but acts on it by x -> -x", "THEOREM", "22: groups"),
+    ("residues 108 and 160", "they fix one point of the circle; 27 x 3 = 1 mod 40", "CRT with lcm 4320", "THEOREM", "22: groups"),
+    ("not replayed", "15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7", "objects of the sibling build that are not stored here", "REPORTED", "22"),
+    ("not stored", "Yukawa blocks, hypercharge, taste, smell and touch matrices, icosahedral adjacency, swastika, hexagram, yinyang, diamond, tesseract, qubit", "no operand; nothing here forms them", "UNFORMED", "22"),
+]
+
+
+def ledger_page():
+    lines = ["# The unified ledger", "",
+             "Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC) and of its evening "
+             "notes (18:32-19:21 UTC), what this repository proves about it, and where. Generated by "
+             "`oes/counts.py` (`ledger_page()`); `tests/test_model.py` checks that this file is current.", "",
+             "| join | the sibling's statement | unified statement | status | layer |",
+             "|---|---|---|---|---|"]
+    cell = lambda x: x.replace("|", "\\|")
+    for row in ledger.JOINS + JOINS:
+        lines.append("| " + " | ".join(cell(x) for x in row) + " |")
+    lines += ["", "AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.", ""]
+    return "\n".join(lines)
+
+
+# ----------------------------------------------------------------------------- run
+
+def run():
+    rep = Report("22-counts")
+    T, AR, OB, UF, RP = gates.THEOREM, gates.ARITHMETIC, gates.OBSTRUCTION, gates.UNFORMED, gates.REPORTED
+
+    rep.add("canon continuation 3 read (00_CURRENT_20261028_1910, review cutoff 19:10:16 UTC): OMSOON736 controlling, "
+            "AUTH = NOT_PASS, every frozen gate kept; it records this repository's 21 layers / 412 checks / 31 tests as "
+            "source-reported, replays the sibling's nine-suite court and the six-port moments 1, 242, 58691, 14259954 "
+            "(variance 127, central third moment -4736), lists the 4-cube spectrum 0, 2, 4, 6, 8 with multiplicities "
+            "1, 8, 24, 32, 16, and keeps the order-16 coefficients missing", RP, True)
+    rep.add("the sibling's 28 notes of 18:32-19:21 UTC were read; their code and papers were not run", RP, True)
+
+    bad, stages_ok, info = check_claims()
+    rep.add(f"every integer reading of the 28 notes is the bit of layer 21 with its stated order, subgroup, steps or "
+            f"first landing: {len(CLAIMS)} readings from {info['notes']} notes, none fails. Twelve of the fifteen "
+            "stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and "
+            "Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728", T,
+            not bad and stages_ok and info["twelve stages meet, 0, 5 and 10 do not"]
+            and info["Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks"],
+            {"failures": bad, **info})
+    ar = note_arithmetic()
+    rep.add("the readings that ride on the bit are counts: sums, products, differences and the family quotient "
+            "3n^2 + n + 1 (31 only at n = 3)", AR, all(ar.values()), ar)
+
+    k5 = k5_graphs()
+    rep.add("K5: cut rank 4, cycle rank 6; the signless kernel on the edges (dimension 5) is the zero-mode space of "
+            "D^2, whose blocks are M M^T = 3I + J and M^T M; the star-tree cycles have Gram determinant 125, the "
+            "spanning-tree count; fifteen 4-cycles", T, all(k5.values()), k5)
+    pg = petersen()
+    rep.add("Petersen, the disjointness graph of the ten edges: degree 3, 15 edges, (A - 3)(A - 1)(A + 2) = 0, "
+            "orthogonal projectors of ranks 1, 5, 4 adding to I", T, all(pg.values()), pg)
+    pt = pentagon()
+    rep.add("pentagon and pentagram: C5^2 = 2I + pentagram; the doubling (order 4, 1 -> 2 -> 4 -> 3) carries one to "
+            "the other; with the rotation it generates the 20 affine maps; doubling mod 6 is not a permutation", T,
+            all(pt.values()), pt)
+    cm = companions()
+    rep.add("companions: the breath companions of 3 and 8 square to -3I and -8I and no power is I; the golden "
+            "companion has infinite order over Z and order 20 mod 5; the hourglass on 13 points has ranks 7 + 6", T,
+            all(cm.values()), cm)
+
+    rg = root_graph()
+    rep.add("ROOT_WALK replayed: closed walks 1, 0, 56, 1512, 62160 at every root, from the A^2 row 56, 27, 12, 1, 0; "
+            "the frame identity sum alpha alpha^T = 60 I8", T, all(rg.values()), rg)
+    replay, identity, hole, values = moment_checks()
+    rep.add("MOMENT_BIT replayed: its seven moments are <p, Delta^n p> for the alternating A2 hexagon port on the "
+            "infinite E8 lattice (Delta = 240 - sum of root translations), computed exactly; mu_7 = "
+            f"{values['mu_7 (new)']} is new. Variance 127, central third moment -4736, K_R = [[242, 127], "
+            "[127, 25998]]. Layer 8 records a 'rotor hex6' with these properties (m_1 = 242, Hankel determinants "
+            "positive) but without its operand; this port supplies one. The canon's square port m_0..m_7 and the octagon's "
+            "58713, 14274162, 3476302936 are replayed", T, all(replay.values()), {**replay, **values})
+    rep.add("square = (hexagon + octagon) / 2 at every order: the three ports' difference distributions are "
+            "proportional on the shells 0, roots, norm 4, norm 6 and twice a root, each one Weyl orbit (240, 2160, "
+            "6720, 240); checked directly through n = 6", T, all(identity.values()), identity)
+    rep.add("the root-walk note's deep hole is the band vertex v* of layer 8: Delta's symbol 240 - sum cos(k . rho) "
+            "is 256 at k = pi (1,1,1,1,0,0,0,0), so 256 lies in spec Delta", T, hole)
+    rep.add("sup spec Delta = 256 is reported twice and proved by neither here: the alcove branch-and-bound recorded "
+            "in layer 8 (247,920 pieces) and the root-walk note of 25 Oct (400-start search; Hankel of (256 - x) d mu "
+            "positive through order 10)", RP, True)
+
+    ck = clock_120()
+    rep.add("the order-120 clock: element orders 1:1, 2:1, 3:2, 4:10, 5:4, 6:2, 8:20, 10:4, 12:20, 15:8, 24:40, 30:8; "
+            "its only involution is the central -I = c'^15; it has 4 elements of order 5", T,
+            ck["element orders of the clock"] == {1: 1, 2: 1, 3: 2, 4: 10, 5: 4, 6: 2, 8: 20, 10: 4, 12: 20, 15: 8,
+                                                  24: 40, 30: 8}
+            and ck["it has one involution, -I = c'^15, and it is central"]
+            and ck["it has 4 elements of order 5 (S5 has 24 five-cycles)"], ck)
+    rep.add("ICOSA's Hurwitz value 6 = 2g - 2 (genus 4, signature (2, 4, 5)) belongs to S5, whose 120 (2, 4, 5) pairs "
+            "all generate it. The stored clock has no (2, 4, 5) generating pair, so it does not realize that surface",
+            OB, ck["it has no (2, 4, 5) generating pair"] and ck["S5 has 120 (2, 4, 5) pairs and every one generates it"]
+            and ck["Riemann-Hurwitz for (2, 4, 5) and order 120: 2g - 2 = -240 + 60 + 90 + 96 = 6, g = 4"])
+    cmaps = circle_maps()
+    rep.add("the commutator and 864 (canon continuation 3): the clock has exactly 24 homomorphisms to the circle; every "
+            "one kills c'^6 = [d, c'] and sends c' into <720>. The Coxeter clock alone embeds by c'^k -> 144 k and "
+            "then c'^6 -> 864, but no such embedding extends to the clock", T, all(cmaps.values()), cmaps)
+    en = energy_table()
+    rep.add("the energy splits are one conserved table (block x D^2 sector): vertex (0, 3, 20), edge (2, 9, 0). Its "
+            "rows are 23 + 11, its columns the stored shares 2 + 12 + 20, its nonzero cells 20 + 3 + 9 + 2", T,
+            all(en.values()), en)
+    sg = small_groups()
+    rep.add("FOUR_NAMES, sharpened: an involution cannot lie in the order-15 clock, but it acts on it by x -> -x. "
+            "In Z/120 orders 3 and 5 generate <8>; residues mod 108 and 160 fix one point (lcm 4320, 27 x 3 = 1 mod "
+            "40); the pada <40> misses the tick; the stage reflection fixes only Jiva and does not keep the bit; "
+            "sqrt 3 and 2 sqrt 2 never return together", T, all(sg.values()), sg)
+
+    rep.add("not replayed: the sibling's permutations on the fifteen indices (6-cycle, 7-cycle, middle), the readers "
+            "on the 24-cycle and their rank law, the Hodge degrees 31 and 41, the heat spectrum 0, 3, 6, 3 +- sqrt 5, "
+            "the opposite-edge block and the graded clock of order 10, the 12 x 12 sense stiffness, the acoustic and "
+            "optical matrices, the J7 and atlas row counts, and MOMENT_BIT's Hankel minimum of 24, probes and cutoff 7",
+            RP, True)
+    rep.add("not stored and not formed: Yukawa blocks, a hypercharge from the action, taste, smell and touch "
+            "matrices, an icosahedral adjacency (the root graph has degree 56), a swastika, hexagram, yinyang or "
+            "diamond intertwiner, a tesseract, a qubit", UF, True)
+    return rep

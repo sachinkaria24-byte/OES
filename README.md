@@ -6,7 +6,7 @@ This repository holds a checked mathematical model of the OES canon at the OMSOO
 
 ```
 pip install -r requirements.txt
-python verify.py          # all 21 layers, ~4 min, writes results.json
+python verify.py          # all 22 layers, ~4 min, writes results.json
 python verify.py --fast   # skips the nonlinear E8-bath flow
 python -m pytest -q
 ```
@@ -34,15 +34,16 @@ python -m pytest -q
 | 19 spine | `oes/spine.py` | the integrated spine rebuilt: every 4320-circle statement checked by one lemma (six corrected), the tower refined through the Coxeter subgroup (36 × 4 × 3 × 2 × 5), the E8 Coxeter clock (Φ₃₀, exponents = units mod 30) acting on the bath, its tick = two K5 carriers (c′⁶ = rr′), fixed momenta 25/81/256 = the A4+A4, E6+A2, E7+A1 + D8 Morse points, the day turning the Coxeter clock by the exponent 7, and which parts of the circle can act on the bath at all | THEOREM, OBSTRUCTION, SELECTED_REFERENCE, ARITHMETIC |
 | 20 canon | `oes/canon_sync.py` | the latest canon read and reconciled (16:30 UTC, re-read 16:49): the contrast-plane harmonic correction, the bath's maximal group speed √30 proved, the Canon Check's preparation identities and scalar bound, the sibling's circle notes (two duality errors corrected), the day–Coxeter group of order 120, the separate model's observer, sensor census, flag geometry and transfer functions rebuilt, and the 16:31–16:43 notes: Coxeter powers with their fixed momenta Φₙ(1)^(8/φ(n)), the atlas factor, sun and moon, and why the two clocks cannot commute on the bath | THEOREM, OBSTRUCTION, CONDITIONAL, ARITHMETIC, REPORTED |
 | 21 ledger | `oes/ledger.py` | the sibling's 28 Oct ledger unified (canon re-read 18:20 UTC): every tick join is one bit (864 ∈ ⟨x⟩ iff 5 ∤ x; 129 sentences from 35 joins checked), the tick is the commutator of the day and Coxeter clocks (d c′ d⁻¹ c′⁻¹ = c′⁶ = r r′), the day–Coxeter group (order 120) permutes its five day clocks as the affine group of the pentagon (tick = rotation, day = doubling), the golden clock (v⁴ = tick), the mirror (the pentagon reflection on the carrier), no involution exchanges the carrier and its twin (every exchange doubles the glue), the energy's four conserved pieces, 240 = D8 + half-spin, and the explicit clock matrices in `data/clocks.json` | THEOREM, ARITHMETIC, OBSTRUCTION, CONDITIONAL, UNFORMED, REPORTED |
+| 22 counts | `oes/counts.py` | the sibling's 18:32–19:21 notes and canon continuation 3 (19:10 UTC) replayed: 223 integer readings on the tick bit with their orders, subgroups and first landings; K5 (signless kernel = the zero modes of D², cycle-Gram determinant 125), Petersen, pentagon and pentagram; the root graph's closed walks 1, 0, 56, 1512, 62160; MOMENT_BIT's seven moments replayed exactly as the alternating hexagon port on the E8 lattice (μ₇ new) and square = (hexagon + octagon)/2 at every order; the order-120 clock has no (2,4,5) generating pair (the Hurwitz value 6 belongs to S5); every map from the clock to the circle kills the commutator; the three energy splits are one conserved table | THEOREM, OBSTRUCTION, ARITHMETIC, UNFORMED, REPORTED |
 
 Part II of `docs/MODEL.md` is the path from the mathematics to the operands and the physical gates.
 
 Papers are in `docs/paper/`:
 
-- **`one-machine-20261028-unified.pdf` is the current paper.** It covers all 21 layers with one ledger.
+- **`one-machine-20261028-unified.pdf` is the current paper.** It covers all 22 layers with one ledger.
 - `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) are kept as history.
 
-[`docs/LEDGER.md`](docs/LEDGER.md) lists every join of both builds with its status and the layer that checks it. `data/clocks.json` holds the explicit clock matrices (the Coxeter clock, the tick, the day, the golden clock and the mirror) as elements of W(E8).
+[`docs/LEDGER.md`](docs/LEDGER.md) lists every join of both builds, including the sibling's evening notes, with its status and the layer that checks it. `data/clocks.json` holds the explicit clock matrices (the Coxeter clock, the tick, the day, the golden clock and the mirror) as elements of W(E8).
 
 `ports/ts/` holds two drop-in TypeScript audits for the sibling model: `coxeterSpine.ts` (layer 19) and `ledgerJoins.ts` (layer 21). See `ports/ts/README.md`.
 

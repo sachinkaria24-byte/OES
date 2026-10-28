@@ -1,20 +1,20 @@
 # One Machine: the unified edition
 
-**OES end-to-end model, 28 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20) and the sibling's 28 October ledger of joins (layer 21). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
+**OES end-to-end model, 28 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), and the sibling's evening notes with the canon's 19:10 continuation (layer 22). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
 
 **AUTH = NOT_PASS · ScientificGold = FALSE · TIME_BIND = UNBOUND · DYN_BIND = NOT_INSTALLED · SCR6 = NOT_RUN_OPERAND_ABSENT · PredictionFreeze = NOT_TRIGGERED.** No gate moves, and no term is added to the action.
 
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 21 layers in **412 checks**. Of these, 383 hold: THEOREM 268, OBSTRUCTION 40, ARITHMETIC 31, CONDITIONAL 17, UNFORMED 17, SELECTED_REFERENCE 8, REMOVED 2. The other 29 are REPORTED records.
-- `python -m pytest` runs 31 tests.
+- `python verify.py` replays 22 layers in **432 checks**. Of these, 399 hold: THEOREM 281, OBSTRUCTION 41, ARITHMETIC 32, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 33 are REPORTED records.
+- `python -m pytest` runs 34 tests.
 - `ports/ts/` holds two drop-in audits for the sibling's app (35 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
 ## Abstract
 
-The model has one datum, the signless incidence of K5. It has one action, fifteen oscillators with stiffness D², and one bath, the E8 root lattice. Everything else is a map between these three objects, a count, or a gate. This edition does three things.
+The model has one datum, the signless incidence of K5. It has one action, fifteen oscillators with stiffness D², and one bath, the E8 root lattice. Everything else is a map between these three objects, a count, or a gate. This edition does four things.
 
 **It collapses the ledger.** The sibling's 28 October ledger states about forty joins. The 129 sentences of the form "X contains every tick" or "X misses every nonzero tick" all carry one bit: the tick 864 lies in ⟨X⟩ exactly when 5 does not divide X. All 129 are checked against that one line, together with their step counts, their indices and 38 stated subgroup orders. The numbers that ride on the bit are shared integers, and no map joins them.
 
@@ -35,6 +35,12 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 - The source oscillator, of frequency 2, is not a carrier mode.
 - Compton and Bohr lengths, the photoelectric effect, the double slit and entanglement stay unformed. No operand is stored for them, and the action has no dimensionful constant.
 
+**It replays the evening notes (layer 22).**
+
+- The sibling's 28 notes of 18:32–19:21 add 223 readings on the bit, and every one holds.
+- Seven moments that the sibling reported as not replayed are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly from the 240 roots, and the eighth is new.
+- The canon's 19:10 continuation asks two things. A commutator should not be called 864 without a map: every map from the day–Coxeter group to the circle kills it. Equal energy totals do not make equal splits: the three splits are the margins of one conserved table.
+
 ## 0. The model on one page
 
 | object | definition | what is proved | layer |
@@ -44,7 +50,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 | action | S = ∫ ½\|ψ̇\|² − ½⟨ψ, D²ψ⟩ | 15 oscillators: 5 free, 8 at √3, 2 at 2√2; four conserved energies | 1, 21 |
 | spectral triple | (ℂ<sup>V</sup> ⊕ ℂ<sup>E</sup>, ℓ²(V ⊔ E), D, γ) | heat trace 5 + 8e<sup>−3β</sup> + 2e<sup>−8β</sup>; Witten index −5 | 2, 5 |
 | observer | Kalman readouts of (ψ, ψ̇) | dark sector P5 ⊕ P5; five channels complete it | 5, 20 |
-| bath | E8 root lattice, Δ = 240 − A | band [0, 256]; 11 critical families, 243,600 points, Morse sum 0; group speed √30 | 3, 16, 20 |
+| bath | E8 root lattice, Δ = 240 − A | band [0, 256] (256 attained; the upper bound reported); 11 critical families, 243,600 points, Morse sum 0; group speed √30 | 3, 8, 16, 20 |
 | walks | W_n = closed walks of length n | one shift operator of order 16 and degree 58; its 11 in-band roots are the 11 critical values | 14, 16 |
 | native action | source q on P5 ⊕ P5, quadratic port W_AS, six-site clique | q̈ + 4q = 0 at the origin; sharp quartic 40/9 | 4, 10 |
 | glue | E8 ⊃ A4 ⊕ A4′ | index 5, glue x ↦ ±2x; no involution exchanges the two | 11, 21 |
@@ -116,7 +122,7 @@ Five fixed channels are necessary and sufficient to complete the observer. With 
 - [W(E8) : W(D8)] = 135. This is the D8 family at the top of the band, and the half-turn's 256 fixed momenta are 1 + 120 + 135.
 - The ledger's "SU(2) is not derived" stands.
 
-**The band and its critical points (THEOREM, layers 3, 14, 16).** The symbol is ε(k) = 240 − Σ cos(α·k), with range [0, 256]. The critical census lists λ = 240 − ε, the number of points and the Morse index:
+**The band and its critical points (THEOREM, layers 3, 8, 14, 16).** The symbol is ε(k) = 240 − Σ cos(α·k). It attains 0 and 256, the top at the band vertex π(1,1,1,1,0,0,0,0). That the range is exactly [0, 256] is reported (an alcove branch-and-bound, layer 8), and the census below agrees with it. The census covers the vertices and edges of the alcove and lists λ = 240 − ε, the number of points and the Morse index:
 
 | family | λ | points | index | | family | λ | points | index |
 |---|---|---|---|---|---|---|---|---|
@@ -242,6 +248,8 @@ The twist by 7 that the integrated build stops at and the two-carrier tick are t
 - its derived group is the tick, of order 5, and its abelianization is cyclic of order 24, generated by d;
 - the day acts on the tick by doubling: d (r r′) d⁻¹ = (r r′)².
 
+**On the circle (THEOREM, layer 22).** This tick lives in W(E8). G has exactly 24 homomorphisms to Z/4320, and each one kills c′⁶ and sends c′ into ⟨720⟩. The tick reaches 864 only through ⟨c′⟩ alone, by c′ᵏ ↦ 144k, and that embedding does not extend to G.
+
 **Five day clocks (THEOREM, layer 21).** G has exactly five conjugates of ⟨d⟩. On them:
 
 - the tick acts as x ↦ x + 1;
@@ -271,7 +279,7 @@ This follows from explicit elements, the degree bound, a Sylow argument for 16, 
 
 ## 7. The canon and the sibling, reconciled
 
-**Position.** The Quick Access workbook has a new top sheet, 00_FULL_RECONCILIATION_20261028, with review cutoff 17:19:41 UTC. It keeps OMSOON736 as the controlling numbered baseline. No new Matrix ID was issued, and every frozen gate stays. It still lists this repository's 14:37 build (18 layers, 320 checks) as the latest One Machine status. This edition arrived after that cutoff.
+**Position.** The Quick Access workbook has a new top sheet, 00_FULL_RECONCILIATION_20261028, with review cutoff 17:19:41 UTC. It keeps OMSOON736 as the controlling numbered baseline. No new Matrix ID was issued, and every frozen gate stays. It still lists this repository's 14:37 build (18 layers, 320 checks) as the latest One Machine status. At 19:10 UTC a continuation sheet, 00_CURRENT_20261028_1910, recorded the 21-layer build (412 checks, 31 tests) as source-reported. It replays the six-port moments 1, 242, 58691, 14259954, keeps OMSOON736 and every frozen gate, and still lists the order-16 coefficients as missing. It also makes two remarks, on the commutator and on the energy splits. Layer 22 answers both (§8).
 
 **The Canon Check (layer 20).**
 
@@ -294,9 +302,63 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 - the 25-coordinate flag geometry, with intersection determinant −48 and vertex distance exactly √(8/7);
 - the collocated transfer functions G_V = (z²+7)/((z²+3)(z²+8)) and G_E = 1/(2z²) + 2/(5(z²+3)) + 1/(10(z²+8)).
 
-## 8. The unified ledger
+## 8. The evening notes (layer 22)
 
-`docs/LEDGER.md` lists every join of both builds with its status and the layer that checks it. A test keeps it current. In short:
+At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. Layer 22 replays them in 20 checks.
+
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 223 readings from 27 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+
+- Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
+- Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
+
+**Graphs (THEOREM).**
+
+- **K5.** The cut has rank 4 and the cycles rank 6. The signless kernel on the edges, of dimension 5, is the zero-mode space of D². The six star-tree cycles have Gram determinant 125, which is the spanning-tree count.
+- **Petersen.** (A − 3)(A − 1)(A + 2) = 0, with exact orthogonal projectors of ranks 1, 5 and 4.
+- **Pentagon and pentagram.** C5² = 2I + pentagram. The doubling 1 → 2 → 4 → 3 carries the pentagon onto the pentagram.
+- **Companions.** The breath companions of 3 and 8 have determinants 3 and 8, so no power is I. The golden companion has infinite order over ℤ and order 20 mod 5.
+
+**The root graph and the moments (THEOREM).**
+
+- **Root walks.** The closed walks at a root are 1, 0, 56, 1512 and 62160. They come from the A² row 56, 27, 12, 1, 0 at inner products 2, 1, 0, −1, −2.
+- **The reported moments.** They are ⟨p, Δⁿp⟩ for the alternating hexagon port, the six roots of an A2 with signs + − + − + −, on the infinite E8 lattice:
+
+    > 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515, and μ₇ = 50383499822338790.
+
+    All eight are computed exactly from the 240 roots, and the eighth is new. The variance is 127, the central third moment is −4736, and K_R = [[242, 127], [127, 25998]].
+
+- **Square and octagon ports.** The canon's square-port moments m₀…m₇ and the octagon's 58713, 14274162 and 3476302936 are replayed. square = (hexagon + octagon)/2 at every order, because the three difference distributions are proportional on Weyl orbits.
+
+- **The deep hole.** The deep hole is the band vertex of §3: 256 ∈ spec Δ. The full bound sup spec Δ = 256 stays reported.
+
+**The order-120 clock.**
+
+- **Structure (THEOREM).** Its element orders are 1:1, 2:1, 3:2, 4:10, 5:4, 6:2, 8:20, 10:4, 12:20, 15:8, 24:40 and 30:8. Its only involution is the central −I.
+- **The Hurwitz value 6 (OBSTRUCTION).** The value 6 = 120·(−2) + 60 + 90 + 96 is <span style="white-space:nowrap">2g − 2</span> for signature (2, 4, 5), so g = 4. It belongs to S5, whose 120 (2, 4, 5) pairs all generate it. The stored clock has no such generating pair.
+
+**Two answers to the canon (THEOREM).**
+
+- **The commutator.** Every map from the clock to the circle kills the commutator (§6).
+- **The energy.** The three splits are one conserved table, by block and D² sector:
+
+    | | sector 0 | sector 3 | sector 8 | total |
+    |---|---:|---:|---:|---:|
+    | vertex | 0 | 3 | 20 | 23 |
+    | edge | 2 | 9 | 0 | 11 |
+    | total | 2 | 12 | 20 | 34 |
+
+    The rows are 23 + 11, the columns are the stored 2 + 12 + 20, and the nonzero cells are 20 + 3 + 9 + 2.
+
+**One correction (THEOREM).** FOUR_NAMES says the carrier involution does not act on the order-15 clock. By Lagrange it cannot lie in that clock, but it does act on it, by x ↦ −x.
+
+**Not replayed (REPORTED), not formed (UNFORMED).**
+
+- **Not stored here:** the sibling's permutations on the fifteen indices, its 24-cycle readers, its Hodge degrees and heat spectrum, its 12 × 12 sense stiffness, and the acoustic and optical matrices.
+- **Not formed:** Yukawa blocks, taste, smell and touch matrices, an icosahedral adjacency, the named figures and a qubit. No operand is stored for any of them.
+
+## 9. The unified ledger
+
+`docs/LEDGER.md` lists every join of both builds and of the evening notes, with its status and the layer that checks it. A test keeps it current. In short:
 
 | join | unified statement | status |
 |---|---|---|
@@ -307,16 +369,21 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 | oscillating tick | the day doubles its five conjugates; G/Z = AGL(1,5) | THEOREM |
 | mirrors, W0 reverse | twist −1 involutions; the pentagon reflection on the carrier | THEOREM |
 | above and below | no involutive exchange of carrier and twin; i ↦ 14 − i does not keep D² | THEOREM |
-| energy split | 34 = 20 + (3 + 9) + 2; E_V and E_E conserved | THEOREM |
+| energy split | one conserved table: vertex (0, 3, 20), edge (2, 9, 0); the stored 2 + 12 + 20 are its columns | THEOREM |
 | observer | five channels; RH = I₁₅ | THEOREM |
 | spin counts | 240 = D8 + one half-spin orbit; 135 = the band-top D8 family | THEOREM |
 | field | q̈ + 4q = 0 is not a carrier mode | OBSTRUCTION |
 | sign tensor, entanglement | 10 + 10 is a count; the carrier cannot entangle V with E | CONDITIONAL |
 | charge, monopole, Einstein line, two 36s, Om, karma, bubbles, horizon | counts riding on the bit | ARITHMETIC |
 | order-24 element | constructed, in `data/clocks.json` | THEOREM |
+| evening counts (28 notes) | 223 readings, all the bit, with orders and first landings | THEOREM |
+| reported moments | the hexagon port on the E8 lattice; μ₇ new | THEOREM |
+| square and octagon ports | square = (hexagon + octagon)/2 at every order | THEOREM |
+| commutator and 864 | every map to the circle kills it | THEOREM |
+| Hurwitz value 6 | S5 (genus 4), not the stored clock | OBSTRUCTION |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
-## 9. What is not formed, and the gates
+## 10. What is not formed, and the gates
 
 **Not formed.**
 
@@ -343,7 +410,7 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 - A preparation protocol matching the ε<sup>−1/2</sup> and ε<sup>−1/3</sup> bounds.
 - The eight-dimensional dispersive constant.
 
-## Appendix A. The twenty-one layers
+## Appendix A. The twenty-two layers
 
 | # | layer | checks | content |
 |---|---|---|---|
@@ -368,14 +435,15 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
+| 22 | counts | 20 | the evening notes: 223 readings on the bit; K5, Petersen, pentagon; root walks; the hexagon, square and octagon ports; the 120-clock; circle maps; the energy table |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 21 layers, 412 checks, about 4 minutes
-python -m pytest -q           # 31 tests
+python verify.py              # 22 layers, 432 checks, about 4 minutes
+python -m pytest -q           # 34 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the two TypeScript audits
 ```
 
-The sibling's build was read from the Drive folder "One Machine 20261028": `one-machine-20261028-full.typ`/`.pdf`, `FULL_UPDATE_20261028.md` and forty join notes, 17:01–18:17 UTC. The canon was read from the Quick Access workbook, sheet 00_FULL_RECONCILIATION_20261028.
+The sibling's build was read from the Drive folder "One Machine 20261028": `one-machine-20261028-full.typ`/`.pdf`, `FULL_UPDATE_20261028.md`, forty join notes of 17:01–18:17 UTC and 28 notes of 18:32–19:21 UTC. The canon was read from the Quick Access workbook (sheet 00_FULL_RECONCILIATION_20261028) and the reconciled repository workbook (sheet 00_CURRENT_20261028_1910).
