@@ -40,7 +40,7 @@ Against the latest canon (read 16:30 UTC, re-read 16:49):
 - **Position.** OMSOON736 and the 10:04 Canon Check stay controlling. The Quick Access cutoff (14:59:48) predates this edition.
 - **What the sibling adopted.** The current sibling build adopts 144 = 2160 + 1440 + 864 and the twist by 7. In W(E8) the day and Coxeter clocks generate a group of order 120, not the order-720 semidirect product.
 - **Correction.** "The step 5 (or 25) generates the tick": ⟨5⟩ = ⟨25⟩ has order 864, while the tick has order 5.
-- **16:31–16:43 notes.** SPINE_CORRECTIONS adopts all six circle corrections. The COXETER_POWERS, ATLAS_FACTOR and SUN_MOON statements hold.
+- **16:31–16:43 notes, restated in the 16:47 consolidation (its paper's text equals the 16:43 one).** SPINE_CORRECTIONS adopts all six circle corrections. The COXETER_POWERS, ATLAS_FACTOR and SUN_MOON statements hold.
     - The fixed momenta they leave unreplayed are proved for every power: c<sup>k</sup> fixes Φₙ(1)^(8/φ(n)) points on the torus, n = 30/gcd(k, 30). That gives 25, 81 and 256 at orders 5, 3 and 2, and 1 otherwise.
     - "The circle makes the day and Coxeter clocks commute" holds on the circle only. In W(E8) the centralizer of c′ is ⟨c′⟩.
     - The 16:43 paper still says "360000 is not a step" in one theorem.

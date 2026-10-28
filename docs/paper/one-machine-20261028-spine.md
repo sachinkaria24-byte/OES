@@ -261,7 +261,7 @@ The day's quarter d⁶ is the step 1080, of order 4. It fixes 16 momenta: the or
 
 ## 12. Against the latest canon (16:49 UTC)
 
-Layer 20 reads the canon before anything is built on this edition. It was read at 16:30 UTC and again at 16:49, after the sibling posted four more notes.
+Layer 20 reads the canon before anything is built on this edition. It was read at 16:30 UTC and again at 16:49, after the sibling posted four more notes. The sibling's 16:47 consolidation (CURRENT_20261028_2046) restates those notes, and its paper's text is identical to the 16:43 paper discussed below.
 
 - **Position.** In the Quick Access workbook (updated 15:05 UTC, cutoff 14:59:48), OMSOON736 and the 10:04 Canon Check stay controlling. The earlier verified build is listed as a SELECTED REFERENCE. This edition arrived after the cutoff.
 - **What the sibling adopted.** The sibling's builds of 16:18–16:43 UTC take over the splitting 144 = 2160 + 1440 + 864 of Proposition 4. They also take over the twist by 7, as "a separate extension in which the day element normalizes the Coxeter clock". SPINE_CORRECTIONS (16:31) takes over all six corrections of §10.

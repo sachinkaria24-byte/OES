@@ -17,7 +17,8 @@ Sources read before this build (Google Drive):
 * a separate model, "Finite Spectral Dynamics with Complete Observation and Exact Cyclic
   Addresses" (finite-spectral-model-major-upgrade-20261028, 16:07 UTC, 17,914 checks reported);
 * the sibling's notes posted while this layer was built (16:31-16:43 UTC: SPINE_CORRECTIONS,
-  COXETER_POWERS, ATLAS_FACTOR, SUN_MOON) and its paper one-machine-20261028-sun.pdf (16:43).
+  COXETER_POWERS, ATLAS_FACTOR, SUN_MOON) and its paper one-machine-20261028-sun.pdf (16:43);
+  the 16:47 consolidation CURRENT_20261028_2046 restates them, with the same paper text.
 
 Synchronized here:
 
