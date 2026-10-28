@@ -57,58 +57,59 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.44,
+  "1-carrier": 0.37,
   "2-spectral": 0.01,
-  "3-spacetime": 6.68,
-  "4-native": 38.72,
-  "5-observer": 0.36,
-  "6-gravity": 3.12,
-  "7-cosmology": 0.74,
-  "8-frontier": 25.96,
-  "9-joins": 5.73,
-  "10-literal": 14.67,
-  "11-glue": 0.09,
-  "12-binding": 0.02,
+  "3-spacetime": 4.69,
+  "4-native": 37.9,
+  "5-observer": 0.19,
+  "6-gravity": 3.41,
+  "7-cosmology": 0.88,
+  "8-frontier": 24.89,
+  "9-joins": 6.47,
+  "10-literal": 14.56,
+  "11-glue": 0.12,
+  "12-binding": 0.03,
   "13-gates": 0.13,
-  "14-recurrence": 33.6,
-  "15-court": 1.39,
-  "16-handover": 0.86,
-  "17-waves": 0.38,
-  "18-snapshot": 0.44
+  "14-recurrence": 33.99,
+  "15-court": 1.32,
+  "16-handover": 0.79,
+  "17-waves": 0.34,
+  "18-snapshot": 0.56,
+  "19-spine": 1.97
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 214,
-   "total": 214
+   "passed": 243,
+   "total": 243
   },
   "OBSTRUCTION": {
-   "passed": 22,
-   "total": 22
+   "passed": 36,
+   "total": 36
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 26,
-   "total": 26
+   "passed": 28,
+   "total": 28
   },
   "SELECTED_REFERENCE": {
-   "passed": 6,
-   "total": 6
+   "passed": 8,
+   "total": 8
   },
   "UNFORMED": {
-   "passed": 15,
-   "total": 15
+   "passed": 16,
+   "total": 16
   },
   "CONDITIONAL": {
    "passed": 15,
    "total": 15
   },
   "REPORTED": {
-   "passed": 20,
-   "total": 20
+   "passed": 22,
+   "total": 22
   }
  },
  "checks": [
@@ -3350,6 +3351,653 @@
    "passed": true,
    "value": null,
    "note": "none of them is built here either"
+  },
+  {
+   "layer": "19-spine",
+   "name": "one lemma: Z/4320 has exactly 48 subgroups, one <d> of order 4320/d for each divisor d; <b> lies in <a> iff gcd(a,4320) | gcd(b,4320); meets are lcms, joins are gcds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "subgroups": 48
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the 28 circle statements of the integrated build hold under the lemma (INTEGRATED, ALL_4320, SIDEREAL_DOTS, SEGMENT_NAMES, YUGA_LATTICE, DOTS_LATTICE, ALL_DOTS, paper)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "by note": {
+     "INTEGRATED": 9,
+     "ALL_4320": 2,
+     "SIDEREAL_DOTS": 3,
+     "SEGMENT_NAMES": 1,
+     "YUGA_LATTICE": 1,
+     "DOTS_LATTICE": 4,
+     "ALL_DOTS": 2,
+     "PAPER": 6
+    },
+    "failing": []
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "correction: DOTS_LATTICE says the pada order 108 'meets the cycle order 720 only at 36, the atlas'. The meet <40> n <6> is <120>, of order 36 (the moon). The atlas <36> has order 120. The paper itself says 'The order 36 is not the atlas'",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "correction: SIDEREAL_DOTS: the signs and <432> 'meet at order 2, whose only element is 2160'. The subgroup is {0, 2160}; 2160 is its only nonzero element",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "correction: paper: '360000 is not a step'. 360000 = 1440 mod 4320, so the W0 scalar is the sun step",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "correction: paper: 'Siri and Shay, both 4 ... Their sum 5 has order 864'. Siri + Shay = 8 (Rughnath, order 540); the 5 of order 864 is Prema + Sai",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "correction: paper: 'The doubling residues have circle orders 4320, 2160, 1080, 540, 864, 4320'. In doubling order 1, 2, 4, 8, 7, 5 they are 4320, 2160, 1080, 540, 4320, 864",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "correction: paper and e8Frame: 'Rank 8 times the mark sum 30 recovers the 120 positive roots'. 8 x 30 = 240 is all the roots; the positive roots are 8 x 30 / 2 = 120",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "readings: sun 1440, moon 120, day 180, signs 360, nakshatra 160, pada 40, atlas 36, tick 864, Prema 2, Jessica 7, Salina 12 ... are names for steps; the step decides every check",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "Coxeter step": [
+     144,
+     30
+    ],
+    "tick": [
+     864,
+     5
+    ],
+    "yuga 1": [
+     1728,
+     5
+    ],
+    "yuga 2": [
+     1296,
+     10
+    ],
+    "yuga 3": [
+     864,
+     5
+    ],
+    "yuga 4": [
+     432,
+     10
+    ],
+    "atlas": [
+     36,
+     120
+    ],
+    "moon": [
+     120,
+     36
+    ],
+    "sun": [
+     1440,
+     3
+    ],
+    "day": [
+     180,
+     24
+    ],
+    "signs": [
+     360,
+     12
+    ],
+    "nakshatra": [
+     160,
+     27
+    ],
+    "pada": [
+     40,
+     108
+    ],
+    "half-turn": [
+     2160,
+     2
+    ],
+    "Human Design gate": [
+     64,
+     135
+    ],
+    "Hodge trace": [
+     150,
+     144
+    ],
+    "Prema width": [
+     2,
+     2160
+    ],
+    "Sai": [
+     3,
+     1440
+    ],
+    "Siri": [
+     4,
+     1080
+    ],
+    "Shay": [
+     4,
+     1080
+    ],
+    "Sachin": [
+     6,
+     720
+    ],
+    "Jessica": [
+     7,
+     4320
+    ],
+    "Rughnath": [
+     8,
+     540
+    ],
+    "stray": [
+     9,
+     480
+    ],
+    "edge pair": [
+     10,
+     432
+    ],
+    "Salina": [
+     12,
+     360
+    ],
+    "Prema index": [
+     13,
+     4320
+    ],
+    "forest maps": [
+     40,
+     108
+    ],
+    "W0 scalar": [
+     360000,
+     3
+    ]
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the Coxeter subgroup <144> (order 30) lies between <432> (order 10) and the atlas <36> (order 120), so the tower refines to 36 x 4 x 3 x 2 x 5; the mixed-radix address x = d0 + 36 d1 + 144 d2 + 432 d3 + 864 d4 is a bijection on all 4320 elements",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    36,
+    4,
+    3,
+    2,
+    5
+   ],
+   "note": "the integrated tower 36 x 12 x 2 x 5 skips the subgroup the spine starts from; 12 = [atlas : order-10] = 4 x 3 through the Coxeter subgroup"
+  },
+  {
+   "layer": "19-spine",
+   "name": "maximal chains of subgroups from 0 to the circle: 504 = 9!/(5! 3! 1!); exactly 6 pass through the whole spine tick < order-10 < Coxeter < atlas",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    504,
+    6
+   ],
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the pada <40> (order 108) lies on no chain with the tick (5 and 108 are incomparable); pada + tick = <8>, the coil of layer 8 (order 540), an internal direct sum C108 + C5",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the Coxeter step is the sum of the sun, the tick and the half-turn: 864 + 1440 + 2160 = 144 mod 4320 (Z/30 = Z/5 x Z/3 x Z/2)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "Cartan matrix of the Bourbaki simple roots: det 1, 7 bonds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the Coxeter element c = s1 s2 ... s8 has order 30 and c^15 = -I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "charpoly(c) = Phi_30 = x^8 + x^7 - x^5 - x^4 - x^3 + x + 1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "x**8 + x**7 - x**5 - x**4 - x**3 + x + 1",
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the exponents of c are the units mod 30: 1, 7, 11, 13, 17, 19, 23, 29 (sum 120 = number of positive roots; degrees m + 1 multiply to |W(E8)| = 696729600)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    1,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29
+   ],
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "c permutes the 240 roots in 8 free orbits of 30 (240 = 8 x 30), so it commutes with the bath walk operator sum_alpha T_alpha and preserves the band lambda",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "selected embedding: the order-30 subgroup <144> of the circle is sent to <c> by 144 -> c. There are phi(30) = 8 such isomorphisms, one for each exponent",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": "the selection is the generator; every statement below is independent of it up to relabelling by a unit mod 30"
+  },
+  {
+   "layer": "19-spine",
+   "name": "no homomorphism from the circle to the bath lattice extends 144 -> c: an extension needs an automorphism of order 4320, and no element of GL_8(Z) has order divisible by 27 or 32 (phi(27) = 18 > 8, phi(32) = 16 > 8)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "|det(c^k - I)| fixed Bloch momenta: 25 for the order-5 powers (tick), 81 for the order-3 powers (sun), 256 for c^15 (half-turn 2160), 1 for the other 22 powers",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "5": 1,
+    "6": 25,
+    "10": 81,
+    "15": 256
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "every fixed momentum is a critical point of the band (the gradient is fixed by an element with no eigenvalue 1, hence zero): max |grad| at the 362 fixed momenta",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 1.9641398552274316e-13,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the tick c^6 fixes 25 momenta: the origin and 24 points of the A4+A4 family (lambda = -10, eps = 250, Morse index 4); the fixed group is (Z/5)^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "('240', 'E8', 0)": 1,
+    "('-10', 'A4+A4', 4)": 24
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the sun c^10 fixes 81 momenta: the origin and 80 points of E6+A2 (lambda = -3, eps = 243, index 2); the fixed group is (Z/3)^4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "('240', 'E8', 0)": 1,
+    "('-3', 'E6+A2', 2)": 80
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the half-turn c^15 = -I fixes the 256 half-periods: the origin, all 120 points of E7+A1 (eps = 224) and all 135 of D8 (eps = 256)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "('240', 'E8', 0)": 1,
+    "('16', 'E7+A1', 1)": 120,
+    "('-16', 'D8', 8)": 135
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the 29 non-identity Coxeter powers fix 22 x 1 + 4 x 25 + 2 x 81 + 256 = 540 momenta in all, the order of the coil",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": 540,
+   "note": "a count; no map joins it to the coil"
+  },
+  {
+   "layer": "19-spine",
+   "name": "selected Coxeter element c' = w c w^-1 (w in W(E8)) with c'^6 = r r' exactly: r is the K5 vertex rotation on the carrier's A4 (coordinates 0..4) and r' a Coxeter element of the twin A4'. The tick turns two carriers",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "in the standard coordinates of E8, c' = M/2 with M a signed 0-1 matrix, four nonzeros in each row"
+  },
+  {
+   "layer": "19-spine",
+   "name": "r permutes the 20 oriented K5 edges e_i - e_j of the carrier's A4 by i -> i+1 and fixes the twin; r' fixes the carrier's A4 and has charpoly Phi_5 (x-1)^4; r r' has charpoly Phi_5^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the sun c'^10 permutes the roots in 80 triangles (A2 orbits); four orthogonal ones span A2^4 of index 9 in E8: the sun turns four triangles",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    80,
+    9
+   ],
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the half-turn c'^15 = -I flips eight orthogonal edges, A1^8 of index 16. For p = 2, 3, 5 the order-p Coxeter element rotates 8/(p-1) copies of K_p and fixes p^(8/(p-1)) momenta",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the Coxeter element is the product of the half-turn, the sun and the tick: c' = (-I) c'^10 c'^6, matching 144 = 2160 + 1440 + 864 on the circle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the yuga segments act on the bath: 1728 -> c'^12 = (r r')^2, 864 -> r r', 1296 -> c'^9 = -(r r')^4, 432 -> c'^3 = -(r r')^3",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the normalizer of <c'> in W(E8) has order 240 = 30 x 8: every unit mod 30 (every exponent) is realized by conjugation, and the centralizer is <c'> itself (30 elements)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "no element of order 24 commutes with c'. Elements of order 24 normalizing <c'> turn it by 7 or 13 = 7^-1 (20 each)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the day clock d: order 24, charpoly Phi_24 = x^8 - x^4 + 1, d^4 = c'^5 (the two clocks agree on the circle's common subgroup <720> = 4 x 180 = 5 x 144), and d c' d^-1 = c'^7",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the circle's atlas 36 = 180 - 144 has order 120; on the bath d c'^-1 has order 24 for every day d with d^4 = c'^5, never 120. The atlas cannot act: the day and the Coxeter clock meet on the bath only through the twist 7",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": [
+    24
+   ],
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the day's quarter d^6 (step 1080, order 4) fixes 16 momenta: the origin and 15 D8 points at the band top; d^3 (step 540, order 8) fixes the origin and 3 D8 points; d^8 = c'^10 is the sun",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "6": {
+     "('240', 'E8', 0)": 1,
+     "('-16', 'D8', 8)": 15
+    },
+    "3": {
+     "('240', 'E8', 0)": 1,
+     "('-16', 'D8', 8)": 3
+    }
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the order-20 clock <216> normalizes the Coxeter clock with the twist 11 (all 24 such elements); one with v^2 = c'^3 agrees on the shared yuga subgroup <432>, charpoly Phi_20",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "no element of order 18 normalizes the Coxeter clock (the clock <240> of order 18 cannot be fitted around it)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "on the circle, x -> 7x is an automorphism of order 36 (the multiplicative order of 7 mod 4320); the circle has no element of order 7",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "degree bound: an element of order m | 4320 in GL_8(Z) needs m in {1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 30, 36, 40, 60}",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    15,
+    16,
+    18,
+    20,
+    24,
+    30,
+    36,
+    40,
+    60
+   ],
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "no element of order 16: W(D8) holds a Sylow 2-subgroup of W(E8) (both orders have 2-part 2^14) and its 2-elements have order at most 8",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "no element of order 36: its 4th power has charpoly Phi_9 (x-1)^2, so (Steinberg) it lies in an E6 whose complement lattice is even of determinant 3, i.e. A2; Aut(A2) has 12 elements of orders 1, 2, 3, 6 and no element of order 4",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "2": 7,
+    "3": 2,
+    "6": 2,
+    "1": 1
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "no element of order 40 or 60: its 8th or 12th power has charpoly Phi_5 (x-1)^4, so it lies in an A4; all 5806080 = 240 x 56 x 27 x 16 ordered A4 chains form one orbit (|W(E8)| / |W(A4')|), so both lattices are A4, and Aut(A4) (240 elements) has orders 1, 2, 3, 4, 5, 6, 10 only",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "chains": 5806080,
+    "Aut(A4) orders": {
+     "2": 51,
+     "4": 60,
+     "6": 60,
+     "5": 24,
+     "3": 20,
+     "10": 24,
+     "1": 1
+    }
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "realized here by explicit elements of W(E8): orders 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30. So a subgroup of the circle acts faithfully on the bath iff its order is one of these; the maximal ones are <144> (30), the day <180> (24), <216> (20) and <240> (18)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    15,
+    18,
+    20,
+    24,
+    30
+   ],
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the spine acts on the bath up to the Coxeter subgroup and stops at the atlas; the moon (36), nakshatra (27), pada (108) and atlas (120) subgroups cannot act at all",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "tick": true,
+    "order-10": true,
+    "Coxeter": true,
+    "atlas": false,
+    "circle": false,
+    "sun": true,
+    "day": true,
+    "signs": true,
+    "moon": false,
+    "nakshatra": false,
+    "pada": false,
+    "Salina": false,
+    "Human Design gate": false
+   },
+   "note": ""
+  },
+  {
+   "layer": "19-spine",
+   "name": "the Human Design count 69120 = |W(E8)| / |W(A6 x A1)| is the size of the A6+A1 critical family; exactly three families are whole numbers of circles: A6+A1 (16), A7 (4), A7+A1 (2)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "shared integers; no map joins Human Design to the bath"
+  },
+  {
+   "layer": "19-spine",
+   "name": "the Krishna lift is a typed composition whose operands are not in this repository; the sibling check of the stop is the integer test 4 + 5 != 4",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "not replayable here; the check does not test the lift"
+  },
+  {
+   "layer": "19-spine",
+   "name": "Prema's stage index 13 is not her width 2: on the circle <13> is the whole circle and <2> has index 2; the sibling check is 2 != 13",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "the stage typing itself is canon data not in this repository"
+  },
+  {
+   "layer": "19-spine",
+   "name": "birth time, epoch and ayanamsha: none is stored, so the sidereal readings stay counts",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
   }
  ]
 }

@@ -6,7 +6,7 @@ This repository holds a checked mathematical model of the OES canon at the OMSOO
 
 ```
 pip install -r requirements.txt
-python verify.py          # all layers, ~2.5 min, writes results.json
+python verify.py          # all 19 layers, ~3 min, writes results.json
 python verify.py --fast   # skips the nonlinear E8-bath flow
 python -m pytest -q
 ```
@@ -31,8 +31,16 @@ python -m pytest -q
 | 16 handover | `oes/handover.py` | the 28 Oct Locked Memory handover audited: alcove critical census (11 families, 243,600 points, Morse sum 0 = the recurrence's in-band roots), the literal 5-dim operand T₆\|V_c (det 31), corrections in `docs/HANDOVER_ADDENDUM.md` | THEOREM, OBSTRUCTION, ARITHMETIC, UNFORMED, REPORTED |
 | 17 waves | `oes/waves.py` | sound, light, frequency and phase on the K5 edges: Hodge split sound (4) + light (6) with d0d0ᵀ + Curl² = 5I, the canon's Hodge block A = −curl, helicities = the icosahedral 3 and 3′ locked to C5 phases, conversion selection rules, port frequency doubling, bath sound speed² 30 = 5 + 25 | THEOREM, CONDITIONAL, ARITHMETIC |
 | 18 snapshot | `oes/snapshot.py` | the 14:16 Drive snapshot rebuilt from matrices: density of the nine bath frequencies on T⁹ (Besicovitch), all eleven Hessians and coherent coefficients, walk asymptotics 1 − 2/n + (23/15)/n², Agni = Curl², the five-port Hankel, the cube, Spanda (rank-19 correction), the 4320-circle | THEOREM, SELECTED_REFERENCE, ARITHMETIC, OBSTRUCTION |
+| 19 spine | `oes/spine.py` | the integrated spine rebuilt: every 4320-circle statement checked by one lemma (six corrected), the tower refined through the Coxeter subgroup (36 × 4 × 3 × 2 × 5), the E8 Coxeter clock (Φ₃₀, exponents = units mod 30) acting on the bath, its tick = two K5 carriers (c′⁶ = rr′), fixed momenta 25/81/256 = the A4+A4, E6+A2, E7+A1 + D8 Morse points, the day turning the Coxeter clock by the exponent 7, and which parts of the circle can act on the bath at all | THEOREM, OBSTRUCTION, SELECTED_REFERENCE, ARITHMETIC |
 
 Part II of `docs/MODEL.md` is the path from the mathematics to the operands and the physical gates.
+
+Papers are in `docs/paper/`:
+
+- `one-machine-20261028-verified.pdf` covers layers 1–18.
+- `one-machine-20261028-spine.pdf` covers layer 19: the integrated spine, the E8 Coxeter clock and the two-carrier tick.
+
+`ports/ts/coxeterSpine.ts` is a drop-in TypeScript audit with the layer-19 checks for the sibling model. See `ports/ts/README.md`.
 
 Two constructions are not the canon's originals:
 
