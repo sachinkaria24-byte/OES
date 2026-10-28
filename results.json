@@ -57,44 +57,44 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.44,
+  "1-carrier": 0.42,
   "2-spectral": 0.0,
-  "3-spacetime": 4.48,
-  "4-native": 35.17,
-  "5-observer": 0.2,
-  "6-gravity": 3.21,
-  "7-cosmology": 0.75,
-  "8-frontier": 24.26,
-  "9-joins": 4.84,
-  "10-literal": 14.11,
-  "11-glue": 0.09,
+  "3-spacetime": 4.15,
+  "4-native": 34.64,
+  "5-observer": 0.19,
+  "6-gravity": 2.99,
+  "7-cosmology": 0.78,
+  "8-frontier": 23.58,
+  "9-joins": 4.57,
+  "10-literal": 13.31,
+  "11-glue": 0.1,
   "12-binding": 0.02,
-  "13-gates": 0.13,
-  "14-recurrence": 32.17,
-  "15-court": 1.31,
-  "16-handover": 0.79,
-  "17-waves": 0.37,
-  "18-snapshot": 0.5,
-  "19-spine": 2.07,
-  "20-canon": 4.62
+  "13-gates": 0.02,
+  "14-recurrence": 31.07,
+  "15-court": 1.18,
+  "16-handover": 0.72,
+  "17-waves": 0.31,
+  "18-snapshot": 0.54,
+  "19-spine": 1.91,
+  "20-canon": 3.93
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 253,
-   "total": 253
+   "passed": 256,
+   "total": 256
   },
   "OBSTRUCTION": {
-   "passed": 38,
-   "total": 38
+   "passed": 39,
+   "total": 39
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 29,
-   "total": 29
+   "passed": 30,
+   "total": 30
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
@@ -109,8 +109,8 @@
    "total": 16
   },
   "REPORTED": {
-   "passed": 25,
-   "total": 25
+   "passed": 26,
+   "total": 26
   }
  },
  "checks": [
@@ -4014,7 +4014,7 @@
    "status": "REPORTED",
    "passed": true,
    "value": null,
-   "note": "read 28 Oct 16:30 UTC; nothing here changes a canon grade"
+   "note": "read 28 Oct 16:30 UTC and again at 16:49; nothing here changes a canon grade"
   },
   {
    "layer": "20-canon",
@@ -4022,7 +4022,7 @@
    "status": "OBSTRUCTION",
    "passed": true,
    "value": null,
-   "note": ""
+   "note": "the 16:43 sibling paper keeps both: its section 13 calls 3|p|^4 - 7 sum p^4 the primitive harmonic line on the contrast plane, computed with the ambient Laplacian; its moment theorem calls 2 s2^2 - 5 s4 invariant-harmonic and 3 s2^2 - 7 s4 not"
   },
   {
    "layer": "20-canon",
@@ -4211,6 +4211,77 @@
    "layer": "20-canon",
    "name": "COURT_CORRECTION: (16/5, -11/5, -1, 1/5, 0, 0, 0, 0) has square 403/25 (402/25 with fourth coordinate 0); 3 x 17280 + 2160 x 128 = 328320 and 17280 + 2160 x 128 = 293760",
    "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "re-read 16:49 UTC: the sibling's 16:31-16:43 notes (SPINE_CORRECTIONS, COXETER_POWERS, ATLAS_FACTOR, SUN_MOON) and paper adopt the six circle corrections of layer 19. They leave the fixed momenta 25/81/256 and the list of orders that act on the bath unreplayed; layers 19-20 hold both as THEOREM",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "COXETER_POWERS replayed: c^k for the steps 144, 432, 720, 864, 1440, 1728, 2160 acts on the 240 roots as 8 x 30, 24 x 10, 40 x 6, 48 x 5, 80 x 3, 48 x 5, 120 x 2 cycles and fixes no root. On the momentum torus the same c^k fixes |det(c^k - I)| = Phi_n(1)^(8/phi(n)) points, n = 30/gcd(k, 30), for every k = 1..29; for these steps 1, 1, 1, 25, 81, 25, 256. That is a different set from the roots, and it is nontrivial exactly when n is a prime power",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "144": 1,
+    "432": 1,
+    "720": 1,
+    "864": 25,
+    "1440": 81,
+    "1728": 25,
+    "2160": 256
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "ATLAS_FACTOR and SUN_MOON replayed: the refined tower is 1, 4, 12, 24, 120 atlases, and 12 + 24 = 36 is 432 + 864 = 36^2. The sun, half-turn and 3456 are atlas multiples; 3105 and 2080 are not. Twelve moons make the sun, the sun is c^10 and pure of order 3, and the moon (order 36) is no Coxeter power. Its primary parts are 1080 + 3360 + 0, and it meets the atlas in the signs",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "tower in atlases 1, 4, 12, 24, 120": true,
+    "12 + 24 = 36, i.e. 432 + 864 = 36^2": true,
+    "sun, half-turn, 3456 = 40, 60, 96 atlases": true,
+    "3105, 2080, 1 leave 9, 28, 1": true,
+    "12 x 120 = 1440 = 4 x 360, 3 x 1440 = 4320": true,
+    "sun = c^10, pure of order 3": true,
+    "moon: order 36, remainder 12, not a Coxeter power": true,
+    "moon parts 1080 + 3360 + 0": true,
+    "moon meets atlas in the signs, which hold the sun": true,
+    "2880 has order 3, 240 order 18 in the moon, 7 moons generate": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "shared integers (no map joins them): the cycle counts 24, 40, 48, 80, 120 are the day order, the pada step, the number of subgroups, the order of 162 and the atlas order. The sun is 40 atlases, the pada step. The half-turn is 60 atlases, the frame constant. The squared stiffness ratio 8/3 is Coxeter cycles over the sun cycle length",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "SPINE_CORRECTIONS 'the circle still makes the day and Coxeter clocks commute' holds on the circle only. There the two clocks generate the atlas, of order 120. In W(E8) no element of order 24 commutes with c', because the centralizer of c' is <c'>, and no element has order 120. So a realized day clock must twist the Coxeter clock (layer 19: by 7)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the circle they generate the atlas, order 120": true,
+    "order 120 needs GL_10(Z)": true,
+    "centralizer of c' = <c'>, no element of order 24": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "20-canon",
+   "name": "remnant in the 16:43 paper: its circle-subgroup theorem still says '360000 is not a step', while its spine theorem says 'the scalar 360000 reduces to 1440'. Since 360000 = 83 x 4320 + 1440, the W0 scalar is the sun step",
+   "status": "OBSTRUCTION",
    "passed": true,
    "value": null,
    "note": ""

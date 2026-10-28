@@ -1,4 +1,4 @@
-"""Layer 20. The latest canon, read and synchronized (28 Oct 2026, 16:30 UTC).
+"""Layer 20. The latest canon, read and synchronized (28 Oct 2026, 16:30 UTC, re-read 16:49).
 
 Sources read before this build (Google Drive):
 
@@ -15,7 +15,9 @@ Sources read before this build (Google Drive):
   NORMALIZE, ORBIT, UPGRADE_JOIN, CRT_JOIN, IDEMPOTENTS, PRIMARY_SPLIT, CURRENT and
   one-machine-20261028-current.pdf);
 * a separate model, "Finite Spectral Dynamics with Complete Observation and Exact Cyclic
-  Addresses" (finite-spectral-model-major-upgrade-20261028, 16:07 UTC, 17,914 checks reported).
+  Addresses" (finite-spectral-model-major-upgrade-20261028, 16:07 UTC, 17,914 checks reported);
+* the sibling's notes posted while this layer was built (16:31-16:43 UTC: SPINE_CORRECTIONS,
+  COXETER_POWERS, ATLAS_FACTOR, SUN_MOON) and its paper one-machine-20261028-sun.pdf (16:43).
 
 Synchronized here:
 
@@ -44,6 +46,14 @@ Synchronized here:
     - the 25-coordinate flag geometry, with intersection det -48;
     - the vertex distance sqrt(8/7), shown exact by a symmetry reduction;
     - the collocated transfer functions.
+(h) The 16:31-16:43 notes. They adopt the six circle corrections of layer 19, and every
+    circle statement in them holds. Three things are added here:
+    - the named Coxeter powers fix no root, but on the momentum torus c^k fixes
+      Phi_n(1)^(8/phi(n)) points, n = 30/gcd(k, 30): 1, 1, 1, 25, 81, 25, 256. These are the
+      fixed momenta the notes leave unreplayed;
+    - "the circle still makes the day and Coxeter clocks commute" holds on the circle only.
+      On the bath no two such clocks commute, because the centralizer of c' is <c'>;
+    - one remnant is left in the 16:43 paper: "360000 is not a step".
 """
 
 import itertools
@@ -279,6 +289,73 @@ def collocated_transfer():
     return GV and GE and same and inv
 
 
+# ---------------------------------------------------------- (h) the 16:31-16:43 notes
+
+POWERS = {1: (8, 30), 3: (24, 10), 5: (40, 6), 6: (48, 5), 10: (80, 3), 12: (48, 5), 15: (120, 2)}
+
+
+def coxeter_powers():
+    """COXETER_POWERS: cycles of c^k on the 240 roots, and the momenta c^k fixes on the torus."""
+    c = spine.coxeter()
+    fixed = lambda k: round(abs(np.linalg.det(spine.mpow(c, k) - spine.I8)))
+    closed = lambda n: int(sp.cyclotomic_poly(n, 1)) ** (8 // int(sp.totient(n)))
+    rows = {}
+    for k, (cycles, length) in POWERS.items():
+        sizes = spine.root_orbits(spine.mpow(c, k))
+        n = 30 // gcd(k, 30)
+        rows[144 * k % N] = {
+            "table": len(sizes) == cycles and set(sizes) == {length} == {n} == {spine.order(144 * k)},
+            "fixed momenta": fixed(k),
+            "closed form": closed(n),
+        }
+    every_k = all(fixed(k) == closed(30 // gcd(k, 30)) for k in range(1, 30))
+    return rows, every_k
+
+
+def atlas_factor():
+    o = spine.order
+    return {
+        "tower in atlases 1, 4, 12, 24, 120": [s // 36 for s in (36, 144, 432, 864, N)] == [1, 4, 12, 24, 120]
+        and spine.contains(36, 144) and spine.contains(144, 432) and spine.contains(432, 864)
+        and [o(s) for s in (36, 144, 432, 864)] == [120, 30, 10, 5],
+        "12 + 24 = 36, i.e. 432 + 864 = 36^2": 432 + 864 == 36 ** 2,
+        "sun, half-turn, 3456 = 40, 60, 96 atlases": all(spine.contains(36, s) for s in (1440, 2160, 3456))
+        and (1440 // 36, 2160 // 36, 3456 // 36) == (40, 60, 96),
+        "3105, 2080, 1 leave 9, 28, 1": (CRT[32] % 36, CRT[27] % 36, 1 % 36) == (9, 28, 1)
+        and not spine.contains(36, CRT[32]) and not spine.contains(36, CRT[27]),
+    }
+
+
+def sun_moon():
+    o = spine.order
+    part = lambda x, p: x * CRT[p] % N
+    return {
+        "12 x 120 = 1440 = 4 x 360, 3 x 1440 = 4320": 12 * 120 == 1440 == 4 * 360 and 3 * 1440 == N,
+        "sun = c^10, pure of order 3": 10 * 144 == 1440 and o(1440) == 3 and part(1440, 27) == 1440,
+        "moon: order 36, remainder 12, not a Coxeter power": o(120) == 36 and 120 % 36 == 12
+        and not spine.contains(144, 120),
+        "moon parts 1080 + 3360 + 0": (part(120, 32), part(120, 27), part(120, 5)) == (1080, 3360, 0),
+        "moon meets atlas in the signs, which hold the sun": spine.meet(120, 36) == 360 and o(360) == 12
+        and spine.contains(360, 1440),
+        "2880 has order 3, 240 order 18 in the moon, 7 moons generate": o(2880) == 3 and o(240) == 18
+        and spine.contains(120, 240) and spine.gen(7 * 120) == spine.gen(120),
+    }
+
+
+def commuting_clocks():
+    """On the circle the day and Coxeter clocks commute and generate the atlas; W(E8) has neither."""
+    _, cp, *_ = spine.spine_clock()
+    centralizer = [w for m, w in spine.normalizer() if m == 1]
+    powers = [spine.mpow(cp, j) for j in range(30)]
+    return {
+        "on the circle they generate the atlas, order 120": spine.join(180, 144) == 36 and spine.order(36) == 120,
+        "order 120 needs GL_10(Z)": spine.min_dimension(120) == 10,
+        "centralizer of c' = <c'>, no element of order 24": len(centralizer) == 30
+        and all(any(np.array_equal(w, P) for P in powers) for w in centralizer)
+        and 24 not in {spine.mat_order(w) for w in centralizer},
+    }
+
+
 # ----------------------------------------------------------------------------- run
 
 def run():
@@ -289,13 +366,16 @@ def run():
     rep.add("canon position (Quick Access, 15:05 UTC, cutoff 14:59:48): OMSOON736 and the 10:04 Canon Check "
             "are controlling; the 14:37 build of this repository is a SELECTED REFERENCE and its replay "
             "SOURCE-REPORTED; layers 19-20 arrived after the cutoff", RP, True,
-            note="read 28 Oct 16:30 UTC; nothing here changes a canon grade")
+            note="read 28 Oct 16:30 UTC and again at 16:49; nothing here changes a canon grade")
 
     # (a) -------------------------------------------------------------------------------
     cm = carrier.contrast_moments()
     rep.add("correction absorbed in layer 1: the contrast plane's harmonic quartic is 2|x|^4 - 5 sum x^4; "
             "3|x|^4 - 7 sum x^4 is harmonic only for the ambient Laplacian of R^5", OB,
-            all(cm.values()) and any("2|x|^4-5sum" in k for k in cm))
+            all(cm.values()) and any("2|x|^4-5sum" in k for k in cm),
+            note="the 16:43 sibling paper keeps both: its section 13 calls 3|p|^4 - 7 sum p^4 the primitive "
+                 "harmonic line on the contrast plane, computed with the ambient Laplacian; its moment theorem "
+                 "calls 2 s2^2 - 5 s4 invariant-harmonic and 3 s2^2 - 7 s4 not")
 
     # (b) -------------------------------------------------------------------------------
     frame_ok, worst, small = group_speed()
@@ -371,6 +451,42 @@ def run():
             "coordinate 0); 3 x 17280 + 2160 x 128 = 328320 and 17280 + 2160 x 128 = 293760", AR,
             sp.Rational(16, 5) ** 2 + sp.Rational(11, 5) ** 2 + 1 + sp.Rational(1, 5) ** 2 == sp.Rational(403, 25)
             and 3 * 17280 + 2160 * 128 == 328320 and 17280 + 2160 * 128 == 293760)
+
+    # (h) -------------------------------------------------------------------------------
+    rep.add("re-read 16:49 UTC: the sibling's 16:31-16:43 notes (SPINE_CORRECTIONS, COXETER_POWERS, ATLAS_FACTOR, "
+            "SUN_MOON) and paper adopt the six circle corrections of layer 19. They leave the fixed momenta "
+            "25/81/256 and the list of orders that act on the bath unreplayed; layers 19-20 hold both as THEOREM",
+            RP, True)
+    pw, every_k = coxeter_powers()
+    rep.add("COXETER_POWERS replayed: c^k for the steps 144, 432, 720, 864, 1440, 1728, 2160 acts on the 240 roots "
+            "as 8 x 30, 24 x 10, 40 x 6, 48 x 5, 80 x 3, 48 x 5, 120 x 2 cycles and fixes no root. On the momentum "
+            "torus the same c^k fixes |det(c^k - I)| = Phi_n(1)^(8/phi(n)) points, n = 30/gcd(k, 30), for every "
+            "k = 1..29; for these steps 1, 1, 1, 25, 81, 25, 256. That is a different set from the roots, and it "
+            "is nontrivial exactly when n is a prime power", T,
+            every_k and all(r["table"] and r["fixed momenta"] == r["closed form"] for r in pw.values())
+            and [r["fixed momenta"] for r in pw.values()] == [1, 1, 1, 25, 81, 25, 256],
+            {step: r["fixed momenta"] for step, r in pw.items()})
+    af, sm = atlas_factor(), sun_moon()
+    rep.add("ATLAS_FACTOR and SUN_MOON replayed: the refined tower is 1, 4, 12, 24, 120 atlases, and 12 + 24 = 36 "
+            "is 432 + 864 = 36^2. The sun, half-turn and 3456 are atlas multiples; 3105 and 2080 are not. Twelve "
+            "moons make the sun, the sun is c^10 and pure of order 3, and the moon (order 36) is no Coxeter power. "
+            "Its primary parts are 1080 + 3360 + 0, and it meets the atlas in the signs", T,
+            all(af.values()) and all(sm.values()), {**af, **sm})
+    rep.add("shared integers (no map joins them): the cycle counts 24, 40, 48, 80, 120 are the day order, the pada "
+            "step, the number of subgroups, the order of 162 and the atlas order. The sun is 40 atlases, the "
+            "pada step. The half-turn is 60 atlases, the frame constant. The squared stiffness ratio 8/3 is "
+            "Coxeter cycles over the sun cycle length", AR,
+            [spine.order(180), 4320 // 108, len(spine.divisors(N)), spine.order(162), spine.order(36)]
+            == [24, 40, 48, 80, 120] and 1440 // 36 == N // 108 and 2160 // 36 == 60
+            and sp.Rational(240 // 30, 3) == sp.Rational(8, 3))
+    cc = commuting_clocks()
+    rep.add("SPINE_CORRECTIONS 'the circle still makes the day and Coxeter clocks commute' holds on the circle "
+            "only. There the two clocks generate the atlas, of order 120. In W(E8) no element of order 24 commutes "
+            "with c', because the centralizer of c' is <c'>, and no element has order 120. So a realized day "
+            "clock must twist the Coxeter clock (layer 19: by 7)", T, all(cc.values()), cc)
+    rep.add("remnant in the 16:43 paper: its circle-subgroup theorem still says '360000 is not a step', while "
+            "its spine theorem says 'the scalar 360000 reduces to 1440'. Since 360000 = 83 x 4320 + 1440, the "
+            "W0 scalar is the sun step", OB, 360000 % N == 1440 and spine.order(360000) == 3)
 
     # still open in the canon -----------------------------------------------------------
     rep.add("12:32 claims not replayed here and SOURCE-CLAIMED in the canon: strict convexity through E = 224 "

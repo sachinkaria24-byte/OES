@@ -7,8 +7,8 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays all 20 layers in **387 checks**. Of these, 362 hold: THEOREM 253, OBSTRUCTION 38, ARITHMETIC 29, CONDITIONAL 16, UNFORMED 16, SELECTED_REFERENCE 8, REMOVED 2. The other 25 are REPORTED records.
-- This edition is layer 19, `oes/spine.py` (50 checks, about 3 seconds). Layer 20, `oes/canon_sync.py` (16 checks), reconciles it with the canon as of 16:30 UTC (§12).
+- `python verify.py` replays all 20 layers in **393 checks**. Of these, 367 hold: THEOREM 256, OBSTRUCTION 39, ARITHMETIC 30, CONDITIONAL 16, UNFORMED 16, SELECTED_REFERENCE 8, REMOVED 2. The other 26 are REPORTED records.
+- This edition is layer 19, `oes/spine.py` (50 checks, about 3 seconds). Layer 20, `oes/canon_sync.py` (22 checks), reconciles it with the canon as of 16:49 UTC (§12).
 - `python -m pytest` runs 27 tests.
 - `ports/ts/coxeterSpine.ts` ports the new checks to the sibling model's TypeScript as a drop-in audit (19 rows, residual 0).
 - The earlier verified paper (`one-machine-20261028-verified.pdf`) covers layers 1–18. Section 1 recalls only what is needed here.
@@ -33,6 +33,7 @@ Every circle statement of the integrated build is checked by a single lemma, and
 3. **The Coxeter number becomes the Coxeter element.** The model now has an explicit order-30 symmetry of the bath (§4), a computed set of Morse points it fixes (§5), and the tick written as two carrier rotations (§6).
 4. **The stops become theorems.** What can act on the bath at all is classified (§8), and the 7 is located (§7).
 5. **The checks can fail.** In the integrated model the Krishna stop is `4 + 5 !== 4` and the Prema stop is `2 !== 13`. Here every check is a computation on constructed matrices or on the subgroup lattice. A drop-in TypeScript audit carries the same checks into the sibling model (`ports/ts/`).
+6. **The latest canon is read first.** Layer 20 reads the canon at 16:30 and again at 16:49 UTC. It takes one correction into this model, the contrast-plane harmonic quartic. It proves the canon's maximal group speed √30, and shows that the sibling's newest notes adopt §10. It then supplies what those notes leave unreplayed: the fixed momenta of every Coxeter power, and why the day and Coxeter clocks cannot commute on the bath (§12).
 
 ## 1. The datum, recalled
 
@@ -247,7 +248,7 @@ The day's quarter d⁶ is the step 1080, of order 4. It fixes 16 momenta: the or
 
 ## 11. Status and what stays open
 
-- **Layer 19** holds 50 checks: THEOREM 29, OBSTRUCTION 14, SELECTED_REFERENCE 2, ARITHMETIC 2, REPORTED 2, UNFORMED 1. **Layer 20** holds 16: THEOREM 9, OBSTRUCTION 2, CONDITIONAL 1, ARITHMETIC 1, REPORTED 3.
+- **Layer 19** holds 50 checks: THEOREM 29, OBSTRUCTION 14, SELECTED_REFERENCE 2, ARITHMETIC 2, REPORTED 2, UNFORMED 1. **Layer 20** holds 22: THEOREM 12, OBSTRUCTION 3, ARITHMETIC 2, CONDITIONAL 1, REPORTED 4.
 - **Arithmetic only** (shared integers; no map joins them):
     - 69120 = |W(E8)|/|W(A6×A1)| is the size of the A6+A1 family and also the Human Design count;
     - exactly three families are whole numbers of circles: A6+A1 (16), A7 (4) and A7+A1 (2);
@@ -258,16 +259,24 @@ The day's quarter d⁶ is the step 1080, of order 4. It fixes 16 momenta: the or
     - the six SCR6 operands, the epoch, the Krishna lift's operands, GKSL, SI, BRST, BV and Einstein–Hilbert.
 - **Owner decisions** remain the only route to moving a gate: AUTH, DYN_BIND, TIME_BIND, PredictionFreeze and T3081.
 
-## 12. Against the latest canon (16:30 UTC)
+## 12. Against the latest canon (16:49 UTC)
 
-Layer 20 reads the canon before anything is built on this edition.
+Layer 20 reads the canon before anything is built on this edition. It was read at 16:30 UTC and again at 16:49, after the sibling posted four more notes.
 
 - **Position.** In the Quick Access workbook (updated 15:05 UTC, cutoff 14:59:48), OMSOON736 and the 10:04 Canon Check stay controlling. The earlier verified build is listed as a SELECTED REFERENCE. This edition arrived after the cutoff.
-- **What the sibling adopted.** The current sibling build (16:18 UTC) takes over the splitting 144 = 2160 + 1440 + 864 of Proposition 4. It also takes over the twist by 7, as "a separate extension in which the day element normalizes the Coxeter clock".
-    - In W(E8) that extension is realized, and it is smaller than the abstract one. The day and Coxeter clocks generate a group of order exactly **120**, because d⁴ = c′⁵.
+- **What the sibling adopted.** The sibling's builds of 16:18–16:43 UTC take over the splitting 144 = 2160 + 1440 + 864 of Proposition 4. They also take over the twist by 7, as "a separate extension in which the day element normalizes the Coxeter clock". SPINE_CORRECTIONS (16:31) takes over all six corrections of §10.
+    - In W(E8) the twist extension is realized, and it is smaller than the abstract one. The day and Coxeter clocks generate a group of order exactly **120**, because d⁴ = c′⁵.
     - The semidirect product C₃₀ ⋊ C₂₄ of order 720 cannot embed, since the normalizer of ⟨c′⟩ has order 240.
-- **New errors in the sibling's notes.** "The step 5 generates the tick" and "the step 25 generates the tick subgroup, order 864" confuse step and order. ⟨5⟩ = ⟨25⟩ is the subgroup of order 864; the tick has order 5.
-- **Still uncorrected in the current sibling paper.** Items 3–6 of §10 are still there. The paper also states both 3s₂² − 7s₄ ("the unique primitive harmonic line") and "2s₂² − 5s₄ is invariant-harmonic, while 3s₂² − 7s₄ is not", without naming the Laplacian. They are the ambient and the contrast-plane answers. Layer 1 now records both.
+- **New errors in the sibling's notes.** "The step 5 generates the tick" and "the step 25 generates the tick subgroup, order 864" confuse step and order. ⟨5⟩ = ⟨25⟩ is the subgroup of order 864; the tick has order 5. The 16:43 paper does not repeat these errors. It calls 5 "dual to the tick step".
+- **What remains in the 16:43 sibling paper.**
+    - One remnant. Its circle-subgroup theorem still says "360000 is not a step", next to its own correction "the scalar 360000 reduces to 1440".
+    - The harmonic statement is still doubled. Its §13 calls 3|p|⁴ − 7Σp⁴ "the unique primitive harmonic line" on the contrast plane, but computes it with the ambient Laplacian of ℝ⁵. A later theorem says 2s₂² − 5s₄ is invariant-harmonic and 3s₂² − 7s₄ is not. Each is right for its own Laplacian, so the statement should name which one it uses. Layer 1 records both.
+- **What the new notes leave unreplayed.** COXETER_POWERS shows that no named power of the Coxeter element fixes a root. It leaves the 25, 81 and 256 fixed momenta unreplayed, as "a different set".
+    - They are indeed a different set. On the Brillouin torus, c<sup>k</sup> fixes <span style="white-space:nowrap">|det(c<sup>k</sup> − I)| = Φ<sub>n</sub>(1)<sup>8/φ(n)</sup></span> points, where n = 30/gcd(k, 30). This holds for every k.
+    - The count is 1 at orders 30, 15, 10 and 6, 25 at order 5, 81 at order 3, and 256 at order 2.
+    - So fixed momenta beyond the origin occur exactly at prime-power orders. They are the Morse points of §5.
+- **Commuting clocks.** SPINE_CORRECTIONS says "the circle still makes the day and Coxeter clocks commute". On the circle they do, and together they generate the atlas, of order 120. On the bath no element of order 24 commutes with c′, because the centralizer of c′ is ⟨c′⟩. No element of W(E8) has order 120. That is why the realized day clock twists (§7).
+- **The atlas, the sun and the moon.** The circle statements of ATLAS_FACTOR and SUN_MOON hold (THEOREM). Examples are the tower in atlases 1, 4, 12, 24, 120, the identity 432 + 864 = 36², and the moon's primary parts 1080 + 3360 + 0. Their readings are ARITHMETIC: the sun is 40 atlases, which is the pada step; the half-turn is 60 atlases, which is the frame; and 8/3 is Coxeter cycles over the sun's cycle length.
 - **A canon claim proved.** The 12:32 update's "maximum group speed exactly √30" holds as a supremum. |∇ε|² ≤ 120ε everywhere, by Cauchy–Schwarz and the frame Σααᵀ = 60I. Equality holds only as k → 0.
 - **The Canon Check.**
     - The identities behind its growing-time preparation laws (P1–P2) are replayed. The laws themselves, ε<sup>−1/2</sup> for the monopole and ε<sup>−1/3</sup> for the dipole, stay CONDITIONAL on the inherited exterior contract.
@@ -316,7 +325,7 @@ Layer 20 reads the canon before anything is built on this edition.
 ## Appendix B. Replay
 
 ```
-python verify.py              # 20 layers, 387 checks
+python verify.py              # 20 layers, 393 checks
 python -m pytest -q           # 27 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the TypeScript port
 python -c "from oes import spine; print([c.name for c in spine.run().checks if not c.passed])"
