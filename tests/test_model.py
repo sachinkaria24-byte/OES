@@ -201,6 +201,13 @@ def test_atlas_and_four_cube():
         assert all(out.values()), out
 
 
+def test_k6_walks_and_the_l11_exclusion():
+    for check in (dots.cone_line_graph, dots.paired_response, dots.band_expansion, dots.sym_square_orbits,
+                  dots.walks_join, dots.l11_exclusion):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

@@ -25,6 +25,7 @@ flowchart LR
     triangle["triangle port"]
     sixsite["six-site port"]
     moments["moments"]
+    walks["closed walks"]
     clocks["W(E8) clocks"]
     G120["day-Coxeter group"]
     AGL["AGL(1,5)"]
@@ -83,10 +84,15 @@ flowchart LR
     golden -->|"mod 36"| atlas
     stages -->|"k -> k"| circle
     cube -->|"4 - sum X_i"| pauli
+    carrier -->|"line graph of K6"| sixsite
+    E -->|"paired response"| kerM
+    E8 -->|"7-design"| bath
+    bath -->|"return counts"| walks
+    walks -->|"binomial transform"| moments
     clocks -->|"Lambda^4"| hodge
 ```
 
-33 dots and 47 joins. With the obstruction left out, the joins that hold connect every dot: the diagram is one piece.
+34 dots and 52 joins. With the obstruction left out, the joins that hold connect every dot: the diagram is one piece.
 
 ## Dots
 
@@ -113,6 +119,7 @@ flowchart LR
 | triangle port | the oriented triangle 0-1-2 on the lattice | 22, 23 |
 | six-site port | K5 coned off, an A5 simplex | 4, 22, 23 |
 | moments | the Stieltjes data of the ports | 22 |
+| closed walks | W_n on the root graph; one operator of order 16, degree 58 mod primes | 3, 14 |
 | W(E8) clocks | c', g = r r', d, v, m | 19, 21 |
 | day-Coxeter group | <c', d>, order 120 | 21, 22 |
 | AGL(1,5) | the affine group of the pentagon | 21 |
@@ -176,6 +183,11 @@ flowchart LR
 | golden companion | atlas | order 24, the tick in atlas steps | THEOREM | `pisano` |
 | stages | circle | the fifteen indices as steps, with first landings | THEOREM | `counts.check_claims` |
 | four-cube | Pauli algebra | the four-cube's vertices are four qubits | THEOREM | `four_cube` |
+| carrier | six-site port | the 15 atoms are the bonds of K6 = K5 coned; D is the spoke-rim block of its line graph | THEOREM | `cone_line_graph` |
+| K5 edges | zero modes | with the cyclic orientation [M; B] has rank 9; its kernel, near minus far, is the C5-fixed line of ker M | THEOREM | `paired_response` |
+| E8 | bath | eps = 30\|k\|^2 - (3/2)\|k\|^4 + (1/24)\|k\|^6 + O(\|k\|^8) | THEOREM | `band_expansion` |
+| bath | closed walks | W_n = <delta_0, A^n delta_0> and E_n = <delta_0, Delta^n delta_0> | THEOREM | `walks_join` |
+| closed walks | moments | E_n, the one-site port's moments, is the binomial transform of W_n | THEOREM | `walks_join` |
 | W(E8) clocks | Hodge 70 | reflections swap the 35 + 35 halves, the clocks keep them | THEOREM | `hodge70` |
 
 ## Not joined

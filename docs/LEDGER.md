@@ -99,7 +99,13 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the atlas (GOLDEN_ATLAS, ATLAS_801, ATLAS_CYCLE) | addresses meet or miss the tick; 18 falls to the seam in two contractions; 16 does not move | the atlas is the quotient Z/36, and the bit does not descend to it (96 meets and 24 misses at every address); 18 falls in one contraction; 16 is on the 6-cycle | THEOREM | 23 |
 | the 801 matrix (AIR_801) | order 24 in GL(2,5), projective order 6 | replayed: a Singer cycle mod 5 | THEOREM | 23 |
 | the bivector (CLOSURE_46) | a change of pair scales a ^ b by its determinant; a cone of dimension 7; rank 6, kernel 4 | the native port W_AS: Lambda^2 ker M -> cycles of K5, rank 6 and kernel 4; the cone has dimension 7 = 10 - 3 | THEOREM | 4, 23 |
-| all dots | - | 33 dots and 47 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| K6 and the carrier (synthesis) | a 15-edge K6 carrier | the 15 atoms are the bonds of K6 = K5 coned; D is the spoke-rim block of the line graph of K6, and KG(6,2) restricts to Petersen on the rim | THEOREM | 23 |
+| K5-P9 (synthesis) | paired regular-cyclic signless + signed response of rank 9 with a 1D residual line | replayed: the residual line is near minus far, the C5-fixed line of ker M; the order orientation gives rank 7 | THEOREM | 23 |
+| band expansion (synthesis) | 30\|k\|^2 - (3/2)\|k\|^4 + (1/24)\|k\|^6 | replayed: the roots are a 7-design and not an 8-design | THEOREM | 23 |
+| L11 (synthesis) | an order-11, degree-5 operator L11(n, E_n) with 72 coefficients | not a recurrence for W_n or E_n: full column rank 72 from n <= 90, and 84 < 85 | OBSTRUCTION | 14, 23 |
+| 801 orbits (joined paper) | 1 + 3 + 3 + 6 + 6 + 6 + 6 on 31 points | replayed through the symmetric square on PG(2,5) | THEOREM | 23 |
+| collar (synthesis) | positivity up to E = 224 by mediant monotonicity | not replayed; the collar stays open here | REPORTED | 23 |
+| all dots | - | 34 dots and 52 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

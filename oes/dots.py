@@ -42,6 +42,13 @@ reached through checked maps. The new joins:
 The 22:08 check read the sibling's notes of 21:40-22:08 (PRIMARY_SPLIT to JOIN_CLOSURE), the separate model's joined
 model and its receipts, the canon's coordination release and the new collaboration hub. Their readings on the bit are
 in layer 22; their structure is joined here, with four corrections.
+
+At 22:31 the sibling's joined paper (22:20) and the Locked Memory synthesis of 29 Oct were read. Five more joins come
+from them: the carrier's 15 atoms are the bonds of K6 = K5 coned, with D the spoke-rim block of the line graph of K6; the
+paired cyclic response [M; B] has rank 9, and its residual line is the C5-fixed line of ker M; the band expansion
+30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6 holds because the roots are a 7-design; and the bath's closed walks W_n and return
+moments E_n join the bath to the moments. The synthesis's operator of order 11 and degree 5 is not a recurrence for W_n or
+E_n (an obstruction), and its collar claim is recorded, not replayed.
 """
 
 import functools
@@ -579,6 +586,171 @@ def notes_2208():
     }
 
 
+# ------------------------------------------------------------ the 22:20-22:31 items
+
+def cone_line_graph():
+    """The carrier's 15 atoms are the 15 bonds of K6 = K5 coned off, and D is the spoke-rim block of its line graph."""
+    E = carrier.edges()
+    M = sp.Matrix(carrier.signless_incidence())
+    K6 = [(i, 5) for i in range(5)] + E                         # spokes first (the vertices), then the rim (the edges)
+    share = lambda a, b: int(a != b and bool(set(a) & set(b)))
+    disjoint = lambda a, b: int(not set(a) & set(b))
+    L6 = sp.Matrix(15, 15, lambda a, b: share(K6[a], K6[b]))
+    KG = sp.Matrix(15, 15, lambda a, b: disjoint(K6[a], K6[b]))
+    D = sp.Matrix(carrier.dirac(M))
+    I5, J5 = sp.eye(5), sp.ones(5, 5)
+    return {
+        "the line graph of K6, spokes i5 first and rim edges after, is [[J - I, M], [M^T, M^T M - 2I]]":
+            L6 == sp.Matrix(sp.BlockMatrix([[J5 - I5, M], [M.T, M.T * M - 2 * sp.eye(10)]])),
+        "so the carrier's D = [[0, M], [M^T, 0]] is its spoke-rim block, under vertex i <-> spoke i5 and edge ij <-> ij":
+            D == L6 - sp.diag(J5 - I5, M.T * M - 2 * sp.eye(10)),
+        "the Kneser graph KG(6,2) on the same 15 atoms is [[0, J - M], [(J - M)^T, Petersen]]: KG(5,2) on the rim":
+            KG == sp.Matrix(sp.BlockMatrix([[sp.zeros(5, 5), sp.ones(5, 10) - M],
+                                            [(sp.ones(5, 10) - M).T, carrier.petersen()]])),
+    }
+
+
+def paired_response():
+    """The signless and signed incidences together, with the cyclic orientation of K5: rank 9 and one residual line."""
+    E = carrier.edges()
+    M = sp.Matrix(carrier.signless_incidence())
+    B = sp.Matrix(carrier.signed_incidence())
+    head = lambda i, j: j if (j - i) % 5 in (1, 2) else i          # the regular tournament i -> i + 1, i -> i + 2
+    Bc = sp.Matrix(5, 10, lambda v, k: (1 if v == head(*E[k]) else -1) if v in E[k] else 0)
+    near = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+    rot = sp.Matrix(10, 10, lambda a, b: int(E[a] == tuple(sorted(((E[b][0] + 1) % 5, (E[b][1] + 1) % 5)))))
+    stacked = sp.Matrix.vstack(M, Bc)
+    return {
+        "with the cyclic orientation every vertex has out-degree 2, and [M; B] has rank 9 with a one-dimensional kernel":
+            all(sum(1 for k in range(10) if Bc[v, k] == -1) == 2 for v in range(5)) and stacked.rank() == 9,
+        "the kernel is the near edges minus the far edges, the C5-fixed line of ker M": (stacked * near).is_zero_matrix
+        and (M * near).is_zero_matrix and rot * near == near,
+        "with the order orientation i < j the same stack has rank 7: the regular orientation is what leaves one line":
+            sp.Matrix.vstack(M, B).rank() == 7,
+    }
+
+
+def band_expansion():
+    """The 240 roots are a spherical 7-design, so the band starts 30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6."""
+    R = counts._roots2() / 2.0
+    rng = np.random.default_rng(31)
+    ks = rng.standard_normal((5, 8))
+    power = lambda k, m: float(np.sum((R @ k) ** m))
+    norm = lambda k: float(k @ k)
+    small = [1e-2 * k / np.linalg.norm(k) for k in ks]
+    eps = lambda k: 240 - float(np.cos(R @ k).sum())
+    series = lambda k: 30 * norm(k) - 1.5 * norm(k) ** 2 + norm(k) ** 3 / 24
+    return {
+        "sum (k.rho)^2 = 60 |k|^2, sum (k.rho)^4 = 36 |k|^4, sum (k.rho)^6 = 30 |k|^6 for every k (a 7-design)": all(
+            np.isclose(power(k, 2), 60 * norm(k)) and np.isclose(power(k, 4), 36 * norm(k) ** 2)
+            and np.isclose(power(k, 6), 30 * norm(k) ** 3) for k in ks),
+        "the eighth moment is not a multiple of |k|^8: the roots are not an 8-design": len({round(power(k, 8) / norm(k) ** 4, 6)
+                                                                                         for k in ks}) > 1,
+        "so eps(k) = 30 |k|^2 - (3/2) |k|^4 + (1/24) |k|^6 + O(|k|^8) (the synthesis's expansion)": all(
+            abs(eps(k) - series(k)) < 1e-12 for k in small),
+    }
+
+
+def sym_square_orbits():
+    """The 801 matrix mod 5 on the 31 points of PG(2,5) through its symmetric square."""
+    a, b, c, d = 3, 1, 1, 1
+    S = np.array([[a * a, a * c, c * c], [2 * a * b, a * d + b * c, 2 * c * d], [b * b, b * d, d * d]]) % 5
+    pts = set()
+    for v in itertools.product(range(5), repeat=3):
+        if any(v):
+            lead = next(x for x in v if x)
+            inv = pow(lead, 3, 5)
+            pts.add(tuple(x * inv % 5 for x in v))
+    norm = lambda v: (lambda lead: tuple(x * pow(lead, 3, 5) % 5 for x in v))(next(x for x in v if x))
+    seen, sizes = set(), []
+    for p in sorted(pts):
+        if p in seen:
+            continue
+        orbit, q = [], p
+        while q not in orbit:
+            orbit.append(q)
+            q = norm(tuple(int(x) for x in S @ np.array(q) % 5))
+        seen |= set(orbit)
+        sizes.append(len(orbit))
+    order = next(k for k in range(1, 50) if np.array_equal(np.linalg.matrix_power(S, k) % 5, np.eye(3, dtype=int)))
+    return {
+        "PG(2,5) has 31 points, and the symmetric square of [[3, 1], [1, 1]] splits them 1 + 3 + 3 + 6 + 6 + 6 + 6":
+            len(pts) == 31 and sorted(sizes) == [1, 3, 3, 6, 6, 6, 6],
+        "the symmetric square has order 12 (A^12 = -I acts trivially), and its orbits have the projective order 6":
+            order == 12 and max(sizes) == 6,
+    }
+
+
+def _walks():
+    from . import recurrence
+    W = recurrence.load_walks()
+    E = [sum(sp.binomial(n, k) * 240 ** (n - k) * (-1) ** k * W[k] for k in range(n + 1)) for n in range(len(W))]
+    return W, [int(x) for x in E]
+
+
+def walks_join():
+    """The bath's closed walks W_n and its return moments E_n."""
+    W, E = _walks()
+    return {
+        "W_n counts closed walks on the root graph: W_0..W_3 = 1, 0, 240, 240 x 56 = 13440": W[:4] == [1, 0, 240, 13440],
+        "the return moments E_n = <delta_0, Delta^n delta_0> are its binomial transform: 1, 240, 57840 = 240^2 + 240":
+            E[:3] == [1, 240, 57840],
+    }
+
+
+def l11_exclusion():
+    """The synthesis's operator L11(n, E_n) of order 11 and degree 5 is not a recurrence for W_n or E_n."""
+    from . import recurrence
+    W, E = _walks()
+    p = recurrence.P
+    rank = lambda seq: recurrence.rank_mod_p(recurrence.shape_matrix(seq, 11, 5, p), p)
+    return {
+        "an operator of order 11 and degree 5 (72 coefficients) annihilates neither W_n nor E_n: both shape matrices from "
+        "n <= 90 have full column rank 72 mod p": len(W) >= 91 and rank(W) == 72 and rank(E) == 72,
+        "(11 + 1)(5 + 2) = 84 is also below the canon's own bound (r + 1)(d + 2) > 85": (11 + 1) * (5 + 2) == 84 < 85,
+    }
+
+
+def notes_2231():
+    """The sibling's joined paper (22:20) and the synthesis (22:31): arithmetic, and the one correction carried over."""
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    S = sp.Matrix(5, 4, lambda r, c: int(r == c) - int(r == c + 1))
+    cox = (S.T * S).inv() * S.T * R5 * S                          # the vertex rotation on the sum-zero lattice
+    stable = {0: 0, 1: 2, 2: 1, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 3}   # a fixed point, a 2-cycle and a 6-cycle
+    prod = lambda x: (stable[x[0]], (x[1] + 1) % 5)
+    orbits, seen = [], set()
+    for x in itertools.product(range(9), range(5)):
+        if x in seen:
+            continue
+        o, y = [], x
+        while y not in o:
+            o.append(y)
+            y = prod(y)
+        seen |= set(o)
+        orbits.append(len(o))
+    return {
+        "the time coordinate of k ticks is 4k mod 5, so the ticks read 0, 4, 3, 2, 1": [k * TICK % 5 for k in range(5)]
+        == [4 * k % 5 for k in range(5)] == [0, 4, 3, 2, 1],
+        "translation by 24 (one tick of atlas steps) has order 3 on Z/36, with 12 cosets; the nine stable addresses lie in 3 "
+        "of them": 36 // gcd(24, 36) == 3 and 36 // 3 == 12 and len({a % 12 for a in range(0, 36, 4)}) == 3,
+        "7 x 32 = 224, 8 x 32 = 256; 8 x 15 = 120, 9 x 15 = 135; 16 x 60 = 10 x 96 = 7 x 70 + 5 x 94 = 960":
+            (7 * 32, 8 * 32, 8 * 15, 9 * 15) == (224, 256, 120, 135) and 16 * 60 == 10 * 96 == 7 * 70 + 5 * 94 == 960,
+        "the stable atlas cycles (1 + 2 + 6) times a five-cycle give orbits 5 + 10 + 30 = 45, of order 30":
+            sorted(orbits) == [5, 10, 30] and sum(orbits) == 45 and sp.ilcm(1, 2, 6, 5) == 30,
+        "the A4 Coxeter element (the vertex rotation on the sum-zero lattice) has det(I - C) = Phi_5(1) = 5 and "
+        "det(2I - C) = Phi_5(2) = 31, so (2I - C) + [5] has det 155": all(x.is_integer for x in cox)
+        and (sp.eye(4) - cox).det() == 5 and (2 * sp.eye(4) - cox).det() == 31 and 31 * 5 == 155,
+        "the joined paper carries over 'breath: 28 addresses meet and 8 miss' and 'only 20 on the six-cycle misses': an "
+        "address carries no tick bit (20 and 56 share address 20; 56 meets)": 56 % 36 == 20 and ledger.contains_tick(56)
+        and not ledger.contains_tick(20),
+        "the synthesis's collar floor arithmetic (15/13)(13/400) = 3/80 = 0.0375": Fraction(15, 13) * Fraction(13, 400)
+        == Fraction(3, 80) == Fraction(375, 10000),
+        "the joined paper's bits: 60, 70, 960, 490, 120, 135 and 45 miss; 96, 36, 94, 224, 256 and 31 meet": not any(
+            ledger.contains_tick(x) for x in (60, 70, 960, 490, 120, 135, 45))
+        and all(ledger.contains_tick(x) for x in (96, 36, 94, 224, 256, 31)),
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -603,6 +775,7 @@ DOTS = {
     "triangle": ("triangle port", "the oriented triangle 0-1-2 on the lattice", "22, 23"),
     "sixsite": ("six-site port", "K5 coned off, an A5 simplex", "4, 22, 23"),
     "moments": ("moments", "the Stieltjes data of the ports", "22"),
+    "walks": ("closed walks", "W_n on the root graph; one operator of order 16, degree 58 mod primes", "3, 14"),
     "clocks": ("W(E8) clocks", "c', g = r r', d, v, m", "19, 21"),
     "G120": ("day-Coxeter group", "<c', d>, order 120", "21, 22"),
     "AGL": ("AGL(1,5)", "the affine group of the pentagon", "21"),
@@ -671,6 +844,11 @@ JOINS = [
     ("golden", "atlas", "mod 36", "order 24, the tick in atlas steps", T, "pisano"),
     ("stages", "circle", "k -> k", "the fifteen indices as steps, with first landings", T, "counts.check_claims"),
     ("cube", "pauli", "4 - sum X_i", "the four-cube's vertices are four qubits", T, "four_cube"),
+    ("carrier", "sixsite", "line graph of K6", "the 15 atoms are the bonds of K6 = K5 coned; D is the spoke-rim block of its line graph", T, "cone_line_graph"),
+    ("E", "kerM", "paired response", "with the cyclic orientation [M; B] has rank 9; its kernel, near minus far, is the C5-fixed line of ker M", T, "paired_response"),
+    ("E8", "bath", "7-design", "eps = 30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6 + O(|k|^8)", T, "band_expansion"),
+    ("bath", "walks", "return counts", "W_n = <delta_0, A^n delta_0> and E_n = <delta_0, Delta^n delta_0>", T, "walks_join"),
+    ("walks", "moments", "binomial transform", "E_n, the one-site port's moments, is the binomial transform of W_n", T, "walks_join"),
     ("clocks", "hodge", "Lambda^4", "reflections swap the 35 + 35 halves, the clocks keep them", T, "hodge70"),
 ]
 
@@ -686,7 +864,13 @@ LEDGER_ROWS = [
     ("the atlas (GOLDEN_ATLAS, ATLAS_801, ATLAS_CYCLE)", "addresses meet or miss the tick; 18 falls to the seam in two contractions; 16 does not move", "the atlas is the quotient Z/36, and the bit does not descend to it (96 meets and 24 misses at every address); 18 falls in one contraction; 16 is on the 6-cycle", T, "23"),
     ("the 801 matrix (AIR_801)", "order 24 in GL(2,5), projective order 6", "replayed: a Singer cycle mod 5", T, "23"),
     ("the bivector (CLOSURE_46)", "a change of pair scales a ^ b by its determinant; a cone of dimension 7; rank 6, kernel 4", "the native port W_AS: Lambda^2 ker M -> cycles of K5, rank 6 and kernel 4; the cone has dimension 7 = 10 - 3", T, "4, 23"),
-    ("all dots", "-", "33 dots and 47 joins in one connected diagram (docs/DOTS.md)", T, "23"),
+    ("K6 and the carrier (synthesis)", "a 15-edge K6 carrier", "the 15 atoms are the bonds of K6 = K5 coned; D is the spoke-rim block of the line graph of K6, and KG(6,2) restricts to Petersen on the rim", T, "23"),
+    ("K5-P9 (synthesis)", "paired regular-cyclic signless + signed response of rank 9 with a 1D residual line", "replayed: the residual line is near minus far, the C5-fixed line of ker M; the order orientation gives rank 7", T, "23"),
+    ("band expansion (synthesis)", "30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6", "replayed: the roots are a 7-design and not an 8-design", T, "23"),
+    ("L11 (synthesis)", "an order-11, degree-5 operator L11(n, E_n) with 72 coefficients", "not a recurrence for W_n or E_n: full column rank 72 from n <= 90, and 84 < 85", OB, "14, 23"),
+    ("801 orbits (joined paper)", "1 + 3 + 3 + 6 + 6 + 6 + 6 on 31 points", "replayed through the symmetric square on PG(2,5)", T, "23"),
+    ("collar (synthesis)", "positivity up to E = 224 by mediant monotonicity", "not replayed; the collar stays open here", RP, "23"),
+    ("all dots", "-", "34 dots and 52 joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -718,6 +902,8 @@ def _checks():
         "triangle_port": triangle_port, "cone": cone, "glue_cosets": glue_cosets, "tick_momenta": tick_momenta,
         "clock_joins": clock_joins, "primary_split": primary_split, "atlas": atlas, "pisano": pisano,
         "four_cube": four_cube, "hodge70": hodge70, "field": field, "embed": embed, "native_port": native_port,
+        "cone_line_graph": cone_line_graph, "paired_response": paired_response, "band_expansion": band_expansion,
+        "walks_join": walks_join,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -794,6 +980,24 @@ def run():
             "unify (21:43, seventeen checks); the separate model's update overlay (21:46), joined model (22:02) and "
             "checkpoint (22:04); the canon's coordination release OES_COORD_20261029 (one new sheet in each workbook, "
             "every prior cell kept, no gate changed) and the collaboration hub with its open tasks", RP, True)
+    so = sym_square_orbits()
+    rep.add("the joined paper's orbit list, replayed: the symmetric square of the 801 matrix mod 5 splits the 31 points of "
+            "PG(2,5) as 1 + 3 + 3 + 6 + 6 + 6 + 6", T, all(so.values()), so)
+    lx = l11_exclusion()
+    rep.add("the synthesis's operator L11(n, E_n), of order 11 and degree 5 with 72 coefficients, is not a recurrence for "
+            "the walk counts W_n or the return moments E_n: both shape matrices have full column rank 72, and 84 is below "
+            "the canon's bound 85", OB, all(lx.values()), lx)
+    n31 = notes_2231()
+    rep.add("the 22:31 arithmetic: the time coordinates 4k mod 5, the atlas translation by 24, 7 x 32 and 8 x 32, "
+            "16 x 60 = 10 x 96 = 7 x 70 + 5 x 94, the 45-point product of order 30, the A4 Coxeter determinants 5 and 31, "
+            "the collar floor 3/80 and the joined paper's bits; its address bit is corrected again", T, all(n31.values()), n31)
+    rep.add("Drive check 22:31: the sibling's joined paper one-machine-20261029-joined (22:20, fifteen checks) adopts the "
+            "21:36 corrections (time coordinates 0, 4, 3, 2, 1; the two clocks generate 20 points; x15 on multiples of 72; "
+            "the power sum is five times a projector); its STATUS_20261029; and the Locked Memory synthesis of 29 Oct "
+            "(22:31), read only", RP, True)
+    rep.add("recorded from the synthesis, not replayed: collar positivity up to E = 224 by mediant monotonicity (the collar "
+            "stays open here until the argument is supplied), the dispersive constant 73/20, the Wronskian-Dyson "
+            "monodromy, the Legendre-Rodrigues preparation constant, the SGC5 compression and the 199 P/N rows", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

@@ -7,8 +7,8 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 23 layers in **528 checks**. Of these, 480 hold: THEOREM 351, OBSTRUCTION 42, ARITHMETIC 38, CONDITIONAL 17, UNFORMED 19, SELECTED_REFERENCE 11, REMOVED 2. The other 48 are REPORTED records.
-- `python -m pytest` runs 49 tests.
+- `python verify.py` replays 23 layers in **538 checks**. Of these, 488 hold: THEOREM 358, OBSTRUCTION 43, ARITHMETIC 38, CONDITIONAL 17, UNFORMED 19, SELECTED_REFERENCE 11, REMOVED 2. The other 50 are REPORTED records.
+- `python -m pytest` runs 50 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, `docs/LEDGER.md` holds the unified ledger, and `docs/DOTS.md` draws every checked join.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -41,7 +41,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 - Seven moments that the sibling reported as not replayed are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly from the 240 roots, and the eighth is new.
 - The canon's 19:10 continuation asks two things. A commutator should not be called 864 without a map: every map from the day–Coxeter group to the circle kills it. Equal energy totals do not make equal splits: the three splits are the margins of one conserved table.
 
-**It joins all the dots (layer 23).** Every object of the model is a dot and every checked map a join, and 33 dots with 47 joins form one connected diagram. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits.
+**It joins all the dots (layer 23).** Every object of the model is a dot and every checked map a join, and 34 dots with 52 joins form one connected diagram. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits.
 
 ## 0. The model on one page
 
@@ -59,7 +59,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 | waves | Hodge complex on the K5 edges | sound (4) and light (6) are isochronous at √5; Agni = Curl² | 17 |
 | circle | Z/4320 = 2⁵·3³·5 | one lemma; the tower 36 × 4 × 3 × 2 × 5; the tick bit | 19, 21 |
 | clocks | the normalizer of ⟨c′⟩ in W(E8), order 240 | every circle unit realized; the tick = [day, Coxeter] | 19, 21 |
-| dots | 33 objects, 47 checked maps | one connected diagram; the K5 incidences are the A4 and D5 roots | 23 |
+| dots | 34 objects, 52 checked maps | one connected diagram; the K5 incidences are the A4 and D5 roots | 23 |
 | curvature, cosmology | Lin–Lu–Yau; spectral action on M⁴ × F | discretely flat bath; G and Λ_cc only with external inputs (CONDITIONAL) | 6, 7 |
 | gates | AUTH, TIME_BIND, DYN_BIND, PredictionFreeze, W_L, T3081 | none moves | 13 |
 
@@ -394,20 +394,22 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 
 ## 9. All dots joined (layer 23)
 
-Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 33 dots and 47 joins (46 maps and one obstruction) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
+Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 34 dots and 52 joins (51 maps and one obstruction) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
 
 **New joins (THEOREM).**
 
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the twenty positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are the Coxeter identities of A4 (h = 5) and D5 (h = 8), and the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}.
 - **Petersen** is the orthogonality graph of the ten roots e_i + e_j, whose Gram matrix is MᵀM.
 - **The edges are Λ²ℝ⁵.** B is contraction with (1, 1, 1, 1, 1), the cycles are Λ²H for the sum-zero hyperplane H, and the rotor plane is spanned by the invariant area forms of the pentagon rotation.
-- **The source** lives on ker M ⊕ ker M, and its port takes a ∧ b to an oriented K5 cycle (rank 6, kernel 4). It is not a carrier mode; that is the one obstruction.
+- **The source** lives on ker M ⊕ ker M, and its port takes a ∧ b to an oriented K5 cycle (rank 6, kernel 4). It is not a carrier mode; that is the diagram's one obstruction.
 - **The triangle port.** The canon's selected six-port is the oriented triangle 0 → 1 → 2 → 0 of K5, lifted to its A4 roots. Its Fourier transform is −8i sin(x/2) sin(y/2) sin(z/2) with x + y + z = 0, so it vanishes to third order. Hence ⟨p, e^(−tΔ) p⟩/|p|² = t⁻⁷/(22394880000000 π⁴) · (1 + O(1/t)), which derives the canon's triangle-cycle heat.
 - **The six-site port** is K5 coned off: the origin and the lifted vertices e_i + e_5.
 - **A4 + A4′** has root cosets 40, 50, 50, 50, 50 and folded spectrum 0, 250⁴. These are the bath's values at the tick's 25 fixed momenta: 0 once and 250 at the other 24.
 - **One tick.** k·144 ↦ c′^k sends 864 to g = r r′. g acts on the carrier's coordinates as the vertex rotation, and the time coordinate 4x mod 5 gives the same rotation.
 - **The circle's parts.** 3105 + 2080 + 3456 = 1 splits the circle into a 2-clock, a 27-clock and the time clock. The atlas is the quotient ℤ/36, and doubling contracts it onto a seam, a 2-cycle and a 6-cycle.
 - **The four-cube** (the canon's h81) has Hodge spectrum 0, 2⁸, 4²⁴, 6³², 8¹⁶ and a homotopy of rank 40 and norm 1/√2. Its vertices are four qubits, so its Laplacian 4 − Σ Xᵢ lies in the Pauli algebra.
+- **K6 and the carrier.** The 15 atoms are the bonds of K6 = K5 coned off, and D is the spoke–rim block of the line graph of K6. With the cyclic orientation, [M; B] has rank 9, and its residual line is the C5-fixed line of ker M.
+- **The band and the walks.** The roots are a 7-design, so ε = 30|k|² − (3/2)|k|⁴ + (1/24)|k|⁶ + O(|k|⁸). The closed walks W_n and the return moments E_n join the bath to the moments. A reported operator of order 11 and degree 5 annihilates neither: an obstruction.
 
 **Corrections (the 22:08 notes).** An atlas address does not carry the tick bit: 1 and 145 share an address, and only 1 meets. Address 18 reaches the seam in one contraction, not two. Address 16 moves around the 6-cycle. Thirty-six atlas steps, 36 × 36 = 1296, meet the tick.
 
@@ -450,7 +452,7 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 | K5 incidences | the positive roots of A4 and D5; spec D² = {0, h(D5) − h(A4), h(D5)} | THEOREM |
 | selected six-port, triangle-cycle heat | the oriented triangle 0-1-2 of K5; t⁻⁷/(22394880000000 π⁴) derived | THEOREM |
 | L0, h81, Hodge 70 (canon) | replayed: cosets 40/50⁴ and spectrum 0, 250⁴; the four-cube complex; 35 + 35 | THEOREM |
-| all dots | 33 dots, 47 joins, one connected diagram | THEOREM |
+| all dots | 34 dots, 52 joins, one connected diagram | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 11. What is not formed, and the gates
@@ -505,16 +507,16 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 60 | the evening notes: 798 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath, written out, and as an operator on Λ/2Λ with its GKSL form; the rotor plane; two Laplacians and the line graph; the datum's cycle; Spanda; the two clocks as one splitting |
-| 23 | dots | 56 | 33 dots, 47 joins: K5 as A4 and D5 roots; Petersen; Λ²ℝ⁵; the source's port; the triangle port and its t⁻⁷ heat; K5 coned; A4 + A4′ and the tick's momenta; one tick; the atlas; h81; Hodge 70 |
+| 22 | counts | 60 | the evening notes: 798 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
+| 23 | dots | 66 | 34 dots and 52 checked joins in one diagram (`docs/DOTS.md`); the 22:08 and 22:31 notes |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 23 layers, 528 checks, about 4 minutes
-python -m pytest -q           # 49 tests
+python verify.py              # 23 layers, 538 checks, about 4 minutes
+python -m pytest -q           # 50 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: the Drive folder "One Machine 20261028" (the sibling's full edition and 132 notes of 17:01–22:08 UTC), the canon sheets of 17:19 and 19:10 UTC, and the collaboration hub of 21:46.
+Sources: the Drive folder "One Machine 20261028" (the sibling's full edition and 134 notes and papers, 17:01–22:20 UTC), two canon sheets, the hub of 21:46 and the synthesis of 22:31.
