@@ -11,7 +11,8 @@ import json
 import sys
 import time
 
-from oes import carrier, cosmology, gates, gravity, native, observer, spacetime, spectral
+from oes import (carrier, cosmology, frontier, gates, gravity, native, observer,
+                 spacetime, spectral)
 
 
 def main(argv):
@@ -24,6 +25,7 @@ def main(argv):
         ("5-observer", observer.run),
         ("6-gravity", gravity.run),
         ("7-cosmology", cosmology.run),
+        ("8-frontier", frontier.run),
     ]
     checks, timing = [], {}
     for name, fn in layers:
@@ -48,7 +50,7 @@ def main(argv):
            "checks": [c.as_dict() for c in checks]}
     with open("results.json", "w") as f:
         json.dump(out, f, indent=1)
-    return 0 if all(c.passed for c in checks) else 1
+    return 0 if all(c.passed for c in checks if c.status != gates.REPORTED) else 1
 
 
 if __name__ == "__main__":

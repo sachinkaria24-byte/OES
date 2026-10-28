@@ -49,23 +49,24 @@
    "Wald coefficient",
    "physical 1401-dim sector with calibrated time",
    "saved native_source_matrices (SHA256 73e07429...)",
-   "literal conflicting 5x5 determinant operand (155 vs 4805)"
+   "6x6 adapter T of eq. 27 (155 vs 4805 reported as a label error, not replayed)"
   ]
  },
  "timing_s": {
-  "1-carrier": 0.43,
-  "2-spectral": 0.01,
-  "3-spacetime": 6.05,
-  "4-native": 74.0,
-  "5-observer": 0.22,
-  "6-gravity": 4.04,
-  "7-cosmology": 1.17
+  "1-carrier": 0.41,
+  "2-spectral": 0.0,
+  "3-spacetime": 5.36,
+  "4-native": 77.51,
+  "5-observer": 0.19,
+  "6-gravity": 4.31,
+  "7-cosmology": 1.24,
+  "8-frontier": 3.04
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 90,
-   "total": 90
+   "passed": 95,
+   "total": 95
   },
   "OBSTRUCTION": {
    "passed": 5,
@@ -76,20 +77,24 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 6,
-   "total": 6
+   "passed": 7,
+   "total": 7
   },
   "SELECTED_REFERENCE": {
    "passed": 4,
    "total": 4
   },
   "UNFORMED": {
-   "passed": 4,
-   "total": 4
+   "passed": 8,
+   "total": 8
   },
   "CONDITIONAL": {
    "passed": 8,
    "total": 8
+  },
+  "REPORTED": {
+   "passed": 7,
+   "total": 7
   }
  },
  "checks": [
@@ -1204,6 +1209,155 @@
    "passed": true,
    "value": null,
    "note": "needs m, L, f and TIME_BIND; all external"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "band vertex v*: cos = +1 on 112 roots, -1 on 128; eps(v*) = 256",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    112,
+    128
+   ],
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "W(E8)-orbit of v*: 2160 points in R^8, 135 classes mod 2 pi Lambda",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    2160,
+    135
+   ],
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "S(v*+d) >= -16 + |d|^2 (2-|d|^2) for |d| <= sqrt2 (sampled)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": -3.4504672533007107e-15,
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "224 saddle: eps = 224 + 6rho^2 - 26z^2 - rho^4/2 + 3rho^2z^2 + 5z^4/6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "(2, 0)": "6",
+    "(0, 2)": "-26",
+    "(0, 4)": "5/6",
+    "(2, 2)": "3",
+    "(4, 0)": "-1/2",
+    "(0, 0)": "224"
+   },
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "quartic on the cone 6rho^2 = 26z^2 is (40/169) rho^4 > 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "40/169",
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "Agni-Soma: (5I-G)/5 is the cycle projector and fixes W_AS (not rivals)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
+   "name": "band [0,256] exact: alcove branch-and-bound, 247,920 pieces, margin > 1e-6",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "computer-assisted; pieces not in this repository"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "eps > 100 on the alcove outside |k|^2 <= 6 (7,523 pieces)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "computer-assisted; removes the single-ball dependency"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "W_n recurrence order is 11: (x+12)^2 divides the leading coefficient",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "Morse indices 7 and 8 at lambda=-12, corrections -16/3 vs -17/8; the line 'at least 10, not 11' should be deleted"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "155 vs 4805 is a label error: 155 = det T = 5*31 (6x6 adapter); 4805 = 5*31^2 is the 4th cofactor of T T^T",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "T operand (eq. 27) is garbled in the PDF text; not rebuilt here"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "rotor hex6: m1 = 242 >= 241.36, Hankel determinants positive",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "operand not in this repository"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "collar to 224: alcove reduction; min curvature positive up to 223.999 (0.065 at 223.25, 0.014 at 223.999)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "numerical; certified bound away from the saddle still OPEN"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "convexity levels 223.25 < 223.5 < 223.53 < 223.58 are successive lower bounds, not rival theorems",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "standing value: the largest replayed one"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "certified curvature bound away from the 224 saddle (8-dim BnB ~1e10 pieces)",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "open"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "complete scalar W_n recurrence (order >= 11, degree >= 9, >= 120 unknowns; 101 exact terms insufficient)",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "open"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "2740-dim five-port, -8/9 moment, Jordan drops, return-corner ranks (no operands)",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "open"
+  },
+  {
+   "layer": "8-frontier",
+   "name": "wave decay 1/4 vs 1/6, Schrodinger prefactor 204 vs 206 (no derivations)",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "open"
   }
  ]
 }

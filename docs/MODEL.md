@@ -240,7 +240,33 @@ With the natural cutoff (f = e^{−x}), the evolution goes straight to de Sitter
 
 No observed parameter (H₀, Ω, w) is produced. IceCube/LHAASO scales and the vacuum amplitude (27/5)³e^{−280} stay **REMOVED**.
 
-## 8. What stays open
+## 8. Residual front (`oes/frontier.py`)
+
+This section records the sibling update received after the 01:27 UTC Drive cut. Drive showed nothing newer at the time of the check.
+
+**Replayed here.**
+- **Band vertex (THEOREM).** At v* = π(1,1,1,1,0,0,0,0), every root gives cos = ±1: 112 give +1 and 128 give −1, so ε(v*) = 256.
+- **Band-edge orbit (THEOREM).** The W(E8)-orbit of v* has 2160 points in ℝ⁸ and **135** classes modulo 2πΛ.
+- **Local bound (ARITHMETIC, sampled).** S(v*+δ) ≥ −16 + |δ|²(2 − |δ|²) holds for |δ| ≤ √2. The minimum slack is −3×10⁻¹⁵, so the bound is attained.
+- **224 saddle at πα (THEOREM, exact).** The expansion is ε = 224 + 6ρ² − 26z² − ρ⁴/2 + 3ρ²z² + (5/6)z⁴. On the cone 6ρ² = 26z² the quartic is exactly **(40/169)ρ⁴ > 0**, so the level set bends the convex way at the saddle.
+- **Agni–Soma (THEOREM).** (5I − G)/5 is the cycle projector and fixes the image of W_AS. The two are not rival operators; only the naming needs settling.
+
+**Reported, not replayed** (status REPORTED; the certificates and operands are not in this repository):
+- the band is exactly [0, 256] by an alcove branch-and-bound (247,920 pieces);
+- ε > 100 outside |k|² ≤ 6 (7,523 pieces);
+- the W_n recurrence has order **11**, with (x+12)² dividing the leading coefficient, so the page line "at least 10, not 11" should be deleted;
+- 155 vs 4805 is a label error (155 = det T and 4805 = 5·31², the 4th cofactor of TTᵀ);
+- rotor hex6 has m₁ = 242 ≥ 241.36;
+- for the collar, the alcove reduction gives numerically positive curvature up to 223.999;
+- 223.25 < 223.5 < 223.53 < 223.58 are successive lower bounds, so the standing value is the largest replayed one.
+
+**Still open.**
+- A certified curvature bound away from the 224 saddle. This is the next step: a certified saddle analysis with an explicit radius.
+- The complete scalar W_n recurrence.
+- The five-port and the −8/9 moment operands.
+- The decay-rate and prefactor conflicts.
+
+## 9. What stays open
 
 Recorded in `oes/gates.py` and carried unchanged from the canon:
 
@@ -256,11 +282,11 @@ Recorded in `oes/gates.py` and carried unchanged from the canon:
 - I6L;
 - the Wald coefficient;
 - the saved native source matrices;
-- the conflicting 5×5 determinant operand (155 vs 4805).
+- the 6×6 adapter T of eq. 27 (155 vs 4805 is reported as a label error and was not replayed here).
 
 **Open mathematics:**
-- the convexity collar inside (223.53, 224);
-- a fixed-order scalar recurrence for W_n;
+- the convexity collar inside (223.58, 224), now reduced to a certified bound away from the 224 saddle;
+- a fixed-order scalar recurrence for W_n (reported order ≥ 11);
 - a matching dispersive upper bound;
 - maximal branch continuation.
 

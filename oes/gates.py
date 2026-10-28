@@ -17,6 +17,10 @@ SELECTED_REFERENCE a construction made here from the canon's stated
 CONDITIONAL        mathematics that needs an input the canon marks external or
                    absent (a 4-manifold, a cutoff function, a mass scale).
                    It never feeds back into the carrier Lagrangian.
+REPORTED           a result received from a sibling session and NOT replayed
+                   here (for example a branch-and-bound certificate whose
+                   pieces are not in this repository). Recorded, not counted
+                   as a check.
 """
 
 THEOREM = "THEOREM"
@@ -26,9 +30,10 @@ REMOVED = "REMOVED"
 UNFORMED = "UNFORMED"
 SELECTED_REFERENCE = "SELECTED_REFERENCE"
 CONDITIONAL = "CONDITIONAL"
+REPORTED = "REPORTED"
 
 STATUSES = (THEOREM, ARITHMETIC, OBSTRUCTION, REMOVED, UNFORMED,
-            SELECTED_REFERENCE, CONDITIONAL)
+            SELECTED_REFERENCE, CONDITIONAL, REPORTED)
 
 # Read from LOCKED_MEMORY_OES_CONSOLIDATED_20261028.txt and the 28 Oct
 # One Machine edition. Nothing in this package changes any of these.
@@ -73,7 +78,7 @@ UNFORMED_OPERANDS = [
     "Sakshin operator (original)", "I6L", "Wald coefficient",
     "physical 1401-dim sector with calibrated time",
     "saved native_source_matrices (SHA256 73e07429...)",
-    "literal conflicting 5x5 determinant operand (155 vs 4805)",
+    "6x6 adapter T of eq. 27 (155 vs 4805 reported as a label error, not replayed)",
 ]
 
 

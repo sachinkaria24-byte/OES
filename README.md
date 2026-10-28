@@ -6,7 +6,7 @@ This repository holds a checked mathematical model of the OES canon at the OMSOO
 
 ```
 pip install -r requirements.txt
-python verify.py          # 119 checks, ~90 s, writes results.json
+python verify.py          # all layers, ~90 s, writes results.json
 python verify.py --fast   # skips the nonlinear E8-bath flow
 python -m pytest -q
 ```
@@ -20,6 +20,7 @@ python -m pytest -q
 | 5 observer | `oes/observer.py` | Kalman/Gramian readouts, Witten index −5, hidden sector | THEOREM |
 | 6 gravity | `oes/gravity.py` | LLY curvature; M⁴×F spectral action → G, Λ_cc | ARITHMETIC, CONDITIONAL |
 | 7 cosmology | `oes/cosmology.py` | FLRW with the carrier field: stiff a⁻⁶ + dust a⁻³ sectors | CONDITIONAL |
+| 8 frontier | `oes/frontier.py` | band-edge orbit 135, 224-saddle expansion (40/169), Agni–Soma; sibling closures recorded | THEOREM, REPORTED |
 
 Two constructions are not the canon's originals:
 
