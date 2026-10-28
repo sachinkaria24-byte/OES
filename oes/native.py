@@ -14,9 +14,11 @@ OES_736_Collar_Localization_Proof_20261028 (sections 1, 4), One Machine sec 41.
 
 What is reconstructed here and what is not
 -----------------------------------------
-The saved native_source_matrices file (SHA256 73e07429...) is ABSENT. This
-module rebuilds the port from its stated definition and labels the result
-SELECTED_REFERENCE:
+The saved native_source_matrices file (SHA256 73e07429...) was listed as
+absent when this layer was written. Layer 10 (oes/literal.py) has since
+recovered it and shows this reconstruction differs from it only by an element
+of the C5 commutant. This module still rebuilds the port from its stated
+definition and labels the result SELECTED_REFERENCE:
 
 * A(a) is the symmetric zero-diagonal 5x5 matrix with off-diagonal entries a_e.
   Since M a = 0 its rows sum to zero, so [A(a), A(b)] is skew with zero row

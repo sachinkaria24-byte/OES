@@ -55,20 +55,20 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.36,
+  "1-carrier": 0.33,
   "2-spectral": 0.0,
-  "3-spacetime": 4.73,
-  "4-native": 40.47,
-  "5-observer": 6.62,
-  "6-gravity": 3.11,
-  "7-cosmology": 0.93,
-  "8-frontier": 28.54,
-  "9-joins": 4.93,
-  "10-literal": 16.45,
-  "11-glue": 0.12,
-  "12-binding": 0.17,
-  "13-gates": 0.26,
-  "14-recurrence": 3.12
+  "3-spacetime": 4.79,
+  "4-native": 38.23,
+  "5-observer": 5.83,
+  "6-gravity": 2.25,
+  "7-cosmology": 0.77,
+  "8-frontier": 24.03,
+  "9-joins": 4.43,
+  "10-literal": 15.33,
+  "11-glue": 0.15,
+  "12-binding": 0.06,
+  "13-gates": 0.32,
+  "14-recurrence": 3.33
  },
  "fast": false,
  "summary": {
@@ -77,8 +77,8 @@
    "total": 161
   },
   "OBSTRUCTION": {
-   "passed": 7,
-   "total": 7
+   "passed": 8,
+   "total": 8
   },
   "REMOVED": {
    "passed": 2,
@@ -101,8 +101,8 @@
    "total": 12
   },
   "REPORTED": {
-   "passed": 9,
-   "total": 9
+   "passed": 10,
+   "total": 10
   }
  },
  "checks": [
@@ -1916,6 +1916,43 @@
   },
   {
    "layer": "12-binding",
+   "name": "B0 characters of L6 and of the boundary agree only on e and the 5-cycles: no S5- or D5-equivariant port adapter exists; C5 is maximal",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "e": [
+     6.0,
+     6
+    ],
+    "(12)": [
+     -0.0,
+     4
+    ],
+    "(12)(34)": [
+     -2.0,
+     2
+    ],
+    "(123)": [
+     0.0,
+     3
+    ],
+    "(1234)": [
+     0.0,
+     2
+    ],
+    "(12345)": [
+     1.0,
+     1
+    ],
+    "(123)(45)": [
+     0.0,
+     1
+    ]
+   },
+   "note": "D5 contains (12)(34)-type reflections: chi_L6 = -2, chi_boundary = 2"
+  },
+  {
+   "layer": "12-binding",
    "name": "B1 atom-diagonal symmetries of D: only the global phase (dimension 1)",
    "status": "THEOREM",
    "passed": true,
@@ -2049,7 +2086,7 @@
   },
   {
    "layer": "13-gates",
-   "name": "W_L executed: frozen PMNS strict branch vs Bari Oct-2026 (sin^2 th12, sin^2 th13)",
+   "name": "W_L executed: recorded PMNS strict branch vs Bari Oct-2026 (sin^2 th12, sin^2 th13)",
    "status": "ARITHMETIC",
    "passed": true,
    "value": {
@@ -2073,7 +2110,7 @@
     "dof": 3,
     "p": 8.292781960695224e-06
    },
-   "note": "the only frozen physical prediction in the canon fails; 28 Oct already removed PMNS from the carrier"
+   "note": "the canon's recorded physical candidate fails; 28 Oct already removed PMNS from the carrier"
   },
   {
    "layer": "13-gates",
@@ -2082,6 +2119,17 @@
    "passed": true,
    "value": null,
    "note": "maintainer copy 10E4VCAA1UoIVG-xVJLD9ByxsK2HAHgwl, SHA c39bc27f...; allow sofacoustics.org / zenodo.org to run it"
+  },
+  {
+   "layer": "13-gates",
+   "name": "T3081 maintainer side replayed on a second host (28 Oct, via the Drive connector): SHA-256 c39bc27f..., MD5 6f7aa37d..., 1,724,358 bytes - identical to the FinalRun 15 Aug receipt",
+   "status": "REPORTED",
+   "passed": true,
+   "value": {
+    "sha256": "c39bc27f42174f7dc7cf24e3145d8ac4c835e8f4460fefaa95b6f7502ae60794",
+    "md5": "6f7aa37d319ec8898e4547aec1acea08"
+   },
+   "note": "third-party file, not stored in the repo; the official-host side stays open"
   },
   {
    "layer": "13-gates",
@@ -2128,15 +2176,15 @@
   },
   {
    "layer": "14-recurrence",
-   "name": "new exact terms W_56..W_74 (lattice sequence W_60 formed)",
+   "name": "new exact terms W_56..W_80 (lattice sequence W_60 formed)",
    "status": "THEOREM",
    "passed": true,
-   "value": 74,
+   "value": 80,
    "note": ""
   },
   {
    "layer": "14-recurrence",
-   "name": "canon exclusions (5,2), (10,2), (12,2), (10,3) replayed on W_0..W_74",
+   "name": "canon exclusions (5,2), (10,2), (12,2), (10,3) replayed on W_0..W_80",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -2144,7 +2192,7 @@
   },
   {
    "layer": "14-recurrence",
-   "name": "no recurrence shape decidable from W_0..W_74 has a kernel",
+   "name": "no recurrence shape decidable from W_0..W_80 has a kernel",
    "status": "THEOREM",
    "passed": true,
    "value": "none",
@@ -2152,36 +2200,36 @@
   },
   {
    "layer": "14-recurrence",
-   "name": "data-only bound from W_0..W_74: every recurrence has (r+1)(d+2) > 76",
+   "name": "data-only bound from W_0..W_80: every recurrence has (r+1)(d+2) > 82",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "1": 36,
-    "2": 23,
-    "3": 17,
-    "4": 13,
-    "5": 10,
-    "6": 8,
-    "7": 7,
-    "8": 6,
-    "9": 5,
-    "10": 4,
+    "1": 39,
+    "2": 25,
+    "3": 18,
+    "4": 14,
+    "5": 11,
+    "6": 9,
+    "7": 8,
+    "8": 7,
+    "9": 6,
+    "10": 5,
     "11": 4,
-    "12": 3,
+    "12": 4,
     "13": 3,
     "14": 3,
-    "15": 2,
+    "15": 3,
     "16": 2,
     "17": 2,
     "18": 2,
-    "19": 1,
+    "19": 2,
     "20": 1,
     "21": 1,
     "22": 1,
     "23": 1,
     "24": 1,
-    "25": 0,
-    "26": 0,
+    "25": 1,
+    "26": 1,
     "27": 0,
     "28": 0,
     "29": 0,
@@ -2193,9 +2241,9 @@
     "35": 0,
     "36": 0,
     "37": 0,
-    "38": -1,
-    "39": -1,
-    "40": -1
+    "38": 0,
+    "39": 0,
+    "40": 0
    },
    "note": "shape (r,d) is decided when (r+1)(d+1) <= N-r+1; all decided shapes are excluded. Canon standing bound: (r+1)(d+2) > 85"
   },

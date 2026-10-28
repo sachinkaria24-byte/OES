@@ -120,9 +120,45 @@ def su5_weights():
     return five, ten, fifteen
 
 
+def adapter_symmetry_obstruction():
+    """Characters of S5 on L6 (signed cycles) and on the six boundary sites.
+
+    An H-equivariant isomorphism L6 -> boundary exists iff the characters agree
+    on H. Returns {class: (chi_L6, chi_boundary)} for class representatives.
+    """
+    from itertools import permutations
+    E = carrier.edges()
+    idx = {e: k for k, e in enumerate(E)}
+    Q = native.l6_basis()
+
+    def edge_action(p):
+        M = np.zeros((10, 10))
+        for k, (i, j) in enumerate(E):
+            a, b = p[i], p[j]
+            s = 1 if a < b else -1
+            M[idx[tuple(sorted((a, b)))], k] = s
+        return Q.T @ M @ Q
+
+    reps = {"e": (0, 1, 2, 3, 4), "(12)": (1, 0, 2, 3, 4), "(12)(34)": (1, 0, 3, 2, 4),
+            "(123)": (1, 2, 0, 3, 4), "(1234)": (1, 2, 3, 0, 4), "(12345)": (1, 2, 3, 4, 0),
+            "(123)(45)": (1, 2, 0, 4, 3)}
+    out = {}
+    for name, p in reps.items():
+        chi_L = float(np.trace(edge_action(p)))
+        chi_B = 1 + sum(1 for i in range(5) if p[i] == i)      # apex fixed + fixed sites
+        out[name] = (round(chi_L, 9), chi_B)
+    return out
+
+
 def run():
     rep = Report("12-binding")
     T = gates.THEOREM
+    ch = adapter_symmetry_obstruction()
+    agree = [c for c, (a, b) in ch.items() if abs(a - b) < 1e-9]
+    rep.add("B0 characters of L6 and of the boundary agree only on e and the 5-cycles: no "
+            "S5- or D5-equivariant port adapter exists; C5 is maximal", gates.OBSTRUCTION,
+            sorted(agree) == ["(12345)", "e"], {k: list(v) for k, v in ch.items()},
+            note="D5 contains (12)(34)-type reflections: chi_L6 = -2, chi_boundary = 2")
     rep.add("B1 atom-diagonal symmetries of D: only the global phase (dimension 1)", T,
             diagonal_commutant_dim() == 1, diagonal_commutant_dim(),
             note="no atom-dependent charge (hypercharge, colour) commutes with D")

@@ -19,9 +19,11 @@ PredictionFreeze  (READY; trigger is the owner's act)
   The register of calibration-invariant numbers is written to
   data/prediction_register.json and hashed.
 
-W_L  (EXECUTED on the only frozen physical candidate)
-  The frozen PMNS strict branch (sin^2 th12 = 1199/3759, sin^2 th13 = 27/1280)
-  against the canon-recorded Bari Oct-2026 fit. Gaussian, uncorrelated.
+W_L  (EXECUTED on the canon's recorded physical candidate)
+  The PMNS strict branch (sin^2 th12 = 1199/3759, sin^2 th13 = 27/1280), which
+  the 22 Oct note calls "the frozen candidate" (frozen informally: the
+  PredictionFreeze gate itself was never triggered), against the
+  canon-recorded Bari Oct-2026 fit. Gaussian, uncorrelated.
 
 T3081  (BLOCKED by the network policy for the official SOFA host; receipt
   method demonstrated on the native operand file)
@@ -135,6 +137,9 @@ def canonical_bytes(obj):
 
 # ----------------------------------------------------------------------- W_L
 
+DECHORATE_MAINTAINER_SHA256 = "c39bc27f42174f7dc7cf24e3145d8ac4c835e8f4460fefaa95b6f7502ae60794"
+DECHORATE_MAINTAINER_MD5 = "6f7aa37d319ec8898e4547aec1acea08"
+
 FROZEN_PMNS = {"sin2_th12": (1199, 3759), "sin2_th13": (27, 1280)}
 BARI_2026_10 = {"sin2_th12": (0.3047, 0.0055), "sin2_th13": (0.02218, 0.00055)}
 NUFIT6_PULLS_REPORTED = {"sin2_th12": 1.0, "sin2_th13": -1.5, "sin2_th23_strict": -4.8}
@@ -227,19 +232,24 @@ def run():
             note="READY_TO_TRIGGER: freezing is the owner's act; nothing is compared yet")
 
     pulls, chi2, p2, chi2_3, p3 = pmns_court()
-    rep.add("W_L executed: frozen PMNS strict branch vs Bari Oct-2026 "
+    rep.add("W_L executed: recorded PMNS strict branch vs Bari Oct-2026 "
             "(sin^2 th12, sin^2 th13)", gates.ARITHMETIC,
             abs(pulls["sin2_th12"] - 2.59) < 0.01 and abs(pulls["sin2_th13"] + 1.98) < 0.01,
             {"pulls": pulls, "chi2": chi2, "dof": 2, "p": p2},
             note="reproduces the canon's +2.59, -1.98 sigma; p = 0.005: disfavoured at 2.8 sigma")
     rep.add("W_L with the reported NuFIT 6.0 pulls incl. strict th23 (-4.8 sigma): excluded",
             gates.REPORTED, True, {"chi2": chi2_3, "dof": 3, "p": p3},
-            note="the only frozen physical prediction in the canon fails; 28 Oct already "
-                 "removed PMNS from the carrier")
+            note="the canon's recorded physical candidate fails; 28 Oct already removed "
+                 "PMNS from the carrier")
     rep.add("T3081 dEchorate cross-host identity: official SOFA host blocked by network "
             "policy (HTTP 403 at the proxy)", gates.UNFORMED, True,
             note="maintainer copy 10E4VCAA1UoIVG-xVJLD9ByxsK2HAHgwl, SHA c39bc27f...; "
                  "allow sofacoustics.org / zenodo.org to run it")
+    rep.add("T3081 maintainer side replayed on a second host (28 Oct, via the Drive "
+            "connector): SHA-256 c39bc27f..., MD5 6f7aa37d..., 1,724,358 bytes - identical "
+            "to the FinalRun 15 Aug receipt", gates.REPORTED, True,
+            {"sha256": DECHORATE_MAINTAINER_SHA256, "md5": DECHORATE_MAINTAINER_MD5},
+            note="third-party file, not stored in the repo; the official-host side stays open")
     rep.add("cross-host byte receipt method demonstrated: native operand file hash equals "
             "the canon-recorded hash", T, literal.sha256() == literal.SHA256)
     tx = transaction(reg_sha)
