@@ -345,7 +345,7 @@ The canon's own state machine (S364 master lock) separates four kinds of transit
 
 > a new theorem head changes what is **known**; an authenticated root changes what can be **executed**; a binary receipt changes what can be **compared**; an independent warrant changes what can be **promoted**.
 
-So "doing the maths to get to the gates" means two things: drive every gate to the edge of its own transition type, and prove exactly what input closes the rest. Layers 10–17 do this.
+So "doing the maths to get to the gates" means two things: drive every gate to the edge of its own transition type, and prove exactly what input closes the rest. Layers 10–18 do this.
 
 ## 10. Operands recovered or formed
 
@@ -540,7 +540,40 @@ The ten edges of K5 carry one Hodge complex. The canon's oriented boundary is th
 - port/source = 2;
 - (bath/K5 speed)² = 6.
 
-## 19. What stays open
+## 19. The 14:16 snapshot, rebuilt (`oes/snapshot.py`)
+
+The sibling snapshot (`one-machine-20261028.pdf`, `oes-model-20261028.zip`, `STATUS_20261028.md`, Drive, 14:16 UTC) adds the cube, the 24-step readout, two Hankel matrices, the Spanda action on the 31 subsets, the frequency squares on the 4320-circle, and the Agni–clock–doubling chain. Its TypeScript audits mostly compare typed constants. Layer 18 recomputes each item from matrices, and settles three items the snapshot left open.
+
+**Settled here (THEOREM).**
+- **Density on the nine-torus.** The nine positive critical energies 224, 243, 248, 250, 251, 4025/16, 6800/27, 252, 256 (the two families at 252 share one) have the distinct square-free parts 14, 3, 62, 10, 251, 161, 51, 7, 1. By Besicovitch, their square roots are linearly independent over ℚ, so by Kronecker the flow of the nine bath frequencies is dense on T⁹.
+- **The Hessians.** All eleven critical families are recomputed. sign det H = (−1)^index, and count · i^index/√|det H| reproduces every coherent coefficient printed in the snapshot paper. The determinants are 60⁸ at the maximum, 3⁸ for A8, 2¹⁶ for A7+A1 and D8, and 5⁸ for A4+A4.
+- **Walk asymptotics from the 7-design alone.** log(1 − ε/240) = −s/8 − s²/640 − s³/23040 with s = |k|², and Laplace's method gives
+
+  W_n = (16/π⁴)·240ⁿ·n⁻⁴·(1 − 2/n + (23/15)/n² + O(n⁻³)).
+
+  The exact W₅₀…W₉₀ follow it. The residual ((R_n − 1 + 2/n)n² − 23/15) falls from −0.0069 at n = 50 to −0.0038 at n = 90.
+
+**Replayed from matrices.**
+- Agni = 5I − G is the light operator: Agni = Curl² = d₁ᵀd₁, G = d₀d₀ᵀ is the sound operator, and Agni + G = 5I (layer 17).
+- The edge doubling T (10×20) has TTᵀ = 2I, every row is null for the pair signature, and rank BT = 4. All of this is immediate.
+- The five-port site block (SELECTED_REFERENCE) has:
+  - moments 0, 0, 0, 1/3, 0, −8/9, 0, 55/27 and recurrence H_{k+4} + (8/3)H_{k+2} + H_k = 0;
+  - controllability determinant −1/3 and observability determinant −1/27;
+  - Hankel determinant 1/81 (6561 once cleared by 27);
+  - frequencies² (4 ± √7)/3.
+- The cube:
+  - Laplacian spectrum 0, 2³, 4³, 6;
+  - middle operator L(6I − L) with M² = 8M and rank 6;
+  - the reader pair sees ranks 2 then 4; four of the six third readers reach 6;
+  - decoder det −1, with noise gains 46 and 66.
+- Spanda on the 31 subsets: 7 fixed, 24 moved, traces 31, 7, and trace-Hankel determinant 912. On the K5 edges the same double transposition is even: it keeps both helicities, with traces 0 on sound and −1 on each helicity.
+- The 4320-circle: the day has order 24 and the pada order 108; they meet in the order-12 step; the order-5 rotor misses the day. The squares 3, 4, 5, 8, 16 divide 4320, and no bath energy does.
+
+**Corrections (OBSTRUCTION).**
+- (I + S)/2 is a Markov projector of rank **19** (7 fixed subsets plus 12 symmetrized pairs), not 7.
+- The snapshot paper's front table still says "the recurrence order is 11". The operator of §15 has order 16; 11 is the degree of its in-band characteristic part.
+
+## 20. What stays open
 
 **Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
 - the six SCR6 operands;

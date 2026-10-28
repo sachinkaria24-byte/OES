@@ -57,57 +57,58 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.36,
-  "2-spectral": 0.0,
-  "3-spacetime": 6.45,
-  "4-native": 37.25,
-  "5-observer": 0.21,
-  "6-gravity": 3.1,
-  "7-cosmology": 0.76,
-  "8-frontier": 25.21,
-  "9-joins": 6.6,
-  "10-literal": 15.18,
-  "11-glue": 0.17,
-  "12-binding": 0.03,
-  "13-gates": 0.12,
-  "14-recurrence": 34.9,
-  "15-court": 1.3,
-  "16-handover": 0.78,
-  "17-waves": 0.36
+  "1-carrier": 0.44,
+  "2-spectral": 0.01,
+  "3-spacetime": 6.68,
+  "4-native": 38.72,
+  "5-observer": 0.36,
+  "6-gravity": 3.12,
+  "7-cosmology": 0.74,
+  "8-frontier": 25.96,
+  "9-joins": 5.73,
+  "10-literal": 14.67,
+  "11-glue": 0.09,
+  "12-binding": 0.02,
+  "13-gates": 0.13,
+  "14-recurrence": 33.6,
+  "15-court": 1.39,
+  "16-handover": 0.86,
+  "17-waves": 0.38,
+  "18-snapshot": 0.44
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 205,
-   "total": 205
+   "passed": 214,
+   "total": 214
   },
   "OBSTRUCTION": {
-   "passed": 20,
-   "total": 20
+   "passed": 22,
+   "total": 22
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 24,
-   "total": 24
+   "passed": 26,
+   "total": 26
   },
   "SELECTED_REFERENCE": {
-   "passed": 5,
-   "total": 5
+   "passed": 6,
+   "total": 6
   },
   "UNFORMED": {
    "passed": 15,
    "total": 15
   },
   "CONDITIONAL": {
-   "passed": 14,
-   "total": 14
+   "passed": 15,
+   "total": 15
   },
   "REPORTED": {
-   "passed": 19,
-   "total": 19
+   "passed": 20,
+   "total": 20
   }
  },
  "checks": [
@@ -3093,6 +3094,262 @@
    "passed": true,
    "value": null,
    "note": "naming the longitudinal and transverse sectors as physical sound and light needs DYN_BIND, and absolute frequencies need TIME_BIND; the invariant content is the ratios: light/sound 1, carrier^2 + sound^2 = 8, port/source 2, bath/K5 speed^2 6"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "the nine positive critical energies of the bath are 224, 243, 248, 250, 251, 4025/16, 6800/27, 252, 256 (layer 16 census; the two families at 252 share one)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    "224",
+    "243",
+    "248",
+    "250",
+    "251",
+    "4025/16",
+    "6800/27",
+    "252",
+    "256"
+   ],
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "density on the nine-torus: the square-free parts 14, 3, 62, 10, 251, 161, 51, 7, 1 are distinct, so the nine frequencies sqrt(eps) are linearly independent over Q and their flow is dense on T^9",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "square-free parts": [
+     14,
+     3,
+     62,
+     10,
+     251,
+     161,
+     51,
+     7,
+     1
+    ],
+    "primes": [
+     2,
+     3,
+     5,
+     7,
+     17,
+     23,
+     31,
+     251
+    ]
+   },
+   "note": "Besicovitch 1940: distinct square-free d give Q-independent sqrt d (distinct characters of Gal(Q(sqrt 2, sqrt 3, ..., sqrt 251)/Q)); Kronecker then gives density. The snapshot left this open"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "Hessians of the eleven critical families recomputed: sign det = (-1)^index, and count * i^index / sqrt|det H| reproduces the snapshot's printed coherent coefficients",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "E8": {
+     "lambda": 240.0,
+     "count": 1,
+     "index": 0,
+     "det": 167961599999999.62
+    },
+    "D8": {
+     "lambda": -16.0,
+     "count": 135,
+     "index": 8,
+     "det": 65535.99999999998
+    },
+    "A8": {
+     "lambda": -12.0,
+     "count": 1920,
+     "index": 8,
+     "det": 6560.999999999982
+    },
+    "A7+A1": {
+     "lambda": -12.0,
+     "count": 8640,
+     "index": 7,
+     "det": -65536.00000000009
+    },
+    "A5+A2+A1": {
+     "lambda": -11.0,
+     "count": 80640,
+     "index": 5,
+     "det": -139968.0
+    },
+    "A4+A4": {
+     "lambda": -10.0,
+     "count": 48384,
+     "index": 4,
+     "det": 390624.9999999879
+    },
+    "D5+A3": {
+     "lambda": -8.0,
+     "count": 15120,
+     "index": 3,
+     "det": -1769471.9999999963
+    },
+    "E6+A2": {
+     "lambda": -3.0,
+     "count": 2240,
+     "index": 2,
+     "det": 20575295.999999996
+    },
+    "E7+A1": {
+     "lambda": 16.0,
+     "count": 120,
+     "index": 1,
+     "det": -1863254015.9999976
+    },
+    "A7": {
+     "lambda": -11.851852,
+     "count": 17280,
+     "index": 7,
+     "det": -21244.236968832403
+    },
+    "A6+A1": {
+     "lambda": -11.5625,
+     "count": 69120,
+     "index": 6,
+     "det": 62158.27852429355
+    }
+   },
+   "note": "det 60^8 at the maximum, 3^8 (A8), 2^16 (A7+A1, D8), 5^8 (A4+A4); the snapshot said the Hessians were not recomputed"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "walk asymptotics from the 7-design alone: W_n = (16/pi^4) 240^n n^-4 (1 - 2/n + (23/15)/n^2 + O(n^-3)), and the exact W_50..W_90 follow it",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "50": -0.006895935911822518,
+    "60": -0.005751818740628447,
+    "70": -0.004933314317534497,
+    "80": -0.004318738199733345,
+    "90": -0.003840321449965123
+   },
+   "note": "log(1 - eps/240) = -s/8 - s^2/640 - s^3/23040 with s = |k|^2; the error column is ((R_n - 1 + 2/n) n^2 - 23/15), shrinking like 1/n"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "Agni = 5I - G is the light operator: Agni = Curl^2 = d1^T d1, G = d0 d0^T is the sound operator, Agni^2 = 5 Agni, and Agni + G = 5I (layer 17)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "edge doubling T (10 x 20): T T^T = 2I, every row null for the pair signature, and rank B T = rank B = 4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "true and immediate: T has full row rank"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "five-port site block: moments 0, 0, 0, 1/3, 0, -8/9, 0, 55/27 (input p1, output q2), H_{k+4} + (8/3) H_{k+2} + H_k = 0, controllability det -1/3, observability det -1/27, Hankel det 1/81 (6561 cleared by 27), frequencies^2 (4 +- sqrt7)/3",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": "a selected site (masses 1, 3; springs [[2,-1],[-1,2]]), not a canon operand"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "cube: the eight labels 580..079 are the 3-cube; Laplacian spectrum 0, 2^3, 4^3, 6; the middle operator L(6I - L) satisfies M^2 = 8M with rank 6; readers 580, 085 see ranks 2 then 4; four third readers reach 6 and two stay at 4; the decoder has det -1, an integral inverse, noise gain 46, and the eight-label gain is 66",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "middle_sq_is_8_middle": true,
+    "middle_rank": 6,
+    "pair": [
+     2.0,
+     4.0
+    ],
+    "third": {
+     "2": 6.0,
+     "3": 6.0,
+     "4": 6.0,
+     "5": 6.0,
+     "6": 4.0,
+     "7": 4.0
+    },
+    "decoder_det": -1.0,
+    "decoder_inverse_integral": true,
+    "six_noise": 46.0,
+    "eight_noise": 66
+   },
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "Spanda on the 31 nonempty subsets: 7 fixed, 24 moved; return traces 31, 7, 31, 7; the 2x2 trace Hankel has det 912; W0 = 360000 I commutes",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "snapshot: '(I + S)/2 is the Markov projector onto those 7 forms' fails: it is a Markov projector, but of rank 19 (7 fixed subsets + 12 symmetrized pairs), not 7",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": 19,
+   "note": "the snapshot's own count 31 = 19 + 12, 7 = 19 - 12 has the 19"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "Spanda on the K5 edges (new join): the double transposition is even, so it keeps both helicities; its traces are 0 on sound and -1 on each helicity (A5 characters of 4, 3, 3')",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "sound": 1.6653345369377348e-16,
+    "helicity+": -1.0000000000000002,
+    "helicity-": -1.0000000000000002
+   },
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "4320-circle: the day (step 180) has order 24, the pada (step 40) 108, they meet in the order-12 step 360, and the order-5 rotor (step 864) meets the day only at 0",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "frequency squares 3, 4, 5, 8, 16 (carrier, source, sound = light, carrier, port) divide 4320 in steps 1440, 1080, 864, 540, 270; no positive bath energy divides 4320; 4b^2 = 5a^2 has no positive solution (source and sound incommensurable)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "snapshot paper, front table 'the recurrence order is 11': the operator of layer 14 has order 16; 11 is the degree of its in-band characteristic part, which contains (z+12)^2",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "discrete Maxwell on the K5 2-complex",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": "layer 17's light sector is a Maxwell system (E on edges, F on triangles, omega = sqrt5); physical Maxwell needs DYN_BIND, as the snapshot says"
+  },
+  {
+   "layer": "18-snapshot",
+   "name": "not formed in the snapshot: GKSL, SI, BRST, BV, Einstein-Hilbert, the historical BassForge file, Sawan's intertwiner, the six absent operands",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "none of them is built here either"
   }
  ]
 }
