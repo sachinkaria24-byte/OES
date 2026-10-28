@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 22 layers and 441 checks. Of these, 406 hold: THEOREM 287, OBSTRUCTION 41, ARITHMETIC 33, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 35 are REPORTED records.
-- `pytest` runs 35 tests.
-- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 29 checks).
+- `python verify.py` runs 22 layers and 445 checks. Of these, 409 hold: THEOREM 289, OBSTRUCTION 41, ARITHMETIC 34, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 36 are REPORTED records.
+- `pytest` runs 36 tests.
+- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 33 checks).
 - `ports/ts/ledgerJoins.ts` carries it into the sibling's app. Together with `coxeterSpine.ts` that is 35 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status.
 
@@ -27,9 +27,9 @@ New in this edition:
 - **Spin counts.** 240 = D8 (112) + one half-spin orbit (128). 135 = [W(E8) : W(D8)] is the band-top D8 family, and 256 = 1 + 120 + 135.
 - **Field.** The source q̈ + 4q = 0 is not a carrier mode, because 4 ∉ spec D² (OBSTRUCTION).
 
-New in layer 22 (the sibling's 41 notes of 18:32–19:54, the canon's 19:10 continuation and the separate model's 19:47 status):
+New in layer 22 (the sibling's 44 notes of 18:32–20:10, the canon's 19:10 continuation and the separate model's 19:47 status):
 
-- **Counts.** 326 more readings on the tick bit, from 40 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Counts.** 352 more readings on the tick bit, from 43 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.
@@ -38,6 +38,8 @@ New in layer 22 (the sibling's 41 notes of 18:32–19:54, the canon's 19:10 cont
 - **The six-site chain.** MOMENT_CHAIN's blocks 241I − J, 183I + 52J and 35366I + 8134J are M₁, M₂ − M₁² and M₃ − 2M₁M₂ + M₁³ of the A5-simplex port. The canon had listed the last as unidentified.
 - **Beats.** The separate model's squared beats 11 ± 4√6 are (2√2 ± √3)², the beats of the carrier's two oscillating sectors.
 - **SEVEN_ONE, corrected.** Four mirror pairs, not three, are left unsplit by the bit: 1–13, 2–12, 3–11 and 6–8.
+- **Petersen projectors.** The sibling's J/10, (4I + 2A − J)/6 and (5I − 5A + J)/15 are the carrier's edge projectors (sector 8, the five zero modes, sector 3), because MᵀM = J + I − A. The denominators 10, 6, 15 are the gap products 2·5, 2·3, 3·5. The Gram determinant 648 is det(3I + J), the carrier's vertex block.
+- **Every breath.** 3 and 8 share no period because 8/3 is not a rational square; "not a multiple" is not the criterion.
 
 Against the canon:
 

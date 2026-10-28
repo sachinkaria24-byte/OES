@@ -7,8 +7,8 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 22 layers in **441 checks**. Of these, 406 hold: THEOREM 287, OBSTRUCTION 41, ARITHMETIC 33, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 35 are REPORTED records.
-- `python -m pytest` runs 35 tests.
+- `python verify.py` replays 22 layers in **445 checks**. Of these, 409 hold: THEOREM 289, OBSTRUCTION 41, ARITHMETIC 34, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 36 are REPORTED records.
+- `python -m pytest` runs 36 tests.
 - `ports/ts/` holds two drop-in audits for the sibling's app (35 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -304,9 +304,9 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 ## 8. The evening notes (layer 22)
 
-At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status. Layer 22 replays both batches in 29 checks.
+At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, and at 20:12 three more. Layer 22 replays all of them in 33 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 326 readings from 40 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 352 readings from 43 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -358,6 +358,11 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 - **SEVEN_ONE, corrected.** Four mirror pairs k, 14 − k, not three, are left unsplit by the bit: 1–13, 2–12, 3–11 and 6–8.
 - **Rebuilt.** The oriented operator (spectrum 0⁷, 5⁸), the golden family (B⁷ = [[21, 13], [13, 8]]) and Agni = Soma = I − BᵀB/5.
 
+**The 20:12 notes (THEOREM).**
+
+- **The Petersen projectors.** The sibling's projectors J/10, (4I + 2A − J)/6 and (5I − 5A + J)/15 have denominators 10, 6 and 15 and add to I over 30. Because MᵀM = J + I − A on the K5 edges, they are the carrier's edge projectors onto sector 8, the five zero modes and sector 3. The denominators are the gap products 2·5, 2·3 and 3·5, and only 6 avoids the spread 5. The Gram determinant 648 is det(3I + J), the carrier's vertex block.
+- **Every breath.** The breaths of 3 and 8 share no period because 8/3 is not a rational square. "Not a multiple" is not the criterion: 4 and 9 share a period.
+
 **Not replayed (REPORTED), not formed (UNFORMED).**
 
 - **Not stored here:** the sibling's permutations on the fifteen indices, its 24-cycle readers, its Hodge degrees and heat spectrum, its 12 × 12 sense stiffness, and the acoustic and optical matrices.
@@ -390,6 +395,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 | Hurwitz value 6 | S5 (genus 4), not the stored clock | OBSTRUCTION |
 | six-site moment chain | M₁, M₂ − M₁², M₃ − 2M₁M₂ + M₁³ of the A5-simplex port | THEOREM |
 | seven, one, seven | four mirror pairs unsplit by the bit, not three | THEOREM |
+| Petersen projectors | the carrier's edge projectors, since MᵀM = J + I − A | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 10. What is not formed, and the gates
@@ -444,15 +450,15 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 29 | the evening notes: 326 readings on the bit; K5, Petersen, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs |
+| 22 | counts | 33 | the evening notes: 352 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 22 layers, 441 checks, about 4 minutes
-python -m pytest -q           # 35 tests
+python verify.py              # 22 layers, 445 checks, about 4 minutes
+python -m pytest -q           # 36 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the two TypeScript audits
 ```
 
-The sibling's build was read from the Drive folder "One Machine 20261028": `one-machine-20261028-full.typ`/`.pdf`, `FULL_UPDATE_20261028.md`, forty join notes of 17:01–18:17 UTC and 41 notes of 18:32–19:54 UTC. The canon was read from the Quick Access workbook (sheet 00_FULL_RECONCILIATION_20261028) and the reconciled repository workbook (sheet 00_CURRENT_20261028_1910).
+The sibling's build was read from the Drive folder "One Machine 20261028": `one-machine-20261028-full.typ`/`.pdf`, `FULL_UPDATE_20261028.md`, forty join notes of 17:01–18:17 UTC and 44 notes of 18:32–20:10 UTC. The canon was read from the Quick Access workbook (sheet 00_FULL_RECONCILIATION_20261028) and the reconciled repository workbook (sheet 00_CURRENT_20261028_1910).

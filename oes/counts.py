@@ -13,7 +13,8 @@ Sources read before this layer (Google Drive):
 * at the 19:57 check: the sibling's 13 notes of 19:22-19:54 (MOMENT_CHAIN, DYN_ALL, OBS_DYN, ONE_ROLES,
   GRAV_CURV, HORIZON_ROLES, GOLDEN_FAMILY, SEVEN_ONE, ALLMAPS_TICK, ATLAS_SUBGROUPS, CABIBBO, NCG_LAG,
   H60_JOIN), the separate model's unified-spectral-machine status and paper (19:43-19:47), and the Quick
-  Access sheet (19:44), which points to continuation 3 and adds nothing to it.
+  Access sheet (19:44), which points to continuation 3 and adds nothing to it;
+* at 20:12: the sibling's notes BREATH_ALL, PETERSEN_GRAM and PETERSEN_PROJ (20:06-20:10) and its message.
 
 Most of the notes read one more stored integer on the bit of layer 21. Those readings are one table here,
 with one new reading, the first landing: the least k for which k x is a nonzero tick. The rest are about
@@ -51,6 +52,12 @@ The second batch adds three rebuilt objects and one correction:
 - GOLDEN_FAMILY's B and HORIZON_ROLES' Agni = Soma (the cycle projector I - B^T B / 5) are rebuilt;
 - SEVEN_ONE says three mirror pairs k, 14 - k are not split by the bit and names two. Four are not:
   1-13, 2-12, 3-11 and 6-8.
+
+At 20:12 the Petersen projectors were unified with the carrier. On the K5 edges M^T M = J + I - A, so the
+three Petersen projectors J/10, (4I + 2A - J)/6 and (5I - 5A + J)/15 are the carrier's own edge projectors
+(sector 8, the five zero modes, sector 3). Their denominators 10, 6, 15 are the gap products 2 x 5, 2 x 3,
+3 x 5 of the spectrum 3, 1, -2: only the middle one avoids the spread 5, so only it meets the tick. The
+Gram determinant 648 is det(M M^T) = det(3I + J), the carrier's vertex block.
 """
 
 import itertools
@@ -416,6 +423,32 @@ CLAIMS = [
     ("H60_JOIN", "6 x 36", 216, True, ()),
     ("H60_JOIN", "Krylov rank", 720, False, ()),
     ("H60_JOIN", "Krylov rank", 960, False, ()),
+    ("PETERSEN_PROJ", "the all-ones denominator", 10, False, ()),
+    ("PETERSEN_PROJ", "the middle denominator", 6, True, ()),
+    ("PETERSEN_PROJ", "the last denominator", 15, False, ()),
+    ("PETERSEN_PROJ", "trace", 1, True, ()),
+    ("PETERSEN_PROJ", "the middle trace", 5, False, ()),
+    ("PETERSEN_PROJ", "trace", 4, True, ()),
+    ("PETERSEN_PROJ", "the Gram determinant 8 x 81", 648, True, ()),
+    ("PETERSEN_GRAM", "the degree, the contrast eigenvalue of 3I + J", 3, True, ()),
+    ("PETERSEN_GRAM", "eigenvalue 1", 1, True, (("gen",),)),
+    ("PETERSEN_GRAM", "its nullity", 5, False, ()),
+    ("PETERSEN_GRAM", "the nullity of -2", 4, True, ()),
+    ("PETERSEN_GRAM", "the ten vertices", 10, False, ()),
+    ("PETERSEN_GRAM", "det(3I + J) = 8 x 3^4", 648, True, ()),
+    ("PETERSEN_GRAM", "the cycle Gram determinant", 125, False, (("same", 5),)),
+    ("PETERSEN_GRAM", "a triangulation's Hodge degree", 31, True, ()),
+    ("PETERSEN_GRAM", "the twenty-face union's degree", 41, True, ()),
+    ("BREATH_ALL", "the faces of the five-simplex", 32, True, ()),
+    ("BREATH_ALL", "the contracted 5", 5, False, ()),
+    ("BREATH_ALL", "breath coefficient", 3, True, ()),
+    ("BREATH_ALL", "breath coefficient", 8, True, ()),
+    ("BREATH_ALL", "the addresses", 36, True, ()),
+    ("BREATH_ALL", "21 of them", 21, True, ()),
+    ("BREATH_ALL", "the carrier, 15 of them", 15, False, ()),
+    ("BREATH_ALL", "the reference", 60, False, ()),
+    ("BREATH_ALL", "the breath count 4 x 5", 20, False, ()),
+    ("BREATH_ALL", "the golden step", 216, True, (("order", 20),)),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -1084,6 +1117,66 @@ def cycle_projector():
     }
 
 
+def petersen_projectors():
+    """PETERSEN_PROJ and PETERSEN_GRAM, and why the projectors are the carrier's."""
+    E = carrier.edges()
+    M = sp.Matrix(carrier.signless_incidence())
+    A = sp.Matrix(10, 10, lambda a, b: int(not set(E[a]) & set(E[b])))
+    I, J = sp.eye(10), sp.ones(10, 10)
+    G = M.T * M
+    num = {3: J, 1: 4 * I + 2 * A - J, -2: 5 * I - 5 * A + J}
+    den = {3: 10, 1: 6, -2: 15}
+    P = {k: num[k] / den[k] for k in num}
+    least = lambda X: sp.ilcm(*[sp.fraction(v)[1] for v in X])
+    edge = lambda lam: sp.prod([(G - m * I) / (lam - m) for m in (8, 0, 3) if m != lam])
+    gap = lambda lam: abs(sp.prod([lam - m for m in (3, 1, -2) if m != lam]))
+    B = sp.Matrix(carrier.signed_incidence())
+    return {
+        "A^2 + A - 2I = J (strongly regular 10, 3, 0, 1), so A^2 is not 5I": A ** 2 + A - 2 * I == J
+        and A ** 2 != 5 * I,
+        "J/10, (4I + 2A - J)/6, (5I - 5A + J)/15 are idempotent, with least denominators 10, 6, 15 and traces "
+        "1, 5, 4": all(num[k] ** 2 == den[k] * num[k] for k in num)
+        and [least(P[k]) for k in (3, 1, -2)] == [10, 6, 15] and [P[k].trace() for k in (3, 1, -2)] == [1, 5, 4],
+        "the denominators are the gap products 2 x 5, 2 x 3, 3 x 5 of the spectrum 3, 1, -2; only 6 avoids the "
+        "spread 5": [gap(k) for k in (3, 1, -2)] == [10, 6, 15] and [d % 5 != 0 for d in (10, 6, 15)]
+        == [False, True, False],
+        "over 30 = 2 x 3 x 5 they add to I: 3J + 5(4I + 2A - J) + 2(5I - 5A + J) = 30I":
+            3 * num[3] + 5 * num[1] + 2 * num[-2] == 30 * I,
+        "on the K5 edges M^T M = J + I - A": G == J + I - A,
+        "so they are the carrier's edge projectors: J/10 on sector 8, (4I + 2A - J)/6 = I - M^T (M M^T)^-1 M on "
+        "the five zero modes, (5I - 5A + J)/15 on sector 3": P[3] == edge(8) and P[1] == edge(0)
+        and P[-2] == edge(3) and P[1] == I - M.T * (M * M.T).inv() * M,
+        "the shift ranks are 9, 5, 6": [(A - k * I).rank() for k in (3, 1, -2)] == [9, 5, 6],
+        "648 = det(M M^T) = det(3I + J) = 8 x 3^4, the carrier's vertex block": (M * M.T).det() == 648 == 8 * 3 ** 4
+        and M * M.T == 3 * sp.eye(5) + sp.ones(5, 5),
+        "the Hodge 5 lives on the cycles: (5I - B^T B)/5 is idempotent of rank 6 and B kills it":
+            ((5 * I - B.T * B) / 5) ** 2 == (5 * I - B.T * B) / 5 and ((5 * I - B.T * B) / 5).rank() == 6
+            and B * (5 * I - B.T * B) == sp.zeros(5, 10),
+    }
+
+
+def breaths():
+    N0 = sp.Matrix([[0, 1], [0, 0]])
+    shared = lambda a, b: sp.sqrt(sp.Rational(a, b)).is_rational
+    return {
+        "the 32 faces of the five-simplex, the empty face included, cancel: sum (-1)^k C(5, k) = 0":
+            sum((-1) ** k * sp.binomial(5, k) for k in range(6)) == 0 and 2 ** 5 == 32,
+        "the companion of 0 is nilpotent and not zero, so that mode drifts": N0 ** 2 == sp.zeros(2) and N0 != sp.zeros(2),
+        "two squared frequencies share a period iff their ratio is a rational square; 8/3 is not": not shared(8, 3),
+        "'8 is not a multiple of 3' is not the reason: 9 is not a multiple of 4, yet 2 and 3 share a period":
+            9 % 4 != 0 and shared(9, 4),
+    }
+
+
+def batch3_arithmetic():
+    return {
+        "1 + 5 + 4 = 10; lcm(10, 6, 15) = 30; 8 x 81 = 648": 1 + 5 + 4 == 10 and sp.ilcm(10, 6, 15) == 30
+        and 8 * 81 == 648,
+        "41 - 31 = 10; 31 - 10 = 21": 41 - 31 == 10 and 31 - 10 == 21,
+        "21 + 15 = 36 = 60 - 24; 4 x 5 = 20": 21 + 15 == 36 == 60 - 24 and 4 * 5 == 20,
+    }
+
+
 MIRROR_SPLIT = [(0, 14), (4, 10), (5, 9)]
 MIRROR_WHOLE = [(1, 13), (2, 12), (3, 11), (6, 8)]
 
@@ -1097,8 +1190,8 @@ def mirror_pairs():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (40 notes, 18:32-19:54)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 326 readings from 40 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (43 notes, 18:32-20:10)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 352 readings from 43 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
@@ -1119,6 +1212,8 @@ JOINS = [
     ("golden family", "B^2 = B + I; B^7 = [[21, 13], [13, 8]]", "checked; no squared carrier frequency solves x^2 = x + 1", "THEOREM", "22"),
     ("Agni and Soma", "one projector on the cycle rank; the return is scaled by 5", "P = I - B^T B / 5 of rank 6, and B^T B = 5 (I - P)", "THEOREM", "8, 22"),
     ("seven, one, seven", "three mirror pairs split by the bit, three not", "three are split (0-14, 4-10, 5-9) and four are not (1-13, 2-12, 3-11, 6-8)", "THEOREM", "22"),
+    ("Petersen projectors (20:10)", "denominators 10, 6, 15; traces 1, 5, 4; they add to I over 30; Gram determinant 648", "M^T M = J + I - A, so they are the carrier's edge projectors (sector 8, the five zero modes, sector 3); the denominators are the gap products 2 x 5, 2 x 3, 3 x 5; 648 = det(3I + J)", "THEOREM", "22: Petersen"),
+    ("every breath (20:06)", "8 is not a multiple of 3, so no common period", "right conclusion, wrong reason: the criterion is a rational-square ratio (4 and 9 share a period)", "THEOREM", "22"),
     ("separate model status (19:47)", "489 presentations, 30,875 validations, a clean replay of 623 files", "recorded; its beat equation agrees with the carrier", "REPORTED", "22"),
     ("not replayed", "15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7", "objects of the sibling build that are not stored here", "REPORTED", "22"),
     ("not stored", "Yukawa blocks, hypercharge, taste, smell and touch matrices, icosahedral adjacency, swastika, hexagram, yinyang, diamond, tesseract, qubit", "no operand; nothing here forms them", "UNFORMED", "22"),
@@ -1153,7 +1248,7 @@ def run():
     rep.add("the sibling's 28 notes of 18:32-19:21 UTC were read; their code and papers were not run", RP, True)
 
     bad, stages_ok, info = check_claims()
-    rep.add(f"every integer reading of the evening notes (18:32-19:54) is the bit of layer 21 with its stated order, "
+    rep.add(f"every integer reading of the evening notes (18:32-20:10) is the bit of layer 21 with its stated order, "
             f"subgroup, steps or "
             f"first landing: {len(CLAIMS)} readings from {info['notes']} notes, none fails. Twelve of the fifteen "
             "stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and "
@@ -1255,6 +1350,23 @@ def run():
     rep.add("SEVEN_ONE corrected: of the seven mirror pairs k, 14 - k, three are split by the bit (0-14, 4-10, "
             "5-9) and four are not (1-13, 2-12, 3-11, 6-8); the note says three and names two", T,
             split == MIRROR_SPLIT and whole == MIRROR_WHOLE, {"split": split, "not split": whole})
+    # the 20:12 update -------------------------------------------------------------------
+    rep.add("20:12: the sibling's BREATH_ALL, PETERSEN_GRAM and PETERSEN_PROJ (20:06-20:10) and its message were read",
+            RP, True)
+    pp = petersen_projectors()
+    rep.add("PETERSEN_PROJ replayed and joined to the carrier: A^2 + A - 2I = J; the projectors J/10, (4I + 2A - J)/6 "
+            "and (5I - 5A + J)/15 have denominators 10, 6, 15 (the gap products 2 x 5, 2 x 3, 3 x 5) and traces 1, 5, "
+            "4, and add to I over 30. Since M^T M = J + I - A, they are the carrier's edge projectors: sector 8, the "
+            "five zero modes, sector 3. 648 = det(3I + J), the carrier's vertex block. The Hodge 5 is 5I - B^T B = "
+            "5 P_cyc on the cycles, not A^2", T, all(pp.values()), pp)
+    br = breaths()
+    rep.add("BREATH_ALL, sharpened: the 32 faces cancel; the 0-companion drifts; two breaths share a period iff their "
+            "squared ratio is a rational square, so 3 and 8 share none ('not a multiple' is not the criterion: 4 and "
+            "9 do share one)", T, all(br.values()), br)
+    a3 = batch3_arithmetic()
+    rep.add("the 20:12 arithmetic: 1 + 5 + 4 = 10, lcm 30, 8 x 81 = 648, 41 - 31 = 10, 21 + 15 = 36 = 60 - 24",
+            AR, all(a3.values()), a3)
+
     rep.add("recorded, not replayed: the separate model's 489 presentations, 30,875 validation instances, 623-file "
             "clean replay, OM-mirror rank-4 intertwiner and five-reader blind line; the sibling's two curvatures of "
             "rank 4, its braid defect, the six golden petals (overlap 1/5, commutant 2), the Majorana block and "
