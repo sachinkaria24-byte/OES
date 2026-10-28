@@ -10,7 +10,7 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 - `pytest` runs 27 tests.
 - The new layers are `oes/spine.py` (layer 19, 50 checks) and `oes/canon_sync.py` (layer 20, 22 checks: the canon as of 16:49 UTC). `ports/ts/coxeterSpine.ts` is a drop-in audit for the sibling's TypeScript model.
 
-**Paper:** `one-machine-20261028-spine.pdf`, with its Markdown source in `docs/paper/`.
+**Paper:** `one-machine-20261028-spine.pdf`, with its Markdown source in `docs/paper/`. On Drive (One Machine 20261028) it is the Google Doc `one-machine-20261028-spine-verified`.
 
 New over the integrated build, each computed from matrices or from the subgroup lattice:
 - **One lemma for the circle.** Z/4320 has one subgroup per divisor, and containment, meets and joins are gcd and lcm. All 28 circle statements of the build are checked by it.
@@ -41,7 +41,7 @@ Against the latest canon (read 16:30 UTC, re-read 16:49):
 - **What the sibling adopted.** The current sibling build adopts 144 = 2160 + 1440 + 864 and the twist by 7. In W(E8) the day and Coxeter clocks generate a group of order 120, not the order-720 semidirect product.
 - **Correction.** "The step 5 (or 25) generates the tick": ⟨5⟩ = ⟨25⟩ has order 864, while the tick has order 5.
 - **16:31–16:43 notes, restated in the 16:47 consolidation (its paper's text equals the 16:43 one).** SPINE_CORRECTIONS adopts all six circle corrections. The COXETER_POWERS, ATLAS_FACTOR and SUN_MOON statements hold.
-    - The fixed momenta they leave unreplayed are proved for every power: c<sup>k</sup> fixes Φₙ(1)^(8/φ(n)) points on the torus, n = 30/gcd(k, 30). That gives 25, 81 and 256 at orders 5, 3 and 2, and 1 otherwise.
+    - The fixed momenta they leave unreplayed are proved for every power: cᵏ fixes Φₙ(1)^(8/φ(n)) points on the torus, n = 30/gcd(k, 30). That gives 25, 81 and 256 at orders 5, 3 and 2, and 1 otherwise.
     - "The circle makes the day and Coxeter clocks commute" holds on the circle only. In W(E8) the centralizer of c′ is ⟨c′⟩.
     - The 16:43 paper still says "360000 is not a step" in one theorem.
 - **Proved.** The bath's maximal group speed is √30, as a supremum. The Canon Check's preparation identities are replayed, and its scalar bound follows from layer 14.
