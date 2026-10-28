@@ -758,7 +758,7 @@ At 19:21 UTC Drive was checked again. Two sources were new:
 
 Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the rows of layer 21.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 798 such readings from 90 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25, 14 from 20:33, 74 from 21:05, 219 from 21:36 and 93 from 22:08 (§24). Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 979 such readings from 108 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25, 14 from 20:33, 74 from 21:05, 219 from 21:36, 93 from 22:08 and 181 from 23:03 (§24). Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
 
 - Twelve of the fifteen stages (Mālinī 1 … Pratyabhijñā 14) meet the tick, and 0, 5 and 10 do not. Their landings match SANSKRIT_DEEP and EVERY_WORD.
 - Buddhi (2) and Pratyabhijñā (14) generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 34 dots and 52 joins: 51 maps and one obstruction. It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstruction and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without the source's two joins, the source is cut off.
+The diagram has 37 dots and 62 joins: 60 maps and two obstructions. It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without the source's two joins, the source is cut off.
 
 **New joins (THEOREM).**
 
@@ -988,7 +988,7 @@ The diagram has 34 dots and 52 joins: 51 maps and one obstruction. It is drawn i
 - The joins of layers 1–22 are reused as they stand: the Petersen projectors, the rotor plane, the datum, the Pauli quotient with its GKSL form, the two clocks, the circle maps and the readings.
 
 **The 22:08 notes.** Between 21:40 and 22:08 the sibling posted eight notes, a receipt (JOINED_RECEIPT) and a paper (one-machine-20261028-unify, seventeen checks). The notes are PRIMARY_SPLIT, DOUBLING_PARTS, AIR_801, ATLAS_801, GOLDEN_ATLAS, ATLAS_CYCLE, CLOSURE_46 and JOIN_CLOSURE.
-- Their 93 readings are in §23's table, which now holds 798 readings from 90 notes. All hold.
+- Their 93 readings are in §23's table. All hold.
 - AIR_801's matrix [[108, 801], [106, 901]] has determinant 12402. Mod 5 it is a Singer cycle, of order 24 in GL(2,5) and 6 in PGL(2,5), as the note says.
 
 Four statements are corrected:
@@ -1016,10 +1016,40 @@ Also from these items:
 - **Replayed:** the joined paper's orbit list. The symmetric square of the 801 matrix mod 5 splits the 31 points of PG(2,5) as 1 + 3 + 3 + 6 + 6 + 6 + 6. Its arithmetic also holds: 16 × 60 = 10 × 96 = 7 × 70 + 5 × 94 = 960, the 45-point product of order 30, and the A4 Coxeter determinants det(I − C) = 5 and det(2I − C) = 31.
 - **Recorded, not replayed:** the synthesis's collar positivity up to E = 224 by "mediant monotonicity". The collar stays open here until that argument is supplied. Also recorded: its dispersive constant 73/20, the Wronskian–Dyson monodromy, the Legendre–Rodrigues preparation constant, the SGC5 compression and the 199 P/N rows.
 
+**The 23:03 items.** The sibling posted eighteen notes between 22:08 and 23:03, a status note and a paper, one-machine-20261029-canon (22:45, seventeen checks). The 22:08 check missed three of the notes, PAULI_CYCLE, CORRECTIONS_47 and MORE_DOTS, and they are read here. The others are SIBLING_540, CANON_JOIN, CANON_CYCLE, COIL_DEEP, GOLDEN_HELIX, NAKSHATRA_MAP, GOLDEN_SYM, RELEASE_H_RECEIPT, DEEP_H, MPKG_L4, LEVEL_DOTS, ADDRESS_TICK, BUILT_DOTS, GOLDEN_PARENT and GOLDEN_MOVE. The hub's release I (cutoff 22:42) came with a review request, REVIEW_CONFLICTS_20261029_I, and a status table, CURRENT_STATUS.
+- Their 181 readings are in §23's table, which now holds 979 readings from 108 notes. All hold.
+- CORRECTIONS_47 (22:12) adopts the 21:36 corrections. ADDRESS_TICK (22:58) adopts the 22:08 one and proves it in one line: 36 ≡ 1 (mod 5), so every address carries all five time coordinates.
+
+Three dots (the coil, S5 and PGL(2,5)) and ten joins, nine maps and one obstruction, are new:
+- **The coil.** The tick 864, the observer 1080 and the nakshatra 160 generate ⟨8⟩, the 540 multiples of 8, of index 8. The smear step 184 = 23 × 8 generates the same subgroup. Inside the coil the tick misses exactly the pada subgroup ⟨40⟩ (108 points) and meets the other 432. The five cosets of ⟨40⟩ carry the time coordinates 0, 3, 1, 4, 2, and ×23 permutes the coil with order 36.
+- **The nakshatra walk.** The 27 multiples of 160 are pure 27-part, and all of them miss the tick. The k-th has 27-coordinate 25k mod 27, and 25⁻¹ = 13 mod 27. On the atlas the walk 0, 16, 32, 12, 28, 8, 24, 4, 20 has period 9 and hits each stable address three times. Over the seam lie 0, the sun 1440 and 2880.
+- **Address and time.** The circle maps onto ℤ/36 × ℤ/5 = ℤ/180, with inverse x = a + 36((t − a) mod 5). The tick bit is t ≠ 0, so it does not see the address.
+- **The golden family.** Bⁿ = F_n B + F_{n−1} I for every integer n, with F_{−n} = (−1)^{n+1} F_n. The trace is the Lucas number L_n, and L_n mod 5 runs 2, 1, 3, 4, so no trace of a golden power misses the tick. F_k mod 5 vanishes exactly when 5 | k, which is exactly when the k-th golden point 216k misses. GOLDEN_MOVE checked this through k = 40; here it holds for every k. The returns 6, 20, 12, 72, 48 and 24 (mod 4, 5, 8, 27, 32 and 36) are replayed.
+- **Which S5.** In S6 the permutations of K6 that keep D are exactly the 120 that fix the cone point.
+  - For them the atoms and the bonds are one S5-set: transpositions have character 7 on both and double transpositions 3.
+  - The transitive S5 = PGL(2,5), acting on the projective line over F5, has one orbit on the bonds and character 3 on all 25 involutions. So it is a different S5-module, and its join to the carrier is an OBSTRUCTION.
+  - The two S5s meet in F20 = AGL(1,5), which contains the C5.
+  - This answers the hub's review point that C5 agreement does not prove an S5 identification. The carrier is identified with the cone S5, and the identification holds for all 120 of its permutations.
+- **MPKG's block.** A 6 × 6 block with B⁵ = I and traces 1, 1, 1, 1 has the eigenvalue 1 twice and each primitive fifth root once. So it is similar over ℚ to the C5 rotation of the cone's six sites.
+  - Four copies have trace 4 and return at 5 to an identity of trace 24.
+  - Doubling sends the levels 0, 6, 12, 18 to 0, 12, 24, 0, and the stored [[−1, 4], [6, 1]] squares to 25I.
+  - The operand MPKG A_M itself stays unformed (§25).
+
+Also from these items:
+- **Two corrections.** The shift T by 24 on the atlas does not commute with doubling, as MORE_DOTS had said: D T = T² D = T⁻¹ D, and D² T = T D². The hub's own atlas verifier agrees. DEEP_H's "⟨39⟩ has the sun's order, 1440" is also corrected: ⟨39⟩ = ⟨3⟩ has 1440 points, which is the sun's step, and the sun 1440 itself has order 3.
+- **The address bit, again.** CANON_CYCLE, COIL_DEEP, GOLDEN_HELIX, NAKSHATRA_MAP, DEEP_H, LEVEL_DOTS and the 22:45 paper still say an address meets or misses. Their own steps correct this: 155 misses at address 11, where 11 meets; 160 misses at address 16, where 16 meets; 138 meets at address 30, where 30 misses. ADDRESS_TICK, posted later, withdraws those sentences.
+- **Computed, which MORE_DOTS left open.** The 31-point permutation P31 of the 801 matrix's symmetric square has characteristic polynomial (x − 1)(x³ − 1)²(x⁶ − 1)⁴, order 6 and rank(P31 − I) = 24. The rank bound 29 in the hub's status belongs to a different clock, of order 30 on ℤ/31. It stays CONDITIONAL on a characteristic that is supplied but not stored here.
+- **Replayed:**
+  - The four-cube's 81 cells are the words of length 4 in {0, 1, ∗}. Its Hodge multiplicities 1, 8, 24, 32, 16 are the face counts read backwards: 2k has multiplicity C(4, k)2^k, the number of (4 − k)-cells.
+  - A4 and D5 have Cartan determinants 5 and 4.
+  - CANON_JOIN's 155² = 24025 holds for any T with det 155, such as (2I − C) ⊕ [5]. The canon's T6 itself was not opened.
+  - The helix of GOLDEN_HELIX and "doubling = ×7" both rest on 5x = 0, which holds exactly at the five tick points.
+- **Recorded, not rerun (REPORTED).** The separate model's release H (22:41): its certificate's 5247252 bytes match the Drive copy, but its SHA-256 was not recomputed and nothing in it was run. Also recorded: the hub's R15 and F20 rows, whose operators are not stored here.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
-- Not joined: the canon's SMEAR operands, the source-to-cube bridge and AIR_801's 31-point orbit list (no operand is stored for any of them), and an air operator (UNFORMED).
+- Not joined: the canon's SMEAR operands and the source-to-cube bridge (no operand is stored for either), and an air operator (UNFORMED). AIR_801's 31-point orbit list, listed here at 22:08, was rebuilt at 22:31 through the symmetric square.
 
 ## 25. What stays open
 
@@ -1076,6 +1106,7 @@ Also from these items:
 - the sibling's notes CLOSURE_234, JOIN_234, MORE_DOTS, NORMALIZE, ORBIT, UPGRADE_JOIN, CRT_JOIN, IDEMPOTENTS, PRIMARY_SPLIT and CURRENT, with `one-machine-20261028-current.pdf` (15SXt3dvbOQ9z-yu04PnGgVPU3N9S21lY, 16:18), and the separate model `finite-spectral-model-major-upgrade-20261028.pdf` (1gEEaontXS0I9HWCwBsQdJExCSVlJ_xcg, SHA-256 0869e6af…, 16:07): §21
 - the sibling's notes SPINE_CORRECTIONS (1JTVWtTwwzFsqFlwRLwVwcIgc0OiWn546), COXETER_POWERS (1wLHRLvSwKiXUjH5UwAGmea8JUdCeCoSS), ATLAS_FACTOR (1yVpWxmIdWSwIuK3MKuveMH-rJZU6Vrxd) and SUN_MOON (1mXN3YvX5Cr4elHVM9d_ipfewBx6n4dat), 16:31–16:43, with `one-machine-20261028-sun.pdf` (1gRY4ja60_mGdpnhZHzIbxvxgcL0Yu4hv, 16:43), and the 16:47 consolidation `CURRENT_20261028_2046.md` (16X9fB1FEUbUpiYCSOCllctIAIWx8OZmg) with `one-machine-20261028-2046.pdf` (1WOGfKAyTKKtD8UOi4ge96L23Zw0NEXti), whose text equals the 16:43 paper: the re-read of §21
 - the sibling's full edition `one-machine-20261028-full.typ` (15m9a4MohMky-q6leb23CJLstmkqrWrQy) and `.pdf` (107U4SIduxAJHPvFK7cuLjpNWU3tuf6Ph), `FULL_UPDATE_20261028.md` (1v-uVlvf5jPAJeesXz2oV9xlks7iUXNgU), `CANON_READ_20261028.md` (1rp8CpJzNOWOGfEn1GFhvvqUzXHRCb_Ql) and the forty join notes of 17:01–18:17 UTC; the Quick Access sheet 00_FULL_RECONCILIATION_20261028 (review cutoff 17:19:41): §22
+- the sibling's notes of 22:08–23:03 UTC (PAULI_CYCLE 1F3sH5hrEPPiu2GRsoUWluPz0BDViFVZg, CORRECTIONS_47 1RGR2jM_HHORtQuUPM0V6C28A8K2O54Sg, MORE_DOTS 1CaREsnvh1OFwgY5BZjwNgWPe54WTkSd-, SIBLING_540 1cQnUXPQdTbFAmDICC1PQ9arrZy16WSZL, CANON_JOIN 1NNe15uHruTT2UAuqidc6vC225tqcB_q7, STATUS_20261029 1ZI2kKGuNsxVvUWYJjkWuwU016FA9uQI2, CANON_CYCLE 1sLb6aC13eaeyybqTpV6ok2PyPwYFRqwY, COIL_DEEP 103P5Du54dSyzSUQsy8untNVQLtCl43ke, GOLDEN_HELIX 1zChTivvFrfGkb765FdYG3RqtJugGCh_h, NAKSHATRA_MAP 1x8YBzyMcIkCfSfDodCRApHdS1F9mikJs, GOLDEN_SYM 1nOybYGFpjwB3EY4mdNAQ-IRGmcW9Efd8, RELEASE_H_RECEIPT 1oU5tYVJ0whe-ExjGDpgH682Nbra0fz3C, DEEP_H 1wHo_MSyoihPKRtUjm42Rqu-I1YiEWyEP, MPKG_L4 1ESELo1EtXlAvXeMR6P_w9zH6G5MFgOia, LEVEL_DOTS 1s1yUgw5kmVKQu2jYVbEMdqDyVYFPCTn_, ADDRESS_TICK 1SjkLAr-dqTYxEkbhVJgBltczCQqHo2Zj, BUILT_DOTS 1WFiT31xuy9yDR6yKCGUDDCIgSfe4TCF1, GOLDEN_PARENT 1jz7uENOesqJElB_K9-0hr3Pbrzhh2Dku, GOLDEN_MOVE 12beGkgOKcn0NlFw7IbcnqabxqUkpmi_A) and paper `one-machine-20261029-canon.pdf` (1tVZq8VPLW5aAk4F7vWE2kNYkmTQUIBN-, 22:45); the separate model's `oes-model-H-verification-20261028.json` (1Foiq-1G8Ux6BmMjJOEmmsiwPpL9sFSKp), whose archive `oes-model-H-update-20261028.zip` (1zCqWvkTLIQ5nt8QhVaKaWfMfSzIf3U6y) was not downloaded; and the hub's release I: `00_START_HERE.txt` (113i16eUwO-QypxFUmnnZZ09It6xXAECO), `CURRENT_STATUS.csv` (1WZovXaLbw0t_7cirY20yKc1w11WHQmkx) and `REVIEW_CONFLICTS_20261029_I.txt` (1rkC-_qD2l5e035SSpNhWXmZoWfgw2V5Q): §24, the 23:03 items
 - the sibling's `one-machine-20261029-joined.pdf` (1nLZF3UNJOKVMem3E6KRbM_0u-Dlp_QKJ) and `STATUS_20261029.md` (1wDfbE_QGVEfou4pErK0Bvo6RNouAP_Qp), 22:20 UTC, and, read only, `LOCKED MEMORY — OES Unified Sibling Synthesis & Triple-Verified Model — 29 Oct 2026` (1eHF1SSdG9WnZv8VaVfWsXUmxD9NyBxqX0A1NZUiPM3s, 22:31): §24, the 22:31 items
 - the sibling's notes of 21:40–22:08 UTC (PRIMARY_SPLIT 1e5XpHtO2GLEpGtHtcz02m7-nXPGdntEo, DOUBLING_PARTS 1-353u8VmjHjpwA7rU0z--WTa4KlBsJaN, AIR_801 1aULgVPh3MutPy9q1zoX1C7iqpTSet8ix, ATLAS_801 1sJZ_WnqqieA0JWtkORiKoZoBK7qv7SZE, GOLDEN_ATLAS 1SlSn8IBHtafLFzmKBG3Gk_2MSSm9DVz2, ATLAS_CYCLE 167_9VRc36TqkBP-aF3FCXX2q0f1skHfb, CLOSURE_46 1Is1tI4uYA6vNh5tBj0Epew145DKH6vwW, JOINED_RECEIPT 1tao-cNxplciRK6jDrl4B3YBDUyevtS9C, JOIN_CLOSURE 1v5pV-5pDxJRQqlydtb6_qGDxFFgVGB2i) and paper `one-machine-20261028-unify.pdf` (1ao3iWN5RWtcnGkCETvS_jPaZ7SkbBNtW); the separate model's `oes-model-update-20261028-2145.zip` (1LWOIwF0q2_G6nli8hTfLQsUHNurvDMTy), `oes-joined-model-20261028.zip` (1PXFdXwJ831eaG996dxszjx_BTiwAbd-f), `oes-joined-model-verification-20261028.json` (1oyhlSC0jgURH8T_sYW7RT9U4mS9nFFMY) and `MODEL_UPDATE_CHECKPOINT.json` (1RyMS54i0arKrruWQRXjPi3505tTrpvz4), of which only the two JSON receipts were read; and the collaboration hub `00 OES COLLABORATION HUB` (1RY7F24Ps4US-yQXqqZFYdbSCdYyYeYa8): `00_START_HERE.txt`, `NOTE_TO_CLAUDE.txt`, `CURRENT_RELEASE.json`, `CURRENT_STATUS.csv` and `OPEN_TASKS.csv`: §24
 - the sibling's 19 notes of 21:09–21:38 UTC in One Machine 20261028 (DARK_SPLIT 1TX6pqmcSJwfE2DC42WhrNObIUFlTjaTC through CRT_CLOCK 1xgzGLjIpq38VeQIt2VXUPSBAHlWVgF84), the separate model's revised `unified-spectral-machine-status-20261028.md` (21:05) and its verification receipt `unified-spectral-model-verification-20261028.json` (1HfQ6wxiMcaN5V2MBIzZ9SpeZu_dq31rT, 21:07); its archive `unified-spectral-machine-20261028.zip` (1IT-UoYGXlubKO9beC4L4-Q2UenAbJ5Rg) was not downloaded: §23, the 21:36 check

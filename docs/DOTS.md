@@ -38,6 +38,9 @@ flowchart LR
     stages["stages"]
     cube["four-cube"]
     hodge["Hodge 70"]
+    coil["coil"]
+    S5["S5"]
+    pgl["PGL(2,5)"]
     E -->|"B"| A4
     E -->|"B and M"| D5
     A4 -->|"inclusion"| D5
@@ -75,7 +78,7 @@ flowchart LR
     circle -->|"idempotent 3105"| observer
     circle -->|"idempotent 2080"| c27
     time -->|"kappa = 4x mod 5"| V
-    clocks -->|"<c', d>"| G120
+    clocks -->|"c' and d"| G120
     G120 -->|"24 maps"| circle
     G120 -->|"day clocks"| AGL
     AGL -->|"i -> a i + b"| carrier
@@ -90,9 +93,19 @@ flowchart LR
     bath -->|"return counts"| walks
     walks -->|"binomial transform"| moments
     clocks -->|"Lambda^4"| hodge
+    coil -->|"gcd 8"| circle
+    coil -->|"x -> x mod 5"| time
+    c27 -->|"160 k -> 16 k mod 36"| atlas
+    atlas -->|"Z/180 = Z/36 x Z/5"| time
+    golden -->|"k -> 216 k mod 5"| time
+    S5 -->|"vertex permutations"| carrier
+    AGL -->|"F20 inside S5"| S5
+    AGL -->|"x -> a x + b"| pgl
+    pgl -.->|"not the carrier's S5"| carrier
+    AGL -->|"the cone's rotation"| sixsite
 ```
 
-34 dots and 52 joins. With the obstruction left out, the joins that hold connect every dot: the diagram is one piece.
+37 dots and 62 joins. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece.
 
 ## Dots
 
@@ -132,6 +145,9 @@ flowchart LR
 | stages | the fifteen indices | 22 |
 | four-cube | the 81-cell complex of [0, 1]^4 | 21, 23 |
 | Hodge 70 | Lambda^4 R^8 = 35 + 35 | 23 |
+| coil | <8>, the 540 multiples of 8 | 23 |
+| S5 | the 120 vertex permutations, the cone point's stabilizer in S6 | 1, 23 |
+| PGL(2,5) | the transitive S5 in S6, on the projective line over F5 | 23 |
 
 ## Joins
 
@@ -189,6 +205,16 @@ flowchart LR
 | bath | closed walks | W_n = <delta_0, A^n delta_0> and E_n = <delta_0, Delta^n delta_0> | THEOREM | `walks_join` |
 | closed walks | moments | E_n, the one-site port's moments, is the binomial transform of W_n | THEOREM | `walks_join` |
 | W(E8) clocks | Hodge 70 | reflections swap the 35 + 35 halves, the clocks keep them | THEOREM | `hodge70` |
+| coil | circle | the tick, the observer and the nakshatra generate the 540 multiples of 8, index 8; the smear step 184 = 23 x 8 generates the same subgroup | THEOREM | `coil` |
+| coil | time clock | onto the time coordinate with kernel the pada subgroup <40>: the tick misses its 108 points and meets the other 432 | THEOREM | `coil` |
+| 27-clock | atlas | the nakshatra walk: period 9, each stable address three times; the 27-coordinate is 25 k mod 27 | THEOREM | `nakshatra_map` |
+| atlas | time clock | 36 = 1 mod 5: x = a + 36((t - a) mod 5), so every address carries all five time coordinates and the tick bit (t != 0) does not see the address | THEOREM | `address_lift` |
+| golden companion | time clock | the k-th golden point misses the tick iff 5 \| k iff 5 \| F_k; no trace L_n of a golden power is a multiple of 5 | THEOREM | `golden_family` |
+| S5 | carrier | S5 acts on the 15 atoms and commutes with D; in S6 these are exactly the 120 permutations of K6 that keep D, and atoms and bonds are one S5-set | THEOREM | `cone_symmetry` |
+| AGL(1,5) | S5 | AGL(1,5) = F20, the twenty affine maps of the vertices, is where the cone S5 and PGL(2,5) meet in S6 | THEOREM | `cone_symmetry` |
+| AGL(1,5) | PGL(2,5) | the stabilizer of infinity in PGL(2,5), and its only elements that keep D | THEOREM | `cone_symmetry` |
+| PGL(2,5) | carrier | on the 15 bonds PGL(2,5) has one orbit and involution character 3, the carrier's S5 two orbits and transposition character 7: equal on F20 and C5, not as S5-modules | OBSTRUCTION | `cone_symmetry` |
+| AGL(1,5) | six-site port | the 5-cycle with the cone point fixed, traces 1, 1, 1, 1, 6; a 6 x 6 block of order 5 with traces 1 (MPKG) is similar to it over Q | THEOREM | `mpkg_block` |
 
 ## Not joined
 
@@ -197,7 +223,9 @@ flowchart LR
 | separate model's joined model (22:02) | 158 check groups, 12 review groups, 80 matrices, 63 typed relationships; sha256 b0c17731... | REPORTED |
 | canon SMEAR (184 / 481) | a rank-6 port T and a rank-4 projector P with minor -512 alpha^4 / 25; the operands are not stored here | REPORTED |
 | source-to-cube bridge | rank 10 with an exact left decoder (canon); not stored here | REPORTED |
-| AIR_801's 31 points | the orbit list 6 + 6 + 6 + 6 + 3 + 3 + 1 needs a permutation of 31 points; none is stored | REPORTED |
+| the hub's Z31 clock (I_STATUS) | order 30 on 31 states, maximal rank 29 into the 45-point product; it rests on a supplied characteristic that is not stored here | CONDITIONAL |
+| the hub's R15 and F20 rows (I_STATUS) | R15 with (t - 1)^3 (t^2 - 7t + 11)^6 and its F20 average 1^3, (7/2)^12; the operators are not stored here | REPORTED |
+| the separate model's release H (22:41) | 5247252 bytes, 168 check groups, 77 presentations, a finite Hilbert space of dimension 174108; not opened or rerun | REPORTED |
 | air | no air operator is stored, and none is formed | UNFORMED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

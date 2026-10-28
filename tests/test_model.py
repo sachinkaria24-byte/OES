@@ -208,6 +208,28 @@ def test_k6_walks_and_the_l11_exclusion():
         assert all(out.values()), out
 
 
+def test_coil_nakshatra_and_the_address_lift():
+    for check in (dots.coil, dots.nakshatra_map, dots.address_lift, dots.notes_2303):
+        out = check()
+        assert all(out.values()), out
+    # the tick bit is the time coordinate's, and the address does not see it
+    for a in range(36):
+        assert {ledger.contains_tick(x) for x in range(a, spine.N, 36)} == {True, False}
+
+
+def test_golden_family_and_the_mpkg_block():
+    for check in (dots.golden_family, dots.mpkg_block, dots.p31_clock):
+        out = check()
+        assert all(out.values()), out
+
+
+def test_the_carrier_s5_is_the_cone_point_stabilizer():
+    out = dots.cone_symmetry()
+    assert all(out.values()), out
+    obstruction = [j for j in dots.JOINS if j[:2] == ("pgl", "carrier")]
+    assert len(obstruction) == 1 and obstruction[0][4] == gates.OBSTRUCTION
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

@@ -1,4 +1,4 @@
-"""Layer 23. All dots joined (28 Oct 2026, Drive check 22:08 UTC).
+"""Layer 23. All dots joined (28 Oct 2026, Drive checks 22:08 to 23:03 UTC).
 
 A dot is an object the model builds: a space with its operator, a lattice, a group, a circle, a port. A join is a map
 between two dots, built here and checked against the property that makes it that kind of map (an intertwiner, a
@@ -49,6 +49,26 @@ paired cyclic response [M; B] has rank 9, and its residual line is the C5-fixed 
 30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6 holds because the roots are a 7-design; and the bath's closed walks W_n and return
 moments E_n join the bath to the moments. The synthesis's operator of order 11 and degree 5 is not a recurrence for W_n or
 E_n (an obstruction), and its collar claim is recorded, not replayed.
+
+At 23:03 the sibling's notes of 22:08-23:03 were read, with the hub's release I. Three dots and ten joins come from them:
+
+- The coil <8>: the tick, the observer and the nakshatra generate the 540 multiples of 8, and so does the smear step
+  184. Inside it the tick misses exactly the pada subgroup <40>, whose five cosets carry the time coordinates
+  0, 3, 1, 4, 2.
+- The nakshatra walk 160 k -> 16 k mod 36 has period 9 and hits each stable address three times; the address and the
+  time coordinate are independent, because 36 = 1 mod 5 (Z/180 = Z/36 x Z/5). The sibling now proves this itself
+  (ADDRESS_TICK), and its own pairs 155/11, 160/16 and 138/30 correct the sentences that still gave an address a bit.
+- The golden family: B^n = F_n B + F_(n-1) I for every integer n; no Lucas trace is a multiple of 5, and the k-th golden
+  point 216 k misses the tick exactly when 5 | F_k, i.e. when 5 | k.
+- Which S5 the carrier carries: in S6 the permutations of K6 that keep D are exactly the 120 that fix the cone point, and
+  for them the atoms and the bonds are one S5-set. The transitive S5 = PGL(2,5) gives another module (one orbit,
+  character 3 against 7), and the two meet in F20 = AGL(1,5): agreement on C5 or F20 does not identify S5-modules, as
+  the hub's review asks.
+- MPKG's block of order 5 with traces 1 is the C5 rotation of the cone's six sites, up to similarity over Q.
+
+Two corrections: the atlas shift by 24 does not commute with doubling (D T = T^-1 D; D^2 T = T D^2), and <39> has 1440
+points while the sun 1440 has order 3. The 31-point clock's characteristic polynomial, which MORE_DOTS left open, is
+(x - 1)(x^3 - 1)^2 (x^6 - 1)^4, and the four-cube's Hodge multiplicities are its face counts read backwards.
 """
 
 import functools
@@ -89,6 +109,8 @@ def k5_roots():
     signed = lambda cols: {tuple(s * sp.Matrix(c)) for c in cols for s in (1, -1)}
     f = sp.Matrix([0, 1, 2, 3, 4])
     frame = lambda roots: functools.reduce(lambda a, b: a + b, [sp.Matrix(r) * sp.Matrix(r).T for r in roots])
+    simple = [_e(i) - _e(i + 1) for i in range(4)]
+    gram = lambda roots: sp.Matrix.hstack(*roots).T * sp.Matrix.hstack(*roots)   # the Cartan matrix: every root has norm 2
     MMt = M * M.T
     return {
         "the ten columns of B (e_j - e_i, i < j) are a positive system of A4: with their negatives they are the 20 "
@@ -106,6 +128,8 @@ def k5_roots():
         and carrier.spectrum_multiplicities() == {0: 5, 3: 8, 8: 2},
         "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j":
             len(M.nullspace()) == 10 - M.rank() == 5,
+        "the simple roots e_i - e_(i+1), with e_3 + e_4 for D5, have Cartan determinants 5 (A4) and 4 (D5)":
+            gram(simple).det() == 5 and gram(simple + [_e(3) + _e(4)]).det() == 4,
     }
 
 
@@ -484,6 +508,7 @@ def _cube_complex(n=4):
 def four_cube():
     """The 81-cell complex of the four-cube (h81), its Hodge homotopy, and its vertices as four qubits."""
     cells, d = _cube_complex()
+    d1c = _cube_complex(1)[1]
     dims = Counter(c.count(2) for c in cells)
     Lap = d @ d.T + d.T @ d
     vals = Counter(np.rint(np.linalg.eigvalsh(Lap.astype(float))).astype(int).tolist())
@@ -513,6 +538,12 @@ def four_cube():
         == [16, 32, 24, 8, 1] and not np.any(d @ d),
         "its Hodge Laplacian has spectrum 0, 2^8, 4^24, 6^32, 8^16 (layer 21's count, now on the complex)":
             vals == {0: 1, 2: 8, 4: 24, 6: 32, 8: 16},
+        "the multiplicities are the cell counts read backwards: 2k has multiplicity C(4, k) 2^k, the number of "
+        "(4 - k)-cells, since the complex is the fourth power of the interval (spectrum 0, 2, 2); the 81 cells are the "
+        "words of length 4 in {0, 1, *}": [vals[2 * k] for k in range(5)] == [dims[4 - k] for k in range(5)]
+        == [sp.binomial(4, k) * 2 ** k for k in range(5)] and len(cells) == 3 ** 4
+        and Counter(np.rint(np.linalg.eigvalsh((d1c @ d1c.T + d1c.T @ d1c).astype(float))).astype(int).tolist())
+        == {0: 1, 2: 2},
         "the Hodge homotopy h = d^T Delta^+ has dh + hd = I - P0, h^2 = 0, rank 40 and norm 1/sqrt 2 (the canon's h81)":
             np.allclose(d @ h + h @ d, I81 - P0) and np.allclose(h @ h, 0) and np.linalg.matrix_rank(h) == 40
             and np.isclose(np.linalg.norm(h, 2), 1 / np.sqrt(2)),
@@ -651,25 +682,26 @@ def band_expansion():
     }
 
 
-def sym_square_orbits():
-    """The 801 matrix mod 5 on the 31 points of PG(2,5) through its symmetric square."""
+def _p31():
+    """The symmetric square S of the 801 matrix mod 5, [[3, 1], [1, 1]], and the permutation it induces on PG(2,5)."""
     a, b, c, d = 3, 1, 1, 1
     S = np.array([[a * a, a * c, c * c], [2 * a * b, a * d + b * c, 2 * c * d], [b * b, b * d, d * d]]) % 5
-    pts = set()
-    for v in itertools.product(range(5), repeat=3):
-        if any(v):
-            lead = next(x for x in v if x)
-            inv = pow(lead, 3, 5)
-            pts.add(tuple(x * inv % 5 for x in v))
     norm = lambda v: (lambda lead: tuple(x * pow(lead, 3, 5) % 5 for x in v))(next(x for x in v if x))
+    pts = sorted({norm(v) for v in itertools.product(range(5), repeat=3) if any(v)})
+    return S, pts, {p: norm(tuple(int(x) for x in S @ np.array(p) % 5)) for p in pts}
+
+
+def sym_square_orbits():
+    """The 801 matrix mod 5 on the 31 points of PG(2,5) through its symmetric square."""
+    S, pts, step = _p31()
     seen, sizes = set(), []
-    for p in sorted(pts):
+    for p in pts:
         if p in seen:
             continue
         orbit, q = [], p
         while q not in orbit:
             orbit.append(q)
-            q = norm(tuple(int(x) for x in S @ np.array(q) % 5))
+            q = step[q]
         seen |= set(orbit)
         sizes.append(len(orbit))
     order = next(k for k in range(1, 50) if np.array_equal(np.linalg.matrix_power(S, k) % 5, np.eye(3, dtype=int)))
@@ -751,6 +783,243 @@ def notes_2231():
     }
 
 
+# ------------------------------------------------------------ the 22:08-23:03 items
+
+def coil():
+    """The tick, the observer and the nakshatra generate the coil <8>: 540 points, index 8 in the circle."""
+    C, pada = spine.subgroup(8), spine.subgroup(40)
+    cosets = [{(8 * j + y) % N for y in pada} for j in range(5)]
+    return {
+        "the tick 864, the observer 1080 and the nakshatra 160 generate <8> (gcd 8): 540 points, index 8; the sun 1440, "
+        "the half-turn 2160 and the mass step 216 lie in it": spine.subgroup(spine.join(spine.join(TICK, 1080), 160)) == C
+        and len(C) == 540 and N // 540 == 8 and all(x in C for x in (1440, 2160, 216)),
+        "the smear step 184 = 23 x 8 generates the same subgroup (23 is prime to 540); the step 540 is not in it and has "
+        "order 8": spine.subgroup(184) == C and gcd(23, 540) == 1 and 540 not in C and spine.order(540) == 8,
+        "inside the coil the tick misses exactly the pada subgroup <40> (108 points) and meets the other 432":
+            {x for x in C if not ledger.contains_tick(x)} == pada and len(pada) == 108,
+        "the five cosets of <40> carry the time coordinates 0, 3, 1, 4, 2, each once":
+            [sorted({x % 5 for x in c}) for c in cosets] == [[0], [3], [1], [4], [2]],
+        "multiplication by 23 permutes the coil, with order 36": {23 * x % N for x in C} == C
+        and next(k for k in range(1, 100) if pow(23, k, 540) == 1) == 36,
+        "540 = 20 x 27 = 30 x 18 = 15 x 36, and 2 has order 18 mod 27": 20 * 27 == 30 * 18 == 15 * 36 == 540
+        and next(k for k in range(1, 30) if pow(2, k, 27) == 1) == 18,
+    }
+
+
+def nakshatra_map():
+    """The nakshatra clock <160> on the time coordinate, the 27-coordinate and the atlas."""
+    nak = [160 * k % N for k in range(27)]
+    walk = [x % 36 for x in nak]
+    return {
+        "the 27 multiples of 160 are pure 27-part: each is divisible by 32 and by 5, so every one misses the tick":
+            len(set(nak)) == 27 and all(x % 32 == 0 and x % 5 == 0 and x * 2080 % N == x for x in nak)
+            and not any(ledger.contains_tick(x) for x in nak),
+        "the k-th point has 27-coordinate 25k mod 27, and 25^-1 = 13 mod 27": all(x % 27 == 25 * k % 27
+                                                                                    for k, x in enumerate(nak))
+        and 25 * 13 % 27 == 1,
+        "on the atlas the walk is 0, 16, 32, 12, 28, 8, 24, 4, 20 and repeats: period 9, each stable address three times":
+            walk[:10] == [0, 16, 32, 12, 28, 8, 24, 4, 20, 0] and Counter(walk) == Counter({a: 3 for a in range(0, 36, 4)}),
+        "over the seam lie 0, the sun 1440 and 2880, the subgroup of order 3; over address 20 lie the steps 8, 17 and 26":
+            sorted(x for x in nak if x % 36 == 0) == [0, 1440, 2880] == sorted(spine.subgroup(1440))
+            and [k for k, a in enumerate(walk) if a == 20] == [8, 17, 26],
+        "from 16 the walk and the doubling agree once (32) and then split (12 against 28)":
+            walk[2] == 2 * 16 % 36 == 32 and (walk[3], 2 * 32 % 36) == (12, 28),
+    }
+
+
+def golden_family():
+    """GOLDEN_SYM, GOLDEN_PARENT, GOLDEN_HELIX and GOLDEN_MOVE: the powers of B = [[1, 1], [1, 0]]."""
+    B, I2 = sp.Matrix([[1, 1], [1, 0]]), sp.eye(2)
+    F = lambda n: sp.fibonacci(n) if n >= 0 else (-1) ** (1 - n) * sp.fibonacci(-n)
+    power = lambda n: B ** n if n >= 0 else (B - I2) ** -n
+    t = sp.symbols("t")
+
+    def ret(m):
+        P, k = B.applyfunc(lambda x: x % m), 1
+        while P != I2:
+            P, k = (P * B).applyfunc(lambda x: x % m), k + 1
+        return k
+    move = [216 * k % N for k in range(20)]
+    return {
+        "B = B^T, B^-1 = B - I, B^2 = B + I and det B^n = (-1)^n; t^2 - t - 1 has discriminant 5": B == B.T
+        and B.inv() == B - I2 and B ** 2 == B + I2 and all(power(n).det() == (-1) ** (n % 2) for n in range(-6, 7))
+        and sp.discriminant(B.charpoly(t).as_expr(), t) == 5,
+        "B^n = F_n B + F_(n-1) I for n = -30..30, with F_-n = (-1)^(n+1) F_n; B^6 = [[13, 8], [8, 5]] and "
+        "B^7 = [[21, 13], [13, 8]], whose rows sum to 34 and 21": all(power(n) == F(n) * B + F(n - 1) * I2
+                                                                       for n in range(-30, 31))
+        and B ** 6 == sp.Matrix([[13, 8], [8, 5]]) and B ** 7 == sp.Matrix([[21, 13], [13, 8]])
+        and [sum((B ** 7).row(r)) for r in range(2)] == [34, 21],
+        "B returns after 6 mod 4, 20 mod 5, 12 mod 8, 72 mod 27, 48 mod 32 and 24 mod 36":
+            {m: ret(m) for m in (4, 5, 8, 27, 32, 36)} == {4: 6, 5: 20, 8: 12, 27: 72, 32: 48, 36: 24},
+        "tr B^n = F_(n-1) + F_(n+1) = L_n, and L_n mod 5 runs 2, 1, 3, 4 with period 4 (L_4, L_5 = L_0, L_1 mod 5): no "
+        "trace of a golden power misses the tick": all(power(n).trace() == F(n - 1) + F(n + 1) == sp.lucas(n)
+                                                        for n in range(30))
+        and [sp.lucas(n) % 5 for n in range(4)] == [2, 1, 3, 4]
+        and (sp.lucas(4) - sp.lucas(0)) % 5 == (sp.lucas(5) - sp.lucas(1)) % 5 == 0,
+        "F_k mod 5 has period 20 with zeros at k = 0, 5, 10, 15, so 5 | F_k iff 5 | k: the k-th golden point 216 k misses "
+        "the tick exactly then": (F(20) % 5, F(21) % 5) == (0, 1) and [k for k in range(20) if F(k) % 5 == 0]
+        == [k for k in range(20) if not ledger.contains_tick(move[k])] == [0, 5, 10, 15],
+        "the golden points 216 k sit at address 0 and 27-coordinate 0; the time coordinate advances by 1 and the "
+        "2-coordinate by 24; four steps give the tick 864 and five the observer 1080": all(x % 36 == 0 and x % 27 == 0
+                                                                                           for x in move)
+        and 216 % 5 == 1 and 216 % 32 == 24 and (4 * 216, 5 * 216) == (TICK, 1080),
+        "the helix and 'doubling = x7' rest on 5x = 0, which holds exactly at the five tick points; they lie in the coil and "
+        "on the seam, and 160, 8, 184 and 1 are not among them": {x for x in range(N) if 5 * x % N == 0}
+        == spine.subgroup(TICK) and spine.subgroup(TICK) <= spine.subgroup(8)
+        and all(x % 36 == 0 for x in spine.subgroup(TICK)) and not any(5 * x % N == 0 for x in (160, 8, 184, 1)),
+        "two contractions take 13 to 16 and 5 to 20": (4 * 13 % 36, 4 * 5 % 36) == (16, 20),
+    }
+
+
+def address_lift():
+    """ADDRESS_TICK and BUILT_DOTS: 36 = 1 mod 5, so the address and the time coordinate are independent."""
+    lift = {(a, t): a + 36 * ((t - a) % 5) for a in range(36) for t in range(5)}
+    pairs = [(1, 145), (20, 56), (30, 66), (11, 155), (16, 160), (30, 138)]
+    return {
+        "x = a + 36((t - a) mod 5) is the one residue below 180 with address a and time coordinate t: Z/180 = Z/36 x Z/5":
+            all(x < 180 and (x % 36, x % 5) == at for at, x in lift.items()) and len(set(lift.values())) == 180,
+        "every address carries all five time coordinates, and the tick misses exactly at time 0 (address 1 at time 0 is 145)":
+            all(ledger.contains_tick(x) == (t != 0) for (_, t), x in lift.items()) and lift[1, 0] == 145,
+        "the circle is 24 copies of this period 180": N == 24 * 180,
+        "so an address carries no tick bit: the notes' own pairs 1/145, 20/56, 30/66, 11/155, 16/160 and 30/138 share an "
+        "address and differ on the tick": all(a % 36 == b % 36 and ledger.contains_tick(a) != ledger.contains_tick(b)
+                                              for a, b in pairs),
+        "what holds is a statement about the nine integers 0, 4, ..., 32: only 0 and 20 are multiples of 5":
+            [a for a in range(0, 36, 4) if a % 5 == 0] == [0, 20],
+    }
+
+
+def cone_symmetry():
+    """Which S5: the permutations of K6 that keep D fix the cone point; the transitive S5 = PGL(2,5) gives another module."""
+    E = carrier.edges()
+    D = np.array(carrier.dirac(sp.Matrix(carrier.signless_incidence())).tolist(), dtype=np.int64)
+    K6 = [(i, 5) for i in range(5)] + E
+    index = {frozenset(e): k for k, e in enumerate(K6)}
+
+    def bonds(s):
+        P = np.zeros((15, 15), dtype=np.int64)
+        for k, (i, j) in enumerate(K6):
+            P[index[frozenset((s[i], s[j]))], k] = 1
+        return P
+
+    def atoms(f):
+        P = np.zeros((15, 15), dtype=np.int64)
+        for i in range(5):
+            P[f[i], i] = 1
+        for k, (i, j) in enumerate(E):
+            P[5 + E.index(tuple(sorted((f[i], f[j])))), 5 + k] = 1
+        return P
+
+    def mobius(a, b, c, d):                                    # x -> (a x + b) / (c x + d) on F5 and infinity = 5
+        inv = lambda y: pow(y, 3, 5)
+        image = lambda x: ((a * inv(c) % 5 if c else 5) if x == 5
+                           else 5 if (c * x + d) % 5 == 0 else (a * x + b) * inv(c * x + d) % 5)
+        return tuple(image(x) for x in range(6))
+    keeps = lambda s: np.array_equal(bonds(s) @ D @ bonds(s).T, D)
+    cone = {s for s in itertools.permutations(range(6)) if keeps(s)}
+    det = lambda m: (m[0] * m[3] - m[1] * m[2]) % 5
+    pgl = {mobius(*m) for m in itertools.product(range(5), repeat=4) if det(m)}
+    psl = {mobius(*m) for m in itertools.product(range(5), repeat=4) if det(m) in (1, 4)}
+    involutions = lambda G: [s for s in G if s != tuple(range(6)) and all(s[s[i]] == i for i in range(6))]
+    chi = lambda G: Counter(int(np.trace(bonds(s))) for s in involutions(G))
+    orbits = lambda G: len({frozenset(int(np.argmax(bonds(s)[:, k])) for s in G) for k in range(15)})
+    affine = {s for s in pgl if s[5] == 5}
+    return {
+        "of the 720 permutations of K6's vertices exactly the 120 that fix the cone point keep D on the 15 bonds":
+            len(cone) == 120 and all(s[5] == 5 for s in cone),
+        "on them the atoms and the bonds are one S5-set (vertex i <-> spoke i5, edge ij <-> ij); transpositions have "
+        "character 7 and double transpositions 3": all(np.array_equal(atoms(s[:5]), bonds(s)) for s in cone)
+        and chi(cone) == Counter({7: 10, 3: 15}),
+        "the transitive S5 = PGL(2,5) on the projective line over F5 has one orbit on the bonds (the cone S5 has two) and "
+        "character 3 on all 25 involutions, the 10 outside PSL(2,5) included: a different S5-module (the hub's 7 versus 3)":
+            len(pgl) == 120 and len(psl) == 60 and orbits(pgl) == 1 and orbits(cone) == 2
+            and chi(pgl) == Counter({3: 25}) and len(involutions(pgl - psl)) == 10,
+        "the two meet in the twenty affine maps x -> a x + b, F20 = AGL(1,5), which holds the 5-cycle; these are the only "
+        "elements of PGL(2,5) that keep D": affine == cone & pgl and len(affine) == 20
+        and {s for s in pgl if keeps(s)} == affine and (1, 2, 3, 4, 0, 5) in affine,
+    }
+
+
+def mpkg_block():
+    """MPKG_L4: a 6 x 6 block of order 5 with traces 1, 1, 1, 1 is the C5 rotation of the cone's six sites."""
+    R6 = np.zeros((6, 6), dtype=np.int64)
+    for i in range(6):
+        R6[(i + 1) % 5 if i < 5 else 5, i] = 1
+    stated = [6, 1, 1, 1, 1]                                   # tr B^0, ..., tr B^4 as the note states them
+    w = np.exp(2j * np.pi / 5)
+    mult = [sum(stated[k] * w ** (-j * k) for k in range(5)) / 5 for j in range(5)]
+    four = np.kron(np.eye(4, dtype=np.int64), R6)
+    return {
+        "the rotation of the five rim sites with the cone point fixed has order 5 and traces 1, 1, 1, 1, 6": [
+            int(np.trace(np.linalg.matrix_power(R6, k))) for k in range(1, 6)] == [1, 1, 1, 1, 6]
+        and np.array_equal(np.linalg.matrix_power(R6, 5), np.eye(6, dtype=np.int64)),
+        "a 6 x 6 matrix with B^5 = I and those traces has the eigenvalue 1 twice and each primitive fifth root once, so it "
+        "is similar to that rotation over Q": np.allclose(mult, [2, 1, 1, 1, 1]),
+        "four copies have trace 4 and return at 5 to an identity of trace 24": int(np.trace(four)) == 4
+        and np.array_equal(np.linalg.matrix_power(four, 5), np.eye(24, dtype=np.int64)),
+        "doubling sends the levels 0, 6, 12, 18 to 0, 12, 24, 0": [2 * x % 36 for x in (0, 6, 12, 18)] == [0, 12, 24, 0],
+        "the stored block [[-1, 4], [6, 1]] squares to 25 I": sp.Matrix([[-1, 4], [6, 1]]) ** 2 == 25 * sp.eye(2),
+    }
+
+
+def p31_clock():
+    """MORE_DOTS left the 31-point clock's characteristic polynomial open; for P31 it is (x - 1)(x^3 - 1)^2 (x^6 - 1)^4."""
+    _, pts, step = _p31()
+    at = {p: k for k, p in enumerate(pts)}
+    P = sp.zeros(31, 31)
+    for p in pts:
+        P[at[step[p]], at[p]] = 1
+    x = sp.symbols("x")
+    return {
+        "the symmetric square's permutation P31 of the 31 points has characteristic polynomial (x - 1)(x^3 - 1)^2 "
+        "(x^6 - 1)^4 and order 6": sp.expand(P.charpoly(x).as_expr() - (x - 1) * (x ** 3 - 1) ** 2 * (x ** 6 - 1) ** 4)
+        == 0 and P ** 6 == sp.eye(31) and P ** 2 != sp.eye(31) and P ** 3 != sp.eye(31),
+        "rank(P31 - I) = 31 - 7 = 24, one kernel vector per orbit": (P - sp.eye(31)).rank() == 24,
+    }
+
+
+def notes_2303():
+    """The 22:08-23:03 notes: arithmetic, and two corrections (the shift and the doubling; the sun's order)."""
+    dbl, shift = (lambda x: 2 * x % 36), (lambda x: (x + 24) % 36)
+    C3 = sp.Matrix([[0, -1], [1, -1]])
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    S = sp.Matrix(5, 4, lambda r, c: int(r == c) - int(r == c + 1))
+    T6 = sp.diag(2 * sp.eye(4) - (S.T * S).inv() * S.T * R5 * S, sp.Matrix([[5]]))
+    M, B = sp.Matrix(carrier.signless_incidence()), sp.Matrix(carrier.signed_incidence())
+    six = set(range(0, 36, 6))
+    return {
+        "MORE_DOTS corrected: the shift T by 24 does not commute with the doubling D on the atlas; D T = T^2 D = T^-1 D and "
+        "D^2 T = T D^2 (the hub's atlas verifier agrees)": all(dbl(shift(x)) == shift(shift(dbl(x)))
+                                                              and dbl(dbl(shift(x))) == shift(dbl(dbl(x))) for x in range(36))
+        and any(dbl(shift(x)) != shift(dbl(x)) for x in range(36)),
+        "MORE_DOTS: the companion [[0, -1], [1, -1]] has order 3; 96 = 60 + 36, 70 = 60 + 10, 94 = 96 - 2; "
+        "4 x 96 + 6 x 36 = 600, where both parts meet and the sum misses": C3 ** 3 == sp.eye(2) and C3 != sp.eye(2)
+        and (96, 70, 94) == (60 + 36, 60 + 10, 96 - 2) and 4 * 96 + 6 * 36 == 600 and ledger.contains_tick(384)
+        and ledger.contains_tick(216) and not ledger.contains_tick(600),
+        "PAULI_CYCLE: 256 and 224 sit at addresses 4 and 8, doubling runs 4 -> 8 -> 16 -> 32, and 1 + 8 x 15 + 9 x 15 = 256":
+            (256 % 36, 224 % 36) == (4, 8) and [4 * 2 ** k % 36 for k in range(4)] == [4, 8, 16, 32]
+            and 1 + 8 * 15 + 9 * 15 == 256,
+        "SIBLING_540: C(9, 2) = 36, C(9, 3) = 84; Phi_5(2) = 31 = 15 + 4 + 6 + 6 = 6 + 15 + 10; 3(10 - 1) = 27":
+            sp.binomial(9, 2) == 36 and sp.binomial(9, 3) == 84 and sp.cyclotomic_poly(5, 2) == 31
+            and 15 + 4 + 6 + 6 == 6 + 15 + 10 == 31 and 3 * (10 - 1) == 27,
+        "CANON_JOIN: rank M = 5, rank B = 4 and 10 - 4 = 6 cycles; a T with det 155, such as (2I - C) + [5], has a Gram "
+        "T^T T of det 155^2 = 24025, and 4805 = 31 x 155; 12 x 16 < 195 <= 12 x 17": M.rank() == 5 and B.rank() == 4
+        and T6.det() == 155 and (T6.T * T6).det() == 24025 == 155 ** 2 and 4805 == 31 * 155 and 12 * 16 < 195 <= 12 * 17,
+        "CANON_CYCLE, DEEP_H and LEVEL_DOTS on the atlas: 155, 24025, 4805 -> 11, 13, 17; 174108 = 40 x 4320 + 1308 with "
+        "1308 = 12 x 109 -> 12; 168 -> 24, 42 -> 6, 138 -> 30, 2415 and 39 -> 3, 4834 -> 10, 77 -> 5": [
+            x % 36 for x in (155, 24025, 4805, 174108, 168, 42, 138, 2415, 39, 4834, 77)]
+        == [11, 13, 17, 12, 24, 6, 30, 3, 3, 10, 5] and 174108 == 40 * N + 1308 and 1308 == 12 * 109,
+        "doubling keeps the six multiples of 6 (6, 30 -> 12, 24; 18 -> 0) and takes 3 -> 6 -> 12, 10 -> 20, 5 -> 10 -> 20":
+            {dbl(a) for a in six} <= six and (dbl(6), dbl(30), dbl(18)) == (12, 24, 0)
+            and (dbl(3), dbl(6), dbl(10), dbl(5)) == (6, 12, 20, 10),
+        "DEEP_H: <35> = <5> holds the 864 multiples of 5, exactly the points that miss the tick; 7 x 24 = 168":
+            spine.subgroup(35) == spine.subgroup(5) == {x for x in range(N) if not ledger.contains_tick(x)}
+            and len(spine.subgroup(5)) == TICK and 7 * 24 == 168,
+        "DEEP_H corrected: <39> = <3> has 1440 points, the sun's step; the sun 1440 itself has order 3":
+            spine.order(39) == 1440 and spine.order(1440) == 3,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -788,6 +1057,9 @@ DOTS = {
     "stages": ("stages", "the fifteen indices", "22"),
     "cube": ("four-cube", "the 81-cell complex of [0, 1]^4", "21, 23"),
     "hodge": ("Hodge 70", "Lambda^4 R^8 = 35 + 35", "23"),
+    "coil": ("coil", "<8>, the 540 multiples of 8", "23"),
+    "S5": ("S5", "the 120 vertex permutations, the cone point's stabilizer in S6", "1, 23"),
+    "pgl": ("PGL(2,5)", "the transitive S5 in S6, on the projective line over F5", "23"),
 }
 
 # (from, to, short label, the map, status, check)
@@ -834,7 +1106,7 @@ JOINS = [
     ("circle", "observer", "idempotent 3105", "the 2-part; the observer clock is its order-4 subgroup", T, "primary_split"),
     ("circle", "c27", "idempotent 2080", "the 27-part, generated by the nakshatra 160", T, "primary_split"),
     ("time", "V", "kappa = 4x mod 5", "translation by 864 intertwined with the vertex rotor", T, "counts.two_clocks"),
-    ("clocks", "G120", "<c', d>", "the day-Coxeter group, order 120, derived group the tick", T, "clock_joins"),
+    ("clocks", "G120", "c' and d", "the day-Coxeter group, order 120, derived group the tick", T, "clock_joins"),
     ("G120", "circle", "24 maps", "every homomorphism to the circle kills the commutator", T, "counts.circle_maps"),
     ("G120", "AGL", "day clocks", "G / centre on the five day clocks: the tick rotates, the day doubles", T,
      "clock_joins"),
@@ -850,6 +1122,16 @@ JOINS = [
     ("bath", "walks", "return counts", "W_n = <delta_0, A^n delta_0> and E_n = <delta_0, Delta^n delta_0>", T, "walks_join"),
     ("walks", "moments", "binomial transform", "E_n, the one-site port's moments, is the binomial transform of W_n", T, "walks_join"),
     ("clocks", "hodge", "Lambda^4", "reflections swap the 35 + 35 halves, the clocks keep them", T, "hodge70"),
+    ("coil", "circle", "gcd 8", "the tick, the observer and the nakshatra generate the 540 multiples of 8, index 8; the smear step 184 = 23 x 8 generates the same subgroup", T, "coil"),
+    ("coil", "time", "x -> x mod 5", "onto the time coordinate with kernel the pada subgroup <40>: the tick misses its 108 points and meets the other 432", T, "coil"),
+    ("c27", "atlas", "160 k -> 16 k mod 36", "the nakshatra walk: period 9, each stable address three times; the 27-coordinate is 25 k mod 27", T, "nakshatra_map"),
+    ("atlas", "time", "Z/180 = Z/36 x Z/5", "36 = 1 mod 5: x = a + 36((t - a) mod 5), so every address carries all five time coordinates and the tick bit (t != 0) does not see the address", T, "address_lift"),
+    ("golden", "time", "k -> 216 k mod 5", "the k-th golden point misses the tick iff 5 | k iff 5 | F_k; no trace L_n of a golden power is a multiple of 5", T, "golden_family"),
+    ("S5", "carrier", "vertex permutations", "S5 acts on the 15 atoms and commutes with D; in S6 these are exactly the 120 permutations of K6 that keep D, and atoms and bonds are one S5-set", T, "cone_symmetry"),
+    ("AGL", "S5", "F20 inside S5", "AGL(1,5) = F20, the twenty affine maps of the vertices, is where the cone S5 and PGL(2,5) meet in S6", T, "cone_symmetry"),
+    ("AGL", "pgl", "x -> a x + b", "the stabilizer of infinity in PGL(2,5), and its only elements that keep D", T, "cone_symmetry"),
+    ("pgl", "carrier", "not the carrier's S5", "on the 15 bonds PGL(2,5) has one orbit and involution character 3, the carrier's S5 two orbits and transposition character 7: equal on F20 and C5, not as S5-modules", OB, "cone_symmetry"),
+    ("AGL", "sixsite", "the cone's rotation", "the 5-cycle with the cone point fixed, traces 1, 1, 1, 1, 6; a 6 x 6 block of order 5 with traces 1 (MPKG) is similar to it over Q", T, "mpkg_block"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -870,7 +1152,17 @@ LEDGER_ROWS = [
     ("L11 (synthesis)", "an order-11, degree-5 operator L11(n, E_n) with 72 coefficients", "not a recurrence for W_n or E_n: full column rank 72 from n <= 90, and 84 < 85", OB, "14, 23"),
     ("801 orbits (joined paper)", "1 + 3 + 3 + 6 + 6 + 6 + 6 on 31 points", "replayed through the symmetric square on PG(2,5)", T, "23"),
     ("collar (synthesis)", "positivity up to E = 224 by mediant monotonicity", "not replayed; the collar stays open here", RP, "23"),
-    ("all dots", "-", "34 dots and 52 joins in one connected diagram (docs/DOTS.md)", T, "23"),
+    ("the coil (SIBLING_540, CANON_CYCLE, COIL_DEEP)", "540 = 20 x 27 = 30 x 18 = 15 x 36; the smear step 184 generates 540 points; the pada unit is the part the tick cannot see", "the tick, the observer and the nakshatra generate <8> (index 8); inside it the tick misses exactly <40> (108 points) and meets the other 432; the cosets of <40> carry the time coordinates 0, 3, 1, 4, 2; x23 has order 36", T, "23"),
+    ("the nakshatra map (NAKSHATRA_MAP)", "the 27 multiples of 160, coordinate 25k mod 27, period 9 on the atlas", "replayed; 'the address 16 meets as an address' is corrected by the note's own pair: 16 and 160 share address 16, and 160 misses", T, "23"),
+    ("the golden family (GOLDEN_SYM, GOLDEN_PARENT, GOLDEN_HELIX, GOLDEN_MOVE)", "B^n = F_n B + F_(n-1) I; returns 6, 20, 12, 72, 48, 24; the first eight traces meet; 216 k misses iff 5 | F_k (to k = 40)", "replayed for every n: L_n mod 5 runs 2, 1, 3, 4, so no trace of a golden power misses the tick, and 5 | F_k iff 5 | k; the helix and 'doubling = x7' hold exactly where 5x = 0, the five tick points", T, "23"),
+    ("the address bit (ADDRESS_TICK, BUILT_DOTS)", "a residue mod 36 does not meet or miss; x = a + 36((t - a) mod 5)", "adopted: the sibling now proves the 22:08 correction (36 = 1 mod 5); CANON_CYCLE, COIL_DEEP, GOLDEN_HELIX, NAKSHATRA_MAP, DEEP_H, LEVEL_DOTS and the 22:45 paper still used the address bit, and their own pairs 155/11, 160/16, 138/30 correct it", T, "23"),
+    ("the shift and the doubling (MORE_DOTS; hub I_STATUS)", "the shift by one tick commutes with doubling", "corrected: D T = T^2 D = T^-1 D and D T != T D, while D^2 T = T D^2 (the hub's verifier agrees)", T, "23"),
+    ("the K6 carrier and S5 (hub I_STATUS, REVIEW_CONFLICTS_I)", "C5 agreement does not prove an S5 identification; transposition characters 7 vs 3", "replayed: the cone S5, which is exactly the set of permutations of K6 that keep D, makes atoms and bonds one S5-set; the transitive S5 = PGL(2,5) gives another module (one orbit, character 3); the two meet in F20 = AGL(1,5)", T, "23"),
+    ("MPKG and L4 (MPKG_L4, LEVEL_DOTS)", "four 6 x 6 blocks of order 5 with trace 1; levels 0, 6, 12, 18", "such a block is the C5 rotation of the cone's six sites up to similarity over Q (eigenvalues 1, 1 and the primitive fifth roots); doubling sends the levels to 0, 12, 24, 0; [[-1, 4], [6, 1]]^2 = 25 I", T, "23"),
+    ("the 31-point clock (MORE_DOTS; hub I_STATUS)", "its characteristic polynomial was not recomputed; a rank bound 29 stays conditional", "for P31, the symmetric square's permutation: (x - 1)(x^3 - 1)^2 (x^6 - 1)^4, order 6, rank(P31 - I) = 24; the rank 29 belongs to the hub's order-30 clock on Z/31 and stays conditional", T, "23"),
+    ("the four-cube faces (ADDRESS_TICK, BUILT_DOTS)", "16 + 32 + 24 + 8 + 1 = 81 words in {0, 1, *}", "replayed; the Hodge multiplicities 1, 8, 24, 32, 16 are the face counts read backwards (2k has C(4, k) 2^k = the number of (4 - k)-cells)", T, "23"),
+    ("release H (RELEASE_H_RECEIPT, DEEP_H, CANON_JOIN)", "certificate integers; det T6 = 155, det Gram = 24025", "readings in layer 22; 155^2 = 24025 holds for any T with det 155, one being (2I - C) + [5]; the canon's T6 is not opened, and the archive's 5247252 bytes match Drive (SHA-256 not recomputed)", RP, "22, 23"),
+    ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -880,7 +1172,12 @@ NOT_JOINED = [
     ("canon SMEAR (184 / 481)", "a rank-6 port T and a rank-4 projector P with minor -512 alpha^4 / 25; the operands are "
                                 "not stored here", RP),
     ("source-to-cube bridge", "rank 10 with an exact left decoder (canon); not stored here", RP),
-    ("AIR_801's 31 points", "the orbit list 6 + 6 + 6 + 6 + 3 + 3 + 1 needs a permutation of 31 points; none is stored", RP),
+    ("the hub's Z31 clock (I_STATUS)", "order 30 on 31 states, maximal rank 29 into the 45-point product; it rests on a "
+                                       "supplied characteristic that is not stored here", gates.CONDITIONAL),
+    ("the hub's R15 and F20 rows (I_STATUS)", "R15 with (t - 1)^3 (t^2 - 7t + 11)^6 and its F20 average 1^3, (7/2)^12; the "
+                                              "operators are not stored here", RP),
+    ("the separate model's release H (22:41)", "5247252 bytes, 168 check groups, 77 presentations, a finite Hilbert space "
+                                               "of dimension 174108; not opened or rerun", RP),
     ("air", "no air operator is stored, and none is formed", gates.UNFORMED),
 ]
 
@@ -903,7 +1200,8 @@ def _checks():
         "clock_joins": clock_joins, "primary_split": primary_split, "atlas": atlas, "pisano": pisano,
         "four_cube": four_cube, "hodge70": hodge70, "field": field, "embed": embed, "native_port": native_port,
         "cone_line_graph": cone_line_graph, "paired_response": paired_response, "band_expansion": band_expansion,
-        "walks_join": walks_join,
+        "walks_join": walks_join, "coil": coil, "nakshatra_map": nakshatra_map, "address_lift": address_lift,
+        "golden_family": golden_family, "cone_symmetry": cone_symmetry, "mpkg_block": mpkg_block,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -941,7 +1239,7 @@ def dots_page():
     for a, b, short, _, status, _ in JOINS:
         arrow = "-.->" if status == OB else "-->"
         lines.append(f'    {a} {arrow}|"{short}"| {b}')
-    lines += ["```", "", f"{len(DOTS)} dots and {len(JOINS)} joins. With the obstruction left out, the joins that "
+    lines += ["```", "", f"{len(DOTS)} dots and {len(JOINS)} joins. With the obstructions left out, the joins that "
               "hold connect every dot: the diagram is one piece.", "",
               "## Dots", "", "| dot | what it is | layers |", "|---|---|---|"]
     cell = lambda x: x.replace("|", "\\|")
@@ -966,7 +1264,7 @@ def run():
     for (a, b, _, what, status, ck), ok in zip(JOINS, passed):
         rep.add(f"{DOTS[a][0]} -> {DOTS[b][0]}: {what}", status, ok, results[ck] if ck in results else None)
     comps = components(passed)
-    rep.add(f"the {len(DOTS)} dots and {len(JOINS)} joins form one connected diagram (the obstruction left out)", T,
+    rep.add(f"the {len(DOTS)} dots and {len(JOINS)} joins form one connected diagram (the obstructions left out)", T,
             len(comps) == 1, [sorted(c) for c in comps])
     a8 = air_801()
     rep.add("AIR_801's matrix [[108, 801], [106, 901]]: det 12402; mod 5 a Singer cycle of order 24 in GL(2,5) and 6 in "
@@ -998,6 +1296,23 @@ def run():
     rep.add("recorded from the synthesis, not replayed: collar positivity up to E = 224 by mediant monotonicity (the collar "
             "stays open here until the argument is supplied), the dispersive constant 73/20, the Wronskian-Dyson "
             "monodromy, the Legendre-Rodrigues preparation constant, the SGC5 compression and the 199 P/N rows", RP, True)
+    p31 = p31_clock()
+    rep.add("MORE_DOTS's open polynomial, computed: the 31-point permutation P31 of the 801 matrix's symmetric square has "
+            "characteristic polynomial (x - 1)(x^3 - 1)^2 (x^6 - 1)^4, order 6 and rank(P31 - I) = 24", T,
+            all(p31.values()), p31)
+    n33 = notes_2303()
+    rep.add("the 22:08-23:03 arithmetic (MORE_DOTS, PAULI_CYCLE, SIBLING_540, CANON_JOIN, CANON_CYCLE, DEEP_H, LEVEL_DOTS), "
+            "with two corrections: the atlas shift by 24 does not commute with doubling (D T = T^-1 D, D^2 T = T D^2), and "
+            "<39> has 1440 points while the sun 1440 has order 3", T, all(n33.values()), n33)
+    rep.add("Drive check 23:03: the sibling's PAULI_CYCLE, CORRECTIONS_47 and MORE_DOTS (22:08-22:15, read late), "
+            "SIBLING_540, CANON_JOIN, STATUS_20261029, CANON_CYCLE, COIL_DEEP, GOLDEN_HELIX, NAKSHATRA_MAP, GOLDEN_SYM, "
+            "RELEASE_H_RECEIPT, DEEP_H, MPKG_L4, LEVEL_DOTS, ADDRESS_TICK, BUILT_DOTS, GOLDEN_PARENT and GOLDEN_MOVE "
+            "(22:42-23:03) and its paper one-machine-20261029-canon (22:45, seventeen checks); the separate model's "
+            "release-H archive and certificate (22:41-22:52, not opened or rerun); the hub's release I (cutoff 22:42) with "
+            "00_START_HERE, CURRENT_STATUS and REVIEW_CONFLICTS_20261029_I", RP, True)
+    rep.add("adopted by the sibling: CORRECTIONS_47 (22:12) takes the 21:36 corrections, and ADDRESS_TICK (22:58) proves "
+            "the 22:08 one (36 = 1 mod 5, so every address carries all five time coordinates); the hub's I_STATUS confirms "
+            "the shift-doubling correction and keeps the synthesis's recurrence and collar open", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

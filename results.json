@@ -57,39 +57,39 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.59,
+  "1-carrier": 0.62,
   "2-spectral": 0.01,
-  "3-spacetime": 8.94,
-  "4-native": 86.05,
-  "5-observer": 0.4,
-  "6-gravity": 4.44,
-  "7-cosmology": 1.64,
-  "8-frontier": 33.29,
-  "9-joins": 8.37,
-  "10-literal": 35.14,
-  "11-glue": 0.18,
-  "12-binding": 0.04,
-  "13-gates": 0.05,
-  "14-recurrence": 68.73,
-  "15-court": 1.72,
-  "16-handover": 1.12,
-  "17-waves": 0.51,
-  "18-snapshot": 0.84,
-  "19-spine": 4.32,
-  "20-canon": 5.7,
-  "21-ledger": 44.26,
-  "22-counts": 20.73,
-  "23-dots": 4.94
+  "3-spacetime": 8.5,
+  "4-native": 88.1,
+  "5-observer": 0.21,
+  "6-gravity": 5.07,
+  "7-cosmology": 1.66,
+  "8-frontier": 35.05,
+  "9-joins": 9.02,
+  "10-literal": 35.01,
+  "11-glue": 0.21,
+  "12-binding": 0.03,
+  "13-gates": 0.11,
+  "14-recurrence": 71.33,
+  "15-court": 1.83,
+  "16-handover": 1.15,
+  "17-waves": 0.54,
+  "18-snapshot": 0.79,
+  "19-spine": 4.03,
+  "20-canon": 6.15,
+  "21-ledger": 44.59,
+  "22-counts": 21.58,
+  "23-dots": 5.34
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 358,
-   "total": 358
+   "passed": 369,
+   "total": 369
   },
   "OBSTRUCTION": {
-   "passed": 43,
-   "total": 43
+   "passed": 44,
+   "total": 44
   },
   "REMOVED": {
    "passed": 2,
@@ -108,12 +108,12 @@
    "total": 19
   },
   "CONDITIONAL": {
-   "passed": 17,
-   "total": 17
+   "passed": 18,
+   "total": 18
   },
   "REPORTED": {
-   "passed": 50,
-   "total": 50
+   "passed": 53,
+   "total": 53
   }
  },
  "checks": [
@@ -4642,13 +4642,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 798 readings from 90 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 979 readings from 108 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 90,
-    "claims": 798,
+    "notes": 108,
+    "claims": 979,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -5516,7 +5516,8 @@
     "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
     "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
     "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
-    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true,
+    "the simple roots e_i - e_(i+1), with e_3 + e_4 for D5, have Cartan determinants 5 (A4) and 4 (D5)": true
    },
    "note": ""
   },
@@ -5531,7 +5532,8 @@
     "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
     "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
     "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
-    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true,
+    "the simple roots e_i - e_(i+1), with e_3 + e_4 for D5, have Cartan determinants 5 (A4) and 4 (D5)": true
    },
    "note": ""
   },
@@ -5546,7 +5548,8 @@
     "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
     "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
     "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
-    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true,
+    "the simple roots e_i - e_(i+1), with e_3 + e_4 for D5, have Cartan determinants 5 (A4) and 4 (D5)": true
    },
    "note": ""
   },
@@ -5561,7 +5564,8 @@
     "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
     "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
     "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
-    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true,
+    "the simple roots e_i - e_(i+1), with e_3 + e_4 for D5, have Cartan determinants 5 (A4) and 4 (D5)": true
    },
    "note": ""
   },
@@ -5589,7 +5593,8 @@
     "Coxeter numbers h = roots / rank: h(A4) = 20/4 = 5 and h(D5) = 40/5 = 8, with sum over all roots of alpha alpha^T = 2h P": true,
     "so B B^T = h(A4) P = 5I - J and B B^T + M M^T = h(D5) I = 8I": true,
     "M M^T = h(D5) I - h(A4) P = 3I + J, with eigenvalues h(D5) - h(A4) = 3 (four times) and h(D5) = 8 (once); so spec D^2 = {0^5, 3^8, 8^2}": true,
-    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true
+    "ker M (the five zero modes) is the space of linear relations among the ten roots e_i + e_j": true,
+    "the simple roots e_i - e_(i+1), with e_3 + e_4 for D5, have Cartan determinants 5 (A4) and 4 (D5)": true
    },
    "note": ""
   },
@@ -6138,6 +6143,7 @@
    "value": {
     "the four-cube complex has 16, 32, 24, 8, 1 cells (81 in all) and d^2 = 0": true,
     "its Hodge Laplacian has spectrum 0, 2^8, 4^24, 6^32, 8^16 (layer 21's count, now on the complex)": true,
+    "the multiplicities are the cell counts read backwards: 2k has multiplicity C(4, k) 2^k, the number of (4 - k)-cells, since the complex is the fourth power of the interval (spectrum 0, 2, 2); the 81 cells are the words of length 4 in {0, 1, *}": true,
     "the Hodge homotopy h = d^T Delta^+ has dh + hd = I - P0, h^2 = 0, rank 40 and norm 1/sqrt 2 (the canon's h81)": 1.0,
     "its 16 vertices are the basis states of four qubits: the graph Laplacian is 4 - sum X_i, in the Pauli algebra": true,
     "adjacent vertices have effective resistance 15/32, between |b|^2 / 8 = 1/4 and |b|^2 / 2 = 1 (CLOSURE_46)": "True"
@@ -6216,7 +6222,148 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 34 dots and 52 joins form one connected diagram (the obstruction left out)",
+   "name": "coil -> circle: the tick, the observer and the nakshatra generate the 540 multiples of 8, index 8; the smear step 184 = 23 x 8 generates the same subgroup",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick 864, the observer 1080 and the nakshatra 160 generate <8> (gcd 8): 540 points, index 8; the sun 1440, the half-turn 2160 and the mass step 216 lie in it": true,
+    "the smear step 184 = 23 x 8 generates the same subgroup (23 is prime to 540); the step 540 is not in it and has order 8": true,
+    "inside the coil the tick misses exactly the pada subgroup <40> (108 points) and meets the other 432": true,
+    "the five cosets of <40> carry the time coordinates 0, 3, 1, 4, 2, each once": true,
+    "multiplication by 23 permutes the coil, with order 36": true,
+    "540 = 20 x 27 = 30 x 18 = 15 x 36, and 2 has order 18 mod 27": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "coil -> time clock: onto the time coordinate with kernel the pada subgroup <40>: the tick misses its 108 points and meets the other 432",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick 864, the observer 1080 and the nakshatra 160 generate <8> (gcd 8): 540 points, index 8; the sun 1440, the half-turn 2160 and the mass step 216 lie in it": true,
+    "the smear step 184 = 23 x 8 generates the same subgroup (23 is prime to 540); the step 540 is not in it and has order 8": true,
+    "inside the coil the tick misses exactly the pada subgroup <40> (108 points) and meets the other 432": true,
+    "the five cosets of <40> carry the time coordinates 0, 3, 1, 4, 2, each once": true,
+    "multiplication by 23 permutes the coil, with order 36": true,
+    "540 = 20 x 27 = 30 x 18 = 15 x 36, and 2 has order 18 mod 27": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "27-clock -> atlas: the nakshatra walk: period 9, each stable address three times; the 27-coordinate is 25 k mod 27",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 27 multiples of 160 are pure 27-part: each is divisible by 32 and by 5, so every one misses the tick": true,
+    "the k-th point has 27-coordinate 25k mod 27, and 25^-1 = 13 mod 27": true,
+    "on the atlas the walk is 0, 16, 32, 12, 28, 8, 24, 4, 20 and repeats: period 9, each stable address three times": true,
+    "over the seam lie 0, the sun 1440 and 2880, the subgroup of order 3; over address 20 lie the steps 8, 17 and 26": true,
+    "from 16 the walk and the doubling agree once (32) and then split (12 against 28)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "atlas -> time clock: 36 = 1 mod 5: x = a + 36((t - a) mod 5), so every address carries all five time coordinates and the tick bit (t != 0) does not see the address",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "x = a + 36((t - a) mod 5) is the one residue below 180 with address a and time coordinate t: Z/180 = Z/36 x Z/5": true,
+    "every address carries all five time coordinates, and the tick misses exactly at time 0 (address 1 at time 0 is 145)": true,
+    "the circle is 24 copies of this period 180": true,
+    "so an address carries no tick bit: the notes' own pairs 1/145, 20/56, 30/66, 11/155, 16/160 and 30/138 share an address and differ on the tick": true,
+    "what holds is a statement about the nine integers 0, 4, ..., 32: only 0 and 20 are multiples of 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> time clock: the k-th golden point misses the tick iff 5 | k iff 5 | F_k; no trace L_n of a golden power is a multiple of 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B = B^T, B^-1 = B - I, B^2 = B + I and det B^n = (-1)^n; t^2 - t - 1 has discriminant 5": true,
+    "B^n = F_n B + F_(n-1) I for n = -30..30, with F_-n = (-1)^(n+1) F_n; B^6 = [[13, 8], [8, 5]] and B^7 = [[21, 13], [13, 8]], whose rows sum to 34 and 21": true,
+    "B returns after 6 mod 4, 20 mod 5, 12 mod 8, 72 mod 27, 48 mod 32 and 24 mod 36": true,
+    "tr B^n = F_(n-1) + F_(n+1) = L_n, and L_n mod 5 runs 2, 1, 3, 4 with period 4 (L_4, L_5 = L_0, L_1 mod 5): no trace of a golden power misses the tick": true,
+    "F_k mod 5 has period 20 with zeros at k = 0, 5, 10, 15, so 5 | F_k iff 5 | k: the k-th golden point 216 k misses the tick exactly then": true,
+    "the golden points 216 k sit at address 0 and 27-coordinate 0; the time coordinate advances by 1 and the 2-coordinate by 24; four steps give the tick 864 and five the observer 1080": true,
+    "the helix and 'doubling = x7' rest on 5x = 0, which holds exactly at the five tick points; they lie in the coil and on the seam, and 160, 8, 184 and 1 are not among them": true,
+    "two contractions take 13 to 16 and 5 to 20": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "S5 -> carrier: S5 acts on the 15 atoms and commutes with D; in S6 these are exactly the 120 permutations of K6 that keep D, and atoms and bonds are one S5-set",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "of the 720 permutations of K6's vertices exactly the 120 that fix the cone point keep D on the 15 bonds": true,
+    "on them the atoms and the bonds are one S5-set (vertex i <-> spoke i5, edge ij <-> ij); transpositions have character 7 and double transpositions 3": true,
+    "the transitive S5 = PGL(2,5) on the projective line over F5 has one orbit on the bonds (the cone S5 has two) and character 3 on all 25 involutions, the 10 outside PSL(2,5) included: a different S5-module (the hub's 7 versus 3)": true,
+    "the two meet in the twenty affine maps x -> a x + b, F20 = AGL(1,5), which holds the 5-cycle; these are the only elements of PGL(2,5) that keep D": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> S5: AGL(1,5) = F20, the twenty affine maps of the vertices, is where the cone S5 and PGL(2,5) meet in S6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "of the 720 permutations of K6's vertices exactly the 120 that fix the cone point keep D on the 15 bonds": true,
+    "on them the atoms and the bonds are one S5-set (vertex i <-> spoke i5, edge ij <-> ij); transpositions have character 7 and double transpositions 3": true,
+    "the transitive S5 = PGL(2,5) on the projective line over F5 has one orbit on the bonds (the cone S5 has two) and character 3 on all 25 involutions, the 10 outside PSL(2,5) included: a different S5-module (the hub's 7 versus 3)": true,
+    "the two meet in the twenty affine maps x -> a x + b, F20 = AGL(1,5), which holds the 5-cycle; these are the only elements of PGL(2,5) that keep D": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> PGL(2,5): the stabilizer of infinity in PGL(2,5), and its only elements that keep D",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "of the 720 permutations of K6's vertices exactly the 120 that fix the cone point keep D on the 15 bonds": true,
+    "on them the atoms and the bonds are one S5-set (vertex i <-> spoke i5, edge ij <-> ij); transpositions have character 7 and double transpositions 3": true,
+    "the transitive S5 = PGL(2,5) on the projective line over F5 has one orbit on the bonds (the cone S5 has two) and character 3 on all 25 involutions, the 10 outside PSL(2,5) included: a different S5-module (the hub's 7 versus 3)": true,
+    "the two meet in the twenty affine maps x -> a x + b, F20 = AGL(1,5), which holds the 5-cycle; these are the only elements of PGL(2,5) that keep D": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> carrier: on the 15 bonds PGL(2,5) has one orbit and involution character 3, the carrier's S5 two orbits and transposition character 7: equal on F20 and C5, not as S5-modules",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "of the 720 permutations of K6's vertices exactly the 120 that fix the cone point keep D on the 15 bonds": true,
+    "on them the atoms and the bonds are one S5-set (vertex i <-> spoke i5, edge ij <-> ij); transpositions have character 7 and double transpositions 3": true,
+    "the transitive S5 = PGL(2,5) on the projective line over F5 has one orbit on the bonds (the cone S5 has two) and character 3 on all 25 involutions, the 10 outside PSL(2,5) included: a different S5-module (the hub's 7 versus 3)": true,
+    "the two meet in the twenty affine maps x -> a x + b, F20 = AGL(1,5), which holds the 5-cycle; these are the only elements of PGL(2,5) that keep D": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> six-site port: the 5-cycle with the cone point fixed, traces 1, 1, 1, 1, 6; a 6 x 6 block of order 5 with traces 1 (MPKG) is similar to it over Q",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the rotation of the five rim sites with the cone point fixed has order 5 and traces 1, 1, 1, 1, 6": true,
+    "a 6 x 6 matrix with B^5 = I and those traces has the eigenvalue 1 twice and each primitive fifth root once, so it is similar to that rotation over Q": true,
+    "four copies have trace 4 and return at 5 to an identity of trace 24": true,
+    "doubling sends the levels 0, 6, 12, 18 to 0, 12, 24, 0": true,
+    "the stored block [[-1, 4], [6, 1]] squares to 25 I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 37 dots and 62 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6228,6 +6375,7 @@
      "E8",
      "G120",
      "L0",
+     "S5",
      "V",
      "atlas",
      "bath",
@@ -6235,6 +6383,7 @@
      "carrier",
      "circle",
      "clocks",
+     "coil",
      "cube",
      "cycles",
      "datum",
@@ -6248,6 +6397,7 @@
      "observer",
      "pauli",
      "petersen",
+     "pgl",
      "rotor",
      "sixsite",
      "source",
@@ -6353,6 +6503,51 @@
   },
   {
    "layer": "23-dots",
+   "name": "MORE_DOTS's open polynomial, computed: the 31-point permutation P31 of the 801 matrix's symmetric square has characteristic polynomial (x - 1)(x^3 - 1)^2 (x^6 - 1)^4, order 6 and rank(P31 - I) = 24",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the symmetric square's permutation P31 of the 31 points has characteristic polynomial (x - 1)(x^3 - 1)^2 (x^6 - 1)^4 and order 6": true,
+    "rank(P31 - I) = 31 - 7 = 24, one kernel vector per orbit": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 22:08-23:03 arithmetic (MORE_DOTS, PAULI_CYCLE, SIBLING_540, CANON_JOIN, CANON_CYCLE, DEEP_H, LEVEL_DOTS), with two corrections: the atlas shift by 24 does not commute with doubling (D T = T^-1 D, D^2 T = T D^2), and <39> has 1440 points while the sun 1440 has order 3",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "MORE_DOTS corrected: the shift T by 24 does not commute with the doubling D on the atlas; D T = T^2 D = T^-1 D and D^2 T = T D^2 (the hub's atlas verifier agrees)": true,
+    "MORE_DOTS: the companion [[0, -1], [1, -1]] has order 3; 96 = 60 + 36, 70 = 60 + 10, 94 = 96 - 2; 4 x 96 + 6 x 36 = 600, where both parts meet and the sum misses": true,
+    "PAULI_CYCLE: 256 and 224 sit at addresses 4 and 8, doubling runs 4 -> 8 -> 16 -> 32, and 1 + 8 x 15 + 9 x 15 = 256": true,
+    "SIBLING_540: C(9, 2) = 36, C(9, 3) = 84; Phi_5(2) = 31 = 15 + 4 + 6 + 6 = 6 + 15 + 10; 3(10 - 1) = 27": true,
+    "CANON_JOIN: rank M = 5, rank B = 4 and 10 - 4 = 6 cycles; a T with det 155, such as (2I - C) + [5], has a Gram T^T T of det 155^2 = 24025, and 4805 = 31 x 155; 12 x 16 < 195 <= 12 x 17": true,
+    "CANON_CYCLE, DEEP_H and LEVEL_DOTS on the atlas: 155, 24025, 4805 -> 11, 13, 17; 174108 = 40 x 4320 + 1308 with 1308 = 12 x 109 -> 12; 168 -> 24, 42 -> 6, 138 -> 30, 2415 and 39 -> 3, 4834 -> 10, 77 -> 5": true,
+    "doubling keeps the six multiples of 6 (6, 30 -> 12, 24; 18 -> 0) and takes 3 -> 6 -> 12, 10 -> 20, 5 -> 10 -> 20": true,
+    "DEEP_H: <35> = <5> holds the 864 multiples of 5, exactly the points that miss the tick; 7 x 24 = 168": true,
+    "DEEP_H corrected: <39> = <3> has 1440 points, the sun's step; the sun 1440 itself has order 3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 23:03: the sibling's PAULI_CYCLE, CORRECTIONS_47 and MORE_DOTS (22:08-22:15, read late), SIBLING_540, CANON_JOIN, STATUS_20261029, CANON_CYCLE, COIL_DEEP, GOLDEN_HELIX, NAKSHATRA_MAP, GOLDEN_SYM, RELEASE_H_RECEIPT, DEEP_H, MPKG_L4, LEVEL_DOTS, ADDRESS_TICK, BUILT_DOTS, GOLDEN_PARENT and GOLDEN_MOVE (22:42-23:03) and its paper one-machine-20261029-canon (22:45, seventeen checks); the separate model's release-H archive and certificate (22:41-22:52, not opened or rerun); the hub's release I (cutoff 22:42) with 00_START_HERE, CURRENT_STATUS and REVIEW_CONFLICTS_20261029_I",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "adopted by the sibling: CORRECTIONS_47 (22:12) takes the 21:36 corrections, and ADDRESS_TICK (22:58) proves the 22:08 one (36 = 1 mod 5, so every address carries all five time coordinates); the hub's I_STATUS confirms the shift-doubling correction and keeps the synthesis's recurrence and collar open",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: separate model's joined model (22:02): 158 check groups, 12 review groups, 80 matrices, 63 typed relationships; sha256 b0c17731...",
    "status": "REPORTED",
    "passed": true,
@@ -6377,7 +6572,23 @@
   },
   {
    "layer": "23-dots",
-   "name": "not joined: AIR_801's 31 points: the orbit list 6 + 6 + 6 + 6 + 3 + 3 + 1 needs a permutation of 31 points; none is stored",
+   "name": "not joined: the hub's Z31 clock (I_STATUS): order 30 on 31 states, maximal rank 29 into the 45-point product; it rests on a supplied characteristic that is not stored here",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the hub's R15 and F20 rows (I_STATUS): R15 with (t - 1)^3 (t^2 - 7t + 11)^6 and its F20 average 1^3, (7/2)^12; the operators are not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's release H (22:41): 5247252 bytes, 168 check groups, 77 presentations, a finite Hilbert space of dimension 174108; not opened or rerun",
    "status": "REPORTED",
    "passed": true,
    "value": null,
