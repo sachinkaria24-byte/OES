@@ -11,8 +11,8 @@ import json
 import sys
 import time
 
-from oes import (binding, carrier, cosmology, frontier, gates, gatework, glue, gravity, joins,
-                 literal, native, observer, recurrence, spacetime, spectral)
+from oes import (binding, carrier, cosmology, court, frontier, gates, gatework, glue, gravity,
+                 joins, literal, native, observer, recurrence, spacetime, spectral)
 
 
 def main(argv):
@@ -32,6 +32,7 @@ def main(argv):
         ("12-binding", binding.run),
         ("13-gates", gatework.run),
         ("14-recurrence", recurrence.run),
+        ("15-court", court.run),
     ]
     checks, timing = [], {}
     for name, fn in layers:

@@ -79,6 +79,8 @@ UNFORMED_OPERANDS = [
     "ports R1, 025, 250, Jfix, Sawan, Hemkuver", "historical Agni/Soma/Suraj",
     "Sakshin operator (original)", "I6L", "Wald coefficient",
     "physical child H_sel.selected_owner_id",
+    "the missing five-dimensional operand (U19.81 remark: 'cofactor 4805' is not a minor of "
+    "the literal adapter, whose largest |cofactor| is 68)",
 ]
 
 # Recovered or formed in this build (layers 10, 11, walks, 14).
@@ -89,8 +91,12 @@ RECOVERED_OPERANDS = {
     "6x6 adapter T of eq. 27 (det 155, cofactor 4805)":
         "present in the same file as T_OMSOON293; 155 vs 4805 replayed (layer 10)",
     "E8 glue map": "constructed: D8 + s and A4 + A4' with x -> +-2x (layer 11)",
-    "lattice sequence W_60": "computed exactly, W_0..W_60 (data/walks.json); canon "
-                             "W_0..W_55 replayed with zero mismatches",
+    "lattice sequence W_60": "computed exactly to W_90 (data/walks90.json, Weyl-orbit DP); "
+                             "canon W_0..W_55 replayed with zero mismatches; W_0..W_600 mod "
+                             "four primes from the D8 + spinor engine (data/walks_modp.json)",
+    "scalar W_n recurrence": "formed mod four primes: order 16, degree 58, characteristic "
+                             "roots exact over Q (data/recurrence_modp.json, layer 14); "
+                             "rational coefficients not reconstructed",
 }
 
 

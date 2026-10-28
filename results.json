@@ -45,40 +45,43 @@
    "Sakshin operator (original)",
    "I6L",
    "Wald coefficient",
-   "physical child H_sel.selected_owner_id"
+   "physical child H_sel.selected_owner_id",
+   "the missing five-dimensional operand (U19.81 remark: 'cofactor 4805' is not a minor of the literal adapter, whose largest |cofactor| is 68)"
   ],
   "recovered": {
    "saved native_source_matrices (SHA256 73e07429...)": "recovered from OES_Standing_Model_Integrated_Proof_Packet_20261027.zip; hash identical; data/native_matrices_input.json (layer 10)",
    "6x6 adapter T of eq. 27 (det 155, cofactor 4805)": "present in the same file as T_OMSOON293; 155 vs 4805 replayed (layer 10)",
    "E8 glue map": "constructed: D8 + s and A4 + A4' with x -> +-2x (layer 11)",
-   "lattice sequence W_60": "computed exactly, W_0..W_60 (data/walks.json); canon W_0..W_55 replayed with zero mismatches"
+   "lattice sequence W_60": "computed exactly to W_90 (data/walks90.json, Weyl-orbit DP); canon W_0..W_55 replayed with zero mismatches; W_0..W_600 mod four primes from the D8 + spinor engine (data/walks_modp.json)",
+   "scalar W_n recurrence": "formed mod four primes: order 16, degree 58, characteristic roots exact over Q (data/recurrence_modp.json, layer 14); rational coefficients not reconstructed"
   }
  },
  "timing_s": {
-  "1-carrier": 0.33,
-  "2-spectral": 0.0,
-  "3-spacetime": 4.79,
-  "4-native": 38.23,
-  "5-observer": 5.83,
-  "6-gravity": 2.25,
-  "7-cosmology": 0.77,
-  "8-frontier": 24.03,
-  "9-joins": 4.43,
-  "10-literal": 15.33,
-  "11-glue": 0.15,
-  "12-binding": 0.06,
-  "13-gates": 0.32,
-  "14-recurrence": 3.33
+  "1-carrier": 0.4,
+  "2-spectral": 0.01,
+  "3-spacetime": 5.01,
+  "4-native": 38.6,
+  "5-observer": 0.21,
+  "6-gravity": 3.57,
+  "7-cosmology": 0.92,
+  "8-frontier": 26.89,
+  "9-joins": 5.64,
+  "10-literal": 15.4,
+  "11-glue": 0.1,
+  "12-binding": 0.02,
+  "13-gates": 0.03,
+  "14-recurrence": 34.13,
+  "15-court": 1.31
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 161,
-   "total": 161
+   "passed": 179,
+   "total": 179
   },
   "OBSTRUCTION": {
-   "passed": 8,
-   "total": 8
+   "passed": 13,
+   "total": 13
   },
   "REMOVED": {
    "passed": 2,
@@ -93,16 +96,16 @@
    "total": 5
   },
   "UNFORMED": {
-   "passed": 11,
-   "total": 11
+   "passed": 14,
+   "total": 14
   },
   "CONDITIONAL": {
    "passed": 12,
    "total": 12
   },
   "REPORTED": {
-   "passed": 10,
-   "total": 10
+   "passed": 12,
+   "total": 12
   }
  },
  "checks": [
@@ -1375,7 +1378,7 @@
    "status": "REPORTED",
    "passed": true,
    "value": null,
-   "note": "Morse indices 7 and 8 at lambda=-12, corrections -16/3 vs -17/8; the line 'at least 10, not 11' should be deleted"
+   "note": "Morse indices 7 and 8 at lambda=-12, corrections -16/3 vs -17/8; the line 'at least 10, not 11' should be deleted. Layer 14: the operator found has order 16; its characteristic polynomial has 11 roots in the band [-16, 240], (z+12)^2 among them, and 5 outside"
   },
   {
    "layer": "8-frontier",
@@ -1419,7 +1422,7 @@
   },
   {
    "layer": "8-frontier",
-   "name": "complete scalar W_n recurrence (order >= 11, degree >= 9, >= 120 unknowns; 101 exact terms insufficient)",
+   "name": "scalar W_n recurrence over Q: layer 14 forms it mod four primes (order 16, degree 58, characteristic roots exact); rational coefficients and a proof for all n open",
    "status": "UNFORMED",
    "passed": true,
    "value": null,
@@ -2176,15 +2179,15 @@
   },
   {
    "layer": "14-recurrence",
-   "name": "new exact terms W_56..W_80 (lattice sequence W_60 formed)",
+   "name": "new exact terms W_56..W_90 (W(E8) dominant-weight DP, CRT)",
    "status": "THEOREM",
    "passed": true,
-   "value": 80,
+   "value": 90,
    "note": ""
   },
   {
    "layer": "14-recurrence",
-   "name": "canon exclusions (5,2), (10,2), (12,2), (10,3) replayed on W_0..W_80",
+   "name": "canon exclusions (5,2), (10,2), (12,2), (10,3) replayed on W_0..W_90",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -2192,68 +2195,400 @@
   },
   {
    "layer": "14-recurrence",
-   "name": "no recurrence shape decidable from W_0..W_80 has a kernel",
-   "status": "THEOREM",
-   "passed": true,
-   "value": "none",
-   "note": "a kernel would be a candidate recurrence; none appears"
-  },
-  {
-   "layer": "14-recurrence",
-   "name": "data-only bound from W_0..W_80: every recurrence has (r+1)(d+2) > 82",
+   "name": "exact data-only bound from W_0..W_90: every recurrence has (r+1)(d+2) > 92",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "1": 39,
-    "2": 25,
-    "3": 18,
-    "4": 14,
-    "5": 11,
-    "6": 9,
-    "7": 8,
-    "8": 7,
-    "9": 6,
-    "10": 5,
-    "11": 4,
-    "12": 4,
-    "13": 3,
-    "14": 3,
-    "15": 3,
-    "16": 2,
-    "17": 2,
-    "18": 2,
-    "19": 2,
-    "20": 1,
-    "21": 1,
-    "22": 1,
-    "23": 1,
-    "24": 1,
-    "25": 1,
-    "26": 1,
-    "27": 0,
-    "28": 0,
-    "29": 0,
-    "30": 0,
-    "31": 0,
-    "32": 0,
-    "33": 0,
-    "34": 0,
-    "35": 0,
-    "36": 0,
-    "37": 0,
-    "38": 0,
-    "39": 0,
-    "40": 0
+    "corners_tested": 16,
+    "kernels": []
    },
-   "note": "shape (r,d) is decided when (r+1)(d+1) <= N-r+1; all decided shapes are excluded. Canon standing bound: (r+1)(d+2) > 85"
+   "note": "canon standing bound (r+1)(d+2) > 85 -> 92"
   },
   {
    "layer": "14-recurrence",
-   "name": "explicit scalar recurrence for W_n",
+   "name": "canon's minimal admissible shape (10,6), product 88, tested directly",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "excluded: no order-10 degree-6 recurrence exists"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "W_n mod [786433, 1179649, 1376257, 1769473] from the D8 + spinor engine agree with the exact Weyl-orbit W_0..W_90 (two independent algorithms)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1769473": 600,
+    "1376257": 600,
+    "1179649": 500,
+    "786433": 500
+   },
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "stored residues re-derived in-suite for W_0..W_120 mod 1769473",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "W_0..W_600 mod 1769473: every recurrence with (r+1)(d+2) <= 455 is excluded (39 corner shapes, full rank)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "order 10 needs degree >= 53, order 11 >= 49, order 15 >= 36 (frontier on the same data); the sibling's (r+1)(d+2) >= 195 and 'order 11 needs degree >= 15' follow"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "first kernel: shape (23, 17), product 456, has a 2-dim kernel mod both primes with 146 more equations than unknowns",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1769473": 2,
+    "1376257": 2
+   },
+   "note": "an accidental kernel of an overdetermined system mod p has probability ~p^-146; this is a recurrence of the data"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "GCRD of the kernel recurrences of shapes [[23, 17], [27, 15], [21, 19]] on W_0..W_500 is one operator of order 16 and degree 58 (= stored), and it annihilates W_501..W_600 as well",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "the stored order-16 operator annihilates all data mod each of the four primes",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1769473": 585,
+    "1376257": 585,
+    "1179649": 485,
+    "786433": 485
+   },
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "characteristic polynomial of the operator, exact over Q (all four primes): 16 roots, 11 of them (with multiplicity) in the band [-16, 240]",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "in_band": {
+     "240": 1,
+     "16": 1,
+     "-3": 1,
+     "-8": 1,
+     "-10": 1,
+     "-11": 1,
+     "-12": 2,
+     "-16": 1,
+     "-185/16": 1,
+     "-320/27": 1
+    },
+    "outside": {
+     "340": 1,
+     "-20": 1,
+     "-35": 1,
+     "-660": 1,
+     "-120/7": 1
+    }
+   },
+   "note": "240 band top, 16 the 224 saddle, -16 band bottom; 340, -660, -20, -35, -120/7 lie outside the real band"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "local exponents: -4 = -dim/2 at every simple root; (alpha+4)(alpha+5) at the double root -12",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "the in-band part of the characteristic polynomial has degree 11 and contains (z+12)^2 (the sibling's 'order 11 with (x+12)^2'); the operator found has order 16",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "an order-11 annihilator is not excluded by the data (it would need degree >= 49) but would be a right factor of this operator"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "explicit scalar recurrence for W_n over Q",
    "status": "UNFORMED",
    "passed": true,
    "value": null,
-   "note": "needs more exact terms than a Weyl-orbit DP reaches; the canon proves order >= 10 and the finite determinant construction exists"
+   "note": "order 16 and degree 58 mod four primes, characteristic roots exact; the rational coefficients need more primes, and a proof for all n needs creative telescoping or an a-priori size bound"
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 (5,2,1) sector eigenvalues: A_bb = 241 on V5, 235 on V1; BB* = 183 on V5, 495 on V1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    240.99999999999994,
+    235.0000000000001,
+    182.99999999999997,
+    495.0000000000001
+   ],
+   "note": "matrices 241I - J and 183I + 52J are checked on the lattice in layer 3"
+  },
+  {
+   "layer": "15-court",
+   "name": "sector moments at k = 1 equal those eigenvalues: contrast m_2/240 = 241, uniform 6 m_1 - m_2/48 = 235",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    "1",
+    "235",
+    "55720",
+    "13294695"
+   ],
+   "note": ""
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 script: its uniform moment m_k - m_{k+1}/288 gives 39.17 at k = 1, not 235; its own assert fails",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": 39.166666666666664,
+   "note": "corrected formula 6 m_k - m_{k+1}/48 (previous check)"
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 script: its walk generator agrees with W_n only for n <= 3 (W_4: 7,772,208 printed, 1,260,720 true)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "agree": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "W4_script": 7772208,
+    "W4_true": 1260720
+   },
+   "note": ""
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 script: its moment sequences are not positive definite (Lanczos beta^2 <= 0 at step 3): no measure has them",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "contrast": 3,
+    "site": 3
+   },
+   "note": ""
+  },
+  {
+   "layer": "15-court",
+   "name": "true sector moments M_0..M_50 pass the Hausdorff test on [0, 256]: Hankel forms of M, xM, (256-x)M, x(256-x)M positive definite (exact); 25 Gauss nodes in (0, 256)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "V5 contrast": {
+     "M": 26,
+     "xM": 25,
+     "(256-x)M": 25,
+     "x(256-x)M": 25
+    },
+    "V1 uniform": {
+     "M": 26,
+     "xM": 25,
+     "(256-x)M": 25,
+     "x(256-x)M": 25
+    },
+    "site (script V2)": {
+     "M": 26,
+     "xM": 25,
+     "(256-x)M": 25,
+     "x(256-x)M": 25
+    }
+   },
+   "note": ""
+  },
+  {
+   "layer": "15-court",
+   "name": "Markov-Krein envelopes from M_0..M_49 (25-node Gauss G_-, 26-node Lobatto G_+ pinned at 0 and 256): 0 < G_+ - G_- at s = 64, 128 in every sector",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "V5 contrast s=64": {
+     "G-": 0.003286563626340895,
+     "G+": 0.003286563626340895,
+     "gap": 4.8817597629566515e-28
+    },
+    "V5 contrast s=128": {
+     "G-": 0.0027142865134207744,
+     "G+": 0.0027142865134207744,
+     "gap": 2.6816724445292015e-35
+    },
+    "V1 uniform s=64": {
+     "G-": 0.0033695002756253902,
+     "G+": 0.0033695002756253902,
+     "gap": 1.2979762033128108e-26
+    },
+    "V1 uniform s=128": {
+     "G-": 0.0027678441569124134,
+     "G+": 0.0027678441569124134,
+     "gap": 4.980892737974474e-34
+    },
+    "site (script V2) s=64": {
+     "G-": 0.0033003864012216442,
+     "G+": 0.0033003864012216442,
+     "gap": 3.444705690713152e-27
+    },
+    "site (script V2) s=128": {
+     "G-": 0.0027232127873360475,
+     "G+": 0.0027232127873360475,
+     "gap": 1.4546213585687015e-34
+    }
+   },
+   "note": "the script built these with N_ord = 3 (moments M_0..M_5), not M_0..M_50"
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 Theorem 2 consequence: (G_-(s1), G_+(s2)) is not jointly realizable",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "Markov-Krein: G_-(s1) is attained only by the Gauss measure, which forces G(s2) = G_-(s2) < G_+(s2) (Krein-Nudelman, Markov moment problem, ch. III)"
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 script certificate fails on true moments: the 'incompatible' cross choice also has positive R6 Loewner slope",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "cross_slope": 1685199259.8254547,
+    "gauss_slope": 1721539189.0725865
+   },
+   "note": "R6(s) = int x^6 dSigma/(s+x) decreases for every positive measure; over ds = 0.001 the slope swamps the envelope gap"
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 Stage 2: [9,3,7]_11 Cauchy code [I | A]: all 84 3x3 minors nonzero, a 3-error word decodes uniquely (exhaustive over 1331 messages)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "15-court",
+   "name": "identification of H90 with that code",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "any Cauchy matrix with distinct nodes gives an MDS code; no operand in the canon or this repository selects this one"
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 Stage 3: two overlapping 6-port blocks on Sym(8) have rank 32; ker O is the 4-dim U2 x V2 cross block; 4 polarizations complete it (rank 36)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "rank_O": 32,
+    "ker": [
+     [
+      0,
+      6
+     ],
+     [
+      0,
+      7
+     ],
+     [
+      1,
+      6
+     ],
+     [
+      1,
+      7
+     ]
+    ],
+    "rank_completed": 36
+   },
+   "note": ""
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 clock reduction to 2 parameters fails: C5 acts as the identity on the 8^2 doublet of D^2 (and on any C5-invariant 2-site probe), so dim Hom_C5(V2, U2) is 0 for U2 = rho_1, rho_2 and 4 for trivial U2",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "Hom(V2, U2)": {
+     "trivial": 4,
+     "rho_1": 0,
+     "rho_2": 0
+    },
+    "Hom(rho_1, rho_1)": 2
+   },
+   "note": "the 2-parameter case needs U2 = V2 = rho_j; C5 has prime order, so its orbits on lattice sites have 1 or 5 points and a 2-site probe is trivial"
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 Stage 4: omega = Omega_* sqrt(x) is homogeneous in Omega_*: the spectrum fixes no clock scale (TIME_BIND stays UNBOUND)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "15-court",
+   "name": "U19.81 'complete expanded scalar polynomial annihilator' for W_n",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "not given in the court or its script; layer 14 forms one mod four primes (order 16, degree 58); its rational coefficients are not reconstructed"
+  },
+  {
+   "layer": "15-court",
+   "name": "literal 6x6 adapter: largest |cofactor| = 68; no minor of size <= 5 equals 155 or 4805; 4805 = sum of the squared row-4 cofactors 21^2+48^2+43^2+11^2+3^2+9^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "max_cofactor": 68,
+    "row4": [
+     21,
+     48,
+     -43,
+     11,
+     3,
+     -9
+    ]
+   },
+   "note": "so 'cofactor 4805' supplies no five-dimensional operand"
+  },
+  {
+   "layer": "15-court",
+   "name": "the missing five-dimensional operand",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "not a minor or cofactor of the literal adapter; still absent"
+  },
+  {
+   "layer": "15-court",
+   "name": "preparation time >= eps^(-1/2) (monopole families) or eps^(-1/3) (dipole target) for a port budget polynomial in 1/eps",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "necessary condition from the sibling's preparation argument; constants under check there; no matching preparation protocol yet"
+  },
+  {
+   "layer": "15-court",
+   "name": "sibling scalar replay: all 33 support groups pass; twelve exclusion regions give (r+1)(d+2) >= 195",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "independently replayed and strengthened in layer 14"
   }
  ]
 }

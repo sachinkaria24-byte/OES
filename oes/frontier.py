@@ -43,7 +43,9 @@ REPORTED_ITEMS = [
      "computer-assisted; removes the single-ball dependency"),
     ("W_n recurrence order is 11: (x+12)^2 divides the leading coefficient",
      "Morse indices 7 and 8 at lambda=-12, corrections -16/3 vs -17/8; "
-     "the line 'at least 10, not 11' should be deleted"),
+     "the line 'at least 10, not 11' should be deleted. Layer 14: the operator found has "
+     "order 16; its characteristic polynomial has 11 roots in the band [-16, 240], "
+     "(z+12)^2 among them, and 5 outside"),
     ("155 vs 4805 is a label error: 155 = det T = 5*31 (6x6 adapter); "
      "4805 = 5*31^2 is the 4th cofactor of T T^T",
      "T operand (eq. 27) is garbled in the PDF text; not rebuilt here"),
@@ -60,8 +62,8 @@ REPORTED_ITEMS = [
 STILL_OPEN = [
     "certified collar 218.9323 < eps < 224: needs an analytic saddle cap of radius ~1 "
     "(margin 15/16 d^2) and a non-grid bound outside it",
-    "complete scalar W_n recurrence (order >= 11, degree >= 9, >= 120 unknowns; "
-    "101 exact terms insufficient)",
+    "scalar W_n recurrence over Q: layer 14 forms it mod four primes (order 16, degree 58, "
+    "characteristic roots exact); rational coefficients and a proof for all n open",
     "2740-dim five-port, -8/9 moment, Jordan drops, return-corner ranks (no operands)",
     "wave decay 1/4 vs 1/6, Schrodinger prefactor 204 vs 206 (no derivations)",
 ]

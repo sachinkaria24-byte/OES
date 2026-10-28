@@ -6,7 +6,7 @@ This repository holds a checked mathematical model of the OES canon at the OMSOO
 
 ```
 pip install -r requirements.txt
-python verify.py          # all layers, ~90 s, writes results.json
+python verify.py          # all layers, ~2.5 min, writes results.json
 python verify.py --fast   # skips the nonlinear E8-bath flow
 python -m pytest -q
 ```
@@ -26,7 +26,8 @@ python -m pytest -q
 | 11 glue | `oes/glue.py` | the E8 glue maps: D8 + s, and A4 ⊕ A4′ with x ↦ ±2x; the carrier as the A4 shadow of the mixed roots | THEOREM |
 | 12 binding | `oes/binding.py` | DYN_BIND constraints: no diagonal gauge charge, dark U(5), anomaly-free 5 + 10 completion | THEOREM, OBSTRUCTION, CONDITIONAL |
 | 13 gates | `oes/gatework.py` | TIME_BIND courts, PredictionFreeze register, W_L on the frozen PMNS candidate, the T3081 and AUTH/SCR6 packages | THEOREM, CONDITIONAL, UNFORMED |
-| 14 recurrence | `oes/recurrence.py` | canon W₀…W₅₅ replayed, new terms to W₆₀ (W₉₀ in progress), recurrence exclusion frontier | THEOREM |
+| 14 recurrence | `oes/recurrence.py`, `oes/walkfast.py`, `oes/ore.py` | canon W₀…W₅₅ replayed; exact W₉₀; a second engine (D8 + spinor) to W₆₀₀ mod primes; the W_n recurrence formed mod four primes: order 16, degree 58, 16 exact growth rates (11 in the band) | THEOREM, UNFORMED |
+| 15 court | `oes/court.py` | Court U19.81 audited claim by claim: script errors, true-moment envelopes, MDS code, clock-symmetry obstruction, cofactor 68 | THEOREM, OBSTRUCTION, UNFORMED, REPORTED |
 
 Part II of `docs/MODEL.md` is the path from the mathematics to the operands and the physical gates.
 
