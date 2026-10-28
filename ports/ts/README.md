@@ -39,7 +39,10 @@ Pauli generator L(M) = 240 M + 16 Mᵀ − 16 tr(M) I with the E8 bath Laplacian
 - eight antisymmetric real 4-qubit Paulis that anticommute exactly along the E8 Dynkin diagram;
 - their 256 products, distinct up to sign, one for each half-period x = Σ cᵢ αᵢ;
 - L(φ(x)) = ε(πx) φ(x), with ε the bath band 240 − Σ cos(k·ρ), at every half-period;
-- the eigenvalues 0, 224 and 256 on 1, 120 and 135 half-periods (the origin, the E7+A1 saddles, the D8 band top).
+- the eigenvalues 0, 224 and 256 on 1, 120 and 135 half-periods (the origin, the E7+A1 saddles, the D8 band top);
+- the transpose sign φ(x)ᵀ = (−1)^(x·x/2) φ(x), so the 120 antisymmetric products sit at the 120 saddles;
+- the GKSL form of −L: the sum over the 120 antisymmetric products of A X Aᵀ is 8 tr(X) I − 8 Xᵀ, checked on all
+  256 matrix units, so −L(X) = 2 Σ (A X Aᵀ − X).
 
 The same data is in `data/pauli_half_periods.json`.
 

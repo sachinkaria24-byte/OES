@@ -1,9 +1,10 @@
 // Drop-in audit for the sibling model (src/lib/model): the saved Pauli generator
 // L(M) = 240 M + 16 M^T - 16 tr(M) I on real 16 x 16 matrices is the E8 bath Laplacian
-// on its 256 half-period modes. No imports. auditPauliBath() returns { residual: 0 }
-// when every row holds.
+// on its 256 half-period modes, and -L is a GKSL generator with the 120 antisymmetric
+// Paulis as jump operators. No imports. auditPauliBath() returns { residual: 0 } when
+// every row holds.
 //
-// Python reference: oes/counts.py (pauli_bath, check_pauli_file; layer 22 of
+// Python reference: oes/counts.py (pauli_bath, check_pauli_file, pauli_quotient; layer 22 of
 // `python verify.py`) and data/pauli_half_periods.json in sachinkaria24-byte/OES,
 // branch claude/lagrangian-spectral-spacetime-model-t2253b.
 //
@@ -49,6 +50,8 @@ const adjacent = (i: number, j: number) => EDGES.some(([a, b]) => (a === i && b 
 const anticommute = (u: string, v: string) =>
   [...u].filter((a, i) => a !== "I" && v[i] !== "I" && a !== v[i]).length % 2 === 1;
 const even = (n: number) => ((n % 2) + 2) % 2 === 0;
+const transpose = (A: Mat): Mat => A[0].map((_, j) => A.map((row) => row[j]));
+const CARTAN = ALPHA2.map((a) => ALPHA2.map((b) => dot(a, b) / 4));
 
 const roots2 = (): number[][] => {
   const R: number[][] = [];
@@ -85,7 +88,9 @@ export function auditPauliBath() {
   const P = DYNKIN.map(word);
   const spectrum: Record<number, number> = {};
   const images = new Set<string>();
+  const anti: Mat[] = [];
   let intertwines = true;
+  let signs = true;
   for (let m = 0; m < 256; m += 1) {
     const c = Array.from({ length: 8 }, (_, k) => (m >> k) & 1);
     const x2 = ALPHA2[0].map((_, k) => c.reduce((s, ci, i) => s + ci * ALPHA2[i][k], 0));
@@ -99,6 +104,10 @@ export function auditPauliBath() {
     images.add(flat.map((v) => v * lead).join(","));
     intertwines = intertwines && eq(generator(M), scale(M, eps));
     spectrum[eps] = (spectrum[eps] ?? 0) + 1;
+    const half = c.reduce((s, ci, i) => s + c.reduce((t, cj, j) => t + ci * cj * CARTAN[i][j], 0), 0) / 2;
+    const odd = !even(half); // the E8 form x.x/2 mod 2
+    signs = signs && eq(transpose(M), scale(M, odd ? -1 : 1)) && odd === (eps === 224);
+    if (odd) anti.push(M);
   }
   rows.push({ name: "the 256 products are distinct up to sign: a bijection from the half-periods", ok: images.size === 256 });
   rows.push({ name: "L(phi(x)) = eps(pi x) phi(x) at every half-period", ok: intertwines });
@@ -107,6 +116,23 @@ export function auditPauliBath() {
     ok: spectrum[0] === 1 && spectrum[224] === 120 && spectrum[256] === 135,
     value: spectrum,
   });
+
+  rows.push({
+    name: "phi(x)^T = (-1)^(x.x/2) phi(x): the 120 antisymmetric products sit at the 120 saddles (eps = 224)",
+    ok: signs && anti.length === 120,
+  });
+
+  // GKSL: on every matrix unit E_ij, sum_A A E_ij A^T = 8 tr(E_ij) I - 8 E_ij^T, so by linearity
+  // -L(X) = 2 sum_A (A X A^T - X) for every X, with the 120 antisymmetric A as jump operators.
+  let twirl = anti.length === 120;
+  for (let i = 0; i < 16 && twirl; i += 1)
+    for (let j = 0; j < 16 && twirl; j += 1)
+      for (let k = 0; k < 16; k += 1)
+        for (let l = 0; l < 16; l += 1) {
+          const s = anti.reduce((acc, A) => acc + A[k][i] * A[l][j], 0);
+          if (s !== 8 * (i === j && k === l ? 1 : 0) - 8 * (k === j && l === i ? 1 : 0)) twirl = false;
+        }
+  rows.push({ name: "GKSL: sum over the 120 antisymmetric A of A X A^T = 8 tr(X) I - 8 X^T, so -L(X) = 2 sum (A X A^T - X)", ok: twirl });
 
   const residual = rows.filter((r) => !r.ok).length;
   return { residual, rows };

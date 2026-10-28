@@ -1,4 +1,4 @@
-"""Layer 22. Counts, graphs and moments (28 Oct 2026; Drive checks 19:21 and 19:57 UTC).
+"""Layer 22. Counts, graphs and moments (28 Oct 2026; Drive checks 19:21 to 21:36 UTC).
 
 Sources read before this layer (Google Drive):
 
@@ -17,7 +17,9 @@ Sources read before this layer (Google Drive):
 * at 20:12: the sibling's notes BREATH_ALL, PETERSEN_GRAM and PETERSEN_PROJ (20:06-20:10) and its message;
 * at 20:25: the sibling's notes PAULI_178, PAULI_CIRCLE, TICK_DEEP and CHAIN_ENERGY (20:20-20:23) and its message;
 * at 20:33: the sibling's MASS_KERNEL (20:31) and the separate model's revised status and paper (20:28);
-* at 21:05: the sibling's 15 notes of 20:34-21:03, from GOLDEN_FREQ to FAMILY_129.
+* at 21:05: the sibling's 15 notes of 20:34-21:03, from GOLDEN_FREQ to FAMILY_129;
+* at 21:36: the sibling's 19 notes of 21:09-21:38, from DARK_SPLIT to CRT_CLOCK, and the separate
+  model's revised status (21:05) and verification receipt (21:07).
 
 Here "zero modes" and "dark" mean ker M = P5, as in layers 5 and 12. The canon's two-dimensional dark planes
 (the dark-core theorem) are another object, as the separate model's status also notes.
@@ -81,6 +83,15 @@ doubling, two-to-one on the circle, is the restriction of x -> 7x, the day's twi
 bath is a different spectrum" is answered: the 256 half-period modes are 2 Lambda-periodic eigenfunctions of
 the bath, an invariant subspace of all functions on Lambda rather than of l^2. ROTOR_CHAIN's shell tuple
 (1, -2, 0, 2, -1) is the hexagon's difference distribution, and its "order 24 meets only 0" is corrected.
+
+At 21:36 the datum's velocity, the alternating 4-cycle, is rebuilt: it lies in ker M, its 1/2 |v|^2 = 2 comes from
+the Legendre transform of the carrier Lagrangian, and its +1, -1 alternate with period 2, so it is not the rotor's
+tick and tock. SPANDA_ALL's G = R - R^4 is rebuilt on the six cycles; the reflection 0 <-> 3, 1 <-> 2 it sets apart is
+a w0 of the rotor. The clock notes become one splitting 4320 = 32 x 27 x 5: the time clock <864> and the observer
+clock <1080> meet in 0 and generate <216> of order 20, not the circle, and the time coordinate 4x mod 5 intertwines
+the rotor with the tick. SIBLING_CUT's two open points are answered: the day's twist is a matrix check (layer 21),
+and the Pauli generator is the bath on Lambda / 2 Lambda as an operator, with no square-summable half-period mode.
+The separate model's GKSL form of -L is replayed.
 """
 
 import functools
@@ -609,6 +620,214 @@ CLAIMS = [
     ("FAMILY_129", "after a rank-9 correction", 183, True, ()),
     ("FAMILY_129", "the bound", 195, False, ()),
     ("FAMILY_129", "the step d >= 15", 15, False, ()),
+    ("DARK_SPLIT", "the signless kernel rank", 5, False, ()),
+    ("DARK_SPLIT", "the quarter-turn plane", 2, True, ()),
+    ("DARK_SPLIT", "the cycle's squared length", 4, True, ()),
+    ("DARK_SPLIT", "the uniform energy share", 20, False, ()),
+    ("DARK_SPLIT", "the potential", 32, True, ()),
+    ("DARK_SPLIT", "the energy", 34, True, ()),
+    ("DARK_SPLIT", "the contrast", 183, True, ()),
+    ("DARK_SPLIT", "the uniform value", 495, False, ()),
+    ("DARK_SPLIT", "the shift 52 x 6", 312, True, ()),
+    ("TICK_TOCK", "tick", 864, True, (("order", 5),)),
+    ("TICK_TOCK", "tock, two ticks", 1728, True, (("order", 5),)),
+    ("TICK_TOCK", "the step 5", 5, False, ()),
+    ("AC_DC", "the contrast, the AC channel", 183, True, ()),
+    ("AC_DC", "the uniform value, the DC channel", 495, False, ()),
+    ("AC_DC", "the stiffness", 4, True, ()),
+    ("W0_DEEP", "the marker 360000", 360000, False, (("res", 1440), ("order", 3))),
+    ("W0_DEEP", "the frequency", 2, True, ()),
+    ("SPANDA_ALL", "the polynomial coefficient", 5, False, ()),
+    ("SPANDA_ALL", "the contrast", 183, True, ()),
+    ("SPANDA_ALL", "the variance", 127, True, ()),
+    ("SPANDA_ALL", "4 x 183 + 2 x 127", 986, True, ()),
+    ("SPANDA_ALL", "the roots", 240, False, ()),
+    ("KU_CALENDAR", "gcd(40, 864)", 8, True, (("order", 540),)),
+    ("KU_CALENDAR", "eights in a pada", 5, False, ()),
+    ("KU_CALENDAR", "eights in the tick", 108, True, ()),
+    ("KU_CALENDAR", "the moon step", 120, False, ()),
+    ("KU_CALENDAR", "eights in the moon step", 15, False, ()),
+    ("KU_CALENDAR", "the sun arc", 1440, False, ()),
+    ("KU_CALENDAR", "eights in the sun arc, the flash", 180, False, ()),
+    ("KU_CALENDAR", "moon steps in the sun arc", 12, True, ()),
+    ("KU_CALENDAR", "the compression", 50, False, ()),
+    ("KU_CALENDAR", "its part", 10, False, ()),
+    ("KU_CALENDAR", "the pada unit", 40, False, ()),
+    ("KU_DEEP", "the tithi", 144, True, (("order", 30),)),
+    ("KU_DEEP", "the count 30", 30, False, ()),
+    ("KU_DEEP", "the degree", 12, True, ()),
+    ("KU_DEEP", "the nakshatra", 160, False, (("order", 27),)),
+    ("KU_DEEP", "the grain gcd(144, 160)", 16, True, ()),
+    ("KU_DEEP", "the sun lcm(144, 160)", 1440, False, (("order", 3),)),
+    ("KU_DEEP", "twenty tithis", 2880, False, (("order", 3), ("same", 1440))),
+    ("KU_DEEP", "the moon step", 120, False, ()),
+    ("KU_DEEP", "lcm(120, 144), four flashes", 720, False, ()),
+    ("KU_DEEP", "six tithis", 864, True, ()),
+    ("KU_DEEP", "eight tithis", 1152, True, (("order", 15),)),
+    ("KU_DEEP", "the eight", 8, True, ()),
+    ("CHARTS_YUGA", "satya", 1728, True, (("mod5", 3),)),
+    ("CHARTS_YUGA", "treta", 1296, True, (("mod5", 1),)),
+    ("CHARTS_YUGA", "dvapara", 864, True, (("mod5", 4),)),
+    ("CHARTS_YUGA", "kali", 432, True, (("mod5", 2),)),
+    ("CHARTS_YUGA", "1728 / 6", 288, True, (("mod5", 3),)),
+    ("CHARTS_YUGA", "1296 / 6", 216, True, (("mod5", 1),)),
+    ("CHARTS_YUGA", "864 / 6, the tithi", 144, True, (("mod5", 4),)),
+    ("CHARTS_YUGA", "432 / 6, half a tithi", 72, True, (("mod5", 2),)),
+    ("CHARTS_YUGA", "the tower factor", 16, True, ()),
+    ("CHARTS_YUGA", "the tower factor", 4, True, ()),
+    ("CHARTS_YUGA", "the count 69120, sixteen circles", 69120, None, ()),
+    ("CHARTS_YUGA", "the step 13824", 13824, True, (("res", 864),)),
+    ("CHARTS_YUGA", "the moon address step", 120, False, ()),
+    ("CHARTS_YUGA", "the sun run address", 1440, False, ()),
+    ("CHARTS_YUGA", "the shared pada", 88, True, ()),
+    ("CHARTS_YUGA", "a chart pada", 30, False, ()),
+    ("CHARTS_YUGA", "a chart pada", 44, True, ()),
+    ("CHARTS_YUGA", "a window pada", 51, True, ()),
+    ("CHARTS_YUGA", "a window pada", 52, True, ()),
+    ("CHARTS_YUGA", "a chart pada", 66, True, ()),
+    ("CHARTS_YUGA", "a chart pada", 95, False, ()),
+    ("CHARTS_YUGA", "a chart pada", 98, True, ()),
+    ("CHARTS_YUGA", "a chart pada", 101, True, ()),
+    ("CHARTS_YUGA", "address 40 x 88", 3520, False, ()),
+    ("CHARTS_YUGA", "address 40 x 30", 1200, False, ()),
+    ("CHARTS_YUGA", "address 40 x 44", 1760, False, ()),
+    ("CHARTS_YUGA", "address 40 x 51", 2040, False, ()),
+    ("CHARTS_YUGA", "address 40 x 52", 2080, False, ()),
+    ("CHARTS_YUGA", "address 40 x 66", 2640, False, ()),
+    ("CHARTS_YUGA", "address 40 x 95", 3800, False, ()),
+    ("CHARTS_YUGA", "address 40 x 98", 3920, False, ()),
+    ("CHARTS_YUGA", "address 40 x 101", 4040, False, ()),
+    ("OBSERVER_DOTS", "the installed reading", 15, False, ()),
+    ("OBSERVER_DOTS", "its part", 5, False, ()),
+    ("OBSERVER_DOTS", "its part", 8, True, ()),
+    ("OBSERVER_DOTS", "its part", 2, True, ()),
+    ("OBSERVER_DOTS", "15 ticks", 15 * 864, None, ()),
+    ("OBSERVER_DOTS", "15 satya blocks", 15 * 1728, None, ()),
+    ("OBSERVER_DOTS", "15 treta blocks", 15 * 1296, False, (("res", 2160), ("order", 2))),
+    ("OBSERVER_DOTS", "15 kali blocks", 15 * 432, False, (("res", 2160),)),
+    ("OBSERVER_DOTS", "15 tithis, not a whole number of ticks", 15 * 144, False, (("res", 2160), ("notin", 864))),
+    ("OBSERVER_DOTS", "15 golden steps", 15 * 216, False, (("res", 3240), ("order", 4))),
+    ("OBSERVER_DOTS", "two readings", 2 * 3240, False, (("res", 2160),)),
+    ("OBSERVER_DOTS", "four readings", 4 * 3240, None, ()),
+    ("OBSERVER_DOTS", "15 x 12, the flash", 15 * 12, False, ()),
+    ("OBSERVER_DOTS", "15 x 8, the moon step", 15 * 8, False, ()),
+    ("OBSERVER_DOTS", "15 x 16", 15 * 16, False, ()),
+    ("OBSERVER_DOTS", "the degree", 12, True, ()),
+    ("OBSERVER_DOTS", "the grain", 16, True, ()),
+    ("OBSERVER_DOTS", "15 x 288", 15 * 288, None, ()),
+    ("OBSERVER_DOTS", "ten tithis, the sun, off the observer clock", 1440, False, (("notin", 1080),)),
+    ("TORSION_JOIN", "15 half-tithis", 15 * 72, False, (("res", 1080), ("order", 4))),
+    ("TORSION_JOIN", "15 tithis", 15 * 144, False, (("res", 2160), ("order", 2))),
+    ("TORSION_JOIN", "15 golden steps", 15 * 216, False, (("res", 3240), ("order", 4))),
+    ("TORSION_JOIN", "15 ticks", 15 * 864, None, ()),
+    ("TORSION_JOIN", "the frequency", 2, True, ()),
+    ("TORSION_JOIN", "the stiffness", 4, True, ()),
+    ("TORSION_JOIN", "a tick", 864, True, (("order", 5),)),
+    ("TORSION_JOIN", "a tick", 1728, True, (("order", 5),)),
+    ("TORSION_JOIN", "a tick", 2592, True, (("order", 5),)),
+    ("TORSION_JOIN", "a tick", 3456, True, (("order", 5),)),
+    ("TORSION_JOIN", "gcd(864, 1080)", 216, True, ()),
+    ("BOTH_CLOCKS", "the step, on neither clock", 216, True, (("order", 20), ("notin", 864), ("notin", 1080))),
+    ("BOTH_CLOCKS", "2 x 216", 432, True, (("notin", 864),)),
+    ("BOTH_CLOCKS", "4 x 216, the tick", 864, True, (("in", 864),)),
+    ("BOTH_CLOCKS", "6 x 216", 1296, True, (("notin", 864),)),
+    ("BOTH_CLOCKS", "8 x 216", 1728, True, (("in", 864),)),
+    ("BOTH_CLOCKS", "5 x 216", 1080, False, (("in", 1080), ("order", 4))),
+    ("BOTH_CLOCKS", "10 x 216", 2160, False, (("in", 1080),)),
+    ("BOTH_CLOCKS", "15 x 216", 3240, False, (("in", 1080),)),
+    ("BOTH_CLOCKS", "20 x 216", 20 * 216, None, ()),
+    ("BOTH_CLOCKS", "the flash", 180, False, ()),
+    ("BOTH_CLOCKS", "gcd(180, 216)", 36, True, ()),
+    ("RANKS_TICK", "rank", 1, True, ()), ("RANKS_TICK", "rank", 2, True, ()), ("RANKS_TICK", "rank", 4, True, ()),
+    ("RANKS_TICK", "rank", 6, True, ()), ("RANKS_TICK", "rank", 7, True, ()), ("RANKS_TICK", "rank", 8, True, ()),
+    ("RANKS_TICK", "rank", 9, True, ()), ("RANKS_TICK", "rank", 11, True, ()), ("RANKS_TICK", "rank", 16, True, ()),
+    ("RANKS_TICK", "rank", 19, True, ()), ("RANKS_TICK", "rank", 21, True, ()), ("RANKS_TICK", "rank", 31, True, ()),
+    ("RANKS_TICK", "rank", 32, True, ()), ("RANKS_TICK", "rank", 5, False, ()), ("RANKS_TICK", "rank", 10, False, ()),
+    ("RANKS_TICK", "rank", 15, False, ()), ("RANKS_TICK", "rank", 30, False, ()),
+    ("RANKS_TICK", "the generator", 216, True, ()),
+    ("RANKS_TICK", "its fourth power, the tick", 864, True, ()),
+    ("RANKS_TICK", "its fifth power", 1080, False, ()),
+    ("RANKS_TICK", "the pada unit", 40, False, ()),
+    ("FIVE_NAMES", "Buddhi", 2, True, ()),
+    ("FIVE_NAMES", "Jiva", 7, True, ()),
+    ("FIVE_NAMES", "Karma", 8, True, ()),
+    ("FIVE_NAMES", "Japa", 10, False, ()),
+    ("FIVE_NAMES", "Mantra", 11, True, ()),
+    ("FIVE_NAMES", "the stage count", 15, False, ()),
+    ("FIVE_NAMES", "the present", 5, False, ()),
+    ("FIVE_NAMES", "karma's size", 1, True, ()),
+    ("FIVE_NAMES", "jiva's size", 6, True, ()),
+    ("FIVE_NAMES", "the karma address", 5, False, ()),
+    ("FIVE_NAMES", "the japa count", 108, True, ()),
+    ("FIVE_NAMES", "its extra piece", 3, True, ()),
+    ("FIVE_NAMES", "the tick split's 40", 40, False, ()),
+    ("FIVE_NAMES", "its extra piece", 24, True, ()),
+    ("FIVE_NAMES", "the tick", 864, True, ()),
+    ("FIVE_NAMES", "the projector rank", 2, True, ()),
+    ("FIVE_NAMES", "its period", 5, False, ()),
+    ("MATRIKA_WALK", "matrika", 0, None, ()),
+    ("MATRIKA_WALK", "malini", 1, True, (("gen",),)),
+    ("MATRIKA_WALK", "the frame", 16, True, (("steps", 54),)),
+    ("MATRIKA_WALK", "frames per tick", 54, True, ()),
+    ("MATRIKA_WALK", "frames per return", 270, False, ()),
+    ("MATRIKA_WALK", "the moment", 216, True, (("steps", 4),)),
+    ("MATRIKA_WALK", "moment 4, the tick", 864, True, ()),
+    ("MATRIKA_WALK", "moment 5, the observer point", 1080, False, ()),
+    ("MATRIKA_WALK", "moment 2, the kali block", 432, True, ()),
+    ("MATRIKA_WALK", "their grain", 8, True, ()),
+    ("SIX_WAYS", "the tick", 864, True, ()),
+    ("SIX_WAYS", "gravity's rank", 4, True, ()),
+    ("SIX_WAYS", "the step", 216, True, (("steps", 4),)),
+    ("SIX_WAYS", "the frequency", 2, True, ()),
+    ("SIX_WAYS", "the kali block", 432, True, (("steps", 2),)),
+    ("SIX_WAYS", "the energy piece", 12, True, ()),
+    ("SIX_WAYS", "the energy", 34, True, ()),
+    ("SIX_WAYS", "the energy piece", 20, False, ()),
+    ("SIX_WAYS", "12 x 288, the fourth tick", 12 * 288, True, (("res", 3456),)),
+    ("SIX_WAYS", "20 x 108, the half-turn", 20 * 108, False, (("res", 2160),)),
+    ("SIX_WAYS", "the count 108", 108, True, ()),
+    ("SIX_WAYS", "432 x 34, seventeen ticks", 432 * 34, True, (("res", 17 * 864 % 4320),)),
+    ("SIX_WAYS", "seventeen", 17, True, ()),
+    ("SIX_WAYS", "the charge", 30, False, (("order", 144),)),
+    ("SIX_WAYS", "the closing count, the tithi", 144, True, ()),
+    ("SIX_AGREE", "the mass step", 216, True, ()),
+    ("SIX_AGREE", "the energy-12 count", 288, True, ()),
+    ("SIX_AGREE", "their grain", 72, True, ()),
+    ("SIX_AGREE", "their first common multiple", 864, True, ()),
+    ("SIX_AGREE", "three grains", 3, True, ()),
+    ("SIX_AGREE", "the gravity rank", 4, True, ()),
+    ("SIX_AGREE", "the energy piece", 12, True, ()),
+    ("SIX_AGREE", "the tithi", 144, True, ()),
+    ("SIX_AGREE", "the kali block", 432, True, ()),
+    ("SIX_AGREE", "the energy piece", 20, False, ()),
+    ("SIX_AGREE", "the charge", 30, False, ()),
+    ("SIX_AGREE", "the observer point", 1080, False, ()),
+    ("SIX_AGREE", "lcm(20, 30)", 60, False, ()),
+    ("DOUBLING_CLOCK", "16", 16, True, ()),
+    ("DOUBLING_CLOCK", "5", 5, False, ()),
+    ("DOUBLING_CLOCK", "multiplication by 7", 7, True, (("gen",),)),
+    ("DOUBLING_CLOCK", "doubling", 2, True, (("notgen",),)),
+    ("DOUBLING_CLOCK", "an observer point", 1080, False, ()),
+    ("DOUBLING_CLOCK", "an observer point", 2160, False, ()),
+    ("DOUBLING_CLOCK", "an observer point", 3240, False, ()),
+    ("SIBLING_CUT", "the flash step", 180, False, (("order", 24),)),
+    ("SIBLING_CUT", "its order", 24, True, ()),
+    ("SIBLING_CUT", "7", 7, True, (("gen",),)),
+    ("SIBLING_CUT", "the kernel of doubling", 2160, False, (("order", 2),)),
+    ("SIBLING_CUT", "eigenvalue", 224, True, ()),
+    ("SIBLING_CUT", "eigenvalue", 256, True, ()),
+    ("CRT_CLOCK", "a tick", 864, True, (("mod5", 4),)),
+    ("CRT_CLOCK", "a tick", 1728, True, (("mod5", 3),)),
+    ("CRT_CLOCK", "a tick", 2592, True, (("mod5", 2),)),
+    ("CRT_CLOCK", "a tick", 3456, True, (("mod5", 1),)),
+    ("CRT_CLOCK", "an observer point", 1080, False, (("mod5", 0),)),
+    ("CRT_CLOCK", "an observer point", 2160, False, ()),
+    ("CRT_CLOCK", "an observer point", 3240, False, ()),
+    ("CRT_CLOCK", "the mass step", 216, True, (("mod5", 1),)),
+    ("CRT_CLOCK", "the grain", 72, True, (("mod5", 2),)),
+    ("CRT_CLOCK", "the charge", 30, False, (("mod5", 0),)),
+    ("CRT_CLOCK", "the flash", 180, False, (("mod5", 0),)),
+    ("CRT_CLOCK", "multiplication by 7", 7, True, (("mod5", 2), ("gen",))),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -1725,11 +1944,314 @@ def mirror_pairs():
     return split, [q for q in pairs if q not in split]
 
 
+# ------------------------------------------------------------- the 21:36 notes (21:09-21:38)
+
+CHART_PADAS = [88, 30, 44, 51, 52, 66, 95, 98, 101]                 # CHARTS_YUGA's nine reported padas
+
+
+def tick_tock():
+    """DARK_SPLIT, TICK_TOCK, AC_DC and W0_DEEP: the alternating 4-cycle of the datum and the source oscillator."""
+    psi0, v0 = carrier.canon_initial_datum()
+    E = carrier.edges()
+    M = np.array(carrier.signless_incidence())
+    cyc = v0[5:]
+    around = [int(cyc[E.index(e)]) for e in ((0, 1), (1, 2), (2, 3), (0, 3))]
+    s = lambda i: (3 - i) % 5                                           # 0 <-> 3, 1 <-> 2, 4 fixed
+    moved = np.array([cyc[E.index(tuple(sorted((s(i), s(j)))))] for i, j in E])
+    v, x = sp.Matrix(sp.symbols("v0:15")), sp.Matrix(sp.symbols("x0:15"))
+    K = sp.Matrix(carrier.D2())
+    lag = (v.T * v)[0] / 2 - (x.T * K * x)[0] / 2
+    p = sp.Matrix([sp.diff(lag, vi) for vi in v])
+    ham = sp.expand((p.T * v)[0] - lag)
+    sectors = carrier.CarrierLagrangian().sector_energies(psi0, v0)
+    w = np.array([1, -1, 1, -1])
+    t, om = sp.symbols("t omega")
+    q = sp.cos(2 * t)
+    rev = lambda m: sum(((m >> i) & 1) << (3 - i) for i in range(4)) | (m & 16)
+    sub = lambda m: sum(1 << s(i) for i in range(5) if (m >> i) & 1)
+    fixed = {m for m in range(32) if rev(m) == m}
+    orbit_unions = {a | b | c for a in (0, 1 | 8) for b in (0, 2 | 4) for c in (0, 16)}
+    return {
+        "the datum's velocity is the alternating 4-cycle: +1, -1, +1, -1 around 0-1-2-3, vertex 4 silent, in ker M":
+            around == [1, -1, 1, -1] and all(cyc[k] == 0 for k, e in enumerate(E) if 4 in e)
+            and not np.any(M @ cyc),
+        "|v0|^2 = 4, and the 1/2 is derived: the Legendre transform of the carrier Lagrangian, H = p v - L with "
+        "p = dL/dv = v, is 1/2 |v|^2 + 1/2 psi D^2 psi; the zero-mode sector holds 2 of the conserved 34":
+            v0 @ v0 == 4 and p == v and ham == sp.expand((v.T * v)[0] / 2 + (x.T * K * x)[0] / 2)
+            and np.isclose(sectors[0], 2) and np.isclose(sum(sectors.values()), 34),
+        "the involution 0 <-> 3, 1 <-> 2 fixes the cycle: it swaps the +1 edges 01 and 23 and fixes the -1 edges 12 "
+        "and 03": np.array_equal(moved, cyc) and tuple(sorted((s(0), s(1)))) == (2, 3)
+        and tuple(sorted((s(1), s(2)))) == (1, 2) and tuple(sorted((s(0), s(3)))) == (0, 3),
+        "the weights alternate with period 2, and a group map from Z/2 to the circle lands in {0, 2160}, which meets "
+        "the tick only at 0; the rotor's tick and tock 864 and 1728 have order 5, so they are another pair":
+            [a for a in range(N) if 2 * a % N == 0] == [0, 2160] and not ledger.contains_tick(2160)
+            and spine.order(864) == spine.order(1728) == 5,
+        "AC and DC: the cycle sums to 0 and its squares to 4 (mean 0, mean square 1); the constant port 1, 1, 1, 1 "
+        "sums to 4 with mean 1 (AC_DC wrote mean 4); the second difference -1, 2, -1 sums to 0 and its squares "
+        "1, 4, 1 are not constant": w.sum() == 0 and (w ** 2).sum() == 4 and Fraction(int(w.sum()), 4) == 0
+        and Fraction(int((w ** 2).sum()), 4) == 1 and Fraction(4, 4) == 1 and sum([-1, 2, -1]) == 0 and len({1, 4}) == 2,
+        "q'' + 4q = 0 has 0 as its only constant solution; on the unit orbit q = cos 2t the conserved v^2 + 4q^2 is 4 "
+        "at (1, 0) and (0, 2), the energy is 2, and energy = frequency because w^2 / 2 = w has the roots 0 and 2":
+            sp.simplify(sp.diff(q, t, 2) + 4 * q) == 0 and sp.simplify(sp.diff(q, t) ** 2 + 4 * q ** 2) == 4
+            and sp.solve(sp.Eq(4 * om, 0), om) == [0] and sorted(sp.solve(sp.Eq(om ** 2 / 2, om), om)) == [0, 2],
+        "W0_DEEP's spanda (reverse the first four of five bits) is the involution 0 <-> 3, 1 <-> 2 on subsets: 8 masks "
+        "stay (the unions of {0, 3}, {1, 2}, {4}) and 24 move in 12 pairs, one of them 1 <-> 8":
+            all(rev(m) == sub(m) for m in range(32)) and fixed == orbit_unions and len(fixed) == 8
+            and len({frozenset((m, rev(m))) for m in range(32) if rev(m) != m}) == 12 and rev(1) == 8,
+    }
+
+
+@functools.lru_cache(maxsize=None)
+def _cycle_rotor():
+    """The rotation i -> i + 1 and the reflection i -> 3 - i on the oriented edges and on the six cycles."""
+    B = sp.Matrix(carrier.signed_incidence())
+    R10, S10 = _edge_action(lambda i: (i + 1) % 5), _edge_action(lambda i: (3 - i) % 5)
+    Z = sp.Matrix.hstack(*B.nullspace())
+    restrict = lambda X: (Z.T * Z).inv() * Z.T * X * Z
+    return R10, S10, Z, restrict(R10), restrict(S10)
+
+
+def spanda():
+    """SPANDA_ALL: the rotor R on the six cycles, its Spanda G = R - R^4, and the involution 0 <-> 3, 1 <-> 2."""
+    R10, S10, Z, R, S = _cycle_rotor()
+    I6, x, mu = sp.eye(6), sp.symbols("x"), sp.symbols("mu")
+    G, G10 = R - R ** 4, R10 - R10 ** 4
+    total = functools.reduce(lambda a, b: a + b, [R ** k for k in range(5)])
+    P = total / 5
+    pent, star = _oriented_cycle(1), _oriented_cycle(2)
+    phi = (1 + sp.sqrt(5)) / 2
+    quartic = x ** 4 + 5 * x ** 2 + 5
+    rc = _roots2()
+    common = int(np.sum(rc @ rc[0] == 4))                               # roots at inner product 1 with a root
+    deg = 240
+    diag = (deg ** 2 + deg) - ((deg + 1) ** 2 - 2 * (deg + 1) + 6)
+    off = (common - 2 * deg) - (6 - 2 * (deg + 1))
+    return {
+        "the rotation preserves the six cycles and R^5 = I there": R10 * Z == Z * R and R ** 5 == I6,
+        "G = R - R^4 has rank 4 on the cycles; its kernel is the fixed plane of the pentagon and pentagram":
+            G.rank() == 4 and (G10 * pent).is_zero_matrix and (G10 * star).is_zero_matrix,
+        "G (G^4 + 5 G^2 + 5 I) = 0, and I + R + R^2 + R^3 + R^4 = G^4 + 5 G^2 + 5 I":
+            (G * (G ** 4 + 5 * G ** 2 + 5 * I6)).is_zero_matrix and total == G ** 4 + 5 * G ** 2 + 5 * I6,
+        "that sum has rank 2 and is five times the projector onto the kernel ((sum)^2 = 5 sum); the order-5 average "
+        "is the projector (P^2 = P, G P = 0)": total.rank() == 2 and total ** 2 == 5 * total and P ** 2 == P
+        and (G * P).is_zero_matrix,
+        "G has characteristic polynomial x^2 (x^4 + 5 x^2 + 5) on the cycles; the quartic is irreducible (Eisenstein "
+        "at 5) and G^2 has the moving eigenvalues -(2 + phi) and -(3 - phi), the roots of mu^2 + 5 mu + 5":
+            sp.expand(G.charpoly(x).as_expr() - x ** 2 * quartic) == 0 and sp.Poly(quartic, x).is_irreducible
+            and all(sp.simplify(m ** 2 + 5 * m + 5) == 0 for m in (-(2 + phi), -(3 - phi))),
+        "on the ten edges R has characteristic polynomial (x^5 - 1)^2 and G has x^2 (x^4 + 5 x^2 + 5)^2":
+            sp.expand(R10.charpoly(x).as_expr() - (x ** 5 - 1) ** 2) == 0
+            and sp.expand(G10.charpoly(x).as_expr() - x ** 2 * quartic ** 2) == 0,
+        "the involution 0 <-> 3, 1 <-> 2 is the reflection i -> 3 - i of the pentagon, the square of the 4-cycle "
+        "i -> 2i + 1; on the cycles S^2 = I, S R S = R^-1 and S G S = -G, and S = -I on the kernel plane: the w0 "
+        "relation holds on this basis": S ** 2 == I6 and S * R * S == R ** 4 and S * G * S == -G
+        and S10 * pent == -pent and S10 * star == -star
+        and [(2 * ((2 * i + 1) % 5) + 1) % 5 for i in range(5)] == [(3 - i) % 5 for i in range(5)],
+        "G is skew in the edge basis and singular, so it has no multiplicative order; S has order 2":
+            G10.T == -G10 and G10.det() == 0 and S != I6,
+        "the six-site contrast is 240 - 56 - 1 = 183, where 56 roots have inner product 1 with a given root (the "
+        "common neighbours of two adjacent sites): M_2 - M_1^2 has diagonal (240^2 + 240) - (241^2 - 2 x 241 + 6) "
+        "= 235 and off-diagonal (56 - 2 x 240) - (6 - 2 x 241) = 52":
+            common == 56 and diag == 235 and off == 52 and diag - off == 183 == deg - common - 1,
+    }
+
+
+def two_clocks():
+    """CRT_CLOCK, DOUBLING_CLOCK, TORSION_JOIN, BOTH_CLOCKS, SIX_AGREE, OBSERVER_DOTS, RANKS_TICK and MATRIKA_WALK."""
+    crt = lambda x: (x % 32, x % 27, x % 5)
+    time, obs = spine.subgroup(TICK), spine.subgroup(1080)
+    divisors = [d for d in range(1, N + 1) if N % d == 0]
+    kappa = lambda x: 4 * x % 5                                         # the time coordinate, kappa(864) = 1
+    R5 = np.roll(np.eye(5, dtype=np.int64), 1, axis=0)
+    Phi5 = lambda v: np.array([v[kappa(x)] for x in range(N)])
+    R10 = np.array(_cycle_rotor()[0], dtype=np.int64)
+    pw = [np.linalg.matrix_power(R10, k) for k in range(5)]
+    E = carrier.edges()
+    read = [E.index((0, 1)), E.index((0, 2))]
+    Phi10 = lambda v: np.array([(pw[-kappa(x) % 5] @ v)[read] for x in range(N)])
+    v5, v10 = np.array([3, 1, 4, 1, 5]), np.array([2, 7, 1, 8, 2, 8, 1, 8, 2, 8])
+    return {
+        "4320 = 32 x 27 x 5 and x -> (x mod 32, x mod 27, x mod 5) is a bijection; a nonzero x meets the tick exactly "
+        "when x mod 5 != 0": 32 * 27 * 5 == N and len({crt(x) for x in range(N)}) == N
+        and all(ledger.contains_tick(x) == (x % 5 != 0) for x in range(1, N)),
+        "the time clock <864> is the residues with first two coordinates 0; 0, 864, 1728, 2592, 3456 have time "
+        "coordinates 0, 4, 3, 2, 1 (CRT_CLOCK wrote 0, 4, 3, 1, 2)": time == {x for x in range(N) if crt(x)[:2] == (0, 0)}
+        and [crt(t)[2] for t in LEVELS] == [0, 4, 3, 2, 1],
+        "the observer clock <1080> is 0, 1080, 2160, 3240 = (0, 0, 0), (24, 0, 0), (16, 0, 0), (8, 0, 0); doubling "
+        "sends the half-turn (16, 0, 0) to 0, and its kernel is {0, 2160}":
+            [crt(x) for x in sorted(obs)] == [(0, 0, 0), (24, 0, 0), (16, 0, 0), (8, 0, 0)]
+            and [x for x in range(N) if 2 * x % N == 0] == [0, 2160],
+        "7 = (7, 7, 2) and 2 = (2, 2, 2): 7x = 2x exactly when 864 | x; x16 fixes every tick and x4 does not; on the "
+        "observer clock x7 = x3, not x2": crt(7) == (7, 7, 2) and crt(2) == (2, 2, 2)
+        and [x for x in range(N) if 7 * x % N == 2 * x % N] == sorted(time) and all(16 * t % N == t for t in LEVELS)
+        and any(4 * t % N != t for t in LEVELS) and all(7 * x % N == 3 * x % N != 2 * x % N for x in (1080, 2160, 3240)),
+        "the yuga blocks 1728, 1296, 864, 432 have time coordinates 3, 1, 4, 2 and add up to the circle":
+            [crt(b)[2] for b in (1728, 1296, 864, 432)] == [3, 1, 4, 2] and 1728 + 1296 + 864 + 432 == N,
+        "216 = (24, 0, 1), 72 = (8, 18, 2), 30 = (30, 3, 0), 180 = (20, 18, 0)": [crt(a) for a in (216, 72, 30, 180)]
+        == [(24, 0, 1), (8, 18, 2), (30, 3, 0), (20, 18, 0)],
+        "the two clocks meet only in 0 (lcm(864, 1080) = 4320) and together generate <216> of order 20, not the "
+        "circle (TORSION_JOIN): gcd(864, 1080) = 216": time & obs == {0}
+        and {(a + b) % N for a in time for b in obs} == spine.subgroup(216) and spine.order(216) == 20
+        and gcd(864, 1080) == 216 and spine.join(864, 1080) == 216 and spine.meet(864, 1080) == 0,
+        "k x 216 is on the time clock iff 4 | k and on the observer clock iff 5 | k; 216 is on neither":
+            all((k * 216 % N in time) == (k % 4 == 0) and (k * 216 % N in obs) == (k % 5 == 0) for k in range(20))
+            and 216 not in time | obs,
+        "x15 maps the circle onto <15> (288 points) and lands on the observer clock exactly on the multiples of the "
+        "grain 72; 15 x 12 = 180, 15 x 8 = 120 and 15 x 16 = 240 land off it (TORSION_JOIN's 'only on the torsion "
+        "of order dividing 4' holds for multiples of 72)": {15 * x % N for x in range(N)} == spine.subgroup(15)
+        and len(spine.subgroup(15)) == 288 and [x for x in range(N) if 15 * x % N in obs] == list(range(0, N, 72))
+        and all(15 * a % N not in obs for a in (12, 8, 16)),
+        "an address 40 p is on the observer clock exactly when 27 | p and on a nonzero tick never: the nine chart "
+        "padas avoid both, but pada 27 gives 1080, so the factor 40 keeps addresses off the ticks, not off the "
+        "observer clock": [p for p in range(1, 108) if 40 * p % N in obs] == [27, 54, 81]
+        and not any(40 * p % N in time for p in range(1, 108))
+        and not any(40 * p % N in obs | time for p in CHART_PADAS),
+        "the misses, with 0, are the subgroup <5> of order 864: sums of misses miss, sums of meets need not meet "
+        "(6 + 9 = 15)": spine.subgroup(5) == {x for x in range(N) if x % 5 == 0} and len(spine.subgroup(5)) == 864
+        and ledger.contains_tick(6) and ledger.contains_tick(9) and not ledger.contains_tick(15),
+        "two steps agree on a meeting step iff both meet (SIX_AGREE), for every pair of subgroups":
+            all(ledger.contains_tick(spine.meet(a, b)) == (ledger.contains_tick(a) and ledger.contains_tick(b))
+                for a in divisors for b in divisors),
+        "an intertwiner exists (MATRIKA_WALK): with the time coordinate k(x) = 4x mod 5, Phi(v)(x) = v_k(x) carries "
+        "the vertex rotor to translation by 864, injectively; two read-outs do the same for the rotor on the ten "
+        "edges, so on the six cycles": kappa(TICK) == 1 and np.array_equal(Phi5(R5 @ v5), np.roll(Phi5(v5), TICK))
+        and np.linalg.matrix_rank(np.array([Phi5(e) for e in np.eye(5, dtype=np.int64)])) == 5
+        and np.array_equal(Phi10(R10 @ v10), np.roll(Phi10(v10), TICK, axis=0))
+        and np.linalg.matrix_rank(np.array([Phi10(e).ravel() for e in np.eye(10, dtype=np.int64)])) == 10,
+    }
+
+
+def five_names():
+    """FIVE_NAMES: the stage indices, the japa and tick splits, and the 30-step average."""
+    R = _cycle_rotor()[3]
+    cp = spine.spine_clock()[1]
+    avg = lambda n: functools.reduce(lambda a, b: a + b, [R ** (k % 5) for k in range(n)]) / n
+    names = ("Buddhi", "Jiva", "Karma", "Japa", "Mantra")
+    return {
+        "Buddhi 2, Jiva 7, Karma 8, Japa 10, Mantra 11: only Japa misses; Jiva is the middle of the fifteen stages":
+            [STAGES.index(n) for n in names] == [2, 7, 8, 10, 11]
+            and [ledger.contains_tick(STAGES.index(n)) for n in names] == [True, True, True, False, True]
+            and STAGES.index("Jiva") == len(STAGES) // 2,
+        "21 x 5 + 3 = 108 and 21 x 40 + 24 = 864 = 8 (21 x 5 + 3): the tick split is eight times the japa split":
+            21 * 5 + 3 == 108 and 21 * 40 + 24 == TICK == 8 * (21 * 5 + 3),
+        "on the six-cycle rotor the 30-step average is the 5-step average, the rank-2 projector, not 0; it is 0 for "
+        "the E8 Coxeter element of order 30, which fixes no vector": avg(30) == avg(5) and avg(5).rank() == 2
+        and not np.any(functools.reduce(np.add, [spine.mpow(cp, k) for k in range(30)])),
+    }
+
+
+def pauli_quotient():
+    """SIBLING_CUT and the separate model's 21:05 status: L is the bath on Lambda / 2 Lambda as an operator; the
+    half-period modes are not square-summable; -L is a GKSL generator with the 120 antisymmetric Paulis."""
+    rc = _roots2()
+    alpha2 = np.array(SIMPLE_ROOTS_X2)
+    cartan = alpha2 @ alpha2.T // 4
+    coords = np.rint(rc @ np.linalg.inv(alpha2)).astype(np.int64)
+    cs = np.array(list(itertools.product((0, 1), repeat=8)))
+    index = {tuple(c): m for m, c in enumerate(cs)}
+    Dq = 240 * np.eye(256, dtype=np.int64)
+    for m, c in enumerate(cs):
+        for k in coords:
+            Dq[m, index[tuple((c + k) % 2)]] -= 1
+    H = 1 - 2 * ((cs @ cartan @ cs.T) % 2)
+    eps = np.array([_band_at_half_period(c, rc) for c in cs])
+    q = (np.einsum("ij,jk,ik->i", cs, cartan, cs) // 2) % 2
+    single = _letters()
+    P = [functools.reduce(np.kron, [single[LETTERS.index(a)] for a in w]) for w in
+         ["".join(LETTERS[a] for a in w) for w in dynkin_paulis()]]
+    phi = [functools.reduce(lambda a, b: a @ b, [P[i] for i in range(8) if c[i]], np.eye(16, dtype=np.int64)) for c in cs]
+    anti = [f for f in phi if np.array_equal(f.T, -f)]
+    vec_i = np.eye(16, dtype=np.int64).ravel()
+    T = np.zeros((256, 256), dtype=np.int64)
+    for i in range(16):
+        for j in range(16):
+            T[16 * i + j, 16 * j + i] = 1
+    S = functools.reduce(np.add, [np.kron(a, a) for a in anti])
+    Lsup = 240 * np.eye(256, dtype=np.int64) + 16 * T - 16 * np.outer(vec_i, vec_i)
+    norm4 = {tuple(a + b) for a in rc for b in rc if a @ b == 0}
+    ball = np.vstack([np.zeros((1, 8), dtype=np.int64), rc, np.array(sorted(norm4))])
+    chi = 1 - 2 * ((ball @ (cs @ alpha2).T // 4) % 2)
+    return {
+        "Delta on the 2 Lambda-periodic functions is a 256 x 256 integer matrix on the cosets of 2 Lambda (each root "
+        "shifts a coset), with spectrum 0, 224, 256 on 1, 120, 135": np.allclose(coords @ alpha2, rc)
+        and Counter(np.rint(np.linalg.eigvalsh(Dq.astype(float))).astype(int).tolist()) == {0: 1, 224: 120, 256: 135},
+        "the Walsh-Hadamard matrix (-1)^<x, v> squares to 256 I (det Cartan = 1) and conjugates it to diag eps(pi x), "
+        "which is L in the Pauli basis: an operator identity, not a containment of three numbers":
+            round(np.linalg.det(cartan)) == 1 and np.array_equal(H @ H, 256 * np.eye(256, dtype=np.int64))
+            and np.array_equal(H @ Dq @ H, 256 * np.diag(eps))
+            and all(np.array_equal(_generator(f), e * f) for f, e in zip(phi, eps)),
+        "phi(x)^T = (-1)^(x.x/2) phi(x): the transpose sign is the E8 quadratic form mod 2, and the 120 antisymmetric "
+        "products are the 120 root classes": all(np.array_equal(f.T, (1 - 2 * s) * f) for f, s in zip(phi, q))
+        and len(anti) == 120 and {index[tuple(k % 2)] for k in coords} == {m for m in range(256) if q[m]},
+        "no half-period mode is square-summable: |chi_x| = 1 at every lattice point, so over the ball of norm <= 4 "
+        "its squared norm is the point count 1 + 240 + 2160 = 2401, and it grows with the ball":
+            len(norm4) == 2160 and chi.shape == (2401, 256) and bool(np.all(np.abs(chi) == 1))
+            and bool(np.all((chi ** 2).sum(0) == 2401)),
+        "-L is a GKSL generator: sum over the 120 antisymmetric Paulis A of A X A^T = 8 tr(X) I - 8 X^T, so "
+        "-L(X) = 2 sum_A (A X A^T - X), with L(I) = 0 and tr L(X) = 0": np.array_equal(S, 8 * np.outer(vec_i, vec_i) - 8 * T)
+        and np.array_equal(2 * (S - 120 * np.eye(256, dtype=np.int64)), -Lsup)
+        and not np.any(Lsup @ vec_i) and not np.any(vec_i @ Lsup),
+    }
+
+
+def batch7_arithmetic():
+    F = Fraction
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    Pu, Pc = J6 / 6, sp.eye(6) - J6 / 6
+    blocks = [1728, 1296, 864, 432]
+    return {
+        "DARK_SPLIT: 183 I + 52 J = 183 Pc + 495 Pu on six sites (J = 6 Pu), 52 x 6 = 312, 183 + 312 = 495; "
+        "20 + 12 = 32, 2 + 32 = 34": 183 * I6 + 52 * J6 == 183 * Pc + 495 * Pu and 52 * 6 == 312
+        and 183 + 312 == 495 and 20 + 12 == 32 and 2 + 32 == 34,
+        "TICK_TOCK, AC_DC and W0_DEEP: 1 - 1 + 1 - 1 = 0, 1 + 1 + 1 + 1 = 4 = 2^2; -1 + 2 - 1 = 0, 1 + 4 + 1 = 6; "
+        "0 + 1 - 1 + 2 = 2": 1 - 1 + 1 - 1 == 0 and 1 + 1 + 1 + 1 == 4 == 2 ** 2 and -1 + 2 - 1 == 0
+        and 1 + 4 + 1 == 6 and 0 + 1 - 1 + 2 == 2,
+        "SPANDA_ALL: 240 - 56 - 1 = 183, 131 - 4 = 127, 4 x 183 + 2 x 127 = 986": 240 - 56 - 1 == 183
+        and 131 - 4 == 127 and 4 * 183 + 2 * 127 == 986,
+        "KU_CALENDAR: gcd(40, 864) = 8, 40 = 5 x 8, 864 = 108 x 8, 540 x 8 = 4320; 98 - 95 = 101 - 98 = 3, 3 x 40 = "
+        "120 = 15 x 8; 66 - 30 = 36, 36 x 40 = 1440 = 180 x 8, 3 x 1440 = 4320, 1440 / 120 = 12; 50 = 10 + 40":
+            gcd(40, 864) == 8 and 40 == 5 * 8 and TICK == 108 * 8 and 540 * 8 == N and 98 - 95 == 101 - 98 == 3
+            and 3 * 40 == 120 == 15 * 8 and 66 - 30 == 36 and 36 * 40 == 1440 == 180 * 8 and 3 * 1440 == N
+            and 1440 // 120 == 12 and 50 == 10 + 40,
+        "KU_DEEP: 30 x 144 = 12 x 30 x 12 = 27 x 160 = 4320; gcd(144, 160) = 16, lcm = 1440 = 10 x 144 = 9 x 160; "
+        "360000 = 1440 mod 4320; 20 x 144 = 2880 = -1440; lcm(120, 144) = 720 = 4 x 180; 720 + 144 = 864 = 6 x 144; "
+        "2 x 8 = 16": 30 * 144 == 12 * 30 * 12 == 27 * 160 == N and gcd(144, 160) == 16
+        and sp.ilcm(144, 160) == 1440 == 10 * 144 == 9 * 160 and 360000 % N == 1440 and 20 * 144 == 2880
+        and 2880 % N == -1440 % N and sp.ilcm(120, 144) == 720 == 4 * 180 and 720 + 144 == TICK == 6 * 144 and 2 * 8 == 16,
+        "CHARTS_YUGA: the blocks are 3, 1, 4, 2 mod 5 (sum 10) and their sixths 288, 216, 144, 72 keep the residues "
+        "(6 = 1 mod 5), 2 x 72 = 144; 69120 = 4 x 17280 = 16 x 4320, so the tower's two steps are 4 and 4 (CHARTS_YUGA "
+        "wrote 16 and 4); 13824 = 864 mod 4320, 5 x 13824 = 69120; 108 = 27 x 4, 108 x 40 = 4320; 88 = 2 x 44":
+            [b % 5 for b in blocks] == [3, 1, 4, 2] and sum(b % 5 for b in blocks) == 10
+            and [b // 6 for b in blocks] == [288, 216, 144, 72] and [b // 6 % 5 for b in blocks] == [3, 1, 4, 2]
+            and 2 * 72 == 144 and 69120 == 4 * 17280 == 16 * N and 17280 == 4 * N and 13824 % N == TICK
+            and 5 * 13824 == 69120 and 108 == 27 * 4 and 108 * 40 == N and 88 == 2 * 44,
+        "OBSERVER_DOTS: 15 = 5 + 8 + 2; 15 x 864 = 3 x 4320; 15 x 1296 = 15 x 432 = 15 x 144 = 2160 mod 4320, "
+        "2160 / 864 = 5/2; 15 x 216 = 3240, 2 x 3240 = 2160 and 4 x 3240 = 0 mod 4320; 15 x 288 = 4320":
+            15 == 5 + 8 + 2 and 15 * TICK == 3 * N and 15 * 1296 % N == 15 * 432 % N == 15 * 144 == 2160
+            and F(2160, 864) == F(5, 2) and 15 * 216 == 3240 and 2 * 3240 % N == 2160 and 4 * 3240 % N == 0
+            and 15 * 288 == N,
+        "SIX_WAYS and SIX_AGREE: 12 + 20 + 2 = 34, 432 x 34 = 17 x 864; 144 x 30 = 4320; gcd(216, 288) = 72, "
+        "lcm = 864; 3 x 72 = 216, 4 x 72 = 288, 12 x 72 = 864, 3 x 4 = 12; lcm(2, 216) = lcm(4, 216) = 216, "
+        "lcm(144, 216) = 432, lcm(20, 216) = lcm(30, 216) = 1080, lcm(20, 30) = 60": 12 + 20 + 2 == 34
+        and 432 * 34 == 17 * TICK and 144 * 30 == N and gcd(216, 288) == 72 and sp.ilcm(216, 288) == TICK
+        and (3 * 72, 4 * 72, 12 * 72) == (216, 288, TICK) and 3 * 4 == 12
+        and sp.ilcm(2, 216) == sp.ilcm(4, 216) == 216 and sp.ilcm(144, 216) == 432
+        and sp.ilcm(20, 216) == sp.ilcm(30, 216) == 1080 and sp.ilcm(20, 30) == 60,
+        "BOTH_CLOCKS and MATRIKA_WALK: 20 x 216 = 4320; gcd(180, 216) = 36, 5 x 36 = 180, 6 x 36 = 216; "
+        "54 x 16 = 864, 5 x 54 = 270; lcm(16, 216) = 432 = 2 x 216, gcd(16, 216) = 8": 20 * 216 == N
+        and gcd(180, 216) == 36 and 5 * 36 == 180 and 6 * 36 == 216 and 54 * 16 == TICK and 5 * 54 == 270
+        and sp.ilcm(16, 216) == 432 == 2 * 216 and gcd(16, 216) == 8,
+        "RANKS_TICK and FIVE_NAMES: 6 + 1 = 7, 7 + 2 = 9, 9 + 6 = 15; 4 + 6 = 10; 4 + 6 + 4 + 1 = 15; 16 + 16 = 32; "
+        "5 + 1 = 6; 7 + 1 + 7 = 15": 6 + 1 == 7 and 7 + 2 == 9 and 9 + 6 == 15 and 4 + 6 == 10
+        and 4 + 6 + 4 + 1 == 15 and 16 + 16 == 32 and 5 + 1 == 6 and 7 + 1 + 7 == 15,
+    }
+
+
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (63 notes, 18:32-21:03)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 486 readings from 63 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (82 notes, 18:32-21:38)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT)",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 705 readings from 82 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
@@ -1763,6 +2285,22 @@ JOINS = [
     ("flash order (ROTOR_CHAIN)", "the order 24 meets only 0", "the step 180 meets only 0; its order 24 meets every tick", "THEOREM", "22"),
     ("two Laplacians, line graph (20:39-20:43)", "B B^T = 5I - J; signless + ordinary = 8I; Petersen + line = J - I", "rebuilt on the carrier's incidences, with the line graph 6 P8 + P3 - 2 P0", "THEOREM", "22"),
     ("separate model status (19:47)", "489 presentations, 30,875 validations, a clean replay of 623 files", "recorded; its beat equation agrees with the carrier", "REPORTED", "22"),
+    ("the alternating 4-cycle (DARK_SPLIT, TICK_TOCK)", "kinetic 2 is half the squared length 4, a factor not derived from a Hamiltonian; on the circle the tick and tock are 864 and 1728", "the 1/2 is the Legendre transform of the carrier Lagrangian (H = p v - L with p = v); the cycle's +1, -1 alternate with period 2, whose only circle shadows are 0 and 2160, so the rotor's tick and tock (order 5) are another pair", "THEOREM", "1, 22: tick-tock"),
+    ("AC and DC (AC_DC)", "a constant port 1, 1, 1, 1 has mean 4", "its sum is 4 and its mean 1; the alternating cycle has mean 0 and constant power 1, the second difference a power ripple", "THEOREM", "22: tick-tock"),
+    ("Spanda (SPANDA_ALL)", "G = R - R^4 of rank 4 with G (G^4 + 5 G^2 + 5 I) = 0; the sum of the five powers is the projector; w0 R w0 = R^-1 not replayed", "the sum is five times the projector (the average is the projector); the involution 0 <-> 3, 1 <-> 2 that the note names is a pentagon reflection and a w0: S R S = R^-1, S G S = -G, S = -I on the kernel plane; on the ten edges R has (x^5 - 1)^2 and G has x^2 (x^4 + 5x^2 + 5)^2", "THEOREM", "22: Spanda"),
+    ("the moving variance (SPANDA_ALL)", "240 - 56 - 1 = 183", "56 is the number of common neighbours of two adjacent lattice sites (the roots at inner product 1 with a root); it enters M_2 - M_1^2 off the diagonal (52 = 56 - 480 + 476), so the six-site contrast is 240 - 56 - 1", "THEOREM", "22: Spanda, six-site"),
+    ("the bit reversal (W0_DEEP)", "the spanda reverses four bits: 8 masks stay, 12 pairs move", "it is the same involution 0 <-> 3, 1 <-> 2 acting on subsets; the fixed masks are the unions of its orbits {0, 3}, {1, 2}, {4}", "THEOREM", "22: tick-tock"),
+    ("one splitting (CRT_CLOCK)", "4320 = 32 x 27 x 5; the ticks 0, 864, 1728, 2592, 3456 have time coordinates 0, 4, 3, 1, 2", "the splitting holds and x7 = x2 exactly on the time clock; the coordinates are 0, 4, 3, 2, 1", "THEOREM", "22: two clocks"),
+    ("the two clocks (TORSION_JOIN, BOTH_CLOCKS)", "they share only 0 and together generate the whole circle", "they share only 0 and generate <216>, of order 20 = 4 x 5 (as BOTH_CLOCKS has it), not the circle; 4320 = lcm(864, 1080) is their intersection", "THEOREM", "22: two clocks"),
+    ("the fifteen-fold reading (OBSERVER_DOTS, TORSION_JOIN)", "x15 lands only on the torsion of order dividing 4", "x15 maps the circle onto <15> (288 points) and lands on {0, 1080, 2160, 3240} exactly on the multiples of the grain 72; 15 x 12 = 180 lands off it", "THEOREM", "22: two clocks"),
+    ("chart addresses (CHARTS_YUGA, TORSION_JOIN)", "the factor 40 put all nine addresses off both clocks", "40 keeps every address off the nonzero ticks; an address is on the observer clock exactly when 27 divides the pada (27 -> 1080), and the nine padas avoid that", "THEOREM", "22: two clocks"),
+    ("the address tower (CHARTS_YUGA)", "69120 -> 17280 -> 4320 with factors 16 and 4", "the two steps are 4 and 4; 16 is their product", "ARITHMETIC", "22"),
+    ("rotor and tick (MATRIKA_WALK)", "matching orders produce no intertwiner", "the time coordinate k(x) = 4x mod 5 gives one: Phi(v)(x) = v_k(x) carries the vertex rotor to translation by 864, injectively, and two read-outs do the same for the edge and cycle rotors", "THEOREM", "22: two clocks"),
+    ("the 30-step average (FIVE_NAMES)", "a 30-step average vanishes; not replayed on the rotor", "on the rotor it is the rank-2 projector, because 5 divides 30; it vanishes for the E8 Coxeter element, which fixes no vector", "THEOREM", "22"),
+    ("the day's twist as a matrix (SIBLING_CUT)", "the conjugation making 7 the day's twist was not replayed as a matrix", "d c' d^-1 = c'^7 is checked on the integer matrices of data/clocks.json (layer 21) and in ports/ts (coxeterSpine, ledgerJoins)", "THEOREM", "21, ports/ts"),
+    ("Pauli generator and the bath (SIBLING_CUT)", "a containment of three numbers; square-summability not tested", "an operator identity: the Walsh-Hadamard transform conjugates the bath on the 256 cosets of 2 Lambda to diag eps, which is L in the Pauli basis; the transpose sign is the E8 form mod 2; no half-period mode is in l^2 (|chi| = 1 everywhere)", "THEOREM", "22: Pauli quotient"),
+    ("GKSL realization (separate model, 21:05)", "the 120 skew unitary Pauli products give an exact GKSL realization of -L", "replayed: the sum over them of A X A^T is 8 tr(X) I - 8 X^T, so -L(X) = 2 sum_A (A X A^T - X); the semigroup parameter is not a bound time", "THEOREM", "22: Pauli quotient"),
+    ("separate model status (21:05)", "33,083 validation instances in 23 receipts; 720 exact outputs from 80 Python files and 2,385 inputs; archive sha256 b5199a90...", "recorded, not rerun; its kernel energy 2, sectors 12 + 20 and phase weights 98, 62, 113, 101, 118 agree with layers 1, 21 and 22", "REPORTED", "22"),
     ("not replayed", "15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7", "objects of the sibling build that are not stored here", "REPORTED", "22"),
     ("not stored", "Yukawa blocks, hypercharge, taste, smell and touch matrices, icosahedral adjacency, swastika, hexagram, yinyang, diamond, tesseract, qubit", "no operand; nothing here forms them", "UNFORMED", "22"),
 ]
@@ -1990,6 +2528,57 @@ def run():
     rep.add("not replayed: GOLDEN_FREQ's clock stiffness, TELESCOPE's six saved arrows (27 nonzeros), KARMA_K2's "
             "rank-5 reading and torus surjection, FAMILY_129's selector beyond its toy block, KURAMOTO's named "
             "conditions (Kubo, de Boer, Ralston, Hunt), and the separate model's re-uploaded paper", RP, True)
+
+    # the 21:36 check ----------------------------------------------------------------------
+    rep.add("Drive check 21:36: the sibling's 19 notes of 21:09-21:38 (DARK_SPLIT, TICK_TOCK, AC_DC, W0_DEEP, "
+            "SPANDA_ALL, KU_CALENDAR, KU_DEEP, CHARTS_YUGA, OBSERVER_DOTS, TORSION_JOIN, BOTH_CLOCKS, RANKS_TICK, "
+            "FIVE_NAMES, MATRIKA_WALK, SIX_WAYS, SIX_AGREE, SIBLING_CUT, DOUBLING_CLOCK, CRT_CLOCK) and the separate "
+            "model's revised status (21:05) and verification receipt (21:07) were read", RP, True)
+    tt = tick_tock()
+    rep.add("DARK_SPLIT, TICK_TOCK, AC_DC and W0_DEEP rebuilt on the datum: the velocity is the alternating 4-cycle "
+            "+1, -1, +1, -1 around 0-1-2-3 with vertex 4 silent, in ker M. Its 1/2 |v|^2 = 2 is derived: the Legendre "
+            "transform of the carrier Lagrangian is H = 1/2 |v|^2 + 1/2 psi D^2 psi. The weights alternate with "
+            "period 2, so their circle shadow is the half-turn, not the rotor's tick and tock. The constant port has "
+            "mean 1, not 4. W0_DEEP's four-bit reversal is the involution 0 <-> 3, 1 <-> 2 on subsets", T,
+            all(tt.values()), tt)
+    sd = spanda()
+    rep.add("SPANDA_ALL rebuilt: on the six cycles R^5 = I, G = R - R^4 has rank 4 and characteristic polynomial "
+            "x^2 (x^4 + 5x^2 + 5), and G (G^4 + 5G^2 + 5I) = 0. The sum of the five powers is five times the kernel "
+            "projector, not the projector. The involution 0 <-> 3, 1 <-> 2 that the note sets apart is a pentagon "
+            "reflection and a w0 of this rotor: S R S = R^-1, S G S = -G. The moving variance 183 = 240 - 56 - 1 has "
+            "56 = the common neighbours of two adjacent sites", T, all(sd.values()), sd)
+    tc = two_clocks()
+    rep.add("CRT_CLOCK, DOUBLING_CLOCK, TORSION_JOIN, BOTH_CLOCKS, SIX_AGREE, OBSERVER_DOTS, RANKS_TICK and "
+            "MATRIKA_WALK rebuilt as one splitting 4320 = 32 x 27 x 5. The time clock <864> and the observer clock "
+            "<1080> meet only in 0 and generate <216> (order 20), not the circle. x15 lands on the observer clock "
+            "exactly on the multiples of 72. The ticks' time coordinates are 0, 4, 3, 2, 1. An address 40 p is on the "
+            "observer clock iff 27 | p. The time coordinate 4x mod 5 intertwines the rotor with the tick", T,
+            all(tc.values()), tc)
+    fn = five_names()
+    rep.add("FIVE_NAMES: of Buddhi, Jiva, Karma, Japa and Mantra only Japa misses; the tick split 21 x 40 + 24 is eight "
+            "times the japa split 21 x 5 + 3; on the rotor the 30-step average is the rank-2 projector, not 0 (it is 0 "
+            "for the E8 Coxeter element)", T, all(fn.values()), fn)
+    pq = pauli_quotient()
+    rep.add("SIBLING_CUT answered and the separate model's GKSL claim replayed: the bath on the 256 cosets of 2 Lambda "
+            "is an integer matrix that the Walsh-Hadamard transform conjugates to diag eps = L in the Pauli basis (an "
+            "operator identity); the transpose sign of phi(x) is the E8 form mod 2; |chi| = 1, so no half-period mode "
+            "is square-summable; and -L(X) = 2 sum over the 120 antisymmetric Paulis of (A X A^T - X)", T,
+            all(pq.values()), pq)
+    rep.add("SIBLING_CUT's 'the conjugation that would make 7 the day's twist was not replayed as a matrix': it is a "
+            "matrix check, d c' d^-1 = c'^7 on the integer matrices of data/clocks.json (layer 21, rechecked from the "
+            "file alone) and in the app ports coxeterSpine.ts and ledgerJoins.ts", T,
+            ledger.check_clock_file()["day: order 24, day^4 = coxeter^5, twist 7"])
+    a7 = batch7_arithmetic()
+    rep.add("the 21:36 arithmetic: the six-site split 183 Pc + 495 Pu, the AC/DC sums, 240 - 56 - 1, the calendar "
+            "units (pada, tithi, nakshatra, sun, moon), the yuga blocks and their sixths, the address tower, the "
+            "fifteen-fold landings, the six ways and their agreements, the frame and the moment", AR,
+            all(a7.values()), a7)
+    rep.add("recorded, not rerun: the separate model's 33,083 validation instances in 23 receipts, its fresh build of "
+            "720 exact outputs from 80 Python files and 2,385 inputs, and its archive (37,017,392 bytes, 3,379 payloads, "
+            "sha256 b5199a90...); never executed here", RP, True)
+    rep.add("not replayed: TICK_TOCK's stored return signs (0, +1, -1, +2), SPANDA_ALL's stored signed reversal and its "
+            "131, CHARTS_YUGA's Human Design gates and the orientation identity K^3 = -3K (no K is stored here), and "
+            "the chart padas themselves, used only as reported integers", RP, True)
 
     rep.add("recorded, not replayed: the separate model's 489 presentations, 30,875 validation instances, 623-file "
             "clean replay, OM-mirror rank-4 intertwiner and five-reader blind line; the sibling's two curvatures of "

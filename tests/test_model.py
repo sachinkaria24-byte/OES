@@ -158,6 +158,25 @@ def test_every_circle_map_kills_the_commutator():
     assert all(maps.values()), maps
 
 
+def test_datum_cycle_and_spanda():
+    for check in (counts.tick_tock, counts.spanda, counts.five_names):
+        out = check()
+        assert all(out.values()), out
+
+
+def test_two_clocks_generate_order_20_not_the_circle():
+    out = counts.two_clocks()
+    assert all(out.values()), out
+    time, obs = spine.subgroup(864), spine.subgroup(1080)
+    assert len({(a + b) % spine.N for a in time for b in obs}) == 20
+    assert [x % 5 for x in ledger.LEVELS] == [0, 4, 3, 2, 1]
+
+
+def test_pauli_generator_is_the_quotient_bath_and_a_gksl_generator():
+    out = counts.pauli_quotient()
+    assert all(out.values()), out
+
+
 def test_typescript_port_of_the_spine():
     import shutil
     import subprocess

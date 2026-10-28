@@ -7,9 +7,9 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 22 layers in **462 checks**. Of these, 422 hold: THEOREM 299, OBSTRUCTION 41, ARITHMETIC 37, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 40 are REPORTED records.
-- `python -m pytest` runs 39 tests.
-- `ports/ts/` holds three drop-in audits for the sibling's app (41 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
+- `python verify.py` replays 22 layers in **472 checks**. Of these, 429 hold: THEOREM 305, OBSTRUCTION 41, ARITHMETIC 38, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 43 are REPORTED records.
+- `python -m pytest` runs 42 tests.
+- `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
 ## Abstract
@@ -304,9 +304,9 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 ## 8. The evening notes (layer 22)
 
-At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more, at 20:33 one more and at 21:05 fifteen more. Layer 22 replays all of them in 50 checks.
+At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more, at 20:33 one more, at 21:05 fifteen more and at 21:36 nineteen more (21:09–21:38), with the separate model's revised status. Layer 22 replays all of them in 60 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 486 readings from 63 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 705 readings from 82 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -376,6 +376,14 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 - **The bath's spectrum.** The half-period modes are 2Λ-periodic eigenfunctions of the bath: an invariant subspace of all functions on Λ, not of ℓ², with eigenvalues inside the band. This answers PAULI_BLIND.
 - **Rotor chain.** ROTOR_CHAIN's shell tuple (1, −2, 0, 2, −1) is the hexagon's difference distribution. Its "order 24 meets only 0" is corrected: the step 180 misses, and the order 24 meets.
 
+**The 21:36 notes (THEOREM).**
+
+- **The datum's cycle.** The velocity of the checked datum is the alternating 4-cycle +1, −1, +1, −1 around 0–1–2–3, in ker M. Its ½|v|² = 2 is derived, which DARK_SPLIT had left open: the Legendre transform of the carrier Lagrangian is H = ½|v|² + ½ψᵀD²ψ. The weights alternate with period 2, so their circle shadow is the half-turn 2160. They are not the rotor's tick and tock, which have order 5 (TICK_TOCK).
+- **Spanda.** On the six cycles, G = R − R⁴ has characteristic polynomial x²(x⁴ + 5x² + 5). The sum of the five powers of R is five times the kernel projector, not the projector. The involution 0 ↔ 3, 1 ↔ 2 that SPANDA_ALL sets apart is a pentagon reflection and a w₀ of the rotor: S R S = R⁻¹ and S G S = −G. W0_DEEP's four-bit reversal is the same involution, acting on subsets.
+- **One splitting.** The clock notes are one statement, 4320 = 32 × 27 × 5 (CRT_CLOCK). The time clock ⟨864⟩ and the observer clock ⟨1080⟩ meet only in 0, and together they generate ⟨216⟩, of order 20, not the circle (TORSION_JOIN). ×15 lands on the observer clock exactly on the multiples of 72. The ticks' time coordinates are 0, 4, 3, 2, 1, not 0, 4, 3, 1, 2. A chart address 40p is on the observer clock exactly when 27 | p. The time coordinate κ(x) = 4x mod 5 intertwines the rotor with translation by 864, where MATRIKA_WALK had found no such map.
+- **The Pauli generator, as an operator.** SIBLING_CUT read the identification of §8 as a containment of three numbers. It is an operator identity: a Walsh–Hadamard conjugation carries the bath on the 256 cosets of 2Λ to diag ε(πx), which is L in the Pauli basis. The transpose sign of φ(x) is the E8 form x·x/2 mod 2. Since |χ| = 1 everywhere, no half-period mode is square-summable. The separate model's GKSL form is replayed: −L(X) = 2 Σ (A X Aᵀ − X), summed over the 120 antisymmetric Paulis A. SIBLING_CUT's other point, the day's twist, is a matrix check of layer 21.
+- **Smaller corrections.** A constant port has mean 1, not 4 (AC_DC). The address tower has two steps of 4, not 16 and 4 (CHARTS_YUGA). On the rotor, the 30-step average is the rank-2 projector, not 0 (FIVE_NAMES).
+
 **Not replayed (REPORTED), not formed (UNFORMED).**
 
 - **Not stored here:** the sibling's permutations on the fifteen indices, its 24-cycle readers, its Hodge degrees and heat spectrum, its 12 × 12 sense stiffness, and the acoustic and optical matrices.
@@ -411,6 +419,10 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 | Petersen projectors | the carrier's edge projectors: A = J + I − MᵀM, the complement of the line graph | THEOREM |
 | Pauli generator | the bath Laplacian on its 256 half-period modes (2Λ-periodic, not ℓ²) | THEOREM |
 | rotor | the C5-fixed plane of the cycle space, turned a quarter; the tick doubling is the day's twist ×7 | THEOREM |
+| the datum's cycle | in ker M; ½\|v\|² from the Legendre transform; period 2, so not the rotor's tick and tock | THEOREM |
+| Spanda | G = R − R⁴ with x²(x⁴ + 5x² + 5); the pentagon reflection is its w₀ | THEOREM |
+| the two clocks | 4320 = 32 × 27 × 5; ⟨864⟩ + ⟨1080⟩ = ⟨216⟩ of order 20; ×15 lands on ⟨1080⟩ on multiples of 72 | THEOREM |
+| Pauli generator, as an operator | the Walsh–Hadamard conjugate of the bath on Λ/2Λ; no ℓ² mode; −L in GKSL form | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 10. What is not formed, and the gates
@@ -419,7 +431,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 
 - The six SCR6 operands, the original seams, the 502- and 237-dimensional operators, the MPKG adapter, and the historical Agni, Soma, Suraj, Sawan and Om matrices.
 - The Krishna lift's operands, the epoch and the ayanamsha.
-- GKSL, SI units, BRST, BV and Einstein–Hilbert.
+- A physical GKSL dynamics, SI units, BRST, BV and Einstein–Hilbert. The GKSL form of −L in §8 is a mathematical identity on the folded bath, and its parameter is not a time.
 
 The carrier action is constant-free, so it can predict only ratios such as √(8/3). A length or a mass needs one authenticated dimensionful datum, which is TIME_BIND.
 
@@ -465,15 +477,15 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 50 | the evening notes: 486 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath, written out; the rotor plane; two Laplacians and the line graph |
+| 22 | counts | 60 | the evening notes: 705 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath, written out, and as an operator on Λ/2Λ with its GKSL form; the rotor plane; two Laplacians and the line graph; the datum's cycle; Spanda; the two clocks as one splitting |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 22 layers, 462 checks, about 4 minutes
-python -m pytest -q           # 39 tests
+python verify.py              # 22 layers, 472 checks, about 4 minutes
+python -m pytest -q           # 42 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 104 notes of 17:01–21:03 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.
+Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 123 notes of 17:01–21:38 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.

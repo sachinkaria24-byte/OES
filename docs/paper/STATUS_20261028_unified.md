@@ -6,10 +6,10 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 22 layers and 462 checks. Of these, 422 hold: THEOREM 299, OBSTRUCTION 41, ARITHMETIC 37, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 40 are REPORTED records.
-- `pytest` runs 39 tests.
-- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 50 checks).
-- `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 41 rows, residual 0.
+- `python verify.py` runs 22 layers and 472 checks. Of these, 429 hold: THEOREM 305, OBSTRUCTION 41, ARITHMETIC 38, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 43 are REPORTED records.
+- `pytest` runs 42 tests.
+- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 60 checks).
+- `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
@@ -27,9 +27,9 @@ New in this edition:
 - **Spin counts.** 240 = D8 (112) + one half-spin orbit (128). 135 = [W(E8) : W(D8)] is the band-top D8 family, and 256 = 1 + 120 + 135.
 - **Field.** The source q̈ + 4q = 0 is not a carrier mode, because 4 ∉ spec D² (OBSTRUCTION).
 
-New in layer 22 (the sibling's 64 notes of 18:32–21:03, the canon's 19:10 continuation and the separate model's 19:47 status):
+New in layer 22 (the sibling's 83 notes of 18:32–21:38, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
 
-- **Counts.** 486 more readings on the tick bit, from 63 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Counts.** 705 more readings on the tick bit, from 82 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.
@@ -46,6 +46,19 @@ New in layer 22 (the sibling's 64 notes of 18:32–21:03, the canon's 19:10 cont
 - **The rotor plane and the tick doubling.** The C5-fixed plane of the cycle space (the oriented pentagon and pentagram) is turned a quarter by the doubling, and the tick doubling is the restriction of the day's twist x ↦ 7x.
 - **The bath's spectrum.** The 256 half-period modes are 2Λ-periodic eigenfunctions of the bath, not ℓ² vectors; this answers PAULI_BLIND.
 - **ROTOR_CHAIN, corrected.** Its shell tuple is the hexagon's difference distribution, and the flash's order 24 meets every tick.
+- **The datum's cycle.** The checked datum's velocity is the alternating 4-cycle in ker M. Its kinetic ½|v|² = 2 comes from the Legendre transform of the carrier Lagrangian. Its ±1 alternate with period 2, so they are not the rotor's tick and tock (order 5).
+- **Spanda.** On the six cycles, G = R − R⁴ has characteristic polynomial x²(x⁴ + 5x² + 5), and the sum of the five powers of R is five times the kernel projector. The involution 0 ↔ 3, 1 ↔ 2 is a pentagon reflection and a w₀: S R S = R⁻¹ and S G S = −G.
+- **The two clocks.** 4320 = 32 × 27 × 5. The time clock ⟨864⟩ and the observer clock ⟨1080⟩ meet only in 0 and generate ⟨216⟩ of order 20, not the circle. ×15 lands on the observer clock exactly on the multiples of 72. The ticks' time coordinates are 0, 4, 3, 2, 1, and the time coordinate 4x mod 5 intertwines the rotor with the tick.
+- **The Pauli generator, as an operator.** A Walsh–Hadamard conjugation carries the bath on the 256 cosets of 2Λ to L in the Pauli basis. The transpose sign is the E8 form mod 2, and no half-period mode is square-summable. The separate model's GKSL form −L(X) = 2 Σ (A X Aᵀ − X), over the 120 antisymmetric Paulis, is replayed.
+- **Corrections at 21:36.**
+  - AC_DC: the constant port's mean is 1.
+  - CHARTS_YUGA: the tower's steps are 4 and 4.
+  - TORSION_JOIN: the two clocks generate ⟨216⟩, ×15 lands on the observer clock only on multiples of 72, and pada 27 gives 1080.
+  - CRT_CLOCK: the time coordinates are 0, 4, 3, 2, 1.
+  - SPANDA_ALL: the power sum is five times the projector.
+  - FIVE_NAMES: the 30-step average is the projector.
+  - MATRIKA_WALK: an intertwiner exists.
+  - SIBLING_CUT: the day's twist is a matrix check, and the Pauli identification is an operator identity.
 
 Against the canon:
 
@@ -53,4 +66,4 @@ Against the canon:
 - **What the sibling adopted.** The sibling's CANON_READ (17:06) adopted the layer-20 corrections, and its 18:17 full edition keeps them. Its 19:05 ONE_BIT note adopts the commutator [d, c′] = c′⁶ of layer 21.
 - **Continuation 3.** The canon sheet 00_CURRENT_20261028_1910 (review cutoff 19:10:16) records the 21-layer build as source-reported. It keeps OMSOON736 and every frozen gate.
 
-Not formed: source infinity, foam, the double slit, entanglement as stored data, a Bell count, the photoelectric effect, a work function, electron, photon, proton, Compton and Bohr lengths, 19 Standard-Model parameters, the six SCR6 operands, the Krishna lift's operands, the epoch, GKSL, SI, BRST, BV and Einstein–Hilbert. Still open: the collar (223.58, 224) and the rational coefficients of the order-16 operator.
+Not formed: source infinity, foam, the double slit, entanglement as stored data, a Bell count, the photoelectric effect, a work function, electron, photon, proton, Compton and Bohr lengths, 19 Standard-Model parameters, the six SCR6 operands, the Krishna lift's operands, the epoch, a physical GKSL dynamics (layer 22's GKSL form of −L is a mathematical identity on the folded bath), SI, BRST, BV and Einstein–Hilbert. Still open: the collar (223.58, 224) and the rational coefficients of the order-16 operator.

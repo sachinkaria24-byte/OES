@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.48,
-  "2-spectral": 0.0,
-  "3-spacetime": 4.6,
-  "4-native": 41.36,
-  "5-observer": 6.88,
-  "6-gravity": 3.44,
-  "7-cosmology": 0.78,
-  "8-frontier": 24.22,
-  "9-joins": 5.85,
-  "10-literal": 15.47,
+  "1-carrier": 0.49,
+  "2-spectral": 0.01,
+  "3-spacetime": 7.26,
+  "4-native": 41.34,
+  "5-observer": 0.44,
+  "6-gravity": 2.2,
+  "7-cosmology": 0.96,
+  "8-frontier": 27.87,
+  "9-joins": 6.69,
+  "10-literal": 17.17,
   "11-glue": 0.1,
-  "12-binding": 0.06,
-  "13-gates": 0.3,
-  "14-recurrence": 38.06,
-  "15-court": 1.23,
-  "16-handover": 0.81,
-  "17-waves": 0.3,
-  "18-snapshot": 0.43,
-  "19-spine": 1.83,
-  "20-canon": 4.28,
-  "21-ledger": 21.33,
-  "22-counts": 11.63
+  "12-binding": 0.03,
+  "13-gates": 0.14,
+  "14-recurrence": 35.04,
+  "15-court": 1.29,
+  "16-handover": 1.17,
+  "17-waves": 0.71,
+  "18-snapshot": 1.11,
+  "19-spine": 2.08,
+  "20-canon": 4.47,
+  "21-ledger": 23.02,
+  "22-counts": 14.11
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 299,
-   "total": 299
+   "passed": 305,
+   "total": 305
   },
   "OBSTRUCTION": {
    "passed": 41,
@@ -95,8 +95,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 37,
-   "total": 37
+   "passed": 38,
+   "total": 38
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
@@ -111,8 +111,8 @@
    "total": 17
   },
   "REPORTED": {
-   "passed": 40,
-   "total": 40
+   "passed": 43,
+   "total": 43
   }
  },
  "checks": [
@@ -4641,13 +4641,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 486 readings from 63 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 705 readings from 82 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 63,
-    "claims": 486,
+    "notes": 82,
+    "claims": 705,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -5342,6 +5342,139 @@
   {
    "layer": "22-counts",
    "name": "not replayed: GOLDEN_FREQ's clock stiffness, TELESCOPE's six saved arrows (27 nonzeros), KARMA_K2's rank-5 reading and torus surjection, FAMILY_129's selector beyond its toy block, KURAMOTO's named conditions (Kubo, de Boer, Ralston, Hunt), and the separate model's re-uploaded paper",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "Drive check 21:36: the sibling's 19 notes of 21:09-21:38 (DARK_SPLIT, TICK_TOCK, AC_DC, W0_DEEP, SPANDA_ALL, KU_CALENDAR, KU_DEEP, CHARTS_YUGA, OBSERVER_DOTS, TORSION_JOIN, BOTH_CLOCKS, RANKS_TICK, FIVE_NAMES, MATRIKA_WALK, SIX_WAYS, SIX_AGREE, SIBLING_CUT, DOUBLING_CLOCK, CRT_CLOCK) and the separate model's revised status (21:05) and verification receipt (21:07) were read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "DARK_SPLIT, TICK_TOCK, AC_DC and W0_DEEP rebuilt on the datum: the velocity is the alternating 4-cycle +1, -1, +1, -1 around 0-1-2-3 with vertex 4 silent, in ker M. Its 1/2 |v|^2 = 2 is derived: the Legendre transform of the carrier Lagrangian is H = 1/2 |v|^2 + 1/2 psi D^2 psi. The weights alternate with period 2, so their circle shadow is the half-turn, not the rotor's tick and tock. The constant port has mean 1, not 4. W0_DEEP's four-bit reversal is the involution 0 <-> 3, 1 <-> 2 on subsets",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the datum's velocity is the alternating 4-cycle: +1, -1, +1, -1 around 0-1-2-3, vertex 4 silent, in ker M": true,
+    "|v0|^2 = 4, and the 1/2 is derived: the Legendre transform of the carrier Lagrangian, H = p v - L with p = dL/dv = v, is 1/2 |v|^2 + 1/2 psi D^2 psi; the zero-mode sector holds 2 of the conserved 34": 1.0,
+    "the involution 0 <-> 3, 1 <-> 2 fixes the cycle: it swaps the +1 edges 01 and 23 and fixes the -1 edges 12 and 03": true,
+    "the weights alternate with period 2, and a group map from Z/2 to the circle lands in {0, 2160}, which meets the tick only at 0; the rotor's tick and tock 864 and 1728 have order 5, so they are another pair": true,
+    "AC and DC: the cycle sums to 0 and its squares to 4 (mean 0, mean square 1); the constant port 1, 1, 1, 1 sums to 4 with mean 1 (AC_DC wrote mean 4); the second difference -1, 2, -1 sums to 0 and its squares 1, 4, 1 are not constant": true,
+    "q'' + 4q = 0 has 0 as its only constant solution; on the unit orbit q = cos 2t the conserved v^2 + 4q^2 is 4 at (1, 0) and (0, 2), the energy is 2, and energy = frequency because w^2 / 2 = w has the roots 0 and 2": true,
+    "W0_DEEP's spanda (reverse the first four of five bits) is the involution 0 <-> 3, 1 <-> 2 on subsets: 8 masks stay (the unions of {0, 3}, {1, 2}, {4}) and 24 move in 12 pairs, one of them 1 <-> 8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "SPANDA_ALL rebuilt: on the six cycles R^5 = I, G = R - R^4 has rank 4 and characteristic polynomial x^2 (x^4 + 5x^2 + 5), and G (G^4 + 5G^2 + 5I) = 0. The sum of the five powers is five times the kernel projector, not the projector. The involution 0 <-> 3, 1 <-> 2 that the note sets apart is a pentagon reflection and a w0 of this rotor: S R S = R^-1, S G S = -G. The moving variance 183 = 240 - 56 - 1 has 56 = the common neighbours of two adjacent sites",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the rotation preserves the six cycles and R^5 = I there": true,
+    "G = R - R^4 has rank 4 on the cycles; its kernel is the fixed plane of the pentagon and pentagram": true,
+    "G (G^4 + 5 G^2 + 5 I) = 0, and I + R + R^2 + R^3 + R^4 = G^4 + 5 G^2 + 5 I": true,
+    "that sum has rank 2 and is five times the projector onto the kernel ((sum)^2 = 5 sum); the order-5 average is the projector (P^2 = P, G P = 0)": true,
+    "G has characteristic polynomial x^2 (x^4 + 5 x^2 + 5) on the cycles; the quartic is irreducible (Eisenstein at 5) and G^2 has the moving eigenvalues -(2 + phi) and -(3 - phi), the roots of mu^2 + 5 mu + 5": true,
+    "on the ten edges R has characteristic polynomial (x^5 - 1)^2 and G has x^2 (x^4 + 5 x^2 + 5)^2": true,
+    "the involution 0 <-> 3, 1 <-> 2 is the reflection i -> 3 - i of the pentagon, the square of the 4-cycle i -> 2i + 1; on the cycles S^2 = I, S R S = R^-1 and S G S = -G, and S = -I on the kernel plane: the w0 relation holds on this basis": true,
+    "G is skew in the edge basis and singular, so it has no multiplicative order; S has order 2": true,
+    "the six-site contrast is 240 - 56 - 1 = 183, where 56 roots have inner product 1 with a given root (the common neighbours of two adjacent sites): M_2 - M_1^2 has diagonal (240^2 + 240) - (241^2 - 2 x 241 + 6) = 235 and off-diagonal (56 - 2 x 240) - (6 - 2 x 241) = 52": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "CRT_CLOCK, DOUBLING_CLOCK, TORSION_JOIN, BOTH_CLOCKS, SIX_AGREE, OBSERVER_DOTS, RANKS_TICK and MATRIKA_WALK rebuilt as one splitting 4320 = 32 x 27 x 5. The time clock <864> and the observer clock <1080> meet only in 0 and generate <216> (order 20), not the circle. x15 lands on the observer clock exactly on the multiples of 72. The ticks' time coordinates are 0, 4, 3, 2, 1. An address 40 p is on the observer clock iff 27 | p. The time coordinate 4x mod 5 intertwines the rotor with the tick",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "4320 = 32 x 27 x 5 and x -> (x mod 32, x mod 27, x mod 5) is a bijection; a nonzero x meets the tick exactly when x mod 5 != 0": true,
+    "the time clock <864> is the residues with first two coordinates 0; 0, 864, 1728, 2592, 3456 have time coordinates 0, 4, 3, 2, 1 (CRT_CLOCK wrote 0, 4, 3, 1, 2)": true,
+    "the observer clock <1080> is 0, 1080, 2160, 3240 = (0, 0, 0), (24, 0, 0), (16, 0, 0), (8, 0, 0); doubling sends the half-turn (16, 0, 0) to 0, and its kernel is {0, 2160}": true,
+    "7 = (7, 7, 2) and 2 = (2, 2, 2): 7x = 2x exactly when 864 | x; x16 fixes every tick and x4 does not; on the observer clock x7 = x3, not x2": true,
+    "the yuga blocks 1728, 1296, 864, 432 have time coordinates 3, 1, 4, 2 and add up to the circle": true,
+    "216 = (24, 0, 1), 72 = (8, 18, 2), 30 = (30, 3, 0), 180 = (20, 18, 0)": true,
+    "the two clocks meet only in 0 (lcm(864, 1080) = 4320) and together generate <216> of order 20, not the circle (TORSION_JOIN): gcd(864, 1080) = 216": true,
+    "k x 216 is on the time clock iff 4 | k and on the observer clock iff 5 | k; 216 is on neither": true,
+    "x15 maps the circle onto <15> (288 points) and lands on the observer clock exactly on the multiples of the grain 72; 15 x 12 = 180, 15 x 8 = 120 and 15 x 16 = 240 land off it (TORSION_JOIN's 'only on the torsion of order dividing 4' holds for multiples of 72)": true,
+    "an address 40 p is on the observer clock exactly when 27 | p and on a nonzero tick never: the nine chart padas avoid both, but pada 27 gives 1080, so the factor 40 keeps addresses off the ticks, not off the observer clock": true,
+    "the misses, with 0, are the subgroup <5> of order 864: sums of misses miss, sums of meets need not meet (6 + 9 = 15)": true,
+    "two steps agree on a meeting step iff both meet (SIX_AGREE), for every pair of subgroups": true,
+    "an intertwiner exists (MATRIKA_WALK): with the time coordinate k(x) = 4x mod 5, Phi(v)(x) = v_k(x) carries the vertex rotor to translation by 864, injectively; two read-outs do the same for the rotor on the ten edges, so on the six cycles": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "FIVE_NAMES: of Buddhi, Jiva, Karma, Japa and Mantra only Japa misses; the tick split 21 x 40 + 24 is eight times the japa split 21 x 5 + 3; on the rotor the 30-step average is the rank-2 projector, not 0 (it is 0 for the E8 Coxeter element)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Buddhi 2, Jiva 7, Karma 8, Japa 10, Mantra 11: only Japa misses; Jiva is the middle of the fifteen stages": true,
+    "21 x 5 + 3 = 108 and 21 x 40 + 24 = 864 = 8 (21 x 5 + 3): the tick split is eight times the japa split": true,
+    "on the six-cycle rotor the 30-step average is the 5-step average, the rank-2 projector, not 0; it is 0 for the E8 Coxeter element of order 30, which fixes no vector": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "SIBLING_CUT answered and the separate model's GKSL claim replayed: the bath on the 256 cosets of 2 Lambda is an integer matrix that the Walsh-Hadamard transform conjugates to diag eps = L in the Pauli basis (an operator identity); the transpose sign of phi(x) is the E8 form mod 2; |chi| = 1, so no half-period mode is square-summable; and -L(X) = 2 sum over the 120 antisymmetric Paulis of (A X A^T - X)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Delta on the 2 Lambda-periodic functions is a 256 x 256 integer matrix on the cosets of 2 Lambda (each root shifts a coset), with spectrum 0, 224, 256 on 1, 120, 135": true,
+    "the Walsh-Hadamard matrix (-1)^<x, v> squares to 256 I (det Cartan = 1) and conjugates it to diag eps(pi x), which is L in the Pauli basis: an operator identity, not a containment of three numbers": true,
+    "phi(x)^T = (-1)^(x.x/2) phi(x): the transpose sign is the E8 quadratic form mod 2, and the 120 antisymmetric products are the 120 root classes": true,
+    "no half-period mode is square-summable: |chi_x| = 1 at every lattice point, so over the ball of norm <= 4 its squared norm is the point count 1 + 240 + 2160 = 2401, and it grows with the ball": true,
+    "-L is a GKSL generator: sum over the 120 antisymmetric Paulis A of A X A^T = 8 tr(X) I - 8 X^T, so -L(X) = 2 sum_A (A X A^T - X), with L(I) = 0 and tr L(X) = 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "SIBLING_CUT's 'the conjugation that would make 7 the day's twist was not replayed as a matrix': it is a matrix check, d c' d^-1 = c'^7 on the integer matrices of data/clocks.json (layer 21, rechecked from the file alone) and in the app ports coxeterSpine.ts and ledgerJoins.ts",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the 21:36 arithmetic: the six-site split 183 Pc + 495 Pu, the AC/DC sums, 240 - 56 - 1, the calendar units (pada, tithi, nakshatra, sun, moon), the yuga blocks and their sixths, the address tower, the fifteen-fold landings, the six ways and their agreements, the frame and the moment",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "DARK_SPLIT: 183 I + 52 J = 183 Pc + 495 Pu on six sites (J = 6 Pu), 52 x 6 = 312, 183 + 312 = 495; 20 + 12 = 32, 2 + 32 = 34": true,
+    "TICK_TOCK, AC_DC and W0_DEEP: 1 - 1 + 1 - 1 = 0, 1 + 1 + 1 + 1 = 4 = 2^2; -1 + 2 - 1 = 0, 1 + 4 + 1 = 6; 0 + 1 - 1 + 2 = 2": true,
+    "SPANDA_ALL: 240 - 56 - 1 = 183, 131 - 4 = 127, 4 x 183 + 2 x 127 = 986": true,
+    "KU_CALENDAR: gcd(40, 864) = 8, 40 = 5 x 8, 864 = 108 x 8, 540 x 8 = 4320; 98 - 95 = 101 - 98 = 3, 3 x 40 = 120 = 15 x 8; 66 - 30 = 36, 36 x 40 = 1440 = 180 x 8, 3 x 1440 = 4320, 1440 / 120 = 12; 50 = 10 + 40": true,
+    "KU_DEEP: 30 x 144 = 12 x 30 x 12 = 27 x 160 = 4320; gcd(144, 160) = 16, lcm = 1440 = 10 x 144 = 9 x 160; 360000 = 1440 mod 4320; 20 x 144 = 2880 = -1440; lcm(120, 144) = 720 = 4 x 180; 720 + 144 = 864 = 6 x 144; 2 x 8 = 16": true,
+    "CHARTS_YUGA: the blocks are 3, 1, 4, 2 mod 5 (sum 10) and their sixths 288, 216, 144, 72 keep the residues (6 = 1 mod 5), 2 x 72 = 144; 69120 = 4 x 17280 = 16 x 4320, so the tower's two steps are 4 and 4 (CHARTS_YUGA wrote 16 and 4); 13824 = 864 mod 4320, 5 x 13824 = 69120; 108 = 27 x 4, 108 x 40 = 4320; 88 = 2 x 44": true,
+    "OBSERVER_DOTS: 15 = 5 + 8 + 2; 15 x 864 = 3 x 4320; 15 x 1296 = 15 x 432 = 15 x 144 = 2160 mod 4320, 2160 / 864 = 5/2; 15 x 216 = 3240, 2 x 3240 = 2160 and 4 x 3240 = 0 mod 4320; 15 x 288 = 4320": true,
+    "SIX_WAYS and SIX_AGREE: 12 + 20 + 2 = 34, 432 x 34 = 17 x 864; 144 x 30 = 4320; gcd(216, 288) = 72, lcm = 864; 3 x 72 = 216, 4 x 72 = 288, 12 x 72 = 864, 3 x 4 = 12; lcm(2, 216) = lcm(4, 216) = 216, lcm(144, 216) = 432, lcm(20, 216) = lcm(30, 216) = 1080, lcm(20, 30) = 60": true,
+    "BOTH_CLOCKS and MATRIKA_WALK: 20 x 216 = 4320; gcd(180, 216) = 36, 5 x 36 = 180, 6 x 36 = 216; 54 x 16 = 864, 5 x 54 = 270; lcm(16, 216) = 432 = 2 x 216, gcd(16, 216) = 8": true,
+    "RANKS_TICK and FIVE_NAMES: 6 + 1 = 7, 7 + 2 = 9, 9 + 6 = 15; 4 + 6 = 10; 4 + 6 + 4 + 1 = 15; 16 + 16 = 32; 5 + 1 = 6; 7 + 1 + 7 = 15": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "recorded, not rerun: the separate model's 33,083 validation instances in 23 receipts, its fresh build of 720 exact outputs from 80 Python files and 2,385 inputs, and its archive (37,017,392 bytes, 3,379 payloads, sha256 b5199a90...); never executed here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "not replayed: TICK_TOCK's stored return signs (0, +1, -1, +2), SPANDA_ALL's stored signed reversal and its 131, CHARTS_YUGA's Human Design gates and the orientation identity K^3 = -3K (no K is stored here), and the chart padas themselves, used only as reported integers",
    "status": "REPORTED",
    "passed": true,
    "value": null,
