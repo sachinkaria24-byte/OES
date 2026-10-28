@@ -12,7 +12,7 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 - `ports/ts/ledgerJoins.ts` carries it into the sibling's app. Together with `coxeterSpine.ts` that is 35 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status.
 
-**Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers.
+**Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) it is the Google Doc `one-machine-20261028-unified`.
 
 New in this edition:
 
