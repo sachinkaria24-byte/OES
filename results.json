@@ -53,15 +53,15 @@
   ]
  },
  "timing_s": {
-  "1-carrier": 0.56,
+  "1-carrier": 0.43,
   "2-spectral": 0.01,
-  "3-spacetime": 5.78,
-  "4-native": 2.92,
-  "5-observer": 0.17,
-  "6-gravity": 4.36,
-  "7-cosmology": 1.15
+  "3-spacetime": 6.05,
+  "4-native": 74.0,
+  "5-observer": 0.22,
+  "6-gravity": 4.04,
+  "7-cosmology": 1.17
  },
- "fast": true,
+ "fast": false,
  "summary": {
   "THEOREM": {
    "passed": 90,
@@ -80,8 +80,8 @@
    "total": 6
   },
   "SELECTED_REFERENCE": {
-   "passed": 2,
-   "total": 2
+   "passed": 4,
+   "total": 4
   },
   "UNFORMED": {
    "passed": 4,
@@ -931,6 +931,52 @@
    "passed": true,
    "value": null,
    "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "nonlinear native flow conserves total energy (RK4, ball |x|^2<=8)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "circular@r=0.05": 2.2595203527515778e-10,
+    "breathing@r=0.05": 2.6322325517228535e-10,
+    "circular@r=0.2": 1.1271783908898912e-07,
+    "breathing@r=0.2": 1.4150693114366536e-08
+   },
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "small amplitude: breathing source (port at freq 4) feeds the bath >5x more than the circular source (static port)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "circular@r=0.05": {
+     "E0": 0.0061339177460016355,
+     "rel_drift": 2.2595203527515778e-10,
+     "bath_gain_over_E0": 8.98251977020579e-05,
+     "source_E_ratio": 1.1234103042433918
+    },
+    "breathing@r=0.05": {
+     "E0": 0.0025189162444499936,
+     "rel_drift": 2.6322325517228535e-10,
+     "bath_gain_over_E0": 0.0011601090759437273,
+     "source_E_ratio": 0.9841512334197283
+    },
+    "circular@r=0.2": {
+     "E0": 0.37028294297641834,
+     "rel_drift": 1.1271783908898912e-07,
+     "bath_gain_over_E0": 0.08328018022285702,
+     "source_E_ratio": 3.6139617958714876
+    },
+    "breathing@r=0.2": {
+     "E0": 0.04484255857919824,
+     "rel_drift": 1.4150693114366536e-08,
+     "bath_gain_over_E0": 0.010112053856987916,
+     "source_E_ratio": 0.9260991106496252
+    }
+   },
+   "note": "finite ball is a cavity: energy exchange, not a far-field rate. At r=0.2 the circular orbit breaks up, as the canon's instability statement for the rotating family predicts"
   },
   {
    "layer": "4-native",
