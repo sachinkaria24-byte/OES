@@ -1,0 +1,1163 @@
+{
+ "ledger": {
+  "gates": {
+   "AUTH": "NOT_PASS",
+   "ScientificGold": "FALSE",
+   "GoldDepth": 0,
+   "G_OES": "FALSE",
+   "SCR6": "NOT_RUN_OPERAND_ABSENT",
+   "TIME_BIND": "UNBOUND",
+   "DYN_BIND": "NOT_INSTALLED",
+   "BIND_Q31": "UNBOUND",
+   "PredictionFreeze": "NOT_TRIGGERED",
+   "P": "NOT_PASS",
+   "W_E": "NOT_PASS",
+   "W_L": "NOT_PASS",
+   "E": "NOT_PASS",
+   "I": "NOT_PASS",
+   "T3081": "UNOPENED",
+   "x_executed": "000000",
+   "R6/A40/A52": "FROZEN",
+   "numbered_baseline": "OMSOON736"
+  },
+  "removed": [
+   "quarter defect 9/40 and every angle built from it",
+   "CKM, PMNS, Jarlskog invariant, mass exponents (no Yukawa block of D)",
+   "hypercharge shell SU(3)xSU(2)xU(1)",
+   "printed potential A(1)",
+   "cortex scales / complex Ginzburg-Landau constants",
+   "portal, spring, detuning, second clock",
+   "IceCube and LHAASO scales (no GeV in the spectrum)",
+   "SO(2) by subtracting 3 from 5 (no continuum dimension theorem)",
+   "imported noncommutative dimensions (Hilbert dimension is 15)",
+   "vacuum amplitude (27/5)^3 e^-280 as a prediction",
+   "alpha = 1/137 (Legendre symbol (5/137) = -1)"
+  ],
+  "unformed": [
+   "six SCR6 operands",
+   "original 31 seam rows",
+   "502-dim Hodge-Dirac",
+   "237-dim fiber observer",
+   "historical MPKG adapter",
+   "E8 glue map",
+   "lattice sequence c60",
+   "native 4944-dim transition / 5048-dim pullback",
+   "ports R1, 025, 250, Jfix, Sawan, Hemkuver",
+   "historical Agni/Soma/Suraj",
+   "Sakshin operator (original)",
+   "I6L",
+   "Wald coefficient",
+   "physical 1401-dim sector with calibrated time",
+   "saved native_source_matrices (SHA256 73e07429...)",
+   "literal conflicting 5x5 determinant operand (155 vs 4805)"
+  ]
+ },
+ "timing_s": {
+  "1-carrier": 0.56,
+  "2-spectral": 0.01,
+  "3-spacetime": 5.78,
+  "4-native": 2.92,
+  "5-observer": 0.17,
+  "6-gravity": 4.36,
+  "7-cosmology": 1.15
+ },
+ "fast": true,
+ "summary": {
+  "THEOREM": {
+   "passed": 90,
+   "total": 90
+  },
+  "OBSTRUCTION": {
+   "passed": 5,
+   "total": 5
+  },
+  "REMOVED": {
+   "passed": 2,
+   "total": 2
+  },
+  "ARITHMETIC": {
+   "passed": 6,
+   "total": 6
+  },
+  "SELECTED_REFERENCE": {
+   "passed": 2,
+   "total": 2
+  },
+  "UNFORMED": {
+   "passed": 4,
+   "total": 4
+  },
+  "CONDITIONAL": {
+   "passed": 8,
+   "total": 8
+  }
+ },
+ "checks": [
+  {
+   "layer": "1-carrier",
+   "name": "dim ker M_n = n(n-3)/2 for n=3..12",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "dim ker M = |V| selects K5 only (n<=12; quadratic beyond)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    5
+   ],
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "signed incidence never has dim ker = n (disc 17 not square)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "M M^T = 3I + J",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "(3I+J)^-1 = I/3 - J/24",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "Smith invariants of M are 1,1,1,1,2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    2.0
+   ],
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "D self-adjoint and odd: {D, gamma} = 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "D^2 (D^2-3)(D^2-8) = 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "spec(D^2) = {0^5, 3^8, 8^2}",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "0": 5,
+    "3": 8,
+    "8": 2
+   },
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "Tr D^2 = 40, Tr D^4 = 200, odd traces 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    40,
+    200
+   ],
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "D^2 has rank 10",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "signed Dirac square has spectrum {0^7, 5^8}; not the carrier",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "0": 7,
+    "5": 8
+   },
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "S5-equivariant maps R^E->R^V form a 2-dim space (M, J)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 2,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "initial datum: sector energies 12 (lam=3) + 20 (lam=8) + 2 (kernel)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "0": 2.0,
+    "3": 12.0,
+    "8": 20.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "<psi0, D^2 psi0> = 64 and E = 34",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "closed form conserves energy (machine precision)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 1.1368683772161603e-13,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "closed form solves psi'' + D^2 psi = 0 (FD residual)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 1.0106826668909719e-06,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "leapfrog integrator agrees with closed form at t=5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 5.463312464204506e-06,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "frequencies 0, sqrt3, 2sqrt2; ratio^2 = 8/3 not a rational square",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "Petersen: A^2 + A - 2I = J, 3-regular, 15 edges",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "Petersen girth 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "Petersen projector ranks 1, 5, 4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "3": 1,
+    "1": 5,
+    "-2": 4
+   },
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "cycle Gram (G-I)(G-5I)=0, det G = 125",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "Hodge block A=(6I-G)sigma: sigma^2=I, A^2=5I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "signed edge gram G^2 = 5G, eigen 0^6 5^4; cycle projector (5I-G)/5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "edge tick: order 5, B T = R B (signed boundary)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "unsigned tick commutes with Petersen adjacency",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "tick preserves the 6-dim cycle space (induces the order-5 rotor)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "M2=10|x|^2 over the 20 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "correction: over the 10 pairs i<j the sum is 5|x|^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "M4=6|x|^4+10sum x^4 over the 20 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "lap|x|^4=28|x|^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "lap sum x^4=12|x|^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "3|x|^4-7sum x^4 harmonic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "1-carrier",
+   "name": "quartic not in action: coupling needs a dimensionful constant",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "harmonic line recorded so the obstruction is checked"
+  },
+  {
+   "layer": "2-spectral",
+   "name": "heat trace Z(0.05) = 5 + 8e^-3b + 2e^-8b",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 13.226303903471742,
+   "note": ""
+  },
+  {
+   "layer": "2-spectral",
+   "name": "heat trace Z(0.5) = 5 + 8e^-3b + 2e^-8b",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 6.821672558964907,
+   "note": ""
+  },
+  {
+   "layer": "2-spectral",
+   "name": "heat trace Z(2.0) = 5 + 8e^-3b + 2e^-8b",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 5.01983024248368,
+   "note": ""
+  },
+  {
+   "layer": "2-spectral",
+   "name": "moments Tr D^0, D^2, D^4, D^6, D^8 = 15, 40, 200, 1240, 8840",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    15,
+    40,
+    200,
+    1240,
+    8840
+   ],
+   "note": ""
+  },
+  {
+   "layer": "2-spectral",
+   "name": "zeta_D(s) = 8*3^-s + 2*8^-s; zeta_D(0) = 10 = rank D^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "2/8**s + 8/3**s",
+   "note": ""
+  },
+  {
+   "layer": "2-spectral",
+   "name": "zeta_D(1) = 8/3 + 1/4 = 35/12",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "2-spectral",
+   "name": "spectral dimension -> 0 in the UV and the IR (finite geometry)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    0.0005332089028145282,
+    0.0
+   ],
+   "note": ""
+  },
+  {
+   "layer": "2-spectral",
+   "name": "peak spectral dimension of the carrier",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "max_ds": 0.8428366993037428,
+    "at_beta": 0.4207266283844442
+   },
+   "note": "a property of {0^5,3^8,8^2}; no continuum dimension emerges"
+  },
+  {
+   "layer": "2-spectral",
+   "name": "Hilbert dimension 15; imported NC dimensions removed",
+   "status": "REMOVED",
+   "passed": true,
+   "value": 15,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "hemi-icosahedron: 6 axes, 10 faces; complement 10 faces",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "positive RP^2: chi=1, closed (each edge in 2 faces)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "positive RP^2: H0=Z, H1=Z/2, H2=0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "{0: (1, []), 1: (0, [2]), 2: (0, [])}",
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "positive RP^2: rank d2 = 10 over F_241, 9 over F_2 (Bockstein)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "complementary RP^2: chi=1, closed (each edge in 2 faces)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "complementary RP^2: H0=Z, H1=Z/2, H2=0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "{0: (1, []), 1: (0, [2]), 2: (0, [])}",
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "complementary RP^2: rank d2 = 10 over F_241, 9 over F_2 (Bockstein)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "20-face union: d2 has no invariant factor above 1 (torsion killed)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "mapping torus of id = RP^2 x S^1: H = Z, Z+Z/2, Z/2, 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "H": "{0: (1, []), 1: (1, [2]), 2: (0, [2]), 3: (0, [])}",
+    "F2": [
+     1,
+     2,
+     2,
+     1
+    ]
+   },
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "algebraic torus of -id: free Betti 0,0,0,0; F2 Betti 1,2,2,1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "H": "{0: (0, [2]), 1: (0, [2]), 2: (0, [2]), 3: (0, [])}",
+    "F2": [
+     1,
+     2,
+     2,
+     1
+    ]
+   },
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "-id is a chain map, not induced by a self-map (reverses 0-chains)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "K_G charpoly z^3 (z-4)^2 (z^2-5z+5)^2 (z^2-3z+1)^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "Hodge Laplacian on 31 cells has nullity 1 (rank 30)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "K403 = K_G (x) I31 + I13 (x) Delta has rank 400; energy rank 803",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 400,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "A5 element orders {1,2,3,5}, census 1+15+20+24 = 60; no order 4",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "1": 1,
+    "3": 20,
+    "2": 15,
+    "5": 24
+   },
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "clock: pi sigma = I120, pi T = A pi",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "clock quotient A has order 90",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "g120 = diag(I119 + 11^T, 1) positive, eigen 120^1 1^119, A-invariant",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "memory T: (T-I)^5 != 0, (T-I)^6 = 0 on the chain: no invariant metric",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "240 roots: 112 integral + 128 half-integral, all |alpha|^2 = 2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "frame: sum alpha alpha^T = 60 I8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "root graph (inner product 1) is 56-regular",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "Gosset walks at a root 1, 0, 56, 1512, 62160",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    1,
+    0,
+    56,
+    1512,
+    62160
+   ],
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "root graph spectrum 56^1 28^8 8^35 (-2)^112 (-4)^84",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "-4": 84,
+    "-2": 112,
+    "8": 35,
+    "28": 8,
+    "56": 1
+   },
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "lattice returns N0..N6 = 1,0,240,13440,1260720,137813760,17141798400",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    1,
+    0,
+    240,
+    13440,
+    1260720,
+    137813760,
+    17141798400
+   ],
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "13440 = 240 x 56",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "eps(0) = 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "eps(pi(1,1,1,1,0,0,0,0)) = 256 (band top attained)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 256.0,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "sampled symbol never exceeds 256 (evidence; census proof is canon)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": 254.61446471076377,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "long-wave dispersion eps ~ 30|k|^2, bath speed sqrt(30) lattice units",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "speed is in lattice units; no SI length or time is bound"
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "ball |x|^2<=8: theta-series shells 1,240,2160,6720,17520",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "0": 1,
+    "2": 240,
+    "4": 2160,
+    "6": 6720,
+    "8": 17520
+   },
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "Green identity 240 (G(0) - G(alpha)) = 1 (W(E8)-symmetric ball)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 0.9999999999999998,
+   "note": "exact on the infinite lattice by root-transitivity of W(E8)"
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "clique block A = 241 I6 - J6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "3-spacetime",
+   "name": "exterior coupling B B* = 183 P_c + 495 P_u (= 183 I + 52 J)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "P5 = ker M has dim 5; L6 = ker boundary has dim 6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "W_AS : Lambda^2 P5 -> L6 has rank 6, kernel 4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 6,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "W_AS^T W_AS = kappa P (Schur: visible part is one irreducible)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 1.1111111111111114,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "W_AS is rotor-equivariant (source rotation -> signed cycle rotor)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "W_p spectrum {2/5, 2, 5-sqrt5 (x2), 5+sqrt5 (x2)}, det 320",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    0.4,
+    2.0,
+    2.763932,
+    2.763932,
+    7.236068,
+    7.236068
+   ],
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "W_p commutes with the boundary rotation",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "cycle rotor and boundary rotation have equal characters (trace 1)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "adapter: T^T W_p T proportional to I; S T = T R",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": "saved P_native_to_boundary_order and Fedge are absent"
+  },
+  {
+   "layer": "4-native",
+   "name": "(T W_AS)^T W_p (T W_AS) = (320/9) G P  with G = Lambda^2 M",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "sharp quartic: max Q4/rho^2 = 40/9 (attained by a visible balanced pair)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 4.444444444444447,
+   "note": "maximisers form the degree-5 del Pezzo section Gr(2,5) n P^5"
+  },
+  {
+   "layer": "4-native",
+   "name": "random sources obey Q4 <= (40/9) rho^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 4.067000961773418,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "port quadratic: g(0)=0, Dg(0)=0; linear source eq q''+4q=0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "Euler homogeneity J(q) q = 2 g(q)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "bath density at lam=16 is nonzero on both port channels (radiation open)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "uniform": 2.243184779763112e-07,
+    "contrast": 2.6850492020668895e-09
+   },
+   "note": "Monte Carlo on the Brillouin torus; frequency-2 source has no linear channel since the port is quadratic"
+  },
+  {
+   "layer": "4-native",
+   "name": "no bath density above the band edge 256 (spectrum [0,256])",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "4-native",
+   "name": "rotating family: static port mean => non-l1 static tail (T1-T5)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "proved in the 28 Oct collar note; consistent with the circular run above"
+  },
+  {
+   "layer": "4-native",
+   "name": "physical action selection, horizon/area map, Newton constant",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "5-observer",
+   "name": "observable dimensions of named readouts (of 30)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "vertex positions": 10,
+    "edge positions": 20,
+    "Dirac image D psi": 20,
+    "all positions": 30,
+    "one vertex": 4,
+    "one edge": 6,
+    "vertex sum (uniform statistic)": 2
+   },
+   "note": ""
+  },
+  {
+   "layer": "5-observer",
+   "name": "vertex and edge systems decouple: D^2 block diagonal",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "5-observer",
+   "name": "Witten index Tr gamma e^{-beta D^2} = -5 for all beta",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    -4.999999999999999,
+    -5.0,
+    -5.000000000000004
+   ],
+   "note": ""
+  },
+  {
+   "layer": "5-observer",
+   "name": "a scalar readout sees at most 6 phase dimensions (3 distinct lines)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "5-observer",
+   "name": "hidden controllable sector dim(Ran K n ker O)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "edge force | vertex positions": 20,
+    "edge force | Dirac image D psi": 10,
+    "edge force | edge positions": 0,
+    "vertex force | vertex positions": 0,
+    "vertex force | Dirac image D psi": 0,
+    "vertex force | edge positions": 10
+   },
+   "note": "the 5 kernel modes (cycle drift) are reachable by edge force and invisible to D psi: the dark sector of the carrier"
+  },
+  {
+   "layer": "5-observer",
+   "name": "observability Gramian W_o(6) of D psi has rank 20",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 20,
+   "note": ""
+  },
+  {
+   "layer": "5-observer",
+   "name": "original Sakshin / 237-dim fiber observer",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "6-gravity",
+   "name": "LLY Ricci curvature of K5 = 5/4 (= n/(n-1))",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": 1.25,
+   "note": "positive discrete curvature of the carrier graph; not Einstein gravity"
+  },
+  {
+   "layer": "6-gravity",
+   "name": "LLY curvature of the Petersen graph = 0 (edge-transitive)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": 0.0,
+   "note": ""
+  },
+  {
+   "layer": "6-gravity",
+   "name": "LLY curvature of the E8 root-lattice graph = 0 (flat bath space)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": 3.552713678800501e-15,
+   "note": "as for Z^n: the abelian lattice is discretely Ricci-flat; only K5 carries positive curvature"
+  },
+  {
+   "layer": "6-gravity",
+   "name": "M4 x F heat coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": [
+    "60",
+    "-5*R - 160*m**2",
+    "40*R*m**2/3 + 400*m**4"
+   ],
+   "note": "uses Tr D_F^0=15, Tr D_F^2=40, Tr D_F^4=200 and spinor rank 4"
+  },
+  {
+   "layer": "6-gravity",
+   "name": "f = e^-x, L = 10 m: G = pi/(500 m^2), Lambda_cc = 584.4 m^2 (natural)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "G": 0.006283185307179587,
+    "Lambda_cc": 584.4
+   },
+   "note": ""
+  },
+  {
+   "layer": "6-gravity",
+   "name": "nonidentifiability: F2/F1 tunes Lambda_cc to any value (here 0)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "F2": 0.026,
+    "G": 0.006283185307179587
+   },
+   "note": ""
+  },
+  {
+   "layer": "6-gravity",
+   "name": "Einstein-Hilbert power 4 = cut rank, vacuum power 6 = cycle rank",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "shared integers only (canon 28 Oct); not a derivation"
+  },
+  {
+   "layer": "6-gravity",
+   "name": "Wald coefficient, Newton constant in SI, horizon/area map",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "7-cosmology",
+   "name": "Friedmann constraint preserved along the flow (tuned Lambda_cc = 0)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": 3.783751090224996e-12,
+   "note": ""
+  },
+  {
+   "layer": "7-cosmology",
+   "name": "kernel (massless) sector: rho ~ a^-6 (stiff)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": -5.9999999994494795,
+   "note": ""
+  },
+  {
+   "layer": "7-cosmology",
+   "name": "massive sectors (3, 8): time-averaged rho ~ a^-3 (dust)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": -3.0000167636245667,
+   "note": ""
+  },
+  {
+   "layer": "7-cosmology",
+   "name": "expansion decelerates, a(t) ~ t^(2/3) at late times",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "a_end": 98.88382319278116,
+    "p": 0.665456872936961
+   },
+   "note": ""
+  },
+  {
+   "layer": "7-cosmology",
+   "name": "natural cutoff f=e^-x: de Sitter at once, H -> sqrt(Lambda_cc/3)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "H_end": 13.957384934996512,
+    "H_dS": 13.95707705789432
+   },
+   "note": "the vacuum term 6 L^2 swamps the carrier: the usual cosmological-constant problem, not a prediction"
+  },
+  {
+   "layer": "7-cosmology",
+   "name": "IceCube/LHAASO scales, vacuum amplitude (27/5)^3 e^-280",
+   "status": "REMOVED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "7-cosmology",
+   "name": "any observed cosmological parameter (H0, Omega, w)",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "needs m, L, f and TIME_BIND; all external"
+  }
+ ]
+}
