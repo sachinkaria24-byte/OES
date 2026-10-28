@@ -339,31 +339,132 @@ graph LR
 | 36 | atlas addresses | none |
 | 4320, 108, 69120 | yuga, japa and Human Design counts | integers only |
 
-## 10. What stays open
+# Part II — From the mathematics to the operands and the physical gates
 
-Recorded in `oes/gates.py` and carried unchanged from the canon:
+The canon's own state machine (S364 master lock) separates four kinds of transition:
 
-**Unformed operands:**
-- the SCR6 operands;
-- the original 31 seam rows;
+> a new theorem head changes what is **known**; an authenticated root changes what can be **executed**; a binary receipt changes what can be **compared**; an independent warrant changes what can be **promoted**.
+
+So "doing the maths to get to the gates" means two things: drive every gate to the edge of its own transition type, and prove exactly what input closes the rest. Layers 10–14 do this.
+
+## 10. Operands recovered or formed
+
+| Operand (canon status before) | What happened | Layer / file |
+|---|---|---|
+| saved `native_source_matrices`, SHA-256 73e07429… (ABSENT) | **Located** inside `OES_Standing_Model_Integrated_Proof_Packet_20261027.zip`. The bytes hash to the recorded value here, a cross-host byte receipt. | `data/native_matrices_input.json`, layer 10 |
+| 6×6 adapter T of eq. 27, "155 vs 4805" (conflict) | Present in the same file as `T_OMSOON293`: det T = 155 = 5·31, cofactor₄₄(TTᵀ) = 4805 = 5·31², (TTᵀ)⁻¹₄₄ = 1/5. One adapter and its cofactor; **replayed**. | layer 10 |
+| E8 glue map (ABSENT) | **Constructed** both ways: E8 = D8 ∪ (D8 + s) with isotropic s, and E8 ⊃ A4 ⊕ A4′ of index 5 with glue map x ↦ ±2x on ℤ/5. | layer 11 |
+| lattice sequence W₆₀ (ABSENT) | **Computed exactly**: W₀…W₆₀ by a W(E8) dominant-weight DP with CRT. All 56 canon values W₀…W₅₅ are reproduced with zero mismatches, including W₂₅…W₅₅, which the canon had never independently regenerated. | `data/walks.json`, `oes/walks.py`, layer 14 |
+
+**The literal operands against the earlier reconstruction (THEOREM, layer 10).**
+- Every identity the canon states for the file replays exactly:
+  - W = NᵀN with det 8/9, and M = diag(W/4, W/4);
+  - W_p = 2FᵀF, with spectrum {2/5, 2, 5 ± √5};
+  - WASᵀW_p WAS = (320/9)·Λ²M·P;
+  - R⁵ = I, RᵀWR = W, WAS·Λ²R = Q·WAS.
+- The printed literal R is exactly the K5 vertex 5-cycle.
+- My layer-4 selected reference had the same W_p (exactly), the same metric up to basis, and the same Schur scale. Its adapter differed from the literal only by an explicit W_p-isometry U commuting with the C5 rotation (det U = −1). That is precisely the freedom the uniqueness analysis predicted.
+- The native E8 flow was rerun on the **owner's literal operands** (apex 0 and eᵢ − e₆ clique). Energy is conserved to 5×10⁻¹¹, and a breathing source feeds the bath 11.7× more than a circular one (13× in the reference run).
+
+**Uniqueness certificates (THEOREM).** These are why derived operands are not arbitrary surrogates:
+- P5 is an irreducible S5-module, so its invariant metric is unique up to scale.
+- Hom_S5(Λ²P5, L6) is one-dimensional, so W_AS is forced up to scale.
+- No S5- or D5-equivariant isomorphism L6 → boundary exists (the characters differ), so C5 is the maximal symmetry of any port adapter. Its moduli are an explicit commutant group.
+
+**Searched and not present.** The reader packet and the 27 Oct proof packet do not contain:
+- the six SCR6 operands;
+- the 1401 → 1370 seams;
+- the 502-dimensional Hodge–Dirac and the 237-dimensional operators;
+- MPKG A_M;
+- I6L, Jfix, Sawan or Hemkuver.
+
+## 11. The E8 glue: the carrier sits inside the bath (`oes/glue.py`)
+
+**Decomposition.**
+- A4 = ⟨eᵢ − eⱼ⟩ is the carrier's own root system: its 20 roots are the oriented K5 edges.
+- Its orthogonal complement in E8 is a second A4′.
+- [E8 : A4 ⊕ A4′] = 5, and 240 = 20 + 20 + 200.
+
+**The 200 mixed roots.**
+- They project onto span(A4) as exactly the K5 vertex weights eᵢ − ⅕Σe and edge weights eᵢ + eⱼ − ⅖Σe, up to sign.
+- A signed vertex pairs with the 10 weights of the twin 10; a signed edge pairs with the 5 weights of the twin 5. That gives 4 × 50 = (5,10′) + (5̄,10̄′) + (10,5̄′) + (10̄,5′).
+- In SU(5) × SU(5)′ notation this is 248 = (24,1) + (1,24) + those four bifundamentals.
+
+**Consequence (THEOREM).** ℓ²(V ⊔ E) is ℓ² of the A4 shadows of the mixed E8 roots. The carrier is not merely numerically related to the bath; it is a projection of it.
+
+## 12. What a physical binding can be (`oes/binding.py`)
+
+**Theorems.**
+- **B1.** The only atom-diagonal symmetry of D is the global phase. No atom-dependent charge (hypercharge, colour, any diagonal gauge U(1)) commutes with the carrier dynamics. This sharpens the canon's removal of the hypercharge shell.
+- **B2.** The commutant of D is M5 ⊕ M4 ⊕ M4 ⊕ ℂ ⊕ ℂ (dimension 59). The dark sector ker D = P5 carries an **exact U(5)** as its fundamental.
+- **B3.** The native port breaks that dark O(5) completely: the stabiliser Lie algebra is 0. The only continuous symmetry left is the SO(2) rotating (a, b), whose Noether charge is the canon's angular charge.
+- **B4.** The five zero modes have one chirality. Under any SU(5) ⊂ U(5) they are a single 5 with anomaly A(5) = 1 ≠ 0 (OBSTRUCTION). The minimal anomaly-free completion adds Λ²(ker D) = 10 at the opposite chirality, since A(Λ²5) = A(5) = 1. Λ²P5 is exactly where the native port's wedge a ∧ b lives, and 5 + 10 = 15 is the carrier's own state count.
+
+**Conditional consequence (CONDITIONAL).** One carrier supports one anomaly-free 5 + 10, the state content of one Standard-Model generation. Nature has three (LEP N_ν = 2.984 ± 0.008), so the generation multiplicity is an explicit **operand of DYN_BIND**, not a carrier theorem.
+
+**The structural route.** The route the mathematics points to is e8 ⊃ su(5) ⊕ su(5)′ (layer 11). Choosing it, and supplying the multiplicity and the chirality index, is the binding decision.
+
+## 13. The gates, executed to the edge of their type (`oes/gatework.py`)
+
+| Gate | Transition type | Done here | What closes it |
+|---|---|---|---|
+| **TIME_BIND** | metrology | Countermodel A replayed: τ and 2τ give identical records but frequencies in ratio 2:1. Sufficiency proved: one datum fixes τ uniquely, and frequency ratios are calibration-invariant. The canon's Salina square S·U_native(u) = U_phys(τu)·S holds to 6×10⁻¹⁵ (Prema follows). | **One authenticated clock datum** and the owner's choice of which native mode it labels. CTB9: unbound only for lack of metrology. (U7 recommends the electron Compton mode.) |
+| **PredictionFreeze** | owner act | `data/prediction_register.json`: every calibration-invariant number the model fixes, with no fit; its SHA-256 is recorded in results.json. | The owner triggers the freeze, before any new comparison with data. |
+| **W_L** (likelihood) | independent warrant | **Executed** on the canon's only frozen physical candidate, the PMNS strict branch with sin²θ₁₂ = 1199/3759 and sin²θ₁₃ = 27/1280. Against the canon-recorded Bari Oct-2026 fit the pulls are +2.59σ and −1.98σ, χ² = 10.6 (2 dof), p = 0.005. Adding the reported NuFIT 6.0 strict-θ₂₃ pull (−4.8σ) gives χ² = 26.3 (3 dof), p ≈ 8×10⁻⁶. | **Result: NOT_PASS by evidence.** The candidate is excluded, which confirms the 28 Oct removal of PMNS from the carrier. |
+| **T3081** | binary receipt | The method is demonstrated on the native operand file (canon hash = local hash). The dEchorate official SOFA host (sofacoustics.org) and zenodo.org are denied by this environment's network policy. | Allow those hosts, then compare the maintainer copy `10E4VCAA1…` (SHA c39bc27f…) with the official bytes. |
+| **AUTH / SCR6** | authenticated root | `data/owner_transaction.json` packages the canon's minimal ingress antichain {P_cl, SELECT_CERT, ROLE_BIND, G_role}, with SHA-256 for each operand and the uniqueness certificates. | **The research owner's signature.** SCR6 additionally needs its six physical operands, which belong to a chosen physical child. |
+| **DYN_BIND** | physical choice | Constraints B1–B6 above. | The choice of physical child (H_sel), the generation multiplicity and the chirality index. |
+| **ScientificGold** | independent warrant | Nothing can be promoted internally. | A frozen prediction, independent data and a preregistered test on a declared physical system. |
+
+## 14. The six SCR6 operands
+
+The canon defines them by shape only: H_D2 (2×2), C55 (55×55), F_phys (169×69, complex), Omega24 (24×24, skew), Z7 (31×7) and host_to_OES (5×18). It says they "cannot be filled with similarly shaped constructed matrices".
+
+They are **physical by definition**: they are the interface to a chosen physical system. Mathematics cannot derive them; it can only reduce each to its minimal input. The 26 Oct U7 court did that reduction, and its table stands:
+- gauge amplitudes need the scalar spectrum;
+- Yukawas need running masses;
+- the vacuum needs G_F;
+- the M6 coframe needs a one-bit owner choice;
+- the SI clock needs m_e;
+- atomic H_Z needs α, m_e and nuclear data.
+
+Its flavour benchmark rests on ε = 9/40 with "rationals chosen to fit", and §13 shows the one frozen flavour prediction fails. So the honest physical route is not to refit flavour. It is to declare the physical child, then freeze the register of §13 before testing.
+
+## 15. The scalar walk recurrence (`oes/recurrence.py`)
+
+- The canon's exclusions (5,2), (10,2), (12,2) and (10,3) replay.
+- On the exact W₀…W_N, every shape the data decide is excluded and none has a kernel. That certifies (r+1)(d+2) > N + 2 from data alone.
+- With W₀…W₉₀ (`data/walks90.json`, running) the data reach the canon's minimal admissible shape (10, 6) directly.
+- The explicit recurrence stays UNFORMED. It needs far more exact terms than a Weyl-orbit DP reaches; the canon's finite determinant construction exists but is uncomputed.
+
+## 16. What stays open
+
+**Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
+- the six SCR6 operands;
+- the original 31 seam rows and the physical 1401 → 1370 sector;
 - the 502-dimensional Hodge–Dirac and the 237-dimensional observer;
-- the MPKG adapter and the E8 glue map;
-- c₆₀;
+- MPKG A_M;
 - the 4944- and 5048-dimensional transitions;
 - the R1/025/250/Jfix/Sawan/Hemkuver ports;
 - the historical Agni/Soma/Suraj and the original Sākṣin;
 - I6L;
 - the Wald coefficient;
-- the saved native source matrices;
-- the 6×6 adapter T of eq. 27 (155 vs 4805 is reported as a label error and was not replayed here).
+- the physical child H_sel.
+
+**Recovered in this build:** the native source matrices, the 155/4805 adapter, the E8 glue map, and W₆₀.
 
 **Open mathematics:**
-- the convexity collar inside (223.58, 224), now reduced to a certified bound away from the 224 saddle;
-- a fixed-order scalar recurrence for W_n (reported order ≥ 11);
+- the convexity collar inside (223.58, 224), now reduced to a certified bound away from the 224 saddle (with margin law 15/16·d²);
+- the explicit scalar recurrence for W_n;
 - a matching dispersive upper bound;
 - maximal branch continuation.
 
-**Physical selection:** any calibrated time (TIME_BIND), DYN_BIND, the gravitational normalisation and every laboratory record are external and absent.
+**Owner decisions that would move gates:**
+1. sign the transaction (AUTH);
+2. name the physical child (DYN_BIND, SCR6);
+3. supply one clock datum (TIME_BIND);
+4. trigger the freeze (PredictionFreeze);
+5. allow sofacoustics.org and zenodo.org (T3081).
 
 ## Sources read (Google Drive)
 
@@ -375,6 +476,12 @@ Recorded in `oes/gates.py` and carried unchanged from the canon:
 - `OES_All_Dots_Through724_Integrated_Model_20261027.txt` (1BiKs2qxqc1DD7T8fMegjJH01S3PVOF9U): the native action, Appendix A, and D5/del Pezzo
 - `One_Machine_20261028_0741.typ` (1mhK9MDOiHVM_a14ItGk3IDRp84pnevr9) and `_model.zip` (12AhKsdq-KtyTUs6N9L7y15bMm5O71RKj): the coil of order 540 and the U19.74 note
 - `OES Remaining Mathematical Frontiers — Proofs and Executed Courts — 2026-10-28` (1y1vP2TPAsYP8p_bUe_D_AIi9h1h57Bnou0U-Enzy8-s): the precise open collar set
+- `OES_Standing_Model_Integrated_Proof_Packet_20261027.zip` (1ukVZgOnirGVQ1CJslWLmeyKj8ZAVIiGJ, SHA-256 f579e5f9…): the literal native operands, canon W₀…W₅₅, the U7 physical-operand court and the selection reconciliation
+- `LOCKED_CANON_ADDENDUM_OMNOW_SCALE_TIME_TIMEBIND…_2026-09-23` (14LStBynVoEqDogWD8YEHhAeE7q2KBgLW): the Salina and Prema courts
+- `OES_OM_EK_SACH_S364_…_SCR6_OPERAND_ABSENCE_MASTER_LOCK` (13NJ0DlCTjmHfLcmIds-mRZ9SEiqaReTv): the SCR6 transaction and the four transition types
+- `LOCKED MEMORY — TO OMLIKELY1` (1PFlPL4wcK57LKGvDMReG-mInbyoinHH1urIN3-XkiHw): the SCR6 shapes and the Bari PMNS pulls
+- `LOCKED_MEMORY_OES_OMTOOM7_…_TIMEBIND_2026-10-19` (1zjJVDyinGUG5oRawJULNZhQm_3-_7H1o): CTB2/CTB3/CTB9
+- the dEchorate T3081 court (17_BHvmFJiemYFg5gzgwSYEayZ5p_tU5-i8Qk4tX8egc)
 - Sibling handovers in OES › Locked Memory, OMSOON → OMSOON7, 22–25 Oct; titles and summaries only
 
 The only claude.ai Code session visible from this environment is this one. Sibling *chats* are present only through the handover documents they saved to Drive.

@@ -1,0 +1,34 @@
+{
+ "type": "SCR6 minimal ingress antichain {P_cl, SELECT_CERT, ROLE_BIND, G_role}",
+ "status": "PREPARED_FOR_OWNER_SIGNATURE",
+ "P_cl": {
+  "native_operands": "73e07429d7733ae43055723cd59756eb1d1989300f161a1d6ab14cb02413ffea",
+  "carrier": "signless incidence of K5 (no free data)",
+  "bath": "E8 root lattice, Delta = 240 I - A",
+  "clique": "apex 0 and e_i - e_6, i = 1..5"
+ },
+ "SELECT_CERT": [
+  "S5-invariant metric on P5 is unique up to scale (P5 irreducible)",
+  "Hom_S5(Lambda^2 P5, L6) is one-dimensional (Schur); W_AS forced up to scale",
+  "literal port = U . reference port, U in the C5 commutant (layer 10)",
+  "E8 glue map A4*/A4 -> A4'*/A4' is x -> +-2x (layer 11)",
+  "dark U(5) broken to SO(2)_pair by the port (layer 12)"
+ ],
+ "ROLE_BIND": {
+  "source": "q = (a, b) in P5 + P5, P5 = ker D on edges (dark sector)",
+  "port": "g = P_boundary WAS_native (a ^ b), metric W_p",
+  "bath": "h on E8 off the clique",
+  "observer": "D psi readout; hidden sector = P5 + P5",
+  "time": "native parameter u; TIME_BIND needs one clock datum"
+ },
+ "G_role": {
+  "verifier": "f6f01301db1fa974ee5eaa72bd62cbd23579b7e88563cedc39b80c9653be3eed",
+  "walks": "0f9b34004390f698224e8c4a55cb3b046976747d192d7cabf4f55def20760ef6",
+  "prediction_register": "7b59e592347f1db16e3f88909d6ef625a3f4651dbaaa60ed4cbccac549ec4ca0"
+ },
+ "not_supplied_here": [
+  "owner signature (AUTH)",
+  "physical child H_sel",
+  "six SCR6 physical operands H_D2, C55, F_phys, Omega24, Z7, host_to_OES"
+ ]
+}

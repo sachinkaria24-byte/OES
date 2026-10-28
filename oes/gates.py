@@ -71,18 +71,30 @@ REMOVED_CONSTANTS = [
 ]
 
 UNFORMED_OPERANDS = [
-    "six SCR6 operands", "original 31 seam rows", "502-dim Hodge-Dirac",
-    "237-dim fiber observer", "historical MPKG adapter", "E8 glue map",
-    "lattice sequence c60", "native 4944-dim transition / 5048-dim pullback",
+    "six SCR6 physical operands H_D2 (2x2), C55 (55x55), F_phys (169x69 complex), "
+    "Omega24 (24x24 skew), Z7 (31x7), host_to_OES (5x18)",
+    "original 31 seam rows / physical 1401 -> 1370 sector with calibrated time",
+    "502-dim Hodge-Dirac", "237-dim fiber observer", "historical MPKG adapter A_M",
+    "native 4944-dim transition / 5048-dim pullback",
     "ports R1, 025, 250, Jfix, Sawan, Hemkuver", "historical Agni/Soma/Suraj",
     "Sakshin operator (original)", "I6L", "Wald coefficient",
-    "physical 1401-dim sector with calibrated time",
-    "saved native_source_matrices (SHA256 73e07429...)",
-    "6x6 adapter T of eq. 27 (155 vs 4805 reported as a label error, not replayed)",
+    "physical child H_sel.selected_owner_id",
 ]
+
+# Recovered or formed in this build (layers 10, 11, walks, 14).
+RECOVERED_OPERANDS = {
+    "saved native_source_matrices (SHA256 73e07429...)":
+        "recovered from OES_Standing_Model_Integrated_Proof_Packet_20261027.zip; "
+        "hash identical; data/native_matrices_input.json (layer 10)",
+    "6x6 adapter T of eq. 27 (det 155, cofactor 4805)":
+        "present in the same file as T_OMSOON293; 155 vs 4805 replayed (layer 10)",
+    "E8 glue map": "constructed: D8 + s and A4 + A4' with x -> +-2x (layer 11)",
+    "lattice sequence W_60": "computed exactly, W_0..W_60 (data/walks.json); canon "
+                             "W_0..W_55 replayed with zero mismatches",
+}
 
 
 def ledger():
     """The gate ledger as a plain dict, for results.json."""
     return {"gates": dict(GATES), "removed": list(REMOVED_CONSTANTS),
-            "unformed": list(UNFORMED_OPERANDS)}
+            "unformed": list(UNFORMED_OPERANDS), "recovered": dict(RECOVERED_OPERANDS)}

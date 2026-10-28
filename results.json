@@ -34,68 +34,75 @@
    "alpha = 1/137 (Legendre symbol (5/137) = -1)"
   ],
   "unformed": [
-   "six SCR6 operands",
-   "original 31 seam rows",
+   "six SCR6 physical operands H_D2 (2x2), C55 (55x55), F_phys (169x69 complex), Omega24 (24x24 skew), Z7 (31x7), host_to_OES (5x18)",
+   "original 31 seam rows / physical 1401 -> 1370 sector with calibrated time",
    "502-dim Hodge-Dirac",
    "237-dim fiber observer",
-   "historical MPKG adapter",
-   "E8 glue map",
-   "lattice sequence c60",
+   "historical MPKG adapter A_M",
    "native 4944-dim transition / 5048-dim pullback",
    "ports R1, 025, 250, Jfix, Sawan, Hemkuver",
    "historical Agni/Soma/Suraj",
    "Sakshin operator (original)",
    "I6L",
    "Wald coefficient",
-   "physical 1401-dim sector with calibrated time",
-   "saved native_source_matrices (SHA256 73e07429...)",
-   "6x6 adapter T of eq. 27 (155 vs 4805 reported as a label error, not replayed)"
-  ]
+   "physical child H_sel.selected_owner_id"
+  ],
+  "recovered": {
+   "saved native_source_matrices (SHA256 73e07429...)": "recovered from OES_Standing_Model_Integrated_Proof_Packet_20261027.zip; hash identical; data/native_matrices_input.json (layer 10)",
+   "6x6 adapter T of eq. 27 (det 155, cofactor 4805)": "present in the same file as T_OMSOON293; 155 vs 4805 replayed (layer 10)",
+   "E8 glue map": "constructed: D8 + s and A4 + A4' with x -> +-2x (layer 11)",
+   "lattice sequence W_60": "computed exactly, W_0..W_60 (data/walks.json); canon W_0..W_55 replayed with zero mismatches"
+  }
  },
  "timing_s": {
-  "1-carrier": 0.4,
-  "2-spectral": 0.01,
-  "3-spacetime": 5.78,
-  "4-native": 72.81,
-  "5-observer": 0.19,
-  "6-gravity": 4.2,
-  "7-cosmology": 1.17,
-  "8-frontier": 29.56,
-  "9-joins": 7.0
+  "1-carrier": 0.36,
+  "2-spectral": 0.0,
+  "3-spacetime": 4.73,
+  "4-native": 40.47,
+  "5-observer": 6.62,
+  "6-gravity": 3.11,
+  "7-cosmology": 0.93,
+  "8-frontier": 28.54,
+  "9-joins": 4.93,
+  "10-literal": 16.45,
+  "11-glue": 0.12,
+  "12-binding": 0.17,
+  "13-gates": 0.26,
+  "14-recurrence": 3.12
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 110,
-   "total": 110
+   "passed": 161,
+   "total": 161
   },
   "OBSTRUCTION": {
-   "passed": 6,
-   "total": 6
+   "passed": 7,
+   "total": 7
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 18,
-   "total": 18
+   "passed": 19,
+   "total": 19
   },
   "SELECTED_REFERENCE": {
    "passed": 5,
    "total": 5
   },
   "UNFORMED": {
-   "passed": 8,
-   "total": 8
+   "passed": 11,
+   "total": 11
   },
   "CONDITIONAL": {
-   "passed": 9,
-   "total": 9
+   "passed": 12,
+   "total": 12
   },
   "REPORTED": {
-   "passed": 8,
-   "total": 8
+   "passed": 9,
+   "total": 9
   }
  },
  "checks": [
@@ -1628,6 +1635,577 @@
    "passed": true,
    "value": null,
    "note": "integers only (canon)"
+  },
+  {
+   "layer": "10-literal",
+   "name": "native_matrices_input.json SHA-256 = 73e07429... (canon-recorded hash)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "73e07429d7733ae43055723cd59756eb1d1989300f161a1d6ab14cb02413ffea",
+   "note": "byte receipt: canon host hash == this host hash"
+  },
+  {
+   "layer": "10-literal",
+   "name": "literal H_signless is the K5 signless incidence (same edge order)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "N_source spans P5 = ker H (rank 5)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "W_source = N^T N (edge metric on P5), det W = 8/9",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "M_source = diag(W/4, W/4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "W_p = 2 F^T F (HS metric transported by the edge adapter), Chi F = I6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "literal W_p spectrum {2/5, 2, 5 +- sqrt5 (x2)}, det 320",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "literal W_p in boundary order == layer-4 reconstruction, exactly",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "WAS_native rank 6, kernel 4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "G_source_wedge = Lambda^2 W = 16 Lambda^2 M",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "WAS^T W_p WAS = (320/9) G P with G = Lambda^2 M (sharp quartic 40/9)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "source rotor from the vertex 5-cycle equals the printed literal R",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "R^5 = I, R^T W R = W, Tr R^j = 0 (j=1..4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "WAS Lambda^2(R) = Q WAS, Q^T Q = I, Q W_p = W_p Q",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "Q in boundary order is the boundary 5-cycle (apex fixed)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "S",
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "155 vs 4805 replayed: det T = 155 = 5*31, cofactor_44(T T^T) = 4805 = 5*31^2, (T T^T)^-1_44 = 1/5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "one adapter and its cofactor, not two minors: the reported label error is now a replayed theorem"
+  },
+  {
+   "layer": "10-literal",
+   "name": "literal port = U . (layer-4 port), U a W_p-isometry commuting with the C5 rotation",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "fit_residual": 8.881784197001252e-16,
+    "Wp_isometry_residual": 7.105427357601002e-15,
+    "commutes_with_boundary_rotation": 4.9960036108132044e-15,
+    "det_U": -0.9999999999999989
+   },
+   "note": "the selected reference differed only by a commutant element; the literal operand now replaces it"
+  },
+  {
+   "layer": "10-literal",
+   "name": "literal source obeys J(q) q = 2 g(q) and Q4 <= (40/9) rho^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "literal sharp quartic attained: max Q4/rho^2 = 40/9",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 4.444444444444445,
+   "note": ""
+  },
+  {
+   "layer": "10-literal",
+   "name": "native E8 flow on the LITERAL operands: energy conserved, breathing source feeds the bath more than the circular one",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "circular": {
+     "rel_drift": 4.932667607221907e-11,
+     "bath_gain_over_E0": 5.89245482445284e-05
+    },
+    "breathing": {
+     "rel_drift": 9.472745879196647e-11,
+     "bath_gain_over_E0": 0.0006915645552317466
+    }
+   },
+   "note": "same physics as the reference run of layer 4; the operand is now the owner's file"
+  },
+  {
+   "layer": "11-glue",
+   "name": "D8 glue: 112 roots in D8, 128 in D8 + s, E8 = D8 u (D8 + s)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "glue class s is isotropic: |s|^2 = 2 (even), so the glued lattice is even unimodular",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "A4 = <e_i - e_j>: 20 roots (the oriented K5 edges); its orthogonal complement A4' also has 20 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "det A4 = det A4' = 5, so [E8 : A4 + A4'] = sqrt(25/1) = 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "240 = 20 (A4) + 20 (A4') + 200 mixed",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "A4": 20,
+    "A4'": 20,
+    "mixed": 200
+   },
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "every mixed root projects to a signed K5 vertex or edge weight",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 30,
+   "note": "30 = 15 carrier atoms x 2 signs"
+  },
+  {
+   "layer": "11-glue",
+   "name": "each signed vertex has 10 twin partners (the twin 10), each signed edge has 5 (the twin 5): 5 x 10 = 10 x 5 = 50 per class pair",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "vertex": [
+     10
+    ],
+    "edge": [
+     5
+    ]
+   },
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "glue map A4*/A4 -> A4'*/A4' is x -> 2x or x -> 3x (= -2x), 50 roots per class pair",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "(3, 4)": 50,
+    "(2, 1)": 50,
+    "(4, 2)": 50,
+    "(1, 3)": 50
+   },
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "anti-isometry: q(x) + q'(2x) = 4k^2 = 0 mod 2 for the Z5 forms q(k) = 4k^2/5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "248 = (24,1) + (1,24) + 4 x 50 matches 8 + 40 + 200",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "11-glue",
+   "name": "consequence: l2(V u E) is l2 of the A4 shadows of mixed E8 roots, modulo sign and twin label",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "the carrier is literally inside the bath; this is the absent glue map"
+  },
+  {
+   "layer": "12-binding",
+   "name": "B1 atom-diagonal symmetries of D: only the global phase (dimension 1)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 1,
+   "note": "no atom-dependent charge (hypercharge, colour) commutes with D"
+  },
+  {
+   "layer": "12-binding",
+   "name": "B2 commutant of D = M5 + M4 + M4 + C + C, dimension 25+16+16+1+1 = 59",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 59,
+   "note": ""
+  },
+  {
+   "layer": "12-binding",
+   "name": "B2 commutant of D^2 = M5 + M8 + M2, dimension 93",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "12-binding",
+   "name": "B2 dark sector ker D = P5 carries U(5) as its fundamental",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "12-binding",
+   "name": "B3 the port breaks the dark O(5) completely: stabiliser Lie algebra = 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 0,
+   "note": ""
+  },
+  {
+   "layer": "12-binding",
+   "name": "B3 the native action keeps exactly the SO(2) rotating (a, b) (Noether charge = angular charge)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "12-binding",
+   "name": "B4 SU(5) anomalies A(5) = A(10) = 1, A(15) = 9 (weights, generic Cartan h)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "A10/A5": 1.0,
+    "A15/A5": 9.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "12-binding",
+   "name": "B4 zero modes alone (one chiral 5) are anomalous: total anomaly -1 != 0",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "any gauging of an SU(5) in the dark U(5) needs extra chiral matter"
+  },
+  {
+   "layer": "12-binding",
+   "name": "B4 minimal anomaly-free completion: ker D (chirality -) + Lambda^2 ker D (chirality +), 5 + 10 = 15 states",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "Lambda^2 P5 is where the native port's wedge a^b lives"
+  },
+  {
+   "layer": "12-binding",
+   "name": "B5 carrier atoms = weights of 5 + Lambda^2 5, S5 = Weyl group (layer 11)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "12-binding",
+   "name": "B6 one carrier supports one anomaly-free 5 + 10; three generations need an external multiplicity",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": "LEP: N_nu = 2.984 +- 0.008 light neutrinos; the multiplicity 3 is a DYN_BIND operand, not a carrier theorem"
+  },
+  {
+   "layer": "13-gates",
+   "name": "TIME_BIND Countermodel A: tau = 1 and tau = 2 give identical records at native labels but physical frequencies in ratio 2:1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "record_difference": 1.5987211554602254e-14
+   },
+   "note": "no internal datum can bind time (canon 27 Oct, replayed on the carrier)"
+  },
+  {
+   "layer": "13-gates",
+   "name": "TIME_BIND sufficiency: one datum fixes tau uniquely; frequency ratios are calibration-invariant",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "13-gates",
+   "name": "Salina square S U_native(u) = U_phys(tau u) S holds for the calibrated carrier flow (Prema follows)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 6.217248937900877e-15,
+   "note": ""
+  },
+  {
+   "layer": "13-gates",
+   "name": "TIME_BIND gate: structure complete; binding needs ONE authenticated clock datum and the owner's choice of which native mode it labels",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": "CTB9: unbound only for lack of metrology"
+  },
+  {
+   "layer": "13-gates",
+   "name": "PredictionFreeze register written (calibration-invariant, no fit)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "7b59e592347f1db16e3f88909d6ef625a3f4651dbaaa60ed4cbccac549ec4ca0",
+   "note": "READY_TO_TRIGGER: freezing is the owner's act; nothing is compared yet"
+  },
+  {
+   "layer": "13-gates",
+   "name": "W_L executed: frozen PMNS strict branch vs Bari Oct-2026 (sin^2 th12, sin^2 th13)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "pulls": {
+     "sin2_th12": 2.594147379622239,
+     "sin2_th13": -1.9749999999999943
+    },
+    "chi2": 10.630225627200907,
+    "dof": 2,
+    "p": 0.0049167240507160285
+   },
+   "note": "reproduces the canon's +2.59, -1.98 sigma; p = 0.005: disfavoured at 2.8 sigma"
+  },
+  {
+   "layer": "13-gates",
+   "name": "W_L with the reported NuFIT 6.0 pulls incl. strict th23 (-4.8 sigma): excluded",
+   "status": "REPORTED",
+   "passed": true,
+   "value": {
+    "chi2": 26.29,
+    "dof": 3,
+    "p": 8.292781960695224e-06
+   },
+   "note": "the only frozen physical prediction in the canon fails; 28 Oct already removed PMNS from the carrier"
+  },
+  {
+   "layer": "13-gates",
+   "name": "T3081 dEchorate cross-host identity: official SOFA host blocked by network policy (HTTP 403 at the proxy)",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "maintainer copy 10E4VCAA1UoIVG-xVJLD9ByxsK2HAHgwl, SHA c39bc27f...; allow sofacoustics.org / zenodo.org to run it"
+  },
+  {
+   "layer": "13-gates",
+   "name": "cross-host byte receipt method demonstrated: native operand file hash equals the canon-recorded hash",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "13-gates",
+   "name": "AUTH/SCR6 owner transaction prepared (P_cl, SELECT_CERT, ROLE_BIND, G_role)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": "PREPARED_FOR_OWNER_SIGNATURE",
+   "note": "AUTH is the research owner's signature, not a computation"
+  },
+  {
+   "layer": "13-gates",
+   "name": "ScientificGold: needs an independent warrant (frozen prediction + independent data + preregistered test on a declared physical system)",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "W_0..W_55 of the canon ledger replayed exactly by the Weyl-orbit engine (incl. W_25..W_55, never independently regenerated before)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "terms_compared": 56,
+    "mismatches": 0
+   },
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "stored walk file re-derived in-suite for W_0..W_24",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "new exact terms W_56..W_74 (lattice sequence W_60 formed)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 74,
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "canon exclusions (5,2), (10,2), (12,2), (10,3) replayed on W_0..W_74",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "no recurrence shape decidable from W_0..W_74 has a kernel",
+   "status": "THEOREM",
+   "passed": true,
+   "value": "none",
+   "note": "a kernel would be a candidate recurrence; none appears"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "data-only bound from W_0..W_74: every recurrence has (r+1)(d+2) > 76",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1": 36,
+    "2": 23,
+    "3": 17,
+    "4": 13,
+    "5": 10,
+    "6": 8,
+    "7": 7,
+    "8": 6,
+    "9": 5,
+    "10": 4,
+    "11": 4,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 2,
+    "16": 2,
+    "17": 2,
+    "18": 2,
+    "19": 1,
+    "20": 1,
+    "21": 1,
+    "22": 1,
+    "23": 1,
+    "24": 1,
+    "25": 0,
+    "26": 0,
+    "27": 0,
+    "28": 0,
+    "29": 0,
+    "30": 0,
+    "31": 0,
+    "32": 0,
+    "33": 0,
+    "34": 0,
+    "35": 0,
+    "36": 0,
+    "37": 0,
+    "38": -1,
+    "39": -1,
+    "40": -1
+   },
+   "note": "shape (r,d) is decided when (r+1)(d+1) <= N-r+1; all decided shapes are excluded. Canon standing bound: (r+1)(d+2) > 85"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "explicit scalar recurrence for W_n",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "needs more exact terms than a Weyl-orbit DP reaches; the canon proves order >= 10 and the finite determinant construction exists"
   }
  ]
 }

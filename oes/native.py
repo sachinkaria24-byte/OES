@@ -179,10 +179,10 @@ class NativeSource:
 # ------------------------------------------------------------------ bath
 
 class Bath:
-    def __init__(self, r2=8):
+    def __init__(self, r2=8, clique=None):
         pts = spacetime.e8_ball(r2)
         Dl, lookup = spacetime.lattice_operator(pts)
-        X = spacetime.clique_sites()
+        X = spacetime.clique_sites() if clique is None else clique
         self.bidx = np.array([lookup[int(k)] for k in spacetime._key(X)])
         mask = np.ones(len(pts), bool)
         mask[self.bidx] = False
@@ -199,9 +199,9 @@ class Bath:
 class NativeSystem:
     """Full nonlinear native equations on a finite W(E8)-symmetric ball."""
 
-    def __init__(self, bath=None, r2=8):
-        self.s = NativeSource()
-        self.b = bath or Bath(r2)
+    def __init__(self, bath=None, r2=8, source=None, clique=None):
+        self.s = source or NativeSource()
+        self.b = bath or Bath(r2, clique=clique)
         self.Kp = self.s.Wp + self.b.A
 
     def split(self, X):
