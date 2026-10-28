@@ -136,6 +136,11 @@ def test_petersen_projectors_are_the_carrier_edge_projectors():
     assert all(proj.values()), proj
 
 
+def test_pauli_generator_is_the_bath_on_its_half_periods():
+    pauli = counts.pauli_bath()
+    assert all(pauli.values()), pauli
+
+
 def test_every_circle_map_kills_the_commutator():
     maps = counts.circle_maps()
     assert all(maps.values()), maps

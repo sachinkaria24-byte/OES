@@ -14,7 +14,8 @@ Sources read before this layer (Google Drive):
   GRAV_CURV, HORIZON_ROLES, GOLDEN_FAMILY, SEVEN_ONE, ALLMAPS_TICK, ATLAS_SUBGROUPS, CABIBBO, NCG_LAG,
   H60_JOIN), the separate model's unified-spectral-machine status and paper (19:43-19:47), and the Quick
   Access sheet (19:44), which points to continuation 3 and adds nothing to it;
-* at 20:12: the sibling's notes BREATH_ALL, PETERSEN_GRAM and PETERSEN_PROJ (20:06-20:10) and its message.
+* at 20:12: the sibling's notes BREATH_ALL, PETERSEN_GRAM and PETERSEN_PROJ (20:06-20:10) and its message;
+* at 20:25: the sibling's notes PAULI_178, PAULI_CIRCLE, TICK_DEEP and CHAIN_ENERGY (20:20-20:23) and its message.
 
 Most of the notes read one more stored integer on the bit of layer 21. Those readings are one table here,
 with one new reading, the first landing: the least k for which k x is a nonzero tick. The rest are about
@@ -58,8 +59,17 @@ three Petersen projectors J/10, (4I + 2A - J)/6 and (5I - 5A + J)/15 are the car
 (sector 8, the five zero modes, sector 3). Their denominators 10, 6, 15 are the gap products 2 x 5, 2 x 3,
 3 x 5 of the spectrum 3, 1, -2: only the middle one avoids the spread 5, so only it meets the tick. The
 Gram determinant 648 is det(M M^T) = det(3I + J), the carrier's vertex block.
+
+At 20:25 the sibling's "saved generator" L(M) = 240 M + 16 M^T - 16 tr(M) I on real 16 x 16 matrices (PAULI_178)
+turned out to be the bath. Eight antisymmetric real Paulis anticommute exactly along the E8 Dynkin diagram, so
+x -> phi(x) is an isometry from Lambda / 2 Lambda onto the 256 real 4-qubit Paulis, and L phi(x) = eps(pi x) phi(x):
+L is the bath Laplacian on its 256 half-period modes. Its eigenvalues 0, 224, 256 (dimensions 1, 120, 135) are
+the band at the origin, at the 120 E7+A1 saddles (the canon's 224) and at the 135 D8 band-top points.
+CHAIN_ENERGY's "mass determinant" 216 is det(3W) for the source metric W of layer 10 (det W = 8/9), and its "2"
+is the kinetic energy of the dark 4-cycle in the datum, not a frequency.
 """
 
+import functools
 import itertools
 from collections import Counter
 from fractions import Fraction
@@ -68,7 +78,7 @@ from math import gcd
 import numpy as np
 import sympy as sp
 
-from . import carrier, gates, handover, ledger, spine
+from . import carrier, gates, handover, ledger, literal, spine
 from .record import Report
 
 N = spine.N
@@ -449,6 +459,52 @@ CLAIMS = [
     ("BREATH_ALL", "the reference", 60, False, ()),
     ("BREATH_ALL", "the breath count 4 x 5", 20, False, ()),
     ("BREATH_ALL", "the golden step", 216, True, (("order", 20),)),
+    ("CHAIN_ENERGY", "the source frequency", 2, True, (("steps", 432),)),
+    ("CHAIN_ENERGY", "the low squared frequency", 3, True, (("steps", 288),)),
+    ("CHAIN_ENERGY", "the high squared frequency", 8, True, (("steps", 108),)),
+    ("CHAIN_ENERGY", "half the quadratic form", 32, True, (("steps", 27), ("order", 135))),
+    ("CHAIN_ENERGY", "the energy piece matched to the phase sum", 12, True, (("steps", 72),)),
+    ("CHAIN_ENERGY", "the mass determinant, the golden step", 216, True, (("steps", 4),)),
+    ("CHAIN_ENERGY", "phase weight", 98, True, ()),
+    ("CHAIN_ENERGY", "phase weight", 62, True, ()),
+    ("CHAIN_ENERGY", "phase weight", 113, True, ()),
+    ("CHAIN_ENERGY", "phase weight", 101, True, ()),
+    ("CHAIN_ENERGY", "phase weight", 118, True, ()),
+    ("CHAIN_ENERGY", "the first two weights", 160, False, (("order", 27),)),
+    ("CHAIN_ENERGY", "all five weights", 492, True, (("same", 12),)),
+    ("CHAIN_ENERGY", "the total energy", 34, True, (("same", 2),)),
+    ("CHAIN_ENERGY", "the piece 20", 20, False, ()),
+    ("CHAIN_ENERGY", "Tr D^2", 40, False, ()),
+    ("CHAIN_ENERGY", "Tr D^4", 200, False, ()),
+    ("TICK_DEEP", "eigenvalue 224", 224, True, (("same", 32),)),
+    ("TICK_DEEP", "eigenvalue 256", 256, True, (("same", 32),)),
+    ("TICK_DEEP", "the index", 27, True, ()),
+    ("TICK_DEEP", "the stiffness 8, not a member of <32>", 8, True, (("order", 540), ("notin", 32))),
+    ("TICK_DEEP", "the generator that misses", 160, False, (("order", 27), ("in", 32))),
+    ("TICK_DEEP", "member", 64, True, (("in", 32),)),
+    ("TICK_DEEP", "member", 96, True, (("in", 32),)),
+    ("TICK_DEEP", "member", 128, True, (("in", 32),)),
+    ("TICK_DEEP", "member", 192, True, (("in", 32),)),
+    ("TICK_DEEP", "member", 288, True, (("in", 32),)),
+    ("TICK_DEEP", "the tick, the order-5 member", 864, True, (("order", 5), ("in", 32))),
+    ("TICK_DEEP", "not a member: the stiffness 3", 3, True, (("notin", 32),)),
+    ("TICK_DEEP", "not a member: the Pauli shift", 16, True, (("notin", 32),)),
+    ("TICK_DEEP", "not a member: the root degree", 56, True, (("notin", 32),)),
+    ("TICK_DEEP", "not a member: the root count", 240, False, (("notin", 32),)),
+    ("TICK_DEEP", "not a member: the multiplicity", 120, False, (("notin", 32),)),
+    ("PAULI_CIRCLE", "the order of <32>, the multiplicity of 256", 135, False, ()),
+    ("PAULI_CIRCLE", "the curvature rank", 4, True, ()),
+    ("PAULI_CIRCLE", "the root degree", 56, True, ()),
+    ("PAULI_CIRCLE", "64", 64, True, ()),
+    ("PAULI_178", "the scalar eigenvalue", 0, None, ()),
+    ("PAULI_178", "the scalar dimension", 1, True, ()),
+    ("PAULI_178", "the shift", 16, True, ()),
+    ("PAULI_178", "the Sun-Moon compression", 50, False, ()),
+    ("PAULI_178", "its parts", 10, False, ()),
+    ("PAULI_178", "its parts", 40, False, ()),
+    ("PAULI_178", "the circuit compression", 9, True, ()),
+    ("PAULI_178", "its parts", 6, True, ()),
+    ("PAULI_178", "the label", 871, True, ()),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -487,6 +543,10 @@ def check_claim(x, bit, extra):
             ok &= x % 5 == e[1]
         elif kind == "notlevel":
             ok &= r not in LEVELS
+        elif kind == "in":
+            ok &= r % gcd(e[1], N) == 0
+        elif kind == "notin":
+            ok &= r % gcd(e[1], N) != 0
         else:
             raise ValueError(kind)
     return bool(ok)
@@ -1182,6 +1242,97 @@ def batch3_arithmetic():
     }
 
 
+# ------------------------------------------------------- the 20:25 notes (CHAIN_ENERGY, TICK_DEEP, PAULI)
+
+def pauli_bath():
+    """PAULI_178's generator L(M) = 240 M + 16 M^T - 16 tr(M) I is the bath Laplacian on its 256 half-periods."""
+    one, X, Z = np.eye(2, dtype=np.int64), np.array([[0, 1], [1, 0]]), np.array([[1, 0], [0, -1]])
+    single = [one, X, Z, X @ Z]                                   # X Z is the real antisymmetric Pauli
+    word_matrix = lambda w: functools.reduce(np.kron, [single[a] for a in w])
+    L = lambda M: 240 * M + 16 * M.T - 16 * np.trace(M) * np.eye(16, dtype=np.int64)
+    words = list(itertools.product(range(4), repeat=4))
+    odd = [w for w in words if w.count(3) % 2]                    # antisymmetric: an odd number of X Z
+    basis = {w: word_matrix(w) for w in words}
+    eig = Counter()
+    for w, P in basis.items():
+        lam = 0 if not any(w) else (224 if w in odd else 256)
+        eig[lam] += bool(np.array_equal(L(P), lam * P))
+    # eight antisymmetric Paulis that anticommute exactly along the E8 Dynkin diagram (Bourbaki order)
+    edges = {(0, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (1, 3)}
+    adjacent = lambda i, j: (min(i, j), max(i, j)) in edges
+    anti = lambda u, v: sum(1 for a, b in zip(u, v) if a and b and a != b) % 2 == 1
+
+    def extend(chosen):
+        if len(chosen) == 8:
+            return chosen
+        for w in odd:
+            if w not in chosen and all(anti(w, u) == adjacent(len(chosen), j) for j, u in enumerate(chosen)):
+                found = extend(chosen + [w])
+                if found:
+                    return found
+        return None
+    dynkin = extend([])
+    P = [basis[w] for w in dynkin]
+    e = np.eye(8)
+    alpha = np.array([0.5 * np.array([1, -1, -1, -1, -1, -1, -1, 1]), e[0] + e[1]] + [e[k + 1] - e[k] for k in range(6)])
+    gram = np.rint(alpha @ alpha.T).astype(int)
+    R = handover.e8_roots()
+    images, spectrum, intertwines = set(), Counter(), True
+    for c in itertools.product((0, 1), repeat=8):
+        x = np.array(c) @ alpha
+        eps = 240 - sum(1 if int(round(r @ x)) % 2 == 0 else -1 for r in R)
+        M = functools.reduce(lambda a, b: a @ b, [P[i] for i in range(8) if c[i]], np.eye(16, dtype=np.int64))
+        f = M.ravel()
+        images.add(tuple((f * np.sign(f[np.flatnonzero(f)[0]])).tolist()))
+        intertwines &= bool(np.array_equal(L(M), eps * M))
+        spectrum[eps] += 1
+    return {
+        "L has eigenvalues 0, 224, 256 on the identity, the 120 antisymmetric and the 135 symmetric traceless "
+        "Paulis (1 + 120 + 135 = 256), so L (L - 224)(L - 256) = 0": eig == {0: 1, 224: 120, 256: 135},
+        "L commutes with the transpose, so a symmetric reader never sees the 120 antisymmetric directions":
+            all(np.array_equal(L(P_.T), L(P_).T) for P_ in basis.values()),
+        "eight antisymmetric Paulis anticommute exactly along the E8 Dynkin diagram": dynkin is not None
+        and all((gram[i, j] == -1) == adjacent(i, j) for i in range(8) for j in range(8) if i != j),
+        "their 256 products are distinct up to sign: Lambda / 2 Lambda -> Paulis is a bijection": len(images) == 256,
+        "L phi(x) = eps(pi x) phi(x) for every half-period x, with eps the bath band function": intertwines,
+        "eps at the half-periods is 0 (once), 224 (120 times, the E7+A1 saddle value) and 256 (135 times, the D8 "
+        "band top)": spectrum == {0: 1, 224: 120, 256: 135},
+    }
+
+
+def chain_energy():
+    W = literal.load()["W_source"]
+    psi0, v0 = carrier.canon_initial_datum()
+    M = np.array(carrier.signless_incidence(), dtype=float)
+    K = np.array(carrier.D2(), dtype=float)
+    return {
+        "the stored mass determinant 216 is det(3W) for the source metric W = N^T N of layer 10 (3W is integral, "
+        "det W = 8/9 = 216 / 3^5)": all((3 * x).is_integer for x in W) and (3 * W).det() == 216
+        and W.det() == sp.Rational(8, 9),
+        "the datum's 2 is kinetic: v0 is a dark mode (in ker M), and its energy is 1/2 |v0|^2 = 2":
+            np.allclose(v0[:5], 0) and np.allclose(M @ v0[5:], 0) and np.isclose(0.5 * v0 @ v0, 2),
+        "the 32 is potential, half the quadratic form 64, held by the sectors 3 and 8 (12 + 20)":
+            np.isclose(0.5 * psi0 @ K @ psi0, 32) and 12 + 20 == 32,
+    }
+
+
+def batch4_arithmetic():
+    weights = (98, 62, 113, 101, 118)
+    return {
+        "432 x 2 = 288 x 3 = 108 x 8 = 27 x 32 = 72 x 12 = 4 x 216 = 864": len({432 * 2, 288 * 3, 108 * 8, 27 * 32,
+                                                                                72 * 12, 4 * 216}) == 1,
+        "98 + 62 = 160 = 5 x 32; the five weights sum to 492 = 12 x 41": weights[0] + weights[1] == 160 == 5 * 32
+        and sum(weights) == 492 == 12 * 41,
+        "40 + 6 + 18 = 64; 64 / 2 = 32; 32 + 2 = 34 = 12 + 20 + 2; 216 / 3^5 = 8/9": 40 + 6 + 18 == 64
+        and 32 + 2 == 34 == 12 + 20 + 2 and Fraction(216, 3 ** 5) == Fraction(8, 9),
+        "135 / 5 = 27; 32 x 27 = 864; 540 / 135 = 4; 8 x 28 = 224; 8 x 32 = 256": 135 // 5 == 27 and 32 * 27 == TICK
+        and 540 // 135 == 4 and 8 * 28 == 224 and 8 * 32 == 256,
+        "224 = 4 x 56; 256 = 4 x 64; 224 x 4 - 893 = 3": 224 == 4 * 56 and 256 == 4 * 64 and 224 * 4 - 893 == 3,
+        "1 + 120 + 135 = 256; 240 -+ 16 = 224, 256; 50 = 10 + 40; 9 = 6 + 3": 1 + 120 + 135 == 256
+        and 240 - 16 == 224 and 240 + 16 == 256 and 50 == 10 + 40 and 9 == 6 + 3,
+    }
+
+
 MIRROR_SPLIT = [(0, 14), (4, 10), (5, 9)]
 MIRROR_WHOLE = [(1, 13), (2, 12), (3, 11), (6, 8)]
 
@@ -1195,8 +1346,8 @@ def mirror_pairs():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (43 notes, 18:32-20:10)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 352 readings from 43 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (47 notes, 18:32-20:23)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 398 readings from 47 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
@@ -1219,6 +1370,9 @@ JOINS = [
     ("seven, one, seven", "three mirror pairs split by the bit, three not", "three are split (0-14, 4-10, 5-9) and four are not (1-13, 2-12, 3-11, 6-8)", "THEOREM", "22"),
     ("Petersen projectors (20:10)", "denominators 10, 6, 15; traces 1, 5, 4; they add to I over 30; Gram determinant 648", "Petersen is the complement of the line graph of K5, so A = J + I - M^T M commutes with the edge stiffness and its projectors are the carrier's (sector 8, the five dark modes, sector 3); the denominators are the gap products 2 x 5, 2 x 3, 3 x 5; 648 = det(3I + J)", "THEOREM", "22: Petersen"),
     ("every breath (20:06)", "8 is not a multiple of 3, so no common period", "right conclusion, wrong reason: the criterion is a rational-square ratio (4 and 9 share a period)", "THEOREM", "22"),
+    ("Pauli generator (20:20)", "L(M) = 240 M + 16 M^T - 16 tr(M) I: eigenvalues 0, 224, 256 on 1 + 120 + 135; no intertwiner to the model built", "it is the bath Laplacian on its 256 half-period modes: eight antisymmetric Paulis anticommuting along the E8 diagram give phi: Lambda / 2 Lambda -> Paulis with L phi(x) = eps(pi x) phi(x); 224 is the E7+A1 saddle value, 256 the D8 band top", "THEOREM", "16, 22: Pauli"),
+    ("mass determinant (20:23)", "216 / 3^5 = 8/9: the golden step, not a mass", "216 = det(3W) for the source metric W = N^T N of layer 10; no mass scale is selected", "THEOREM", "10, 22"),
+    ("the cycle's 2 (20:23)", "the cycle adds the frequency 2", "the 2 is the kinetic energy of the dark 4-cycle v0 in ker M, not a frequency; the potential 32 sits in sectors 3 and 8", "THEOREM", "22: energy"),
     ("separate model status (19:47)", "489 presentations, 30,875 validations, a clean replay of 623 files", "recorded; its beat equation agrees with the carrier", "REPORTED", "22"),
     ("not replayed", "15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7", "objects of the sibling build that are not stored here", "REPORTED", "22"),
     ("not stored", "Yukawa blocks, hypercharge, taste, smell and touch matrices, icosahedral adjacency, swastika, hexagram, yinyang, diamond, tesseract, qubit", "no operand; nothing here forms them", "UNFORMED", "22"),
@@ -1253,7 +1407,7 @@ def run():
     rep.add("the sibling's 28 notes of 18:32-19:21 UTC were read; their code and papers were not run", RP, True)
 
     bad, stages_ok, info = check_claims()
-    rep.add(f"every integer reading of the evening notes (18:32-20:10) is the bit of layer 21 with its stated order, "
+    rep.add(f"every integer reading of the evening notes (18:32-20:23) is the bit of layer 21 with its stated order, "
             f"subgroup, steps or "
             f"first landing: {len(CLAIMS)} readings from {info['notes']} notes, none fails. Twelve of the fifteen "
             "stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and "
@@ -1372,6 +1526,24 @@ def run():
     a3 = batch3_arithmetic()
     rep.add("the 20:12 arithmetic: 1 + 5 + 4 = 10, lcm 30, 8 x 81 = 648, 41 - 31 = 10, 21 + 15 = 36 = 60 - 24",
             AR, all(a3.values()), a3)
+
+    # the 20:25 notes ---------------------------------------------------------------------
+    rep.add("20:25: the sibling's PAULI_178, PAULI_CIRCLE, TICK_DEEP and CHAIN_ENERGY (20:20-20:23) and its message "
+            "were read", RP, True)
+    pb = pauli_bath()
+    rep.add("PAULI_178's saved generator is the bath: L(M) = 240 M + 16 M^T - 16 tr(M) I has eigenvalues 0, 224, 256 "
+            "on 1 + 120 + 135 Pauli directions; eight antisymmetric Paulis anticommuting along the E8 diagram give a "
+            "bijection phi from Lambda / 2 Lambda onto the Paulis with L phi(x) = eps(pi x) phi(x). So L is the bath "
+            "Laplacian on its 256 half-period modes: 0 at the origin, 224 at the 120 E7+A1 saddles, 256 at the 135 D8 "
+            "band-top points", T, all(pb.values()), pb)
+    ce = chain_energy()
+    rep.add("CHAIN_ENERGY: the stored mass determinant 216 is det(3W) for the source metric W of layer 10 (det W = "
+            "8/9), the same integer as the golden step; the datum's 2 is the kinetic energy of the dark 4-cycle v0, "
+            "not a frequency, and its 32 is the potential energy in the sectors 3 and 8", T, all(ce.values()), ce)
+    a4 = batch4_arithmetic()
+    rep.add("the 20:25 arithmetic: six counts of the one tick, the phase weights 160 and 492, 64 / 2 + 2 = 34, the "
+            "order-135 subgroup <32> with index 27 in its tick and 4 in <8>, and 1 + 120 + 135 = 256", AR,
+            all(a4.values()), a4)
 
     rep.add("recorded, not replayed: the separate model's 489 presentations, 30,875 validation instances, 623-file "
             "clean replay, OM-mirror rank-4 intertwiner and five-reader blind line; the sibling's two curvatures of "

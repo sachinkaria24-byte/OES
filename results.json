@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.48,
+  "1-carrier": 0.43,
   "2-spectral": 0.0,
-  "3-spacetime": 5.4,
-  "4-native": 39.77,
-  "5-observer": 7.8,
-  "6-gravity": 3.11,
-  "7-cosmology": 0.79,
-  "8-frontier": 24.45,
-  "9-joins": 6.0,
-  "10-literal": 15.14,
-  "11-glue": 0.09,
+  "3-spacetime": 6.3,
+  "4-native": 39.52,
+  "5-observer": 4.96,
+  "6-gravity": 3.26,
+  "7-cosmology": 0.86,
+  "8-frontier": 25.96,
+  "9-joins": 5.92,
+  "10-literal": 17.61,
+  "11-glue": 0.1,
   "12-binding": 0.06,
-  "13-gates": 0.28,
-  "14-recurrence": 38.22,
-  "15-court": 1.37,
-  "16-handover": 0.8,
-  "17-waves": 0.35,
+  "13-gates": 0.39,
+  "14-recurrence": 37.82,
+  "15-court": 1.16,
+  "16-handover": 0.72,
+  "17-waves": 0.31,
   "18-snapshot": 0.46,
-  "19-spine": 1.93,
+  "19-spine": 2.01,
   "20-canon": 4.53,
-  "21-ledger": 23.16,
-  "22-counts": 11.58
+  "21-ledger": 22.39,
+  "22-counts": 11.81
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 289,
-   "total": 289
+   "passed": 291,
+   "total": 291
   },
   "OBSTRUCTION": {
    "passed": 41,
@@ -95,8 +95,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 34,
-   "total": 34
+   "passed": 35,
+   "total": 35
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
@@ -111,8 +111,8 @@
    "total": 17
   },
   "REPORTED": {
-   "passed": 36,
-   "total": 36
+   "passed": 37,
+   "total": 37
   }
  },
  "checks": [
@@ -4641,13 +4641,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-20:10) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 352 readings from 43 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-20:23) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 398 readings from 47 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 43,
-    "claims": 352,
+    "notes": 47,
+    "claims": 398,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -5141,6 +5141,56 @@
     "1 + 5 + 4 = 10; lcm(10, 6, 15) = 30; 8 x 81 = 648": true,
     "41 - 31 = 10; 31 - 10 = 21": true,
     "21 + 15 = 36 = 60 - 24; 4 x 5 = 20": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "20:25: the sibling's PAULI_178, PAULI_CIRCLE, TICK_DEEP and CHAIN_ENERGY (20:20-20:23) and its message were read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "PAULI_178's saved generator is the bath: L(M) = 240 M + 16 M^T - 16 tr(M) I has eigenvalues 0, 224, 256 on 1 + 120 + 135 Pauli directions; eight antisymmetric Paulis anticommuting along the E8 diagram give a bijection phi from Lambda / 2 Lambda onto the Paulis with L phi(x) = eps(pi x) phi(x). So L is the bath Laplacian on its 256 half-period modes: 0 at the origin, 224 at the 120 E7+A1 saddles, 256 at the 135 D8 band-top points",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "L has eigenvalues 0, 224, 256 on the identity, the 120 antisymmetric and the 135 symmetric traceless Paulis (1 + 120 + 135 = 256), so L (L - 224)(L - 256) = 0": true,
+    "L commutes with the transpose, so a symmetric reader never sees the 120 antisymmetric directions": true,
+    "eight antisymmetric Paulis anticommute exactly along the E8 Dynkin diagram": true,
+    "their 256 products are distinct up to sign: Lambda / 2 Lambda -> Paulis is a bijection": true,
+    "L phi(x) = eps(pi x) phi(x) for every half-period x, with eps the bath band function": true,
+    "eps at the half-periods is 0 (once), 224 (120 times, the E7+A1 saddle value) and 256 (135 times, the D8 band top)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "CHAIN_ENERGY: the stored mass determinant 216 is det(3W) for the source metric W of layer 10 (det W = 8/9), the same integer as the golden step; the datum's 2 is the kinetic energy of the dark 4-cycle v0, not a frequency, and its 32 is the potential energy in the sectors 3 and 8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the stored mass determinant 216 is det(3W) for the source metric W = N^T N of layer 10 (3W is integral, det W = 8/9 = 216 / 3^5)": true,
+    "the datum's 2 is kinetic: v0 is a dark mode (in ker M), and its energy is 1/2 |v0|^2 = 2": 1.0,
+    "the 32 is potential, half the quadratic form 64, held by the sectors 3 and 8 (12 + 20)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the 20:25 arithmetic: six counts of the one tick, the phase weights 160 and 492, 64 / 2 + 2 = 34, the order-135 subgroup <32> with index 27 in its tick and 4 in <8>, and 1 + 120 + 135 = 256",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "432 x 2 = 288 x 3 = 108 x 8 = 27 x 32 = 72 x 12 = 4 x 216 = 864": true,
+    "98 + 62 = 160 = 5 x 32; the five weights sum to 492 = 12 x 41": true,
+    "40 + 6 + 18 = 64; 64 / 2 = 32; 32 + 2 = 34 = 12 + 20 + 2; 216 / 3^5 = 8/9": true,
+    "135 / 5 = 27; 32 x 27 = 864; 540 / 135 = 4; 8 x 28 = 224; 8 x 32 = 256": true,
+    "224 = 4 x 56; 256 = 4 x 64; 224 x 4 - 893 = 3": true,
+    "1 + 120 + 135 = 256; 240 -+ 16 = 224, 256; 50 = 10 + 40; 9 = 6 + 3": true
    },
    "note": ""
   },

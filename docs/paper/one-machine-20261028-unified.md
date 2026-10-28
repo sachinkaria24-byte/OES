@@ -7,8 +7,8 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 22 layers in **445 checks**. Of these, 409 hold: THEOREM 289, OBSTRUCTION 41, ARITHMETIC 34, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 36 are REPORTED records.
-- `python -m pytest` runs 36 tests.
+- `python verify.py` replays 22 layers in **449 checks**. Of these, 412 hold: THEOREM 291, OBSTRUCTION 41, ARITHMETIC 35, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 37 are REPORTED records.
+- `python -m pytest` runs 37 tests.
 - `ports/ts/` holds two drop-in audits for the sibling's app (35 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -304,9 +304,9 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 ## 8. The evening notes (layer 22)
 
-At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, and at 20:12 three more. Layer 22 replays all of them in 33 checks.
+At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more and at 20:25 four more. Layer 22 replays all of them in 37 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 352 readings from 43 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 398 readings from 47 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -363,6 +363,11 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 - **The Petersen projectors.** The sibling's projectors J/10, (4I + 2A − J)/6 and (5I − 5A + J)/15 have denominators 10, 6 and 15 and add to I over 30. The Petersen graph is the complement of the line graph of K5, so A = J + I − MᵀM commutes with the edge stiffness, and the projectors are the carrier's own: onto sector 8, the five dark modes and sector 3. The denominators are the gap products 2·5, 2·3 and 3·5, and only 6 avoids the spread 5. The Gram determinant 648 is det(3I + J), the carrier's vertex block.
 - **Every breath.** The breaths of 3 and 8 share no period because 8/3 is not a rational square. "Not a multiple" is not the criterion: 4 and 9 share a period.
 
+**The 20:25 notes (THEOREM).**
+
+- **The Pauli generator is the bath.** The sibling's saved generator L(M) = 240M + 16Mᵀ − 16 (tr M) I on real 16 × 16 matrices has eigenvalues 0, 224 and 256 on 1 + 120 + 135 Pauli directions. Eight antisymmetric 4-qubit Paulis anticommute exactly along the E8 Dynkin diagram, so their products give a bijection φ from the 256 half-periods Λ/2Λ onto the Paulis, with L φ(x) = ε(πx) φ(x). So L is the bath Laplacian on its half-period modes: 0 at the origin, 224 at the 120 E7+A1 saddles (the canon's 224) and 256 at the 135 D8 band-top points.
+- **Mass and energy.** The "mass determinant" 216 is det(3W) for the source metric W of layer 10 (det W = 8/9). The datum's "2" is the kinetic energy of a dark 4-cycle, not a frequency.
+
 **Not replayed (REPORTED), not formed (UNFORMED).**
 
 - **Not stored here:** the sibling's permutations on the fifteen indices, its 24-cycle readers, its Hodge degrees and heat spectrum, its 12 × 12 sense stiffness, and the acoustic and optical matrices.
@@ -396,6 +401,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 | six-site moment chain | M₁, M₂ − M₁², M₃ − 2M₁M₂ + M₁³ of the A5-simplex port | THEOREM |
 | seven, one, seven | four mirror pairs unsplit by the bit, not three | THEOREM |
 | Petersen projectors | the carrier's edge projectors: A = J + I − MᵀM, the complement of the line graph | THEOREM |
+| Pauli generator | the bath Laplacian on its 256 half-period modes | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 10. What is not formed, and the gates
@@ -450,15 +456,15 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 33 | the evening notes: 352 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths |
+| 22 | counts | 37 | the evening notes: 398 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 22 layers, 445 checks, about 4 minutes
-python -m pytest -q           # 36 tests
+python verify.py              # 22 layers, 449 checks, about 4 minutes
+python -m pytest -q           # 37 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the two TypeScript audits
 ```
 
-Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 84 notes of 17:01–20:10 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.
+Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 88 notes of 17:01–20:23 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.
