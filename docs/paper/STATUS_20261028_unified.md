@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 22 layers and 452 checks. Of these, 414 hold: THEOREM 292, OBSTRUCTION 41, ARITHMETIC 36, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 38 are REPORTED records.
-- `pytest` runs 38 tests.
-- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 40 checks).
+- `python verify.py` runs 22 layers and 462 checks. Of these, 422 hold: THEOREM 299, OBSTRUCTION 41, ARITHMETIC 37, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 40 are REPORTED records.
+- `pytest` runs 39 tests.
+- The newest layers are `oes/ledger.py` (layer 21, 19 checks) and `oes/counts.py` (layer 22, 50 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 41 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status.
 
@@ -27,9 +27,9 @@ New in this edition:
 - **Spin counts.** 240 = D8 (112) + one half-spin orbit (128). 135 = [W(E8) : W(D8)] is the band-top D8 family, and 256 = 1 + 120 + 135.
 - **Field.** The source q̈ + 4q = 0 is not a carrier mode, because 4 ∉ spec D² (OBSTRUCTION).
 
-New in layer 22 (the sibling's 49 notes of 18:32–20:31, the canon's 19:10 continuation and the separate model's 19:47 status):
+New in layer 22 (the sibling's 64 notes of 18:32–21:03, the canon's 19:10 continuation and the separate model's 19:47 status):
 
-- **Counts.** 412 more readings on the tick bit, from 48 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Counts.** 486 more readings on the tick bit, from 63 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.
@@ -43,6 +43,9 @@ New in layer 22 (the sibling's 49 notes of 18:32–20:31, the canon's 19:10 cont
 - **The Pauli generator is the bath.** PAULI_178's L(M) = 240M + 16Mᵀ − 16 tr(M) I is the bath Laplacian on its 256 half-period modes. Eight antisymmetric Paulis anticommuting along the E8 diagram map Λ/2Λ onto the Paulis with L φ(x) = ε(πx) φ(x): 0, 224 (the E7+A1 saddles) and 256 (the D8 band top) on 1 + 120 + 135.
 - **Mass and energy.** The "mass determinant" 216 is det(3W) for the source metric of layer 10; the datum's 2 is the kinetic energy of a zero-stiffness 4-cycle in ker M.
 - **The Pauli map, written out.** `data/pauli_half_periods.json` holds the eight Dynkin words and all 256 half-periods with their words and band values; `ports/ts/pauliBath.ts` replays it in the sibling's app.
+- **The rotor plane and the tick doubling.** The C5-fixed plane of the cycle space (the oriented pentagon and pentagram) is turned a quarter by the doubling, and the tick doubling is the restriction of the day's twist x ↦ 7x.
+- **The bath's spectrum.** The 256 half-period modes are 2Λ-periodic eigenfunctions of the bath, not ℓ² vectors; this answers PAULI_BLIND.
+- **ROTOR_CHAIN, corrected.** Its shell tuple is the hexagon's difference distribution, and the flash's order 24 meets every tick.
 
 Against the canon:
 

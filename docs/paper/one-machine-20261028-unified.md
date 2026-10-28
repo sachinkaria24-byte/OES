@@ -7,8 +7,8 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 22 layers in **452 checks**. Of these, 414 hold: THEOREM 292, OBSTRUCTION 41, ARITHMETIC 36, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 38 are REPORTED records.
-- `python -m pytest` runs 38 tests.
+- `python verify.py` replays 22 layers in **462 checks**. Of these, 422 hold: THEOREM 299, OBSTRUCTION 41, ARITHMETIC 37, CONDITIONAL 17, UNFORMED 18, SELECTED_REFERENCE 8, REMOVED 2. The other 40 are REPORTED records.
+- `python -m pytest` runs 39 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (41 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, and `docs/LEDGER.md` holds the unified ledger.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -304,9 +304,9 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 ## 8. The evening notes (layer 22)
 
-At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more and at 20:33 one more. Layer 22 replays all of them in 40 checks.
+At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more, at 20:33 one more and at 21:05 fifteen more. Layer 22 replays all of them in 50 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 412 readings from 48 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 486 readings from 63 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -369,6 +369,13 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 - **Mass and energy.** The "mass determinant" 216 is det(3W) for the source metric W of layer 10 (det W = 8/9). The datum's "2" is the kinetic energy of a zero-stiffness 4-cycle in ker M, not a frequency.
 - **Written out.** `data/pauli_half_periods.json` lists the eight Dynkin words (IIIY, IIXY, IIYX, IYZI, XIXY, ZXXY, IZXY, IXXY) and all 256 half-periods with their words and band values. The layer rechecks it from the file alone, and `ports/ts/pauliBath.ts` replays it in the sibling's app, where it had been recorded as not replayed.
 
+**The 21:05 notes (THEOREM).**
+
+- **The rotor plane.** The C5 rotation fixes exactly one plane of the carrier's cycle space, spanned by the oriented pentagon and pentagram, and the doubling turns it a quarter (KARMA_K2, OM_ROTOR).
+- **The tick doubling.** On the ticks the doubling equals x ↦ 7x, a bijection of the whole circle and the day's twist, so the rotor law is the restriction of an invertible map.
+- **The bath's spectrum.** The half-period modes are 2Λ-periodic eigenfunctions of the bath: an invariant subspace of all functions on Λ, not of ℓ², with eigenvalues inside the band. This answers PAULI_BLIND.
+- **Rotor chain.** ROTOR_CHAIN's shell tuple (1, −2, 0, 2, −1) is the hexagon's difference distribution. Its "order 24 meets only 0" is corrected: the step 180 misses, and the order 24 meets.
+
 **Not replayed (REPORTED), not formed (UNFORMED).**
 
 - **Not stored here:** the sibling's permutations on the fifteen indices, its 24-cycle readers, its Hodge degrees and heat spectrum, its 12 × 12 sense stiffness, and the acoustic and optical matrices.
@@ -402,7 +409,8 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 | six-site moment chain | M₁, M₂ − M₁², M₃ − 2M₁M₂ + M₁³ of the A5-simplex port | THEOREM |
 | seven, one, seven | four mirror pairs unsplit by the bit, not three | THEOREM |
 | Petersen projectors | the carrier's edge projectors: A = J + I − MᵀM, the complement of the line graph | THEOREM |
-| Pauli generator | the bath Laplacian on its 256 half-period modes | THEOREM |
+| Pauli generator | the bath Laplacian on its 256 half-period modes (2Λ-periodic, not ℓ²) | THEOREM |
+| rotor | the C5-fixed plane of the cycle space, turned a quarter; the tick doubling is the day's twist ×7 | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 10. What is not formed, and the gates
@@ -457,15 +465,15 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 40 | the evening notes: 412 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath, written out |
+| 22 | counts | 50 | the evening notes: 486 readings on the bit; K5, Petersen and its projectors, pentagon; root walks; the hexagon, square, octagon and six-site ports; the 120-clock; circle maps; the energy table; beats; mirror pairs; breaths; the Pauli generator as the bath, written out; the rotor plane; two Laplacians and the line graph |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 22 layers, 452 checks, about 4 minutes
-python -m pytest -q           # 38 tests
+python verify.py              # 22 layers, 462 checks, about 4 minutes
+python -m pytest -q           # 39 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 89 notes of 17:01–20:31 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.
+Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 104 notes of 17:01–21:03 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.

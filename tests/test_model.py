@@ -148,6 +148,11 @@ def test_pauli_file_is_current():
     assert json.loads((root / "data" / "pauli_half_periods.json").read_text()) == counts.pauli_table()
 
 
+def test_rotor_plane_and_tick_doubling():
+    assert all(counts.rotor_plane().values())
+    assert all(counts.rotor_shadow().values())
+
+
 def test_every_circle_map_kills_the_commutator():
     maps = counts.circle_maps()
     assert all(maps.values()), maps

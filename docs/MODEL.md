@@ -758,7 +758,7 @@ At 19:21 UTC Drive was checked again. Two sources were new:
 
 Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the rows of layer 21.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 412 such readings from 48 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25 and 14 from 20:33. Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 486 such readings from 63 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25, 14 from 20:33 and 74 from 21:05. Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
 
 - Twelve of the fifteen stages (Mālinī 1 … Pratyabhijñā 14) meet the tick, and 0, 5 and 10 do not. Their landings match SANSKRIT_DEEP and EVERY_WORD.
 - Buddhi (2) and Pratyabhijñā (14) generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -881,6 +881,21 @@ Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the 
 - **The separate model's revised status (REPORTED, with agreements).** It now has Petersen = J + I − MᵀM with the same three projectors. It also has the six-site A = 241I − J and C*C = 183P_c + 495P_u, which is §23's M₂ − M₁² in projector form. It keeps the canon's two-dimensional dark plane apart from the rank-5 kernel, and so does this text: "dark" and "zero modes" here mean ker M = P5, as in §5 and §12. Its 33,003 validation instances and 693-file clean replay are recorded, not rerun.
 - **Counts.** MASS_KERNEL's 14 readings hold (412 from 48 notes).
 
+**The 21:05 check.** The sibling posted 15 notes between 20:34 and 21:03, from GOLDEN_FREQ to FAMILY_129. They gave ten more checks:
+
+- **The rotor plane (THEOREM).** On the carrier's oriented edges, the C5 rotation fixes exactly one plane, and that plane lies in the cycle space. It is spanned by the oriented pentagon and pentagram (Gram 5I). The vertex doubling turns it a quarter: pentagon → pentagram → −pentagon, with square −I. This is KARMA_K2's plane and OM_ROTOR's pair of signed ports. On the lattice, the rotor pair (both directions of the near and far roots of five coordinates) has Gram 10I, and the coordinate doubling, a Weyl element, turns it the same way. The source derivative is a different operator: its companion squares to −4I.
+- **The tick doubling is not only a shadow (THEOREM).** OM_ROTOR notes that x ↦ 2x is two-to-one on the circle. On the five tick levels, however, it equals x ↦ 7x. That map is a bijection of the whole circle and the day's twist d c′ d⁻¹ = c′⁷ (§22). So the rotor law t ↦ t² is the restriction of an invertible map.
+- **The bath's spectrum (THEOREM).** PAULI_BLIND objects that "the continuous bath is a different spectrum". The 240 roots fall into 120 classes mod 2Λ. Each half-period character χ_x(v) = (−1)^{x·v} is a 2Λ-periodic eigenfunction of Δ with eigenvalue ε(πx), checked at the origin and its 240 neighbours. So the 256 modes form an invariant subspace of all functions on Λ: the bath folded to Λ/2Λ, not a subspace of ℓ². Their eigenvalues 0, 224 and 256 are band values inside [0, 256]. The Pauli identification of the 20:25 update stands.
+- **Rotor chain (THEOREM).** t − I on ℤ⁵ has Smith form (1, 1, 1, 1, 0), so there is no torsion, and on the sum-zero lattice its cokernel is ℤ/5. The shell tuple (1, −2, 0, 2, −1) is the hexagon port's difference distribution on the five Weyl shells. The octagon reads (1, −2, 2, −2, 1) and the square (1, −2, 1, 0, 0). Each sums to 0, the squared total charge, and 2·square = hexagon + octagon holds shell by shell. One sentence of the note is corrected: the flash step 180 meets only 0, but its order 24 meets every tick.
+- **Two Laplacians and the line graph (THEOREM).**
+  - B Bᵀ = 5I − J;
+  - signless + ordinary = 8I, and half their difference is J − I;
+  - the vertex eigenvalues of the pair are 0, 3, 5 and 8;
+  - the line graph MᵀM − 2I = 6P₈ + P₃ − 2P₀;
+  - Petersen + line = J − I, with eigenvalues 9, −1 and −1.
+- **Arithmetic (ARITHMETIC).** The golden frequencies φ, φ⁻¹ and the clock trace 24, the flash landings, the Kuramoto rates, the 36-address sense paths, B⁶, the K2 torus counts, and FAMILY_129's power sums and Schur numerators. In all, 486 readings from 63 notes hold.
+- **Not replayed (REPORTED).** GOLDEN_FREQ's clock stiffness, TELESCOPE's six saved arrows, KARMA_K2's rank-5 reading, FAMILY_129's selector beyond its toy block, and KURAMOTO's named conditions.
+
 ## 24. What stays open
 
 **Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
@@ -936,6 +951,7 @@ Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the 
 - the sibling's notes CLOSURE_234, JOIN_234, MORE_DOTS, NORMALIZE, ORBIT, UPGRADE_JOIN, CRT_JOIN, IDEMPOTENTS, PRIMARY_SPLIT and CURRENT, with `one-machine-20261028-current.pdf` (15SXt3dvbOQ9z-yu04PnGgVPU3N9S21lY, 16:18), and the separate model `finite-spectral-model-major-upgrade-20261028.pdf` (1gEEaontXS0I9HWCwBsQdJExCSVlJ_xcg, SHA-256 0869e6af…, 16:07): §21
 - the sibling's notes SPINE_CORRECTIONS (1JTVWtTwwzFsqFlwRLwVwcIgc0OiWn546), COXETER_POWERS (1wLHRLvSwKiXUjH5UwAGmea8JUdCeCoSS), ATLAS_FACTOR (1yVpWxmIdWSwIuK3MKuveMH-rJZU6Vrxd) and SUN_MOON (1mXN3YvX5Cr4elHVM9d_ipfewBx6n4dat), 16:31–16:43, with `one-machine-20261028-sun.pdf` (1gRY4ja60_mGdpnhZHzIbxvxgcL0Yu4hv, 16:43), and the 16:47 consolidation `CURRENT_20261028_2046.md` (16X9fB1FEUbUpiYCSOCllctIAIWx8OZmg) with `one-machine-20261028-2046.pdf` (1WOGfKAyTKKtD8UOi4ge96L23Zw0NEXti), whose text equals the 16:43 paper: the re-read of §21
 - the sibling's full edition `one-machine-20261028-full.typ` (15m9a4MohMky-q6leb23CJLstmkqrWrQy) and `.pdf` (107U4SIduxAJHPvFK7cuLjpNWU3tuf6Ph), `FULL_UPDATE_20261028.md` (1v-uVlvf5jPAJeesXz2oV9xlks7iUXNgU), `CANON_READ_20261028.md` (1rp8CpJzNOWOGfEn1GFhvvqUzXHRCb_Ql) and the forty join notes of 17:01–18:17 UTC; the Quick Access sheet 00_FULL_RECONCILIATION_20261028 (review cutoff 17:19:41): §22
+- the sibling's 15 notes of 20:34–21:03 UTC in One Machine 20261028 (GOLDEN_FREQ 11LXsqNIDURy81lct-gfJj59PrXM8p9Kf through FAMILY_129 1Es8lmRHRjkYDTCnGOKzBgVG7VqJSBYYj): §23, the 21:05 check
 - the sibling's MASS_KERNEL (18lymp6JSyMThdNcNKRhtrgqIDVyZvrX7, 20:31 UTC) and the separate model's revised `unified-spectral-machine-status-20261028.md` and paper (20:28): §23, the 20:33 check
 - the sibling's notes PAULI_178 (1fy7xvmXvaOAcM5RuRWlcSHgmqkqQ3f1h), PAULI_CIRCLE (1AEn71GCDTJpEmQb9isQXI3w17ritWHVf), TICK_DEEP (11swlQAFwQw52GeYoFDtl4IMuA5qnBpaA) and CHAIN_ENERGY (1-uXJrmo2dVA-_E1UoQD5pvZGtegJpv86), 20:20–20:23 UTC: §23, the 20:25 update
 - the sibling's notes BREATH_ALL (1qdaJLGC2UfMIqMzYInGIY0cwFyEdePax), PETERSEN_GRAM (1cWZmvFRiPHmHgJ-Be3saaQ74Cwz-gTRG) and PETERSEN_PROJ (14sgfv0Q-iMywvsNTXwc9nVa5OmUhy4ZL), 20:06–20:10 UTC: §23, the 20:12 update

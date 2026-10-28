@@ -16,7 +16,8 @@ Sources read before this layer (Google Drive):
   Access sheet (19:44), which points to continuation 3 and adds nothing to it;
 * at 20:12: the sibling's notes BREATH_ALL, PETERSEN_GRAM and PETERSEN_PROJ (20:06-20:10) and its message;
 * at 20:25: the sibling's notes PAULI_178, PAULI_CIRCLE, TICK_DEEP and CHAIN_ENERGY (20:20-20:23) and its message;
-* at 20:33: the sibling's MASS_KERNEL (20:31) and the separate model's revised status and paper (20:28).
+* at 20:33: the sibling's MASS_KERNEL (20:31) and the separate model's revised status and paper (20:28);
+* at 21:05: the sibling's 15 notes of 20:34-21:03, from GOLDEN_FREQ to FAMILY_129.
 
 Here "zero modes" and "dark" mean ker M = P5, as in layers 5 and 12. The canon's two-dimensional dark planes
 (the dark-core theorem) are another object, as the separate model's status also notes.
@@ -73,6 +74,13 @@ CHAIN_ENERGY's "mass determinant" 216 is det(3W) for the source metric W of laye
 is the kinetic energy of the zero-stiffness 4-cycle in the datum, not a frequency. The map is written out in
 data/pauli_half_periods.json and checked again from that file alone, and ports/ts/pauliBath.ts replays it
 in the sibling's app, which records it as not replayed (MASS_KERNEL, 20:31).
+
+At 21:05 the rotor was rebuilt on the carrier: the C5 rotation fixes exactly one plane of the cycle space (the
+oriented pentagon and pentagram), and the doubling turns it a quarter, which is KARMA_K2's plane. The tick
+doubling, two-to-one on the circle, is the restriction of x -> 7x, the day's twist. PAULI_BLIND's "the continuous
+bath is a different spectrum" is answered: the 256 half-period modes are 2 Lambda-periodic eigenfunctions of
+the bath, an invariant subspace of all functions on Lambda rather than of l^2. ROTOR_CHAIN's shell tuple
+(1, -2, 0, 2, -1) is the hexagon's difference distribution, and its "order 24 meets only 0" is corrected.
 """
 
 import functools
@@ -527,6 +535,80 @@ CLAIMS = [
     ("MASS_KERNEL", "the half-period stiffness rank", 6, True, ()),
     ("MASS_KERNEL", "its phase-energy rank", 19, True, ()),
     ("MASS_KERNEL", "256", 256, True, ()),
+    ("GOLDEN_FREQ", "the golden trace 2 x 3", 6, True, ()),
+    ("GOLDEN_FREQ", "the (lambda - 4)^2 trace", 8, True, ()),
+    ("GOLDEN_FREQ", "the clock trace", 24, True, ()),
+    ("GOLDEN_FREQ", "the fivefold trace", 10, False, ()),
+    ("FIREFLY_OSC", "one flash", 180, False, (("order", 24),)),
+    ("FIREFLY_OSC", "four flashes", 720, False, (("order", 6),)),
+    ("FIREFLY_OSC", "the atlas step", 36, True, (("order", 120),)),
+    ("FIREFLY_OSC", "the golden step", 216, True, (("order", 20),)),
+    ("KURAMOTO", "the contrast rate", 5, False, ()),
+    ("KURAMOTO", "the wedge rate", 10, False, ()),
+    ("KURAMOTO", "the contrast dimension", 4, True, ()),
+    ("KURAMOTO", "the exterior square", 6, True, ()),
+    ("KURAMOTO", "Ralston's cross block", 18, True, ()),
+    ("KURAMOTO", "the traceless count", 35, False, ()),
+    ("KURAMOTO_DEEP", "2 x 3 + 2 x 5", 16, True, ()),
+    ("KURAMOTO_DEEP", "the flash", 180, False, ()),
+    ("TWO_SQUARES", "the cycle kernel", 6, True, ()),
+    ("TWO_SQUARES", "the synchronized kernel", 1, True, ()),
+    ("TWO_SQUARES", "the signless edge kernel", 5, False, ()),
+    ("LINE_GRAPH", "line eigenvalue on the zero modes", -2, True, ()),
+    ("LINE_GRAPH", "line eigenvalue on sector 3", 1, True, ()),
+    ("LINE_GRAPH", "line eigenvalue on sector 8, the degree", 6, True, ()),
+    ("LINE_GRAPH", "the kernel rank", 5, False, ()),
+    ("EDGE_SUM", "the summed degree", 9, True, ()),
+    ("EDGE_SUM", "the ten edges", 10, False, ()),
+    ("EDGE_SUM", "the Laplacian eigenvalue", 5, False, ()),
+    ("EDGE_SUM", "the summed eigenvalue", -1, True, ()),
+    ("OM_ROTOR", "the rotor group", 20, False, ()),
+    ("OM_ROTOR", "the port square", 10, False, ()),
+    ("OM_ROTOR", "the doubling order", 4, True, ()),
+    ("OM_ROTOR", "the Coxeter count", 30, False, ()),
+    ("OM_ROTOR", "the roots", 240, False, ()),
+    ("ROTOR_CHAIN", "rate", 2, True, ()),
+    ("ROTOR_CHAIN", "rate", 7, True, ()),
+    ("ROTOR_CHAIN", "rate", 9, True, ()),
+    ("ROTOR_CHAIN", "the multiplicity", 30, False, ()),
+    ("ROTOR_CHAIN", "the seen rank", 24, True, ()),
+    ("ROTOR_CHAIN", "the flash step", 180, False, (("order", 24),)),
+    ("ROTOR_CHAIN", "the hidden rank", 68, True, ()),
+    ("ROTOR_CHAIN", "the frame", 92, True, ()),
+    ("ROTOR_CHAIN", "the trace", 40, False, ()),
+    ("TELESCOPE", "B^6 entry", 13, True, ()),
+    ("TELESCOPE", "B^6 entry", 8, True, ()),
+    ("TELESCOPE", "B^6 entry", 5, False, ()),
+    ("TELESCOPE", "the composite weight", 27, True, ()),
+    ("TELESCOPE", "six", 6, True, ()),
+    ("TELESCOPE", "twelve", 12, True, ()),
+    ("TELESCOPE", "the atlas", 36, True, ()),
+    ("SENSE_LOOP", "the sense addresses", 15, False, ()),
+    ("SENSE_LOOP", "the other addresses", 21, True, ()),
+    ("SENSE_LOOP", "the group size", 5, False, ()),
+    ("SENSE_LOOP", "36 x 6", 216, True, (("steps", 4),)),
+    ("SENSE_LOOP", "the witness line", 1, True, ()),
+    ("SENSE_LOOP", "the context", 245, False, ()),
+    ("SENSE_GOLDEN", "the first row sum", 21, True, ()),
+    ("SENSE_GOLDEN", "the second row sum", 13, True, ()),
+    ("SENSE_GOLDEN", "the trace", 18, True, ()),
+    ("SENSE_GOLDEN", "the live rank", 6, True, ()),
+    ("SENSE_GOLDEN", "49", 49, True, (("gen",),)),
+    ("SENSE_GOLDEN", "the context 5 x 49", 245, False, ()),
+    ("SENSE_GOLDEN", "the senses", 15, False, ()),
+    ("KARMA_K2", "the present", 5, False, ()),
+    ("KARMA_K2", "karma", 1, True, ()),
+    ("KARMA_K2", "jiva", 6, True, ()),
+    ("KARMA_K2", "the torus count", 30, False, ()),
+    ("KARMA_K2", "with the plane", 32, True, ()),
+    ("PAULI_BLIND", "the antisymmetric directions", 120, False, ()),
+    ("PAULI_BLIND", "eigenvalue", 224, True, ()),
+    ("PAULI_BLIND", "eigenvalue", 256, True, ()),
+    ("PAULI_BLIND", "the identifier", 871, True, ()),
+    ("FAMILY_129", "the nullity", 192, True, ()),
+    ("FAMILY_129", "after a rank-9 correction", 183, True, ()),
+    ("FAMILY_129", "the bound", 195, False, ()),
+    ("FAMILY_129", "the step d >= 15", 15, False, ()),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -1450,6 +1532,189 @@ def batch4_arithmetic():
     }
 
 
+# ------------------------------------------------------------- the 21:05 notes (20:34-21:03)
+
+def _oriented_cycle(step):
+    E = carrier.edges()
+    v = sp.zeros(len(E), 1)
+    for i in range(5):
+        a, b = i, (i + step) % 5
+        v[E.index((min(a, b), max(a, b)))] += 1 if a < b else -1
+    return v
+
+
+def _edge_action(f):
+    """The signed permutation of oriented edges induced by the vertex map f."""
+    E = carrier.edges()
+    P = sp.zeros(len(E), len(E))
+    for k, (i, j) in enumerate(E):
+        a, b = f(i), f(j)
+        P[E.index((min(a, b), max(a, b))), k] = 1 if a < b else -1
+    return P
+
+
+def rotor_plane():
+    """KARMA_K2 and OM_ROTOR: the C5-fixed plane of the cycle space, turned a quarter by the doubling."""
+    B = sp.Matrix(carrier.signed_incidence())
+    vertex = lambda f: sp.Matrix(5, 5, lambda a, b: int(a == f(b)))
+    rot, dbl = _edge_action(lambda i: (i + 1) % 5), _edge_action(lambda i: 2 * i % 5)
+    pent, star = _oriented_cycle(1), _oriented_cycle(2)
+    fixed = (rot - sp.eye(10)).nullspace()
+    # the same pair on the E8 lattice: both directions of the near and far roots of five coordinates
+    e = 2 * np.eye(8, dtype=np.int64)
+    port = lambda s: {**{tuple(e[(i + s) % 5] - e[i]): 1 for i in range(5)},
+                      **{tuple(e[i] - e[(i + s) % 5]): -1 for i in range(5)}}
+    r1, r2 = port(1), port(2)
+    sigma = lambda v: tuple([v[[0, 3, 1, 4, 2][k]] for k in range(5)] + list(v[5:]))   # e_i -> e_(2i mod 5)
+    image = lambda r: {sigma(k): x for k, x in r.items()}
+    roots = {tuple(v) for v in _roots2()}
+    gram = lambda a, b: sum(x * b.get(k, 0) for k, x in a.items())
+    return {
+        "the rotation and the doubling of the vertices act on oriented edges compatibly with the boundary":
+            B * rot == vertex(lambda i: (i + 1) % 5) * B and B * dbl == vertex(lambda i: 2 * i % 5) * B,
+        "the rotation fixes exactly a plane, and it lies in the cycle space": len(fixed) == 2
+        and all((B * v).is_zero_matrix for v in fixed),
+        "the plane is spanned by the oriented pentagon and pentagram, with Gram 5I": rot * pent == pent
+        and rot * star == star and sp.Matrix.hstack(*fixed, pent, star).rank() == 2
+        and (pent.T * pent)[0] == 5 == (star.T * star)[0] and (pent.T * star)[0] == 0,
+        "the doubling turns it a quarter: pentagon -> pentagram -> -pentagon, square -I": dbl * pent == star
+        and dbl * star == -pent,
+        "on the lattice the rotor pair has Gram 10I, and the coordinate doubling (a Weyl element) turns it a quarter":
+            gram(r1, r1) == gram(r2, r2) == 10 and gram(r1, r2) == 0 and image(r1) == r2
+            and image(r2) == {k: -x for k, x in r1.items()} and {sigma(r) for r in roots} == roots,
+        "the source derivative is another operator: its companion squares to -4I, not -I":
+            sp.Matrix([[0, 1], [-4, 0]]) ** 2 == -4 * sp.eye(2),
+    }
+
+
+def rotor_shadow():
+    """OM_ROTOR: the doubling of the ticks is the shadow of an invertible map of the whole circle, the day's twist."""
+    _, cp, _, _, _, _ = spine.spine_clock()
+    d = spine.day_clock()
+    return {
+        "doubling cycles 864 -> 1728 -> 3456 -> 2592 -> 864 and sends translation by 864 to its square":
+            [2 * t % N for t in (864, 1728, 3456, 2592)] == [1728, 3456, 2592, 864] and 2 * 864 % N == 1728,
+        "x -> 2x is two-to-one on the circle (2160 values)": len({2 * x % N for x in range(N)}) == 2160,
+        "x -> 7x is a bijection of the circle that agrees with doubling on the five tick levels":
+            len({7 * x % N for x in range(N)}) == N and all(7 * t % N == 2 * t % N for t in LEVELS),
+        "7 is the day's twist on the bath: d c' d^-1 = c'^7": np.array_equal(d @ cp @ spine.inverse(d), spine.mpow(cp, 7)),
+    }
+
+
+def smith_rotor():
+    from sympy.matrices.normalforms import smith_normal_form
+    C = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))
+    S = sp.Matrix(5, 4, lambda r, c: int(r == c) - int(r == c + 1))                  # basis e_c - e_(c+1)
+    on_sum_zero = (S.T * S).inv() * S.T * (C - sp.eye(5)) * S
+    return {
+        "t - I on Z^5 has Smith form (1, 1, 1, 1, 0): no torsion": smith_normal_form(C - sp.eye(5), domain=sp.ZZ)
+        == sp.diag(1, 1, 1, 1, 0),
+        "on the sum-zero lattice t - I is integral with |det| = 5: cokernel Z/5": all(x.is_integer for x in on_sum_zero)
+        and abs(on_sum_zero.det()) == 5,
+    }
+
+
+def laplacian_family():
+    """TWO_SQUARES, KURAMOTO_DEEP, LINE_GRAPH and EDGE_SUM on the carrier's incidences."""
+    E = carrier.edges()
+    M, B = sp.Matrix(carrier.signless_incidence()), sp.Matrix(carrier.signed_incidence())
+    I5, J5, I10, J10 = sp.eye(5), sp.ones(5, 5), sp.eye(10), sp.ones(10, 10)
+    Q, L = M * M.T, B * B.T
+    line = sp.Matrix(10, 10, lambda a, b: int(a != b and bool(set(E[a]) & set(E[b]))))
+    A = sp.Matrix(10, 10, lambda a, b: int(not set(E[a]) & set(E[b])))
+    P8 = J10 / 10
+    P0 = I10 - M.T * (M * M.T).inv() * M
+    P3 = I10 - P8 - P0
+    return {
+        "the ordinary Laplacian is the square of the signed incidence, B B^T = 5I - J": L == 5 * I5 - J5,
+        "signless + ordinary = 8I, and half their difference is the K5 adjacency J - I": Q + L == 8 * I5
+        and (Q - L) / 2 == J5 - I5,
+        "the vertex eigenvalues of the pair are 0, 3, 5, 8": set(Q.eigenvals()) | set(L.eigenvals()) == {0, 3, 5, 8},
+        "the line graph is M^T M - 2I = 6 P8 + P3 - 2 P0": M.T * M - 2 * I10 == line == 6 * P8 + P3 - 2 * P0,
+        "Petersen + line = J - I on the ten edges, so the eigenvalues add to 9, -1, -1": A + line == J10 - I10
+        and A + line == 9 * P8 - P3 - P0,
+    }
+
+
+def folded_bath():
+    """PAULI_BLIND: the half-period modes are an invariant subspace of all functions on Lambda, not of l^2."""
+    R2 = _roots2()
+    D = R2[:, None, :] - R2[None, :, :]
+    even = (D % 2 == 0).all(-1)
+    H = D // 2
+    same = ((H % 2 == 0).all(-1) | (H % 2 == 1).all(-1)) & (H.sum(-1) % 4 == 0)
+    congruent = even & same
+    plus_minus = (D == 0).all(-1) | ((R2[:, None, :] + R2[None, :, :]) == 0).all(-1)
+    V2 = np.vstack([np.zeros((1, 8), dtype=np.int64), R2])                           # the origin and its 240 neighbours
+    alpha2 = np.array(SIMPLE_ROOTS_X2)
+    eigen = True
+    for c in itertools.product((0, 1), repeat=8):
+        x2 = np.array(c) @ alpha2
+        chi = lambda P: 1 - 2 * ((P @ x2 // 4) % 2)
+        eps = _band_at_half_period(c, R2)
+        lhs = 240 * chi(V2) - chi(V2[:, None, :] + R2[None, :, :]).sum(1)
+        eigen &= bool(np.array_equal(lhs, eps * chi(V2)))
+    return {
+        "the 240 roots fall into 120 classes mod 2 Lambda, each {rho, -rho}": np.array_equal(congruent, plus_minus),
+        "every character chi_x(v) = (-1)^(x.v) is 2 Lambda-periodic with Delta chi_x = eps(pi x) chi_x (checked at the "
+        "origin and its 240 neighbours)": eigen,
+    }
+
+
+def shell_tuples():
+    """ROTOR_CHAIN's shell coefficients are the ports' difference distributions on the five Weyl shells."""
+    P = ports()
+    roots = {tuple(v) for v in _roots2()}
+    shells = [(0, False), (8, False), (16, False), (24, False), (32, True)]
+    norm = {"hexagon": 6, "octagon": 8, "square": 4}
+    t = {k: [Fraction(difference_distribution(*P[k], roots)[s], norm[k]) for s in shells] for k in P}
+    return {
+        "on the shells 0, roots, norm 4, norm 6, twice a root the hexagon reads (1, -2, 0, 2, -1)":
+            t["hexagon"] == [1, -2, 0, 2, -1],
+        "the octagon reads (1, -2, 2, -2, 1) and the square (1, -2, 1, 0, 0)": t["octagon"] == [1, -2, 2, -2, 1]
+        and t["square"] == [1, -2, 1, 0, 0],
+        "each sums to 0, the squared total charge of an alternating port": all(sum(v) == 0 for v in t.values()),
+        "2 square = hexagon + octagon shell by shell": all(2 * t["square"][i] == t["hexagon"][i] + t["octagon"][i]
+                                                           for i in range(5)),
+    }
+
+
+def batch6_arithmetic():
+    F, phi = Fraction, (1 + sp.sqrt(5)) / 2
+    groups = [5, 7, 4, 5, 5, 5, 5]
+    starts = [1 + sum(groups[:k]) for k in range(7)]
+    span = lambda g: set(range(starts[g], starts[g] + groups[g]))
+    paths = [(32 + k, 27 + k, 17 + k) for k in range(5)]
+    t1, t2 = [F(1), F(2), F(3)], [F(9, 7), F(11, 7), F(22, 7)]
+    power = lambda t, k: sum(x ** k for x in t)
+    return {
+        "phi^2 + phi^-2 = 3, phi^2 phi^-2 = 1, phi + phi^-1 = sqrt 5; 2 x 3 + 2 x 5 + 2 x 4 = 24; 8/3 = phi^2 would "
+        "need 49 = 45": sp.simplify(phi ** 2 + phi ** -2 - 3) == 0 and sp.simplify(phi + 1 / phi - sp.sqrt(5)) == 0
+        and 2 * 3 + 2 * 5 + 2 * 4 == 24 and 7 ** 2 != 9 * 5,
+        "90 x 2 = 60 x 3 = 180; 8 does not divide 180; 4 x 180 + 144 = 864; <180, 216> = <36>; lcm(24, 20) = 120, "
+        "gcd 4": 90 * 2 == 60 * 3 == 180 and 180 % 8 and 4 * 180 + 144 == TICK and gcd(gcd(180, 216), N) == 36
+        and sp.ilcm(24, 20) == 120 and gcd(24, 20) == 4,
+        "4 x 3 / 2 = 6; 3 x 3 x 2 = 18; 6^2 - 1 = 35; 5 x 36 = 10 x 18 = 180; 2 x 3 + 2 x 5 = 16; 3 + 6 = 9 = 4 + 5":
+            4 * 3 // 2 == 6 and 3 * 3 * 2 == 18 and 6 ** 2 - 1 == 35 and 5 * 36 == 10 * 18 == 180
+            and 2 * 3 + 2 * 5 == 16 and 3 + 6 == 9 == 4 + 5,
+        "2 + 2 x 4 + 2 = 12; 36 + 1 + 1 - (30 + 1 + 1) = 6; 720, 4320, 17280, 69120, 315360 are multiples of 5; "
+        "1 - 2 + 0 + 2 - 1 = 0": 2 + 2 * 4 + 2 == 12 and (36 + 2) - (30 + 2) == 6
+        and all(c % 5 == 0 for c in (720, 4320, 17280, 69120, 315360)) and 1 - 2 + 0 + 2 - 1 == 0,
+        "the 36 addresses: groups start at 1, 6, 13, 17, 22, 27, 32; the five sense paths use exactly groups 4, 6, 7; "
+        "32..36 cover every residue mod 5; 6 + 1 + 245 = 252 = 36 x 7 = 5 x 49 + 7": starts == [1, 6, 13, 17, 22, 27, 32]
+        and {a for p in paths for a in p} == span(3) | span(5) | span(6) and {a % 5 for a in range(32, 37)} == set(range(5))
+        and 6 + 1 + 245 == 252 == 36 * 7 and 245 == 5 * 49,
+        "B^6 = [[13, 8], [8, 5]], rows 21 and 13, trace 18; 21 - 15 = 6": sp.Matrix([[1, 1], [1, 0]]) ** 6
+        == sp.Matrix([[13, 8], [8, 5]]) and 21 - 15 == 6,
+        "30 + 2 = 32; 32 - 6 = 26; 32 - 5 = 27": 30 + 2 == 32 and 32 - 6 == 26 and 32 - 5 == 27,
+        "1, 2, 3 and 9/7, 11/7, 22/7 share p1 = 6 and p2 = 14 but not p3 (36 against 12708/343) or the product "
+        "(6 against 2178/343)": power(t1, 1) == power(t2, 1) == 6 and power(t1, 2) == power(t2, 2) == 14
+        and power(t1, 3) == 36 and power(t2, 3) == F(12708, 343) and t2[0] * t2[1] * t2[2] == F(2178, 343),
+        "192 - 9 = 183; 12 x 16 < 195 <= 12 x 17, so d >= 15; (8 - 2^2/4) 4 = 28; (1 + 2^2/16) 16 = 20":
+            192 - 9 == 183 and 12 * 16 < 195 <= 12 * 17 and (8 - F(4, 4)) * 4 == 28 and (1 + F(4, 16)) * 16 == 20,
+    }
+
+
 MIRROR_SPLIT = [(0, 14), (4, 10), (5, 9)]
 MIRROR_WHOLE = [(1, 13), (2, 12), (3, 11), (6, 8)]
 
@@ -1463,8 +1728,8 @@ def mirror_pairs():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (48 notes, 18:32-20:31)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 412 readings from 48 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (63 notes, 18:32-21:03)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 486 readings from 63 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
@@ -1491,6 +1756,12 @@ JOINS = [
     ("mass determinant (20:23)", "216 / 3^5 = 8/9: the golden step, not a mass", "216 = det(3W) for the source metric W = N^T N of layer 10; no mass scale is selected", "THEOREM", "10, 22"),
     ("the cycle's 2 (20:23)", "the cycle adds the frequency 2", "the 2 is the kinetic energy of the zero-stiffness 4-cycle v0 in ker M, not a frequency; the potential 32 sits in sectors 3 and 8", "THEOREM", "22: energy"),
     ("Pauli map, written out (20:33)", "MASS_KERNEL: the map from the Pauli generator to the bath was not replayed", "data/pauli_half_periods.json holds the eight Dynkin words and all 256 half-periods with their band values; layer 22 rechecks it from the file and ports/ts/pauliBath.ts replays it in the app", "THEOREM", "22: Pauli file"),
+    ("rotor plane (KARMA_K2, OM_ROTOR)", "a C5-fixed plane in the exterior square; doubling squares to -I", "the C5 rotation fixes exactly one plane of the carrier's cycle space (oriented pentagon and pentagram), turned a quarter by the doubling; on the lattice the rotor pair (Gram 10I) is turned by a coordinate doubling in W(E8)", "THEOREM", "22: rotor"),
+    ("tick doubling (OM_ROTOR)", "doubling is two-to-one on the circle, a shadow on the tick", "on the ticks it equals x -> 7x, a bijection of the whole circle and the day's twist d c' d^-1 = c'^7", "THEOREM", "21, 22"),
+    ("the bath's spectrum (PAULI_BLIND)", "the continuous bath is a different spectrum", "the 256 half-period modes are 2 Lambda-periodic eigenfunctions of Delta (the bath folded to Lambda / 2 Lambda): an invariant subspace of all functions on Lambda, not of l^2; eigenvalues inside the band", "THEOREM", "22: Pauli"),
+    ("shell tuple (ROTOR_CHAIN)", "shell coefficients 1, -2, 0, 2, -1; 2 square = hexagon + octagon not replayed", "the hexagon's difference distribution on the five Weyl shells; replayed here, with the octagon (1, -2, 2, -2, 1) and square (1, -2, 1, 0, 0)", "THEOREM", "22: moments"),
+    ("flash order (ROTOR_CHAIN)", "the order 24 meets only 0", "the step 180 meets only 0; its order 24 meets every tick", "THEOREM", "22"),
+    ("two Laplacians, line graph (20:39-20:43)", "B B^T = 5I - J; signless + ordinary = 8I; Petersen + line = J - I", "rebuilt on the carrier's incidences, with the line graph 6 P8 + P3 - 2 P0", "THEOREM", "22"),
     ("separate model status (19:47)", "489 presentations, 30,875 validations, a clean replay of 623 files", "recorded; its beat equation agrees with the carrier", "REPORTED", "22"),
     ("not replayed", "15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7", "objects of the sibling build that are not stored here", "REPORTED", "22"),
     ("not stored", "Yukawa blocks, hypercharge, taste, smell and touch matrices, icosahedral adjacency, swastika, hexagram, yinyang, diamond, tesseract, qubit", "no operand; nothing here forms them", "UNFORMED", "22"),
@@ -1525,7 +1796,7 @@ def run():
     rep.add("the sibling's 28 notes of 18:32-19:21 UTC were read; their code and papers were not run", RP, True)
 
     bad, stages_ok, info = check_claims()
-    rep.add(f"every integer reading of the evening notes (18:32-20:31) is the bit of layer 21 with its stated order, "
+    rep.add(f"every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, "
             f"subgroup, steps or "
             f"first landing: {len(CLAIMS)} readings from {info['notes']} notes, none fails. Twelve of the fifteen "
             "stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and "
@@ -1677,6 +1948,48 @@ def run():
     a5 = batch5_arithmetic()
     rep.add("the 20:33 arithmetic: 2 + 32 = 34 with 32 = 20 + 12, 3^5 x 8/9 = 216, 183 Pc + 495 Pu = 183 I + 52 J, "
             "and the powers of a generator of C120", AR, all(a5.values()), a5)
+
+    # the 21:05 check ----------------------------------------------------------------------
+    rep.add("Drive check 21:05: the sibling's 15 notes of 20:34-21:03 (GOLDEN_FREQ, FIREFLY_OSC, KURAMOTO, "
+            "KURAMOTO_DEEP, TWO_SQUARES, LINE_GRAPH, EDGE_SUM, OM_ROTOR, ROTOR_CHAIN, TELESCOPE, SENSE_LOOP, "
+            "SENSE_GOLDEN, KARMA_K2, PAULI_BLIND, FAMILY_129) were read; the separate model's paper was re-uploaded "
+            "(20:35) with its status unchanged", RP, True)
+    rp = rotor_plane()
+    rep.add("KARMA_K2 and OM_ROTOR rebuilt: the C5 rotation fixes exactly one plane of the carrier's cycle space, "
+            "spanned by the oriented pentagon and pentagram; the doubling turns it a quarter (pentagon -> pentagram "
+            "-> -pentagon). On the lattice the rotor pair has Gram 10I and a coordinate doubling in W(E8) turns it the "
+            "same way. The source derivative squares to -4I, not -I", T, all(rp.values()), rp)
+    rs = rotor_shadow()
+    rep.add("OM_ROTOR sharpened: x -> 2x is two-to-one on the circle, but on the five tick levels it equals x -> 7x, "
+            "a bijection of the whole circle and the day's twist d c' d^-1 = c'^7. So the rotor law t -> t^2 is not "
+            "only a shadow: it is the restriction of an invertible map", T, all(rs.values()), rs)
+    sr = smith_rotor()
+    rep.add("ROTOR_CHAIN: t - I on Z^5 has Smith form (1, 1, 1, 1, 0), so no torsion; on the sum-zero lattice its "
+            "cokernel is Z/5", T, all(sr.values()), sr)
+    lf = laplacian_family()
+    rep.add("TWO_SQUARES, KURAMOTO_DEEP, LINE_GRAPH and EDGE_SUM: B B^T = 5I - J, signless + ordinary = 8I with "
+            "half-difference J - I, vertex eigenvalues 0, 3, 5, 8; the line graph M^T M - 2I = 6 P8 + P3 - 2 P0, and "
+            "Petersen + line = J - I with eigenvalues 9, -1, -1", T, all(lf.values()), lf)
+    fb = folded_bath()
+    rep.add("PAULI_BLIND's 'the continuous bath is a different spectrum', answered: the 240 roots form 120 classes mod "
+            "2 Lambda, and each half-period character chi_x is a 2 Lambda-periodic eigenfunction of Delta with "
+            "eigenvalue eps(pi x). The 256 modes are an invariant subspace of all functions on Lambda (the bath folded "
+            "to Lambda / 2 Lambda), not of l^2; their eigenvalues 0, 224, 256 are band values inside [0, 256]", T,
+            all(fb.values()), fb)
+    st = shell_tuples()
+    rep.add("ROTOR_CHAIN's shell coefficients (1, -2, 0, 2, -1) are the hexagon port's difference distribution on the "
+            "five Weyl shells; the octagon reads (1, -2, 2, -2, 1) and the square (1, -2, 1, 0, 0); each sums to 0, "
+            "and 2 square = hexagon + octagon shell by shell", T, all(st.values()), st)
+    rep.add("ROTOR_CHAIN corrected: the flash step 180 meets the tick only at 0, but its order 24 meets every tick; "
+            "the two sides of the bit are 180 and 24, not two 24s", T,
+            not ledger.contains_tick(180) and spine.order(180) == 24 and ledger.contains_tick(24))
+    a6 = batch6_arithmetic()
+    rep.add("the 21:05 arithmetic: the golden frequencies and the clock trace 24, the flash landings, the Kuramoto "
+            "rates, the rotor chain, the 36-address sense paths, B^6, the K2 torus counts, FAMILY_129's power sums "
+            "and Schur numerators", AR, all(a6.values()), a6)
+    rep.add("not replayed: GOLDEN_FREQ's clock stiffness, TELESCOPE's six saved arrows (27 nonzeros), KARMA_K2's "
+            "rank-5 reading and torus surjection, FAMILY_129's selector beyond its toy block, KURAMOTO's named "
+            "conditions (Kubo, de Boer, Ralston, Hunt), and the separate model's re-uploaded paper", RP, True)
 
     rep.add("recorded, not replayed: the separate model's 489 presentations, 30,875 validation instances, 623-file "
             "clean replay, OM-mirror rank-4 intertwiner and five-reader blind line; the sibling's two curvatures of "

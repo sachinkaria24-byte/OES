@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.51,
+  "1-carrier": 0.48,
   "2-spectral": 0.0,
-  "3-spacetime": 6.27,
-  "4-native": 42.19,
-  "5-observer": 7.56,
-  "6-gravity": 3.59,
-  "7-cosmology": 0.7,
-  "8-frontier": 23.52,
-  "9-joins": 4.86,
-  "10-literal": 15.55,
-  "11-glue": 0.09,
+  "3-spacetime": 4.6,
+  "4-native": 41.36,
+  "5-observer": 6.88,
+  "6-gravity": 3.44,
+  "7-cosmology": 0.78,
+  "8-frontier": 24.22,
+  "9-joins": 5.85,
+  "10-literal": 15.47,
+  "11-glue": 0.1,
   "12-binding": 0.06,
-  "13-gates": 0.27,
-  "14-recurrence": 38.44,
-  "15-court": 1.18,
-  "16-handover": 0.73,
-  "17-waves": 0.32,
-  "18-snapshot": 0.44,
-  "19-spine": 1.86,
-  "20-canon": 4.53,
-  "21-ledger": 21.77,
-  "22-counts": 11.84
+  "13-gates": 0.3,
+  "14-recurrence": 38.06,
+  "15-court": 1.23,
+  "16-handover": 0.81,
+  "17-waves": 0.3,
+  "18-snapshot": 0.43,
+  "19-spine": 1.83,
+  "20-canon": 4.28,
+  "21-ledger": 21.33,
+  "22-counts": 11.63
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 292,
-   "total": 292
+   "passed": 299,
+   "total": 299
   },
   "OBSTRUCTION": {
    "passed": 41,
@@ -95,8 +95,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 36,
-   "total": 36
+   "passed": 37,
+   "total": 37
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
@@ -111,8 +111,8 @@
    "total": 17
   },
   "REPORTED": {
-   "passed": 38,
-   "total": 38
+   "passed": 40,
+   "total": 40
   }
  },
  "checks": [
@@ -4641,13 +4641,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-20:31) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 412 readings from 48 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 486 readings from 63 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 48,
-    "claims": 412,
+    "notes": 63,
+    "claims": 486,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -5226,6 +5226,125 @@
     "183 P_c + 495 P_u = 183 I + 52 J on six sites (P_u = J/6)": true,
     "in C120 the sixth power of a generator has order 20 and the 24th has order 5": true
    },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "Drive check 21:05: the sibling's 15 notes of 20:34-21:03 (GOLDEN_FREQ, FIREFLY_OSC, KURAMOTO, KURAMOTO_DEEP, TWO_SQUARES, LINE_GRAPH, EDGE_SUM, OM_ROTOR, ROTOR_CHAIN, TELESCOPE, SENSE_LOOP, SENSE_GOLDEN, KARMA_K2, PAULI_BLIND, FAMILY_129) were read; the separate model's paper was re-uploaded (20:35) with its status unchanged",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "KARMA_K2 and OM_ROTOR rebuilt: the C5 rotation fixes exactly one plane of the carrier's cycle space, spanned by the oriented pentagon and pentagram; the doubling turns it a quarter (pentagon -> pentagram -> -pentagon). On the lattice the rotor pair has Gram 10I and a coordinate doubling in W(E8) turns it the same way. The source derivative squares to -4I, not -I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the rotation and the doubling of the vertices act on oriented edges compatibly with the boundary": true,
+    "the rotation fixes exactly a plane, and it lies in the cycle space": true,
+    "the plane is spanned by the oriented pentagon and pentagram, with Gram 5I": true,
+    "the doubling turns it a quarter: pentagon -> pentagram -> -pentagon, square -I": true,
+    "on the lattice the rotor pair has Gram 10I, and the coordinate doubling (a Weyl element) turns it a quarter": true,
+    "the source derivative is another operator: its companion squares to -4I, not -I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "OM_ROTOR sharpened: x -> 2x is two-to-one on the circle, but on the five tick levels it equals x -> 7x, a bijection of the whole circle and the day's twist d c' d^-1 = c'^7. So the rotor law t -> t^2 is not only a shadow: it is the restriction of an invertible map",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "doubling cycles 864 -> 1728 -> 3456 -> 2592 -> 864 and sends translation by 864 to its square": true,
+    "x -> 2x is two-to-one on the circle (2160 values)": true,
+    "x -> 7x is a bijection of the circle that agrees with doubling on the five tick levels": true,
+    "7 is the day's twist on the bath: d c' d^-1 = c'^7": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "ROTOR_CHAIN: t - I on Z^5 has Smith form (1, 1, 1, 1, 0), so no torsion; on the sum-zero lattice its cokernel is Z/5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "t - I on Z^5 has Smith form (1, 1, 1, 1, 0): no torsion": true,
+    "on the sum-zero lattice t - I is integral with |det| = 5: cokernel Z/5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "TWO_SQUARES, KURAMOTO_DEEP, LINE_GRAPH and EDGE_SUM: B B^T = 5I - J, signless + ordinary = 8I with half-difference J - I, vertex eigenvalues 0, 3, 5, 8; the line graph M^T M - 2I = 6 P8 + P3 - 2 P0, and Petersen + line = J - I with eigenvalues 9, -1, -1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the ordinary Laplacian is the square of the signed incidence, B B^T = 5I - J": true,
+    "signless + ordinary = 8I, and half their difference is the K5 adjacency J - I": true,
+    "the vertex eigenvalues of the pair are 0, 3, 5, 8": true,
+    "the line graph is M^T M - 2I = 6 P8 + P3 - 2 P0": true,
+    "Petersen + line = J - I on the ten edges, so the eigenvalues add to 9, -1, -1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "PAULI_BLIND's 'the continuous bath is a different spectrum', answered: the 240 roots form 120 classes mod 2 Lambda, and each half-period character chi_x is a 2 Lambda-periodic eigenfunction of Delta with eigenvalue eps(pi x). The 256 modes are an invariant subspace of all functions on Lambda (the bath folded to Lambda / 2 Lambda), not of l^2; their eigenvalues 0, 224, 256 are band values inside [0, 256]",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 240 roots fall into 120 classes mod 2 Lambda, each {rho, -rho}": true,
+    "every character chi_x(v) = (-1)^(x.v) is 2 Lambda-periodic with Delta chi_x = eps(pi x) chi_x (checked at the origin and its 240 neighbours)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "ROTOR_CHAIN's shell coefficients (1, -2, 0, 2, -1) are the hexagon port's difference distribution on the five Weyl shells; the octagon reads (1, -2, 2, -2, 1) and the square (1, -2, 1, 0, 0); each sums to 0, and 2 square = hexagon + octagon shell by shell",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the shells 0, roots, norm 4, norm 6, twice a root the hexagon reads (1, -2, 0, 2, -1)": true,
+    "the octagon reads (1, -2, 2, -2, 1) and the square (1, -2, 1, 0, 0)": true,
+    "each sums to 0, the squared total charge of an alternating port": true,
+    "2 square = hexagon + octagon shell by shell": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "ROTOR_CHAIN corrected: the flash step 180 meets the tick only at 0, but its order 24 meets every tick; the two sides of the bit are 180 and 24, not two 24s",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the 21:05 arithmetic: the golden frequencies and the clock trace 24, the flash landings, the Kuramoto rates, the rotor chain, the 36-address sense paths, B^6, the K2 torus counts, FAMILY_129's power sums and Schur numerators",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "phi^2 + phi^-2 = 3, phi^2 phi^-2 = 1, phi + phi^-1 = sqrt 5; 2 x 3 + 2 x 5 + 2 x 4 = 24; 8/3 = phi^2 would need 49 = 45": true,
+    "90 x 2 = 60 x 3 = 180; 8 does not divide 180; 4 x 180 + 144 = 864; <180, 216> = <36>; lcm(24, 20) = 120, gcd 4": true,
+    "4 x 3 / 2 = 6; 3 x 3 x 2 = 18; 6^2 - 1 = 35; 5 x 36 = 10 x 18 = 180; 2 x 3 + 2 x 5 = 16; 3 + 6 = 9 = 4 + 5": true,
+    "2 + 2 x 4 + 2 = 12; 36 + 1 + 1 - (30 + 1 + 1) = 6; 720, 4320, 17280, 69120, 315360 are multiples of 5; 1 - 2 + 0 + 2 - 1 = 0": true,
+    "the 36 addresses: groups start at 1, 6, 13, 17, 22, 27, 32; the five sense paths use exactly groups 4, 6, 7; 32..36 cover every residue mod 5; 6 + 1 + 245 = 252 = 36 x 7 = 5 x 49 + 7": true,
+    "B^6 = [[13, 8], [8, 5]], rows 21 and 13, trace 18; 21 - 15 = 6": true,
+    "30 + 2 = 32; 32 - 6 = 26; 32 - 5 = 27": true,
+    "1, 2, 3 and 9/7, 11/7, 22/7 share p1 = 6 and p2 = 14 but not p3 (36 against 12708/343) or the product (6 against 2178/343)": true,
+    "192 - 9 = 183; 12 x 16 < 195 <= 12 x 17, so d >= 15; (8 - 2^2/4) 4 = 28; (1 + 2^2/16) 16 = 20": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "not replayed: GOLDEN_FREQ's clock stiffness, TELESCOPE's six saved arrows (27 nonzeros), KARMA_K2's rank-5 reading and torus surjection, FAMILY_129's selector beyond its toy block, KURAMOTO's named conditions (Kubo, de Boer, Ralston, Hunt), and the separate model's re-uploaded paper",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
    "note": ""
   },
   {
