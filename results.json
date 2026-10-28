@@ -54,19 +54,20 @@
  },
  "timing_s": {
   "1-carrier": 0.41,
-  "2-spectral": 0.0,
-  "3-spacetime": 5.36,
-  "4-native": 77.51,
-  "5-observer": 0.19,
-  "6-gravity": 4.31,
-  "7-cosmology": 1.24,
-  "8-frontier": 3.04
+  "2-spectral": 0.01,
+  "3-spacetime": 5.59,
+  "4-native": 79.03,
+  "5-observer": 0.25,
+  "6-gravity": 4.32,
+  "7-cosmology": 1.43,
+  "8-frontier": 3.36,
+  "9-joins": 6.35
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 95,
-   "total": 95
+   "passed": 108,
+   "total": 108
   },
   "OBSTRUCTION": {
    "passed": 5,
@@ -77,20 +78,20 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 7,
-   "total": 7
+   "passed": 16,
+   "total": 16
   },
   "SELECTED_REFERENCE": {
-   "passed": 4,
-   "total": 4
+   "passed": 5,
+   "total": 5
   },
   "UNFORMED": {
    "passed": 8,
    "total": 8
   },
   "CONDITIONAL": {
-   "passed": 8,
-   "total": 8
+   "passed": 9,
+   "total": 9
   },
   "REPORTED": {
    "passed": 7,
@@ -1358,6 +1359,201 @@
    "passed": true,
    "value": null,
    "note": "open"
+  },
+  {
+   "layer": "9-joins",
+   "name": "J1 r_(ij),a = mu_ij + nu_a are E8 roots; R_a^T R_a = M^T M; ker R_a = P5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J1 each layer + A4 is a reflection-closed 40-root D5; union has 120 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 120,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J2 M^T M = I + J - A_Petersen (carrier edge potential = Petersen complement)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J2 P5 = Petersen eigenvalue-1 space = ker of del Pezzo lines J - M^T M",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J3 W_p = 2 L(C5) + (2/5)(J5 + 1); L(C5) eigen 0, 3-phi (x2), phi+2 (x2)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J4 Gram(x1..x5) = I + J and M M^T = Gram + 2I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J5 RP^2 1-skeleton is K6, and D = A_L(K6) - diag(J-I, M^T M - 2I)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J6 hidden sector (edge force | D psi) = P5 (+) P5 = native source space",
+   "status": "THEOREM",
+   "passed": true,
+   "value": 10,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J7 Witten index = Tr(gamma on ker D^2) = 0 - 5 = -dim P5 = -index(M)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": -4.999999999999994,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J7 ker D^2 is supported on edges and equals P5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J8 coordinate cycle e2->...->e6 preserves the roots (an element of W(E8))",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J8 it acts on the clique as the boundary rotation S (x0 fixed, xj -> xj+1)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J8 full nonlinear native vector field is C5-equivariant (carrier -> bath)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": 7.993605777301127e-15,
+   "note": "holds for the reconstructed adapter T, which was chosen equivariant"
+  },
+  {
+   "layer": "9-joins",
+   "name": "J9 40/9 maximiser is a visible decomposable wedge; locus has proj. dim 2 (del Pezzo surface of J2)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "kernel part": 2.313018759945301e-08,
+    "dim": 2
+   },
+   "note": ""
+  },
+  {
+   "layer": "9-joins",
+   "name": "J10 traces 15, 40, 200 -> heat coefficients 60, 160 m^2, 400 m^4 (layer 6)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": "the only carrier -> gravity route"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 15: dim H = |V|+|E|; edges of K6; duads/synthemes of 6; Hodge-Dirac rank+...",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "J5 is the only map among these"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 60: E8 frame 60 I; |A5|; Dirac trace coefficient",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "no map"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 240: E8 roots; 6 x 40 = 6 Tr D^2; corner diagonal",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "no map"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 20: five-port visible coords; observable dims of D psi; Tr M^T M",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "no map"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 125: det cycle Gram; 5^3 clock memory states",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "no map"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 120: |S5|; clock quotient dim; D5 union roots",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "no map"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 9: gravity 2+7; E8 clique size; ancestry 5+1+2+1",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "no map"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 36: atlas addresses; 6^2; 2 x 18 Hodge parity",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "no map"
+  },
+  {
+   "layer": "9-joins",
+   "name": "shared integer 4320, 108, 69120: yuga, japa, Human Design counts",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "integers only (canon)"
   }
  ]
 }

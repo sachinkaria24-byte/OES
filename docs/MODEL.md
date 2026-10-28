@@ -266,7 +266,72 @@ This section records the sibling update received after the 01:27 UTC Drive cut. 
 - The five-port and the −8/9 moment operands.
 - The decay-rate and prefactor conflicts.
 
-## 9. What stays open
+## 9. Joining the dots (`oes/joins.py`)
+
+A **join** is an identity between matrices built in different layers. Each one below is checked by `verify.py`. A **shared integer** is the same number appearing on two objects with no map between them. The canon is strict that "equal ranks are not the same maps", so the two are listed apart.
+
+```mermaid
+graph LR
+  K5["K5 incidence M"] -->|"D = [[0,M],[Mᵀ,0]]"| D["carrier D, spec 0⁵ 3⁸ 8²"]
+  K5 -->|"J1: R_aᵀR_a = MᵀM"| E8["E8 roots: 5 D5 layers, 120 roots"]
+  K5 -->|"J2: MᵀM = I + J − A_Pet"| PET["Petersen / del Pezzo lines"]
+  K5 -->|"J4: MMᵀ = Gram(clique) + 2I"| CLQ["E8 six-site clique"]
+  D -->|"J5: off-diagonal block of L(K6)"| RP2["RP² on 6 axes (1-skeleton K6)"]
+  D -->|"J7: ker D² = P5, index −5"| P5["P5 = ker M"]
+  P5 -->|"J6: hidden sector P5 ⊕ P5"| OBS["observer: dark sector"]
+  P5 -->|"source q = (a,b)"| NAT["native action"]
+  PET -->|"J2: P5 = eigenvalue-1 space"| P5
+  PET -->|"J9: 40/9 maximisers = del Pezzo"| NAT
+  NAT -->|"W_AS into the cycles L6"| L6["cycle space L6, Hodge A² = 5I"]
+  L6 -->|"J3: W_p = 2L(C5) + (2/5)J, golden petals"| PORT["port metric W_p"]
+  PORT --> CLQ
+  CLQ -->|"Δ = 240I − A, BB* = 183I + 52J"| BATH["E8 bath"]
+  E8 --> BATH
+  D -->|"J10: traces 15/40/200 (CONDITIONAL)"| GRAV["G, Λ_cc, FLRW"]
+  ROT(("C5")) -.->|"J8: one rotation through every layer"| D
+  ROT -.-> L6
+  ROT -.-> PORT
+  ROT -.-> BATH
+```
+
+**Joins (THEOREM unless marked).**
+
+| # | Join | What it says |
+|---|---|---|
+| J1 | r_(ij),a = μ_ij + ν_a are E8 roots, R_aᵀR_a = MᵀM, ker R_a = P5. Each layer with A4 is a 40-root D5, and the union has 120 roots. | The carrier edge gram *is* an E8 root gram. The part that disappears in E8 is exactly P5. |
+| J2 | MᵀM = I + J − A_Petersen | The carrier edge spectrum {0⁵, 3⁴, 8} is the Petersen spectrum {1⁵, (−2)⁴, 3} under λ = 1 − θ (with +10 on the uniform line). P5 is the Petersen eigenvalue-1 space and the kernel of the del Pezzo line matrix. |
+| J3 | W_p = 2L(C5) + (2/5)(J₅ ⊕ 1) | The port metric is twice the 5-cycle Laplacian. Its moving eigenvalues are 2(φ + 2) and 2(3 − φ), which are the golden petals (5 ± √5)/2 doubled. |
+| J4 | Gram(x₁…x₅) = I + J, so MMᵀ = Gram + 2I | The carrier vertex gram is the bath clique gram shifted by 2. |
+| J5 | The RP² 1-skeleton is K6, and D = A_L(K6) − diag(J − I, MᵀM − 2I) | Coning makes the 15 carrier atoms the 15 edges of the surface. D is the star/non-star block of the K6 line graph. |
+| J6 | hidden(edge force, Dψ) = P5 ⊕ P5 | The carrier's dark sector is exactly the native source space. |
+| J7 | Witten index −5 = −index(M) = −dim P5 | The count of dark modes is a topological index. |
+| J8 | vertex rotation → tick → cycle rotor → W_AS → T → S → coordinate cycle in W(E8) | One C5 runs through every layer. The full nonlinear native vector field is equivariant to 8×10⁻¹⁵ (SELECTED_REFERENCE, because T was chosen equivariant). |
+| J9 | The 40/9 maximisers are visible decomposable wedges, a locus of projective dimension 2 | This is the degree-5 del Pezzo surface whose line matrix appears in J2. |
+| J10 | 15, 40, 200 → heat coefficients 60, 160m², 400m⁴ | The only route from the carrier to G and Λ_cc (CONDITIONAL). |
+
+**Read as one sentence:**
+1. One incidence M builds D.
+2. D's kernel P5 is the source, and that source is invisible to the observer (J6, J7).
+3. D's edge block is the Petersen complement (J2), the E8 root gram (J1) and, through coning, the surface (J5).
+4. The source talks through the cycle space, with a port metric that is the golden C5 Laplacian (J3), to a clique whose gram is the carrier's vertex gram (J4). That clique is inside the E8 bath.
+5. One C5 symmetry is kept from end to end (J8).
+6. Gravity and cosmology attach only through the traces (J10), and only conditionally.
+
+**Shared integers, no map (ARITHMETIC):**
+
+| Integer | Where it appears | Map? |
+|---|---|---|
+| 15 | dim H; edges of K6; duads of 6 | J5 is the only map among these |
+| 60 | E8 frame; \|A5\|; the Dirac trace coefficient | none |
+| 240 | E8 roots; 6·Tr D²; the corner diagonal | none |
+| 20 | five-port visible coordinates; observable dimensions of Dψ; Tr MᵀM | none |
+| 125 | det of the cycle Gram; 5³ clock memory states | none |
+| 120 | \|S5\|; clock quotient; D5 union | none |
+| 9 | gravity's 2 + 7; E8 clique size | none |
+| 36 | atlas addresses | none |
+| 4320, 108, 69120 | yuga, japa and Human Design counts | integers only |
+
+## 10. What stays open
 
 Recorded in `oes/gates.py` and carried unchanged from the canon:
 

@@ -11,7 +11,7 @@ import json
 import sys
 import time
 
-from oes import (carrier, cosmology, frontier, gates, gravity, native, observer,
+from oes import (carrier, cosmology, frontier, gates, gravity, joins, native, observer,
                  spacetime, spectral)
 
 
@@ -26,6 +26,7 @@ def main(argv):
         ("6-gravity", gravity.run),
         ("7-cosmology", cosmology.run),
         ("8-frontier", frontier.run),
+        ("9-joins", joins.run),
     ]
     checks, timing = [], {}
     for name, fn in layers:

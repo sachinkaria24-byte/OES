@@ -21,6 +21,7 @@ python -m pytest -q
 | 6 gravity | `oes/gravity.py` | LLY curvature; M⁴×F spectral action → G, Λ_cc | ARITHMETIC, CONDITIONAL |
 | 7 cosmology | `oes/cosmology.py` | FLRW with the carrier field: stiff a⁻⁶ + dust a⁻³ sectors | CONDITIONAL |
 | 8 frontier | `oes/frontier.py` | band-edge orbit 135, 224-saddle expansion (40/169), Agni–Soma; sibling closures recorded | THEOREM, REPORTED |
+| 9 joins | `oes/joins.py` | J1–J10: the maps that make the layers one object, plus shared integers kept apart | THEOREM, ARITHMETIC |
 
 Two constructions are not the canon's originals:
 

@@ -1,6 +1,6 @@
 import pytest
 
-from oes import (carrier, cosmology, frontier, gates, gravity, native, observer,
+from oes import (carrier, cosmology, frontier, gates, gravity, joins, native, observer,
                  spacetime, spectral)
 
 LAYERS = {
@@ -12,6 +12,7 @@ LAYERS = {
     "gravity": gravity.run,
     "cosmology": cosmology.run,
     "frontier": frontier.run,
+    "joins": joins.run,
 }
 
 
