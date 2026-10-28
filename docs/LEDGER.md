@@ -37,7 +37,7 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC) 
 | day and Coxeter clocks | the circle makes them commute; an extension of order 120 | on the bath the order-120 group is built; its derived group is the tick | THEOREM | 19, 20, 21 |
 | order-24 element | not constructed in the sibling build | d in data/clocks.json, checked from the file | THEOREM | 21: clock file |
 | not stored | source infinity, foam, double slit, entanglement, photoelectric, electron, photon, proton, Compton, Bohr, a work function, a Bell count, 19 SM parameters | no operand and no dimensionful constant | UNFORMED | 21 |
-| counts on the bit (28 notes, 18:32-19:21) | levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments | the bit of layer 21 with orders, subgroups, steps and first landings: 223 readings from 27 notes, none fails | THEOREM | 22: claims |
+| counts on the bit (40 notes, 18:32-19:54) | levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60 | the bit of layer 21 with orders, subgroups, steps and first landings: 326 readings from 40 notes, none fails | THEOREM | 22: claims |
 | Sanskrit steps to a tick | first steps landing on a nonzero tick, stage by stage | least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing | THEOREM | 22: claims |
 | K5 edge | cut 4, cycles 6, signless kernel 5 | the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees | THEOREM | 22: graphs |
 | Petersen | spectrum 3, 1, -2 with ranks 1, 5, 4 | (A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors | THEOREM | 22: graphs |
@@ -52,6 +52,13 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC) 
 | energy shares (canon, ONE_BIT) | stored 12 + 20 + 2 against 20 + 3 + 9 + 2 and 23 + 11 | one conserved table: vertex (0, 3, 20), edge (2, 9, 0); rows 23 + 11, columns 2 + 12 + 20 | THEOREM | 22: energy |
 | involution and the order-15 clock | the involution does not act on the joint clock | it cannot lie in it (Lagrange) but acts on it by x -> -x | THEOREM | 22: groups |
 | residues 108 and 160 | they fix one point of the circle; 27 x 3 = 1 mod 40 | CRT with lcm 4320 | THEOREM | 22: groups |
+| six-site moment chain | 241 I - J, 183 I + 52 J, 35366 I + 8134 J (the canon lists the last as unidentified) | the block Stieltjes data of the A5-simplex port: M_1, M_2 - M_1^2 and M_3 - 2 M_1 M_2 + M_1^3; uniform 235, 495, 84170 | THEOREM | 22: six-site |
+| oriented operator | spectrum 0^7, 5^8 | kernel 1 + 6; it shares the multiplicity 8 with D^2, not the eigenvalue | THEOREM | 22 |
+| beat frequencies (separate model) | squared beats 11 +- 4 sqrt 6 | (2 sqrt 2 +- sqrt 3)^2, the roots of x^2 - 22x + 25: beats of the carrier's two oscillating sectors | THEOREM | 22 |
+| golden family | B^2 = B + I; B^7 = [[21, 13], [13, 8]] | checked; no squared carrier frequency solves x^2 = x + 1 | THEOREM | 22 |
+| Agni and Soma | one projector on the cycle rank; the return is scaled by 5 | P = I - B^T B / 5 of rank 6, and B^T B = 5 (I - P) | THEOREM | 8, 22 |
+| seven, one, seven | three mirror pairs split by the bit, three not | three are split (0-14, 4-10, 5-9) and four are not (1-13, 2-12, 3-11, 6-8) | THEOREM | 22 |
+| separate model status (19:47) | 489 presentations, 30,875 validations, a clean replay of 623 files | recorded; its beat equation agrees with the carrier | REPORTED | 22 |
 | not replayed | 15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7 | objects of the sibling build that are not stored here | REPORTED | 22 |
 | not stored | Yukawa blocks, hypercharge, taste, smell and touch matrices, icosahedral adjacency, swastika, hexagram, yinyang, diamond, tesseract, qubit | no operand; nothing here forms them | UNFORMED | 22 |
 

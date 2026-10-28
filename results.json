@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.58,
+  "1-carrier": 0.47,
   "2-spectral": 0.0,
-  "3-spacetime": 5.87,
-  "4-native": 39.44,
-  "5-observer": 0.19,
-  "6-gravity": 2.9,
-  "7-cosmology": 0.74,
-  "8-frontier": 24.05,
-  "9-joins": 5.96,
-  "10-literal": 16.38,
+  "3-spacetime": 6.0,
+  "4-native": 39.61,
+  "5-observer": 8.29,
+  "6-gravity": 3.31,
+  "7-cosmology": 0.83,
+  "8-frontier": 24.97,
+  "9-joins": 4.77,
+  "10-literal": 15.98,
   "11-glue": 0.09,
-  "12-binding": 0.02,
-  "13-gates": 0.12,
-  "14-recurrence": 32.7,
-  "15-court": 1.47,
-  "16-handover": 0.79,
-  "17-waves": 0.34,
-  "18-snapshot": 0.53,
-  "19-spine": 1.85,
-  "20-canon": 4.49,
-  "21-ledger": 21.84,
-  "22-counts": 12.45
+  "12-binding": 0.04,
+  "13-gates": 0.32,
+  "14-recurrence": 38.85,
+  "15-court": 1.16,
+  "16-handover": 0.77,
+  "17-waves": 0.33,
+  "18-snapshot": 0.44,
+  "19-spine": 2.01,
+  "20-canon": 4.6,
+  "21-ledger": 21.74,
+  "22-counts": 11.63
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 281,
-   "total": 281
+   "passed": 287,
+   "total": 287
   },
   "OBSTRUCTION": {
    "passed": 41,
@@ -95,8 +95,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 32,
-   "total": 32
+   "passed": 33,
+   "total": 33
   },
   "SELECTED_REFERENCE": {
    "passed": 8,
@@ -111,8 +111,8 @@
    "total": 17
   },
   "REPORTED": {
-   "passed": 33,
-   "total": 33
+   "passed": 35,
+   "total": 35
   }
  },
  "checks": [
@@ -4641,13 +4641,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the 28 notes is the bit of layer 21 with its stated order, subgroup, steps or first landing: 223 readings from 27 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-19:54) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 326 readings from 40 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 27,
-    "claims": 223,
+    "notes": 40,
+    "claims": 326,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -4900,6 +4900,7 @@
     },
     "it has one involution, -I = c'^15, and it is central": true,
     "it has 4 elements of order 5 (S5 has 24 five-cycles)": true,
+    "it is not cyclic: its largest element order is 30 (in a cyclic 120 the tick would be the 24th power of a generator)": true,
     "it has no (2, 4, 5) generating pair": true,
     "S5 has 120 (2, 4, 5) pairs and every one generates it": true,
     "Riemann-Hurwitz for (2, 4, 5) and order 120: 2g - 2 = -240 + 60 + 90 + 96 = 6, g = 4": true
@@ -4954,6 +4955,148 @@
     "the stage reflection k -> 14 - k fixes only Jiva (7), pairs Matrka-Pratyabhijna, Malini-Prema, Japa-Jnana, Mantra-Iccha, and does not keep the bit (Nyasa 5 -> Samskara 9)": true,
     "sqrt 3 and 2 sqrt 2 have no common rational return: 8 m^2 = 3 n^2 needs the power of 3 to be even and odd (no solution with 0 < |m|, |n| <= 2000)": true
    },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "Drive check 19:57: the sibling's 13 notes of 19:22-19:54, the separate model's unified-spectral-machine status and paper (19:43-19:47) and the Quick Access sheet (19:44, a pointer to continuation 3) were read; no code was run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the second batch's arithmetic: the moment-chain eigenvalues, the observer returns, the curvature and horizon widths, the wings 21 + 77, the collar witness 1609/100, the Cabibbo seeds 27/640, 243/64000 and 3443/9600, and H60's products and determinant 3/10",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "241 - 6 = 235; 235 + 6 + 1 = 242; 183 + 52 x 6 = 495; 35366 + 8134 x 6 = 84170": true,
+    "15 x 144 = 2160; 15 x 216 = 3240; 2 x 3240 = 2160; 15 x 288 = 0; 15 x 108 = 1620; 15 x 432 = 2160; 5 x 288 = 1440 (mod 4320)": true,
+    "12 x 288 = 3456; 20 x 108 = 2160; 2 x 432 = 864; 12 + 20 + 2 = 34; 8/3 is not an integer": true,
+    "10 - 6 = 4; 4 + 6 = 10; 2 + 7 = 9; 15 x 40 = 3 x 200; 1 + 81/3200 = 3281/3200": true,
+    "2 + 4 = 6; 3 + 4 = 7; 4 + 4 = 8; 27 x 192 = 864 mod 4320; the host 7 is not in <42>": true,
+    "21 + 13 = 34; 13 + 8 = 21; 36 - 2 = 34": true,
+    "0 + ... + 6 = 21; 8 + ... + 14 = 77; 98 = 2 x 7^2; 21 + 7 + 77 = 105": true,
+    "the collar witness (16/5, -11/5, -1, 1/10, 0, 0, 0, 0) has squared length 1609/100": true,
+    "(5/6)(9/40)^2 = 27/640; (1/3)(9/40)^3 = 243/64000; 1/3 + (9/40)^2 / 2 = 3443/9600; (49/40)^2 = 2401/1600 is not 3/2; 224 - 223.25 = 3/4 = 30/40": true,
+    "16 x 60 = 10 x 96 = 7 x 70 + 5 x 94 = 960; 60 + 36 = 96; 60 + 10 = 70; 96 - 2 = 94; 960 - 6 x 60 = 600 = 4 x 96 + 6 x 36": true,
+    "an 8-port symmetric response has 36 entries; two 6-port readings sharing 4 ports cover 21 + 21 - 10 = 32": true,
+    "det [[43/60, 3/20], [3/20, 9/20]] = 3/10": true,
+    "9361 - 9165 = 196 = 4 x 49": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "MOMENT_CHAIN replayed, and the canon's unidentified G_1 identified: on six mutually adjacent lattice points (an A5 root simplex) the block moments give M_1 = 241 I - J, M_2 - M_1^2 = 183 I + 52 J and M_3 - 2 M_1 M_2 + M_1^3 = 35366 I + 8134 J, with contrast and uniform eigenvalues (241, 235), (183, 495) and (35366, 84170)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "six mutually adjacent lattice points (an A5 root simplex)": true,
+    "M_1 = 241 I - J: contrast 241, uniform 235": true,
+    "M_2 - M_1^2 = 183 I + 52 J: contrast 183, uniform 495": true,
+    "M_3 - 2 M_1 M_2 + M_1^3 = 35366 I + 8134 J: contrast 35366, uniform 84170": true,
+    "the canon's moment determinant 183 x 8134 - 52 x 35366 = -350510": true,
+    "Delta^n delta_0 has support 1, 241, 9361, 131041; 9361 = 1 + 240 + 2160 + 6720 + 240 (two root steps)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "NCG_LAG: the oriented operator squared has spectrum 0^7, 5^8; it shares the multiplicity 8 with D^2, not the eigenvalue",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the oriented operator squared has spectrum 0^7, 5^8": true,
+    "its kernel is 7 = 1 + 6 (the constants and the cycles)": 1.0,
+    "D^2 has 0^5, 3^8, 8^2: the multiplicity 8 is shared, the eigenvalue is not": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "the separate model's squared beat frequencies 11 +- 4 sqrt 6 are (2 sqrt 2 +- sqrt 3)^2, the beats of the carrier's two oscillating sectors, the roots of x^2 - 22x + 25; neither is in spec D^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "(2 sqrt 2 +- sqrt 3)^2 = 11 +- 4 sqrt 6": true,
+    "they are the roots of x^2 - 22 x + 25": true,
+    "neither is a squared frequency of D^2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "GOLDEN_FAMILY: B^2 = B + I, det B = -1 and B^7 = [[21, 13], [13, 8]]; no squared carrier frequency solves x^2 = x + 1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B^2 = B + I and det B = -1": true,
+    "no squared carrier frequency 0, 3, 8 solves x^2 = x + 1": true,
+    "B^7 = [[21, 13], [13, 8]], with row sums 34 and 21": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "HORIZON_ROLES: Agni and Soma are one projector, P = I - B^T B / 5 of rank 6. It kills the cut (rank 4), and B^T B = 5 (I - P) is the return scaled by 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B^T B has eigenvalues 5 (four times) and 0 (six times)": true,
+    "P = I - B^T B / 5 is a projector of rank 6": true,
+    "it kills the cut, P B^T = 0, and B^T B = 5 (I - P)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "SEVEN_ONE corrected: of the seven mirror pairs k, 14 - k, three are split by the bit (0-14, 4-10, 5-9) and four are not (1-13, 2-12, 3-11, 6-8); the note says three and names two",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "split": [
+     [
+      0,
+      14
+     ],
+     [
+      4,
+      10
+     ],
+     [
+      5,
+      9
+     ]
+    ],
+    "not split": [
+     [
+      1,
+      13
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      6,
+      8
+     ]
+    ]
+   },
+   "note": ""
+  },
+  {
+   "layer": "22-counts",
+   "name": "recorded, not replayed: the separate model's 489 presentations, 30,875 validation instances, 623-file clean replay, OM-mirror rank-4 intertwiner and five-reader blind line; the sibling's two curvatures of rank 4, its braid defect, the six golden petals (overlap 1/5, commutant 2), the Majorana block and Pfaffian bit, the arXiv seed sqrt(3/2) - 1, and H60's reader and Krylov ranks",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
    "note": ""
   },
   {

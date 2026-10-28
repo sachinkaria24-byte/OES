@@ -126,6 +126,11 @@ def test_hexagon_port_moments():
     assert [x // 6 for x in m] == [1, 242, 58691, 14259954, 3470101592]
 
 
+def test_six_site_moment_chain():
+    chain = counts.six_site_chain()
+    assert all(chain.values()), chain
+
+
 def test_every_circle_map_kills_the_commutator():
     maps = counts.circle_maps()
     assert all(maps.values()), maps
