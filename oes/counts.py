@@ -1131,7 +1131,12 @@ def petersen_projectors():
     edge = lambda lam: sp.prod([(G - m * I) / (lam - m) for m in (8, 0, 3) if m != lam])
     gap = lambda lam: abs(sp.prod([lam - m for m in (3, 1, -2) if m != lam]))
     B = sp.Matrix(carrier.signed_incidence())
+    line = sp.Matrix(10, 10, lambda a, b: int(a != b and bool(set(E[a]) & set(E[b]))))
     return {
+        "M^T M - 2I is the line graph of K5 and the Petersen graph is its complement, so A = J + I - M^T M":
+            G - 2 * I == line and A == J - I - line,
+        "A commutes with M^T M: A = 3 P8 + P0 - 2 P3 while M^T M = 8 P8 + 3 P3": A * G == G * A
+        and A == 3 * P[3] + P[1] - 2 * P[-2] and G == 8 * P[3] + 3 * P[-2],
         "A^2 + A - 2I = J (strongly regular 10, 3, 0, 1), so A^2 is not 5I": A ** 2 + A - 2 * I == J
         and A ** 2 != 5 * I,
         "J/10, (4I + 2A - J)/6, (5I - 5A + J)/15 are idempotent, with least denominators 10, 6, 15 and traces "
@@ -1212,7 +1217,7 @@ JOINS = [
     ("golden family", "B^2 = B + I; B^7 = [[21, 13], [13, 8]]", "checked; no squared carrier frequency solves x^2 = x + 1", "THEOREM", "22"),
     ("Agni and Soma", "one projector on the cycle rank; the return is scaled by 5", "P = I - B^T B / 5 of rank 6, and B^T B = 5 (I - P)", "THEOREM", "8, 22"),
     ("seven, one, seven", "three mirror pairs split by the bit, three not", "three are split (0-14, 4-10, 5-9) and four are not (1-13, 2-12, 3-11, 6-8)", "THEOREM", "22"),
-    ("Petersen projectors (20:10)", "denominators 10, 6, 15; traces 1, 5, 4; they add to I over 30; Gram determinant 648", "M^T M = J + I - A, so they are the carrier's edge projectors (sector 8, the five zero modes, sector 3); the denominators are the gap products 2 x 5, 2 x 3, 3 x 5; 648 = det(3I + J)", "THEOREM", "22: Petersen"),
+    ("Petersen projectors (20:10)", "denominators 10, 6, 15; traces 1, 5, 4; they add to I over 30; Gram determinant 648", "Petersen is the complement of the line graph of K5, so A = J + I - M^T M commutes with the edge stiffness and its projectors are the carrier's (sector 8, the five dark modes, sector 3); the denominators are the gap products 2 x 5, 2 x 3, 3 x 5; 648 = det(3I + J)", "THEOREM", "22: Petersen"),
     ("every breath (20:06)", "8 is not a multiple of 3, so no common period", "right conclusion, wrong reason: the criterion is a rational-square ratio (4 and 9 share a period)", "THEOREM", "22"),
     ("separate model status (19:47)", "489 presentations, 30,875 validations, a clean replay of 623 files", "recorded; its beat equation agrees with the carrier", "REPORTED", "22"),
     ("not replayed", "15-index permutations, the 24-cycle readers, Hodge degrees 31/41, heat 3 +- sqrt 5, the 12 x 12 sense stiffness, acoustic and optical matrices, Hankel minimum 24, probes, cutoff 7", "objects of the sibling build that are not stored here", "REPORTED", "22"),
@@ -1356,8 +1361,9 @@ def run():
     pp = petersen_projectors()
     rep.add("PETERSEN_PROJ replayed and joined to the carrier: A^2 + A - 2I = J; the projectors J/10, (4I + 2A - J)/6 "
             "and (5I - 5A + J)/15 have denominators 10, 6, 15 (the gap products 2 x 5, 2 x 3, 3 x 5) and traces 1, 5, "
-            "4, and add to I over 30. Since M^T M = J + I - A, they are the carrier's edge projectors: sector 8, the "
-            "five zero modes, sector 3. 648 = det(3I + J), the carrier's vertex block. The Hodge 5 is 5I - B^T B = "
+            "4, and add to I over 30. The Petersen graph is the complement of the line graph of K5, so A = J + I - "
+            "M^T M commutes with the edge stiffness and its projectors are the carrier's: sector 8, the five dark "
+            "(zero) modes, sector 3. 648 = det(3I + J), the carrier's vertex block. The Hodge 5 is 5I - B^T B = "
             "5 P_cyc on the cycles, not A^2", T, all(pp.values()), pp)
     br = breaths()
     rep.add("BREATH_ALL, sharpened: the 32 faces cancel; the 0-companion drifts; two breaths share a period iff their "

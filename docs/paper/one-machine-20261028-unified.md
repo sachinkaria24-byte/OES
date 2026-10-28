@@ -360,7 +360,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 
 **The 20:12 notes (THEOREM).**
 
-- **The Petersen projectors.** The sibling's projectors J/10, (4I + 2A − J)/6 and (5I − 5A + J)/15 have denominators 10, 6 and 15 and add to I over 30. Because MᵀM = J + I − A on the K5 edges, they are the carrier's edge projectors onto sector 8, the five zero modes and sector 3. The denominators are the gap products 2·5, 2·3 and 3·5, and only 6 avoids the spread 5. The Gram determinant 648 is det(3I + J), the carrier's vertex block.
+- **The Petersen projectors.** The sibling's projectors J/10, (4I + 2A − J)/6 and (5I − 5A + J)/15 have denominators 10, 6 and 15 and add to I over 30. The Petersen graph is the complement of the line graph of K5, so A = J + I − MᵀM commutes with the edge stiffness, and the projectors are the carrier's own: onto sector 8, the five dark modes and sector 3. The denominators are the gap products 2·5, 2·3 and 3·5, and only 6 avoids the spread 5. The Gram determinant 648 is det(3I + J), the carrier's vertex block.
 - **Every breath.** The breaths of 3 and 8 share no period because 8/3 is not a rational square. "Not a multiple" is not the criterion: 4 and 9 share a period.
 
 **Not replayed (REPORTED), not formed (UNFORMED).**
@@ -395,7 +395,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 | Hurwitz value 6 | S5 (genus 4), not the stored clock | OBSTRUCTION |
 | six-site moment chain | M₁, M₂ − M₁², M₃ − 2M₁M₂ + M₁³ of the A5-simplex port | THEOREM |
 | seven, one, seven | four mirror pairs unsplit by the bit, not three | THEOREM |
-| Petersen projectors | the carrier's edge projectors, since MᵀM = J + I − A | THEOREM |
+| Petersen projectors | the carrier's edge projectors: A = J + I − MᵀM, the complement of the line graph | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 10. What is not formed, and the gates
@@ -461,4 +461,4 @@ python -m pytest -q           # 36 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the two TypeScript audits
 ```
 
-The sibling's build was read from the Drive folder "One Machine 20261028": `one-machine-20261028-full.typ`/`.pdf`, `FULL_UPDATE_20261028.md`, forty join notes of 17:01–18:17 UTC and 44 notes of 18:32–20:10 UTC. The canon was read from the Quick Access workbook (sheet 00_FULL_RECONCILIATION_20261028) and the reconciled repository workbook (sheet 00_CURRENT_20261028_1910).
+Sources: the Drive folder "One Machine 20261028" (the sibling's full edition, `FULL_UPDATE_20261028.md` and 84 notes of 17:01–20:10 UTC) and the canon sheets 00_FULL_RECONCILIATION_20261028 and 00_CURRENT_20261028_1910.
