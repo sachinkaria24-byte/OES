@@ -28,6 +28,7 @@ python -m pytest -q
 | 13 gates | `oes/gatework.py` | TIME_BIND courts, PredictionFreeze register, W_L on the frozen PMNS candidate, the T3081 and AUTH/SCR6 packages | THEOREM, CONDITIONAL, UNFORMED |
 | 14 recurrence | `oes/recurrence.py`, `oes/walkfast.py`, `oes/ore.py` | canon W₀…W₅₅ replayed; exact W₉₀; a second engine (D8 + spinor) to W₆₀₀ mod primes; the W_n recurrence formed mod four primes: order 16, degree 58, 16 exact growth rates (11 in the band) | THEOREM, UNFORMED |
 | 15 court | `oes/court.py` | Court U19.81 audited claim by claim: script errors, true-moment envelopes, MDS code, clock-symmetry obstruction, cofactor 68 | THEOREM, OBSTRUCTION, UNFORMED, REPORTED |
+| 16 handover | `oes/handover.py` | the 28 Oct Locked Memory handover audited: alcove critical census (11 families, 243,600 points, Morse sum 0 = the recurrence's in-band roots), the literal 5-dim operand T₆\|V_c (det 31), corrections in `docs/HANDOVER_ADDENDUM.md` | THEOREM, OBSTRUCTION, ARITHMETIC, UNFORMED, REPORTED |
 
 Part II of `docs/MODEL.md` is the path from the mathematics to the operands and the physical gates.
 

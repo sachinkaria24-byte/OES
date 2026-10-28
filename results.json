@@ -57,55 +57,56 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.4,
-  "2-spectral": 0.01,
-  "3-spacetime": 5.01,
-  "4-native": 38.6,
-  "5-observer": 0.21,
-  "6-gravity": 3.57,
+  "1-carrier": 0.35,
+  "2-spectral": 0.0,
+  "3-spacetime": 4.27,
+  "4-native": 36.99,
+  "5-observer": 0.17,
+  "6-gravity": 3.13,
   "7-cosmology": 0.92,
-  "8-frontier": 26.89,
-  "9-joins": 5.64,
-  "10-literal": 15.4,
-  "11-glue": 0.1,
+  "8-frontier": 25.47,
+  "9-joins": 5.21,
+  "10-literal": 14.47,
+  "11-glue": 0.09,
   "12-binding": 0.02,
-  "13-gates": 0.03,
-  "14-recurrence": 34.13,
-  "15-court": 1.31
+  "13-gates": 0.02,
+  "14-recurrence": 32.69,
+  "15-court": 1.27,
+  "16-handover": 0.8
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 179,
-   "total": 179
+   "passed": 191,
+   "total": 191
   },
   "OBSTRUCTION": {
-   "passed": 13,
-   "total": 13
+   "passed": 20,
+   "total": 20
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 19,
-   "total": 19
+   "passed": 22,
+   "total": 22
   },
   "SELECTED_REFERENCE": {
    "passed": 5,
    "total": 5
   },
   "UNFORMED": {
-   "passed": 14,
-   "total": 14
+   "passed": 15,
+   "total": 15
   },
   "CONDITIONAL": {
    "passed": 12,
    "total": 12
   },
   "REPORTED": {
-   "passed": 12,
-   "total": 12
+   "passed": 19,
+   "total": 19
   }
  },
  "checks": [
@@ -2589,6 +2590,327 @@
    "passed": true,
    "value": null,
    "note": "independently replayed and strengthened in layer 14"
+  },
+  {
+   "layer": "16-handover",
+   "name": "handover gate banner equals the standing ledger",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "stage equation: the port Jacobian vanishes at q = 0, so the source obeys q'' + 4q = 0 there (omega_0 = 2)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "carrier: spec D^2 = {0^5, 3^8, 8^2}, Tr D^2 = 40, Tr D^4 = 200",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "'15-edge K6 carrier' is a relabeling: the 15 atoms are the vertices and edges of K5; the signless operator on the edges of K6 has spectrum {0^9, 4^5, 10}",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "the spectrum (0^5, 3^8, 8^2) belongs to D^2 = MM^T + M^T M on K5"
+  },
+  {
+   "layer": "16-handover",
+   "name": "clique weights: P_u = J/6 has entries 1/6, P_c has diagonal 5/6",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "relation traces Tr1 = 24 = 8*3, Tr2 = 84 = C(9,3)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "arithmetic true; the operands they are traces of are not defined"
+  },
+  {
+   "layer": "16-handover",
+   "name": "one exterior algebra: dim Lambda(R^5) = 2^5 = 32 = 16 + 16 < 48 = 3*16",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "agrees with layer 12: one carrier, one generation"
+  },
+  {
+   "layer": "16-handover",
+   "name": "9/40 tower identity (40/9)(x^2/2 + 3y^2/4)^2 - (20/3)x^2y^2 = (40/9)(x^2/2 - 3y^2/4)^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "40/9 is the literal sharp quartic constant (layer 10); 9/40 as a physical constant stays REMOVED (canon section 13)"
+  },
+  {
+   "layer": "16-handover",
+   "name": "coil 540 = lcm(20,27) = 20*27 = 30*18 = 15*36 = 6*lcm(18,30)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": "numerical coincidences; the coil theorem itself is layer 8"
+  },
+  {
+   "layer": "16-handover",
+   "name": "handover T5x5 = (2I4 - C_A4) + [5]: integral, det 155, trace 14, and S5^-1 (2I5 - R5 + (4/5)J5) S5 with det S5 = 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "that T5x5 is not literal: no 5x5 matrix of the operand file has det 155, and it is not a block of the printed chart T6 (characteristic polynomials differ)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "it is built from the literal rotor R; status SELECTED_REFERENCE unless the owner's packet defines it"
+  },
+  {
+   "layer": "16-handover",
+   "name": "literal 5-dim operand: T6 has every column sum 5, so it preserves V_c; T6|V_c is a 5x5 integer matrix with det 31 and irreducible characteristic polynomial z^5 - 3z^4 + 12z^3 - 20z^2 + 31z - 31; 155 = 5 * 31",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     1.0,
+     -1.0,
+     1.0,
+     0.0,
+     -1.0
+    ],
+    [
+     1.0,
+     -1.0,
+     3.0,
+     -2.0,
+     -2.0
+    ],
+    [
+     1.0,
+     -2.0,
+     4.0,
+     -3.0,
+     0.0
+    ],
+    [
+     1.0,
+     0.0,
+     3.0,
+     -1.0,
+     0.0
+    ],
+    [
+     2.0,
+     0.0,
+     1.0,
+     -1.0,
+     0.0
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "7-design expansion eps(k) = 30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6 + O(|k|^8)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "sum (k.r)^2 = 60|k|^2, sum (k.r)^4 = 36|k|^4, sum (k.r)^6 = 30|k|^6 over the 240 roots, exact for integer k"
+  },
+  {
+   "layer": "16-handover",
+   "name": "critical census on the alcove: 11 families, 243,600 points, Morse alternating sum 0; the 11 values are the in-band characteristic roots of the order-16 W_n recurrence (layer 14)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "D8 lambda=-16.000000": [
+     135,
+     8
+    ],
+    "A7+A1 lambda=-12.000000": [
+     8640,
+     7
+    ],
+    "A8 lambda=-12.000000": [
+     1920,
+     8
+    ],
+    "A7 lambda=-11.851852": [
+     17280,
+     7
+    ],
+    "A6+A1 lambda=-11.562500": [
+     69120,
+     6
+    ],
+    "A5+A2+A1 lambda=-11.000000": [
+     80640,
+     5
+    ],
+    "A4+A4 lambda=-10.000000": [
+     48384,
+     4
+    ],
+    "D5+A3 lambda=-8.000000": [
+     15120,
+     3
+    ],
+    "E6+A2 lambda=-3.000000": [
+     2240,
+     2
+    ],
+    "E7+A1 lambda=16.000000": [
+     120,
+     1
+    ],
+    "E8 lambda=240.000000": [
+     1,
+     0
+    ]
+   },
+   "note": "9 vertex families and 2 edge families (A6+A1 at -185/16, A7 at -320/27); higher strata not searched, the match with the recurrence is independent evidence that the band holds no others"
+  },
+  {
+   "layer": "16-handover",
+   "name": "'W0..W84 exact, W6 = 17,141,798,400' is inside the repository's exact W0..W90",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "bivariate J.C.P. Miller eighth-power recurrence",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "not given; the walk counts it produced agree with layer 14"
+  },
+  {
+   "layer": "16-handover",
+   "name": "'order-11, degree-5 operator L11' as an exact recurrence for W_n is excluded",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "shape (11, 5) has (r+1)(d+2) = 84 <= 92 and fails on the exact W0..W90; mod p order 11 needs degree >= 49, and the operator found has order 16. Its 11 in-band roots are the 11 critical families, so L11 can only be the continuum (asymptotic) part"
+  },
+  {
+   "layer": "16-handover",
+   "name": "'P25 discrete annihilator': no constant-coefficient order-25 recurrence holds for W_n or for the sector moments",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "P25 annihilates the 25-node Gauss-Jacobi sequence, which equals the moments only through M_49; the 26x26 Hankel matrices are positive definite"
+  },
+  {
+   "layer": "16-handover",
+   "name": "collar law '(15/13) r^2, equal to 3/80 at r = 1/5' is inconsistent: 3/80 = (15/16)/25, the saddle law of layer 8",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "mediant 1D collar: lambda_min > 1.00 on Curve I, >= 0.0298 on Curve II, up to 224",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "a statement on two curves; it does not certify the 8-dim collar, which stays open (layer 8); 0.0298 agrees with the survey floor 0.030"
+  },
+  {
+   "layer": "16-handover",
+   "name": "root-line identities 2 Phi'' + Phi'''' = -96 cos(2 sqrt2 s) and sqrt2 sin(th) Phi'' + cos(th) Phi''' = -16 sqrt2 sin(th)(cos 2th + 2), th = sqrt2 s",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": "Phi(s) = eps(sqrt2 s r) for a root r: 114 - 112 cos(sqrt2 s) - 2 cos(2 sqrt2 s)"
+  },
+  {
+   "layer": "16-handover",
+   "name": "uniform dispersive bound sup |K(t, x-y)| <= min(1, 3.65 t^(-9/4))",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "the two identities are 1D statements on root lines and do not by themselves bound the 8-dim kernel; the 0741 paper lists the dispersive constants as open"
+  },
+  {
+   "layer": "16-handover",
+   "name": "156-coordinate realization (6 boundary + 150 hidden) exact through M_50 exists: every sector's Hankel form is positive definite through M_50",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "16-handover",
+   "name": "transverse Floquet monodromy (Tr M_j in [9999/10000, 1]) and the Legendre-Rodrigues preparation constant",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "no operands or definitions given"
+  },
+  {
+   "layer": "16-handover",
+   "name": "'exact separation theorem ker O within ker C' is reversed: for the two 6-port blocks ker O is the 4-dim cross block, so ker O is not in ker C; only the completed map has ker = 0",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "C extracts the cross block, which is injective on ker O"
+  },
+  {
+   "layer": "16-handover",
+   "name": "'H90 identified as a [9,3,7]_q MDS code'",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": "the MDS facts hold (layer 15); nothing selects this code as H90"
+  },
+  {
+   "layer": "16-handover",
+   "name": "'Stieltjes-Krein envelopes and multi-frequency criterion verified': the court script's certificate fails on the true moments",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": "the envelopes and the incompatibility are true, rebuilt in layer 15 from the true moments; the script's own walk counts are wrong from W_4 on"
+  },
+  {
+   "layer": "16-handover",
+   "name": "B_geom = diag(-2, 2) on C8 = C6 + C2",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "sites and basis not given; for a C5-invariant pair a nonzero B lies on the C5-trivial part, where it has 4 parameters, not 2"
+  },
+  {
+   "layer": "16-handover",
+   "name": "primary paper digest SHA-256 b5590733...",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": "not the hash of One_Machine_20261028_0741.typ (64dfe66e...) or of the 0741 model zip (a834dd88...) or any file in them; the PDF is not in this repository"
+  },
+  {
+   "layer": "16-handover",
+   "name": "stoplines: SCR6 operands, physical selection, SI clock, area map and the Wald coefficient stay external",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
   }
  ]
 }
