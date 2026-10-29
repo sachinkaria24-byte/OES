@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 24 layers and 803 checks. Of these, 719 hold: THEOREM 558, OBSTRUCTION 53, ARITHMETIC 41, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 18, REMOVED 2. The other 83 are REPORTED records.
-- `pytest` runs 68 tests.
-- The newest layers are `oes/dots.py` (layer 23, 290 checks) and `oes/assignment.py` (layer 24, 41 checks).
+- `python verify.py` runs 24 layers and 812 checks. Of these, 726 hold: THEOREM 564, OBSTRUCTION 53, ARITHMETIC 42, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 18, REMOVED 2. The other 83 are REPORTED records.
+- `pytest` runs 69 tests.
+- The newest layers are `oes/dots.py` (layer 23, 299 checks) and `oes/assignment.py` (layer 24, 41 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 62 dots and 184 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
@@ -41,7 +41,7 @@ New in layer 24 (the particle assignment on E8's roots, 09:00 on 29 October):
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 62 dots and 191 joins (184 maps, seven obstructions) form one connected diagram that no two maps hold together, and no two THEOREM maps hold the THEOREM diagram together. A test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 62 dots and 196 joins (189 maps, seven obstructions) form one connected diagram that no two maps hold together, and no two THEOREM maps hold the THEOREM diagram together. A test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -137,6 +137,11 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
 - **THEOREM maps alone, and the 12:24 chain:**
   - Seven THEOREM joins: the datum's regular S5-orbit; the sibling's charge map Q (QᵀQ = 5P_A4 onto the witness loop, the only AGL(1,5)-map) and midpoint map (killing only the near-minus-far line); AGL(1,5) on the 4320 frames (j ↦ j + 864, j ↦ 3457j); and the time clock on the root graph (48 extended A4 pentagons), on the zero modes (the regular representation) and on the spectral triple (automorphisms).
   - No one or two THEOREM maps hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
+- **The source's light, and the six Sylow lines (Drive check 12:59):**
+  - The hub's Agni-Soma commutator F_AS(a, b) = upper([A(a), A(b)]) has rank 6 onto light with kernel Λ³A4, is the only S5-map up to scale (F20 allows 4), keeps the SO(2) rotating the two source copies, and factors exactly as L_out(Ra ∧ Rb) − (2/5) C K_vertex [α(a)Rb − α(b)Ra].
+  - With the hub's basis rebuilt as sympy's nullspace basis of M, its witness replays: ‖F‖² = 1392, the Jacobian −64, native rank 9, the phasor 424/3 + 200i, the six decoder determinants, and the E8 pullback (moments 1392, 334632, 80732784; variance form 1441112/5).
+  - The six Sylow sign lines frame ker M with factor 12, and the zero modes are the sign twist of PGL(2,5)'s 5; cubic matrix traces ±16.
+  - Also replayed: squared cosines 1, 1, 1, 7/15, 1/5; all 1024 orientations injective (one F₂ rank); 864 F20 orbits of five frames; the witness inside the separate model's certified intervals. The parity-sum correction stands.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):

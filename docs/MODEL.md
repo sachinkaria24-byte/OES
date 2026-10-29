@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 62 dots and 191 joins: 184 maps (171 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL) and seven obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). The THEOREM maps alone are as robust: no one or two of them hold the THEOREM diagram together, and they join every pair of levels at least twice (see *THEOREM maps alone* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
+The diagram has 62 dots and 196 joins: 189 maps (176 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL) and seven obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). The THEOREM maps alone are as robust: no one or two of them hold the THEOREM diagram together, and they join every pair of levels at least twice (see *THEOREM maps alone* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1465,6 +1465,39 @@ The notes repeat INFRARED's 17/10, which stays corrected (2 in the lexicographic
 - **An automorphism of the triple** (time → spectral triple). The tick commutes with D and γ and permutes the 15 atoms freely. Each of its five characters has rank 3, with D² = 0, 8, 8 on the invariant one and 0, 3, 3 on each other, since tr(P_λU^j) = 0, −2, 2 for j = 1, …, 4 on the eigenvalues 0, 3, 8.
 
 So THEOREM maps alone connect every dot but the product geometry, FLRW and the memory clock. Each of those 59 dots lies on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of levels is joined by at least two THEOREM maps. The tests drop S5 → datum and time → spectral triple to show that the checks can fail.
+
+**The source's light, and the six Sylow lines (Drive check 12:59).** The hub's `OES_Unified_Model_20261029.txt` was revised at 12:29, and the sibling's MODEL grew through eleven editions (12:28–12:59; the 12:59 edition was read). The separate model posted an atlas-witness update (12:25) and a unified-reference update (12:41); their receipts were read, and the zips were not run. Five joins follow, all THEOREM.
+
+- **The Agni-Soma light** (source → sound and light).
+  - A zero mode a is the symmetric matrix A(a) with zero diagonal and zero row sums, so the native port's commutator F_AS(a, b) = upper([A(a), A(b)]) is a circulation.
+  - On Λ² ker M it has rank 6, onto light, and its kernel has character (4, −2, 0, 1, 1, 0, −1): it is Λ³A4 = std ⊗ sign, not A4. Up to scale F_AS is the only S5-map from Λ² ker M to the cycles; F20 alone allows four.
+  - The SO(2) that rotates the two source copies, (A, B) ↦ (cA + sB, −sA + cB), keeps F_AS, and so it keeps the native port.
+  - The hub's saved source basis is sympy's nullspace basis of M. At its witness a = (−1, −1, −2, 1, −1), b = (−1, −2, −1, −2, 0), ‖F_AS‖² = 1392 and F_ASᵀJ_HF_AS = 96√5, and the parity contexts read 2592 and 2976 (ratio 31/27). This reading sees chirality, not the phase.
+- **The F20 factorization** (source → five-site charges).
+  - The near-minus-far line is A(h) = K_vertex − J with A(h)² = 5P_A4, where K_vertex = I + 2(R + R⁻¹).
+  - With α(a) = ⟨h, a⟩/10, the midpoint R and the charge map C, the whole commutator is F_AS(a, b) = L_out(Ra ∧ Rb) − (2/5) C K_vertex [α(a)Rb − α(b)Ra], where L_out = [−P_fix + 3DP_fix + 2P_moving]/5.
+  - L_out is invertible on the cycles, with L_out⁻¹ = (5/2)P_moving − (1/2)(I + 3D)P_fix, and it is not orthogonal: L_out*L_out = (4/25)P_moving + (2/5)P_fix. The normalized source is (Ra ∧ Rb) − C K_vertex [α(a)Rb − α(b)Ra].
+  - F_AS(h, a) = −(2/5) K C R a, so W_h*W_h = (20/3)(P_kerM − P_h).
+- **The E8 pullback** (source → Golden port). Through the Golden root-site port the witness's commutator has channel weights 288/5, 32/5 and 664 ∓ (304/5)√5, moments 1392, 334632 and 80732784, and memory variance form 1441112/5, above 171 × 1392.
+- **The phase quadratures** (source → readout).
+  - At the witness the six commutator coordinates (on the edges 12 to 34) with a₀, a₁, a₂, b₀ have Jacobian determinant −64.
+  - The ten native readings (those six and the contrasts s_i = (A² + B²)_ii − (A² + B²)₄₄) have rank 9, because their Jacobian kills the phase direction (b, −a). η_B = Tr(B³)/6 = 144 turns at rate −256, and in place of any contrast it gives rank 10.
+  - Z1 = Tr[(A + iB)(A² + B²)]/6 = 424/3 + 200i and Z3 = Tr[(A + iB)³]/6 = −200 + 24i turn as e^(−iθ) and e^(−3iθ). So Re Z1 and Im Z1 give the phase back on each orbit, and η_B = 150 cos θ − 106 sin θ − 6 cos 3θ − 50 sin 3θ.
+  - The six coordinates, any two contrasts, Re Z1 and Im Z1 make ten readings. Their Jacobian determinants are the hub's six, 29047685120/9 to −9171140608/9, in order, all nonzero.
+- **The six Sylow sign lines** (PGL(2,5) → zero modes).
+  - Each Sylow five-cycle group gives a zero mode of square 10, +1 on its pentagon and −1 on its pentagram. Oriented with all products −2, the six lines sum to zero and frame ker M with factor 12, and any five have Gram 12I − 2J.
+  - S5 permutes the lines with signs through its action on the six Sylow groups, which is PGL(2,5) on the projective line. The character of ker M is sign × (that permutation character − 1), so the zero modes are the sign twist of PGL(2,5)'s 5.
+  - The twenty triples have cubic matrix traces Tr(A_iA_jA_k) = ±16, ten of each sign; edge by edge the triple sums are ±4. Complementary triples have opposite signs. Each triple is kept by six permutations, which fix exactly one edge, and each edge comes from two triples, one of each sign.
+- **The rest, replayed.**
+  - ker M meets the cycles at squared cosines 1, 1, 1, 7/15 and 1/5. The shared directions are three 4-cycles (Gram determinant 36), and the vectors that carry 1/5 and 7/15 have squares 6 and 12. The loop seed is 5P_cycle times the first, and twice the line is the second minus (c₁ + c₂ + 2c₃), so the cycles keep 21/25 of the line.
+  - The orthogonal projection of ker M onto the cycles is injective but not tick-equivariant (the failure has rank 3 and square 32/5), and its F20 average is 0, so the equivariant bridge is the midpoint. All 1024 edge orientations keep it injective: mod 2 every oriented incidence is M, and [ker M | Mᵀ] has rank 9 over F₂ (the hub).
+  - j ↦ j + 864 and j ↦ 3457j keep j mod 864, so F20 has 864 orbits of five frames, 24 per address. On the phase functions, the zero modes and the cycles it is 1 + A4, sign + A4 and a rotation plane + A4 (the hub).
+  - The witness's energy and its least tangent eigenvalues, 6.9855821612 normal to the gradient and 10.5099477862 normal to k, lie in the separate model's certified intervals.
+  - The digit vectors 980, 086, 088 and 880 have Smith form 1, 2, 8, so their span has index 16. The arithmetic (2241(j mod 160) + 2080(j mod 27), 39490/3679, 853/1000, 8√2, 165/61) holds.
+- **One correction stands.** The sibling again writes the difference of the parity sums as a Hodge star J with J² = P_cycle. It is (4/5) Curl, whose square is (16/5) P_cycle.
+- **Recorded (REPORTED).**
+  - Not replayed: the hub's agni_phase receipt (47 assertions) and exact zip (935214 bytes); the F20 adapter family's four-map basis (its Hom dimension 4 is checked); the deep word package's receivers of dimensions 9, 11, 13 and 17; and the sibling's source pair with edge-square 12, which the notes do not give.
+  - The separate model's receipts report 72 new exact or certified check groups (atlas-witness) and 142 (unified reference, which replays the hub's seven verifiers and their 330 assertions). MODEL_UPDATE_CHECKPOINT.json (12:41) was not opened.
 
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….

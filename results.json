@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.94,
+  "1-carrier": 1.03,
   "2-spectral": 0.01,
-  "3-spacetime": 10.04,
-  "4-native": 103.47,
-  "5-observer": 0.26,
-  "6-gravity": 6.87,
-  "7-cosmology": 2.11,
-  "8-frontier": 40.51,
-  "9-joins": 12.12,
-  "10-literal": 42.93,
-  "11-glue": 0.25,
-  "12-binding": 0.06,
-  "13-gates": 0.36,
-  "14-recurrence": 90.97,
-  "15-court": 2.18,
-  "16-handover": 1.42,
-  "17-waves": 1.09,
-  "18-snapshot": 2.07,
-  "19-spine": 6.1,
-  "20-canon": 7.54,
-  "21-ledger": 53.3,
-  "22-counts": 26.57,
-  "23-dots": 52.52,
-  "24-assignment": 4.64
+  "3-spacetime": 12.77,
+  "4-native": 112.56,
+  "5-observer": 0.78,
+  "6-gravity": 6.19,
+  "7-cosmology": 1.89,
+  "8-frontier": 42.94,
+  "9-joins": 11.67,
+  "10-literal": 39.64,
+  "11-glue": 0.17,
+  "12-binding": 0.08,
+  "13-gates": 0.12,
+  "14-recurrence": 84.32,
+  "15-court": 1.91,
+  "16-handover": 1.41,
+  "17-waves": 0.85,
+  "18-snapshot": 1.8,
+  "19-spine": 5.86,
+  "20-canon": 6.87,
+  "21-ledger": 49.21,
+  "22-counts": 23.6,
+  "23-dots": 60.95,
+  "24-assignment": 4.04
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 558,
-   "total": 558
+   "passed": 564,
+   "total": 564
   },
   "OBSTRUCTION": {
    "passed": 53,
@@ -97,8 +97,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 41,
-   "total": 41
+   "passed": 42,
+   "total": 42
   },
   "SELECTED_REFERENCE": {
    "passed": 18,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 84,
-   "total": 84
+   "passed": 86,
+   "total": 86
   }
  },
  "checks": [
@@ -7968,6 +7968,63 @@
   },
   {
    "layer": "23-dots",
+   "name": "source -> sound and light: the source pair's commutator F_AS(a, b) = upper([A(a), A(b)]) is a circulation: rank 6 on Lambda^2 ker M, onto light, with kernel Lambda^3 A4 = std x sign; up to scale it is the only S5-map (F20 alone allows 4), the SO(2) rotating the two copies keeps it, and at the hub's witness ||F||^2 = 1392 and F^T J_H F = 96 sqrt5 (the hub, 12:29)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a zero mode a is the symmetric matrix A(a) with zero diagonal and zero row sums, so F_AS(a, b) = upper([A(a), A(b)]) is a circulation; on Lambda^2 ker M it has rank 6, onto light, and a kernel of character (4, -2, 0, 1, 1, 0, -1), that is Lambda^3 A4 = std x sign and not A4; up to scale it is the only S5-map from Lambda^2 ker M to the cycles (Hom dimension 1), while F20 alone allows 4": true,
+    "F_AS is invariant under the SO(2) that rotates the two source copies, F_AS(cA + sB, -sA + cB) = F_AS(A, B), so the native port g = W_AS(a ^ b) has that symmetry too; at the hub's witness a = (-1, -1, -2, 1, -1), b = (-1, -2, -1, -2, 0) in sympy's nullspace basis of M, ||F_AS||^2 = 1392 and F_AS^T J_H F_AS = 96 sqrt5, and the parity contexts read 2592 and 2976 (ratio 31/27): a chirality reading, blind to the phase": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> five-site charges: the whole commutator is F_AS(a, b) = L_out(Ra ^ Rb) - (2/5) C K_vertex [alpha(a) Rb - alpha(b) Ra]: the midpoint R carries the source pair to the trace-free sites, the charge map C carries them to the cycles, alpha(a) = <h, a>/10 reads the near-minus-far line, and L_out = [-P_fix + 3D P_fix + 2 P_moving]/5 is invertible but not orthogonal (the hub, 12:29)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the near-minus-far line is A(h) = K_vertex - J with A(h)^2 = 5 P_A4, K_vertex = I + 2(R + R^-1); with alpha(a) = <h, a>/10, the midpoint R and the charge map C the whole commutator is F_AS(a, b) = L_out(Ra ^ Rb) - (2/5) C K_vertex [alpha(a) Rb - alpha(b) Ra] for every pair, with L_out = [-P_fix + 3D P_fix + 2 P_moving]/5": true,
+    "L_out is invertible on the cycles, with L_out^-1 = (5/2) P_moving - (1/2)(I + 3D) P_fix, and not orthogonal, L_out* L_out = (4/25) P_moving + (2/5) P_fix; the normalized source L_out^-1 F_AS is (Ra ^ Rb) - C K_vertex [alpha(a) Rb - alpha(b) Ra], the hub's lambda = -1 adapter": true,
+    "F_AS(h, a) = -(2/5) K C R a, so W_h* W_h = (20/3)(P_kerM - P_h): the line h acts on the other four zero modes through the Golden operator K": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> Golden port: through the Golden root-site port the witness's commutator has channel weights 288/5, 32/5 and 664 -+ (304/5) sqrt5, moments 1392, 334632 and 80732784, and memory variance form 1441112/5, above 171 x 1392 (the hub, 12:29)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "through the Golden root-site port the witness's commutator has channel weights 288/5, 32/5 and 664 -+ (304/5) sqrt5, summing to 1392, moments 1392, 334632 and 80732784, and memory variance form F^T (M_2 - M_1^2) F = 1441112/5, above the floor 171 x 1392": "True"
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> readout: the ten native readings (six commutator coordinates, four quadratic contrasts) miss the SO(2) phase (rank 9); the phasor Z1 = Tr[(A + iB)(A^2 + B^2)]/6 turns as e^-i theta and reads the phase back on each orbit, and six coordinates, two contrasts and Re Z1, Im Z1 are ten readings with nonzero Jacobian at the witness (the hub, 12:29)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "at the witness the six commutator coordinates (the edges 12 to 34) with a0, a1, a2, b0 have Jacobian determinant -64; the ten native readings (those six and the contrasts s_i = (A^2 + B^2)_ii - (A^2 + B^2)_44) have rank 9, their Jacobian killing the phase direction (b, -a); eta_B = Tr(B^3)/6 = 144 turns at rate -256, and putting it in place of any contrast gives rank 10": true,
+    "Z1 = Tr[(A + iB)(A^2 + B^2)]/6 = 424/3 + 200i and Z3 = Tr[(A + iB)^3]/6 = -200 + 24i turn as e^-i theta and e^-3i theta, and U, V give back the phase: cos theta = (U U' + V V')/(U^2 + V^2), sin theta = (V U' - U V')/(U^2 + V^2); eta_B = (3 Im Z1 - Im Z3)/4 = 150 cos theta - 106 sin theta - 6 cos 3 theta - 50 sin 3 theta (checked at cos theta = 3/5)": true,
+    "keeping the six coordinates, any two contrasts and U, V gives ten readings whose Jacobian determinants at the witness are 29047685120/9, 33301037056/9, 47005499392/9, -5420154880/9, -5216829440/3 and -9171140608/9, all nonzero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> zero modes: each Sylow group's pentagon minus its pentagram is a zero mode of square 10; oriented, the six have products -2, sum to zero and frame ker M with factor 12, and S5 permutes them with signs through PGL(2,5), so ker M is the sign twist of PGL(2,5)'s 5; the triples' cubic traces are 16 and -16, ten each (the sibling's MODEL, 12:59)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "each Sylow five-cycle group gives a sign line (+1 on its pentagon, -1 on its pentagram) in ker M of square 10; oriented with all products -2, the six sum to zero, frame the zero modes with factor 12 (sum l l^T = 12 P_kerM), and any five have Gram 12I - 2J, eigenvalues 12 four times and 2": true,
+    "S5 permutes the six lines up to sign, through its transitive action on the six Sylow groups (PGL(2,5) on the projective line), and the character of ker M is sign x (that permutation character - 1): the zero modes are the sign twist of PGL(2,5)'s 5": true,
+    "the twenty triples have cubic matrix trace Tr(A_i A_j A_k) = 16 or -16, ten each (the edge-by-edge triple sums are 4 and -4, with the same signs); complementary triples have opposite signs; each triple is kept by six permutations, which fix exactly one edge, and each edge comes from two triples, one of each sign": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "root assignment -> binding: taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time",
    "status": "OBSTRUCTION",
    "passed": true,
@@ -7981,7 +8038,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 62 dots and 191 joins form one connected diagram (the obstructions left out)",
+   "name": "the 62 dots and 196 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8215,7 +8272,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 6, symmetry-combinatorics 9, combinatorics-lattice 4, lattice-operator 13, operator-physics 13 joins",
+   "name": "each level is joined to the next: number-symmetry 6, symmetry-combinatorics 9, combinatorics-lattice 4, lattice-operator 13, operator-physics 16 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8272,7 +8329,10 @@
      "charges -> goldenport",
      "waves -> goldenport",
      "waves -> sixsite",
-     "waves -> bath"
+     "waves -> bath",
+     "source -> waves",
+     "source -> charges",
+     "source -> readout"
     ]
    ],
    "note": ""
@@ -8283,7 +8343,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 171,
+    "THEOREM": 176,
     "OBSTRUCTION": 7,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8303,7 +8363,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 6, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 9, symmetry-lattice 8, symmetry-operator 5, symmetry-physics 6, combinatorics-lattice 4, combinatorics-operator 11, combinatorics-physics 7, lattice-operator 13, lattice-physics 4, operator-physics 13",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 6, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 9, symmetry-lattice 8, symmetry-operator 6, symmetry-physics 6, combinatorics-lattice 4, combinatorics-operator 11, combinatorics-physics 7, lattice-operator 13, lattice-physics 4, operator-physics 16",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -8314,8 +8374,8 @@
     "(1, 2)": 9,
     "(0, 1)": 6,
     "(0, 2)": 3,
-    "(1, 4)": 5,
-    "(4, 5)": 13,
+    "(1, 4)": 6,
+    "(4, 5)": 16,
     "(2, 5)": 7,
     "(3, 5)": 4,
     "(0, 3)": 3,
@@ -9070,6 +9130,49 @@
   {
    "layer": "23-dots",
    "name": "Drive check 12:24, with the join: the sibling's MODEL edition of 12:24 ('Chain'; that of 12:23 is superseded) was read; its charge map, midpoint map, witness loop and frame group replay in the joins charges -> cycles, zero modes -> cycles and AGL(1,5) -> circle, and its yuga residues agree with the 11:44 correction (multiplying the residues by 2 runs 432, 864, 1728, 1296; doubling the lengths does not)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 12:28-12:59 model and the hub's 12:29 text: the zero modes meet the cycles at squared cosines 1, 1, 1, 7/15 and 1/5; the orthogonal projection is injective but not equivariant, and all 1024 orientations keep it injective (one F2 rank); F20 has 864 orbits of five frames, and its modules are 1 + A4, sign + A4 and a rotation plane + A4; the witness lies in the separate model's certified intervals; the digit vectors have Smith form 1, 2, 8; one correction stands (the parity sums differ by (4/5) Curl)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "ker M meets the cycles at squared cosines 1, 1, 1, 7/15 and 1/5: the shared directions are three 4-cycles c1, c2, c3 of square 4 (Gram determinant 36; c1 and c2 are sympy's first two nullspace vectors), and w = (-1, 1, 0, 0, 1, 0, 0, -1, -1, 1) of square 6 and (2, 0, -1, -1, 0, -1, -1, 0, 0, 2) of square 12 carry the 1/5 and the 7/15; the loop seed is 5 P_cycle w, and 2h = w' - c1 - c2 - 2c3, so the cycles keep 21/25 of the line (7 in the shared cycles, 3 along w', none along w); c1 meets the pentagon and the pentagram at -1 and 3": true,
+    "the orthogonal projection of ker M to the cycles is injective but not tick-equivariant (the failure has rank 3 and square 32/5), and its F20 average is 0: the equivariant bridge is the midpoint; the twenty marks (1 at one site, 0 at another, -1/3 elsewhere) average to P_A4/3": true,
+    "all 1024 orientations of the edges keep the projection of ker M injective, since mod 2 every oriented incidence is M and [ker M | M^T] has rank 9 over F2 (the hub)": true,
+    "j -> j + 864 and j -> 3457 j keep j mod 864, so F20 has 864 orbits of five frames, 24 per address; on the phase functions, the zero modes and the cycles it has characters (0, 1, 1, 1), (0, -1, 1, -1) and (1, 0, -2, 0) on the tick, the doubling, its square and their product: 1 + A4, sign + A4 and a rotation plane + A4 (the hub)": true,
+    "the witness's energy 220.63453173134856..., its least tangent eigenvalue normal to the gradient 6.9855821612 and normal to k 10.5099477862 all lie inside the separate model's certified intervals (energy to 10^-40, the eigenvalues to 2 x 10^-12)": true,
+    "the digit vectors 980, 086, 088, 880 have Smith form 1, 2, 8: their 3 x 3 minors 144, -48, -64, 128 have gcd 16, the index of their span": true,
+    "correction, still standing: the parity sums differ by (4/5) Curl, whose square is (16/5) P_cycle, not by a Hodge star J with J^2 = P_cycle": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 12:59 model's arithmetic: 2241 (j mod 160) + 2080 (j mod 27), 39490/3679, 853/1000, 8 sqrt 2 and 165/61",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "every frame is 2241 (j mod 160) + 2080 (j mod 27), with 2241 + 2080 = 1 mod 4320": true,
+    "276430/25753 reduces by 7 to 39490/3679; 0.979 - 63/500 = 853/1000, not 0; sqrt 128 = 8 sqrt 2; 495/183 = 165/61": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 12:59: the sibling's MODEL edition of 12:59 (those of 12:28-12:57, with the spine PDFs, are superseded) and the hub's OES_Unified_Model_20261029.txt as revised at 12:29 were read; its exact zip (935214 bytes) was not run. The separate model's atlas-witness update (12:25, 281544 bytes, 72 new exact or certified check groups) and unified-reference update (12:41, 2620171 bytes, 142 new exact check groups, replaying the hub's seven verifiers and their 330 assertions) were recorded from their receipts; the zips were not run, and MODEL_UPDATE_CHECKPOINT.json (12:41) was not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's agni_phase receipt (47 assertions) and its verifier; the nonlinear pair map's generic Jacobian rank 6 away from the witness; the F20 adapter family's four-map basis and its coefficients (-1/5, 3/5, 2/5, -2/5) (the Hom dimension 4 is checked); the deep word package's receivers of dimensions 9, 11, 13 and 17, which rest on the selected J7; and the sibling's source pair with edge-square 12 and vanishing cubics, which the notes do not give",
    "status": "REPORTED",
    "passed": true,
    "value": null,

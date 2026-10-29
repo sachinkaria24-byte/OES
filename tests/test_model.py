@@ -415,6 +415,28 @@ def test_the_theorem_diagram(monkeypatch):
     assert np.array_equal(3457 * j % 4320 % 36, j % 36) and not np.array_equal(2 * j % 4320 % 36, j % 36)
 
 
+def test_the_1259_replay():
+    for check in (dots.agni_soma, dots.agni_factor, dots.agni_pullback, dots.source_phase, dots.sylow_lines,
+                  dots.notes_1259, dots.notes_1259_arithmetic):
+        out = check()
+        assert all(out.values()), out
+    import sympy as sp
+    E, N5, sym, F, a, b = dots._source()
+    # the witness is the hub's: move one coordinate of b and the commutator's square leaves 1392
+    Fw = F(a, N5 * sp.Matrix([-1, -2, -1, -2, 1]))
+    assert (Fw.T * Fw)[0] != 1392
+    # the factorization pins L_out: with the opposite sign on its fixed part it fails at the witness
+    Pc, R5, U, K, Qf, Pm, L = dots._marked()
+    Q, m, h = dots._chain()
+    D = dots.compound2(sp.Matrix(5, 5, lambda r, c: int(r == (2 * c) % 5)))
+    Kv = sp.eye(5) + 2 * (R5 + R5.T)
+    wedge = lambda x, y: sp.Matrix([x[i] * y[j] - x[j] * y[i] for i, j in E])
+    mix = Q * Kv * ((h.T * a)[0] / 10 * m * b - (h.T * b)[0] / 10 * m * a)
+    for sign, holds in ((-1, True), (1, False)):
+        Lout = (sign * Qf + 3 * D * Qf + 2 * Pm) / 5
+        assert (F(a, b) == Lout * wedge(m * a, m * b) - sp.Rational(2, 5) * mix) == holds
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):

@@ -256,6 +256,17 @@ and j -> 3457 j generate AGL(1,5), keeping the address and acting on the phase a
 clock acts through the tick on the root graph freely, in 48 extended A4 pentagons; on the zero modes as its regular
 representation; and on the triple by automorphisms. Now no one or two THEOREM maps hold the THEOREM diagram together,
 and THEOREM maps join every pair of levels at least twice.
+
+At 12:59 the hub's text (12:29) and the sibling's MODEL (12:28-12:59) joined the source to light. A zero mode a is a
+symmetric matrix A(a) with zero diagonal and zero row sums, and the native port is the commutator
+F_AS(a, b) = upper([A(a), A(b)]), a circulation. On Lambda^2 ker M it has rank 6, onto light, and its kernel is
+Lambda^3 A4 = std x sign. Up to scale it is the only S5-map, though F20 alone allows four. It factors exactly through
+the midpoint and the charge map: F_AS(a, b) = L_out(Ra ^ Rb) - (2/5) C K_vertex [alpha(a) Rb - alpha(b) Ra]. The SO(2)
+that rotates the two source copies keeps it, so the ten native readings miss that phase, while the phasor
+Tr[(A + iB)(A^2 + B^2)]/6 turns with it and reads it back. The hub's saved basis is sympy's nullspace basis of M, so at
+its witness every stated number replays, from the Jacobian -64 to the six decoder determinants and the E8 pullback's
+moments 1392, 334632 and 80732784. The six Sylow sign lines frame the zero modes with factor 12, and S5 permutes them
+with signs through PGL(2,5), so ker M is the sign twist of PGL(2,5)'s 5.
 """
 
 import functools
@@ -4728,17 +4739,26 @@ def datum_orbit():
     }
 
 
+def _chain():
+    """The sibling's chain (12:24): the charge map Q (an oriented edge a -> a + d to q(a + 2d) - q(a + 4d)), the
+    midpoint map m (an edge ab to the vertex 3(a + b)) and the near-minus-far line h."""
+    E = carrier.edges()
+    Q, m = sp.zeros(10, 5), sp.zeros(5, 10)
+    for k, (i, j) in enumerate(E):
+        d = (j - i) % 5
+        Q[k, (i + 2 * d) % 5] += 1
+        Q[k, (i + 4 * d) % 5] -= 1
+        m[(3 * (i + j)) % 5, k] = 1
+    return Q, m, sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+
+
 def witness_loop():
     """The sibling's MODEL of 12:24 ('Chain'): the charge map, the midpoint map and the witness loop."""
     E = carrier.edges()
     Pc, R5, U, K, Qf, Pm, L = _marked()
     B = sp.Matrix(carrier.signed_incidence())
     Ms = sp.Matrix(5, 10, lambda i, e: int(i in E[e]))
-    Q = sp.zeros(10, 5)
-    for k, (i, j) in enumerate(E):
-        d = (j - i) % 5
-        Q[k, (i + 2 * d) % 5] += 1
-        Q[k, (i + 4 * d) % 5] -= 1
+    Q, m, nf = _chain()
     PA4 = sp.eye(5) - sp.ones(5, 5) / 5
     Dv = sp.Matrix(5, 5, lambda r, c: int(r == (2 * c) % 5))
     Tv = sp.Matrix(5, 5, lambda r, c: int(r == [1, 0, 2, 3, 4][c]))
@@ -4747,12 +4767,8 @@ def witness_loop():
         X = sp.Matrix(10, 5, sp.symbols("x0:50"))
         eqs = [compound2(P) * X - X * P for P in gens] + [B * X, X * sp.ones(5, 1)]
         return 50 - sp.linear_eq_to_matrix([e for Y in eqs for e in Y], list(X))[0].rank()
-    m = sp.zeros(5, 10)
-    for k, (i, j) in enumerate(E):
-        m[(3 * (i + j)) % 5, k] = 1
     kerM = sp.Matrix.hstack(*Ms.nullspace())
     Pk = kerM * (kerM.T * kerM).inv() * kerM.T
-    nf = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
     Uu, Du = compound2(R5).applyfunc(abs), compound2(Dv).applyfunc(abs)
     v = sp.Matrix([-3, 1, 2, 0, -1, 0, -2, 1, -1, 3])
     rot = [U ** k * v for k in range(5)]
@@ -4880,6 +4896,334 @@ def theorem_connectivity():
             all(held((x,)) for x in thm) and all(held(pair) for pair in itertools.combinations(thm, 2)),
         "every pair of the six levels is joined directly by at least two THEOREM maps":
             all(pairs[p] >= 2 for p in itertools.combinations(range(len(LEVELS)), 2)),
+    }
+
+
+# ------------------------------------------------------------------- the hub's Agni-Soma source (12:29) and the 12:59 model
+
+def _source():
+    """The hub's Agni-Soma source (12:29): ker M in sympy's nullspace basis (the hub's saved basis), a zero mode a as the
+    symmetric matrix A(a) with zero diagonal and zero row sums, the commutator F_AS(a, b) = upper([A(a), A(b)]), and the
+    hub's witness pair."""
+    E = carrier.edges()
+    N5 = sp.Matrix.hstack(*sp.Matrix(carrier.signless_incidence()).nullspace())
+
+    def sym(a):
+        A = sp.zeros(5)
+        for k, (i, j) in enumerate(E):
+            A[i, j] = A[j, i] = a[k]
+        return A
+
+    def F(a, b):
+        A, B = sym(a), sym(b)
+        return sp.Matrix([(A * B - B * A)[i, j] for i, j in E])
+    return E, N5, sym, F, N5 * sp.Matrix([-1, -1, -2, 1, -1]), N5 * sp.Matrix([-1, -2, -1, -2, 0])
+
+
+def _edge_perm(p):
+    """The unsigned permutation of the ten K5 edges induced by the vertex permutation p."""
+    E = carrier.edges()
+    return sp.Matrix(10, 10, lambda r, c: int(E[r] == tuple(sorted((p[E[c][0]], p[E[c][1]])))))
+
+
+def agni_soma():
+    """The hub's text (12:29): the Agni-Soma commutator, its kernel, its uniqueness, its source-frame symmetry and its
+    Hodge reading."""
+    E, N5, sym, F, a, b = _source()
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pk = N5 * (N5.T * N5).inv() * N5.T
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    pairs = list(itertools.combinations(range(5), 2))
+    W = sp.Matrix.hstack(*[F(N5.col(i), N5.col(j)) for i, j in pairs])
+    ker = sp.Matrix.hstack(*W.nullspace())
+    lam2 = lambda X: sp.Matrix(10, 10, lambda r, c: X.extract(list(pairs[r]), list(pairs[c])).det())
+
+    def chi_kernel(p):
+        X = lam2((N5.T * N5).inv() * N5.T * _edge_perm(p) * N5)
+        Y = (ker.T * ker).inv() * ker.T * X * ker
+        return Y.trace() if (X * ker - ker * Y).is_zero_matrix else None
+
+    def hom(group):
+        tot = 0
+        for p in group:
+            X = _edge_perm(p) * Pk
+            cycles = (Pc * compound2(sp.Matrix(5, 5, lambda r, c: int(r == p[c])))).trace()
+            tot += (X.trace() ** 2 - (X * X).trace()) / 2 * cycles
+        return tot / len(group)
+    reps = [[0, 1, 2, 3, 4], [1, 0, 2, 3, 4], [1, 0, 3, 2, 4], [1, 2, 0, 3, 4], [1, 2, 0, 4, 3], [1, 2, 3, 0, 4],
+            [1, 2, 3, 4, 0]]
+    S5 = [list(p) for p in itertools.permutations(range(5))]
+    F20 = [[(u * x + t) % 5 for x in range(5)] for u in (1, 2, 3, 4) for t in range(5)]
+    c, s = sp.Rational(3, 5), sp.Rational(4, 5)
+    basis = [N5.col(k) for k in range(5)]
+    J = _hodge()[0]
+    ctx = _contexts()
+    Se = sum((C for C, sg in ctx if sg == 1), sp.zeros(10))
+    So = sum((C for C, sg in ctx if sg == -1), sp.zeros(10))
+    Fw = F(a, b)
+    return {
+        "a zero mode a is the symmetric matrix A(a) with zero diagonal and zero row sums, so F_AS(a, b) = "
+        "upper([A(a), A(b)]) is a circulation; on Lambda^2 ker M it has rank 6, onto light, and a kernel of character "
+        "(4, -2, 0, 1, 1, 0, -1), that is Lambda^3 A4 = std x sign and not A4; up to scale it is the only S5-map from "
+        "Lambda^2 ker M to the cycles (Hom dimension 1), while F20 alone allows 4":
+            all((Bs * F(N5.col(i), N5.col(j))).is_zero_matrix for i, j in pairs) and W.rank() == 6 and ker.shape[1] == 4
+            and [chi_kernel(p) for p in reps] == [4, -2, 0, 1, 1, 0, -1] and hom(S5) == 1 and hom(F20) == 4,
+        "F_AS is invariant under the SO(2) that rotates the two source copies, F_AS(cA + sB, -sA + cB) = F_AS(A, B), so "
+        "the native port g = W_AS(a ^ b) has that symmetry too; at the hub's witness a = (-1, -1, -2, 1, -1), "
+        "b = (-1, -2, -1, -2, 0) in sympy's nullspace basis of M, ||F_AS||^2 = 1392 and F_AS^T J_H F_AS = 96 sqrt5, and "
+        "the parity contexts read 2592 and 2976 (ratio 31/27): a chirality reading, blind to the phase":
+            all(F(c * u + s * v, -s * u + c * v) == F(u, v) for u, v in itertools.product(basis, repeat=2))
+            and (Fw.T * Fw)[0] == 1392
+            and _zero((Fw.T * J * Fw)[0] - 96 * sp.sqrt(5))
+            and _zero((Fw.T * Se * Fw)[0] - 2592) and _zero((Fw.T * So * Fw)[0] - 2976),
+    }
+
+
+def agni_factor():
+    """The hub's text (12:29): the whole native commutator factors through the F20 midpoint and charge maps."""
+    E, N5, sym, F, a, b = _source()
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    Q, m, h = _chain()
+    D = compound2(sp.Matrix(5, 5, lambda r, c: int(r == (2 * c) % 5)))
+    Kv = sp.eye(5) + 2 * (R5 + R5.T)
+    Pk = N5 * (N5.T * N5).inv() * N5.T
+    Lout = (-Qf + 3 * D * Qf + 2 * Pm) / 5
+    Linv = sp.Rational(5, 2) * Pm - (sp.eye(10) + 3 * D) * Qf / 2
+    wedge = lambda x, y: sp.Matrix([x[i] * y[j] - x[j] * y[i] for i, j in E])
+    al = lambda v: (h.T * v)[0] / 10
+    mix = lambda u, v: Q * Kv * (al(u) * m * v - al(v) * m * u)
+    basis = [N5.col(k) for k in range(5)]
+    Wh = sp.Matrix.hstack(*[F(h, sp.eye(10).col(k)) for k in range(10)]) * Pk
+    return {
+        "the near-minus-far line is A(h) = K_vertex - J with A(h)^2 = 5 P_A4, K_vertex = I + 2(R + R^-1); with "
+        "alpha(a) = <h, a>/10, the midpoint R and the charge map C the whole commutator is F_AS(a, b) = L_out(Ra ^ Rb) - "
+        "(2/5) C K_vertex [alpha(a) Rb - alpha(b) Ra] for every pair, with L_out = [-P_fix + 3D P_fix + 2 P_moving]/5":
+            sym(h) == Kv - sp.ones(5, 5) and sym(h) ** 2 == 5 * (sp.eye(5) - sp.ones(5, 5) / 5)
+            and all(F(u, v) == Lout * wedge(m * u, m * v) - sp.Rational(2, 5) * mix(u, v)
+                    for u, v in itertools.product(basis, repeat=2)),
+        "L_out is invertible on the cycles, with L_out^-1 = (5/2) P_moving - (1/2)(I + 3D) P_fix, and not orthogonal, "
+        "L_out* L_out = (4/25) P_moving + (2/5) P_fix; the normalized source L_out^-1 F_AS is (Ra ^ Rb) - C K_vertex "
+        "[alpha(a) Rb - alpha(b) Ra], the hub's lambda = -1 adapter":
+            Lout * Linv == Pc and Linv * Lout == Pc and Lout.T * Lout == sp.Rational(4, 25) * Pm + sp.Rational(2, 5) * Qf
+            and all(Linv * F(u, v) == wedge(m * u, m * v) - mix(u, v) for u, v in itertools.product(basis, repeat=2)),
+        "F_AS(h, a) = -(2/5) K C R a, so W_h* W_h = (20/3)(P_kerM - P_h): the line h acts on the other four zero modes "
+        "through the Golden operator K": all(F(h, u) == -sp.Rational(2, 5) * K * Q * m * u for u in basis)
+            and Wh.T * Wh == sp.Rational(20, 3) * (Pk - h * h.T / 10),
+    }
+
+
+def agni_pullback():
+    """The hub's text (12:29): the witness's commutator in the Golden root-site port, its moments and its memory."""
+    E, N5, sym, F, a, b = _source()
+    J, P, Pc, U, K, Qf, Pm, L = _hodge()
+    Fw = F(a, b)
+    Hn = _walk_entries()
+    site, sign = _golden_sites()
+    G = {n: sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * Hn(site[f] - site[e], n)) for n in range(3)}
+    w = [(Fw.T * P[k] * Fw)[0] for k in ("+", "-", "phi", "psi")]
+    r5 = sp.sqrt(5)
+    return {
+        "through the Golden root-site port the witness's commutator has channel weights 288/5, 32/5 and "
+        "664 -+ (304/5) sqrt5, summing to 1392, moments 1392, 334632 and 80732784, and memory variance form "
+        "F^T (M_2 - M_1^2) F = 1441112/5, above the floor 171 x 1392":
+            _zero(w[0] - sp.Rational(288, 5)) and _zero(w[1] - sp.Rational(32, 5)) and _zero(w[2] - 664 + 304 * r5 / 5)
+            and _zero(w[3] - 664 - 304 * r5 / 5) and [(Fw.T * G[n] * Fw)[0] for n in range(3)] == [1392, 334632, 80732784]
+            and (Fw.T * (G[2] - G[1] * Pc * G[1]) * Fw)[0] == sp.Rational(1441112, 5) > 171 * 1392,
+    }
+
+
+def source_phase():
+    """The hub's text (12:29): the source observer at the witness, the phase quadratures and a ten-scalar decoder."""
+    E, N5, sym, F, a0, b0 = _source()
+    x = sp.symbols("a0:5 b0:5")
+    A, B = sym(N5 * sp.Matrix(x[:5])), sym(N5 * sp.Matrix(x[5:]))
+    Fs = F(N5 * sp.Matrix(x[:5]), N5 * sp.Matrix(x[5:]))
+    wit = dict(zip(x, [-1, -1, -2, 1, -1, -1, -2, -1, -2, 0]))
+    S2 = A * A + B * B
+    contrast = [S2[i, i] - S2[4, 4] for i in range(4)]
+    U, V, eta = (A ** 3 + A * B ** 2).trace() / 6, (A ** 2 * B + B ** 3).trace() / 6, (B ** 3).trace() / 6
+    six = list(Fs[4:, 0])
+    jac = lambda rows: sp.Matrix([[sp.diff(sp.expand(r), v) for v in x] for r in rows]).subs(wit)
+    turn = sp.Matrix([wit[v] for v in x[5:]] + [-wit[v] for v in x[:5]])
+    native = jac(six + contrast)
+    Aw, Bw = sym(a0), sym(b0)
+    c, s = sp.Rational(3, 5), sp.Rational(4, 5)
+    Z1 = lambda P, R: ((P + sp.I * R) * (P * P + R * R)).trace() / 6
+    Z3 = lambda P, R: ((P + sp.I * R) ** 3).trace() / 6
+    Ar, Br = c * Aw + s * Bw, -s * Aw + c * Bw
+    z1, z1r = sp.expand(Z1(Aw, Bw)), sp.expand(Z1(Ar, Br))
+    u1, v1, u2, v2 = sp.re(z1), sp.im(z1), sp.re(z1r), sp.im(z1r)
+    dets = [jac(six + [contrast[i], contrast[k], U, V]).det() for i, k in itertools.combinations(range(4), 2)]
+    return {
+        "at the witness the six commutator coordinates (the edges 12 to 34) with a0, a1, a2, b0 have Jacobian determinant "
+        "-64; the ten native readings (those six and the contrasts s_i = (A^2 + B^2)_ii - (A^2 + B^2)_44) have rank 9, "
+        "their Jacobian killing the phase direction (b, -a); eta_B = Tr(B^3)/6 = 144 turns at rate -256, and putting it "
+        "in place of any contrast gives rank 10": jac(six + [x[0], x[1], x[2], x[5]]).det() == -64 and native.rank() == 9
+            and (native * turn).is_zero_matrix and eta.subs(wit) == 144 and (jac([eta]) * turn)[0] == -256
+            and all(jac(six + contrast[:k] + contrast[k + 1:] + [eta]).det() != 0 for k in range(4)),
+        "Z1 = Tr[(A + iB)(A^2 + B^2)]/6 = 424/3 + 200i and Z3 = Tr[(A + iB)^3]/6 = -200 + 24i turn as e^-i theta and "
+        "e^-3i theta, and U, V give back the phase: cos theta = (U U' + V V')/(U^2 + V^2), sin theta = "
+        "(V U' - U V')/(U^2 + V^2); eta_B = (3 Im Z1 - Im Z3)/4 = 150 cos theta - 106 sin theta - 6 cos 3 theta - "
+        "50 sin 3 theta (checked at cos theta = 3/5)": z1 == sp.Rational(424, 3) + 200 * sp.I
+            and sp.expand(Z3(Aw, Bw)) == -200 + 24 * sp.I and z1r == sp.expand((c - sp.I * s) * z1)
+            and sp.expand(Z3(Ar, Br)) == sp.expand((c - sp.I * s) ** 3 * (-200 + 24 * sp.I))
+            and (u1 * u2 + v1 * v2) / (u1 ** 2 + v1 ** 2) == c and (v1 * u2 - u1 * v2) / (u1 ** 2 + v1 ** 2) == s
+            and (Br ** 3).trace() / 6 == 150 * c - 106 * s - 6 * (4 * c ** 3 - 3 * c) - 50 * (3 * s - 4 * s ** 3),
+        "keeping the six coordinates, any two contrasts and U, V gives ten readings whose Jacobian determinants at the "
+        "witness are 29047685120/9, 33301037056/9, 47005499392/9, -5420154880/9, -5216829440/3 and -9171140608/9, all "
+        "nonzero": dets == [sp.Rational(29047685120, 9), sp.Rational(33301037056, 9), sp.Rational(47005499392, 9),
+                            sp.Rational(-5420154880, 9), sp.Rational(-5216829440, 3), sp.Rational(-9171140608, 9)],
+    }
+
+
+def sylow_lines():
+    """The sibling's MODEL (12:59): the six Sylow sign lines frame the zero modes, and S5 permutes them with signs."""
+    E, N5, sym, F, a, b = _source()
+    Pk = N5 * (N5.T * N5).inv() * N5.T
+    S5 = [Permutation(list(p)) for p in itertools.permutations(range(5))]
+    groups = {}
+    for g in S5:
+        if g.order() == 5:
+            groups.setdefault(frozenset(tuple((g ** k).array_form) for k in range(5)), g)
+    keys, gens = list(groups), list(groups.values())
+    raw = [sp.Matrix([1 if g.array_form[i] == j or g.array_form[j] == i else -1 for i, j in E]) for g in gens]
+    signs = next(t for t in itertools.product((1, -1), repeat=6) if t[0] == 1 and all(
+        t[i] * t[k] * (raw[i].T * raw[k])[0] == -2 for i, k in itertools.combinations(range(6), 2)))
+    L = [t * r for t, r in zip(signs, raw)]
+    conj = lambda g, k: keys.index(frozenset(tuple(((g ** -1 * gens[k] * g) ** e).array_form) for e in range(5)))
+    act = {tuple(g.array_form): [conj(g, k) for k in range(6)] for g in S5}
+    triples = list(itertools.combinations(range(6), 3))
+    mat = {T: (sym(L[T[0]]) * sym(L[T[1]]) * sym(L[T[2]])).trace() for T in triples}
+    edge = {T: sum(L[T[0]][e] * L[T[1]][e] * L[T[2]][e] for e in range(10)) for T in triples}
+    stab = {T: [g for g in S5 if {act[tuple(g.array_form)][i] for i in T} == set(T)] for T in triples}
+    fixed = {T: [e for e in E if all(tuple(sorted((g.array_form[e[0]], g.array_form[e[1]]))) == e for g in stab[T])]
+             for T in triples}
+    G5 = sp.Matrix(5, 5, lambda i, k: (L[i].T * L[k])[0])
+    return {
+        "each Sylow five-cycle group gives a sign line (+1 on its pentagon, -1 on its pentagram) in ker M of square 10; "
+        "oriented with all products -2, the six sum to zero, frame the zero modes with factor 12 (sum l l^T = 12 P_kerM), "
+        "and any five have Gram 12I - 2J, eigenvalues 12 four times and 2":
+            all((sp.Matrix(carrier.signless_incidence()) * l).is_zero_matrix and (l.T * l)[0] == 10 for l in L)
+            and sum(L, sp.zeros(10, 1)).is_zero_matrix and sum((l * l.T for l in L), sp.zeros(10)) == 12 * Pk
+            and G5 == 12 * sp.eye(5) - 2 * sp.ones(5, 5),
+        "S5 permutes the six lines up to sign, through its transitive action on the six Sylow groups (PGL(2,5) on the "
+        "projective line), and the character of ker M is sign x (that permutation character - 1): the zero modes are "
+        "the sign twist of PGL(2,5)'s 5":
+            all(_edge_perm(g.array_form) * L[k] in (L[act[tuple(g.array_form)][k]], -L[act[tuple(g.array_form)][k]])
+                for g in S5 for k in range(6))
+            and all((Pk * _edge_perm(g.array_form)).trace()
+                    == g.signature() * (sum(1 for k in range(6) if act[tuple(g.array_form)][k] == k) - 1) for g in S5),
+        "the twenty triples have cubic matrix trace Tr(A_i A_j A_k) = 16 or -16, ten each (the edge-by-edge triple sums "
+        "are 4 and -4, with the same signs); complementary triples have opposite signs; each triple is kept by six "
+        "permutations, which fix exactly one edge, and each edge comes from two triples, one of each sign":
+            Counter(mat.values()) == Counter({16: 10, -16: 10}) and all(edge[T] * 4 == mat[T] for T in triples)
+            and all(mat[T] == -mat[tuple(sorted(set(range(6)) - set(T)))] for T in triples)
+            and all(len(stab[T]) == 6 and len(fixed[T]) == 1 for T in triples)
+            and all(sorted(mat[T] for T in triples if fixed[T] == [e]) == [-16, 16] for e in E),
+    }
+
+
+def notes_1259():
+    """The sibling's MODEL (12:28-12:59) and the hub's 12:29 text: angles, orientations, the F20 clock and modules, and the
+    witness's radial tangent."""
+    import mpmath
+    from sympy.polys.matrices import DomainMatrix
+    E, N5, sym, F, a, b = _source()
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Ms = sp.Matrix(carrier.signless_incidence())
+    Pk = N5 * (N5.T * N5).inv() * N5.T
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    Q, m, h = _chain()
+    x = sp.symbols("x")
+    c1, c2 = N5.col(0), N5.col(1)
+    c3 = sp.Matrix([0, 0, 1, -1, 0, 0, 0, -1, 1, 0])
+    w5, w7 = sp.Matrix([-1, 1, 0, 0, 1, 0, 0, -1, -1, 1]), sp.Matrix([2, 0, -1, -1, 0, -1, -1, 0, 0, 2])
+    C3 = sp.Matrix.hstack(c1, c2, c3)
+    n_, f_ = sp.Matrix(counts._oriented_cycle(1)), sp.Matrix(counts._oriented_cycle(2))
+    v = sp.Matrix([-3, 1, 2, 0, -1, 0, -2, 1, -1, 3])
+    Dv = sp.Matrix(5, 5, lambda r, c: int(r == (2 * c) % 5))
+    D = compound2(Dv)
+    Uu, Du = U.applyfunc(abs), D.applyfunc(abs)
+    fail = (U * Pc - Pc * Uu) * Pk
+    avg = sum((U ** k * D ** d * Pc * (Uu ** k * Du ** d).T for k in range(5) for d in range(4)), sp.zeros(10)) * Pk
+    marks = [sp.Matrix([1 if t == i else 0 if t == k else sp.Rational(-1, 3) for t in range(5)])
+             for i, k in itertools.permutations(range(5), 2)]
+    Bn, Kn = np.array(Bs, dtype=float), np.array(N5, dtype=float)
+    oriented = sum(np.linalg.matrix_rank(np.hstack([Kn, (Bn * np.array(t)[None, :]).T])) == 9
+                   for t in itertools.product((1, -1), repeat=10))
+    f2 = DomainMatrix.from_Matrix(sp.Matrix.hstack(N5, Ms.T)).convert_to(sp.GF(2)).rank()
+    orbits = {frozenset((u * k + t) % N for u in (1, 3457, pow(3457, 2, N), pow(3457, 3, N)) for t in range(0, N, 864))
+              for k in range(N)}
+    chars = [(g5.trace(), (Pk * g10.applyfunc(abs)).trace(), (Pc * g10).trace())
+             for g5, g10 in ((R5, U), (Dv, D), (Dv ** 2, D ** 2), (R5 * Dv, U * D))]
+    mpmath.mp.dps = 50
+    R = [mpmath.matrix([mpmath.mpf(int(round(2 * t))) / 2 for t in r]) for r in glue.roots()]
+    w = mpmath.matrix([mpmath.mpf(t) / 10 for t in (28, 28, 6, 2, 1, 0, 0, 0)])
+    H, grad = mpmath.zeros(8, 8), mpmath.zeros(8, 1)
+    for r in R:
+        H += mpmath.cos((r.T * w)[0]) * (r * r.T)
+        grad += mpmath.sin((r.T * w)[0]) * r
+    proj = lambda n: mpmath.eye(8) - (n * n.T) / (n.T * n)[0]
+    least = lambda n: sorted(mpmath.eigsy(proj(n) * H * proj(n))[0])[1]
+    energy = 240 - sum(mpmath.cos((r.T * w)[0]) for r in R)
+    inside = lambda y, lo, hi: mpmath.mpf(lo[0]) / lo[1] < y < mpmath.mpf(hi[0]) / hi[1]
+    ctx = _contexts()
+    Se = sum((C for C, sg in ctx if sg == 1), sp.zeros(10))
+    So = sum((C for C, sg in ctx if sg == -1), sp.zeros(10))
+    digits = sp.Matrix([[9, 8, 0], [0, 8, 6], [0, 8, 8], [8, 8, 0]])
+    minors = [digits.extract(list(r), [0, 1, 2]).det() for r in itertools.combinations(range(4), 3)]
+    return {
+        "ker M meets the cycles at squared cosines 1, 1, 1, 7/15 and 1/5: the shared directions are three 4-cycles c1, c2, "
+        "c3 of square 4 (Gram determinant 36; c1 and c2 are sympy's first two nullspace vectors), and w = (-1, 1, 0, 0, 1, "
+        "0, 0, -1, -1, 1) of square 6 and (2, 0, -1, -1, 0, -1, -1, 0, 0, 2) of square 12 carry the 1/5 and the 7/15; "
+        "the loop seed is 5 P_cycle w, and 2h = w' - c1 - c2 - 2c3, so the cycles keep 21/25 of the line (7 in the "
+        "shared cycles, 3 along w', none along w); c1 meets the pentagon and the pentagram at -1 and 3":
+            sp.expand((Pk * Pc * Pk).charpoly(x).as_expr()
+                      - x ** 5 * (x - 1) ** 3 * (x - sp.Rational(7, 15)) * (x - sp.Rational(1, 5))) == 0
+            and (Ms * C3).is_zero_matrix and (Bs * C3).is_zero_matrix and (C3.T * C3).det() == 36
+            and all((Ms * y).is_zero_matrix and (C3.T * y).is_zero_matrix for y in (w5, w7)) and (w5.T * w7)[0] == 0
+            and [(w5.T * w5)[0], (w7.T * w7)[0]] == [6, 12]
+            and [(y.T * Pc * y)[0] / (y.T * y)[0] for y in (w5, w7)] == [sp.Rational(1, 5), sp.Rational(7, 15)]
+            and v == 5 * Pc * w5 and 2 * h == w7 - c1 - c2 - 2 * c3 and (h.T * Pc * h)[0] == sp.Rational(42, 5)
+            and (h.T * C3 * (C3.T * C3).inv() * C3.T * h)[0] == 7 and (h.T * w7)[0] ** 2 == 36 and (h.T * w5)[0] == 0
+            and [(c1.T * n_)[0], (c1.T * f_)[0]] == [-1, 3] and all((y.T * z)[0] == 0 for y in (c2, c3) for z in (n_, f_)),
+        "the orthogonal projection of ker M to the cycles is injective but not tick-equivariant (the failure has rank 3 "
+        "and square 32/5), and its F20 average is 0: the equivariant bridge is the midpoint; the twenty marks (1 at one "
+        "site, 0 at another, -1/3 elsewhere) average to P_A4/3":
+            (Pc * N5).rank() == 5 and fail.rank() == 3 and (fail.T * fail).trace() == sp.Rational(32, 5)
+            and avg.is_zero_matrix
+            and sum((y * y.T for y in marks), sp.zeros(5)) / 20 == (sp.eye(5) - sp.ones(5, 5) / 5) / 3,
+        "all 1024 orientations of the edges keep the projection of ker M injective, since mod 2 every oriented incidence "
+        "is M and [ker M | M^T] has rank 9 over F2 (the hub)": oriented == 1024 and f2 == 9,
+        "j -> j + 864 and j -> 3457 j keep j mod 864, so F20 has 864 orbits of five frames, 24 per address; on the phase "
+        "functions, the zero modes and the cycles it has characters (0, 1, 1, 1), (0, -1, 1, -1) and (1, 0, -2, 0) on "
+        "the tick, the doubling, its square and their product: 1 + A4, sign + A4 and a rotation plane + A4 (the hub)":
+            len(orbits) == 864 and all(len(o) == 5 for o in orbits)
+            and Counter(min(o) % 36 for o in orbits) == Counter({k: 24 for k in range(36)})
+            and chars == [(0, 0, 1), (1, -1, 0), (1, 1, -2), (1, -1, 0)],
+        "the witness's energy 220.63453173134856..., its least tangent eigenvalue normal to the gradient 6.9855821612 and "
+        "normal to k 10.5099477862 all lie inside the separate model's certified intervals (energy to 10^-40, the "
+        "eigenvalues to 2 x 10^-12)": inside(energy, (2206345317313485609935327280537039328500696, 10 ** 40),
+                                                (2206345317313485609935327280537039328500922, 10 ** 40))
+            and inside(least(grad), (873197770153, 125000000000), (3492791080613, 500000000000))
+            and inside(least(w), (2101989557237, 200000000000), (10509947786187, 1000000000000)),
+        "the digit vectors 980, 086, 088, 880 have Smith form 1, 2, 8: their 3 x 3 minors 144, -48, -64, 128 have gcd "
+        "16, the index of their span": [smith_normal_form(digits, domain=sp.ZZ)[i, i] for i in range(3)] == [1, 2, 8]
+            and minors == [144, -48, -64, 128] and gcd(*minors) == 16,
+        "correction, still standing: the parity sums differ by (4/5) Curl, whose square is (16/5) P_cycle, not by a Hodge "
+        "star J with J^2 = P_cycle": _zero((So - Se) ** 2 - sp.Rational(16, 5) * Pc) and not _zero((So - Se) ** 2 - Pc),
+    }
+
+
+def notes_1259_arithmetic():
+    """The sibling's MODEL (12:59): the remaining arithmetic."""
+    return {
+        "every frame is 2241 (j mod 160) + 2080 (j mod 27), with 2241 + 2080 = 1 mod 4320":
+            all((2241 * (j % 160) + 2080 * (j % 27)) % N == j for j in range(N)) and (2241 + 2080) % N == 1,
+        "276430/25753 reduces by 7 to 39490/3679; 0.979 - 63/500 = 853/1000, not 0; sqrt 128 = 8 sqrt 2; 495/183 = 165/61":
+            Fraction(276430, 25753) == Fraction(39490, 3679) and gcd(276430, 25753) == 7
+            and Fraction(979, 1000) - Fraction(63, 500) == Fraction(853, 1000) and sp.sqrt(128) == 8 * sp.sqrt(2)
+            and Fraction(495, 183) == Fraction(165, 61),
     }
 
 
@@ -5166,6 +5510,11 @@ JOINS = [
     ("time", "rootgraph", "free pentagons", "the time clock acts on the root graph through the tick g = r r', with no fixed root: the 240 roots fall in 48 five-cycles, each an extended A4 diagram (five roots summing to zero, products -1 around a pentagon, spanning an A4 root lattice), 24 in the order of g and 24 in the order of g^2, and each copy of A4 + A4' is 4 of them", T, "tick_actions"),
     ("time", "kerM", "one zero mode per character", "through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line", T, "tick_actions"),
     ("time", "triple", "an automorphism of the triple", "the tick commutes with D and gamma and permutes the 15 atoms freely, so the time clock acts on the triple by automorphisms; each of its five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other (tr(P_lambda U^j) = 0, -2, 2 on the eigenvalues 0, 3, 8)", T, "tick_actions"),
+    ("source", "waves", "the Agni-Soma light", "the source pair's commutator F_AS(a, b) = upper([A(a), A(b)]) is a circulation: rank 6 on Lambda^2 ker M, onto light, with kernel Lambda^3 A4 = std x sign; up to scale it is the only S5-map (F20 alone allows 4), the SO(2) rotating the two copies keeps it, and at the hub's witness ||F||^2 = 1392 and F^T J_H F = 96 sqrt5 (the hub, 12:29)", T, "agni_soma"),
+    ("source", "charges", "the F20 factorization", "the whole commutator is F_AS(a, b) = L_out(Ra ^ Rb) - (2/5) C K_vertex [alpha(a) Rb - alpha(b) Ra]: the midpoint R carries the source pair to the trace-free sites, the charge map C carries them to the cycles, alpha(a) = <h, a>/10 reads the near-minus-far line, and L_out = [-P_fix + 3D P_fix + 2 P_moving]/5 is invertible but not orthogonal (the hub, 12:29)", T, "agni_factor"),
+    ("source", "goldenport", "the E8 pullback", "through the Golden root-site port the witness's commutator has channel weights 288/5, 32/5 and 664 -+ (304/5) sqrt5, moments 1392, 334632 and 80732784, and memory variance form 1441112/5, above 171 x 1392 (the hub, 12:29)", T, "agni_pullback"),
+    ("source", "readout", "the phase quadratures", "the ten native readings (six commutator coordinates, four quadratic contrasts) miss the SO(2) phase (rank 9); the phasor Z1 = Tr[(A + iB)(A^2 + B^2)]/6 turns as e^-i theta and reads the phase back on each orbit, and six coordinates, two contrasts and Re Z1, Im Z1 are ten readings with nonzero Jacobian at the witness (the hub, 12:29)", T, "source_phase"),
+    ("pgl", "kerM", "the six Sylow sign lines", "each Sylow group's pentagon minus its pentagram is a zero mode of square 10; oriented, the six have products -2, sum to zero and frame ker M with factor 12, and S5 permutes them with signs through PGL(2,5), so ker M is the sign twist of PGL(2,5)'s 5; the triples' cubic traces are 16 and -16, ten each (the sibling's MODEL, 12:59)", T, "sylow_lines"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
@@ -5306,6 +5655,9 @@ LEDGER_ROWS = [
     ("the coordinate bridge (hub, 12:04)", "y2 = M x5 with M^T M = (4/25) P; k_native = 2 k_glue; doubling census 40/10/45; angle patterns (6,8,6) and (4,12,4)", "replayed: layer 24's site/twin embedding is that bridge; joined (AGL(1,5) -> A4 + A4')", T, "23"),
     ("MODEL (11:36-12:07)", "yuga residues 2, 4, 1, 3; syntheme orbits 1, 2, 3, 3, 6; trace moments 15, 40, 200, 1240, 8840, 67480; the sixth cycle direction of square 30; S_even S_odd = 16/5", "replayed, with three corrections: the parity sums differ by (4/5) Curl, not J; S_even = (16/5) S_odd^-1, not 5/16; the yuga doubling is a residue-label action", T, "23"),
     ("the chain (MODEL, 12:24)", "Q: a -> a + d to q(a + 2d) - q(a + 4d); m: ab -> 3(a + b); seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3); frames j -> j + 864 and j -> 3457 j", "replayed and joined (charges -> cycles, zero modes -> cycles, AGL(1,5) -> circle): Q^T Q = 5 P_A4 onto the moving cycles, the only AGL(1,5)-map up to scale; the midpoint kills only the near-minus-far line; the seed's rotates have strengths 25 phi^+-2; the frames carry AGL(1,5)", T, "23"),
+    ("the Agni-Soma commutator (hub, 12:29)", "F_AS(a, b) = upper([A(a), A(b)]); W_AS rank 6, kernel Lambda^3 A4; F_AS = L_out(Ra ^ Rb) - (2/5) C K_vertex [alpha(a) Rb - alpha(b) Ra]; at the witness ||F||^2 = 1392, F^T J_H F = 96 sqrt5, parity readings 2592 and 2976", "replayed and joined (source -> sound and light, source -> charges): the only S5-map up to scale, where F20 allows 4", T, "23"),
+    ("the source phase and the E8 pullback (hub, 12:29)", "Jacobian -64; native rank 9; eta_B = 144 at rate -256; Z1 = 424/3 + 200i, Z3 = -200 + 24i; six decoder determinants; channel weights 288/5, 32/5, 664 -+ (304/5) sqrt5; moments 1392, 334632, 80732784; variance form 1441112/5", "replayed and joined (source -> readout, source -> Golden port), with the hub's basis rebuilt as sympy's nullspace basis of M", T, "23"),
+    ("the six Sylow sign lines (MODEL, 12:59)", "six lines of square 10 and products -2, frame factor 12, Gram 12I - 2J on any five; cubic traces +-16; squared cosines 1, 1, 1, 7/15, 1/5", "replayed and joined (PGL(2,5) -> zero modes): ker M is the sign twist of PGL(2,5)'s 5; the cubic traces are matrix traces (edge by edge they are +-4)", T, "23"),
     ("the THEOREM diagram", "-", f"THEOREM maps alone join {len(DOTS) - 3} of the {len(DOTS)} dots, no one or two of them hold it together, and they join every pair of levels at least twice; the datum's regular S5-orbit and the time clock's actions on the roots (48 extended A4 pentagons), the zero modes (one per character) and the triple close the last cuts", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
@@ -5407,6 +5759,8 @@ def _checks():
         "word_sylow": word_sylow, "clock_root_address": clock_root_address, "coordinate_bridge": coordinate_bridge,
         "datum_orbit": datum_orbit, "witness_loop": witness_loop, "frame_affine": frame_affine,
         "tick_actions": tick_actions,
+        "agni_soma": agni_soma, "agni_factor": agni_factor, "agni_pullback": agni_pullback, "source_phase": source_phase,
+        "sylow_lines": sylow_lines,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -5799,6 +6153,26 @@ def run():
             "superseded) was read; its charge map, midpoint map, witness loop and frame group replay in the joins "
             "charges -> cycles, zero modes -> cycles and AGL(1,5) -> circle, and its yuga residues agree with the 11:44 "
             "correction (multiplying the residues by 2 runs 432, 864, 1728, 1296; doubling the lengths does not)", RP, True)
+    n59 = notes_1259()
+    rep.add("the 12:28-12:59 model and the hub's 12:29 text: the zero modes meet the cycles at squared cosines 1, 1, 1, "
+            "7/15 and 1/5; the orthogonal projection is injective but not equivariant, and all 1024 orientations keep it "
+            "injective (one F2 rank); F20 has 864 orbits of five frames, and its modules are 1 + A4, sign + A4 and a "
+            "rotation plane + A4; the witness lies in the separate model's certified intervals; the digit vectors have "
+            "Smith form 1, 2, 8; one correction stands (the parity sums differ by (4/5) Curl)", T, all(n59.values()), n59)
+    a59 = notes_1259_arithmetic()
+    rep.add("the 12:59 model's arithmetic: 2241 (j mod 160) + 2080 (j mod 27), 39490/3679, 853/1000, 8 sqrt 2 and 165/61",
+            gates.ARITHMETIC, all(a59.values()), a59)
+    rep.add("Drive check 12:59: the sibling's MODEL edition of 12:59 (those of 12:28-12:57, with the spine PDFs, are "
+            "superseded) and the hub's OES_Unified_Model_20261029.txt as revised at 12:29 were read; its exact zip "
+            "(935214 bytes) was not run. The separate model's atlas-witness update (12:25, 281544 bytes, 72 new exact or "
+            "certified check groups) and unified-reference update (12:41, 2620171 bytes, 142 new exact check groups, "
+            "replaying the hub's seven verifiers and their 330 assertions) were recorded from their receipts; the zips were "
+            "not run, and MODEL_UPDATE_CHECKPOINT.json (12:41) was not opened", RP, True)
+    rep.add("not replayed: the hub's agni_phase receipt (47 assertions) and its verifier; the nonlinear pair map's generic "
+            "Jacobian rank 6 away from the witness; the F20 adapter family's four-map basis and its coefficients "
+            "(-1/5, 3/5, 2/5, -2/5) (the Hom dimension 4 is checked); the deep word package's receivers of dimensions 9, 11, "
+            "13 and 17, which rest on the selected J7; and the sibling's source pair with edge-square 12 and vanishing "
+            "cubics, which the notes do not give", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

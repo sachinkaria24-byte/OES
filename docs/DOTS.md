@@ -268,10 +268,15 @@ flowchart TB
     time -->|"free pentagons"| rootgraph
     time -->|"one zero mode per character"| kerM
     time -->|"an automorphism of the triple"| triple
+    source -->|"the Agni-Soma light"| waves
+    source -->|"the F20 factorization"| charges
+    source -->|"the E8 pullback"| goldenport
+    source -->|"the phase quadratures"| readout
+    pgl -->|"the six Sylow sign lines"| kerM
     assignment -.->|"one root of every pair"| binding
 ```
 
-62 dots and 191 joins: 171 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 7 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+62 dots and 196 joins: 176 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 7 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
@@ -281,7 +286,7 @@ flowchart TB
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 10 | 9 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 9 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 13 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port | 19 | 13 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port | 20 | 16 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -291,11 +296,11 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 6 | 3 | 3 | 2 | 2 |
-| symmetry | 6 | - | 9 | 8 | 5 | 6 |
+| symmetry | 6 | - | 9 | 8 | 6 | 6 |
 | combinatorics | 3 | 9 | - | 4 | 11 | 7 |
 | lattice | 3 | 8 | 4 | - | 13 | 4 |
-| operator | 2 | 5 | 11 | 13 | - | 13 |
-| physics | 2 | 6 | 7 | 4 | 13 | - |
+| operator | 2 | 6 | 11 | 13 | - | 16 |
+| physics | 2 | 6 | 7 | 4 | 16 | - |
 
 ## Dots
 
@@ -558,6 +563,11 @@ The maps that join each pair of levels directly.
 | time clock | root graph | the time clock acts on the root graph through the tick g = r r', with no fixed root: the 240 roots fall in 48 five-cycles, each an extended A4 diagram (five roots summing to zero, products -1 around a pentagon, spanning an A4 root lattice), 24 in the order of g and 24 in the order of g^2, and each copy of A4 + A4' is 4 of them | THEOREM | `tick_actions` |
 | time clock | zero modes | through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line | THEOREM | `tick_actions` |
 | time clock | spectral triple | the tick commutes with D and gamma and permutes the 15 atoms freely, so the time clock acts on the triple by automorphisms; each of its five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other (tr(P_lambda U^j) = 0, -2, 2 on the eigenvalues 0, 3, 8) | THEOREM | `tick_actions` |
+| source | sound and light | the source pair's commutator F_AS(a, b) = upper([A(a), A(b)]) is a circulation: rank 6 on Lambda^2 ker M, onto light, with kernel Lambda^3 A4 = std x sign; up to scale it is the only S5-map (F20 alone allows 4), the SO(2) rotating the two copies keeps it, and at the hub's witness \|\|F\|\|^2 = 1392 and F^T J_H F = 96 sqrt5 (the hub, 12:29) | THEOREM | `agni_soma` |
+| source | five-site charges | the whole commutator is F_AS(a, b) = L_out(Ra ^ Rb) - (2/5) C K_vertex [alpha(a) Rb - alpha(b) Ra]: the midpoint R carries the source pair to the trace-free sites, the charge map C carries them to the cycles, alpha(a) = <h, a>/10 reads the near-minus-far line, and L_out = [-P_fix + 3D P_fix + 2 P_moving]/5 is invertible but not orthogonal (the hub, 12:29) | THEOREM | `agni_factor` |
+| source | Golden port | through the Golden root-site port the witness's commutator has channel weights 288/5, 32/5 and 664 -+ (304/5) sqrt5, moments 1392, 334632 and 80732784, and memory variance form 1441112/5, above 171 x 1392 (the hub, 12:29) | THEOREM | `agni_pullback` |
+| source | readout | the ten native readings (six commutator coordinates, four quadratic contrasts) miss the SO(2) phase (rank 9); the phasor Z1 = Tr[(A + iB)(A^2 + B^2)]/6 turns as e^-i theta and reads the phase back on each orbit, and six coordinates, two contrasts and Re Z1, Im Z1 are ten readings with nonzero Jacobian at the witness (the hub, 12:29) | THEOREM | `source_phase` |
+| PGL(2,5) | zero modes | each Sylow group's pentagon minus its pentagram is a zero mode of square 10; oriented, the six have products -2, sum to zero and frame ker M with factor 12, and S5 permutes them with signs through PGL(2,5), so ker M is the sign twist of PGL(2,5)'s 5; the triples' cubic traces are 16 and -16, ten each (the sibling's MODEL, 12:59) | THEOREM | `sylow_lines` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
 ## Not joined
