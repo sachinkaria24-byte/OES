@@ -1,4 +1,4 @@
-"""Layer 23. All dots joined, at every level (28-29 Oct 2026, Drive checks 22:08 to 00:51 UTC, the 00:35 relay and 01:30).
+"""Layer 23. All dots joined, at every level (28-29 Oct 2026, Drive checks 22:08 to 01:54 UTC, the 00:35 relay and 01:30).
 
 A dot is an object the model builds: a space with its operator, a lattice, a group, a circle, a port. A join is a map
 between two dots, built here and checked against the property that makes it that kind of map (an intertwiner, a
@@ -119,6 +119,19 @@ conditional heat coefficients (J10) and the Friedmann flow; the circle's time cl
 complement are the two PSL(2,5)-orbits of triangles on the projective line over F5, swapped by PGL(2,5), with links the
 pentagram and the pentagon at infinity; the four-cube's sixteen vertices are the sixteen cuts of K5 over F2; and the
 tick's 25 fixed momenta are critical points of the band, the minimum and 24 points of the A4 + A4 family at eps 250.
+
+At 01:54 the sibling's notes of 00:53-01:54 (SPECTRA to ORTHOGONAL_126) and its unified spine, the separate model's
+unified receipt and the hub's release K ("Canon K - All Dots Joined") were read. Two dots and six joins come from them.
+The root graph is a four-class association scheme: around each root the others sit in classes 56, 126, 56, 1 with the
+intersection matrix of ROOT_SPECTRUM, the Gram of the roots is 60 times the projector onto its eigenvalue-28 space, and
+the ordered pair sums give W_3 = tr A^2 and W_4 = 1260720 (Canon K). The 4-simplex on the five vertices carries the
+tick on every grade as copies of the five-clock's regular representation. On the eight golden edge directions
+-(T + T^-1) satisfies the golden equation, so the golden companion acts there. Also replayed: the orthogonal 126 roots
+are E7, with frame 36 P = 2 h(E7) P; the frame's six-point faces each lie in exactly two maximal 9-cliques; Canon K's
+carry clock 4320 = 36 x 120 does not split. Three corrections go back to the sibling: the circle's subgroups of orders
+120, 60, 30 and 10 all contain the ticks (GOLDEN_GRAVITY said none did); the 4 in 183 + 6 x (56 - 4) is the face's four
+other sites, not the cut rank (CUMULANT_183); and the 256 subset products of HESSIAN_RECOMPUTE have distinct square-free
+parts but are not themselves square-free.
 """
 
 import functools
@@ -129,6 +142,7 @@ from math import gcd
 
 import numpy as np
 import sympy as sp
+from sympy.combinatorics import Permutation
 
 from . import (binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover, ledger, literal,
                native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
@@ -1677,6 +1691,216 @@ def splits_corrections():
     }
 
 
+# ------------------------------------------------------------------- the 00:53-01:54 notes and release K
+
+def root_scheme():
+    """ROOT_SPECTRUM, GRAM_28, ORTHOGONAL_126 and Canon K: the root graph is an association scheme."""
+    R = glue.roots()
+    ip = np.rint(R @ R.T).astype(int)
+    A, Mn, P = ((ip == v).astype(float) for v in (1, -1, -2))
+    order = [2, 1, 0, -1, -2]
+    cls = {v: np.nonzero(ip[0] == v)[0] for v in order}
+    Bm = np.array([[int(A[cls[a][0], cls[b]].sum()) for b in order] for a in order])
+    w, V = np.linalg.eigh(A)
+    P28 = V[:, np.isclose(w, 28)] @ V[:, np.isclose(w, 28)].T
+    orth = R[ip[0] == 0]
+    orth_keys = {tuple(np.rint(2 * r).astype(int)) for r in orth}
+    sums = Counter(map(tuple, np.rint(2 * (R[:, None, :] + R[None, :, :])).reshape(-1, 8).astype(int).tolist()))
+    classes = Counter((sum(v * v for v in x) // 4, c) for x, c in sums.items())
+    wrong = {56: 1, 8: 35, -4: 84, -2: 120}
+    return {
+        "from any root the other 239 lie at inner products 1, 0, -1, -2 in classes 56, 126, 56, 1, and the neighbour counts "
+        "between classes are constant, with the intersection matrix of ROOT_SPECTRUM; its eigenvalues are 56, 28, 8, -2, "
+        "-4": [len(cls[v]) for v in order] == [1, 56, 126, 56, 1]
+        and all(len({int(A[i, cls[b]].sum()) for i in cls[a]}) == 1 for a in order for b in order)
+        and Bm.tolist() == [[0, 56, 0, 0, 0], [1, 27, 27, 1, 0], [0, 12, 32, 12, 0], [0, 1, 27, 27, 1], [0, 0, 0, 56, 0]]
+        and np.allclose(sorted(np.linalg.eigvals(Bm).real), [-4, -2, 8, 28, 56]),
+        "the 240 x 240 Gram 2I + A - M - 2P is 60 times the projector onto the eigenvalue-28 space (GRAM_28): eigenvalue 28 "
+        "is the coordinate space": np.allclose(2 * np.eye(240) + A - Mn - 2 * P, R @ R.T) and np.allclose(R @ R.T, 60 * P28),
+        "the 126 roots orthogonal to a root are closed under their reflections, of rank 7: the E7 roots, with frame 36 P = "
+        "2 h(E7) P, h(E7) = 126 / 7 = 18 (ORTHOGONAL_126's 4320 / 240 = 18 is the same integer)": len(orth) == 126
+        and all(tuple(np.rint(2 * (b - (a @ b) * a)).astype(int)) in orth_keys for a in orth for b in orth)
+        and np.linalg.matrix_rank(orth) == 7 and np.allclose(orth.T @ orth, 36 * (np.eye(8) - np.outer(R[0], R[0]) / 2)),
+        "ordered pair sums r + s fall in classes (norm^2, count, multiplicity) (0, 1, 240), (2, 240, 56), (4, 2160, 14), "
+        "(6, 6720, 2), (8, 240, 1), so W_3 = tr A^2 = 240 x 56 = 13440 and W_4 = sum of squared multiplicities = 1260720 "
+        "(Canon K)": sorted(classes.items()) == [((0, 240), 1), ((2, 56), 240), ((4, 14), 2160), ((6, 2), 6720), ((8, 1), 240)]
+        and int(round(np.trace(A @ A))) == 13440 and sum(c * c for c in sums.values()) == 1260720,
+        "the separate script's list 56, 8^35, (-4)^84, (-2)^120 has trace -240 and power sums over 240 of 1, -1, 30, 780, "
+        "41672 (MASTER_LEDGER, SPECTRA): it put the eight coordinate directions on -2": [
+            sum(m * v ** n for v, m in wrong.items()) // 240 for n in range(5)] == [1, -1, 30, 780, 41672],
+    }
+
+
+def frame_cliques():
+    """INDEX_VECTOR and SIBLING_AGREEMENT: the frame's index vector, and two maximal cliques through each face."""
+    e = lambda i: np.eye(8)[i]
+    F = np.array([-e(0) - e(i) for i in range(1, 8)] + [-0.5 * np.ones(8)])
+    R = glue.roots()
+    half = {tuple(np.rint(2 * r).astype(int)) for r in R}
+    key = lambda v: tuple(np.rint(2 * v).astype(int))
+    q = F.sum(axis=0) / 3
+
+    def common(points):
+        out = None
+        for p in points:
+            nb = {tuple(a + b for a, b in zip(key(p), r)) for r in half}
+            out = nb if out is None else out & nb
+        return out - {key(p) for p in points}
+    adjacent = lambda x, y: tuple(a - b for a, b in zip(x, y)) in half
+    frame = {key(p) for p in F}
+    faces = [[np.zeros(8)] + [F[i] for i in S] for S in itertools.combinations(range(8), 5)]
+
+    def prism(face):
+        c = common(face)
+        inside, outside = c & frame, c - frame
+        matched = [[y for y in inside if adjacent(x, y)] for x in outside]
+        return (len(inside) == len(outside) == 3 and all(adjacent(x, y) for x, y in itertools.combinations(outside, 2))
+                and all(len(m) == 1 for m in matched) and len({m[0] for m in matched}) == 3)
+    return {
+        "the eight frame roots sum to 3q with q a lattice vector of squared length 8, and q meets the 240 roots in -3..3 "
+        "with class sizes 8, 28, 56, 56, 56, 28, 8 (INDEX_VECTOR)": np.isclose(q @ q, 8)
+        and sorted(Counter(int(round(v)) for v in R @ q).items()) == [(-3, 8), (-2, 28), (-1, 56), (0, 56), (1, 56), (2, 28), (3, 8)],
+        "each six-point face (the origin and five frame roots) has six common neighbours forming a triangular prism: the "
+        "frame's other three, three outside points that complete the face to a second 9-clique, and a perfect matching "
+        "between them. So 'three extensions' holds for each clique, and every face lies in exactly two maximal cliques":
+            all(prism(f) for f in faces),
+        "two adjacent sites of a face have 56 common neighbours, four of them the face's other sites: 52 outside, so in "
+        "183 + 6 x (56 - 4) = 495 the 4 is the face's four other sites, not the cut rank (CUMULANT_183)": all(
+            len(common(f[a:a + 1] + f[b:b + 1])) == 56 and len(common(f[a:a + 1] + f[b:b + 1]) & {key(p) for p in f}) == 4
+            for f in faces[:4] for a, b in itertools.combinations(range(6), 2)) and 183 + 6 * (56 - 4) == 495,
+    }
+
+
+def simplex_grades():
+    """TRIANGLES, TETRAHEDRA, ALL_GRADES and FIVE_CLOCK_COPIES: the 4-simplex and the tick on every grade."""
+    faces = {k: list(itertools.combinations(range(5), k + 1)) for k in range(5)}
+
+    def boundary(k):
+        M = sp.zeros(len(faces[k - 1]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            for i in range(len(f)):
+                M[faces[k - 1].index(f[:i] + f[i + 1:]), j] += (-1) ** i
+        return M
+
+    def turn(k):
+        M = sp.zeros(len(faces[k]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            g = [(v + 1) % 5 for v in f]
+            M[faces[k].index(tuple(sorted(g))), j] = Permutation(sorted(range(len(g)), key=lambda t: g[t])).signature()
+        return M
+    x = sp.symbols("x")
+    phi5 = x ** 4 + x ** 3 + x ** 2 + x + 1
+    expected = [(x - 1) * phi5, ((x - 1) * phi5) ** 2, ((x - 1) * phi5) ** 2, (x - 1) * phi5, x - 1]
+    orbits = lambda k: len({frozenset(tuple(sorted((v + s) % 5 for v in f)) for s in range(5)) for f in faces[k]})
+    return {
+        "the 4-simplex's boundaries from edges, triangles, tetrahedra and the body have ranks 4, 6, 4, 1, each composition "
+        "is zero, and the only homology is the point: the triangles fill the cycles, Euler characteristic 1":
+            [boundary(k).rank() for k in range(1, 5)] == [4, 6, 4, 1]
+            and all((boundary(k) * boundary(k + 1)).is_zero_matrix for k in range(1, 4)) and 5 - 10 + 10 - 5 + 1 == 1,
+        "the signed rotation commutes with every boundary and has polynomial (x - 1) Phi_5 on vertices and tetrahedra, "
+        "(x - 1)^2 Phi_5^2 on edges and triangles, x - 1 on the body: the orbits 1, 2, 2, 1, 1 are copies of the "
+        "five-clock's regular representation (ALL_GRADES, FIVE_CLOCK_COPIES)": all(
+            turn(k - 1) * boundary(k) == boundary(k) * turn(k) for k in range(1, 5))
+        and all(sp.expand(turn(k).charpoly(x).as_expr() - expected[k]) == 0 for k in range(5))
+        and [orbits(k) for k in range(5)] == [1, 2, 2, 1, 1],
+        "the 31 nonempty faces are Phi_5(2) = 2^5 - 1; the 63 nonempty subsets of a five-cycle and an anchor make 15 "
+        "orbits (3 fixed, 12 of five); a subset's polynomial is divisible by Phi_5 only for the empty and full set, so "
+        "every proper nonempty subset meets both golden planes (SUPPORT15, SUPPORT_FACES)": phi5.subs(x, 2) == 2 ** 5 - 1 == 31
+        and len({frozenset(frozenset((v + s) % 5 if v < 5 else 5 for v in S) for s in range(5))
+                 for n in range(1, 7) for S in itertools.combinations(range(6), n)}) == 15
+        and [S for n in range(6) for S in itertools.combinations(range(5), n)
+             if sp.rem(sum((x ** v for v in S), sp.Integer(0)), phi5, x) == 0] == [(), (0, 1, 2, 3, 4)],
+    }
+
+
+def golden_split():
+    """TICK_SPLIT, GOLDEN_EIGENSPACES and GOLDEN_MATCH: Phi_5 splits over the golden field, and B acts on the edges."""
+    T = np.array(compound2(sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))), float)
+    pentagon, pentagram = (np.array(counts._oriented_cycle(k), float).ravel() for k in (1, 2))
+    average = sum(np.linalg.matrix_power(T, k) for k in range(5)) / 5
+    S = T + T.T
+    w, V = np.linalg.eigh(S)
+    B = np.array(carrier.signed_incidence(), float)
+    cuts = B.T @ B / 5
+    golden = np.eye(10) - average
+    X = -S @ golden
+    x, phi = sp.symbols("x"), (1 + sp.sqrt(5)) / 2
+    split = lambda lam: (lambda Vl: (Vl.shape[1], round(np.trace(Vl.T @ (np.eye(10) - cuts) @ Vl)),
+                                     round(np.trace(Vl.T @ cuts @ Vl))))(V[:, np.isclose(w, lam)])
+    return {
+        "the tick's fixed space is spanned by the oriented pentagon and pentagram, orthogonal, of squared length 5, and the "
+        "average of its five powers is the sum of their rank-one projectors; rank(T - I) = 8 (TICK_SPLIT)":
+            np.linalg.matrix_rank(T - np.eye(10)) == 8 and np.isclose(pentagon @ pentagram, 0)
+            and np.isclose(pentagon @ pentagon, 5) and np.isclose(pentagram @ pentagram, 5)
+            and np.allclose(average, (np.outer(pentagon, pentagon) + np.outer(pentagram, pentagram)) / 5),
+        "T + T^-1 has eigenvalues 2 (the two fixed cycles), 2 cos 72 = (sqrt5 - 1)/2 and 2 cos 144 = -(sqrt5 + 1)/2, four "
+        "each, and each golden space is two cycle and two cut directions (GOLDEN_EIGENSPACES)": Counter(
+            np.round(w, 9).tolist()) == Counter({2.0: 2, round((5 ** 0.5 - 1) / 2, 9): 4, round(-(5 ** 0.5 + 1) / 2, 9): 4})
+        and split((5 ** 0.5 - 1) / 2) == split(-(5 ** 0.5 + 1) / 2) == (4, 2, 2),
+        "on the eight golden directions X = -(T + T^-1) satisfies X^2 = X + I, the golden companion's equation, so "
+        "B -> -(T + T^-1) represents Z[B] there; Phi_5 = (x^2 + phi x + 1)(x^2 + (1 - phi) x + 1), whose linear "
+        "coefficients are the eigenvalues of B (GOLDEN_MATCH)": np.allclose(X @ X, X + golden)
+        and sp.expand((x ** 2 + phi * x + 1) * (x ** 2 + (1 - phi) * x + 1)) == sp.expand(sum(x ** k for k in range(5)))
+        and set(sp.Matrix([[1, 1], [1, 0]]).eigenvals()) == {phi, 1 - phi},
+        "a cycle readout's unseen part is the cut space, which the tick keeps, so the visible quotient carries its own step "
+        "and recovers 10 - 4 = 6 directions (OBSERVABLE; Canon K's descent criterion)": np.allclose(T @ cuts, cuts @ T)
+        and np.linalg.matrix_rank(cuts) == 4,
+    }
+
+
+def notes_0154():
+    """The 00:53-01:54 notes and release K: arithmetic, the separate model's corrections and four of our own."""
+    x, u = sp.symbols("x u")
+    phi5 = x ** 4 + x ** 3 + x ** 2 + x + 1
+    chern = sp.Poly(sp.expand((1 + u) ** 5), u).all_coeffs()[::-1]
+    rng = np.random.default_rng(154)
+    unit = lambda: (lambda z: z / np.linalg.norm(z))(rng.standard_normal(3) + 1j * rng.standard_normal(3))
+    bargmann = max(abs(np.vdot(a, b) * np.vdot(b, c) * np.vdot(c, a)) for a, b, c in ((unit(), unit(), unit()) for _ in range(500)))
+    B = sp.Matrix([[1, 1], [1, 0]])
+    carry = lambda p, q: ((p[0] + q[0]) % 36, (p[1] + q[1] + (p[0] + q[0]) // 36) % 120)
+    coords = lambda j: (j % 36, j // 36)
+    picks = [(int(a), int(b)) for a, b in rng.integers(0, N, (200, 2))]
+    exps = [sp.factorint(n) for n in (3, 7, 14, 10, 62, 51, 161, 251)]
+    primes = sorted({p for e in exps for p in e})
+    E2 = [[e.get(p, 0) % 2 for p in primes] for e in exps]
+    products = [sp.prod([n for n, b in zip((3, 7, 14, 10, 62, 51, 161, 251), bits) if b])
+                for bits in itertools.product((0, 1), repeat=8)]
+    free = lambda n: sp.prod([p for p, k in sp.factorint(n).items() if k % 2])
+    return {
+        "GOLDEN_GRAVITY corrected: the circle's subgroups of orders 120, 60, 30 and 10 are <36>, <72>, <144> and <432>, and "
+        "each contains the ticks, since 5 divides its order (the order-5 subgroup is unique, and 864 = 2 x 432)": all(
+            spine.subgroup(TICK) <= spine.subgroup(N // d) for d in (120, 60, 30, 10)),
+        "the separate model's corrections replayed: c(CP4) = (1 + u)^5 with u^5 = 0, so the formal sixth coefficient "
+        "vanishes and p1 = c1^2 - 2 c2 = 5u^2; a rank-9 map is excluded only into a parallelizable target such as the "
+        "Hermitian 3 x 3 matrices; the full edge polynomial is 0 at 1 and 961 at 2, the cycle polynomial 0 and 31":
+            chern == [1, 5, 10, 10, 5, 1] and chern[1] ** 2 - 2 * chern[2] == 5
+            and [((x - 1) ** 2 * phi5 ** 2).subs(x, v) for v in (1, 2)] == [0, 961]
+            and [((x - 1) ** 2 * phi5).subs(x, v) for v in (1, 2)] == [0, 31],
+        "the hub's conflicts replayed: three rank-one projections have |Tr P1 P2 P3| <= 1 < |1 + i|; t^6 - 1 is not "
+        "(t^5 - 1)(t - 1); over Q, B^19 = 4181 B + 2584 I is not B^-1 = B - I, while mod 5 it is": bargmann <= 1 + 1e-12
+        and abs(1 + 1j) > 1 and sp.expand(x ** 6 - 1 - (x ** 5 - 1) * (x - 1)) != 0
+        and B ** 19 == 4181 * B + 2584 * sp.eye(2) and B ** 19 != B.inv() and B.inv() == B - sp.eye(2)
+        and (B ** 19 - B.inv()).applyfunc(lambda e: e % 5).is_zero_matrix,
+        "Canon K's carry clock: j = a + 36 b adds with the carry floor((a + a') / 36), the extension of Z/36 by <36> does "
+        "not split (Z/36 x Z/120 has largest order 360), and the moon 120 has order 36 but image 12 of order 3, while the "
+        "sun 1440 maps to 0": all(carry(coords(a), coords(b)) == coords((a + b) % N) for a, b in picks)
+        and sp.ilcm(36, 120) == 360 and spine.order(120) == 36 and 120 % 36 == 12 and 36 // gcd(12, 36) == 3 and 1440 % 36 == 0,
+        "SEVEN_TWENTY: an element of order 5 splits 360 points into 72 five-cycles and the ten edges into two, so the "
+        "equivariant maps form a space of dimension 72 x 2 x 5 = 720, and clock matching does not pick one":
+            360 // 5 == 72 and 72 * 2 * 5 == 720,
+        "HESSIAN_RECOMPUTE's certificate, corrected: the prime-exponent matrix of 3, 7, 14, 10, 62, 51, 161, 251 is "
+        "invertible over F2, so the 256 subset products have distinct square-free parts, which is what independence needs; "
+        "the products are not all square-free (7 x 14 = 98 = 2 x 7^2; 196 of 256 are not). The parts are the census's 161 "
+        "and 51, now used by the sibling too": spacetime.rank_mod_p(E2, 2) == 8 and len(primes) == 8
+        and len({free(n) for n in products}) == 256 and 7 * 14 == 98 == 2 * 7 ** 2
+        and sum(1 for n in products if n > 1 and free(n) != n) == 196,
+        "the spine's arithmetic: 36 x 360 = 12960 coordinates, 192 - 9 = 183 flat directions, 100 + 19 + 50 = 169 = 13^2, "
+        "the quadratic with discriminant 120 has roots 6 +- sqrt30, and (sqrt5 - 1)/2 + (sqrt5 + 1)/2 = sqrt5":
+            36 * 360 == 12960 and 192 - 9 == 183 and 100 + 19 + 50 == 169 == 13 ** 2
+            and set(sp.solve(x ** 2 - 12 * x + 6, x)) == {6 - sp.sqrt(30), 6 + sp.sqrt(30)} and 12 ** 2 - 4 * 6 == 120,
+    }
+
+
 # ------------------------------------------------------------------- every layer, every level
 
 def projective_line():
@@ -2050,6 +2274,8 @@ DOTS = {
     "census": ("critical census", "the band's 11 critical families on the alcove, 243600 points", "16"),
     "waves": ("sound and light", "the K5 edge Hodge complex: sound im d0, light ker d0^T, Curl = *d1", "17"),
     "torus": ("nine-torus", "T^9 of the nine positive critical frequencies, with a dense flow", "18"),
+    "rootgraph": ("root graph", "the 240 roots, adjacent at inner product 1: a four-class association scheme", "3, 22, 23"),
+    "simplex": ("4-simplex", "the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade", "17, 23"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -2057,8 +2283,10 @@ LEVELS = [
     ("number", "the circle and its clocks",
      ["circle", "time", "observer", "c27", "atlas", "coil", "grain", "vortex", "miss", "stages"]),
     ("symmetry", "groups, their actions and modules", ["clocks", "G120", "AGL", "S5", "pgl", "golden", "hodge"]),
-    ("combinatorics", "graphs, complexes and the cube", ["V", "E", "cycles", "rotor", "petersen", "cube", "surface"]),
-    ("lattice", "roots, lattices and tori", ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus"]),
+    ("combinatorics", "graphs, complexes and the cube",
+     ["V", "E", "cycles", "rotor", "petersen", "cube", "surface", "simplex"]),
+    ("lattice", "roots, lattices and tori",
+     ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph"]),
     ("operator", "spaces with operators, ports and moments",
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
       "pauli", "gksl"]),
@@ -2173,6 +2401,12 @@ JOINS = [
     ("circle", "calibration", "no internal clock", "calibrations tau and 2 tau give identical native records, so no internal number, the circle's ticks included, binds physical time", OB, "calibration"),
     ("triple", "gravity", "heat coefficients", "Tr D^0, D^2, D^4 = 15, 40, 200 give the M4 x F heat coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3; G and Lambda_cc need f, L and m (J10)", gates.CONDITIONAL, "product_geometry"),
     ("gravity", "cosmology", "G and Lambda_cc", "the spectral action's G and Lambda_cc drive a flat FLRW flow; the Friedmann constraint holds, and the kernel sector, the datum's 2, scales exactly as a^-6", gates.CONDITIONAL, "friedmann"),
+    ("E8", "rootgraph", "inner product 1", "the 240 roots with an edge at inner product 1: classes 1, 56, 126, 56, 1 around each root, an association scheme with eigenvalues 56, 28, 8, -2, -4", T, "root_scheme"),
+    ("rootgraph", "walks", "pair sums", "W_3 = tr A^2 = 240 x 56, and W_4 = 1260720 is the sum of the squared pair-sum multiplicities (Canon K)", T, "root_scheme"),
+    ("rootgraph", "frame", "eigenvalue 28", "the roots' Gram is 60 times the projector onto the eigenvalue-28 space, the coordinate space that the eight frame roots span", T, "root_scheme"),
+    ("E", "simplex", "grade 2", "the ten edges are grade 2 of the 4-simplex; its boundaries have ranks 4, 6, 4, 1, the triangles fill the cycles, and the only homology is the point", T, "simplex_grades"),
+    ("time", "simplex", "the tick on every grade", "the vertex rotation acts on every grade by copies of the five-clock's regular representation: (x - 1) Phi_5, then (x - 1)^2 Phi_5^2 twice, (x - 1) Phi_5 and x - 1", T, "simplex_grades"),
+    ("golden", "E", "B -> -(T + T^-1)", "on the eight golden edge directions -(T + T^-1) satisfies the golden equation X^2 = X + I, so the golden companion acts there; Phi_5 splits over the golden field", T, "golden_split"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -2241,6 +2475,15 @@ LEDGER_ROWS = [
     ("the literal operands (layer 10)", "SHA-256 73e07429...; W_p exact; the adapters differ by a commutant element", "joined to the source by U, a W_p-isometry commuting with the C5 rotation", T, "10, 23"),
     ("the spectral measures (layer 15)", "M_0..M_50; Gauss and Lobatto envelopes", "joined to the moments by the Hausdorff test on [0, 256]", T, "15, 23"),
     ("the golden clock", "B mod 5 and v in W(E8), both of order 20", "joined by B^k -> v^k with B^4 -> the tick: a selected isomorphism of two cyclic groups", SR, "23"),
+    ("the root graph (ROOT_SPECTRUM, GRAM_28, ORTHOGONAL_126, Canon K)", "classes 56, 126, 56, 1; intersection matrix; Gram = 60 P_28; W_3 and W_4 from pair sums", "replayed and joined: an association scheme with eigenvalues 56, 28, 8, -2, -4; the orthogonal 126 are E7, frame 36 P = 2 h(E7) P; W_4 = sum of squared pair-sum multiplicities", T, "23"),
+    ("the 4-simplex (TRIANGLES, TETRAHEDRA, ALL_GRADES, FIVE_CLOCK_COPIES)", "ranks 4, 6, 4, 1; the rotation's polynomial on every grade", "replayed and joined: every grade is copies of the five-clock's regular representation, and the body is fixed", T, "23"),
+    ("the tick split (TICK_SPLIT, GOLDEN_EIGENSPACES, GOLDEN_MATCH)", "pentagon and pentagram fixed; golden spaces 4 + 4, each 2 cycles + 2 cuts", "replayed; joined to the golden companion: -(T + T^-1) satisfies X^2 = X + I on the golden part", T, "23"),
+    ("the frame's faces (INDEX_VECTOR, SIBLING_AGREEMENT)", "index vector classes 8, 28, 56, 56, 56, 28, 8; a face has three extensions", "replayed: each face has six common neighbours, a triangular prism, and lies in exactly two maximal 9-cliques", T, "23"),
+    ("the monopole chain (GOLDEN_GRAVITY)", "no subgroup of order 120, 60, 30 or 10 contains a nonzero tick", "corrected: on the circle each of them contains the ticks, since 5 divides its order", T, "23"),
+    ("the cumulant 495 (CUMULANT_183)", "183 + 6 x (56 - 4) with 4 the cut rank", "corrected reading: the 4 is the face's other four sites (56 common neighbours per pair, four inside)", T, "23"),
+    ("the square-free certificate (HESSIAN_RECOMPUTE)", "the 256 subset products are distinct and square-free", "corrected: their square-free parts are distinct (the exponent matrix is invertible over F2), which is what independence needs; 196 products are not square-free", T, "23"),
+    ("release K (hub, cutoff 01:06; Canon K, 01:49)", "71 Grand All Dots assertions; carry clock 36 x 120; observability descent; root-pair proof", "the bridges are replayed; the 71 assertions, the evidence package and the four workbook copies are recorded, not rerun", RP, "23"),
+    ("the separate model's unified build (01:28)", "104 new check groups; three source corrections (CHERN_SPLIT twice, SPECTRA)", "the corrections are replayed; the build is not opened", RP, "23"),
     ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
@@ -2266,8 +2509,9 @@ NOT_JOINED = [
                                                "which is not stored here", RP),
     ("the separate model's relations overlay (23:50)", "197642 bytes, 73 check groups, 32 matrix outputs; not opened or "
                                                        "rerun; its five source corrections are replayed", RP),
-    ("modules 8-11, unreplayed parts", "the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel "
-                                       "realization and the [9, 3, 7] code over F11 need operands not stored here", RP),
+    ("modules 8-11, unreplayed parts", "the two-channel C and W, the Hankel realization and the [9, 3, 7] code over "
+                                       "F11 need operands not stored here; the Bargmann projectors cannot be unit rank-one "
+                                       "projections, since then |Tr P1 P2 P3| <= 1 < |1 + i| (the hub's review, replayed)", RP),
     ("the separate model's splits update (00:49)", "413793 bytes; 90 new check groups (grain 43, towers 17, module "
                                                    "relations 27, API 3) and 47 review groups; not opened or rerun; its "
                                                    "five source corrections are replayed", RP),
@@ -2276,6 +2520,12 @@ NOT_JOINED = [
                                    "cycle Gram (125 = 5^3), and no map is built", gates.ARITHMETIC),
     ("the [9, 3, 7] code over F11 (layer 15)", "MDS and 3-error-correcting; nothing identifies it with H90 or with any "
                                                "dot", gates.UNFORMED),
+    ("the separate model's unified build (01:25)", "43752185 bytes, 286 payloads, 104 new check groups (root graph 50, "
+                                                   "simplex 26, K operators 20, API 8); not opened or rerun; its three "
+                                                   "source corrections are replayed", RP),
+    ("the hub's release-K packages (01:13, 01:53)", "OES_Canon_K_Evidence and OES_Canon_K_All_Dots_Exact (a Python verifier "
+                                                    "and a JSON receipt): not downloaded and not run; their stated bridges "
+                                                    "are replayed from the Google Doc", RP),
     ("air", "no air operator is stored, and none is formed", gates.UNFORMED),
 ]
 
@@ -2305,7 +2555,8 @@ def _checks():
         "census": census, "critical_momenta": critical_momenta, "nine_torus": nine_torus, "census_walks": census_walks,
         "literal_port": literal_port, "measure": measure, "triple": triple, "readout": readout,
         "sound_light": sound_light, "binding_joins": binding_joins, "calibration": calibration,
-        "product_geometry": product_geometry, "friedmann": friedmann,
+        "product_geometry": product_geometry, "friedmann": friedmann, "root_scheme": root_scheme,
+        "simplex_grades": simplex_grades, "golden_split": golden_split,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -2536,6 +2787,26 @@ def run():
     rep.add("Drive check 00:51: the sibling's notes FOUR_ITEMS, REPAIR_AUDIT, PASS2, MASTER_LEDGER, DEEP36_LOOP, JOIN_ALL, "
             "CYCLE_TICK, CUT_TICK, TOWERS and FROZEN_CLOCKS (00:36-00:51); the separate model's splits update and its "
             "verification receipt (00:49; only the receipt was read); its checkpoint (00:51) was not read", RP, True)
+    for fn, text in (
+            (frame_cliques, "INDEX_VECTOR and SIBLING_AGREEMENT: the frame's index vector meets the roots in classes 8, 28, "
+             "56, 56, 56, 28, 8; each six-point face has six common neighbours, a triangular prism, so it lies in exactly "
+             "two maximal 9-cliques; in 495 = 183 + 6 x (56 - 4) the 4 is the face's other four sites, not the cut rank"),
+            (notes_0154, "the 00:53-01:54 notes and release K: GOLDEN_GRAVITY corrected (the circle's subgroups of orders "
+             "120, 60, 30, 10 all contain the ticks); HESSIAN_RECOMPUTE corrected (the 256 products have distinct "
+             "square-free parts but are not all square-free); the separate model's three corrections, the hub's three "
+             "conflicts and Canon K's carry clock replayed")):
+        out = fn()
+        rep.add(text, T, all(out.values()), out)
+    rep.add("Drive check 01:54: the sibling's notes of 00:53-01:54, from SPECTRA to ORTHOGONAL_126, its unified spine "
+            "(SPINE_20261029 at 01:19, superseding the 01:08 edition; the PDF was not opened) and tick_projectors_20261029.json "
+            "(its pentagon and pentagram are this layer's oriented cycles); the separate model's unified build and receipt "
+            "(01:25-01:28; only the receipt was read: 104 new check groups and three source corrections, replayed); the hub's "
+            "release K (cutoff 01:06) with CURRENT_STATUS, CURRENT_RELEASE, 00_START_HERE and the Google Doc 'OES CANON K - "
+            "All Dots Joined' (01:49), whose bridges are replayed; the canon integrator's claim (four workbook copies saved, "
+            "3715 and 3670 sheets, every prior cell kept, no gate changed)", RP, True)
+    rep.add("the sibling's HEMI_ICOSAHEDRON (01:37) and FIXED_CYCLES (01:42) state independently what layer 23 joined at "
+            "01:30: the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5), with links the pentagon and the pentagram, and "
+            "the tick's fixed cycles; its CHECKPOINT_0051 (01:31) reviews this layer's 00:51 checkpoint and agrees", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

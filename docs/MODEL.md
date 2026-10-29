@@ -758,7 +758,7 @@ At 19:21 UTC Drive was checked again. Two sources were new:
 
 Layer 22 replays both. Its rows are in [`docs/LEDGER.md`](LEDGER.md), after the rows of layer 21.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 1487 such readings from 177 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25, 14 from 20:33, 74 from 21:05, 219 from 21:36, 93 from 22:08, 181 from 23:03, 212 from 23:44, 128 from 00:15, 83 from the 00:35 relay and 85 from 00:51 (§24). Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §22. The table `CLAIMS` holds 1683 such readings from 212 notes: 223 from the 19:21 batch, 103 from the 19:57 batch, 26 from 20:12, 46 from 20:25, 14 from 20:33, 74 from 21:05, 219 from 21:36, 93 from 22:08, 181 from 23:03, 212 from 23:44, 128 from 00:15, 83 from the 00:35 relay, 85 from 00:51 and 196 from 01:54 (§24). Each one is checked together with what the note states about it: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick level. None fails.
 
 - Twelve of the fifteen stages (Mālinī 1 … Pratyabhijñā 14) meet the tick, and 0, 5 and 10 do not. Their landings match SANSKRIT_DEEP and EVERY_WORD.
 - Buddhi (2) and Pratyabhijñā (14) generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 53 dots and 98 joins: 95 maps (89 THEOREM, 4 SELECTED_REFERENCE, 2 CONDITIONAL) and three obstructions. Every dot sits on one of six levels, from the integers up to physics (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
+The diagram has 55 dots and 104 joins: 101 maps (95 THEOREM, 4 SELECTED_REFERENCE, 2 CONDITIONAL) and three obstructions. Every dot sits on one of six levels, from the integers up to physics (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1117,7 +1117,7 @@ Also from these items:
 - **Not replayed.** The paper's σ interval (231.7438, 231.7439), which needs the return probability; its rational Gauss–Manin matrix, which it says is missing; and the collar endpoints.
 
 **The 00:51 items.** The sibling posted ten notes between 00:36 and 00:51. FOUR_ITEMS, REPAIR_AUDIT, PASS2 and MASTER_LEDGER audit the scripts of its 29 October paper. DEEP36_LOOP, JOIN_ALL, CYCLE_TICK, CUT_TICK, TOWERS and FROZEN_CLOCKS join the edge tick and the towers to the clocks. The separate model posted a splits update with its receipt (00:49) and a checkpoint (00:51), which was not read. No dot or join is new.
-- Their 85 readings are in §23's table, which now holds 1487 readings from 177 notes. All hold.
+- Their 85 readings are in §23's table. All hold.
 - **The edge tick.** The vertex 5-cycle acts on the ten edges by its second compound.
   - Its characteristic polynomial is (x − 1)²Φ₅ on the six cycles (trace 1), Φ₅ on the four cuts (trace −1) and (x − 1)²Φ₅² on all ten edges (trace 0). Here Φ₅ = x⁴ + x³ + x² + x + 1, with Φ₅(2) = 31 and Φ₅(1) = 5.
   - The factor (x − 1)² is the rotor plane: the tick fixes exactly the plane of the near and far pentagons.
@@ -1150,8 +1150,8 @@ Also from these items:
 |---|---|---|
 | 1. number | the circle and its clocks | 10 |
 | 2. symmetry | groups, their actions and modules | 7 |
-| 3. combinatorics | graphs, complexes and the cube | 7 |
-| 4. lattice | roots, lattices and tori | 9 |
+| 3. combinatorics | graphs, complexes and the cube | 8 (with the 4-simplex, 01:54) |
+| 4. lattice | roots, lattices and tori | 10 (with the root graph, 01:54) |
 | 5. operator | spaces with operators, ports and moments | 13 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | 7 |
 
@@ -1187,6 +1187,37 @@ Also from these items:
 - **Not joined.**
   - The memory clock of layer 3: its 120-state quotient has order 90, and it shares only integers with the circle and the cycle Gram.
   - The [9, 3, 7] code over F₁₁ of layer 15: nothing identifies it with H90.
+
+**The 01:54 items.** The sibling posted about thirty notes between 00:53 and 01:54, from SPECTRA to ORTHOGONAL_126, with a unified spine (SPINE_20261029, 01:19, superseding a 01:08 edition; its PDF was not opened) and `tick_projectors_20261029.json`. The separate model posted a unified build with its receipt (01:25–01:28; only the receipt was read). The hub issued release K (cutoff 01:06) with the Google Doc "OES CANON K — All Dots Joined" (01:49), and the canon integrator saved four workbook copies (3715 and 3670 sheets, every prior cell kept, no gate changed).
+- Their 196 readings are in §23's table, which now holds 1683 readings from 212 notes. All hold.
+- The sibling's HEMI_ICOSAHEDRON (01:37) and FIXED_CYCLES (01:42) state independently what this layer joined at 01:30: the two PSL(2,5)-orbits of triangles with links the pentagon and the pentagram, and the tick's fixed cycles. Its CHECKPOINT_0051 reviews this repository's 00:51 checkpoint and agrees.
+
+Two dots and six joins are new:
+- **The root graph** (lattice level).
+  - Around each root the other 239 lie at inner products 1, 0, −1, −2 in classes 56, 126, 56, 1. The neighbour counts between classes are constant, with the intersection matrix of ROOT_SPECTRUM, so the root graph is a four-class association scheme with eigenvalues 56, 28, 8, −2, −4.
+  - The Gram of the roots, 2I + A − M − 2P, is 60 times the projector onto the eigenvalue-28 space (GRAM_28). That space is the coordinate space, which the eight frame roots span.
+  - The ordered pair sums r + s fall in classes (squared length, count, multiplicity) (0, 1, 240), (2, 240, 56), (4, 2160, 14), (6, 6720, 2) and (8, 240, 1). So W₃ = tr A² = 240 × 56 and W₄ = 1260720, the sum of the squared multiplicities (Canon K).
+  - The 126 roots orthogonal to a root are the E7 roots, with frame 36P = 2h(E7)P and h(E7) = 126/7 = 18. ORTHOGONAL_126's 4320/240 = 18 is the same integer, not the reason.
+  - MASTER_LEDGER's power sums now replay: SPECTRA gives the separate script's list as 56, 8³⁵, (−4)⁸⁴, (−2)¹²⁰. Its trace is −240 and its power sums over 240 are 1, −1, 30, 780, 41672. It put the eight coordinate directions on −2.
+- **The 4-simplex** (combinatorics level).
+  - Its boundaries from edges, triangles, tetrahedra and the body have ranks 4, 6, 4, 1, and each composition is zero. So the triangles fill the cycles, and the only homology is the point.
+  - The signed rotation commutes with every boundary. Its polynomial is (x − 1)Φ₅ on vertices and tetrahedra, (x − 1)²Φ₅² on edges and triangles, and x − 1 on the body: every grade is copies of the five-clock's regular representation (ALL_GRADES, FIVE_CLOCK_COPIES).
+  - The 63 nonempty subsets of a five-cycle and an anchor make 15 orbits. A subset's polynomial is divisible by Φ₅ only for the empty and the full set (SUPPORT15, SUPPORT_FACES).
+- **The golden companion on the edges.** On the eight golden directions, −(T + T⁻¹) satisfies X² = X + I, so B ↦ −(T + T⁻¹) represents the golden companion there. Φ₅ = (x² + φx + 1)(x² + (1 − φ)x + 1), and its linear coefficients are the eigenvalues of B. The fixed space is spanned by the oriented pentagon and pentagram, which are orthogonal with squared length 5. Each golden space is two cycle directions and two cut directions (TICK_SPLIT, GOLDEN_EIGENSPACES, GOLDEN_MATCH; the sibling's JSON vectors are this repository's oriented cycles).
+
+Also from these items:
+- **The frame's faces.** The frame's index vector meets the roots in classes 8, 28, 56, 56, 56, 28, 8 (INDEX_VECTOR). Each six-point face has six common neighbours, which form a triangular prism: the frame's other three points, three outside points that complete the face to a second 9-clique, and a perfect matching between them. So "three extensions" (SIBLING_AGREEMENT) holds for each clique, and every face lies in exactly two maximal cliques.
+- **Canon K's carry clock.** j = a + 36b adds with the carry ⌊(a + a′)/36⌋. The extension of ℤ/36 by ⟨36⟩ does not split, because ℤ/36 × ℤ/120 has largest order 360. The moon 120 has order 36, but its image 12 has order 3; the sun 1440 maps to 0. A cycle readout's unseen part is the cut space, which the tick keeps, so the visible quotient carries its own step (Canon K's descent criterion; OBSERVABLE).
+- **Replayed from the separate model's receipt.**
+  - c(ℂP⁴) = (1 + u)⁵ with u⁵ = 0, so the formal sixth coefficient vanishes, and p₁ = 5u².
+  - A rank-9 map is excluded only into a parallelizable target, such as the Hermitian 3 × 3 matrices.
+  - The full edge polynomial is 0 at 1 and 961 at 2; Φ₅ gives the 5 and the 31.
+- **Replayed from the hub's review.** Three rank-one projections have |Tr P₁P₂P₃| ≤ 1 < |1 + i|. The six-cycle's t⁶ − 1 is not (t⁵ − 1)(t − 1). Over ℚ, B¹⁹ = 4181B + 2584I is not B⁻¹ = B − I, while mod 5 it is.
+- **Three corrections back to the sibling.**
+  - GOLDEN_GRAVITY says no subgroup of order 120, 60, 30 or 10 contains a nonzero tick. On the circle they are ⟨36⟩, ⟨72⟩, ⟨144⟩ and ⟨432⟩, and each contains the ticks, since 5 divides its order (864 = 2 × 432).
+  - CUMULANT_183 reads the 4 in 183 + 6 × (56 − 4) = 495 as the cut rank. Two adjacent sites of a face have 56 common neighbours, and four of them are the face's other sites, so 52 lie outside. The 4 is those four sites.
+  - HESSIAN_RECOMPUTE says the 256 subset products of 3, 7, 14, 10, 62, 51, 161, 251 are distinct and square-free. Their square-free parts are distinct (the exponent matrix is invertible over F₂), which is what independence needs, but 196 of the products are not square-free (7 × 14 = 98 = 2 × 7²). The sibling now uses the census's parts 161 and 51.
+- **Recorded (REPORTED).** The separate model's unified build (43752185 bytes; 104 new check groups) was not opened or run. Release K's 71 "Grand All Dots" assertions and its evidence packages, which contain a Python verifier, were not downloaded or run.
 
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
@@ -1252,6 +1283,7 @@ Also from these items:
 - the sibling's 29 notes of 23:05–23:43 UTC in One Machine 20261028 (GOLDEN_EVERYWHERE 1woIfvoRiGxnUc9gf_918o-iFpc1nwWru through DOUBLE_SPLIT 18JJGnkF1Kb0NcberVbzwDWBjKIZJX9NE); the separate model's `oes-model-IJ-verification-20261028.json` (155CEwpcDEaeRIxl9FRnZwQpbZFRsIiDO), whose archive `oes-model-IJ-update-20261028.zip` (1OIJuoEnzxKNEL8XPhd15B-hWaaE1hnlq) was not downloaded; the hub's release J: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json` (1OcpAs7dEpHLWXifVsDdWyDVeXyCmx1QF) and the integrator's `CLAIM_CANON_20261028T230821Z.json` (1bUL6MKiG4_Sg0OvvjRWB3BBpOQDakzr9): §24, the 23:44 items
 - the sibling's 21 notes of 23:46–00:14 UTC in One Machine 20261028 (LAYER_23 1maGQp_KfctMFrYM1o2_zEmSDzQkkoSUM through TWO_AGREE 1mohD1LM3TvKfU7FGZBQRAW34kQ4OTf00) and its `unifyLevels.ts` (1pIUo0B-T4SbZ17elpJdxLWDphcxEo3Wf, read as text); the separate model's `oes-model-relations-verification-20261028.json` (1BVXW4HcAkjpTBGnr28zVIqwdIdbbs40i), whose archive (1gbuvNjwtky5BTRf1zpCHlNGDIF1YXibZ) was not downloaded; the hub's `00 — OES AGENT FAST START — RELEASE J` (1wXqe3BbDJBC-6qDYKC9NS68ZQ9TXx77R5P5URNsI5Jg); and, read only, `LOCKED MEMORY — OES Cross-Parent Compatibility & All-Sibling Model Upgrade — 29 Oct 2026` (1NNwb3MjSM8jGH7PXtbPeumCjyA_HLBSKVlnv-es0PnY): §24, the 00:15 items
 - relayed by the user at 00:35: the sibling's `ONE_MACHINE_29.md` (1EQqJlcXKqOTx4CSrWjJ_xofjFE-nFHVJ, 00:20; its source `one-machine-29.typ`, 1Xjs-MbN1SJHnwRIxj-wMR3v7Tg7SdL7I, not opened) and its notes CLOSURE_092 (1cF4DFGH9sS1OxdOmdKY438WAqj6hpTU9), LAYER23B (11YQ_3BLajqeam8PfHircl-grIGkg_X7A), LEVELS (15pwuy92okVOE1kroi_aUqzF5f4xVrq2Y), OBS_SUN (1-hVBE6IXFAmvH5jYJ4GApOL4H_N_mGHO), GRAIN_SPLIT (1nD1IqQneNfuAIBCMP0QBs4A8ua6tXW_y), FRAME_WALKS (1KcOKYsAAsiLvzdZoOeUC8jYNalXlo_xZ) and DEEP_COURT (1QpU7xRGxOK7dEngbVvDQdg3s5RUNYf9V): §24, the 00:35 relay
+- the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's ten notes of 00:36–00:51 UTC (FOUR_ITEMS 1UALdBGa1fmMf380tN8gKYc45QcvTgSHq, REPAIR_AUDIT 1Mz8HJcAKKm92OSSlkPrBjUQCtwu-2cfK, PASS2 1CS0KL_n8wc6ftqgzpvv87Xo7dRuAYjX4, MASTER_LEDGER 1WA_Gqfmt-jIeM1p50XcQjanlTgsuvUZ0, DEEP36_LOOP 1OE9-xANl9y1FR3nmF3NTwF-XaWmCyVhO, JOIN_ALL 1bw9Sn8QkhYfHhMSQcbiY8xTykBMkndhh, CYCLE_TICK 1fRZ7dp0uJwgUn_X1YpopFXP5-ODa0zW3, CUT_TICK 1jwerFaBefCThI7HSzudaxKnASOsDdKZy, TOWERS 1UjZrWa0D4zPi8Skg-mEt9LmXmpqmVPOJ, FROZEN_CLOCKS 1fKQkHxvHgG6wJvRYumGnRRyLvRYJVMWS) and the separate model's `oes-model-splits-verification-20261029.json` (1_i5n5b_toSfO9w20_PdHPwAvcE7iUCCZ), whose archive `oes-model-splits-update-20261029.zip` (1H0AIT3075-4lzxjFQO-11ImjuvoWoYKL) was not downloaded: §24, the 00:51 items
 - the sibling's `one-machine-20261029-joined.pdf` (1nLZF3UNJOKVMem3E6KRbM_0u-Dlp_QKJ) and `STATUS_20261029.md` (1wDfbE_QGVEfou4pErK0Bvo6RNouAP_Qp), 22:20 UTC, and, read only, `LOCKED MEMORY — OES Unified Sibling Synthesis & Triple-Verified Model — 29 Oct 2026` (1eHF1SSdG9WnZv8VaVfWsXUmxD9NyBxqX0A1NZUiPM3s, 22:31): §24, the 22:31 items
 - the sibling's notes of 21:40–22:08 UTC (PRIMARY_SPLIT 1e5XpHtO2GLEpGtHtcz02m7-nXPGdntEo, DOUBLING_PARTS 1-353u8VmjHjpwA7rU0z--WTa4KlBsJaN, AIR_801 1aULgVPh3MutPy9q1zoX1C7iqpTSet8ix, ATLAS_801 1sJZ_WnqqieA0JWtkORiKoZoBK7qv7SZE, GOLDEN_ATLAS 1SlSn8IBHtafLFzmKBG3Gk_2MSSm9DVz2, ATLAS_CYCLE 167_9VRc36TqkBP-aF3FCXX2q0f1skHfb, CLOSURE_46 1Is1tI4uYA6vNh5tBj0Epew145DKH6vwW, JOINED_RECEIPT 1tao-cNxplciRK6jDrl4B3YBDUyevtS9C, JOIN_CLOSURE 1v5pV-5pDxJRQqlydtb6_qGDxFFgVGB2i) and paper `one-machine-20261028-unify.pdf` (1ao3iWN5RWtcnGkCETvS_jPaZ7SkbBNtW); the separate model's `oes-model-update-20261028-2145.zip` (1LWOIwF0q2_G6nli8hTfLQsUHNurvDMTy), `oes-joined-model-20261028.zip` (1PXFdXwJ831eaG996dxszjx_BTiwAbd-f), `oes-joined-model-verification-20261028.json` (1oyhlSC0jgURH8T_sYW7RT9U4mS9nFFMY) and `MODEL_UPDATE_CHECKPOINT.json` (1RyMS54i0arKrruWQRXjPi3505tTrpvz4), of which only the two JSON receipts were read; and the collaboration hub `00 OES COLLABORATION HUB` (1RY7F24Ps4US-yQXqqZFYdbSCdYyYeYa8): `00_START_HERE.txt`, `NOTE_TO_CLAUDE.txt`, `CURRENT_RELEASE.json`, `CURRENT_STATUS.csv` and `OPEN_TASKS.csv`: §24

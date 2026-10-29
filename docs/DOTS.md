@@ -33,6 +33,7 @@ flowchart TB
         petersen["Petersen"]
         cube["four-cube"]
         surface["surface"]
+        simplex["4-simplex"]
     end
     subgraph level4["level 4: lattice"]
         A4["A4"]
@@ -44,6 +45,7 @@ flowchart TB
         halfper["half-periods"]
         census["critical census"]
         torus["nine-torus"]
+        rootgraph["root graph"]
     end
     subgraph level5["level 5: operator"]
         carrier["carrier"]
@@ -167,18 +169,24 @@ flowchart TB
     circle -.->|"no internal clock"| calibration
     triple -->|"heat coefficients"| gravity
     gravity -->|"G and Lambda_cc"| cosmology
+    E8 -->|"inner product 1"| rootgraph
+    rootgraph -->|"pair sums"| walks
+    rootgraph -->|"eigenvalue 28"| frame
+    E -->|"grade 2"| simplex
+    time -->|"the tick on every grade"| simplex
+    golden -->|"B -> -(T + T^-1)"| E
 ```
 
-53 dots and 98 joins: 89 THEOREM, 4 SELECTED_REFERENCE, 2 CONDITIONAL and 3 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the Friedmann flow.
+55 dots and 104 joins: 95 THEOREM, 4 SELECTED_REFERENCE, 2 CONDITIONAL and 3 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the Friedmann flow.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages | 16 | 5 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70 | 6 | 2 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface | 6 | 3 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus | 10 | 8 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70 | 6 | 3 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex | 7 | 3 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 12 | 9 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 13 | 5 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW | 6 | - |
 
@@ -239,6 +247,8 @@ flowchart TB
 | critical census | the band's 11 critical families on the alcove, 243600 points | lattice | 16 |
 | sound and light | the K5 edge Hodge complex: sound im d0, light ker d0^T, Curl = *d1 | physics | 17 |
 | nine-torus | T^9 of the nine positive critical frequencies, with a dense flow | lattice | 18 |
+| root graph | the 240 roots, adjacent at inner product 1: a four-class association scheme | lattice | 3, 22, 23 |
+| 4-simplex | the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade | combinatorics | 17, 23 |
 
 ## Joins
 
@@ -342,6 +352,12 @@ flowchart TB
 | circle | calibration | calibrations tau and 2 tau give identical native records, so no internal number, the circle's ticks included, binds physical time | OBSTRUCTION | `calibration` |
 | spectral triple | product geometry | Tr D^0, D^2, D^4 = 15, 40, 200 give the M4 x F heat coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3; G and Lambda_cc need f, L and m (J10) | CONDITIONAL | `product_geometry` |
 | product geometry | FLRW | the spectral action's G and Lambda_cc drive a flat FLRW flow; the Friedmann constraint holds, and the kernel sector, the datum's 2, scales exactly as a^-6 | CONDITIONAL | `friedmann` |
+| E8 | root graph | the 240 roots with an edge at inner product 1: classes 1, 56, 126, 56, 1 around each root, an association scheme with eigenvalues 56, 28, 8, -2, -4 | THEOREM | `root_scheme` |
+| root graph | closed walks | W_3 = tr A^2 = 240 x 56, and W_4 = 1260720 is the sum of the squared pair-sum multiplicities (Canon K) | THEOREM | `root_scheme` |
+| root graph | eight-root frame | the roots' Gram is 60 times the projector onto the eigenvalue-28 space, the coordinate space that the eight frame roots span | THEOREM | `root_scheme` |
+| K5 edges | 4-simplex | the ten edges are grade 2 of the 4-simplex; its boundaries have ranks 4, 6, 4, 1, the triangles fill the cycles, and the only homology is the point | THEOREM | `simplex_grades` |
+| time clock | 4-simplex | the vertex rotation acts on every grade by copies of the five-clock's regular representation: (x - 1) Phi_5, then (x - 1)^2 Phi_5^2 twice, (x - 1) Phi_5 and x - 1 | THEOREM | `simplex_grades` |
+| golden companion | K5 edges | on the eight golden edge directions -(T + T^-1) satisfies the golden equation X^2 = X + I, so the golden companion acts there; Phi_5 splits over the golden field | THEOREM | `golden_split` |
 
 ## Not joined
 
@@ -357,10 +373,12 @@ flowchart TB
 | BassForge (GB-018) | the view and the retraction are absent in the canon and unformable; the 38-fiber's 117 checks are not stored here | UNFORMED |
 | the source shape's witness (SHAPE_091) | the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, which is not stored here | REPORTED |
 | the separate model's relations overlay (23:50) | 197642 bytes, 73 check groups, 32 matrix outputs; not opened or rerun; its five source corrections are replayed | REPORTED |
-| modules 8-11, unreplayed parts | the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel realization and the [9, 3, 7] code over F11 need operands not stored here | REPORTED |
+| modules 8-11, unreplayed parts | the two-channel C and W, the Hankel realization and the [9, 3, 7] code over F11 need operands not stored here; the Bargmann projectors cannot be unit rank-one projections, since then \|Tr P1 P2 P3\| <= 1 < \|1 + i\| (the hub's review, replayed) | REPORTED |
 | the separate model's splits update (00:49) | 413793 bytes; 90 new check groups (grain 43, towers 17, module relations 27, API 3) and 47 review groups; not opened or rerun; its five source corrections are replayed | REPORTED |
 | the memory clock (layer 3) | a 125-state operator with a Jordan block keeps no positive metric; its 120-state quotient has order 90. It shares integers with the circle (90 divides 4320) and the cycle Gram (125 = 5^3), and no map is built | ARITHMETIC |
 | the [9, 3, 7] code over F11 (layer 15) | MDS and 3-error-correcting; nothing identifies it with H90 or with any dot | UNFORMED |
+| the separate model's unified build (01:25) | 43752185 bytes, 286 payloads, 104 new check groups (root graph 50, simplex 26, K operators 20, API 8); not opened or rerun; its three source corrections are replayed | REPORTED |
+| the hub's release-K packages (01:13, 01:53) | OES_Canon_K_Evidence and OES_Canon_K_All_Dots_Exact (a Python verifier and a JSON receipt): not downloaded and not run; their stated bridges are replayed from the Google Doc | REPORTED |
 | air | no air operator is stored, and none is formed | UNFORMED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

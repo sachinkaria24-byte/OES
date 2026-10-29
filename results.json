@@ -57,35 +57,35 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.64,
+  "1-carrier": 0.61,
   "2-spectral": 0.01,
-  "3-spacetime": 7.96,
-  "4-native": 91.5,
-  "5-observer": 0.24,
-  "6-gravity": 4.77,
-  "7-cosmology": 1.69,
-  "8-frontier": 35.09,
-  "9-joins": 7.6,
-  "10-literal": 37.69,
-  "11-glue": 0.17,
+  "3-spacetime": 8.42,
+  "4-native": 93.94,
+  "5-observer": 0.22,
+  "6-gravity": 5.22,
+  "7-cosmology": 1.84,
+  "8-frontier": 36.15,
+  "9-joins": 7.74,
+  "10-literal": 38.61,
+  "11-glue": 0.18,
   "12-binding": 0.03,
-  "13-gates": 0.11,
-  "14-recurrence": 72.89,
-  "15-court": 1.75,
+  "13-gates": 0.1,
+  "14-recurrence": 73.26,
+  "15-court": 1.89,
   "16-handover": 1.19,
-  "17-waves": 0.58,
-  "18-snapshot": 0.85,
-  "19-spine": 4.21,
-  "20-canon": 6.18,
-  "21-ledger": 45.7,
-  "22-counts": 23.51,
-  "23-dots": 8.59
+  "17-waves": 0.55,
+  "18-snapshot": 0.8,
+  "19-spine": 4.19,
+  "20-canon": 6.31,
+  "21-ledger": 46.2,
+  "22-counts": 22.96,
+  "23-dots": 9.42
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 423,
-   "total": 423
+   "passed": 431,
+   "total": 431
   },
   "OBSTRUCTION": {
    "passed": 46,
@@ -112,8 +112,8 @@
    "total": 20
   },
   "REPORTED": {
-   "passed": 64,
-   "total": 64
+   "passed": 68,
+   "total": 68
   }
  },
  "checks": [
@@ -4642,13 +4642,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1487 readings from 177 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1683 readings from 212 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 177,
-    "claims": 1487,
+    "notes": 212,
+    "claims": 1683,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -6798,7 +6798,86 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 53 dots and 98 joins form one connected diagram (the obstructions left out)",
+   "name": "E8 -> root graph: the 240 roots with an edge at inner product 1: classes 1, 56, 126, 56, 1 around each root, an association scheme with eigenvalues 56, 28, 8, -2, -4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "from any root the other 239 lie at inner products 1, 0, -1, -2 in classes 56, 126, 56, 1, and the neighbour counts between classes are constant, with the intersection matrix of ROOT_SPECTRUM; its eigenvalues are 56, 28, 8, -2, -4": true,
+    "the 240 x 240 Gram 2I + A - M - 2P is 60 times the projector onto the eigenvalue-28 space (GRAM_28): eigenvalue 28 is the coordinate space": true,
+    "the 126 roots orthogonal to a root are closed under their reflections, of rank 7: the E7 roots, with frame 36 P = 2 h(E7) P, h(E7) = 126 / 7 = 18 (ORTHOGONAL_126's 4320 / 240 = 18 is the same integer)": true,
+    "ordered pair sums r + s fall in classes (norm^2, count, multiplicity) (0, 1, 240), (2, 240, 56), (4, 2160, 14), (6, 6720, 2), (8, 240, 1), so W_3 = tr A^2 = 240 x 56 = 13440 and W_4 = sum of squared multiplicities = 1260720 (Canon K)": true,
+    "the separate script's list 56, 8^35, (-4)^84, (-2)^120 has trace -240 and power sums over 240 of 1, -1, 30, 780, 41672 (MASTER_LEDGER, SPECTRA): it put the eight coordinate directions on -2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "root graph -> closed walks: W_3 = tr A^2 = 240 x 56, and W_4 = 1260720 is the sum of the squared pair-sum multiplicities (Canon K)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "from any root the other 239 lie at inner products 1, 0, -1, -2 in classes 56, 126, 56, 1, and the neighbour counts between classes are constant, with the intersection matrix of ROOT_SPECTRUM; its eigenvalues are 56, 28, 8, -2, -4": true,
+    "the 240 x 240 Gram 2I + A - M - 2P is 60 times the projector onto the eigenvalue-28 space (GRAM_28): eigenvalue 28 is the coordinate space": true,
+    "the 126 roots orthogonal to a root are closed under their reflections, of rank 7: the E7 roots, with frame 36 P = 2 h(E7) P, h(E7) = 126 / 7 = 18 (ORTHOGONAL_126's 4320 / 240 = 18 is the same integer)": true,
+    "ordered pair sums r + s fall in classes (norm^2, count, multiplicity) (0, 1, 240), (2, 240, 56), (4, 2160, 14), (6, 6720, 2), (8, 240, 1), so W_3 = tr A^2 = 240 x 56 = 13440 and W_4 = sum of squared multiplicities = 1260720 (Canon K)": true,
+    "the separate script's list 56, 8^35, (-4)^84, (-2)^120 has trace -240 and power sums over 240 of 1, -1, 30, 780, 41672 (MASTER_LEDGER, SPECTRA): it put the eight coordinate directions on -2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "root graph -> eight-root frame: the roots' Gram is 60 times the projector onto the eigenvalue-28 space, the coordinate space that the eight frame roots span",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "from any root the other 239 lie at inner products 1, 0, -1, -2 in classes 56, 126, 56, 1, and the neighbour counts between classes are constant, with the intersection matrix of ROOT_SPECTRUM; its eigenvalues are 56, 28, 8, -2, -4": true,
+    "the 240 x 240 Gram 2I + A - M - 2P is 60 times the projector onto the eigenvalue-28 space (GRAM_28): eigenvalue 28 is the coordinate space": true,
+    "the 126 roots orthogonal to a root are closed under their reflections, of rank 7: the E7 roots, with frame 36 P = 2 h(E7) P, h(E7) = 126 / 7 = 18 (ORTHOGONAL_126's 4320 / 240 = 18 is the same integer)": true,
+    "ordered pair sums r + s fall in classes (norm^2, count, multiplicity) (0, 1, 240), (2, 240, 56), (4, 2160, 14), (6, 6720, 2), (8, 240, 1), so W_3 = tr A^2 = 240 x 56 = 13440 and W_4 = sum of squared multiplicities = 1260720 (Canon K)": true,
+    "the separate script's list 56, 8^35, (-4)^84, (-2)^120 has trace -240 and power sums over 240 of 1, -1, 30, 780, 41672 (MASTER_LEDGER, SPECTRA): it put the eight coordinate directions on -2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> 4-simplex: the ten edges are grade 2 of the 4-simplex; its boundaries have ranks 4, 6, 4, 1, the triangles fill the cycles, and the only homology is the point",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 4-simplex's boundaries from edges, triangles, tetrahedra and the body have ranks 4, 6, 4, 1, each composition is zero, and the only homology is the point: the triangles fill the cycles, Euler characteristic 1": true,
+    "the signed rotation commutes with every boundary and has polynomial (x - 1) Phi_5 on vertices and tetrahedra, (x - 1)^2 Phi_5^2 on edges and triangles, x - 1 on the body: the orbits 1, 2, 2, 1, 1 are copies of the five-clock's regular representation (ALL_GRADES, FIVE_CLOCK_COPIES)": true,
+    "the 31 nonempty faces are Phi_5(2) = 2^5 - 1; the 63 nonempty subsets of a five-cycle and an anchor make 15 orbits (3 fixed, 12 of five); a subset's polynomial is divisible by Phi_5 only for the empty and full set, so every proper nonempty subset meets both golden planes (SUPPORT15, SUPPORT_FACES)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> 4-simplex: the vertex rotation acts on every grade by copies of the five-clock's regular representation: (x - 1) Phi_5, then (x - 1)^2 Phi_5^2 twice, (x - 1) Phi_5 and x - 1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 4-simplex's boundaries from edges, triangles, tetrahedra and the body have ranks 4, 6, 4, 1, each composition is zero, and the only homology is the point: the triangles fill the cycles, Euler characteristic 1": true,
+    "the signed rotation commutes with every boundary and has polynomial (x - 1) Phi_5 on vertices and tetrahedra, (x - 1)^2 Phi_5^2 on edges and triangles, x - 1 on the body: the orbits 1, 2, 2, 1, 1 are copies of the five-clock's regular representation (ALL_GRADES, FIVE_CLOCK_COPIES)": true,
+    "the 31 nonempty faces are Phi_5(2) = 2^5 - 1; the 63 nonempty subsets of a five-cycle and an anchor make 15 orbits (3 fixed, 12 of five); a subset's polynomial is divisible by Phi_5 only for the empty and full set, so every proper nonempty subset meets both golden planes (SUPPORT15, SUPPORT_FACES)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> K5 edges: on the eight golden edge directions -(T + T^-1) satisfies the golden equation X^2 = X + I, so the golden companion acts there; Phi_5 splits over the golden field",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick's fixed space is spanned by the oriented pentagon and pentagram, orthogonal, of squared length 5, and the average of its five powers is the sum of their rank-one projectors; rank(T - I) = 8 (TICK_SPLIT)": true,
+    "T + T^-1 has eigenvalues 2 (the two fixed cycles), 2 cos 72 = (sqrt5 - 1)/2 and 2 cos 144 = -(sqrt5 + 1)/2, four each, and each golden space is two cycle and two cut directions (GOLDEN_EIGENSPACES)": true,
+    "on the eight golden directions X = -(T + T^-1) satisfies X^2 = X + I, the golden companion's equation, so B -> -(T + T^-1) represents Z[B] there; Phi_5 = (x^2 + phi x + 1)(x^2 + (1 - phi) x + 1), whose linear coefficients are the eigenvalues of B (GOLDEN_MATCH)": true,
+    "a cycle readout's unseen part is the cut space, which the tick keeps, so the visible quotient carries its own step and recovers 10 - 4 = 6 directions (OBSERVABLE; Canon K's descent criterion)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 55 dots and 104 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6844,7 +6923,9 @@
      "petersen",
      "pgl",
      "readout",
+     "rootgraph",
      "rotor",
+     "simplex",
      "sixsite",
      "source",
      "stages",
@@ -6933,7 +7014,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 3, combinatorics (graphs, complexes and the cube): its 7 dots are joined among themselves",
+   "name": "level 3, combinatorics (graphs, complexes and the cube): its 8 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6944,6 +7025,7 @@
      "cycles",
      "petersen",
      "rotor",
+     "simplex",
      "surface"
     ]
    ],
@@ -6951,7 +7033,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 4, lattice (roots, lattices and tori): its 9 dots are joined among themselves",
+   "name": "level 4, lattice (roots, lattices and tori): its 10 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6964,6 +7046,7 @@
      "frame",
      "halfper",
      "momenta",
+     "rootgraph",
      "torus"
     ]
    ],
@@ -7013,7 +7096,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 2, combinatorics-lattice 3, lattice-operator 8, operator-physics 5 joins",
+   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 3, combinatorics-lattice 3, lattice-operator 9, operator-physics 5 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7026,7 +7109,8 @@
     ],
     [
      "V -> clocks",
-     "surface -> pgl"
+     "surface -> pgl",
+     "golden -> E"
     ],
     [
      "E -> A4",
@@ -7041,7 +7125,8 @@
      "halfper -> pauli",
      "E8 -> bath",
      "frame -> sixsite",
-     "census -> walks"
+     "census -> walks",
+     "rootgraph -> walks"
     ],
     [
      "carrier -> triple",
@@ -7055,11 +7140,11 @@
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 51 of the 53 dots; the product geometry and FLRW attach only through the two CONDITIONAL joins (J10 and the Friedmann flow)",
+   "name": "THEOREM joins alone connect 53 of the 55 dots; the product geometry and FLRW attach only through the two CONDITIONAL joins (J10 and the Friedmann flow)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 89,
+    "THEOREM": 95,
     "OBSTRUCTION": 3,
     "SELECTED_REFERENCE": 4,
     "CONDITIONAL": 2
@@ -7449,6 +7534,50 @@
   },
   {
    "layer": "23-dots",
+   "name": "INDEX_VECTOR and SIBLING_AGREEMENT: the frame's index vector meets the roots in classes 8, 28, 56, 56, 56, 28, 8; each six-point face has six common neighbours, a triangular prism, so it lies in exactly two maximal 9-cliques; in 495 = 183 + 6 x (56 - 4) the 4 is the face's other four sites, not the cut rank",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the eight frame roots sum to 3q with q a lattice vector of squared length 8, and q meets the 240 roots in -3..3 with class sizes 8, 28, 56, 56, 56, 28, 8 (INDEX_VECTOR)": true,
+    "each six-point face (the origin and five frame roots) has six common neighbours forming a triangular prism: the frame's other three, three outside points that complete the face to a second 9-clique, and a perfect matching between them. So 'three extensions' holds for each clique, and every face lies in exactly two maximal cliques": true,
+    "two adjacent sites of a face have 56 common neighbours, four of them the face's other sites: 52 outside, so in 183 + 6 x (56 - 4) = 495 the 4 is the face's four other sites, not the cut rank (CUMULANT_183)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 00:53-01:54 notes and release K: GOLDEN_GRAVITY corrected (the circle's subgroups of orders 120, 60, 30, 10 all contain the ticks); HESSIAN_RECOMPUTE corrected (the 256 products have distinct square-free parts but are not all square-free); the separate model's three corrections, the hub's three conflicts and Canon K's carry clock replayed",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "GOLDEN_GRAVITY corrected: the circle's subgroups of orders 120, 60, 30 and 10 are <36>, <72>, <144> and <432>, and each contains the ticks, since 5 divides its order (the order-5 subgroup is unique, and 864 = 2 x 432)": true,
+    "the separate model's corrections replayed: c(CP4) = (1 + u)^5 with u^5 = 0, so the formal sixth coefficient vanishes and p1 = c1^2 - 2 c2 = 5u^2; a rank-9 map is excluded only into a parallelizable target such as the Hermitian 3 x 3 matrices; the full edge polynomial is 0 at 1 and 961 at 2, the cycle polynomial 0 and 31": true,
+    "the hub's conflicts replayed: three rank-one projections have |Tr P1 P2 P3| <= 1 < |1 + i|; t^6 - 1 is not (t^5 - 1)(t - 1); over Q, B^19 = 4181 B + 2584 I is not B^-1 = B - I, while mod 5 it is": true,
+    "Canon K's carry clock: j = a + 36 b adds with the carry floor((a + a') / 36), the extension of Z/36 by <36> does not split (Z/36 x Z/120 has largest order 360), and the moon 120 has order 36 but image 12 of order 3, while the sun 1440 maps to 0": true,
+    "SEVEN_TWENTY: an element of order 5 splits 360 points into 72 five-cycles and the ten edges into two, so the equivariant maps form a space of dimension 72 x 2 x 5 = 720, and clock matching does not pick one": true,
+    "HESSIAN_RECOMPUTE's certificate, corrected: the prime-exponent matrix of 3, 7, 14, 10, 62, 51, 161, 251 is invertible over F2, so the 256 subset products have distinct square-free parts, which is what independence needs; the products are not all square-free (7 x 14 = 98 = 2 x 7^2; 196 of 256 are not). The parts are the census's 161 and 51, now used by the sibling too": true,
+    "the spine's arithmetic: 36 x 360 = 12960 coordinates, 192 - 9 = 183 flat directions, 100 + 19 + 50 = 169 = 13^2, the quadratic with discriminant 120 has roots 6 +- sqrt30, and (sqrt5 - 1)/2 + (sqrt5 + 1)/2 = sqrt5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 01:54: the sibling's notes of 00:53-01:54, from SPECTRA to ORTHOGONAL_126, its unified spine (SPINE_20261029 at 01:19, superseding the 01:08 edition; the PDF was not opened) and tick_projectors_20261029.json (its pentagon and pentagram are this layer's oriented cycles); the separate model's unified build and receipt (01:25-01:28; only the receipt was read: 104 new check groups and three source corrections, replayed); the hub's release K (cutoff 01:06) with CURRENT_STATUS, CURRENT_RELEASE, 00_START_HERE and the Google Doc 'OES CANON K - All Dots Joined' (01:49), whose bridges are replayed; the canon integrator's claim (four workbook copies saved, 3715 and 3670 sheets, every prior cell kept, no gate changed)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the sibling's HEMI_ICOSAHEDRON (01:37) and FIXED_CYCLES (01:42) state independently what layer 23 joined at 01:30: the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5), with links the pentagon and the pentagram, and the tick's fixed cycles; its CHECKPOINT_0051 (01:31) reviews this layer's 00:51 checkpoint and agrees",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: separate model's joined model (22:02): 158 check groups, 12 review groups, 80 matrices, 63 typed relationships; sha256 b0c17731...",
    "status": "REPORTED",
    "passed": true,
@@ -7529,7 +7658,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "not joined: modules 8-11, unreplayed parts: the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel realization and the [9, 3, 7] code over F11 need operands not stored here",
+   "name": "not joined: modules 8-11, unreplayed parts: the two-channel C and W, the Hankel realization and the [9, 3, 7] code over F11 need operands not stored here; the Bargmann projectors cannot be unit rank-one projections, since then |Tr P1 P2 P3| <= 1 < |1 + i| (the hub's review, replayed)",
    "status": "REPORTED",
    "passed": true,
    "value": null,
@@ -7555,6 +7684,22 @@
    "layer": "23-dots",
    "name": "not joined: the [9, 3, 7] code over F11 (layer 15): MDS and 3-error-correcting; nothing identifies it with H90 or with any dot",
    "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's unified build (01:25): 43752185 bytes, 286 payloads, 104 new check groups (root graph 50, simplex 26, K operators 20, API 8); not opened or rerun; its three source corrections are replayed",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the hub's release-K packages (01:13, 01:53): OES_Canon_K_Evidence and OES_Canon_K_All_Dots_Exact (a Python verifier and a JSON receipt): not downloaded and not run; their stated bridges are replayed from the Google Doc",
+   "status": "REPORTED",
    "passed": true,
    "value": null,
    "note": ""

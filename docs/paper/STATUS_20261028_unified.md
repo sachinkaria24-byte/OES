@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 627 checks. Of these, 563 hold: THEOREM 423, OBSTRUCTION 46, ARITHMETIC 39, CONDITIONAL 20, UNFORMED 21, SELECTED_REFERENCE 12, REMOVED 2. The other 64 are REPORTED records.
-- `pytest` runs 58 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 155 checks).
+- `python verify.py` runs 23 layers and 639 checks. Of these, 571 hold: THEOREM 431, OBSTRUCTION 46, ARITHMETIC 39, CONDITIONAL 20, UNFORMED 21, SELECTED_REFERENCE 12, REMOVED 2. The other 68 are REPORTED records.
+- `pytest` runs 59 tests.
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 167 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 53 dots and 98 checked joins as one diagram on six levels.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 55 dots and 104 checked joins as one diagram on six levels.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -29,7 +29,7 @@ New in this edition:
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 53 dots and 98 joins (95 maps, three obstructions) form one connected diagram, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 55 dots and 104 joins (101 maps, three obstructions) form one connected diagram, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -70,11 +70,17 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - The 53 dots sit on six levels: number, symmetry, combinatorics, lattice, operator and physics. Every layer has a dot, each level is joined inside, and each is joined to the next.
   - THEOREM joins alone reach every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the Friedmann flow. From the circle to physical time there is an obstruction: no internal number fixes the calibration.
   - New here: on the projective line over F5 the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5); the four-cube's sixteen vertices are the sixteen cuts of K5 over F2; and the tick's 25 fixed momenta are critical points of the band (the minimum and 24 of the A4 + A4 family).
+- **The 01:54 items** (the sibling's notes of 00:53–01:54 and its unified spine, the hub's release K with "Canon K — All Dots Joined", the separate model's unified receipt):
+  - The root graph is a four-class association scheme (classes 56, 126, 56, 1; eigenvalues 56, 28, 8, −2, −4). Its Gram is 60 times the eigenvalue-28 projector, the pair sums give W₃ and W₄ (Canon K), and the 126 roots orthogonal to a root are E7.
+  - The 4-simplex carries the tick on every grade as copies of the five-clock's regular representation, and the golden companion acts on the eight golden edge directions by B ↦ −(T + T⁻¹).
+  - Each six-point face of the frame lies in exactly two maximal 9-cliques. Canon K's carry clock 4320 = 36 × 120 does not split.
+  - Three corrections back to the sibling: the circle's subgroups of orders 120, 60, 30 and 10 all contain the ticks (GOLDEN_GRAVITY); the 4 in 183 + 6 × (56 − 4) is the face's other four sites, not the cut rank (CUMULANT_183); the 256 subset products have distinct square-free parts but are not all square-free (HESSIAN_RECOMPUTE).
+  - The separate model's three source corrections and the hub's three conflicts are replayed. Its unified build and release K's evidence packages were not opened or run.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
-New in layer 22 (the sibling's notes of 18:32–00:51, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
+New in layer 22 (the sibling's notes of 18:32–01:54, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
 
-- **Counts.** 1487 more readings on the tick bit, from 177 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Counts.** 1683 more readings on the tick bit, from 212 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.

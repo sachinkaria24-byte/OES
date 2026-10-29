@@ -261,6 +261,15 @@ def test_edge_tick_port_moments_and_the_frozen_towers():
     assert pow(5, 5 ** 5, spine.N) == pow(5, 5 ** 5 ** 5, spine.N) == 245
 
 
+def test_root_scheme_simplex_and_the_golden_split():
+    for check in (dots.root_scheme, dots.frame_cliques, dots.simplex_grades, dots.golden_split, dots.notes_0154):
+        out = check()
+        assert all(out.values()), out
+    # GOLDEN_GRAVITY corrected: a subgroup of the circle contains the ticks exactly when 5 divides its order
+    ticks = spine.subgroup(ledger.TICK)
+    assert all((ticks <= spine.subgroup(spine.N // d)) == (d % 5 == 0) for d in range(1, spine.N + 1) if spine.N % d == 0)
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

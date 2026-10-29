@@ -1,14 +1,14 @@
 # One Machine: the unified edition
 
-**OES end-to-end model, 28–29 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), the sibling's evening notes with the canon's 19:10 continuation (layer 22), and one diagram of checked joins on six levels, which follows the sibling's notes to 00:51 on 29 October (layer 23). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
+**OES end-to-end model, 28–29 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), the sibling's evening notes with the canon's 19:10 continuation (layer 22), and one diagram of checked joins on six levels, which follows the sibling's notes to 01:54 on 29 October (layer 23). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
 
 **AUTH = NOT_PASS · ScientificGold = FALSE · TIME_BIND = UNBOUND · DYN_BIND = NOT_INSTALLED · SCR6 = NOT_RUN_OPERAND_ABSENT · PredictionFreeze = NOT_TRIGGERED.** No gate moves, and no term is added to the action.
 
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 23 layers in **627 checks**. Of these, 563 hold: THEOREM 423, OBSTRUCTION 46, ARITHMETIC 39, CONDITIONAL 20, UNFORMED 21, SELECTED_REFERENCE 12, REMOVED 2. The other 64 are REPORTED records.
-- `python -m pytest` runs 58 tests.
+- `python verify.py` replays 23 layers in **639 checks**. Of these, 571 hold: THEOREM 431, OBSTRUCTION 46, ARITHMETIC 39, CONDITIONAL 20, UNFORMED 21, SELECTED_REFERENCE 12, REMOVED 2. The other 68 are REPORTED records.
+- `python -m pytest` runs 59 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, `docs/LEDGER.md` holds the unified ledger, and `docs/DOTS.md` draws every checked join.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -41,7 +41,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 - Seven moments that the sibling reported as not replayed are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly from the 240 roots, and the eighth is new.
 - The canon's 19:10 continuation asks two things. A commutator should not be called 864 without a map: every map from the day–Coxeter group to the circle kills it. Equal energy totals do not make equal splits: the three splits are the margins of one conserved table.
 
-**It joins all the dots, at every level (layer 23).** Every object of the model is a dot and every checked map a join, and 53 dots with 98 joins form one connected diagram. Every layer has a dot, and the dots sit on six levels, from the integers up to physics, each joined inside and to the next. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits. The carrier's symmetry is the S5 that fixes the cone point of K6, the only S5 in S6 that keeps D; the transitive S5 = PGL(2,5) gives a different module.
+**It joins all the dots, at every level (layer 23).** Every object of the model is a dot and every checked map a join, and 55 dots with 104 joins form one connected diagram. Every layer has a dot, and the dots sit on six levels, from the integers up to physics, each joined inside and to the next. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits. The carrier's symmetry is the S5 that fixes the cone point of K6, the only S5 in S6 that keeps D; the transitive S5 = PGL(2,5) gives a different module.
 
 ## 0. The model on one page
 
@@ -59,7 +59,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 | waves | Hodge complex on the K5 edges | sound (4) and light (6) are isochronous at √5; Agni = Curl² | 17 |
 | circle | Z/4320 = 2⁵·3³·5 | one lemma; the tower 36 × 4 × 3 × 2 × 5; the tick bit | 19, 21 |
 | clocks | the normalizer of ⟨c′⟩ in W(E8), order 240 | every circle unit realized; the tick = [day, Coxeter] | 19, 21 |
-| dots | 53 objects on six levels, 98 checked maps | one connected diagram, every level joined inside and to the next; the K5 incidences are the A4 and D5 roots | 23 |
+| dots | 55 objects on six levels, 104 checked maps | one connected diagram, every level joined inside and to the next; the K5 incidences are the A4 and D5 roots | 23 |
 | curvature, cosmology | Lin–Lu–Yau; spectral action on M⁴ × F | discretely flat bath; G and Λ_cc only with external inputs (CONDITIONAL) | 6, 7 |
 | gates | AUTH, TIME_BIND, DYN_BIND, PredictionFreeze, W_L, T3081 | none moves | 13 |
 
@@ -309,7 +309,7 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more, at 20:33 one more, at 21:05 fifteen more, at 21:36 nineteen more (21:09–21:38), with the separate model's revised status, and at 22:08 eight more, whose structure is joined in §9. Layer 22 replays all of them in 60 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1487 readings from 177 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1683 readings from 212 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -394,7 +394,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 
 ## 9. All dots joined (layer 23)
 
-Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 53 dots and 98 joins (95 maps and three obstructions) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
+Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 55 dots and 104 joins (101 maps and three obstructions) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
 
 **New joins (THEOREM).**
 
@@ -432,6 +432,8 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 **The 00:51 items.** The sibling's audits of its paper's scripts are replayed. 4805 is the Gram determinant over 5, not a minor. The two collar fractions 3/65 and 3/80 are different numbers. The shifted coefficient is −69373, and at the collar witness the tangent Hessian is positive. One correction is to this build: the tower of fives freezes at 245 from height 3, as the sibling's TOWERS and the separate model's splits receipt say. This build's 00:15 text had repeated POWER_TOWER's "does not freeze" after checking one step. The receipt's other corrections hold: 215 other golden loops, 4300 disagreement points in all, and entry into the tick cycle after two doublings. One correction goes back to the sibling: its paper's energies 3985/16 and 6784/27 are misprints of the critical energies 4025/16 = (5/4)² · 161 and 6800/27 = (20/9)² · 51. DEEP36_LOOP changed the square-free parts to 3985 and 318 instead, but the parts are 161 and 51, and the density on T⁹ (layer 18) stands.
 
 **Every level (01:30).** The request was to join all dots at every level. Eleven layers had no dot: the spectral triple, the readout, the product geometry, FLRW, the literal operands, the binding, the calibration, the court's measures, the critical census, sound and light and the nine-torus, with layer 9's joins. Twelve dots and 27 joins bring them in. The 53 dots sit on six levels: number (the circle and its clocks), symmetry, combinatorics, lattice, operator and physics. Every layer has a dot, each level is joined inside, and each is joined to the next. THEOREM joins alone reach every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the Friedmann flow. From the circle to physical time there is an obstruction: no internal number fixes the calibration. Three joins are new here. On the projective line over F5 the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5), and their links at infinity are the pentagram and the pentagon. The four-cube's sixteen vertices are the sixteen cuts of K5 over F2. The tick's 25 fixed momenta are critical points of the band: the minimum and 24 points of the A4 + A4 family at ε = 250.
+
+**The 01:54 items** (the sibling's notes to 01:54, the hub's release K, "Canon K — All Dots Joined"). Two dots and six joins are new. The root graph is a four-class association scheme, with classes 56, 126, 56, 1 around each root and eigenvalues 56, 28, 8, −2, −4. Its Gram is 60 times the eigenvalue-28 projector, the pair sums give W₃ = tr A² and W₄ = 1260720, and the 126 roots orthogonal to a root are E7. The 4-simplex carries the tick on every grade as copies of the five-clock's regular representation, and on the eight golden edge directions −(T + T⁻¹) satisfies the golden equation, so B acts there. Each six-point face of the frame lies in exactly two maximal 9-cliques, and Canon K's carry clock 4320 = 36 × 120 does not split. Three corrections go back to the sibling. The circle's subgroups of orders 120, 60, 30 and 10 all contain the ticks. The 4 in 183 + 6 × (56 − 4) is the face's other four sites, not the cut rank. The 256 subset products of its independence certificate have distinct square-free parts, but they are not all square-free.
 
 **Replay for the hub (OES-C01).** At commit f41b278 the reported state replays exactly: 21 layers, 412 checks (383 hold and 29 reported), 31 tests, and the TypeScript audits at residual 0. The logs and a handover are in `docs/hub/OES-C01/`.
 
@@ -490,7 +492,10 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 | tick momenta | critical points of the band: the minimum and 24 of the A4 + A4 family | THEOREM |
 | product geometry, FLRW | heat coefficients 4 Tr D⁰, 4 Tr D², 2 Tr D⁴; the kernel sector scales as a⁻⁶ | CONDITIONAL |
 | time from the circle | no internal number fixes the calibration τ | OBSTRUCTION |
-| all dots, every level | 53 dots on six levels, 98 joins; every layer has a dot; each level joined inside and to the next | THEOREM |
+| root graph | a four-class association scheme; Gram = 60 P₂₈; W₃, W₄ from pair sums; the orthogonal 126 are E7 | THEOREM |
+| 4-simplex | the tick on every grade is copies of the five-clock's regular representation | THEOREM |
+| golden on the edges | B ↦ −(T + T⁻¹) on the eight golden directions | THEOREM |
+| all dots, every level | 55 dots on six levels, 104 joins; every layer has a dot; each level joined inside and to the next | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 11. What is not formed, and the gates
@@ -545,16 +550,16 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 60 | the evening notes: 1487 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
-| 23 | dots | 155 | 53 dots and 98 checked joins in one diagram on six levels (`docs/DOTS.md`); the 22:08–00:51 notes |
+| 22 | counts | 60 | the evening notes: 1683 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
+| 23 | dots | 167 | 55 dots and 104 checked joins in one diagram on six levels (`docs/DOTS.md`); the 22:08–01:54 notes |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 23 layers, 627 checks, about 6 minutes
-python -m pytest -q           # 58 tests
+python verify.py              # 23 layers, 639 checks, about 6 minutes
+python -m pytest -q           # 59 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: "One Machine 20261028" on Drive (222 notes and papers, 17:01–00:51 UTC), two canon sheets, the hub (releases I and J) and two syntheses.
+Sources: "One Machine 20261028" on Drive (259 notes and papers, 17:01–01:54 UTC), two canon sheets, the hub (releases I, J and K) and two syntheses.
