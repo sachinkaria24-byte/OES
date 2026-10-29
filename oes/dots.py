@@ -358,7 +358,8 @@ mirrors and their products on the tick levels replay as arithmetic. The 21:19-21
 images, the golden ticks as 1080 (k mod 4) + 3456 (k mod 5) and the digit cycles; their landing is 864 x, which is the
 first tick level reached by every unit and by 328 non-units (the sibling's correction at 21:57-22:21 of the "only for
 units" first written here). The hub's 21:54 text adds a dark syndrome floor 1/15 made by one Dirac polynomial, and
-two encoder variants whose moments replay.
+two encoder variants whose moments replay. Its 22:51 text extends the floor to the whole dark erasure court, which
+replays over all 847 erased sets, and adds a cubic phase module of harmonic weights 1 and 3.
 """
 
 import functools
@@ -8196,6 +8197,74 @@ def notes_2222():
     }
 
 
+def notes_2253():
+    """The hub's text (22:51) and the sibling's MODEL (22:26-22:51): the dark erasure court, the syndrome polynomial's
+    spectrum, the cubic phase module and the arithmetic."""
+    x = sp.Symbol("x")
+    M = sp.Matrix(carrier.signless_incidence())
+    K = M.T * M
+    I10, J10 = sp.eye(10), sp.ones(10, 10)
+    P0, P8 = (K - 3 * I10) * (K - 8 * I10) / 24, K * (K - 3 * I10) / 40
+    SD = P0 + P8
+    classes = {}
+    for k in range(1, 7):
+        for S in itertools.combinations(range(10), k):
+            key = (k, tuple(sp.Poly(SD.extract(list(S), list(S)).charpoly(x).as_expr(), x).all_coeffs()))
+            classes.setdefault(key, []).append(S)
+    floor = {}
+    for (k, co), Ss in classes.items():
+        r = min(sp.Poly(co, x).real_roots())
+        if k not in floor or r < floor[k][0]:
+            floor[k] = [r, 0]
+    for (k, co), Ss in classes.items():
+        if min(sp.Poly(co, x).real_roots()) == floor[k][0]:
+            floor[k][1] += len(Ss)
+    want = {1: sp.Rational(3, 5), 2: sp.Rational(1, 3), 3: (17 - sp.sqrt(129)) / 30, 4: sp.Rational(1, 15),
+            5: sp.Poly(135 * x ** 3 - 180 * x ** 2 + 54 * x - 2, x).real_roots()[0], 6: sp.Integer(0)}
+    T = 2 * J10 - 2 * K - I10
+    rng = np.random.default_rng(3)
+    sym = lambda: (lambda X: sp.Matrix(X + X.T))(rng.integers(-3, 4, size=(5, 5)))
+    A, B = sym(), sym()
+    Z1 = lambda a, b: ((a + sp.I * b) * (a ** 2 + b ** 2)).trace() / 6
+    Z3 = lambda a, b: ((a + sp.I * b) ** 3).trace() / 6
+    c, s_ = sp.Rational(3, 5), sp.Rational(4, 5)
+    quarter = sp.Matrix([[0, sp.Rational(3, 4), 0, sp.Rational(1, 4)], [0, 0, -1, 0], [0, 1, 0, 0], [-4, 0, 3, 0]])
+    v = 2 * sp.Integer(252) ** 11 / 675
+    return {
+        "the hub's dark erasure court: over the 847 erased sets of 1 to 6 of the ten dark records, the least eigenvalue of "
+        "S_D on the erased set is 3/5, 1/3, (17 - sqrt129)/30, 1/15, the least root of 135t^3 - 180t^2 + 54t - 2 and 0, "
+        "attained by 10, 15, 30, 10, 60 and 25 sets: five dark losses stay recoverable and six can fail (the hub, 22:51)":
+            sum(len(Ss) for Ss in classes.values()) == 847
+            and all(sp.simplify(floor[k][0] - want[k]) == 0 for k in want)
+            and [floor[k][1] for k in range(1, 7)] == [10, 15, 30, 10, 60, 25]
+            and abs(float(want[5]) - 0.0430022) < 1e-6,
+        "the sibling's reading of the syndrome polynomial: T = 2J - 2K - I has trace -30, sends the all-ones vector to 3 "
+        "times itself and has characteristic polynomial (x - 3)(x + 7)^4 (x + 1)^5; S_D - I/15 has eigenvalues 14/15 six "
+        "times and -1/15 four times, so the floor 1/15 holds only for errors on at most four edges, and each edge lies in "
+        "four of the ten tight supports":
+            T.trace() == -30 and T * sp.ones(10, 1) == 3 * sp.ones(10, 1)
+            and sp.expand(T.charpoly(x).as_expr() - (x - 3) * (x + 7) ** 4 * (x + 1) ** 5) == 0
+            and (SD - I10 / 15).eigenvals() == {sp.Rational(14, 15): 6, sp.Rational(-1, 15): 4}
+            and all(sum(1 for f in range(10) if f == e or not set(carrier.edges()[e]) & set(carrier.edges()[f])) == 4
+                    for e in range(10)),
+        "the hub's cubic phase module: for symmetric A and B, eta = Tr(B^3)/6 = (3V - V3)/4 with Z1 = Tr[(A + iB)"
+        "(A^2 + B^2)]/6 = U + iV and Z3 = Tr[(A + iB)^3]/6 = U3 + iV3, and a lane rotation multiplies Z1 and Z3 by "
+        "e^(i theta) and e^(3i theta), so the cubics carry harmonic weights 1 and 3; its quarter-turn squares to -I":
+            sp.simplify((B ** 3).trace() / 6 - (3 * sp.im(Z1(A, B)) - sp.im(Z3(A, B))) / 4) == 0
+            and sp.simplify(Z1(c * A - s_ * B, s_ * A + c * B) - (c + sp.I * s_) * Z1(A, B)) == 0
+            and sp.simplify(Z3(c * A - s_ * B, s_ * A + c * B) - (c + sp.I * s_) ** 3 * Z3(A, B)) == 0
+            and quarter ** 2 == -sp.eye(4),
+        "arithmetic: 2 x 252^11 / 675 = 7.711381184...e23 (the sibling's correction of 7.711381764) and times 1120 / "
+        "10^28 it is 0.0863674692; the moment variances 54213 - 232^2 = 389 and 237985/4 - (975/4)^2 = 1315/16; the "
+        "Singleton counts 252 - 12 + 1 = 241 and 32 - 12 + 1 = 21; 6240 = 26 x 240 = 39 x 160 sits on the clock as "
+        "1920, a pure 27-component; and 1023 + 107 = 1130 with 1023 = 3 x 11 x 31 = 2^10 - 1":
+            str(sp.N(v, 10)).startswith("7.711381184") and str(sp.N(v * 1120 / sp.Integer(10) ** 28, 9)) == "0.0863674693"
+            and 54213 - 232 ** 2 == 389 and sp.Rational(237985, 4) - sp.Rational(975, 4) ** 2 == sp.Rational(1315, 16)
+            and (252 - 12 + 1, 32 - 12 + 1) == (241, 21) and 26 * 240 == 39 * 160 == 6240 and 6240 % 4320 == 1920
+            and (3105 * 1920) % 4320 == 0 == (3456 * 1920) % 4320 and 1023 + 107 == 1130 and 3 * 11 * 31 == 2 ** 10 - 1,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -8764,6 +8833,7 @@ LEDGER_ROWS = [
     ("the norm 31 (monograph, 20:13)", "N(3 - zeta - zeta^4 + 2 zeta^2) = 31 and 5 x 31 = 155", "corrected: that element has norm 61; 2 + zeta - zeta^2 has norm 31", T, "23"),
     ("the line stabilizer (MODEL, 20:08-21:02)", "the 60 fixing the carrier line have the order of PSL(2,5)", "a point-stabilizer A5, not the tick's transitive PSL(2,5); they meet in 10", T, "23"),
     ("the landings (MODEL, 21:19-21:46)", "147 lands on 1728; 148 and 153 land on 2592", "as 864 x = 864 (x mod 5), yes; as the first tick level the multiples reach, not for 147, 148, 153 (3456, 1728, 1728); every unit and 328 non-units match", gates.ARITHMETIC, "23"),
+    ("the dark erasure court (hub, 22:51)", "dark floors 3/5, 1/3, (17 - sqrt129)/30, 1/15, root of 135t^3 - 180t^2 + 54t - 2, 0", "replayed over all 847 erased sets, with attaining counts 10, 15, 30, 10, 60, 25", T, "23"),
     ("the dark syndrome floor (hub, 21:54)", "||S_D e||^2 >= ||e||^2/15 on four-sparse errors; T = (K^2 - 7K - 2I)/2", "replayed: 385 minors, ten tight supports, T = -P0 - 7P3 + 3P8, V V^T = P0 + 9P8", T, "23"),
     ("the circle as a ring (MODEL, 21:05-21:17; maps29.ts)", "idempotents 3105, 2080, 3456, 2241; mirrors 864, 2240, 1215; 864^2 = 3456; landings 864 r; depths 2592 + 1728", "replayed as arithmetic on Z/4320; the same integers are not the same operators", gates.ARITHMETIC, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
@@ -9473,6 +9543,17 @@ def run():
             "code, the bright floor (9 - sqrt37)/20, the source-power gate and the parent bound B >= ||w||/60, the "
             "feasibility routine, the six Golden references and the causal jets; and the sibling's N30 sheet gap (3724 "
             "and 3679 against 3735 and 3690 in the release's own previous entry) and its other readings", RP, True)
+    n2253 = notes_2253()
+    rep.add("the 22:51 text and the 22:26-22:51 model: the dark erasure court (floors 3/5, 1/3, (17 - sqrt129)/30, 1/15, a "
+            "cubic root and 0, attained 10, 15, 30, 10, 60, 25 times), the spectrum of T, the cubic phase module of weights "
+            "1 and 3, and the arithmetic", T, all(n2253.values()), n2253)
+    rep.add("Drive check 22:53: the hub's OES_Unified_Model_20261029.txt as revised at 22:51 (sources through 22:28; 1198 "
+            "groups in 42 receipts), read as text (its zip, 15946002 bytes, not downloaded); the sibling's MODEL editions of "
+            "22:26-22:51, the latest (22:51) read as text; the spine29.ts editions and the OES-paper PDFs not read", RP, True)
+    rep.add("not replayed: the hub's temporal rank ladder 17 -> 19 -> 20, the two-context branches, the global signed-wedge "
+            "completion, the gain bound 10^28, the continuum of dark E8 embeddings, the feedback inverse and its 5320/6240-"
+            "site baths, the 277-entry admission court, the Golden-setting trades, the bright erasure rows, the two "
+            "replacement codes and the reacting root-port jets", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

@@ -631,7 +631,7 @@ def test_the_one_object():
                   cyclotomic.tick_normalizer, cyclotomic.clock_residues, cyclotomic.golden_gauss,
                   cyclotomic.carrier_shadows, cyclotomic.parent_hexad, unify.uniqueness, unify.derivation,
                   dots.notes_1909, dots.address_map, dots.notes_1950, dots.notes_2033, dots.notes_2117,
-                  dots.notes_2150, dots.notes_2222):
+                  dots.notes_2150, dots.notes_2222, dots.notes_2253):
         out = check()
         assert all(out.values()), out
     import numpy as np
