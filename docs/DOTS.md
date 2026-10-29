@@ -24,6 +24,7 @@ flowchart TB
         pgl["PGL(2,5)"]
         golden["golden companion"]
         hodge["Hodge 70"]
+        air801["801 matrix"]
     end
     subgraph level3["level 3: combinatorics"]
         V["K5 vertices"]
@@ -34,6 +35,7 @@ flowchart TB
         cube["four-cube"]
         surface["surface"]
         simplex["4-simplex"]
+        pg25["PG(2,5)"]
     end
     subgraph level4["level 4: lattice"]
         A4["A4"]
@@ -175,20 +177,32 @@ flowchart TB
     E -->|"grade 2"| simplex
     time -->|"the tick on every grade"| simplex
     golden -->|"B -> -(T + T^-1)"| E
+    air801 -->|"the projective class"| pgl
+    surface -->|"the Veronese conic"| pg25
+    pgl -->|"the symmetric square"| pg25
+    air801 -->|"orbits 1 + 3 + 3 + 6 + 6 + 6 + 6"| pg25
+    census -->|"the decay rates"| gksl
+    stages -->|"first landings"| time
+    E8 -->|"Lambda^4 of the lattice"| hodge
+    torus -->|"the speed of the flow"| calibration
+    literal -->|"the incidences"| E
+    measure -->|"the band"| census
+    waves -->|"invariant ratios"| calibration
+    datum -->|"the stiff sector"| cosmology
 ```
 
-55 dots and 104 joins: 95 THEOREM, 4 SELECTED_REFERENCE, 2 CONDITIONAL and 3 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the Friedmann flow.
+57 dots and 116 joins: 106 THEOREM, 4 SELECTED_REFERENCE, 3 CONDITIONAL and 3 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and it has no bridge: every dot has at least two maps, so no single map holds it together. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
-| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages | 16 | 5 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70 | 6 | 3 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex | 7 | 3 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 12 | 9 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 13 | 5 |
-| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW | 6 | - |
+| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages | 17 | 5 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix | 7 | 5 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 8 | 3 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 12 | 11 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 13 | 6 |
+| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW | 7 | - |
 
 ## Dots
 
@@ -249,6 +263,8 @@ flowchart TB
 | nine-torus | T^9 of the nine positive critical frequencies, with a dense flow | lattice | 18 |
 | root graph | the 240 roots, adjacent at inner product 1: a four-class association scheme | lattice | 3, 22, 23 |
 | 4-simplex | the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade | combinatorics | 17, 23 |
+| 801 matrix | AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24 | symmetry | 23 |
+| PG(2,5) | the projective plane over F5: the conic, 15 exterior and 10 interior points | combinatorics | 23 |
 
 ## Joins
 
@@ -358,6 +374,18 @@ flowchart TB
 | K5 edges | 4-simplex | the ten edges are grade 2 of the 4-simplex; its boundaries have ranks 4, 6, 4, 1, the triangles fill the cycles, and the only homology is the point | THEOREM | `simplex_grades` |
 | time clock | 4-simplex | the vertex rotation acts on every grade by copies of the five-clock's regular representation: (x - 1) Phi_5, then (x - 1)^2 Phi_5^2 twice, (x - 1) Phi_5 and x - 1 | THEOREM | `simplex_grades` |
 | golden companion | K5 edges | on the eight golden edge directions -(T + T^-1) satisfies the golden equation X^2 = X + I, so the golden companion acts there; Phi_5 splits over the golden field | THEOREM | `golden_split` |
+| 801 matrix | PGL(2,5) | mod 5 the matrix is [[3, 1], [1, 1]] of determinant 2, a non-square: in PGL(2,5) it lies outside PSL(2,5), has order 6 and turns the projective line in one 6-cycle, swapping the hemi-icosahedron and its complement | THEOREM | `air_801_joins` |
+| surface | PG(2,5) | v -> v^2 puts the six axes on the conic of PG(2,5); the 15 edges are the 15 exterior points, where two tangents meet, and the 10 faces of either triangulation are the 10 interior points, a face and its complementary face sharing their perspector | THEOREM | `projective_plane` |
+| PGL(2,5) | PG(2,5) | PGL(2,5) acts on the plane through the symmetric square, keeps the conic and is transitive on the conic, the exterior and the interior points | THEOREM | `projective_plane` |
+| 801 matrix | PG(2,5) | the matrix's symmetric square keeps the conic and splits the 31 points as conic 6, exterior 3 + 6 + 6 and interior 1 + 3 + 6 | THEOREM | `air_801_joins` |
+| critical census | GKSL | the 256 half-periods are the census's critical points of types E8 (1), E7 + A1 (120) and D8 (135), so e^-tL decays the Paulis at 0, 224 and 256 | THEOREM | `gksl_census` |
+| stages | time clock | each stage prime to 5 lands first on a nonzero tick level, 864, 1728 or 2592; the stages 0, 5 and 10 never land | THEOREM | `stage_landings` |
+| E8 | Hodge 70 | Lambda^4 of the lattice's space is 70-dimensional, and the Hodge star splits it into halves of 35 | THEOREM | `hodge70` |
+| nine-torus | calibration | a calibration divides the nine frequencies together, so the flow's orbit on T^9 is the same for every calibration; no two frequencies have a rational ratio, so no calibration makes it periodic | THEOREM | `torus_calibration` |
+| literal operands | K5 edges | the owner's file lists the edges in the carrier's order, and its H_signless and boundary_oriented are the carrier's M and B | THEOREM | `literal_incidences` |
+| spectral measures | critical census | the spectral measures live on [0, 256], from the census's minimum (type E8) to its maximum (type D8), with every Gauss node inside | THEOREM | `measure_band` |
+| sound and light | calibration | a calibration divides every native frequency by tau, and light/sound = 1, port/source = 2, band top/source = 8 and carrier^2 + sound^2 = 8 stay as they are | THEOREM | `wave_calibration` |
+| datum | FLRW | with the checked datum as initial value, the FLRW kernel sector holds the datum's 2 and scales exactly as a^-6 | CONDITIONAL | `friedmann` |
 
 ## Not joined
 

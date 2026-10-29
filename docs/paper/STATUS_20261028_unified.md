@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 639 checks. Of these, 571 hold: THEOREM 431, OBSTRUCTION 46, ARITHMETIC 39, CONDITIONAL 20, UNFORMED 21, SELECTED_REFERENCE 12, REMOVED 2. The other 68 are REPORTED records.
-- `pytest` runs 59 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 167 checks).
+- `python verify.py` runs 23 layers and 652 checks. Of these, 584 hold: THEOREM 443, OBSTRUCTION 46, ARITHMETIC 39, CONDITIONAL 21, UNFORMED 21, SELECTED_REFERENCE 12, REMOVED 2. The other 68 are REPORTED records.
+- `pytest` runs 60 tests.
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 180 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 55 dots and 104 checked joins as one diagram on six levels.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 57 dots and 116 checked joins as one diagram on six levels, with no bridge.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -29,7 +29,7 @@ New in this edition:
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 55 dots and 104 joins (101 maps, three obstructions) form one connected diagram, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 57 dots and 116 joins (113 maps, three obstructions) form one connected diagram with no bridge, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -76,6 +76,10 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - Each six-point face of the frame lies in exactly two maximal 9-cliques. Canon K's carry clock 4320 = 36 × 120 does not split.
   - Three corrections back to the sibling: the circle's subgroups of orders 120, 60, 30 and 10 all contain the ticks (GOLDEN_GRAVITY); the 4 in 183 + 6 × (56 − 4) is the face's other four sites, not the cut rank (CUMULANT_183); the 256 subset products have distinct square-free parts but are not all square-free (HESSIAN_RECOMPUTE).
   - The separate model's three source corrections and the hub's three conflicts are replayed. Its unified build and release K's evidence packages were not opened or run.
+- **No dot on a single join (02:20):**
+  - Eight dots hung by one join and nine joins were bridges. Each of those dots now has a second checked map, and removing any one map leaves the diagram connected.
+  - The 256 half-periods are exactly the census's E8, E7 + A1 and D8 critical points, so the GKSL rates are census data. The spectral measures live on the band between the census's minimum and maximum. The owner's operand file holds the carrier's incidences. No two of the nine bath frequencies have a rational ratio, so no calibration makes the bath periodic.
+  - AIR_801's matrix and PG(2,5) are dots. Mod 5 the matrix lies outside PSL(2,5) and swaps the two triangulations. On the Veronese conic of PG(2,5), the six axes, the surface's 15 edges and its 10 faces are the conic, the 15 exterior points and the 10 interior points. The matrix's orbits are conic 6, exterior 3 + 6 + 6 and interior 1 + 3 + 6.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–01:54, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):

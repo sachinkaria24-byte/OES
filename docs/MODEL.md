@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 55 dots and 104 joins: 101 maps (95 THEOREM, 4 SELECTED_REFERENCE, 2 CONDITIONAL) and three obstructions. Every dot sits on one of six levels, from the integers up to physics (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
+The diagram has 57 dots and 116 joins: 113 maps (106 THEOREM, 4 SELECTED_REFERENCE, 3 CONDITIONAL) and three obstructions. It has no bridge: every dot has at least two maps, so no single map holds it together (see *No dot on a single join* below). Every dot sits on one of six levels, from the integers up to physics (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1218,6 +1218,22 @@ Also from these items:
   - CUMULANT_183 reads the 4 in 183 + 6 × (56 − 4) = 495 as the cut rank. Two adjacent sites of a face have 56 common neighbours, and four of them are the face's other sites, so 52 lie outside. The 4 is those four sites.
   - HESSIAN_RECOMPUTE says the 256 subset products of 3, 7, 14, 10, 62, 51, 161, 251 are distinct and square-free. Their square-free parts are distinct (the exponent matrix is invertible over F₂), which is what independence needs, but 196 of the products are not square-free (7 × 14 = 98 = 2 × 7²). The sibling now uses the census's parts 161 and 51.
 - **Recorded (REPORTED).** The separate model's unified build (43752185 bytes; 104 new check groups) was not opened or run. Release K's 71 "Grand All Dots" assertions and its evidence packages, which contain a Python verifier, were not downloaded or run.
+
+**No dot on a single join (02:20).** The request was again to join all dots. The diagram was connected, but eight dots (GKSL, the stages, Hodge 70, the nine-torus, the literal operands, the spectral measures, the calibration and FLRW) hung by a single join, and nine joins were bridges. Each of those dots now has a second checked map, and a new check confirms that removing any one map leaves the diagram connected. Two more objects become dots: AIR_801's matrix (symmetry level) and the projective plane PG(2,5) (combinatorics level).
+- **The second maps.**
+  - **The half-periods are critical points.** The 256 half-periods are exactly the census's critical points of types E8 (1), E7 + A1 (120) and D8 (135), whole orbits. So the GKSL rates 0, 224 and 256, with multiplicities 1, 120 and 135, are census data.
+  - **The stages land.** Each stage prime to 5 lands first on a nonzero tick level (864, 1728 or 2592), and the stages 0, 5 and 10 never land.
+  - **Hodge 70 from the lattice.** Λ⁴ of the lattice's space is 70-dimensional, and the Hodge star splits it into halves of 35.
+  - **The torus and the calibration.** A calibration divides the nine frequencies together, so the flow's orbit on T⁹ is calibration-invariant. No two of the nine frequencies have a rational ratio, so no calibration makes the bath periodic: the bath supplies no clock.
+  - **The owner's file.** The operand file lists the edges in the carrier's order, and its H_signless and boundary_oriented are the carrier's M and B.
+  - **The measures and the band.** The spectral measures live on [0, 256], from the census's minimum (type E8) to its maximum (type D8), with every Gauss node inside.
+  - **Waves and the calibration.** A calibration divides every native frequency by τ. Light/sound = 1, port/source = 2, band top/source = 8 and carrier² + sound² = 8 stay as they are, and stand in the prediction register.
+  - **The stiff sector** (CONDITIONAL). With the checked datum as its initial value, the FLRW kernel sector holds the datum's 2 and scales exactly as a⁻⁶.
+- **The 801 matrix and the plane.**
+  - Mod 5, AIR_801's matrix is [[3, 1], [1, 1]], of determinant 2, a non-square. In PGL(2,5) it lies outside PSL(2,5), has order 6 and turns the projective line in one 6-cycle. So it swaps the hemi-icosahedron and its complement.
+  - PG(2,5) has 31 points. The Veronese map v ↦ v² puts the projective line, the six axes, on its conic. The 15 exterior points (on two tangents) are the pairs of axes, the surface's 15 edges. The 10 interior points (on no tangent) are the faces of either triangulation: for each inscribed triangle, the lines from each vertex to the meeting point of the other two tangents are concurrent at an interior point, and a face and its complementary face share that point.
+  - PGL(2,5) acts on the plane through the symmetric square, keeps the conic, and is transitive on the conic, the exterior points and the interior points.
+  - The matrix's symmetric square splits the 31 points as conic 6, exterior 3 + 6 + 6 and interior 1 + 3 + 6. That is the joined paper's 1 + 3 + 3 + 6 + 6 + 6 + 6, now placed in the plane.
 
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….

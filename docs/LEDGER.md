@@ -162,8 +162,11 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the square-free certificate (HESSIAN_RECOMPUTE) | the 256 subset products are distinct and square-free | corrected: their square-free parts are distinct (the exponent matrix is invertible over F2), which is what independence needs; 196 products are not square-free | THEOREM | 23 |
 | release K (hub, cutoff 01:06; Canon K, 01:49) | 71 Grand All Dots assertions; carry clock 36 x 120; observability descent; root-pair proof | the bridges are replayed; the 71 assertions, the evidence package and the four workbook copies are recorded, not rerun | REPORTED | 23 |
 | the separate model's unified build (01:28) | 104 new check groups; three source corrections (CHERN_SPLIT twice, SPECTRA) | the corrections are replayed; the build is not opened | REPORTED | 23 |
-| every level (layer 23) | join all dots at every level | 55 dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW | THEOREM | 23 |
-| all dots | - | 55 dots and 104 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| the 801 matrix and PG(2,5) (AIR_801; 02:20) | a Singer cycle of order 24; orbits 1 + 3 + 3 + 6 + 6 + 6 + 6 on 31 points | joined: in PGL(2,5) it lies outside PSL(2,5) and swaps the two triangulations; the Veronese conic carries the six axes, the 15 exterior points are the surface's edges and the 10 interior points its faces (perspectors); its orbits are conic 6, exterior 3 + 6 + 6, interior 1 + 3 + 6 | THEOREM | 23 |
+| the half-periods and the census | 1 + 120 + 135 half-period modes; GKSL rates 0, 224, 256 | joined: the 256 half-periods are the census's critical points of types E8, E7 + A1 and D8, whole orbits | THEOREM | 23 |
+| no bridge (layer 23) | join all dots | every dot has at least two maps, and no single map holds the diagram together | THEOREM | 23 |
+| every level (layer 23) | join all dots at every level | 57 dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW | THEOREM | 23 |
+| all dots | - | 57 dots and 116 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

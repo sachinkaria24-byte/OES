@@ -261,6 +261,18 @@ def test_edge_tick_port_moments_and_the_frozen_towers():
     assert pow(5, 5 ** 5, spine.N) == pow(5, 5 ** 5 ** 5, spine.N) == 245
 
 
+def test_no_dot_hangs_by_one_join():
+    nb = dots.no_bridge()
+    assert all(nb.values()), nb
+    for check in (dots.projective_plane, dots.air_801_joins, dots.gksl_census, dots.stage_landings,
+                  dots.torus_calibration, dots.literal_incidences, dots.measure_band, dots.wave_calibration):
+        out = check()
+        assert all(out.values()), out
+    # the check can fail: cutting both maps at the calibration cuts it off
+    cut = [not (j[1] == "calibration" and j[4] != gates.OBSTRUCTION) for j in dots.JOINS]
+    assert len(dots.components(cut)) == 2
+
+
 def test_root_scheme_simplex_and_the_golden_split():
     for check in (dots.root_scheme, dots.frame_cliques, dots.simplex_grades, dots.golden_split, dots.notes_0154):
         out = check()

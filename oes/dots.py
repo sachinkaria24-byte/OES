@@ -132,6 +132,18 @@ carry clock 4320 = 36 x 120 does not split. Three corrections go back to the sib
 120, 60, 30 and 10 all contain the ticks (GOLDEN_GRAVITY said none did); the 4 in 183 + 6 x (56 - 4) is the face's four
 other sites, not the cut rank (CUMULANT_183); and the 256 subset products of HESSIAN_RECOMPUTE have distinct square-free
 parts but are not themselves square-free.
+
+At 02:20 the request was again to join all dots. The diagram was connected, but eight dots hung by a single join and
+nine joins were bridges. Each of those dots now has a second checked map, and the check is that no single map holds the
+diagram together. Most of the new maps are new mathematics here. The 256 half-periods are exactly the census's critical
+points of types E8, E7 + A1 and D8, so the GKSL decay rates are census data. The spectral measures live on the band
+between the census's minimum and maximum. The owner's operand file holds the carrier's incidences. With the checked datum
+the FLRW stiff sector holds the datum's 2. The nine bath frequencies have no rational ratio, so no calibration makes the
+bath periodic. Two more objects become dots: AIR_801's matrix and the projective plane PG(2,5). Mod 5 the matrix lies
+outside PSL(2,5) and swaps the hemi-icosahedron and its complement. On the Veronese conic of PG(2,5), the six axes are
+the conic, the surface's 15 edges are the 15 exterior points, and its 10 faces are the 10 interior points (a face and its
+complementary face share their perspector). The matrix's orbits on the 31 points are conic 6, exterior 3 + 6 + 6 and
+interior 1 + 3 + 6.
 """
 
 import functools
@@ -2218,6 +2230,206 @@ def sound_light():
     }
 
 
+# ------------------------------------------------------------------- no dot hangs by one join
+
+def _surface_labels():
+    """The two triangulations on the projective line over F5 (the cone point at infinity = 5)."""
+    tri, comp = spacetime.rp2_triangulations()
+    _, psl = projective_line()
+    image = lambda s, F: {tuple(sorted(s[i] for i in f)) for f in F}
+    orbit = lambda t: {tuple(sorted(s[i] for i in t)) for s in psl}
+    phi = next(p for p in itertools.permutations(range(6)) if p[5] == 5 and image(p, tri) == orbit(min(image(p, tri))))
+    return image(phi, tri), image(phi, comp)
+
+
+def _plane():
+    """PG(2,5) with the Veronese conic of the projective line: points, conic labels, tangent lines."""
+    p = 5
+
+    def norm(v):
+        v = [x % p for x in v]
+        k = next(x for x in v if x)
+        inv = pow(k, p - 2, p)
+        return tuple(y * inv % p for y in v)
+    points = sorted({norm(v) for v in itertools.product(range(p), repeat=3) if any(v)})
+    vec = lambda x: (1, 0) if x == 5 else (x, 1)
+    conic = {norm((vec(x)[0] ** 2, vec(x)[0] * vec(x)[1], vec(x)[1] ** 2)): x for x in range(6)}
+    tangent = {c: norm((-c[2], 2 * c[1], -c[0])) for c in conic}          # the polar of b^2 - ac at c
+    cross = lambda u, v: norm((u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]))
+    on = lambda L, q: sum(a * b for a, b in zip(L, q)) % p == 0
+
+    def sym2(m):                                               # (x, y) -> (a x + b y, c x + d y) on (x^2, xy, y^2)
+        a, b, c, d = m
+        return lambda v: norm((a * a * v[0] + 2 * a * b * v[1] + b * b * v[2],
+                               a * c * v[0] + (a * d + b * c) * v[1] + b * d * v[2],
+                               c * c * v[0] + 2 * c * d * v[1] + d * d * v[2]))
+    return points, conic, tangent, cross, on, sym2
+
+
+def projective_plane():
+    """The Veronese conic: the six axes, the fifteen edges and the ten faces in PG(2,5)."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    exterior = {q for q in points if q not in conic and count[q] == 2}
+    interior = {q for q in points if q not in conic and count[q] == 0}
+    pole = lambda a, b: cross(tangent[label[a]], tangent[label[b]])
+
+    def perspector(T):
+        a, b, c = T
+        lines = [cross(label[a], pole(b, c)), cross(label[b], pole(a, c)), cross(label[c], pole(a, b))]
+        X = cross(lines[0], lines[1])
+        return X if on(lines[2], X) else None
+    A, Ac = _surface_labels()
+    det = lambda m: (m[0] * m[3] - m[1] * m[2]) % 5
+    gl = [m for m in itertools.product(range(5), repeat=4) if det(m)]
+    orbit = lambda q: {sym2(m)(q) for m in gl}
+    return {
+        "PG(2,5) has 31 points: the six on the conic v -> v^2 of the projective line, 15 exterior points on two tangents "
+        "and 10 interior points on none": len(points) == 31 and len(conic) == 6 and len(exterior) == 15 and len(interior) == 10,
+        "the exterior points are the pairs of axes, so the surface's 15 edges: the tangents at a and b meet in one exterior "
+        "point, and every exterior point arises once": {pole(a, b) for a, b in itertools.combinations(range(6), 2)} == exterior,
+        "for every inscribed triangle the lines from each vertex to the meeting point of the other two tangents are "
+        "concurrent at an interior point, a face and its complementary face share it, and so the ten faces of either "
+        "triangulation are the ten interior points": all(perspector(T) in interior for T in A | Ac)
+        and {perspector(T) for T in A} == interior == {perspector(T) for T in Ac}
+        and all(perspector(T) == perspector(tuple(sorted(set(range(6)) - set(T)))) for T in A)
+        and all(tuple(sorted(set(range(6)) - set(T))) in Ac for T in A),
+        "PGL(2,5) acts on the plane through the symmetric square, keeps the conic and is transitive on the conic, the "
+        "exterior and the interior points": all(sym2(m)(c) in conic for m in gl for c in conic)
+        and orbit(next(iter(conic))) == set(conic) and orbit(next(iter(exterior))) == exterior
+        and orbit(next(iter(interior))) == interior,
+    }
+
+
+def air_801_joins():
+    """AIR_801: a Singer cycle mod 5, outside PSL(2,5), acting on the line, the triangulations and the plane."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    m = (108 % 5, 801 % 5, 106 % 5, 901 % 5)
+    mobius = tuple(conic[sym2(m)(c)] for c in sorted(conic, key=conic.get))
+    A, Ac = _surface_labels()
+    pgl, psl = projective_line()
+    image = lambda s, F: {tuple(sorted(s[i] for i in f)) for f in F}
+    step = sym2(m)
+    seen, orbits = set(), []
+    for q in points:
+        if q not in seen:
+            o, r = [], q
+            while r not in o:
+                o.append(r)
+                r = step(r)
+            seen |= set(o)
+            orbits.append(o)
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    kind = lambda o: "conic" if o[0] in conic else ("exterior" if count[o[0]] == 2 else "interior")
+    turn = [0]
+    while mobius[turn[-1]] != 0:
+        turn.append(mobius[turn[-1]])
+    return {
+        "mod 5 the matrix is [[3, 1], [1, 1]], of determinant 2, a non-square: in PGL(2,5) it lies outside PSL(2,5), has "
+        "order 6 and turns the six points of the projective line in one cycle": m == (3, 1, 1, 1) and (m[0] * m[3] - m[1] * m[2]) % 5 == 2
+        and mobius in pgl - psl and len(turn) == 6,
+        "so it swaps the hemi-icosahedron and its complement": image(mobius, A) == Ac and image(mobius, Ac) == A,
+        "its symmetric square keeps the conic and splits the 31 points as conic 6, exterior 3 + 6 + 6 and interior "
+        "1 + 3 + 6 (the joined paper's 1 + 3 + 3 + 6 + 6 + 6 + 6)": sorted((kind(o), len(o)) for o in orbits) == [
+            ("conic", 6), ("exterior", 3), ("exterior", 6), ("exterior", 6), ("interior", 1), ("interior", 3), ("interior", 6)],
+    }
+
+
+def gksl_census():
+    """The half-periods are the census's critical points of types E8, E7 + A1 and D8."""
+    R = glue.roots()
+    simple = np.array([0.5 * np.array([1, -1, -1, -1, -1, -1, -1, 1]), np.eye(8)[0] + np.eye(8)[1]]
+                      + [np.eye(8)[k + 1] - np.eye(8)[k] for k in range(6)])
+    kinds = Counter()
+    for c in itertools.product((0, 1), repeat=8):
+        x = np.array(c) @ simple / 2
+        gradient = (np.sin(2 * np.pi * R @ x)[:, None] * R).sum(axis=0)
+        kinds[(handover.stabiliser(R, x)[0], int(round(240 - np.cos(2 * np.pi * R @ x).sum())),
+               bool(np.linalg.norm(gradient) < 1e-9))] += 1
+    fam = {t: (f["orbit"], int(round(240 - f["lambda"]))) for (_, t), f in _census().items()}
+    return {
+        "the 256 half-periods are critical points of the band: one of type E8 (eps 0), 120 of type E7 + A1 (eps 224) and "
+        "135 of type D8 (eps 256), the census's whole orbits of those types": kinds == Counter(
+            {("E8", 0, True): 1, ("E7+A1", 224, True): 120, ("D8", 256, True): 135})
+        and (fam["E8"], fam["E7+A1"], fam["D8"]) == ((1, 0), (120, 224), (135, 256)),
+        "so the GKSL semigroup e^-tL decays the identity, the 120 antisymmetric and the 135 symmetric Paulis at those "
+        "critical values, 0, 224 and 256 (layer 22's Pauli generator)": all(counts.pauli_bath().values()),
+    }
+
+
+def stage_landings():
+    """The stages that meet the tick land on a nonzero tick level of the time clock."""
+    levels = {k: counts.first_landing(k) for k in range(15)}
+    return {
+        "each of the twelve stages prime to 5 lands first on a nonzero tick level, 864, 1728 or 2592, and the stages 0, 5 "
+        "and 10 never land (SANSKRIT_DEEP, EVERY_WORD)": all((levels[k] is None) == (k % 5 == 0) for k in range(15))
+        and {v[1] for v in levels.values() if v} <= set(spine.subgroup(TICK)) - {0}
+        and levels == counts.STAGE_LANDINGS,
+    }
+
+
+def torus_calibration():
+    """A calibration rescales the nine frequencies together; their ratios are irrational, so the flow has no period."""
+    eps = sorted({240 - v for v in _critical_values()} - {0})
+    free = lambda q: snapshot.squarefree_part(q)
+    tau = 2.7
+    w = np.sqrt(np.array([float(e) for e in eps]))
+    return {
+        "a calibration t = tau u divides all nine frequencies by tau, so the flow's orbit on T^9 is the same for every "
+        "calibration and only its speed changes": np.allclose((w / tau) / (w[0] / tau), w / w[0]),
+        "no two frequencies have a rational ratio (the square-free parts differ), so no calibration makes the bath flow "
+        "periodic: the bath supplies no clock": all(free(a * b) != 1 for a, b in itertools.combinations(eps, 2)),
+    }
+
+
+def literal_incidences():
+    """The owner's operand file holds the carrier's incidences in the carrier's edge order."""
+    d = literal.load()
+    return {
+        "native_matrices_input.json lists the edges in the carrier's order, and its H_signless and boundary_oriented are "
+        "the carrier's M and B": [tuple(e) for e in d["edge_order"]] == carrier.edges()
+        and d["H_signless"] == carrier.signless_incidence() and d["boundary_oriented"] == carrier.signed_incidence(),
+    }
+
+
+def measure_band():
+    """The spectral measures live on the band, whose ends are the census's minimum and maximum."""
+    values = [240 - v for v in _critical_values()]
+    sec = court.sector_moments(court.laplacian_moments(recurrence.load_walks(), 52), 50)
+    nodes = lambda M, x: court.eigen_count_below(*court.chebyshev(M[:50])[:2], Fraction(x))
+    return {
+        "the band [0, 256] runs from the census's minimum (type E8, eps 0) to its maximum (type D8, eps 256), and every "
+        "sector's 25 Gauss nodes lie strictly inside it": (min(values), max(values)) == (0, 256) == (0, court.BAND)
+        and all(nodes(M, 0) == 0 and nodes(M, 256) == 25 for M in sec.values()),
+    }
+
+
+def wave_calibration():
+    """A calibration turns the native frequencies into physical ones; the register keeps their ratios."""
+    reg = gatework.register()
+    cal = gatework.Calibration(2.7)
+    ladder = {"carrier": 3 ** 0.5, "source": 2.0, "sound": 5 ** 0.5, "light": 5 ** 0.5, "port": 4.0, "band top": 16.0}
+    phys = {k: cal.frequency(v) for k, v in ladder.items()}
+    M, B = carrier.signless_incidence(), carrier.signed_incidence()
+    return {
+        "a calibration divides every native frequency by tau; light/sound = 1, port/source = 2 and band top/source = 8 "
+        "are calibration-invariant and stand in the prediction register": np.isclose(phys["light"] / phys["sound"], 1)
+        and np.isclose(phys["port"] / phys["source"], reg["native"]["port_to_source_frequency_ratio"])
+        and np.isclose(phys["band top"] / phys["source"], reg["native"]["band_edge_to_source_frequency_ratio"]),
+        "and so is carrier^2 + sound^2 = 8 on every vertex mode (M M^T + B B^T = 8I)": M * M.T + B * B.T == 8 * sp.eye(5),
+    }
+
+
+def no_bridge():
+    """Every dot has at least two maps, and no single map holds the diagram together."""
+    maps = [j for j in JOINS if j[4] in MAPS]
+    degree = Counter(x for j in maps for x in j[:2])
+    bridges = [j[:3] for j in maps if len(components([k is not j for k in JOINS])) > 1]
+    return {"every dot has at least two maps": all(degree[k] >= 2 for k in DOTS),
+            "removing any one map leaves the diagram connected: it has no bridge": not bridges}
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -2276,15 +2488,18 @@ DOTS = {
     "torus": ("nine-torus", "T^9 of the nine positive critical frequencies, with a dense flow", "18"),
     "rootgraph": ("root graph", "the 240 roots, adjacent at inner product 1: a four-class association scheme", "3, 22, 23"),
     "simplex": ("4-simplex", "the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade", "17, 23"),
+    "air801": ("801 matrix", "AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24", "23"),
+    "pg25": ("PG(2,5)", "the projective plane over F5: the conic, 15 exterior and 10 interior points", "23"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
 LEVELS = [
     ("number", "the circle and its clocks",
      ["circle", "time", "observer", "c27", "atlas", "coil", "grain", "vortex", "miss", "stages"]),
-    ("symmetry", "groups, their actions and modules", ["clocks", "G120", "AGL", "S5", "pgl", "golden", "hodge"]),
+    ("symmetry", "groups, their actions and modules",
+     ["clocks", "G120", "AGL", "S5", "pgl", "golden", "hodge", "air801"]),
     ("combinatorics", "graphs, complexes and the cube",
-     ["V", "E", "cycles", "rotor", "petersen", "cube", "surface", "simplex"]),
+     ["V", "E", "cycles", "rotor", "petersen", "cube", "surface", "simplex", "pg25"]),
     ("lattice", "roots, lattices and tori",
      ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph"]),
     ("operator", "spaces with operators, ports and moments",
@@ -2407,6 +2622,18 @@ JOINS = [
     ("E", "simplex", "grade 2", "the ten edges are grade 2 of the 4-simplex; its boundaries have ranks 4, 6, 4, 1, the triangles fill the cycles, and the only homology is the point", T, "simplex_grades"),
     ("time", "simplex", "the tick on every grade", "the vertex rotation acts on every grade by copies of the five-clock's regular representation: (x - 1) Phi_5, then (x - 1)^2 Phi_5^2 twice, (x - 1) Phi_5 and x - 1", T, "simplex_grades"),
     ("golden", "E", "B -> -(T + T^-1)", "on the eight golden edge directions -(T + T^-1) satisfies the golden equation X^2 = X + I, so the golden companion acts there; Phi_5 splits over the golden field", T, "golden_split"),
+    ("air801", "pgl", "the projective class", "mod 5 the matrix is [[3, 1], [1, 1]] of determinant 2, a non-square: in PGL(2,5) it lies outside PSL(2,5), has order 6 and turns the projective line in one 6-cycle, swapping the hemi-icosahedron and its complement", T, "air_801_joins"),
+    ("surface", "pg25", "the Veronese conic", "v -> v^2 puts the six axes on the conic of PG(2,5); the 15 edges are the 15 exterior points, where two tangents meet, and the 10 faces of either triangulation are the 10 interior points, a face and its complementary face sharing their perspector", T, "projective_plane"),
+    ("pgl", "pg25", "the symmetric square", "PGL(2,5) acts on the plane through the symmetric square, keeps the conic and is transitive on the conic, the exterior and the interior points", T, "projective_plane"),
+    ("air801", "pg25", "orbits 1 + 3 + 3 + 6 + 6 + 6 + 6", "the matrix's symmetric square keeps the conic and splits the 31 points as conic 6, exterior 3 + 6 + 6 and interior 1 + 3 + 6", T, "air_801_joins"),
+    ("census", "gksl", "the decay rates", "the 256 half-periods are the census's critical points of types E8 (1), E7 + A1 (120) and D8 (135), so e^-tL decays the Paulis at 0, 224 and 256", T, "gksl_census"),
+    ("stages", "time", "first landings", "each stage prime to 5 lands first on a nonzero tick level, 864, 1728 or 2592; the stages 0, 5 and 10 never land", T, "stage_landings"),
+    ("E8", "hodge", "Lambda^4 of the lattice", "Lambda^4 of the lattice's space is 70-dimensional, and the Hodge star splits it into halves of 35", T, "hodge70"),
+    ("torus", "calibration", "the speed of the flow", "a calibration divides the nine frequencies together, so the flow's orbit on T^9 is the same for every calibration; no two frequencies have a rational ratio, so no calibration makes it periodic", T, "torus_calibration"),
+    ("literal", "E", "the incidences", "the owner's file lists the edges in the carrier's order, and its H_signless and boundary_oriented are the carrier's M and B", T, "literal_incidences"),
+    ("measure", "census", "the band", "the spectral measures live on [0, 256], from the census's minimum (type E8) to its maximum (type D8), with every Gauss node inside", T, "measure_band"),
+    ("waves", "calibration", "invariant ratios", "a calibration divides every native frequency by tau, and light/sound = 1, port/source = 2, band top/source = 8 and carrier^2 + sound^2 = 8 stay as they are", T, "wave_calibration"),
+    ("datum", "cosmology", "the stiff sector", "with the checked datum as initial value, the FLRW kernel sector holds the datum's 2 and scales exactly as a^-6", gates.CONDITIONAL, "friedmann"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -2484,6 +2711,9 @@ LEDGER_ROWS = [
     ("the square-free certificate (HESSIAN_RECOMPUTE)", "the 256 subset products are distinct and square-free", "corrected: their square-free parts are distinct (the exponent matrix is invertible over F2), which is what independence needs; 196 products are not square-free", T, "23"),
     ("release K (hub, cutoff 01:06; Canon K, 01:49)", "71 Grand All Dots assertions; carry clock 36 x 120; observability descent; root-pair proof", "the bridges are replayed; the 71 assertions, the evidence package and the four workbook copies are recorded, not rerun", RP, "23"),
     ("the separate model's unified build (01:28)", "104 new check groups; three source corrections (CHERN_SPLIT twice, SPECTRA)", "the corrections are replayed; the build is not opened", RP, "23"),
+    ("the 801 matrix and PG(2,5) (AIR_801; 02:20)", "a Singer cycle of order 24; orbits 1 + 3 + 3 + 6 + 6 + 6 + 6 on 31 points", "joined: in PGL(2,5) it lies outside PSL(2,5) and swaps the two triangulations; the Veronese conic carries the six axes, the 15 exterior points are the surface's edges and the 10 interior points its faces (perspectors); its orbits are conic 6, exterior 3 + 6 + 6, interior 1 + 3 + 6", T, "23"),
+    ("the half-periods and the census", "1 + 120 + 135 half-period modes; GKSL rates 0, 224, 256", "joined: the 256 half-periods are the census's critical points of types E8, E7 + A1 and D8, whole orbits", T, "23"),
+    ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
     ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
@@ -2556,7 +2786,10 @@ def _checks():
         "literal_port": literal_port, "measure": measure, "triple": triple, "readout": readout,
         "sound_light": sound_light, "binding_joins": binding_joins, "calibration": calibration,
         "product_geometry": product_geometry, "friedmann": friedmann, "root_scheme": root_scheme,
-        "simplex_grades": simplex_grades, "golden_split": golden_split,
+        "simplex_grades": simplex_grades, "golden_split": golden_split, "projective_plane": projective_plane,
+        "air_801_joins": air_801_joins, "gksl_census": gksl_census, "stage_landings": stage_landings,
+        "torus_calibration": torus_calibration, "literal_incidences": literal_incidences, "measure_band": measure_band,
+        "wave_calibration": wave_calibration,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -2621,9 +2854,10 @@ def dots_page():
     count = Counter(status for *_, status, _ in JOINS)
     lines += ["```", "", f"{len(DOTS)} dots and {len(JOINS)} joins: {count[T]} THEOREM, {count[SR]} SELECTED_REFERENCE, "
               f"{count[gates.CONDITIONAL]} CONDITIONAL and {count[OB]} OBSTRUCTION. With the obstructions left out, the "
-              "joins that hold connect every dot: the diagram is one piece. THEOREM joins alone connect every dot but "
-              "the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the "
-              "Friedmann flow.", "",
+              "joins that hold connect every dot: the diagram is one piece, and it has no bridge: every dot has at least "
+              "two maps, so no single map holds it together. THEOREM joins alone connect every dot but the product "
+              "geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and "
+              "its stiff sector.", "",
               "## Levels", "", "| level | what lives there | dots | joins inside | joins to the next level |",
               "|---|---|---|---|---|"]
     cell = lambda x: x.replace("|", "\\|")
@@ -2665,10 +2899,13 @@ def run():
         all(lv["between"]), [[f"{j[0]} -> {j[1]}" for j in b] for b in lv["between"]])
     rest = sorted(sorted(c) for c in lv["theorem"] if len(c) > 1)
     rep.add(f"THEOREM joins alone connect {len(DOTS) - 2} of the {len(DOTS)} dots; the product geometry and FLRW "
-            "attach only through the two CONDITIONAL joins (J10 and the Friedmann flow)", T,
+            "attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector)", T,
             len(lv["theorem"]) == 3 and ["cosmology"] in [sorted(c) for c in lv["theorem"]]
             and ["gravity"] in [sorted(c) for c in lv["theorem"]] and len(rest) == 1,
             dict(lv["statuses"]))
+    nb = no_bridge()
+    rep.add("no dot hangs by one join: every dot has at least two maps, and removing any one map leaves the diagram "
+            "connected", T, all(nb.values()), nb)
     a8 = air_801()
     rep.add("AIR_801's matrix [[108, 801], [106, 901]]: det 12402; mod 5 a Singer cycle of order 24 in GL(2,5) and 6 in "
             "PGL(2,5); the clock polynomial has degree 27 and a simple root at 1", T, all(a8.values()), a8)

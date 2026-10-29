@@ -57,35 +57,35 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.61,
+  "1-carrier": 0.66,
   "2-spectral": 0.01,
-  "3-spacetime": 8.42,
-  "4-native": 93.94,
-  "5-observer": 0.22,
-  "6-gravity": 5.22,
-  "7-cosmology": 1.84,
-  "8-frontier": 36.15,
-  "9-joins": 7.74,
-  "10-literal": 38.61,
-  "11-glue": 0.18,
-  "12-binding": 0.03,
-  "13-gates": 0.1,
-  "14-recurrence": 73.26,
-  "15-court": 1.89,
-  "16-handover": 1.19,
-  "17-waves": 0.55,
+  "3-spacetime": 8.45,
+  "4-native": 94.13,
+  "5-observer": 0.19,
+  "6-gravity": 5.5,
+  "7-cosmology": 1.97,
+  "8-frontier": 34.82,
+  "9-joins": 7.5,
+  "10-literal": 36.1,
+  "11-glue": 0.2,
+  "12-binding": 0.04,
+  "13-gates": 0.03,
+  "14-recurrence": 73.37,
+  "15-court": 1.74,
+  "16-handover": 1.08,
+  "17-waves": 0.6,
   "18-snapshot": 0.8,
-  "19-spine": 4.19,
-  "20-canon": 6.31,
-  "21-ledger": 46.2,
-  "22-counts": 22.96,
-  "23-dots": 9.42
+  "19-spine": 4.14,
+  "20-canon": 5.84,
+  "21-ledger": 44.95,
+  "22-counts": 22.14,
+  "23-dots": 10.44
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 431,
-   "total": 431
+   "passed": 443,
+   "total": 443
   },
   "OBSTRUCTION": {
    "passed": 46,
@@ -108,8 +108,8 @@
    "total": 21
   },
   "CONDITIONAL": {
-   "passed": 20,
-   "total": 20
+   "passed": 21,
+   "total": 21
   },
   "REPORTED": {
    "passed": 68,
@@ -6877,7 +6877,143 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 55 dots and 104 joins form one connected diagram (the obstructions left out)",
+   "name": "801 matrix -> PGL(2,5): mod 5 the matrix is [[3, 1], [1, 1]] of determinant 2, a non-square: in PGL(2,5) it lies outside PSL(2,5), has order 6 and turns the projective line in one 6-cycle, swapping the hemi-icosahedron and its complement",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "mod 5 the matrix is [[3, 1], [1, 1]], of determinant 2, a non-square: in PGL(2,5) it lies outside PSL(2,5), has order 6 and turns the six points of the projective line in one cycle": true,
+    "so it swaps the hemi-icosahedron and its complement": true,
+    "its symmetric square keeps the conic and splits the 31 points as conic 6, exterior 3 + 6 + 6 and interior 1 + 3 + 6 (the joined paper's 1 + 3 + 3 + 6 + 6 + 6 + 6)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "surface -> PG(2,5): v -> v^2 puts the six axes on the conic of PG(2,5); the 15 edges are the 15 exterior points, where two tangents meet, and the 10 faces of either triangulation are the 10 interior points, a face and its complementary face sharing their perspector",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "PG(2,5) has 31 points: the six on the conic v -> v^2 of the projective line, 15 exterior points on two tangents and 10 interior points on none": true,
+    "the exterior points are the pairs of axes, so the surface's 15 edges: the tangents at a and b meet in one exterior point, and every exterior point arises once": true,
+    "for every inscribed triangle the lines from each vertex to the meeting point of the other two tangents are concurrent at an interior point, a face and its complementary face share it, and so the ten faces of either triangulation are the ten interior points": true,
+    "PGL(2,5) acts on the plane through the symmetric square, keeps the conic and is transitive on the conic, the exterior and the interior points": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> PG(2,5): PGL(2,5) acts on the plane through the symmetric square, keeps the conic and is transitive on the conic, the exterior and the interior points",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "PG(2,5) has 31 points: the six on the conic v -> v^2 of the projective line, 15 exterior points on two tangents and 10 interior points on none": true,
+    "the exterior points are the pairs of axes, so the surface's 15 edges: the tangents at a and b meet in one exterior point, and every exterior point arises once": true,
+    "for every inscribed triangle the lines from each vertex to the meeting point of the other two tangents are concurrent at an interior point, a face and its complementary face share it, and so the ten faces of either triangulation are the ten interior points": true,
+    "PGL(2,5) acts on the plane through the symmetric square, keeps the conic and is transitive on the conic, the exterior and the interior points": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "801 matrix -> PG(2,5): the matrix's symmetric square keeps the conic and splits the 31 points as conic 6, exterior 3 + 6 + 6 and interior 1 + 3 + 6",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "mod 5 the matrix is [[3, 1], [1, 1]], of determinant 2, a non-square: in PGL(2,5) it lies outside PSL(2,5), has order 6 and turns the six points of the projective line in one cycle": true,
+    "so it swaps the hemi-icosahedron and its complement": true,
+    "its symmetric square keeps the conic and splits the 31 points as conic 6, exterior 3 + 6 + 6 and interior 1 + 3 + 6 (the joined paper's 1 + 3 + 3 + 6 + 6 + 6 + 6)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "critical census -> GKSL: the 256 half-periods are the census's critical points of types E8 (1), E7 + A1 (120) and D8 (135), so e^-tL decays the Paulis at 0, 224 and 256",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 256 half-periods are critical points of the band: one of type E8 (eps 0), 120 of type E7 + A1 (eps 224) and 135 of type D8 (eps 256), the census's whole orbits of those types": true,
+    "so the GKSL semigroup e^-tL decays the identity, the 120 antisymmetric and the 135 symmetric Paulis at those critical values, 0, 224 and 256 (layer 22's Pauli generator)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "stages -> time clock: each stage prime to 5 lands first on a nonzero tick level, 864, 1728 or 2592; the stages 0, 5 and 10 never land",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "each of the twelve stages prime to 5 lands first on a nonzero tick level, 864, 1728 or 2592, and the stages 0, 5 and 10 never land (SANSKRIT_DEEP, EVERY_WORD)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> Hodge 70: Lambda^4 of the lattice's space is 70-dimensional, and the Hodge star splits it into halves of 35",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Hodge star on Lambda^4 R^8 is an involution with 35 + 35 eigenvalues +1 and -1": true,
+    "a Weyl reflection anticommutes with it and swaps the halves": true,
+    "the Coxeter clock, the carrier rotation, the tick, the day and the golden clock have determinant 1 and keep the halves": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "nine-torus -> calibration: a calibration divides the nine frequencies together, so the flow's orbit on T^9 is the same for every calibration; no two frequencies have a rational ratio, so no calibration makes it periodic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a calibration t = tau u divides all nine frequencies by tau, so the flow's orbit on T^9 is the same for every calibration and only its speed changes": true,
+    "no two frequencies have a rational ratio (the square-free parts differ), so no calibration makes the bath flow periodic: the bath supplies no clock": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "literal operands -> K5 edges: the owner's file lists the edges in the carrier's order, and its H_signless and boundary_oriented are the carrier's M and B",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "native_matrices_input.json lists the edges in the carrier's order, and its H_signless and boundary_oriented are the carrier's M and B": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral measures -> critical census: the spectral measures live on [0, 256], from the census's minimum (type E8) to its maximum (type D8), with every Gauss node inside",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band [0, 256] runs from the census's minimum (type E8, eps 0) to its maximum (type D8, eps 256), and every sector's 25 Gauss nodes lie strictly inside it": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "sound and light -> calibration: a calibration divides every native frequency by tau, and light/sound = 1, port/source = 2, band top/source = 8 and carrier^2 + sound^2 = 8 stay as they are",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a calibration divides every native frequency by tau; light/sound = 1, port/source = 2 and band top/source = 8 are calibration-invariant and stand in the prediction register": 1.0,
+    "and so is carrier^2 + sound^2 = 8 on every vertex mode (M M^T + B B^T = 8I)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "datum -> FLRW: with the checked datum as initial value, the FLRW kernel sector holds the datum's 2 and scales exactly as a^-6",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "with G and Lambda_cc from the spectral action the Friedmann constraint holds along the flow": 1.0,
+    "the kernel sector, which holds the datum's 2, is stiff: its energy times a^6 stays 2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 57 dots and 116 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6891,6 +7027,7 @@
      "L0",
      "S5",
      "V",
+     "air801",
      "atlas",
      "bath",
      "binding",
@@ -6921,6 +7058,7 @@
      "observer",
      "pauli",
      "petersen",
+     "pg25",
      "pgl",
      "readout",
      "rootgraph",
@@ -6996,7 +7134,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 2, symmetry (groups, their actions and modules): its 7 dots are joined among themselves",
+   "name": "level 2, symmetry (groups, their actions and modules): its 8 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7004,6 +7142,7 @@
      "AGL",
      "G120",
      "S5",
+     "air801",
      "clocks",
      "golden",
      "hodge",
@@ -7014,7 +7153,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 3, combinatorics (graphs, complexes and the cube): its 8 dots are joined among themselves",
+   "name": "level 3, combinatorics (graphs, complexes and the cube): its 9 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7024,6 +7163,7 @@
      "cube",
      "cycles",
      "petersen",
+     "pg25",
      "rotor",
      "simplex",
      "surface"
@@ -7096,7 +7236,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 3, combinatorics-lattice 3, lattice-operator 9, operator-physics 5 joins",
+   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 5, combinatorics-lattice 3, lattice-operator 11, operator-physics 6 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7110,7 +7250,9 @@
     [
      "V -> clocks",
      "surface -> pgl",
-     "golden -> E"
+     "golden -> E",
+     "pgl -> pg25",
+     "air801 -> pg25"
     ],
     [
      "E -> A4",
@@ -7126,28 +7268,42 @@
      "E8 -> bath",
      "frame -> sixsite",
      "census -> walks",
-     "rootgraph -> walks"
+     "rootgraph -> walks",
+     "census -> gksl",
+     "measure -> census"
     ],
     [
      "carrier -> triple",
      "kerM -> triple",
      "source -> readout",
      "carrier -> waves",
-     "source -> binding"
+     "source -> binding",
+     "datum -> cosmology"
     ]
    ],
    "note": ""
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 53 of the 55 dots; the product geometry and FLRW attach only through the two CONDITIONAL joins (J10 and the Friedmann flow)",
+   "name": "THEOREM joins alone connect 55 of the 57 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 95,
+    "THEOREM": 106,
     "OBSTRUCTION": 3,
     "SELECTED_REFERENCE": 4,
-    "CONDITIONAL": 2
+    "CONDITIONAL": 3
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "no dot hangs by one join: every dot has at least two maps, and removing any one map leaves the diagram connected",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "every dot has at least two maps": true,
+    "removing any one map leaves the diagram connected: it has no bridge": true
    },
    "note": ""
   },
