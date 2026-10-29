@@ -221,13 +221,25 @@ site_i - (mu_i + mu_(i+1)), so T_G = F P_cycle is an isometry of the cycles into
 (1987 -+ 31 sqrt5)/10, so MEMORY's stated block and the trace that the notes left out are this port's. With the hub's
 clique it shares two sites; the cross map has squared singular values 4/5 and 2/5, and the joint Krylov ranks are 12,
 24 and 36. The 10:38 model's charges, root triangles, transposition sums and fivefold map replay too.
+
+At 11:12 the hub's text (11:09, 11:18) and the sibling's MODEL (10:42-11:19) joined the charges to the Golden port. A
+fivefold order sends site i to its outgoing edge, and the cycle part L of that map has L L^T = ((5I + K)/10) P_moving.
+A near and a far mark decode the two Golden densities, with determinant 32 sqrt5/675, and both densities are
+nonnegative exactly in the window (49 -+ 12 sqrt5)/41. Averaged over S5 the map vanishes and its square is P_cycle/3;
+the twelve markings sum to 4 P_cycle, and only all twelve together are isotropic. Because E8's roots are a 7-design,
+the four channels' low-energy densities follow exactly from the ten root sites: the near/far ratio is
+(17/13)(1 - 2E/5525), the marked ensemble (E^4/360)(1 + 29E/3000) and the twirl (10/9) E^3 + E^4/540 + E^5/48600, in
+units of 1/(1536 pi^4 30^4). These were the hub's inherited coefficients, which the sibling had not recomputed. The
+fifteen words of 088, 086 and 980 become a dot. As a D3-module they are the oriented duads of six points with the
+reflection's sign twisted: isometrically over Q(sqrt2) and over no smaller field, integrally with index 8 and never
+unimodularly. The C5 that the selected J7 lacks first appears in dimension 9, as A4's Coxeter element.
 """
 
 import functools
 import itertools
 from collections import Counter
 from fractions import Fraction
-from math import ceil, gcd, lcm, log2
+from math import ceil, factorial, gcd, lcm, log2
 
 import numpy as np
 import sympy as sp
@@ -3650,23 +3662,10 @@ def shared_bath():
     """The hub's clique port and Golden port in one bath: the cross map, the joint span and the joint Krylov ranks."""
     from sympy.polys.matrices import DomainMatrix
     Hn = _walk_entries()
-    site, sign = _golden_sites()
-    S, T = assignment.SITE, assignment.TWIN
-    clique = [S[0] - S[i] for i in range(1, 5)] + [S[0] - T[0] - T[1], S[0] - T[0] - T[2]]
+    clique, sites, TC, Fm = _two_ports()
     roots10 = {tuple(r) for r in assignment.roots10()}
-    sites = []
-    for t in clique + site:
-        if not any(np.array_equal(t, q) for q in sites):
-            sites.append(t)
-    where = lambda t: next(k for k, q in enumerate(sites) if np.array_equal(t, q))
     B = sp.Matrix(carrier.signed_incidence())
     Pc = sp.eye(10) - B.T * B / 5
-    TC = sp.zeros(len(sites), 6)
-    for k, t in enumerate(clique):
-        TC[where(t), k] = 1
-    Fm = sp.zeros(len(sites), 10)
-    for e, (t, g) in enumerate(zip(site, sign)):
-        Fm[where(t), e] = g
     cross = TC.T * Fm * Pc * Fm.T * TC
     J = sp.Matrix.hstack(TC, Fm * sp.Matrix.hstack(*B.nullspace()))
     Hm = {n: sp.Matrix(len(sites), len(sites), lambda i, j: Hn(sites[j] - sites[i], n)) for n in range(5)}
@@ -3768,6 +3767,392 @@ def _eight_roots2():
     return chosen
 
 
+def _marked():
+    """The fivefold marking: the edges' signed five-cycle U, K = I + 2(U + U^T), the fixed and moving cycles, and the
+    marked map L = P_cycle N P_A4, where N sends each site to its outgoing edge."""
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - B.T * B / 5
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    U = compound2(R5)
+    Qf = sum((U ** k for k in range(5)), sp.zeros(10)) / 5
+    N = sp.zeros(10, 5)
+    for i in range(5):
+        a, b = i, (i + 1) % 5
+        N[E.index((min(a, b), max(a, b))), i] = 1 if a < b else -1
+    return Pc, R5, U, sp.eye(10) + 2 * (U + U.T), Qf, Pc - Qf, Pc * N * (sp.eye(5) - sp.ones(5, 5) / 5)
+
+
+def marked_charge():
+    """The hub's marked charge map (11:18) and the sibling's marks (11:04): L = P_cycle N P_A4 and its two-probe decoder."""
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    r5 = sp.sqrt(5)
+    Pg = {s: Pm * (sp.eye(10) + s * K / r5) / 2 for s in (1, -1)}
+    A2 = sp.Matrix(5, 5, lambda i, j: int((i - j) % 5 in (2, 3)))
+    q = lambda i, j: sp.Matrix([1 if k == i else 0 if k == j else sp.Rational(-1, 3) for k in range(5)])
+    W = sp.Matrix(2, 2, lambda m, s: sp.radsimp(((L * q(0, m + 1)).T * Pg[1 - 2 * s] * L * q(0, m + 1))[0]))
+    Wi = W.inv().applyfunc(sp.radsimp)
+    zero = lambda a: sp.expand(sp.radsimp(a)) == 0
+    perms = [sp.Matrix(5, 5, lambda r, c, p=p: int(r == p[c])) for p in itertools.permutations(range(5))]
+    lift = [compound2(g) for g in perms]
+    marks = [q(i, j) for i, j in itertools.permutations(range(5), 2)]
+    return {
+        "a chosen fivefold order sends site i to its outgoing edge; the cycle part L = P_cycle N P_A4 has rank 4, "
+        "commutes with the five-cycle and misses the two fixed cycles, with L^T L = (2I - A_2)/5 on the sites and "
+        "L L^T = ((5I + K)/10) P_moving on the edges, where K^2 = 5":
+            L.rank() == 4 and U * L == L * R5 and (Qf * L).is_zero_matrix and L.T * L == (2 * sp.eye(5) - A2) / 5
+            and L * L.T == (5 * sp.eye(10) + K) / 10 * Pm and K * K * Pm == 5 * Pm,
+        "the twenty marks (1 at i, 0 at j, -1/3 elsewhere) have covariance P_A4/3; a near mark (j = i + 1) puts "
+        "(17 +- 5 sqrt5)/45 into the Golden channels K = +-sqrt5 (square 34/45), a far mark (j = i + 2) (13 +- sqrt5)/45 "
+        "(square 26/45)": sum((m * m.T for m in marks), sp.zeros(5)) / 20 == (sp.eye(5) - sp.ones(5, 5) / 5) / 3
+            and all(zero(W[i, j] - w) for (i, j), w in zip(itertools.product(range(2), repeat=2),
+                                                            ((17 + 5 * r5) / 45, (17 - 5 * r5) / 45, (13 + r5) / 45, (13 - r5) / 45))),
+        "so the two responses decode the two Golden densities: the mixing determinant is 32 sqrt5/675, rho_phi + rho_psi "
+        "= 15(5 R_far - R_near)/16 and rho_phi - rho_psi = 3 sqrt5 (13 R_near - 17 R_far)/16, an error eta in each "
+        "response costs at most 45(1 + sqrt5) eta/16, and both densities are nonnegative exactly when R_near/R_far lies "
+        "in [(49 - 12 sqrt5)/41, (49 + 12 sqrt5)/41]; with equal densities, at low energy, the ratio is 17/13":
+            zero(W.det() - 32 * r5 / 675)
+            and zero(Wi[0, 0] + Wi[1, 0] + sp.Rational(15, 16)) and zero(Wi[0, 1] + Wi[1, 1] - sp.Rational(75, 16))
+            and zero(Wi[0, 0] - Wi[1, 0] - 39 * r5 / 16) and zero(Wi[0, 1] - Wi[1, 1] + 51 * r5 / 16)
+            and zero(max(abs(Wi[k, 0]) + abs(Wi[k, 1]) for k in range(2)) - 45 * (1 + r5) / 16)
+            and zero(W[0, 1] / W[1, 1] - (49 - 12 * r5) / 41) and zero(W[0, 0] / W[1, 0] - (49 + 12 * r5) / 41)
+            and zero((W[0, 0] + W[0, 1]) / (W[1, 0] + W[1, 1]) - sp.Rational(17, 13)),
+        "averaged over S5 the marked map is 0 (Hom_S5(A4, cycles) = 0) while its square averages to P_cycle/3, so the "
+        "marks' image covariance L L^T/3 averages to P_cycle/9; on the moving cycles L L^T/3 has inverse (3/2)(5I - K), "
+        "and two fixed probes complete the whitened readings to P_cycle":
+            sum((h * L * g.T for h, g in zip(lift, perms)), sp.zeros(10, 5)).is_zero_matrix
+            and sum((h * L * L.T * h.T for h in lift), sp.zeros(10)) / 120 == Pc / 3
+            and L * L.T / 3 * sp.Rational(3, 2) * (5 * sp.eye(10) - K) * Pm == Pm and Pm + Qf == Pc,
+    }
+
+
+def twelve_markings():
+    """The sibling's MODEL of 11:19: the 120 relabellings of the marked square take 12 values, ten times each."""
+    from sympy.polys.matrices import DomainMatrix
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    seen = Counter()
+    for p in itertools.permutations(range(5)):
+        h = compound2(sp.Matrix(5, 5, lambda r, c: int(r == p[c])))
+        seen[tuple(h * L * L.T * h.T)] += 1
+    C = [sp.Matrix(10, 10, list(k)) for k in seen]
+    x = sp.symbols("x")
+    poly = lambda M: sp.expand(sum(sp.Rational(int(c.numerator), int(c.denominator)) * x ** k for k, c in
+                                   enumerate(reversed(DomainMatrix.from_Matrix(M).to_field().charpoly()))))
+    kinds = {sp.expand(x ** 6 * (x - 1) ** 4): "a marking and its doubling: 1, 1, 1, 1",
+             sp.expand(x ** 4 * (x - sp.Rational(1, 5)) ** 2 * (x - sp.Rational(4, 5)) ** 2 * (x - 1) ** 2): "1/5, 4/5, 1",
+             sp.expand(x ** 4 * (x - sp.Rational(2, 5)) ** 2 * (x ** 2 - sp.Rational(6, 5) * x + sp.Rational(4, 25))
+                       * (x ** 2 - 2 * x + sp.Rational(4, 5))): "(3 -+ sqrt5)/5, 2/5, (5 -+ sqrt5)/5"}
+    pairs = Counter(kinds.get(poly(C[a] + C[b])) for a, b in itertools.combinations(range(12), 2))
+    r5 = sp.sqrt(5)
+    C50 = [np.array((50 * c).tolist(), dtype=np.int64) for c in C]
+    P5 = np.array((5 * Pc).tolist(), dtype=np.int64)
+    iso = [S for k in range(1, 13) for S in itertools.combinations(range(12), k)
+           if (lambda M: np.array_equal(30 * M, np.trace(M) * P5))(sum(C50[i] for i in S))]
+    return {
+        "the 120 relabellings of the marked square take 12 values, ten times each (one per cyclic order up to "
+        "reversal), and the twelve sum to 4 P_cycle, so a cycle vector is a quarter of its twelve labelled readings":
+            len(C) == 12 and set(seen.values()) == {10} and sum(C, sp.zeros(10)) == 4 * Pc
+            and all(sp.Matrix(50 * c).is_symmetric() and all(v.is_integer for v in 50 * c) for c in C),
+        "of the 66 pairs, 6 (a marking and its doubling) sum to a moving projector, eigenvalues 1, 1, 1, 1; 30 have "
+        "eigenvalues 1/5, 1/5, 4/5, 4/5, 1, 1 (condition 5) and 30 have (3 -+ sqrt5)/5, 2/5, 2/5, (5 -+ sqrt5)/5 "
+        "(condition 5 + 2 sqrt5)": pairs == Counter({"a marking and its doubling: 1, 1, 1, 1": 6, "1/5, 4/5, 1": 30,
+                                                       "(3 -+ sqrt5)/5, 2/5, (5 -+ sqrt5)/5": 30})
+            and sp.expand(sp.radsimp((5 + r5) / (3 - r5) - (5 + 2 * r5))) == 0,
+        "the twelve centred squares C - P_cycle/3 have rank 11, and of the 4095 equal-weight sums only the sum of all "
+        "twelve is isotropic": sp.Matrix([list(c - Pc / 3) for c in C]).rank() == 11 and iso == [tuple(range(12))],
+    }
+
+
+def _isotropic(d):
+    """The c with sum over the roots of (rho.k)^d = c |k|^d identically, monomial by monomial; None if there is none."""
+    R2 = assignment.roots10() // 5
+    found = set()
+    for combo in itertools.combinations_with_replacement(range(8), d):
+        a = np.bincount(combo, minlength=8)
+        s = Fraction(int(np.prod(R2 ** a, axis=1).sum()) * factorial(d),
+                     int(np.prod([factorial(int(v)) for v in a])) * 2 ** d)
+        if (a % 2).any():
+            if s:
+                return None
+        else:
+            found.add(s * int(np.prod([factorial(int(v) // 2) for v in a])) / factorial(d // 2))
+    return found.pop() if len(found) == 1 else None
+
+
+def golden_infrared():
+    """The Golden port's four channels at low energy, from its ten root sites (the hub, 11:18), in units of
+    C = 1/(1536 pi^4 30^4). The roots are a 7-design, so eps = 30u - 3u^2/2 + u^3/24 + O(u^4) with u = |k|^2 is
+    isotropic; the series below are exact through relative order E^2, where the anisotropic degree-8 term cannot reach."""
+    site, sign = _golden_sites()
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    X = [sp.Matrix([sp.Rational(int(c), 10) for c in s]) for s in site]
+    d2 = sp.Matrix(10, 10, lambda e, f: ((X[e] - X[f]).T * (X[e] - X[f]))[0])
+    cs = sorted(set(d2))
+    S = {c: sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * int(d2[e, f] == c)) for c in cs}
+    v = Qf * sp.Matrix(sign)
+    Pp = v * v.T / (v.T * v)[0]
+    Pn = Qf - Pp
+    r5 = sp.sqrt(5)
+    w = {"plus": [(Pp * S[c]).trace() for c in cs], "minus": [(Pn * S[c]).trace() for c in cs]}
+    for nm, s in (("phi", 1), ("psi", -1)):
+        w[nm] = [((Pm * S[c]).trace() + s * (Pm * K * S[c]).trace() / r5) / 4 for c in cs]
+    Dp = sp.Matrix.hstack(*[sign[e] * X[e] for e in range(10)])
+    mono = sp.Matrix([sign])
+    Q2 = sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * (X[e].T * X[f])[0] ** 2)
+    u, E, t = sp.symbols("u E t", positive=True)
+    eps = 30 * u - sp.Rational(3, 2) * u ** 2 + sp.Rational(1, 24) * u ** 3
+    uE = E / 30
+    for _ in range(5):
+        uE = sp.expand(E / 30 + (sp.Rational(3, 2) * uE ** 2 - uE ** 3 / 24) / 30)
+        uE = sum(uE.coeff(E, j) * E ** j for j in range(1, 6))
+    Phi = lambda z: sum((-z / 4) ** m / (sp.factorial(m) * sp.rf(4, m)) for m in range(6))
+    trunc = lambda p, x, n: sum(sp.expand(p).coeff(x, j) * x ** j for j in range(n + 1))
+    inv = sp.series(1 / sp.diff(eps, u), u, 0, 6).removeO()
+    upow = [sp.Integer(1)]
+    for _ in range(7):
+        upow.append(trunc(upow[-1] * uE, E, 7))
+    rho = {}
+    for nm, wt in w.items():
+        ser = trunc(30 ** 4 * sum(a * Phi(c * u) for a, c in zip(wt, cs)) * u ** 3 * inv, u, 7)
+        ser = sp.expand(sum(ser.coeff(u, j) * upow[j] for j in range(3, 8)))
+        rho[nm] = [sp.expand(sp.radsimp(ser.coeff(E, j))) for j in range(8)]
+    pick = lambda f, j: sp.expand(sp.radsimp(f(*(rho[n][j] for n in ("plus", "minus", "phi", "psi")))))
+    near = lambda p, n, f, s: ((17 + 5 * r5) * f + (17 - 5 * r5) * s) / 45
+    far = lambda p, n, f, s: ((13 + r5) * f + (13 - r5) * s) / 45
+    marked = lambda p, n, f, s: (2 * (5 + r5) * f + 2 * (5 - r5) * s) / 30
+    twirl = lambda p, n, f, s: (p + n + 2 * f + 2 * s) / 9
+    zero = lambda a: sp.expand(sp.radsimp(a)) == 0
+    tw = [pick(twirl, j) for j in (3, 4, 5)]
+    return {
+        "E8's roots are a 7-design: sum (rho.k)^d = 60, 36, 30 times |k|^d for d = 2, 4, 6, exactly, so the symbol is "
+        "eps = 30u - 3u^2/2 + u^3/24 + O(u^4) in every direction": [_isotropic(d) for d in (2, 4, 6)] == [60, 36, 30],
+        "the response of the ten sites splits into four scalar channels at every energy: the five distance kernels "
+        "commute with the five-cycle and do not mix the plus and minus lines of the fixed plane":
+            all(U * S[c] == S[c] * U and (Pp * S[c] * Pn).is_zero_matrix for c in cs),
+        "the plus line carries monopole square 10 and no dipole, every unit moving cycle has dipole square 1, and the "
+        "minus line has neither monopole nor dipole and a traceless quadrupole with tr Q^2 = 4":
+            (Pp * mono.T * mono).trace() == 10 and (Pp * Dp.T * Dp).trace() == 0 and Pm * Dp.T * Dp * Pm == Pm
+            and (Pn * mono.T * mono).trace() == 0 and (Pn * Dp.T * Dp).trace() == 0 and (Pn * Q2).trace() == 4,
+        "the densities are plus 10 E^3 (1 - E^2/1080000), Golden (E^4/240)(1 + (1/100 -+ sqrt5/3000) E) for K = +-sqrt5 "
+        "and minus E^5/36000, with heat tails 60 t^-4, t^-5/10 and t^-6/300":
+            rho["plus"][3:6] == [10, 0, sp.Rational(-1, 108000)] and rho["minus"][5] == sp.Rational(1, 36000)
+            and rho["phi"][4] == rho["psi"][4] == sp.Rational(1, 240)
+            and zero(rho["phi"][5] - (sp.Rational(1, 100) - r5 / 3000) / 240)
+            and zero(rho["psi"][5] - (sp.Rational(1, 100) + r5 / 3000) / 240)
+            and (10 * 6, sp.Rational(24, 240), sp.Rational(120, 36000)) == (60, sp.Rational(1, 10), sp.Rational(1, 300)),
+        "so the near/far ratio is (17/13)(1 - 2E/5525), the marked ensemble (E^4/360)(1 + 29E/3000), and the S5 twirl "
+        "(rho_plus + rho_minus + 2 rho_phi + 2 rho_psi)/9 = (10/9) E^3 + E^4/540 + E^5/48600, with heat tail "
+        "(20/3) t^-4 (1 + 1/(150 t) + 1/(2700 t^2)): the hub's inherited coefficients, now computed":
+            pick(near, 4) / pick(far, 4) == sp.Rational(17, 13)
+            and zero((pick(near, 5) * pick(far, 4) - pick(near, 4) * pick(far, 5)) / pick(far, 4) ** 2
+                     + sp.Rational(17, 13) * sp.Rational(2, 5525))
+            and pick(marked, 4) == sp.Rational(1, 360) and zero(pick(marked, 5) - sp.Rational(29, 3000 * 360))
+            and tw == [sp.Rational(10, 9), sp.Rational(1, 540), sp.Rational(1, 48600)]
+            and [tw[k] * factorial(k + 3) / (tw[0] * 6) for k in range(3)] == [1, sp.Rational(1, 150), sp.Rational(1, 2700)],
+    }
+
+
+def _words():
+    """The fifteen words of the dihedral closure of 088, 086 and 980, orbit by orbit, with rotation C and reversal R."""
+    rot, rev = (lambda w: w[1:] + w[:1]), (lambda w: w[::-1])
+    orbit = lambda w: sorted({y for x in (w, rev(w)) for y in (x, rot(x), rot(rot(x)))})
+    words = [w for w0 in ("088", "086", "980") for w in orbit(w0)]
+    idx = {w: i for i, w in enumerate(words)}
+    perm = lambda f: sp.Matrix(15, 15, lambda r, c: int(r == idx[f(words[c])]))
+    return words, perm(rot), perm(rev)
+
+
+def _duads():
+    """Lambda^2 R^6, the oriented duads of six points, with c: i -> i + 2 and the reflection r: i -> -i taken with a
+    sign, and the signed basis vector e_a ^ e_b."""
+    di = {d: i for i, d in enumerate(itertools.combinations(range(6), 2))}
+
+    def wedge(f, s=1):
+        M = sp.zeros(15, 15)
+        for (a, b), i in di.items():
+            x, y = f(a), f(b)
+            M[di[(min(x, y), max(x, y))], i] = s * (1 if x < y else -1)
+        return M
+    e = lambda a, b: sp.eye(15)[:, di[(min(a, b), max(a, b))]] * (1 if a < b else -1)
+    return wedge(lambda i: (i + 2) % 6), wedge(lambda i: -i % 6, -1), e
+
+
+def word_duads():
+    """The hub's word-to-duad join (11:18), rebuilt here with its own A and B."""
+    from sympy.polys.matrices import DomainMatrix
+    words, C, R = _words()
+    Ct, Rt, e = _duads()
+    I = sp.eye(15)
+    G = [(I, I), (C, Ct), (C * C, Ct * Ct), (R, Rt), (R * C, Rt * Ct), (R * C * C, Rt * Ct * Ct)]
+
+    def equivariant(w, v):
+        M = sp.zeros(15, 15)
+        for gs, gt in G:
+            M[:, list(gs[:, words.index(w)]).index(1)] = gt * v
+        return M
+    A = equivariant("808", e(2, 4)) + equivariant("980", e(0, 1))
+    Bm = equivariant("086", e(5, 1) + e(0, 3))
+    P086 = sp.diag(*[int(sorted(w) == sorted("086")) for w in words])
+    O, TZ = A + Bm / sp.sqrt(2), A + Bm
+    Ft = sum((gt for _, gt in G), sp.zeros(15)) / 6
+    src = sp.Matrix.hstack(*[sp.Matrix([int(sorted(w) == sorted(k)) for w in words]) for k in ("088", "086", "980")])
+    tgt = sp.Matrix.hstack(3 * Ft * e(0, 2), 3 * Ft * e(1, 3), 6 * Ft * e(0, 1))
+    f2 = lambda M: DomainMatrix.from_Matrix(M).convert_to(sp.GF(2)).rank()
+    s6 = lambda d, k: tuple(sorted(((d[0] + k) % 6, (d[1] + k) % 6)))
+    duads = list(itertools.combinations(range(6), 2))
+    hexo = {frozenset(s6(d, k) for k in range(6)) for d in duads}
+    digits = sp.Matrix([[0, 8, 8], [8, 8, 0], [0, 8, 6], [9, 8, 0]])
+    return {
+        "the 15 words of 088, 086 and 980 fall in orbits of 3, 6 and 6 under rotation C and reversal R, with C^3 = R^2 "
+        "= I and RCR = C^2; on Lambda^2 R^6, c: i -> i + 2 and r: i -> -i with the reflection's sign twisted satisfy the "
+        "same relations, and both modules have traces (15, 0, 1), while the untwisted duads have reflection trace 3":
+            [len({x for x in words if sorted(x) == sorted(k)}) for k in ("088", "086", "980")] == [3, 6, 6]
+            and C ** 3 == I and R ** 2 == I and R * C * R == C ** 2 and Ct ** 3 == I and Rt ** 2 == I
+            and Rt * Ct * Rt == Ct ** 2 and (C.trace(), R.trace(), Ct.trace(), Rt.trace()) == (0, 1, 0, 1)
+            and Rt.applyfunc(abs).trace() == 3,
+        "A sends 088 to the oriented triangle 0-2-4 and 980 to the six adjacent pairs, B sends 086 into the triangle "
+        "1-3-5 and the diameters, symmetric and antisymmetric; A^T A = I - P086, B^T B = 2 P086, A^T B = 0, both "
+        "intertwine, and O = A + B/sqrt2 is an exact equivariant isometry over Q(sqrt2)":
+            A.T * A == I - P086 and Bm.T * Bm == 2 * P086 and (A.T * Bm).is_zero_matrix
+            and Ct * A == A * C and Rt * A == A * R and Ct * Bm == Bm * C and Rt * Bm == Bm * R
+            and (O.T * O).applyfunc(sp.radsimp) == I,
+        "no rational isometry exists: the fixed spaces have Grams diag(3, 6, 6) and diag(3, 3, 6), of determinants 108 "
+        "and 54, whose ratio 2 is not a rational square":
+            src.T * src == sp.diag(3, 6, 6) and Ft.rank() == 3 and Ft * tgt == tgt and tgt.T * tgt == sp.diag(3, 3, 6)
+            and (Ft * e(0, 3)).is_zero_matrix and not sp.sqrt(sp.Rational(108, 54)).is_rational,
+        "the integral T_Z = A + B has T_Z^T T_Z = I + P086, determinant 8 and Smith form 1^12 2^3 (index 8), and no "
+        "integral intertwiner is unimodular: the mod-2 coinvariants have dimensions 3 and 4":
+            TZ.T * TZ == I + P086 and abs(TZ.det()) == 8
+            and [smith_normal_form(TZ)[i, i] for i in range(15)] == [1] * 12 + [2] * 3
+            and (15 - f2(sp.Matrix.hstack(C - I, R - I)), 15 - f2(sp.Matrix.hstack(Ct - I, Rt - I))) == (3, 4),
+        "a six-cycle splits the 15 duads into 6 adjacent pairs, 6 at distance two and 3 diameters, each kept by the "
+        "reflection, the six-orbits splitting under c into even and odd triangles; the digit rows 088, 880, 086, 980 "
+        "have Smith form 1, 2, 8 (index 16) and the primitive relation (3, 9, -4, -8)":
+            sorted(len(o) for o in hexo) == [3, 6, 6]
+            and all({tuple(sorted((-a % 6, -b % 6))) for a, b in o} == set(o) for o in hexo)
+            and all(len({frozenset(s6(d, k) for k in (0, 2, 4)) for d in o}) == 2 for o in hexo if len(o) == 6)
+            and [smith_normal_form(digits)[i, i] for i in range(3)] == [1, 2, 8]
+            and (sp.Matrix([[3, 9, -4, -8]]) * digits).is_zero_matrix and gcd(3, 9, 4, 8) == 1,
+    }
+
+
+def words_c5():
+    """J7's missing Golden action (the hub, 11:18): no rational C5 commutes with D3 on 1 + 3 std; on 1 + 4 std one does,
+    and it is A4's Coxeter element."""
+    x = sp.symbols("x")
+    words, C, R = _words()
+    Cs, Rs = sp.Matrix([[0, -1], [1, -1]]), sp.Matrix([[0, 1], [1, 0]])
+    comp = sp.Matrix(4, 4, lambda i, j: int(i == j + 1) - int(j == 3))
+    alpha = sp.Matrix(5, 4, lambda r, i: int(r == i) - int(r == i + 1))
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    C9, R9 = sp.diag(1, sp.kronecker_product(Cs, sp.eye(4))), sp.diag(1, sp.kronecker_product(Rs, sp.eye(4)))
+    Ub = sp.kronecker_product(sp.eye(2), comp)
+    U9 = sp.diag(1, Ub)
+    Xb = -(Ub + Ub.inv())
+    chi = (15, C.trace(), R.trace())
+    mult = ((chi[0] + 2 * chi[1] + 3 * chi[2]) // 6, (chi[0] + 2 * chi[1] - 3 * chi[2]) // 6, (2 * chi[0] - 2 * chi[1]) // 6)
+    least = min(a + b + 2 * c for a in range(1, 9) for b in range(9) for c in range(3, 9) if max(a, b, c) >= 4)
+    return {
+        "the words are 3 trivial + 2 sign + 5 standard, room for J7's 1 + 3 std; D3 on 1 + 3 std has commutant Q + M3(Q), "
+        "and a rational C5 other than I needs Phi_5, irreducible of degree 4, in a block of dimension 4 or more: none "
+        "here, and the least extension with one is 9 = 1 + 4 std": mult == (3, 2, 5)
+            and sp.Poly(x ** 4 + x ** 3 + x ** 2 + x + 1, x).is_irreducible and least == 9,
+        "there U9 = 1 + I2 x companion(Phi_5) has U9^5 = I, U9 != I, and commutes with C9 = 1 + C_std x I4 and R9 = 1 + "
+        "R_std x I4, a D3; the companion is A4's Coxeter element, the five-cycle, on the simple roots e_i - e_(i+1)":
+            U9 ** 5 == sp.eye(9) and U9 != sp.eye(9) and U9 * C9 == C9 * U9 and U9 * R9 == R9 * U9
+            and C9 ** 3 == sp.eye(9) and R9 ** 2 == sp.eye(9) and R9 * C9 * R9 == C9 ** 2 and R5 * alpha == alpha * comp
+            and comp.charpoly(x).as_expr() == x ** 4 + x ** 3 + x ** 2 + x + 1,
+        "on the extension's eight moving directions -(U9 + U9^-1) satisfies X^2 = X + I: the golden companion acts there":
+            Xb * Xb == Xb + sp.eye(8),
+    }
+
+
+def _two_ports():
+    """The hub's clique port T_C and the Golden port's F on their 14 shared root sites."""
+    site, sign = _golden_sites()
+    S, T_ = assignment.SITE, assignment.TWIN
+    clique = [S[0] - S[i] for i in range(1, 5)] + [S[0] - T_[0] - T_[1], S[0] - T_[0] - T_[2]]
+    sites = []
+    for t in clique + site:
+        if not any(np.array_equal(t, q) for q in sites):
+            sites.append(t)
+    where = lambda t: next(k for k, q in enumerate(sites) if np.array_equal(t, q))
+    TC = sp.zeros(len(sites), 6)
+    for k, t in enumerate(clique):
+        TC[where(t), k] = 1
+    Fm = sp.zeros(len(sites), 10)
+    for e, (t, g) in enumerate(zip(site, sign)):
+        Fm[where(t), e] = g
+    return clique, sites, TC, Fm
+
+
+def notes_1119():
+    """The sibling's MODEL of 10:42-11:19 and the hub's text of 11:18: the remaining exact items."""
+    R = assignment.roots10()
+    A = ((R @ R.T) == 100).astype(np.int64)
+    walks, M = [], np.eye(240, dtype=np.int64)
+    for n in range(6):
+        walks.append(int(np.trace(M)) // 240)
+        M = M @ A
+    spec = [(56, 1), (28, 8), (8, 35), (-2, 112), (-4, 84)]
+    cw = np.cos(R / 10 @ (np.array([28, 28, 6, 2, 1, 0, 0, 0]) / 10))
+    orders = Counter(Permutation(list(p)).order() for p in itertools.permutations(range(5)))
+    clique, sites, TC, Fm = _two_ports()
+    cyc = np.linalg.qr(np.array(sp.Matrix.hstack(*sp.Matrix(carrier.signed_incidence()).nullspace()), dtype=float))[0]
+    sv = np.linalg.svd(np.hstack([np.array(TC, dtype=float), np.array(Fm, dtype=float) @ cyc]), compute_uv=False)
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    Xs = 2 * sp.eye(10) + U + U.T
+    x = sp.symbols("x")
+    r5 = sp.sqrt(5)
+    t = sp.Matrix([0, 0, 0, sp.Rational(1, 2), sp.Rational(-1, 2)])
+    h = sp.Matrix([sp.Rational(-1, 3)] * 3 + [sp.Rational(1, 2)] * 2)
+    return {
+        "the root graph's closed walks are 1, 0, 56, 1512, 62160 and 2872800 per root, from its spectrum and from the "
+        "powers of its adjacency matrix": walks == [1, 0, 56, 1512, 62160, 2872800]
+            and walks == [sum(m * lam ** n for lam, m in spec) // 240 for n in range(6)],
+        "at the collar witness the 240 cosines sum to 19.3654682687, so the figure 220.6349198210, from 19.3650801790, "
+        "is off by 3.9e-4 and wrong": np.isclose(cw.sum(), 19.3654682687, atol=1e-9)
+            and abs(cw.sum() - 19.3650801790) > 3e-4 and np.isclose(240 - 19.3650801790, 220.6349198210, atol=1e-9),
+        "S5 has 1, 25, 20, 30, 24 and 20 elements of orders 1 to 6, so a map from the cyclic clock fibre 36Z/4320Z = Z/120 "
+        "hits at most 6 of them, and Z/4320 is not Z/36 x Z/120 (exponent 360)":
+            orders == Counter({1: 1, 2: 25, 3: 20, 4: 30, 5: 24, 6: 20}) and max(orders) == 6 and 4320 // gcd(36, 4320) == 120
+            and lcm(36, 120) == 360,
+        "the clique and Golden ports' joint window has twelve singular values with extremes sqrt(1 +- 2/sqrt5), so its "
+        "condition number is 2 + sqrt5, from the angle 4/5 alone": len(sv[sv > 1e-9]) == 12
+            and np.isclose(sv.max() / sv[sv > 1e-9].min(), 2 + 5 ** 0.5)
+            and sp.expand(sp.radsimp((2 + r5) ** 2 * (1 - 2 / r5) - (1 + 2 / r5))) == 0,
+        "on the moving cycles 2I + U + U^T has eigenvalues (3 +- sqrt5)/2 > 0; its positive root S_phi obeys "
+        "S_phi^4 - 3 S_phi^2 + I = 0, and K = 2 S_phi^2 - 3I": ((Xs * Xs - 3 * Xs + sp.eye(10)) * Pm).is_zero_matrix
+            and sp.expand((Xs * Pm).charpoly(x).as_expr() - x ** 6 * (x ** 2 - 3 * x + 1) ** 2) == 0
+            and K == 2 * Xs - 3 * sp.eye(10),
+        "t = (0, 0, 0, 1/2, -1/2) and h + t, h = (-1/3, -1/3, -1/3, 1/2, 1/2), have squares 1/2 and 4/3, so the frame "
+        "60 I gives traces 30 and 80: the 3/8 is the ratio of the lengths": (t.T * t)[0] == sp.Rational(1, 2)
+            and ((h + t).T * (h + t))[0] == sp.Rational(4, 3) and 60 * (t.T * t)[0] == 30 and 60 * ((h + t).T * (h + t))[0] == 80,
+    }
+
+
+def notes_1119_arithmetic():
+    """The 10:42-11:19 model's circle arithmetic, and the hub's small counts, as arithmetic."""
+    N = 4320
+    widths = (2, 3, 4, 6, 7, 8, 13)
+    return {
+        "4320 = 36 x 120 = 15 x 36 x 8, 864 = 24 x 36 and 9361 = 260 x 36 + 1; 1728, 1296, 864 and 432 are 48, 36, 24 and "
+        "12 copies of 36; twelve signs of 30, twelve times, make 4320; four 27-steps make 108":
+            36 * 120 == N == 15 * 36 * 8 and 864 == 24 * 36 and 9361 == 260 * 36 + 1
+            and [b // 36 for b in (1728, 1296, 864, 432)] == [48, 36, 24, 12] and 12 * 30 * 12 == N and 4 * 27 == 108,
+        "the widths 2, 3, 4, 6, 7, 8 and 13 times 36 land at 72, 108, 144, 216, 252, 288 and 468, of orders 60, 40, 30, "
+        "20, 120, 15 and 120; 6 + 15 + 15 = 36, 6 + 15 + 10 = 31 and 2 x 72 x 5 = 720":
+            [k * 36 for k in widths] == [72, 108, 144, 216, 252, 288, 468]
+            and [N // gcd(k * 36, N) for k in widths] == [60, 40, 30, 20, 120, 15, 120]
+            and 6 + 15 + 15 == 36 and 6 + 15 + 10 == 31 and 2 * 72 * 5 == 720,
+        "the Return residues diag(0, 0, 3, 3, 3, 3, 0) and diag(0, 0, 3, 3, 3, 3, 2) have ranks 4 and 5; two 7D "
+        "displays sharing a scalar make 13 = 7 + 7 - 1, six more than 7; a six-channel port and three readings have "
+        "rank at most 9 < 10; (11 + 1)(5 + 2) = 84 < 195": sp.diag(0, 0, 3, 3, 3, 3, 0).rank() == 4
+            and sp.diag(0, 0, 3, 3, 3, 3, 2).rank() == 5 and 7 + 7 - 1 == 13 == 7 + 6 and 6 + 3 < 10
+            and (11 + 1) * (5 + 2) == 84 < 195,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -3832,6 +4217,7 @@ DOTS = {
     "goldenport": ("Golden port", "the hub's root-site cycle port T_G = F P_cycle on ten roots", "23"),
     "charges": ("five-site charges", "Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges", "12, 23"),
     "memory": ("memory clock", "the 120-state quotient of layer 3's memory operator, of order 90", "3"),
+    "words": ("fifteen words", "the dihedral closure of 088, 086 and 980 under rotation and reversal, a D3-module of rank 15", "23"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -3839,7 +4225,7 @@ LEVELS = [
     ("number", "the circle and its clocks",
      ["circle", "time", "observer", "c27", "atlas", "coil", "grain", "vortex", "miss", "stages", "memory"]),
     ("symmetry", "groups, their actions and modules",
-     ["clocks", "G120", "AGL", "S5", "pgl", "golden", "hodge", "air801"]),
+     ["clocks", "G120", "AGL", "S5", "pgl", "golden", "hodge", "air801", "words"]),
     ("combinatorics", "graphs, complexes and the cube",
      ["V", "E", "cycles", "rotor", "petersen", "cube", "surface", "simplex", "pg25"]),
     ("lattice", "roots, lattices and tori",
@@ -4028,6 +4414,12 @@ JOINS = [
     ("cycles", "goldenport", "the root-site isometry", "F sends the near edges to the roots e_i - e_(i+1) and the far edges to the glue roots site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = P_cycle (the hub's OES_Unified_Model)", T, "golden_root_port"),
     ("goldenport", "bath", "the Golden moments", "traces 1442, 347900, 84180666, 20416532280; means 239, 241, 481/2 -+ sqrt5/10; variances 371, 171, (1987 -+ 31 sqrt5)/10, MEMORY's stated block", T, "golden_root_port"),
     ("goldenport", "sixsite", "two windows on one bath", "with the hub's clique (six roots, differences roots) the Golden port shares two sites; the cross map has squared singular values 4/5 and 2/5, the joint span is 12 and the joint Krylov ranks are 12, 24, 36; the clique's 4 x 4 Hankels are positive", T, "shared_bath"),
+    ("charges", "goldenport", "the marked charge map", "a fivefold order sends site i to its outgoing edge: L = P_cycle N P_A4 has rank 4 and L L^T = ((5I + K)/10) P_moving; a near and a far mark (squares 34/45 and 26/45) decode the two Golden densities with determinant 32 sqrt5/675, both nonnegative exactly in the window (49 -+ 12 sqrt5)/41 (the hub, 11:18)", T, "marked_charge"),
+    ("S5", "cycles", "the twelve markings", "the ten transpositions sum to 0 on the cycles, so the S5-averaged marked map is 0 while its square averages to P_cycle/3; the 120 relabellings give 12 marked squares, ten times each, summing to 4 P_cycle, and only all twelve together are isotropic (the sibling's MODEL, 11:19)", T, "twelve_markings"),
+    ("goldenport", "moments", "the infrared channels", "from the ten root sites, in units of 1/(1536 pi^4 30^4): plus 10 E^3 (1 - E^2/1080000), Golden (E^4/240)(1 + (1/100 -+ sqrt5/3000) E), minus E^5/36000; the near/far ratio (17/13)(1 - 2E/5525), the marked ensemble (E^4/360)(1 + 29E/3000) and the twirl (10/9) E^3 + E^4/540 + E^5/48600", T, "golden_infrared"),
+    ("words", "surface", "the twisted duads", "the fifteen words are the oriented edges of K6 under c: i -> i + 2 and r: i -> -i with the reflection's sign twisted, isometrically over Q(sqrt2) (O = A + B/sqrt2) and over no smaller field (fixed Gram determinants 108 and 54), integrally with index 8 (T_Z = A + B, Smith 1^12 2^3) and never unimodularly (mod-2 coinvariants 3 and 4); the untwisted duads differ (reflection trace 3)", T, "word_duads"),
+    ("words", "A4", "the Coxeter five-cycle", "D3 on J7 = 1 + 3 std has commutant Q + M3(Q) and no rational C5; the least extension with one is 9 = 1 + 4 std, where U9 = 1 + I2 x companion(Phi_5), and the companion is A4's Coxeter element on its simple roots", T, "words_c5"),
+    ("words", "golden", "the extension's golden equation", "on the extension's eight moving directions -(U9 + U9^-1) satisfies X^2 = X + I, so the golden companion acts there as it does on the edges", T, "words_c5"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
@@ -4152,6 +4544,13 @@ LEDGER_ROWS = [
     ("the second moment (09:00)", "40 + 4 x 50 = 240; the weight-orbit covariances give sum rho rho^T = 60 I8, so the dispersion coefficient is 30", "replayed: 10 I on A4 + A4', 15 P + 10 P' on (10,5) and its conjugate, 10 P + 15 P' on (5b,10) and its conjugate, 60 I in all, and 30 = 60/2; the same moment gives T3 : Q = 3 : 8", T, "24"),
     ("the particle assignment (09:00)", "the construction does not by itself assign particles to E8 roots; work out the mathematics", "worked out (layer 24): Standard-Model quantum numbers on all 240 roots under a stated selection, unique up to W(E8); one root of every pair is always anomalous (OBSTRUCTION); three generations follow from the bracket rule and anomaly freedom (CONDITIONAL); the top coupling has no root realization (OBSTRUCTION); no Yukawa block is formed", SR, "24"),
     ("the K5 -> E8 reference port (09:00)", "a strictly positive six-channel memory variance: the visible sector cannot evolve without the bath", "replayed: M_2 - M_1^2 = X^T X = 183 I + 52 J counts the bath points next to two sites (235 and 52); its eigenvalues 183 and 495 are positive, so X = (1 - P) Delta P has no kernel", T, "22, 24"),
+    ("the marked charge map (hub, 11:18; MODEL, 11:04)", "L = P_cycle N P_A4: rank 4, L L^T = ((5I + K)/10) P_moving; near and far marks 34/45 and 26/45; decoder determinant 32 sqrt5/675; window (49 -+ 12 sqrt5)/41; low-energy ratio 17/13", "replayed and joined (charges -> Golden port); the error constant 45(1 + sqrt5)/16 and the S5 twirls P_cycle/3 and P_cycle/9 hold", T, "23"),
+    ("the twelve markings (MODEL, 11:19)", "12 marked squares, ten times each, summing to 4 P_cycle; of 66 pairs 6 of rank 4, 30 of condition 5, 30 of condition 5 + 2 sqrt5; centred rank 11; only all twelve isotropic", "replayed and joined (S5 -> cycles)", T, "23"),
+    ("the Golden port's infrared channels (hub, 11:18)", "plus 10 C E^3, Golden (C/240) E^4, minus (C/36000) E^5; near/far (17/13)(1 - 2E/5525); marked (C/360) E^4 (1 + 29E/3000); twirl C[(10/9) E^3 + E^4/540 + E^5/48600]", "computed from the ten root sites (the roots are a 7-design) and joined (Golden port -> moments); the plus channel has no E^4 term because it has no dipole", T, "23"),
+    ("the word-to-duad join (hub, 11:18)", "a sign-twisted rational intertwiner (det 6245535592857600); O = A + B/sqrt2 an exact isometry; no rational isometry (fixed Grams 108 and 54); T_Z = A + B of det -8, Smith 1^12 2^3; no unimodular intertwiner (coinvariants 3 and 4)", "replayed with its own A and B (det 8) and joined as a dot (words -> surface); the hub's own T stays in its receipt", T, "23"),
+    ("J7 and the C5 extension (hub, 11:18)", "no rational C5 commutes with D3 on 1 + 3 std; the least extension is 9 = 1 + 4 std, with U9 = 1 + I2 x companion(Phi_5)", "replayed and joined (words -> A4: the companion is A4's Coxeter element; words -> golden)", T, "23"),
+    ("the observation chain (hub, 11:18)", "rank(H9) = 9, rank([H9; L]) = 13, H13, anchors of determinant +-1, sums of +-9, the transported Return residues", "recorded, not replayed: the literal J7 matrix is in the receipts, not in the text", RP, "23"),
+    ("MODEL (10:42-11:19)", "closed walks through 2872800; the wrong 220.6349198210; S5's orders and the cyclic fibre; condition 2 + sqrt5; the widths times 36", "replayed, the widths and factorizations as arithmetic; its four labelled responses at weight 1/sqrt5 are not defined in the notes and stay recorded", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -4246,6 +4645,8 @@ def _checks():
         "assignment.chirality": assignment.chirality,
         "walks_by_angle": walks_by_angle, "port_leak": port_leak, "two_ticks": two_ticks, "filled_simplex": filled_simplex,
         "charge_marks": charge_marks, "golden_root_port": golden_root_port, "shared_bath": shared_bath,
+        "marked_charge": marked_charge, "twelve_markings": twelve_markings, "golden_infrared": golden_infrared,
+        "word_duads": word_duads, "words_c5": words_c5,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -4591,10 +4992,29 @@ def run():
             "checkpoint, and the hub's OES_Unified_Model_20261029.txt with its exact zip (462970 bytes) were read or "
             "recorded; PLANE and the hub adopt the fixed-plane correction (2 lexicographic, 10 cyclic); the archives "
             "were not run", RP, True)
-    rep.add("the hub's synthesis also reports, not replayed here: the Golden port's per-channel infrared densities and "
-            "heat tails, the scope bound that a six-channel port and three readings cannot recover the ten-dimensional "
-            "source pair (rank at most 9), the conditional photon normalization Z = 32 c_SA, and the 36-tattva "
-            "presentation as indexed maps", RP, True)
+    rep.add("the hub's synthesis also reports, not replayed here: the conditional photon normalization Z = 32 c_SA and "
+            "the 36-tattva presentation as indexed maps (its per-channel infrared densities and heat tails are computed "
+            "at 11:12 from the root sites, and its scope bound, rank at most 9 < 10, is counted there)", RP, True)
+    n19 = notes_1119()
+    rep.add("the 10:42-11:19 model and the hub's 11:18 text: the root graph's closed walks through 2872800, the wrong "
+            "witness figure 220.6349198210, S5's orders against the cyclic clock fibre, the joint window's condition "
+            "2 + sqrt5, the root S_phi of 2I + U + U^T, and the 3/8 as a ratio of lengths", T, all(n19.values()), n19)
+    a19 = notes_1119_arithmetic()
+    rep.add("the 10:42-11:19 model's circle arithmetic (4320 = 15 x 36 x 8, 9361 = 260 x 36 + 1, the widths times 36) "
+            "and the hub's small counts (ranks 4 and 5, 13 = 7 + 7 - 1, 84 < 195), as arithmetic", gates.ARITHMETIC,
+            all(a19.values()), a19)
+    rep.add("Drive check 11:12: the sibling's MODEL editions of 11:04 and 11:19 (those of 10:42, 10:57 and 11:03, with "
+            "the spine PDFs, are superseded and were not read separately) and the hub's OES_Unified_Model_20261029.txt as "
+            "revised at 11:18 were read; its exact zip (509201, then 518931 bytes) was not run. The model's '56 roots of "
+            "weak charge +1/2, not 25' agrees with layer 24: 56 in all, 25 in a one-of-each-pair selection of the mixed "
+            "roots", RP, True)
+    rep.add("not replayed, for want of the literal J7 matrix and the receipts: rank(H9) = 9 and rank([H9; L]) = 13 (four "
+            "probes), H13's kernel and rank([H13; H13 R]) = 15, the two coordinate anchors (determinant +-1) against two "
+            "sums (+-9), the transported Return residues, and the hub's own T (determinant 6245535592857600), A and B (A "
+            "and B are rebuilt here to the stated relations); the sibling's four labelled responses at weight 1/sqrt5 "
+            "(determinant -64 sqrt5/625) and their low-energy ratio 2/3, whose probes the notes do not define; the "
+            "intertwiner count 2 x 72 x 5 = 720; and the Schur bound V/(s + 256) <= Sigma(s) <= V/s, which rests on the "
+            "stated band bound H <= 256", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

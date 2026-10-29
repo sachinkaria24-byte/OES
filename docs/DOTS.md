@@ -26,6 +26,7 @@ flowchart TB
         golden["golden companion"]
         hodge["Hodge 70"]
         air801["801 matrix"]
+        words["fifteen words"]
     end
     subgraph level3["level 3: combinatorics"]
         V["K5 vertices"]
@@ -245,20 +246,26 @@ flowchart TB
     cycles -->|"the root-site isometry"| goldenport
     goldenport -->|"the Golden moments"| bath
     goldenport -->|"two windows on one bath"| sixsite
+    charges -->|"the marked charge map"| goldenport
+    S5 -->|"the twelve markings"| cycles
+    goldenport -->|"the infrared channels"| moments
+    words -->|"the twisted duads"| surface
+    words -->|"the Coxeter five-cycle"| A4
+    words -->|"the extension's golden equation"| golden
     assignment -.->|"one root of every pair"| binding
 ```
 
-61 dots and 169 joins: 152 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
+62 dots and 175 joins: 158 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 5 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix | 8 | 7 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 9 | 9 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 9 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 13 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port | 18 | 9 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port | 19 | 10 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -268,11 +275,11 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 5 | 3 | 1 | 1 | 1 |
-| symmetry | 5 | - | 7 | 6 | 4 | 5 |
-| combinatorics | 3 | 7 | - | 4 | 10 | 6 |
-| lattice | 1 | 6 | 4 | - | 13 | 4 |
-| operator | 1 | 4 | 10 | 13 | - | 9 |
-| physics | 1 | 5 | 6 | 4 | 9 | - |
+| symmetry | 5 | - | 9 | 7 | 4 | 5 |
+| combinatorics | 3 | 9 | - | 4 | 10 | 6 |
+| lattice | 1 | 7 | 4 | - | 13 | 4 |
+| operator | 1 | 4 | 10 | 13 | - | 10 |
+| physics | 1 | 5 | 6 | 4 | 10 | - |
 
 ## Dots
 
@@ -339,6 +346,7 @@ The maps that join each pair of levels directly.
 | Golden port | the hub's root-site cycle port T_G = F P_cycle on ten roots | operator | 23 |
 | five-site charges | Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges | physics | 12, 23 |
 | memory clock | the 120-state quotient of layer 3's memory operator, of order 90 | number | 3 |
+| fifteen words | the dihedral closure of 088, 086 and 980 under rotation and reversal, a D3-module of rank 15 | symmetry | 23 |
 
 ## Joins
 
@@ -512,6 +520,12 @@ The maps that join each pair of levels directly.
 | cycles | Golden port | F sends the near edges to the roots e_i - e_(i+1) and the far edges to the glue roots site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = P_cycle (the hub's OES_Unified_Model) | THEOREM | `golden_root_port` |
 | Golden port | bath | traces 1442, 347900, 84180666, 20416532280; means 239, 241, 481/2 -+ sqrt5/10; variances 371, 171, (1987 -+ 31 sqrt5)/10, MEMORY's stated block | THEOREM | `golden_root_port` |
 | Golden port | six-site port | with the hub's clique (six roots, differences roots) the Golden port shares two sites; the cross map has squared singular values 4/5 and 2/5, the joint span is 12 and the joint Krylov ranks are 12, 24, 36; the clique's 4 x 4 Hankels are positive | THEOREM | `shared_bath` |
+| five-site charges | Golden port | a fivefold order sends site i to its outgoing edge: L = P_cycle N P_A4 has rank 4 and L L^T = ((5I + K)/10) P_moving; a near and a far mark (squares 34/45 and 26/45) decode the two Golden densities with determinant 32 sqrt5/675, both nonnegative exactly in the window (49 -+ 12 sqrt5)/41 (the hub, 11:18) | THEOREM | `marked_charge` |
+| S5 | cycles | the ten transpositions sum to 0 on the cycles, so the S5-averaged marked map is 0 while its square averages to P_cycle/3; the 120 relabellings give 12 marked squares, ten times each, summing to 4 P_cycle, and only all twelve together are isotropic (the sibling's MODEL, 11:19) | THEOREM | `twelve_markings` |
+| Golden port | moments | from the ten root sites, in units of 1/(1536 pi^4 30^4): plus 10 E^3 (1 - E^2/1080000), Golden (E^4/240)(1 + (1/100 -+ sqrt5/3000) E), minus E^5/36000; the near/far ratio (17/13)(1 - 2E/5525), the marked ensemble (E^4/360)(1 + 29E/3000) and the twirl (10/9) E^3 + E^4/540 + E^5/48600 | THEOREM | `golden_infrared` |
+| fifteen words | surface | the fifteen words are the oriented edges of K6 under c: i -> i + 2 and r: i -> -i with the reflection's sign twisted, isometrically over Q(sqrt2) (O = A + B/sqrt2) and over no smaller field (fixed Gram determinants 108 and 54), integrally with index 8 (T_Z = A + B, Smith 1^12 2^3) and never unimodularly (mod-2 coinvariants 3 and 4); the untwisted duads differ (reflection trace 3) | THEOREM | `word_duads` |
+| fifteen words | A4 | D3 on J7 = 1 + 3 std has commutant Q + M3(Q) and no rational C5; the least extension with one is 9 = 1 + 4 std, where U9 = 1 + I2 x companion(Phi_5), and the companion is A4's Coxeter element on its simple roots | THEOREM | `words_c5` |
+| fifteen words | golden companion | on the extension's eight moving directions -(U9 + U9^-1) satisfies X^2 = X + I, so the golden companion acts there as it does on the edges | THEOREM | `words_c5` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
 ## Not joined

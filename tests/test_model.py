@@ -355,6 +355,25 @@ def test_the_0928_notes_replay():
     assert sp.Matrix(3, 3, lambda i, j: m[i + j]).det() == 0
 
 
+def test_the_1112_replay():
+    for check in (dots.marked_charge, dots.twelve_markings, dots.golden_infrared, dots.word_duads, dots.words_c5,
+                  dots.notes_1119, dots.notes_1119_arithmetic):
+        out = check()
+        assert all(out.values()), out
+    import sympy as sp
+    # the isotropy test can fail: E8's roots are not an 8-design
+    assert dots._isotropic(8) is None
+    # the window can fail: a ratio above (49 + 12 sqrt5)/41 makes rho_psi negative
+    r5 = sp.sqrt(5)
+    W = sp.Matrix([[(17 + 5 * r5) / 45, (17 - 5 * r5) / 45], [(13 + r5) / 45, (13 - r5) / 45]])
+    rho = W.inv() * sp.Matrix([2, 1])
+    assert sp.N(rho[1]) < 0 < sp.N(rho[0])
+    # without the sign twist the duads are another module: the reflection's trace is 3, not 1
+    words, C, R = dots._words()
+    Ct, Rt, e = dots._duads()
+    assert (R.trace(), Rt.trace(), Rt.applyfunc(abs).trace()) == (1, 1, 3)
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):

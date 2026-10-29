@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 24 layers and 772 checks. Of these, 693 hold: THEOREM 536, OBSTRUCTION 51, ARITHMETIC 40, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 79 are REPORTED records.
-- `pytest` runs 65 tests.
-- The newest layers are `oes/dots.py` (layer 23, 259 checks) and `oes/assignment.py` (layer 24, 41 checks).
+- `python verify.py` runs 24 layers and 782 checks. Of these, 701 hold: THEOREM 543, OBSTRUCTION 51, ARITHMETIC 41, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 81 are REPORTED records.
+- `pytest` runs 66 tests.
+- The newest layers are `oes/dots.py` (layer 23, 269 checks) and `oes/assignment.py` (layer 24, 41 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 61 dots and 169 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 62 dots and 175 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -41,7 +41,7 @@ New in layer 24 (the particle assignment on E8's roots, 09:00 on 29 October):
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 61 dots and 169 joins (164 maps, five obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 62 dots and 175 joins (170 maps, five obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -118,6 +118,14 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - With the hub's clique it shares two of 14 sites. The cross squared singular values are 4/5 and 2/5, the joint Krylov ranks 12, 24 and 36, and the clique's 4 × 4 Hankels are positive.
   - PLANE adopts the fixed-plane correction. The 10:38 model's charges, root triangles, transposition sums, fivefold map and clock orders replay.
   - The spectral-kernel archive, the hub's exact zip and the checkpoint are recorded, not run.
+- **The marked charge map, the infrared channels and the fifteen words (Drive check 11:12):**
+  - The hub's marked map L = P_cycle N P_A4 (each site to its outgoing edge) has L Lᵀ = ((5I + K)/10) P_moving and joins the charges to the Golden port. A near and a far mark (34/45, 26/45) decode the two Golden densities: determinant 32√5/675, nonnegative exactly in the window (49 ∓ 12√5)/41, ratio 17/13 at low energy.
+  - Averaged over S5 the map is 0 and its square is P_cycle/3. The twelve marked squares, ten times each, sum to 4 P_cycle. Their 66 pairs have conditions 1, 5 and 5 + 2√5 (6, 30 and 30 pairs), and only all twelve together are isotropic.
+  - The roots are a 7-design, so the four channels' densities follow from the ten root sites: plus 10E³(1 − E²/1080000), Golden (E⁴/240)(1 + (1/100 ∓ √5/3000)E), minus E⁵/36000. Hence near/far (17/13)(1 − 2E/5525), the marked ensemble (E⁴/360)(1 + 29E/3000) and the twirl (10/9)E³ + E⁴/540 + E⁵/48600. These are the hub's inherited coefficients, now computed.
+  - The fifteen words of 088, 086 and 980 are a dot. They are K6's oriented duads with the reflection twisted: O = A + B/√2 is an exact isometry, none is rational (fixed Gram determinants 108 and 54), A + B is integral of index 8, and none is unimodular (mod-2 coinvariants 3 and 4).
+  - No rational C5 commutes with D3 on J7 = 1 + 3 std. The least extension with one is 9 = 1 + 4 std, through A4's Coxeter element.
+  - The rest of the 10:42–11:19 model replays: closed walks through 2872800, the witness's 19.3654682687 (220.6349198210 is wrong), S5's orders against the cyclic fibre, and the joint window's condition 2 + √5.
+  - Recorded, not replayed: the hub's observation chain on the literal J7 (H9, H13, anchors), its own T, A, B, and the sibling's undefined four labelled responses (−64√5/625).
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):

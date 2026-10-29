@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 61 dots and 169 joins: 164 maps (152 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL) and five obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
+The diagram has 62 dots and 175 joins: 170 maps (158 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL) and five obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1340,8 +1340,55 @@ The notes repeat INFRARED's 17/10, which stays corrected (2 in the lexicographic
   - The clock orders hold, and the vector meeting the eight-root frame at product 1 has square 8/9, not a root.
 - **Recorded (REPORTED).**
   - The separate model's spectral-kernel archive (882649 bytes, 70 new check groups) and its receipt, the updated checkpoint, and the hub's exact zip (462970 bytes) were not run.
-  - The hub's synthesis also reports the Golden port's per-channel infrared densities and heat tails, a scope bound (a six-channel port and three readings cannot recover the ten-dimensional source pair, rank at most 9; §24's joint observer uses the full wedge), the conditional photon normalization Z = 32 c_SA, and the 36-tattva presentation as indexed maps.
+  - The hub's synthesis also reports the Golden port's per-channel infrared densities and heat tails (computed at 11:12, below), a scope bound (a six-channel port and three readings cannot recover the ten-dimensional source pair, rank at most 9; §24's joint observer uses the full wedge), the conditional photon normalization Z = 32 c_SA, and the 36-tattva presentation as indexed maps.
   - The hub states the all-order Krylov growth by the same Bloch argument as the 09:02 item above.
+
+**The marked charge map, the infrared channels and the fifteen words (Drive check 11:12).** The sibling's MODEL grew through five editions (10:42–11:19; the 11:04 and 11:19 editions were read). The hub's `OES_Unified_Model_20261029.txt` was revised at 11:09 and 11:18. Six joins and one dot follow, all THEOREM.
+- **The marked charge map** (charges → Golden port).
+  - A chosen fivefold order sends site i to its outgoing edge. The cycle part L = P_cycle N P_A4 has rank 4, commutes with the five-cycle and misses the two fixed cycles. Its Grams are LᵀL = (2I − A₂)/5 on the sites and LLᵀ = ((5I + K)/10) P_moving on the edges.
+  - The twenty marks (1 at i, 0 at j, −1/3 elsewhere) have covariance P_A4/3.
+  - A near mark (j = i + 1) puts (17 ± 5√5)/45 into the Golden channels K = ±√5, square 34/45. A far mark (j = i + 2) puts (13 ± √5)/45 there, square 26/45.
+  - So the two responses decode the two Golden densities, with mixing determinant 32√5/675: ρ_φ + ρ_ψ = 15(5R_far − R_near)/16 and ρ_φ − ρ_ψ = 3√5(13R_near − 17R_far)/16. An error η in each response costs at most 45(1 + √5)η/16.
+  - Both densities are nonnegative exactly when R_near/R_far lies in [(49 − 12√5)/41, (49 + 12√5)/41]. With equal densities, at low energy, the ratio is 17/13.
+  - Averaged over S5 the map is 0, since Hom_S5(A4, cycles) = 0. Its square averages to P_cycle/3, and the marks' image covariance to P_cycle/9.
+  - On the moving cycles LLᵀ/3 has inverse (3/2)(5I − K), and two fixed probes complete the whitened readings to P_cycle.
+- **The twelve markings** (S5 → cycles). The 120 relabellings of the marked square take 12 values, ten times each, one per cyclic order up to reversal. The twelve sum to 4 P_cycle, so a cycle vector is a quarter of its twelve labelled readings. Of the 66 pairs:
+  - 6 (a marking and its doubling) sum to a moving projector, with eigenvalues 1, 1, 1, 1;
+  - 30 have eigenvalues 1/5, 1/5, 4/5, 4/5, 1, 1, so condition 5;
+  - 30 have (3 ∓ √5)/5, 2/5, 2/5, (5 ∓ √5)/5, so condition 5 + 2√5.
+
+  The twelve centred squares have rank 11, and of the 4095 equal-weight sums only the sum of all twelve is isotropic.
+- **The infrared channels, computed** (Golden port → moments). E8's roots are a 7-design: Σ(ρ·k)^d = 60, 36, 30 times |k|^d for d = 2, 4, 6, checked monomial by monomial. So ε = 30u − 3u²/2 + u³/24 + O(u⁴) in every direction, with u = |k|², and the anisotropic degree-8 term enters the densities only at relative order E³.
+  - The ten sites' response splits into four scalar channels at every energy: the distance kernels commute with the five-cycle and do not mix the plus and minus lines.
+  - The plus line has monopole square 10 and no dipole. Every unit moving cycle has dipole square 1. The minus line has neither monopole nor dipole, and its quadrupole has tr Q² = 4.
+  - In units of C = 1/(1536π⁴30⁴), the densities are 10E³(1 − E²/1080000) on plus, (E⁴/240)(1 + (1/100 ∓ √5/3000)E) on the Golden channels and E⁵/36000 on minus. The heat tails are 60t⁻⁴, t⁻⁵/10 and t⁻⁶/300.
+  - So the near/far ratio is (17/13)(1 − 2E/5525), and the marked ensemble is (E⁴/360)(1 + 29E/3000).
+  - The S5 twirl is (ρ_plus + ρ_minus + 2ρ_φ + 2ρ_ψ)/9 = (10/9)E³ + E⁴/540 + E⁵/48600, with heat tail (20/3)t⁻⁴(1 + 1/(150t) + 1/(2700t²)).
+  - These are the hub's inherited coefficients. The sibling had not recomputed them; here they come from the root sites.
+- **The fifteen words** (a new dot, "fifteen words"). The dihedral closure of 088, 086 and 980 under rotation C and reversal R has 15 words in orbits of 3, 6 and 6, with C³ = R² = I and RCR = C².
+  - **The twisted duads** (fifteen words → surface). On Λ²R⁶, the oriented edges of K6, take c: i → i + 2 and r: i → −i with the reflection's sign twisted. They satisfy the same relations, and both modules have traces (15, 0, 1). The untwisted duads have reflection trace 3.
+  - Rebuilt here with its own A and B: A sends 088 to the oriented triangle 0–2–4 and 980 to the six adjacent pairs, and B sends 086 into the triangle 1–3–5 and the diameters. Then AᵀA = I − P086, BᵀB = 2P086 and AᵀB = 0, both intertwine, and O = A + B/√2 is an exact equivariant isometry over Q(√2).
+  - No rational isometry exists: the fixed spaces have Grams diag(3, 6, 6) and diag(3, 3, 6), and the ratio of determinants, 108/54 = 2, is not a rational square.
+  - The integral T_Z = A + B has T_ZᵀT_Z = I + P086, determinant 8 and Smith form 1¹²2³, so index 8. No integral intertwiner is unimodular, because the mod-2 coinvariants have dimensions 3 and 4.
+  - A six-cycle splits the 15 duads into 6 adjacent pairs, 6 at distance two and 3 diameters. The reflection keeps each, and c splits each six-orbit into even and odd triangles.
+  - The digit rows 088, 880, 086 and 980 have Smith form 1, 2, 8 (index 16) and the primitive relation (3, 9, −4, −8).
+- **The Coxeter five-cycle** (fifteen words → A4, and → golden companion). The words are 3 trivial + 2 sign + 5 standard, so they have room for J7's stated 1 + 3 std.
+  - D3 on 1 + 3 std has commutant Q ⊕ M₃(Q). A rational C5 other than I needs Φ₅, irreducible of degree 4, in a block of dimension at least 4, so there is none.
+  - The least extension with one is 9 = 1 + 4 std. There U9 = 1 ⊕ (I₂ ⊗ companion(Φ₅)) has U9⁵ = I and commutes with C9 = 1 ⊕ (C_std ⊗ I₄) and R9 = 1 ⊕ (R_std ⊗ I₄).
+  - The companion is A4's Coxeter element, the five-cycle, on the simple roots e_i − e_{i+1}. On the eight moving directions −(U9 + U9⁻¹) satisfies X² = X + I, so the golden companion acts there.
+- **The rest of the 10:42–11:19 model, replayed.**
+  - The root graph's closed walks are 1, 0, 56, 1512, 62160 and 2872800 per root.
+  - At the collar witness the 240 cosines sum to 19.3654682687, so the figure 220.6349198210 (from 19.3650801790) is off by 3.9 × 10⁻⁴ and wrong.
+  - S5 has 1, 25, 20, 30, 24 and 20 elements of orders 1 to 6. So a map from the cyclic clock fibre Z/120 hits at most 6 of them, and Z/4320 is not Z/36 × Z/120, whose exponent is 360.
+  - The clique and Golden ports' joint window has condition number 2 + √5, from the angle 4/5 alone.
+  - On the moving cycles 2I + U + Uᵀ has eigenvalues (3 ± √5)/2. Its positive root S_φ obeys S_φ⁴ − 3S_φ² + I = 0, and K = 2S_φ² − 3I.
+  - t and h + t have squares 1/2 and 4/3, so the frame gives traces 30 and 80, and the 3/8 is a ratio of lengths.
+  - The circle's widths times 36 (72, 108, 144, 216, 252, 288 and 468, of orders 60, 40, 30, 20, 120, 15 and 120) and the hub's small counts are kept as arithmetic.
+- **Recorded (REPORTED).**
+  - The hub's observation chain needs the literal J7 matrix, which is in its receipts, not its text. That covers rank(H9) = 9 and rank([H9; L]) = 13, H13's kernel, the two coordinate anchors (determinant ±1) against two sums (±9), and the transported Return residues. So do its own T (determinant 6245535592857600), A and B.
+  - The sibling's four labelled responses at weight 1/√5 (determinant −64√5/625) and their low-energy ratio 2/3 are not defined in the notes.
+  - Also recorded: the intertwiner count 2 × 72 × 5 = 720, and the Schur bound V/(s + 256) ≤ Σ(s) ≤ V/s, which rests on the stated band bound H ≤ 256.
+  - The exact zip (518931 bytes) was not run.
 
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
@@ -1476,6 +1523,7 @@ At 09:00 UTC the request was to work out the mathematics of assigning physical p
 - relayed by the user at 00:35: the sibling's `ONE_MACHINE_29.md` (1EQqJlcXKqOTx4CSrWjJ_xofjFE-nFHVJ, 00:20; its source `one-machine-29.typ`, 1Xjs-MbN1SJHnwRIxj-wMR3v7Tg7SdL7I, not opened) and its notes CLOSURE_092 (1cF4DFGH9sS1OxdOmdKY438WAqj6hpTU9), LAYER23B (11YQ_3BLajqeam8PfHircl-grIGkg_X7A), LEVELS (15pwuy92okVOE1kroi_aUqzF5f4xVrq2Y), OBS_SUN (1-hVBE6IXFAmvH5jYJ4GApOL4H_N_mGHO), GRAIN_SPLIT (1nD1IqQneNfuAIBCMP0QBs4A8ua6tXW_y), FRAME_WALKS (1KcOKYsAAsiLvzdZoOeUC8jYNalXlo_xZ) and DEEP_COURT (1QpU7xRGxOK7dEngbVvDQdg3s5RUNYf9V): §24, the 00:35 relay
 - the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
+- the sibling's MODEL_20261029.md editions of 11:04 (1yz6lAgVU9Q3jLdaXio17tKYTEajMdhTZ) and 11:19 (1HV_BwfUexoC9zeamXnosDQ10kZSV_d3n), superseding those of 10:42, 10:57 and 11:03, and the hub's `OES_Unified_Model_20261029.txt` (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy) as revised at 11:18, with `OES_Unified_Model_Exact_20261029.zip` (1dqKmWQyYEsn7h-Bo-K0eFAG1WvJdptnU, 518931 bytes, not run): §24, the 11:12 items
 - the sibling's PLANE (1BsfjU3OdX_WDs7_Ko4WVNND_qI4zVAjN, 10:17) and fourteen editions of MODEL_20261029.md (10:09–10:38, the last 1mJT8HBram2aJvN0-KE7jdGSHv5SKfrCQ) with `one-machine-20261029-spine.pdf`, the receipt `oes-spectral-kernel-verification-20261029.json` (1et8Ksi4cFS62JREacuPFdyAgmMSGVd0L), and the hub's `OES_Unified_Model_20261029.txt` (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, 10:33): §24, the 10:40 check
 - the sibling's eight notes of 09:43–10:07 UTC in One Machine 20261028 (SHELLS 1WBGx61o33IiFWqJPEgkJ8Cspnff6l0zQ, SCRIPT 1-wa_1vLL5tTplZtOOIUqqxS2m9lrJdJ5, LEDGER 1yxVwhehyb4JNQ8viA7vf45Dv_fjl7Pl6, LEDGER48 1yZfyQ5DHl10f8DjAskPINrmXP-zYnuHu, ATLAS 15rhRsswOIW7wfrd7Ke1lSPs31ltYP3jU, SYMBOL 12ecZPqloKbxBoAYd3q48l5m0f5eCH7vV, MODEL 1HkWHjBBNhF2o1pI-_3tLiBJG2tTdZxb7 and 1ACwNfG5Q5NUd9Ljy0VOANMZi2iXkobHg): §24, the 10:07 check
 - the sibling's 20 notes of 08:35–09:28 UTC in One Machine 20261028 (CRITICAL 1QY0Dx74N1m3iOmVkYzF2sMm_e-tty0EB through INFRARED 1B3gudwedwe6jJkXTJ735zELeVnoLuMLT), with the receipts `oes-critical-port-verification-20261029.json`, `oes-completion-verification-20261029.json`, `oes-connected-model-verification-20261029.json` and `oes-glue-helicity-verification-20261029.json` (their archives not downloaded): §24, the 09:02 check
