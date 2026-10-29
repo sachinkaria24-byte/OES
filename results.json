@@ -57,38 +57,38 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.7,
+  "1-carrier": 0.68,
   "2-spectral": 0.02,
-  "3-spacetime": 10.52,
-  "4-native": 97.47,
-  "5-observer": 1.12,
-  "6-gravity": 6.21,
-  "7-cosmology": 1.69,
-  "8-frontier": 40.51,
-  "9-joins": 10.36,
-  "10-literal": 36.3,
-  "11-glue": 0.19,
-  "12-binding": 0.05,
-  "13-gates": 0.25,
-  "14-recurrence": 76.53,
-  "15-court": 1.78,
-  "16-handover": 1.61,
-  "17-waves": 0.85,
-  "18-snapshot": 1.26,
-  "19-spine": 4.51,
-  "20-canon": 5.84,
-  "21-ledger": 44.45,
-  "22-counts": 23.75,
-  "23-dots": 188.6,
-  "24-assignment": 3.41,
-  "25-unify": 3.61,
-  "26-primes": 5.33
+  "3-spacetime": 10.29,
+  "4-native": 97.06,
+  "5-observer": 0.57,
+  "6-gravity": 5.15,
+  "7-cosmology": 1.7,
+  "8-frontier": 39.27,
+  "9-joins": 8.67,
+  "10-literal": 37.63,
+  "11-glue": 0.17,
+  "12-binding": 0.08,
+  "13-gates": 0.1,
+  "14-recurrence": 76.65,
+  "15-court": 1.82,
+  "16-handover": 1.55,
+  "17-waves": 0.8,
+  "18-snapshot": 1.58,
+  "19-spine": 4.9,
+  "20-canon": 6.62,
+  "21-ledger": 45.91,
+  "22-counts": 22.15,
+  "23-dots": 188.64,
+  "24-assignment": 3.62,
+  "25-unify": 4.15,
+  "26-primes": 5.22
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 703,
-   "total": 703
+   "passed": 704,
+   "total": 704
   },
   "OBSTRUCTION": {
    "passed": 65,
@@ -115,8 +115,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 111,
-   "total": 111
+   "passed": 113,
+   "total": 113
   }
  },
  "checks": [
@@ -10622,6 +10622,35 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the hub's canonical exterior inverse (gain 1/5 against 149/720), the genuine [32, 12, 14] code, the bright floor (9 - sqrt37)/20, the source-power gate and the parent bound B >= ||w||/60, the feasibility routine, the six Golden references and the causal jets; and the sibling's N30 sheet gap (3724 and 3679 against 3735 and 3690 in the release's own previous entry) and its other readings",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 22:51 text and the 22:26-22:51 model: the dark erasure court (floors 3/5, 1/3, (17 - sqrt129)/30, 1/15, a cubic root and 0, attained 10, 15, 30, 10, 60, 25 times), the spectrum of T, the cubic phase module of weights 1 and 3, and the arithmetic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hub's dark erasure court: over the 847 erased sets of 1 to 6 of the ten dark records, the least eigenvalue of S_D on the erased set is 3/5, 1/3, (17 - sqrt129)/30, 1/15, the least root of 135t^3 - 180t^2 + 54t - 2 and 0, attained by 10, 15, 30, 10, 60 and 25 sets: five dark losses stay recoverable and six can fail (the hub, 22:51)": true,
+    "the sibling's reading of the syndrome polynomial: T = 2J - 2K - I has trace -30, sends the all-ones vector to 3 times itself and has characteristic polynomial (x - 3)(x + 7)^4 (x + 1)^5; S_D - I/15 has eigenvalues 14/15 six times and -1/15 four times, so the floor 1/15 holds only for errors on at most four edges, and each edge lies in four of the ten tight supports": true,
+    "the hub's cubic phase module: for symmetric A and B, eta = Tr(B^3)/6 = (3V - V3)/4 with Z1 = Tr[(A + iB)(A^2 + B^2)]/6 = U + iV and Z3 = Tr[(A + iB)^3]/6 = U3 + iV3, and a lane rotation multiplies Z1 and Z3 by e^(i theta) and e^(3i theta), so the cubics carry harmonic weights 1 and 3; its quarter-turn squares to -I": true,
+    "arithmetic: 2 x 252^11 / 675 = 7.711381184...e23 (the sibling's correction of 7.711381764) and times 1120 / 10^28 it is 0.0863674692; the moment variances 54213 - 232^2 = 389 and 237985/4 - (975/4)^2 = 1315/16; the Singleton counts 252 - 12 + 1 = 241 and 32 - 12 + 1 = 21; 6240 = 26 x 240 = 39 x 160 sits on the clock as 1920, a pure 27-component; and 1023 + 107 = 1130 with 1023 = 3 x 11 x 31 = 2^10 - 1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 22:53: the hub's OES_Unified_Model_20261029.txt as revised at 22:51 (sources through 22:28; 1198 groups in 42 receipts), read as text (its zip, 15946002 bytes, not downloaded); the sibling's MODEL editions of 22:26-22:51, the latest (22:51) read as text; the spine29.ts editions and the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's temporal rank ladder 17 -> 19 -> 20, the two-context branches, the global signed-wedge completion, the gain bound 10^28, the continuum of dark E8 embeddings, the feedback inverse and its 5320/6240-site baths, the 277-entry admission court, the Golden-setting trades, the bright erasure rows, the two replacement codes and the reacting root-port jets",
    "status": "REPORTED",
    "passed": true,
    "value": null,
