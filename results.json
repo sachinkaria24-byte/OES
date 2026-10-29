@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.66,
+  "1-carrier": 0.65,
   "2-spectral": 0.01,
-  "3-spacetime": 10.49,
-  "4-native": 99.68,
-  "5-observer": 5.98,
-  "6-gravity": 6.28,
-  "7-cosmology": 1.7,
-  "8-frontier": 44.8,
-  "9-joins": 9.81,
-  "10-literal": 40.04,
-  "11-glue": 0.25,
-  "12-binding": 0.06,
-  "13-gates": 0.36,
-  "14-recurrence": 81.06,
-  "15-court": 1.79,
-  "16-handover": 1.81,
-  "17-waves": 1.11,
-  "18-snapshot": 1.88,
-  "19-spine": 6.19,
-  "20-canon": 6.73,
-  "21-ledger": 45.31,
-  "22-counts": 23.56,
-  "23-dots": 151.61,
-  "24-assignment": 4.14
+  "3-spacetime": 12.36,
+  "4-native": 99.8,
+  "5-observer": 6.62,
+  "6-gravity": 6.49,
+  "7-cosmology": 1.76,
+  "8-frontier": 40.26,
+  "9-joins": 8.32,
+  "10-literal": 38.62,
+  "11-glue": 0.17,
+  "12-binding": 0.05,
+  "13-gates": 0.27,
+  "14-recurrence": 83.24,
+  "15-court": 2.08,
+  "16-handover": 1.79,
+  "17-waves": 0.91,
+  "18-snapshot": 1.86,
+  "19-spine": 5.79,
+  "20-canon": 6.35,
+  "21-ledger": 48.0,
+  "22-counts": 23.62,
+  "23-dots": 155.88,
+  "24-assignment": 3.76
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 604,
-   "total": 604
+   "passed": 609,
+   "total": 609
   },
   "OBSTRUCTION": {
    "passed": 56,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 95,
-   "total": 95
+   "passed": 97,
+   "total": 97
   }
  },
  "checks": [
@@ -8567,6 +8567,53 @@
   },
   {
    "layer": "23-dots",
+   "name": "K5 edges -> source: the ten edge projectors and the six Golden projectors split the source's fifteen quadratics as 1 + 9 + 5 (traces 1/9, 1/25, 1/5), with a closed inverse and Parseval identity; five edges complete them exactly when their source rows are a basis, 162 of the 252 five-sets and all unimodular, which is when the complementary five edges form a connected nonbipartite graph (the hub, 17:26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the ten edge projectors E_e (Riesz vectors of the edge readings) and the six Golden projectors R_j have sum E_e = 2 I and sum R_j = (6/5) I, with Tr(E_e E_f) = 1/9, Tr(R_i R_j) = 1/25 and Tr(E_e R_j) = 1/5; centred they span 9 and 5 mutually orthogonal dimensions, so the source's 15 quadratics split as 1 + 9 + 5": true,
+    "X = (t/5) I + (9/8) sum (e_e - t/5)(E_e - I/5) + (25/24) sum (r_j - t/5)(R_j - I/5) inverts the sixteen readings on all fifteen G-self-adjoint operators, with the matching Parseval identity, and each plane projector is (1/2)(its six edges) - (1/4)(the four at its vertex)": true,
+    "five edges complete the quadratics exactly when their rows of the native chart are a basis: 162 of the 252 five-sets, every one unimodular (det +-1), and the other 90 singular; the rule is that the complementary five edges form a connected nonbipartite graph": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "dark ports -> readout: matched intensities 1 and 1/16 name the five dark planes from any four sensors; intensities do not fix a dark vector (two of norm 40 share 225, 225, 100, 25, 25), but seven full-spark detectors recover any real dark vector up to sign, and eight survive one erasure (the hub, 17:26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "in the oriented plane bivectors p0..p3 (metric 15 I - 3 J, p4 = -sum) the matched intensities |<d_j, d_r>|^2 are 1 and 1/16, so any four of the five sensors name the plane and no three do; intensities never see the sign of d_r": true,
+    "they do not fix a dark vector: x = u + v and u - v (u = (1/3, 1/3, 1, 0), v = (-1, 1, 0, 0)), of norm 40 and neither equal nor opposite, give the same five intensities 225, 225, 100, 25, 25": true,
+    "seven detectors e0..e3, (-1, -1, -1, -1), (1, 2, 3, 5), (2, 3, 5, 7) are full spark (all 35 four-minors nonzero), so by the complement property their intensities recover any real dark vector up to sign; with (1, 3, 9, 27) all 70 minors are nonzero (least |det| 1), so eight survive one erasure": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> cycles: the transposition-odd planes are cubic-null and their ten commutators, twice the complementary triangles, give T T^T = 20 P_cycle; the equilateral K4 pair 2X - Y - Z, sqrt3 (Y - Z) is commutator-dark and cubic-null (energy 96, charge 48); E - 2 sigma Q is a sum of squares, and |W_AS| = sqrt10/3 (the hub, 17:26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "each transposition's -1 eigenspace in the source is a plane on which the trace cubic vanishes identically; the commutator of its primitive basis is twice the boundary of the complementary triangle (edge square 12), and the ten outputs give T T^T = 20 P_cycle, rank 6: cubic-null preparations span the bright six": true,
+    "in a K4 plane the equilateral pair A0 = 2X - Y - Z, B0 = sqrt3 (Y - Z) commutes and is cubic-null, with A0^2 + B0^2 = 16 P3 (P3 a rank-3 projector, trace 48): its rotation solves the finite parent with h = 0, energy 96 and charge 48, and there D W, D phi and D(W, phi) have ranks 6, 2 and 8, leaving scale and SO2 blind": true,
+    "E - 2 sigma Q = |a' + 2 sigma b|^2/2 + |b' - 2 sigma a|^2/2 + |h' - 2 sigma J h|^2/2 + (5/2)|h|^2 + |h - phi|^2/2 for both signs, as an identity in all 26 variables with phi free, so E >= 2|Q|; and the commutator map has generalized spectrum (10/9)^6 0^4, so |W_AS| = sqrt10/3 and a Haar plane has E|W u|^2 = 6 (10/9)/10 = 2/3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> golden companion: the marked K = A(h0) has K^2 = 5 on A4, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and a rational S carries Phi to two blocks B = [[1, 1], [1, 0]]; B^6 = [[13, 8], [8, 5]], entry sum 34 (the hub, 17:26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the marked K = A(h0) keeps A4 with K^2 = 5 there, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and the rational S = [v, (Kv - v)/2, w, (Kw - w)/2] carries K to two blocks 2B - 1 and Phi to two blocks B = [[1, 1], [1, 0]]": true,
+    "B^6 = [[13, 8], [8, 5]], trace 18, determinant 1 and entry sum 34 (the hub corrects the source's 27)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -8591,7 +8638,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 65 dots and 234 joins form one connected diagram (the obstructions left out)",
+   "name": "the 65 dots and 238 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8831,7 +8878,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 17 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 18 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8901,7 +8948,8 @@
      "source -> waves",
      "source -> charges",
      "source -> readout",
-     "source -> readout"
+     "source -> readout",
+     "darkport -> readout"
     ]
    ],
    "note": ""
@@ -8912,7 +8960,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 211,
+    "THEOREM": 215,
     "OBSTRUCTION": 10,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8932,19 +8980,19 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 8, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 16, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 17",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 9, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 18, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 18",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
     "(3, 4)": 19,
-    "(2, 4)": 16,
-    "(1, 3)": 8,
+    "(2, 4)": 18,
+    "(1, 3)": 9,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
     "(1, 4)": 10,
-    "(4, 5)": 17,
+    "(4, 5)": 18,
     "(2, 5)": 7,
     "(3, 5)": 5,
     "(0, 3)": 3,
@@ -9858,6 +9906,34 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the ten-position derivative's gains (4/3, 20/3, (10 -+ 2 sqrt5)/3), the local bound (29/54) x, the norm-only and Stieltjes bounds on the determinant, the joint CP5 connection of the finite parent, and the sibling's recovery ranks 90, 170, 250, 330, 360 and its integrated readings (numbers read as names)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 17:26 text, the 16:59-17:18 model and five 28 Oct notes: the arithmetic corrections 293760 and 328320, the Haar near-dark coefficient 81 sqrt15/320 from the tangent determinant (20/27)^(3/2), the fourth moments' sum, 4320 = 1 mod 7, and 8 m^2 = 3 n^2 without integer solutions",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hub's arithmetic corrections: 17280 + 2160 x 128 = 293760 and 3 x 17280 + 2160 x 128 = 328320": true,
+    "the Haar near-dark coefficient 10 vol B6/(vol Gr+(2, 5) |det|) with |det| = (20/27)^(3/2), the product of the tangent spectrum (2/3)^3 (10/9)^3, is (5/8)(27/20)^(3/2) = 81 sqrt15/320, and the fourth moments 34/175, 36/175, 69/175 sum to one as E(D + B)^2 must": true,
+    "the 28 Oct notes: 4320 = 1 mod 7, so the clock has no element of order 7; 8 m^2 = 3 n^2 has no nonzero integer solution, so the two septuple frequencies share no period; and the dark port's four squared cosines sum to 5/48": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 17:31: the hub's OES_Unified_Model_20261029.txt as revised at 17:26 (sources through 17:04), read as text (its zip, 3612599 bytes, not downloaded); the sibling's MODEL edition of 17:18 (those of 16:59-17:10, with the spine PDFs and OES-paper PDF, are superseded or skipped); five 28 Oct notes (OPEN_CHAINS, RANKS, J7_LOOPS, DENSITY, SEPTUPLE_JOIN), read as text; and a mirror of 26-28 Oct sources uploaded 17:15-17:26 (Locked Memory OMSOON719-736, the Standing Model and Through736 texts, SMEAR, Public Return, the One Machine typesetting sources), not re-read, since the build already rests on their originals",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the 360 parent and its A6 coset readers (ranks 125, 165, 230; 90 to 360 in five settings; the Golden adapter of rank 5), the reflection characters 10 + 8 + 18 and 18 + 18, the [27, 15, 4] and [30, 16, 3] codes and the 30-record atlas code, the global degree's sign split, the Haar fourth moments and probabilities beyond their stated values, the leakage bounds, the covariance-sign chart, and the sibling's readings",
    "status": "REPORTED",
    "passed": true,
    "value": null,

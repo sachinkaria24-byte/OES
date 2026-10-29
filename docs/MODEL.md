@@ -1660,6 +1660,35 @@ So THEOREM maps alone connect every dot but the product geometry, FLRW and the m
   - Not replayed: the ten-position derivative's gains, the local bound (29/54)x, the determinant's norm-only and Stieltjes bounds, the finite parent's joint CP⁵ connection, and the sibling's recovery ranks 90–360.
   - The sibling's integrated readings are not recorded.
 
+**The source's quadratics, the dark readout and cubic-null triangles (Drive check 17:31).** The hub's text was revised at 17:26 (sources through 17:04; 700 assertion groups in eighteen receipts). The sibling's MODEL reached its 17:18 edition, five 28 October notes were re-filed, and a mirror of the 26–28 October sources appeared (17:15–17:26). Four joins follow. Nothing was run.
+
+- **Quadratic frames** (K5 edges → source).
+  - The ten edge projectors E_e (the Riesz vectors of the edge readings) and the six Golden projectors R_j have ΣE_e = 2I and ΣR_j = (6/5)I. Their pairwise traces are Tr(E_eE_f) = 1/9, Tr(R_iR_j) = 1/25 and Tr(E_eR_j) = 1/5.
+  - Centred, they span 9 and 5 mutually orthogonal dimensions, so the source's 15 quadratics split as 1 + 9 + 5.
+  - A closed inverse and a Parseval identity hold on all fifteen G-self-adjoint operators. Each plane projector is ½(its six edges) − ¼(the four at its vertex).
+  - **The matroid.** Five edges complete the quadratics exactly when their rows of the native chart are a basis: 162 of the 252 five-sets, every one unimodular. That happens exactly when the complementary five edges form a connected nonbipartite graph.
+  - The five planes and six lines alone reach only 10 of the 15.
+- **The dark readout** (dark ports → readout).
+  - Matched intensities are 1 and 1/16, so any four of the five sensors name the plane and no three do.
+  - Intensities do not fix a dark vector: two vectors of norm 40 share the intensities 225, 225, 100, 25, 25.
+  - Seven full-spark detectors recover any real dark vector up to sign, by the complement property. Eight survive one erasure (all 70 minors are nonzero, the least |det| being 1).
+- **Cubic-null triangles and the double-dark pair** (source → cycles).
+  - Each transposition's −1 eigenspace in the source is cubic-null, and its commutator is twice the complementary triangle. The ten outputs have TTᵀ = 20 P_cycle, so cubic-null preparations span the bright six.
+  - In a K4 plane the equilateral pair 2X − Y − Z, √3(Y − Z) is commutator-dark and cubic-null, with A₀² + B₀² = 16P₃. Its rotation solves the finite parent with energy 96 and charge 48, and the derivative ranks there are 6, 2 and 8.
+  - E − 2σQ is a sum of squares in all 26 variables, so E ≥ 2|Q|.
+  - The commutator's generalized spectrum is (10/9)⁶0⁴, so ‖W_AS‖ = √10/3 and a Haar plane has E‖Wu‖² = 2/3.
+- **The Fibonacci bridge** (A4 → golden companion).
+  - The marked K = A(h₀) has K² = 5 on A4, so Φ = (1 + K)/2 has Φ² = Φ + 1.
+  - A rational S carries Φ to two blocks B = [[1, 1], [1, 0]]. B⁶ = [[13, 8], [8, 5]] has entry sum 34; the hub corrects the source's 27.
+- **The rest, replayed.**
+  - The hub's arithmetic corrections give 293760 and 328320.
+  - The Haar near-dark coefficient is 81√15/320, from the tangent determinant (20/27)^(3/2), and the fourth moments 34/175, 36/175 and 69/175 sum to one.
+  - From the 28 October notes: 4320 ≡ 1 mod 7, and 8m² = 3n² has no integer solution.
+- **Recorded (REPORTED).**
+  - Not replayed: the 360 parent with its A6 coset readers (ranks 125, 165, 230; 90 to 360 in five settings; a Golden adapter of rank 5), and the reflection characters.
+  - Also not replayed: the [27, 15, 4] and [30, 16, 3] codes, the global degree's sign split, the Haar fourth moments, the leakage bounds and the covariance-sign chart.
+  - The mirrored 26–28 October sources were not re-read; the build already rests on their originals. The OES-paper PDF and the sibling's readings were skipped.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -1793,6 +1822,7 @@ At 09:00 UTC the request was to work out the mathematics of assigning physical p
 - relayed by the user at 00:35: the sibling's `ONE_MACHINE_29.md` (1EQqJlcXKqOTx4CSrWjJ_xofjFE-nFHVJ, 00:20; its source `one-machine-29.typ`, 1Xjs-MbN1SJHnwRIxj-wMR3v7Tg7SdL7I, not opened) and its notes CLOSURE_092 (1cF4DFGH9sS1OxdOmdKY438WAqj6hpTU9), LAYER23B (11YQ_3BLajqeam8PfHircl-grIGkg_X7A), LEVELS (15pwuy92okVOE1kroi_aUqzF5f4xVrq2Y), OBS_SUN (1-hVBE6IXFAmvH5jYJ4GApOL4H_N_mGHO), GRAIN_SPLIT (1nD1IqQneNfuAIBCMP0QBs4A8ua6tXW_y), FRAME_WALKS (1KcOKYsAAsiLvzdZoOeUC8jYNalXlo_xZ) and DEEP_COURT (1QpU7xRGxOK7dEngbVvDQdg3s5RUNYf9V): §24, the 00:35 relay
 - the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
+- the sibling's MODEL_20261029.md edition of 17:18 (1peMKD47KQO32FT6K1AN2_vy687wldWkh), superseding those of 16:59–17:10; the hub's `OES_Unified_Model_20261029.txt` as revised at 17:26, read as text (its zip, 3612599 bytes, not downloaded); the 28 Oct notes `OPEN_CHAINS_2026-10-28.md` (1qM8NQAfxH-sFbECyRZJDRGcxrUD6I37d), `RANKS_2026-10-28.md` (1mDMU8PeWJIhKXMpjs51ZBBquTE2kmKDZ), `J7_LOOPS_20261028.md` (1c9a6vJdicJy7IYOAr4DDUKlaLV07CAQq), `DENSITY_20261028.md` (1HgXpMKXkRfXxzwsEVredpqXzKQlor2UB) and `SEPTUPLE_JOIN_20261028.md` (1LYYCOooHEDLeU9r-5PGVOIapfvqZ4D3o), read as text; the 26–28 Oct sources mirrored into 1_iq2D5-5rcebZZODDF57WhN6Z6b9lHbF and 1g98a1Q9sTfCFqKOrFDHHkVPMmxKKXkot at 17:15–17:26, not re-read: §24, the 17:31 check
 - the sibling's MODEL_20261029.md edition of 16:58 (1fC-14ingblwWDmjO99Y0Cis107dImKVd), superseding those of 16:19–16:57; the hub's `OES_Unified_Model_20261029.txt` as revised at 16:47, read as text (its zip, 3203676 bytes, not downloaded); and, in the new folder OES ChatGPT Library Mirror 20261029 (1ZxwAKskjD7NKb1w7CcdisdLMHPNvLmmr), `ALL_DOTS_INVERSE_DYSON_JOIN.md` (12tVVt1TFKAbGr8DkMvMo58W9PqUbhks0), read as text, with the folder's other packages, receipts and verifiers not opened: §24, the 16:51 check
 - the sibling's MODEL_20261029.md edition of 16:17 (1LmzL9P-LTR0LZJX3CUPnEQYG7WY5rLjY), superseding those of 15:37–16:15; the hub's `OES_Unified_Model_20261029.txt` as revised at 16:11, read as text (its exact zip, 2748971 bytes, not downloaded): §24, the 16:16 check
 - the sibling's MODEL_20261029.md edition of 15:11 (1bWdXkamFm-H7wFFe8EiuqH4e8UZ6-8Ac), superseding those of 14:27–15:08; the hub's `OES_Unified_Model_20261029.txt` as revised at 15:03, with its exact zip (1759114 bytes; the all_order_noether_shell receipt read as data, nothing run); and the U21 intake folder `20261029T143223Z_CLAUDE_OES-K-REPLAY-U21_intake_v01` (1gcbalO4DZLnG2I0BNTDAPAMIfPBOViwt) with `oes-u21-operands-and-physics-gates-20261028.md` (1QnzqI_GmIPA1L4g8OI3Ui8-NlPyr6x3z), read as text: §24, the 15:34 check

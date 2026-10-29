@@ -313,11 +313,15 @@ flowchart TB
     source -->|"exactly five dark planes"| darkport
     source -->|"two rotating branches"| readout
     wedgeport -->|"one-frequency tomography"| darkport
+    E -->|"the quadratic frames"| source
+    darkport -->|"dark intensities"| readout
+    source -->|"cubic-null triangles"| cycles
+    A4 -->|"the Fibonacci bridge"| golden
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-65 dots and 234 joins: 211 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 10 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+65 dots and 238 joins: 215 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 10 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
@@ -327,7 +331,7 @@ flowchart TB
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 11 | 11 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 19 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports | 31 | 17 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports | 31 | 18 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -337,11 +341,11 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 7 | 3 | 3 | 2 | 2 |
-| symmetry | 7 | - | 11 | 8 | 10 | 7 |
-| combinatorics | 3 | 11 | - | 4 | 16 | 7 |
-| lattice | 3 | 8 | 4 | - | 19 | 5 |
-| operator | 2 | 10 | 16 | 19 | - | 17 |
-| physics | 2 | 7 | 7 | 5 | 17 | - |
+| symmetry | 7 | - | 11 | 9 | 10 | 7 |
+| combinatorics | 3 | 11 | - | 4 | 18 | 7 |
+| lattice | 3 | 9 | 4 | - | 19 | 5 |
+| operator | 2 | 10 | 18 | 19 | - | 18 |
+| physics | 2 | 7 | 7 | 5 | 18 | - |
 
 ## Dots
 
@@ -649,6 +653,10 @@ The maps that join each pair of levels directly.
 | source | dark ports | on the commutator's 4-dimensional kernel the Pluecker quadrics have exactly five projective solutions, all reduced, and they are the five planes: W_AS(a ^ b) = 0 only for collinear pairs or pairs spanning one E_r; each is a regular zero (tangent spectrum (2/3)^3 (10/9)^3), and the oriented bivectors, a 15-tight simplex of the dark four, are told apart by L = sum 2^r <p_r, .> (values 15 2^s - 93) | THEOREM | `k4_complete` |
 | source | readout | the finite return parent keeps each matching plane, with an exact blind circular orbit (energy 32, charge 16); on its S2 x S3 line u (\|u\|^2 = 18, Tr A^3/6 = -16) it rotates on two branches, X = omega^2 = 6 and 32/3 at r = 1/2, both checked in the full equations (the hub, 16:47) | THEOREM | `dark_branches` |
 | root-wedge port | dark ports | one complete retained response G^-1 = [[A, C], [C^T, D]] of the anchored F20 interaction gives back q = Tr CC^T/Tr(A - min A), X = C/q and both baselines (q = 1/7, a = 1/2, b = 1/3 for X0 + 2X1); the scalar determinant sees only four singular squares (a one-parameter isospectral family through X0 + 2X1 - X2 + 3X4), and the two-pole emulators have 0, 1, 3, 4 modes above the band at q = 1/7, 1, 2, 5 (the hub, 16:47) | THEOREM | `tomography` |
+| K5 edges | source | the ten edge projectors and the six Golden projectors split the source's fifteen quadratics as 1 + 9 + 5 (traces 1/9, 1/25, 1/5), with a closed inverse and Parseval identity; five edges complete them exactly when their source rows are a basis, 162 of the 252 five-sets and all unimodular, which is when the complementary five edges form a connected nonbipartite graph (the hub, 17:26) | THEOREM | `quadratic_frames` |
+| dark ports | readout | matched intensities 1 and 1/16 name the five dark planes from any four sensors; intensities do not fix a dark vector (two of norm 40 share 225, 225, 100, 25, 25), but seven full-spark detectors recover any real dark vector up to sign, and eight survive one erasure (the hub, 17:26) | THEOREM | `dark_readout` |
+| source | cycles | the transposition-odd planes are cubic-null and their ten commutators, twice the complementary triangles, give T T^T = 20 P_cycle; the equilateral K4 pair 2X - Y - Z, sqrt3 (Y - Z) is commutator-dark and cubic-null (energy 96, charge 48); E - 2 sigma Q is a sum of squares, and \|W_AS\| = sqrt10/3 (the hub, 17:26) | THEOREM | `cubic_null` |
+| A4 | golden companion | the marked K = A(h0) has K^2 = 5 on A4, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and a rational S carries Phi to two blocks B = [[1, 1], [1, 0]]; B^6 = [[13, 8], [8, 5]], entry sum 34 (the hub, 17:26) | THEOREM | `golden_bridge` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 

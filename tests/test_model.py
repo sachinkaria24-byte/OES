@@ -554,6 +554,32 @@ def test_the_1651_replay():
     assert K(sp.Rational(1, 7), sp.Rational(1, 3)) == K(sp.Rational(2, 7), sp.Rational(7, 20))
 
 
+def test_the_1731_replay():
+    for check in (dots.quadratic_frames, dots.dark_readout, dots.cubic_null, dots.golden_bridge, dots.notes_1731):
+        out = check()
+        assert all(out.values()), out
+    import sympy as sp
+    E, N5, sym, F, a0, b0 = dots._source()
+    H, sig, S5, sgn, U = dots._six_lines()
+    G = N5.T * N5
+    # the five planes and six Golden lines alone reach only 10 of the 15 quadratics: the edges are needed
+    V = G.inv() * N5.T * sp.Matrix.hstack(*H)
+    proj = [u * (u.T * G * u).inv() * u.T * G for u in dots._planes()] + [
+        V[:, j] * V[:, j].T * G / (V[:, j].T * G * V[:, j])[0] for j in range(6)]
+    assert sp.Matrix.hstack(*[sp.Matrix(list(x)) for x in proj]).rank() == 10
+    # six detectors can be split into two halves that each miss a direction, so six intensities cannot always suffice
+    halves = ([sp.eye(4)[:, 0], sp.eye(4)[:, 1], sp.Matrix([-1, -1, -1, -1])],
+              [sp.eye(4)[:, 2], sp.eye(4)[:, 3], sp.Matrix([1, 2, 3, 5])])
+    assert all(sp.Matrix.hstack(*h).rank() < 4 for h in halves)
+    # the even eigenspace of a transposition is not cubic-null
+    av, bv = sp.Matrix(sp.symbols("a0:5")), sp.Matrix(sp.symbols("b0:5"))
+    A, B = sym(N5 * av), sym(N5 * bv)
+    phi1 = sp.expand(((A ** 2 + B ** 2) * A).trace() / 6)
+    plus = (G.inv() * N5.T * dots._edge_perm((1, 0, 2, 3, 4)) * N5 - sp.eye(5)).nullspace()
+    a = sum((sp.Symbol(f"s{k}") * w for k, w in enumerate(plus)), sp.zeros(5, 1))
+    assert sp.expand(phi1.subs(dict(zip(list(av) + list(bv), list(a) + [0] * 5)))) != 0
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out

@@ -313,6 +313,13 @@ source has exactly ten oriented preimages, and one marked scalar tells them apar
 rotor on the planes at 24 or 32. The finite return parent keeps every plane and, on its proportional line, rotates on
 two exact branches, X = 6 and 32/3 at r = 1/2. One complete response at one frequency gives back the anchored
 interaction and both baselines, while the scalar determinant leaves a one-parameter isospectral family.
+
+At 17:31 the hub's text (17:26) and the sibling's MODEL (16:59-17:18) came in, with a mirror of the 26-28 Oct sources.
+The ten edge projectors and six Golden projectors complete the source's quadratics as 1 + 9 + 5, and five edges complete
+them exactly when the complementary five edges form a connected nonbipartite graph: the native K5 matroid, 162 of 252,
+all unimodular. Matched intensities name the dark planes from any four sensors, and seven full-spark detectors recover
+any real dark vector up to sign. The transposition-odd planes are cubic-null, and their ten commutators span the cycles
+with T T^T = 20 P_cycle. E - 2 sigma Q is a sum of squares. The marked Golden operator on A4 is two Fibonacci blocks.
 """
 
 import functools
@@ -6802,6 +6809,223 @@ def notes_1651():
     }
 
 
+# ------------------------ 17:31: the source's quadratics, the dark readout, cubic-null triangles, the Fibonacci bridge
+
+def _connected_nonbipartite(edges):
+    """True if the graph on the five vertices with these edges is connected and not bipartite."""
+    adj = {v: [] for v in range(5)}
+    for a, b in edges:
+        adj[a].append(b)
+        adj[b].append(a)
+    col, stack, odd = {0: 0}, [0], False
+    while stack:
+        v = stack.pop()
+        for w in adj[v]:
+            if w not in col:
+                col[w] = 1 - col[v]
+                stack.append(w)
+            elif col[w] == col[v]:
+                odd = True
+    return len(col) == 5 and odd
+
+
+def quadratic_frames():
+    """The hub's text (17:26): the edge and Golden projectors complete the source's quadratics, through the K5 matroid."""
+    E, N5, sym, F, a0, b0 = _source()
+    H, sig, S5, sgn, U = _six_lines()
+    G = N5.T * N5
+    I5 = sp.eye(5)
+    V = G.inv() * N5.T * sp.Matrix.hstack(*H)
+    Ee = [u * u.T * G / (u.T * G * u)[0] for u in (G.inv() * N5[e, :].T for e in range(10))]
+    R = [V[:, j] * V[:, j].T * G / (V[:, j].T * G * V[:, j])[0] for j in range(6)]
+    vec = lambda X: sp.Matrix(list(X))
+    cE = sp.Matrix.hstack(*[vec(x - I5 / 5) for x in Ee])
+    cR = sp.Matrix.hstack(*[vec(x - I5 / 5) for x in R])
+    zs = lambda xs: sum(xs, sp.zeros(5))
+
+    def recon(X):
+        t = X.trace()
+        return (t / 5 * I5 + sp.Rational(9, 8) * zs([((x * X).trace() - t / 5) * (x - I5 / 5) for x in Ee])
+                + sp.Rational(25, 24) * zs([((r * X).trace() - t / 5) * (r - I5 / 5) for r in R]))
+
+    def norm(X):
+        t = X.trace()
+        return (((X - t * I5 / 5) ** 2).trace(), sp.Rational(9, 8) * sum(((x * X).trace() - t / 5) ** 2 for x in Ee)
+                + sp.Rational(25, 24) * sum(((r * X).trace() - t / 5) ** 2 for r in R))
+    basis = []
+    for i in range(5):
+        for j in range(i, 5):
+            Sm = sp.zeros(5)
+            Sm[i, j] = Sm[j, i] = 1
+            basis.append(G.inv() * Sm)
+    Em = sp.Matrix.hstack(*[vec(x) for x in Ee])
+    planes = []
+    for r, u in enumerate(_planes()):
+        c = Em.solve_least_squares(vec(u * (u.T * G * u).inv() * u.T * G))
+        planes.append(all(c[k] == (sp.Rational(-1, 4) if r in E[k] else sp.Rational(1, 2)) for k in range(10))
+                      and Em * c == vec(u * (u.T * G * u).inv() * u.T * G))
+    census = Counter()
+    rule = True
+    for S in itertools.combinations(range(10), 5):
+        d = N5.extract(list(S), list(range(5))).det()
+        census[abs(d)] += 1
+        rule = rule and (d != 0) == _connected_nonbipartite([E[k] for k in range(10) if k not in S])
+    return {
+        "the ten edge projectors E_e (Riesz vectors of the edge readings) and the six Golden projectors R_j have "
+        "sum E_e = 2 I and sum R_j = (6/5) I, with Tr(E_e E_f) = 1/9, Tr(R_i R_j) = 1/25 and Tr(E_e R_j) = 1/5; centred "
+        "they span 9 and 5 mutually orthogonal dimensions, so the source's 15 quadratics split as 1 + 9 + 5":
+            zs(Ee) == 2 * I5 and zs(R) == sp.Rational(6, 5) * I5
+            and {(Ee[i] * Ee[j]).trace() for i in range(10) for j in range(10) if i != j} == {sp.Rational(1, 9)}
+            and {(R[i] * R[j]).trace() for i in range(6) for j in range(6) if i != j} == {sp.Rational(1, 25)}
+            and {(x * r).trace() for x in Ee for r in R} == {sp.Rational(1, 5)}
+            and (cE.rank(), cR.rank(), sp.Matrix.hstack(cE, cR, vec(I5)).rank()) == (9, 5, 15)
+            and all(((x - I5 / 5) * (r - I5 / 5)).trace() == 0 for x in Ee for r in R),
+        "X = (t/5) I + (9/8) sum (e_e - t/5)(E_e - I/5) + (25/24) sum (r_j - t/5)(R_j - I/5) inverts the sixteen readings on "
+        "all fifteen G-self-adjoint operators, with the matching Parseval identity, and each plane projector is "
+        "(1/2)(its six edges) - (1/4)(the four at its vertex)":
+            all(recon(X) == X for X in basis) and all(a == b for a, b in (norm(X) for X in basis)) and all(planes),
+        "five edges complete the quadratics exactly when their rows of the native chart are a basis: 162 of the 252 "
+        "five-sets, every one unimodular (det +-1), and the other 90 singular; the rule is that the complementary five "
+        "edges form a connected nonbipartite graph": census == Counter({1: 162, 0: 90}) and rule,
+    }
+
+
+def dark_readout():
+    """The hub's text (17:26): what intensities read of the dark four."""
+    D = 15 * sp.eye(4) - 3 * sp.ones(4, 4)
+    P = [sp.eye(4)[:, k] for k in range(4)] + [-sp.ones(4, 1)]
+    ip = lambda x, y: (x.T * D * y)[0]
+    match = [[sp.Rational(ip(P[j], P[r]) ** 2, 144) for j in range(5)] for r in range(5)]
+    labels = lambda keep: len({tuple(row[j] for j in keep) for row in match}) == 5
+    u, v = sp.Matrix([sp.Rational(1, 3), sp.Rational(1, 3), 1, 0]), sp.Matrix([-1, 1, 0, 0])
+    xp, xm = u + v, u - v
+    cols = [sp.eye(4)[:, k] for k in range(4)] + [sp.Matrix(c) for c in ([-1, -1, -1, -1], [1, 2, 3, 5], [2, 3, 5, 7],
+                                                                        [1, 3, 9, 27])]
+    dets = lambda n: [sp.Matrix.hstack(*[cols[i] for i in S]).det() for S in itertools.combinations(range(n), 4)]
+    return {
+        "in the oriented plane bivectors p0..p3 (metric 15 I - 3 J, p4 = -sum) the matched intensities "
+        "|<d_j, d_r>|^2 are 1 and 1/16, so any four of the five sensors name the plane and no three do; intensities never "
+        "see the sign of d_r": all(match[r][j] == (1 if j == r else sp.Rational(1, 16)) for r in range(5) for j in range(5))
+            and all(labels(k) for k in itertools.combinations(range(5), 4))
+            and not any(labels(k) for k in itertools.combinations(range(5), 3)),
+        "they do not fix a dark vector: x = u + v and u - v (u = (1/3, 1/3, 1, 0), v = (-1, 1, 0, 0)), of norm 40 and "
+        "neither equal nor opposite, give the same five intensities 225, 225, 100, 25, 25":
+            ip(xp, xp) == ip(xm, xm) == 40 and xp != xm and xp != -xm
+            and [ip(p, xp) ** 2 for p in P] == [ip(p, xm) ** 2 for p in P] == [225, 225, 100, 25, 25],
+        "seven detectors e0..e3, (-1, -1, -1, -1), (1, 2, 3, 5), (2, 3, 5, 7) are full spark (all 35 four-minors nonzero), "
+        "so by the complement property their intensities recover any real dark vector up to sign; with (1, 3, 9, 27) all "
+        "70 minors are nonzero (least |det| 1), so eight survive one erasure":
+            all(d != 0 for d in dets(7)) and len(dets(7)) == 35 and all(d != 0 for d in dets(8))
+            and min(abs(d) for d in dets(8)) == 1,
+    }
+
+
+def cubic_null():
+    """The hub's text (17:26): the cubic-null bright triangles, the equilateral double-dark pair, and E >= 2|Q|."""
+    E, N5, sym, F, a0, b0 = _source()
+    G = N5.T * N5
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    Nc = sp.Matrix.hstack(*Bs.nullspace())
+    cyc = (Nc.T * Nc).inv() * Nc.T
+    av, bv = sp.Matrix(sp.symbols("a0:5")), sp.Matrix(sp.symbols("b0:5"))
+    A, B = sym(N5 * av), sym(N5 * bv)
+    phi = sp.Matrix([((A ** 2 + B ** 2) * A).trace() / 6, ((A ** 2 + B ** 2) * B).trace() / 6]).applyfunc(sp.expand)
+    var = list(av) + list(bv)
+    s1, s2, t1, t2 = sp.symbols("s1 s2 t1 t2")
+    cols, nulls = [], []
+    for i, j in itertools.combinations(range(5), 2):
+        p = list(range(5))
+        p[i], p[j] = j, i
+        e1, e2 = (G.inv() * N5.T * _edge_perm(tuple(p)) * N5 + sp.eye(5)).nullspace()
+        a, b = s1 * e1 + s2 * e2, t1 * e1 + t2 * e2
+        nulls.append(phi.subs(dict(zip(var, list(a) + list(b)))).applyfunc(sp.expand).is_zero_matrix)
+        cols.append(F(N5 * e1, N5 * e2))
+    T_ = sp.Matrix.hstack(*cols)
+    ev = lambda pr: sp.Matrix([int(e in [tuple(sorted(x)) for x in pr]) for e in E])
+    X, Y, Z = ev([(0, 1), (2, 3)]), ev([(0, 2), (1, 3)]), ev([(0, 3), (1, 2)])
+    A0e, B0e = 2 * X - Y - Z, sp.sqrt(3) * (Y - Z)
+    A0, B0 = sym(A0e), sym(B0e)
+    S2 = (A0 ** 2 + B0 ** 2) / 16
+    aP, bP = G.inv() * N5.T * A0e, G.inv() * N5.T * B0e
+    pt = dict(zip(var, list(aP) + list(bP)))
+    JW, Jp = (cyc * F(N5 * av, N5 * bv)).jacobian(var).subs(pt), phi.jacobian(var).subs(pt)
+    na, nb = (A0e.T * A0e)[0], sp.simplify((B0e.T * B0e)[0])
+    a, b, ad, bd = [sp.Matrix(sp.symbols(f"{n}0:5")) for n in ("x", "y", "xd", "yd")]
+    h, hd, f = [sp.Matrix(sp.symbols(f"{n}0:2")) for n in ("h", "hd", "f")]
+    q = lambda x, y: (x.T * G * y)[0]
+    J = lambda x: sp.Matrix([-x[1], x[0]])
+    En = ((q(ad, ad) + q(bd, bd) + (hd.T * hd)[0]) / 2 + 2 * (q(a, a) + q(b, b)) + sp.Rational(9, 2) * (h.T * h)[0]
+          + ((h - f).T * (h - f))[0] / 2)
+    Qn = q(a, bd) - q(b, ad) + h[0] * hd[1] - h[1] * hd[0]
+    square = all(sp.expand(En - 2 * s * Qn - (q(ad + 2 * s * b, ad + 2 * s * b) + q(bd - 2 * s * a, bd - 2 * s * a)) / 2
+                           - ((hd - 2 * s * J(h)).T * (hd - 2 * s * J(h)))[0] / 2 - sp.Rational(5, 2) * (h.T * h)[0]
+                           - ((h - f).T * (h - f))[0] / 2) == 0 for s in (1, -1))
+    pairs = list(itertools.combinations(range(5), 2))
+    Wm = sp.Matrix.hstack(*[F(N5[:, i], N5[:, j]) for i, j in pairs])
+    Hm = sp.Matrix(10, 10, lambda r, c: G.extract(list(pairs[r]), list(pairs[c])).det())
+    lam = sp.symbols("lam")
+    spec = sp.expand(sp.cancel((Wm.T * Wm - lam * Hm).det() / Hm.det()))
+    return {
+        "each transposition's -1 eigenspace in the source is a plane on which the trace cubic vanishes identically; the "
+        "commutator of its primitive basis is twice the boundary of the complementary triangle (edge square 12), and the "
+        "ten outputs give T T^T = 20 P_cycle, rank 6: cubic-null preparations span the bright six":
+            all(nulls) and {(c.T * c)[0] for c in cols} == {12} and T_ * T_.T == 20 * Pc and T_.rank() == 6,
+        "in a K4 plane the equilateral pair A0 = 2X - Y - Z, B0 = sqrt3 (Y - Z) commutes and is cubic-null, with "
+        "A0^2 + B0^2 = 16 P3 (P3 a rank-3 projector, trace 48): its rotation solves the finite parent with h = 0, energy 96 "
+        "and charge 48, and there D W, D phi and D(W, phi) have ranks 6, 2 and 8, leaving scale and SO2 blind":
+            (A0 * B0 - B0 * A0).is_zero_matrix and phi.subs(pt).applyfunc(sp.simplify).is_zero_matrix
+            and (S2 * S2 - S2).applyfunc(sp.simplify).is_zero_matrix and S2.rank() == 3 and (16 * S2).trace() == 48
+            and (na, nb) == (12, 12) and ((4 * na + 4 * nb) / 2 + 2 * (na + nb), 2 * (na + nb)) == (96, 48)
+            and (JW.rank(simplify=True), Jp.rank(simplify=True), sp.Matrix.vstack(JW, Jp).rank(simplify=True)) == (6, 2, 8),
+        "E - 2 sigma Q = |a' + 2 sigma b|^2/2 + |b' - 2 sigma a|^2/2 + |h' - 2 sigma J h|^2/2 + (5/2)|h|^2 + |h - phi|^2/2 for "
+        "both signs, as an identity in all 26 variables with phi free, so E >= 2|Q|; and the commutator map has "
+        "generalized spectrum (10/9)^6 0^4, so |W_AS| = sqrt10/3 and a Haar plane has E|W u|^2 = 6 (10/9)/10 = 2/3":
+            square and spec == sp.expand(lam ** 4 * (lam - sp.Rational(10, 9)) ** 6)
+            and sp.Rational(6) * sp.Rational(10, 9) / 10 == sp.Rational(2, 3),
+    }
+
+
+def golden_bridge():
+    """The hub's text (17:26): the marked Golden operator on A4 is a pair of Fibonacci blocks."""
+    E, N5, sym, F, a0, b0 = _source()
+    H, sig, S5, sgn, U = _six_lines()
+    K = sym(H[0])
+    P5 = sp.eye(5) - sp.ones(5, 5) / 5
+    Phi = (P5 + K) / 2
+    Bm = sp.Matrix([[1, 1], [1, 0]])
+    base = [sp.eye(5)[:, k] - sp.eye(5)[:, 4] for k in range(4)]
+    S = next(c for c in (sp.Matrix.hstack(v, (K * v - v) / 2, w, (K * w - w) / 2)
+                         for v, w in itertools.combinations(base, 2)) if c.rank() == 4)
+    return {
+        "the marked K = A(h0) keeps A4 with K^2 = 5 there, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and the rational "
+        "S = [v, (Kv - v)/2, w, (Kw - w)/2] carries K to two blocks 2B - 1 and Phi to two blocks B = [[1, 1], [1, 0]]":
+            (K * sp.ones(5, 1)).is_zero_matrix and (K * K * P5 - 5 * P5).is_zero_matrix and (Phi * Phi - Phi - P5).is_zero_matrix
+            and (K * S - S * sp.diag(2 * Bm - sp.eye(2), 2 * Bm - sp.eye(2))).is_zero_matrix
+            and (Phi * S - S * sp.diag(Bm, Bm)).is_zero_matrix,
+        "B^6 = [[13, 8], [8, 5]], trace 18, determinant 1 and entry sum 34 (the hub corrects the source's 27)":
+            Bm ** 6 == sp.Matrix([[13, 8], [8, 5]]) and (Bm ** 6).trace() == 18 and (Bm ** 6).det() == 1
+            and sum(Bm ** 6) == 34,
+    }
+
+
+def notes_1731():
+    """The hub's text (17:26), the sibling's MODEL (16:59-17:18) and five 28 Oct notes uploaded 29 Oct: the rest."""
+    return {
+        "the hub's arithmetic corrections: 17280 + 2160 x 128 = 293760 and 3 x 17280 + 2160 x 128 = 328320":
+            17280 + 2160 * 128 == 293760 and 3 * 17280 + 2160 * 128 == 328320,
+        "the Haar near-dark coefficient 10 vol B6/(vol Gr+(2, 5) |det|) with |det| = (20/27)^(3/2), the product of the "
+        "tangent spectrum (2/3)^3 (10/9)^3, is (5/8)(27/20)^(3/2) = 81 sqrt15/320, and the fourth moments 34/175, 36/175, "
+        "69/175 sum to one as E(D + B)^2 must": sp.Rational(2, 3) ** 3 * sp.Rational(10, 9) ** 3 == sp.Rational(20, 27) ** 3
+            and sp.simplify(sp.Rational(5, 8) * sp.Rational(27, 20) ** sp.Rational(3, 2) - 81 * sp.sqrt(15) / 320) == 0
+            and sp.Rational(34, 175) + 2 * sp.Rational(36, 175) + sp.Rational(69, 175) == 1,
+        "the 28 Oct notes: 4320 = 1 mod 7, so the clock has no element of order 7; 8 m^2 = 3 n^2 has no nonzero integer "
+        "solution, so the two septuple frequencies share no period; and the dark port's four squared cosines sum to 5/48":
+            4320 % 7 == 1 and not any(8 * m * m == 3 * n * n for m in range(1, 200) for n in range(1, 400))
+            and sp.sqrt(sp.Rational(8, 3)).is_rational is False and 4 * sp.Rational(5, 192) == sp.Rational(5, 48),
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -7130,6 +7354,10 @@ JOINS = [
     ("source", "darkport", "exactly five dark planes", "on the commutator's 4-dimensional kernel the Pluecker quadrics have exactly five projective solutions, all reduced, and they are the five planes: W_AS(a ^ b) = 0 only for collinear pairs or pairs spanning one E_r; each is a regular zero (tangent spectrum (2/3)^3 (10/9)^3), and the oriented bivectors, a 15-tight simplex of the dark four, are told apart by L = sum 2^r <p_r, .> (values 15 2^s - 93)", T, "k4_complete"),
     ("source", "readout", "two rotating branches", "the finite return parent keeps each matching plane, with an exact blind circular orbit (energy 32, charge 16); on its S2 x S3 line u (|u|^2 = 18, Tr A^3/6 = -16) it rotates on two branches, X = omega^2 = 6 and 32/3 at r = 1/2, both checked in the full equations (the hub, 16:47)", T, "dark_branches"),
     ("wedgeport", "darkport", "one-frequency tomography", "one complete retained response G^-1 = [[A, C], [C^T, D]] of the anchored F20 interaction gives back q = Tr CC^T/Tr(A - min A), X = C/q and both baselines (q = 1/7, a = 1/2, b = 1/3 for X0 + 2X1); the scalar determinant sees only four singular squares (a one-parameter isospectral family through X0 + 2X1 - X2 + 3X4), and the two-pole emulators have 0, 1, 3, 4 modes above the band at q = 1/7, 1, 2, 5 (the hub, 16:47)", T, "tomography"),
+    ("E", "source", "the quadratic frames", "the ten edge projectors and the six Golden projectors split the source's fifteen quadratics as 1 + 9 + 5 (traces 1/9, 1/25, 1/5), with a closed inverse and Parseval identity; five edges complete them exactly when their source rows are a basis, 162 of the 252 five-sets and all unimodular, which is when the complementary five edges form a connected nonbipartite graph (the hub, 17:26)", T, "quadratic_frames"),
+    ("darkport", "readout", "dark intensities", "matched intensities 1 and 1/16 name the five dark planes from any four sensors; intensities do not fix a dark vector (two of norm 40 share 225, 225, 100, 25, 25), but seven full-spark detectors recover any real dark vector up to sign, and eight survive one erasure (the hub, 17:26)", T, "dark_readout"),
+    ("source", "cycles", "cubic-null triangles", "the transposition-odd planes are cubic-null and their ten commutators, twice the complementary triangles, give T T^T = 20 P_cycle; the equilateral K4 pair 2X - Y - Z, sqrt3 (Y - Z) is commutator-dark and cubic-null (energy 96, charge 48); E - 2 sigma Q is a sum of squares, and |W_AS| = sqrt10/3 (the hub, 17:26)", T, "cubic_null"),
+    ("A4", "golden", "the Fibonacci bridge", "the marked K = A(h0) has K^2 = 5 on A4, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and a rational S carries Phi to two blocks B = [[1, 1], [1, 0]]; B^6 = [[13, 8], [8, 5]], entry sum 34 (the hub, 17:26)", T, "golden_bridge"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -7291,6 +7519,10 @@ LEDGER_ROWS = [
     ("the dark-plane energy court (hub, 16:47)", "word lattice of index 3 in each plane (det 108); minima 12 + 12 on two planes, 4 + 28 on three; prepared rotor energies 24 and 32, charges 12 and 16", "replayed (Lagrange reduction of the five plane lattices)", T, "23"),
     ("the finite parent's dark branches (hub, 16:47)", "E_r invariant (12-dimensional dark phase spaces); packet phi = (-4/3, -4/3), H = 20 rho^2 + (16/9) rho^6; blind circular orbit 32 and 16; branches X = 6 and 32/3 at r = 1/2 with H = 51/2, 134 and Q = (19/4) sqrt6, 18 sqrt6", "replayed in the full equations at three phases", T, "23"),
     ("one-frequency tomography and the scalar shift (hub, 16:47)", "q = Tr CC*/Tr R, X = C/q, a = 1/ell, b = 1/(m - q); Schur decrement; 84/5; (45/94, 15/47); quartic 25t^4 - 1300t^3 + ...; kernel (30595, -225, 55235, -6812, 41885); D = 55899556/4862025; -459567/245; emulator counts 0, 1, 3, 4", "replayed and joined (root-wedge port -> dark ports); the infinite E8 thresholds stay uncomputed", T, "23"),
+    ("the quadratic frames and the matroid (hub, 17:26)", "sum E_e = 2 I, sum R_j = (6/5) I; 1/9, 1/25, 1/5; 1 + 9 + 5; closed inverse, Parseval; planes (1/2, -1/4); 162 complete and 90 incomplete five-edge sets, unimodular; connected nonbipartite complements", "replayed and joined (K5 edges -> source)", T, "23"),
+    ("the dark readout (hub, 17:26)", "matched 1 and 1/16, four of five sensors; 225, 225, 100, 25, 25 at norm 40; full spark 35 and 70 minors, least 1", "replayed and joined (dark ports -> readout); the complement-property theorem is cited", T, "23"),
+    ("cubic-null triangles and the double-dark pair (hub, 17:26)", "T T^T = 20 P_cycle; A0^2 + B0^2 = 16 P3; E = 96, Q = 48; ranks 6, 2, 8; E - 2 sigma Q a sum of squares; |W_AS| = sqrt10/3", "replayed and joined (source -> cycles)", T, "23"),
+    ("the Fibonacci bridge (hub, 17:26)", "K^2 = 5, Phi^2 = Phi + 1, K S = S(2B - 1 + 2B - 1); B^6 sum 34", "replayed and joined (A4 -> golden companion)", T, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
     ("the six-line frame (hub, 14:07)", "Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle", "replayed; the twenty-term cubic formulas hold as polynomial identities", T, "23"),
@@ -7406,7 +7638,8 @@ def _checks():
         "pair_frame": pair_frame, "parity_ports": parity_ports, "dark_port": dark_port,
         "two_dark": two_dark, "fusion_frame": fusion_frame, "source_coding": source_coding, "k4_planes": k4_planes,
         "free_chain": free_chain, "k4_complete": k4_complete, "dark_branches": dark_branches,
-        "tomography": tomography,
+        "tomography": tomography, "quadratic_frames": quadratic_frames, "dark_readout": dark_readout,
+        "cubic_null": cubic_null, "golden_bridge": golden_bridge,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -7880,6 +8113,21 @@ def run():
     rep.add("not replayed: the ten-position derivative's gains (4/3, 20/3, (10 -+ 2 sqrt5)/3), the local bound (29/54) x, "
             "the norm-only and Stieltjes bounds on the determinant, the joint CP5 connection of the finite parent, and "
             "the sibling's recovery ranks 90, 170, 250, 330, 360 and its integrated readings (numbers read as names)",
+            RP, True)
+    n31 = notes_1731()
+    rep.add("the 17:26 text, the 16:59-17:18 model and five 28 Oct notes: the arithmetic corrections 293760 and 328320, the "
+            "Haar near-dark coefficient 81 sqrt15/320 from the tangent determinant (20/27)^(3/2), the fourth moments' sum, "
+            "4320 = 1 mod 7, and 8 m^2 = 3 n^2 without integer solutions", T, all(n31.values()), n31)
+    rep.add("Drive check 17:31: the hub's OES_Unified_Model_20261029.txt as revised at 17:26 (sources through 17:04), read "
+            "as text (its zip, 3612599 bytes, not downloaded); the sibling's MODEL edition of 17:18 (those of 16:59-17:10, "
+            "with the spine PDFs and OES-paper PDF, are superseded or skipped); five 28 Oct notes (OPEN_CHAINS, RANKS, "
+            "J7_LOOPS, DENSITY, SEPTUPLE_JOIN), read as text; and a mirror of 26-28 Oct sources uploaded 17:15-17:26 "
+            "(Locked Memory OMSOON719-736, the Standing Model and Through736 texts, SMEAR, Public Return, the One Machine "
+            "typesetting sources), not re-read, since the build already rests on their originals", RP, True)
+    rep.add("not replayed: the 360 parent and its A6 coset readers (ranks 125, 165, 230; 90 to 360 in five settings; the "
+            "Golden adapter of rank 5), the reflection characters 10 + 8 + 18 and 18 + 18, the [27, 15, 4] and [30, 16, 3] "
+            "codes and the 30-record atlas code, the global degree's sign split, the Haar fourth moments and probabilities "
+            "beyond their stated values, the leakage bounds, the covariance-sign chart, and the sibling's readings",
             RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
