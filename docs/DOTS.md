@@ -261,16 +261,23 @@ flowchart TB
     circle -->|"the root address"| E8
     time -.->|"the phase is not a glue class"| L0
     AGL -->|"the carrier's doubling"| L0
+    S5 -->|"a regular orbit"| datum
+    charges -->|"the charge map"| cycles
+    kerM -->|"the midpoint"| cycles
+    AGL -->|"the affine group on the frames"| circle
+    time -->|"free pentagons"| rootgraph
+    time -->|"one zero mode per character"| kerM
+    time -->|"an automorphism of the triple"| triple
     assignment -.->|"one root of every pair"| binding
 ```
 
-62 dots and 184 joins: 164 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 7 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
+62 dots and 191 joins: 171 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 7 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
-| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 5 |
+| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 6 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 10 | 9 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 9 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 13 |
@@ -283,12 +290,12 @@ The maps that join each pair of levels directly.
 
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
-| number | - | 5 | 3 | 2 | 1 | 1 |
-| symmetry | 5 | - | 9 | 8 | 4 | 6 |
-| combinatorics | 3 | 9 | - | 4 | 10 | 6 |
-| lattice | 2 | 8 | 4 | - | 13 | 4 |
-| operator | 1 | 4 | 10 | 13 | - | 13 |
-| physics | 1 | 6 | 6 | 4 | 13 | - |
+| number | - | 6 | 3 | 3 | 2 | 2 |
+| symmetry | 6 | - | 9 | 8 | 5 | 6 |
+| combinatorics | 3 | 9 | - | 4 | 11 | 7 |
+| lattice | 3 | 8 | 4 | - | 13 | 4 |
+| operator | 2 | 5 | 11 | 13 | - | 13 |
+| physics | 2 | 6 | 7 | 4 | 13 | - |
 
 ## Dots
 
@@ -544,6 +551,13 @@ The maps that join each pair of levels directly.
 | circle | E8 | f(j) = R_diag^(2 floor(j/48)) r_(j mod 48) sends the 4320 frames onto the 240 roots, 18 each, through j mod 240, with f(j + 864) = R_diag f(j): the tick acts on addresses as the diagonal five-cycle; a chosen encoder, whose unit step is not an isometry (the hub, 11:58) | SELECTED_REFERENCE | `clock_root_address` |
 | time clock | A4 + A4' | no permutation of the 240 roots advances every glue class by 1 (class 0 has 40 roots, the others 50), so the tick's phase 4j mod 5 is not the glue grade; R_diag keeps every class | OBSTRUCTION | `clock_root_address` |
 | AGL(1,5) | A4 + A4' | the doubling i -> 2i of AGL(1,5) on the carrier's sites, the twin fixed, permutes the 240 roots in 40 fixed, 10 two-cycles and 45 four-cycles; the 20 fixed beyond the twin copy are not a root system; every mixed root meets the two copies in the patterns (6, 8, 6) and (4, 12, 4) (the hub, 12:04) | THEOREM | `coordinate_bridge` |
+| S5 | datum | the 120 vertex permutations carry (psi0, v0) to 120 distinct data, all of energy 34: the datum's stabilizer in S5 is trivial, so its orbit labels S5, and the reflection 0 <-> 3, 1 <-> 2 that keeps the velocity's 4-cycle moves psi0 | THEOREM | `datum_orbit` |
+| five-site charges | cycles | Q sends an oriented edge a -> a + d to q(a + 2d) - q(a + 4d): Q^T Q = 5 P_A4 onto the four moving cycles, the witness loop, commuting with the tick and the doubling; it is the only AGL(1,5)-map up to scale, no S5-map exists, and L = (U^2 - U^4) Q/5 (the sibling's MODEL, 12:24) | THEOREM | `witness_loop` |
+| zero modes | cycles | the midpoint map (edge ab to the vertex 3(a + b)) takes ker M onto the trace-free sites with Gram (5/3) P_A4, killing only the near-minus-far line (square 10, fixed by the tick, negated by the doubling), and Q after it carries the other four zero modes onto the witness loop, whose seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3) has rotates of strengths 25 phi^2 and 25 phi^-2 | THEOREM | `witness_loop` |
+| AGL(1,5) | circle | j -> j + 864 (order 5) and j -> 3457 j (order 4, conjugating the tick to its square) generate AGL(1,5) on the 4320 frames, keeping the address j mod 36 and acting on the phase 4j mod 5 as x -> x + 1 and x -> 2x; every frame is 3105 (j mod 32) + 2080 (j mod 27) + 864 (4j mod 5) (the sibling's MODEL, 12:24) | THEOREM | `frame_affine` |
+| time clock | root graph | the time clock acts on the root graph through the tick g = r r', with no fixed root: the 240 roots fall in 48 five-cycles, each an extended A4 diagram (five roots summing to zero, products -1 around a pentagon, spanning an A4 root lattice), 24 in the order of g and 24 in the order of g^2, and each copy of A4 + A4' is 4 of them | THEOREM | `tick_actions` |
+| time clock | zero modes | through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line | THEOREM | `tick_actions` |
+| time clock | spectral triple | the tick commutes with D and gamma and permutes the 15 atoms freely, so the time clock acts on the triple by automorphisms; each of its five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other (tr(P_lambda U^j) = 0, -2, 2 on the eigenvalues 0, 3, 8) | THEOREM | `tick_actions` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
 ## Not joined

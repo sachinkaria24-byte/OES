@@ -245,6 +245,17 @@ on the six Sylow views, the native carrier admits no Golden action commuting wit
 address the 240 roots through the diagonal five-cycle (a chosen encoder), and no permutation of the roots advances the
 glue classes. Three corrections go back to the sibling: the parity sums differ by (4/5) Curl, S_even = (16/5) S_odd^-1,
 and the yuga doubling acts on residue labels, not on the clock.
+
+Joining all dots once more makes the THEOREM maps alone as robust as the whole diagram. The datum's orbit under S5 is
+regular: the 120 vertex permutations give 120 distinct data, all of energy 34, so S5 joins the datum directly. The
+sibling's MODEL of 12:24 gives three more joins. Its charge map Q sends an oriented edge a -> a + d to
+q(a + 2d) - q(a + 4d), with Q^T Q = 5 P_A4 onto the four moving cycles; it is the only AGL(1,5)-map up to scale, and no
+S5-map exists. The midpoint map ab -> 3(a + b) takes the zero modes onto the trace-free sites, killing only the
+near-minus-far line, so Q after it carries the other four zero modes onto the moving cycles. On the frames, j -> j + 864
+and j -> 3457 j generate AGL(1,5), keeping the address and acting on the phase as x -> x + 1 and x -> 2x. The time
+clock acts through the tick on the root graph freely, in 48 extended A4 pentagons; on the zero modes as its regular
+representation; and on the triple by automorphisms. Now no one or two THEOREM maps hold the THEOREM diagram together,
+and THEOREM maps join every pair of levels at least twice.
 """
 
 import functools
@@ -4691,6 +4702,187 @@ def notes_1207():
             and 2 * 1728 == 3456 != 1296,
     }
 
+# ------------------------------------------------------------------- the 12:24 chain, and THEOREM maps alone
+
+def datum_orbit():
+    """The datum under S5: a regular orbit of 120 data, all of energy 34."""
+    psi0, v0 = carrier.canon_initial_datum()
+    E = carrier.edges()
+    K = np.array(carrier.D2(), float)
+
+    def act(p, x):
+        out = np.zeros_like(x)
+        out[:5] = [x[p.index(i)] for i in range(5)]
+        for k, (a, b) in enumerate(E):
+            out[5 + E.index(tuple(sorted((p[a], p[b]))))] = x[5 + k]
+        return out
+    images = [(act(list(p), psi0), act(list(p), v0)) for p in itertools.permutations(range(5))]
+    energy = lambda psi, v: v @ v / 2 + psi @ K @ psi / 2
+    refl = [3, 2, 1, 0, 4]
+    return {
+        "the 120 vertex permutations carry the datum (psi0, v0) to 120 distinct data, so its stabilizer in S5 is trivial "
+        "and the datum labels S5; every image has energy 34, since S5 commutes with D^2, and the reflection 0 <-> 3, "
+        "1 <-> 2 keeps the velocity's 4-cycle but not psi0": len({tuple(np.r_[a, b]) for a, b in images}) == 120
+            and all(np.isclose(energy(a, b), 34) for a, b in images)
+            and np.allclose(act(refl, v0), v0) and not np.allclose(act(refl, psi0), psi0),
+    }
+
+
+def witness_loop():
+    """The sibling's MODEL of 12:24 ('Chain'): the charge map, the midpoint map and the witness loop."""
+    E = carrier.edges()
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    B = sp.Matrix(carrier.signed_incidence())
+    Ms = sp.Matrix(5, 10, lambda i, e: int(i in E[e]))
+    Q = sp.zeros(10, 5)
+    for k, (i, j) in enumerate(E):
+        d = (j - i) % 5
+        Q[k, (i + 2 * d) % 5] += 1
+        Q[k, (i + 4 * d) % 5] -= 1
+    PA4 = sp.eye(5) - sp.ones(5, 5) / 5
+    Dv = sp.Matrix(5, 5, lambda r, c: int(r == (2 * c) % 5))
+    Tv = sp.Matrix(5, 5, lambda r, c: int(r == [1, 0, 2, 3, 4][c]))
+
+    def intertwiners(gens):
+        X = sp.Matrix(10, 5, sp.symbols("x0:50"))
+        eqs = [compound2(P) * X - X * P for P in gens] + [B * X, X * sp.ones(5, 1)]
+        return 50 - sp.linear_eq_to_matrix([e for Y in eqs for e in Y], list(X))[0].rank()
+    m = sp.zeros(5, 10)
+    for k, (i, j) in enumerate(E):
+        m[(3 * (i + j)) % 5, k] = 1
+    kerM = sp.Matrix.hstack(*Ms.nullspace())
+    Pk = kerM * (kerM.T * kerM).inv() * kerM.T
+    nf = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+    Uu, Du = compound2(R5).applyfunc(abs), compound2(Dv).applyfunc(abs)
+    v = sp.Matrix([-3, 1, 2, 0, -1, 0, -2, 1, -1, 3])
+    rot = [U ** k * v for k in range(5)]
+    G = sp.Matrix(5, 5, lambda a, b: (rot[a].T * rot[b])[0])
+    x = sp.symbols("x")
+    return {
+        "the charge map Q (an oriented edge a -> a + d goes to q(a + 2d) - q(a + 4d)) lands in the cycles with Q^T Q = "
+        "5 P_A4 and image the four moving cycles, the witness loop; it commutes with the tick and the doubling, and the "
+        "marked map is L = (U^2 - U^4) Q/5": (B * Q).is_zero_matrix and Q.T * Q == 5 * PA4 and Q.rank() == 4
+            and (Pm * Q - Q).is_zero_matrix and U * Q == Q * R5 and compound2(Dv) * Q == Q * Dv
+            and (U ** 2 - U ** 4) * Q / 5 == L,
+        "Q is the only such map up to scale: the AGL(1,5)-maps from the trace-free sites into the cycles form a line, "
+        "and no S5-map but 0 exists (the sites carry the standard 4, the cycles Lambda^2 of it)":
+            intertwiners([R5, Dv]) == 1 and intertwiners([R5, Tv]) == 0,
+        "the midpoint map (edge ab to the vertex 3(a + b), halfway mod 5) takes the five zero modes ker M onto the "
+        "trace-free sites with Gram (5/3) P_A4, commuting with the tick and the doubling; its kernel there is the "
+        "near-minus-far line (square 10, divergence (0, 2, 0, -2, 0), fixed by the tick, negated by the doubling), and "
+        "Q after it carries the other four zero modes onto the witness loop":
+            (m * kerM).rank() == 4 and m * Pk * m.T == sp.Rational(5, 3) * PA4
+            and ((m * Uu - R5 * m) * Pk).is_zero_matrix and ((m * Du - Dv * m) * Pk).is_zero_matrix
+            and (Ms * nf).is_zero_matrix and (m * nf).is_zero_matrix and (nf.T * nf)[0] == 10
+            and list(B * nf) == [0, 2, 0, -2, 0] and Uu * nf == nf and Du * nf == -nf
+            and (Q * m * kerM).rank() == 4 and (Pm * Q * m * kerM - Q * m * kerM).is_zero_matrix,
+        "the loop's seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3) is a charge image of square 30, a moving cycle; its five "
+        "rotates sum to zero, span the loop and have Gram row (30, 5, -20, -20, 5), with strengths 25 phi^2 and "
+        "25 phi^-2 twice each":
+            sp.Matrix.hstack(Q, v).rank() == 4 and (v.T * v)[0] == 30 and (Pm * v - v).is_zero_matrix
+            and sum(rot, sp.zeros(10, 1)).is_zero_matrix and sp.Matrix.hstack(*rot).rank() == 4
+            and list(G.row(0)) == [30, 5, -20, -20, 5]
+            and sp.expand(G.charpoly(x).as_expr() - x * (x ** 2 - 75 * x + 625) ** 2) == 0,
+    }
+
+
+def frame_affine():
+    """The sibling's MODEL of 12:24: AGL(1,5) acting on the 4320 frames, compatibly with the address and the phase."""
+    j = np.arange(N)
+    comp = lambda f, g: ((f[0] * g[0]) % N, (f[0] * g[1] + f[1]) % N)
+    t, m = (1, 864), (3457, 0)
+    group, frontier = {(1, 0)}, [(1, 0)]
+    while frontier:
+        frontier = [k for k in {comp(h, g) for g in frontier for h in (t, m)} if k not in group]
+        group.update(frontier)
+    phase = lambda x: (4 * x) % 5
+    loop = [3456]
+    while 2 * loop[-1] % N != loop[0]:
+        loop.append(2 * loop[-1] % N)
+    yuga = [y % 5 for y in (432, 864, 1728, 1296)]
+    return {
+        "j -> j + 864 has order 5 and j -> 3457 j order 4, and conjugating the tick by the multiplication squares it, so "
+        "together they generate AGL(1,5) on the frames, 20 maps; both keep the address j mod 36, and on the phase "
+        "4j mod 5 they act as x -> x + 1 and x -> 2x": len(group) == 20 and pow(3457, 4, N) == 1 and pow(3457, 2, N) != 1
+            and comp(comp(m, t), (pow(3457, -1, N), 0)) == (1, 1728)
+            and np.array_equal((j + 864) % 36, j % 36) and np.array_equal(3457 * j % N % 36, j % 36)
+            and np.array_equal(phase(j + 864), (phase(j) + 1) % 5) and np.array_equal(phase(3457 * j), 2 * phase(j) % 5),
+        "every frame is 3105 (j mod 32) + 2080 (j mod 27) + 864 (4j mod 5); multiplying the yuga residues by 2 runs 432, "
+        "864, 1728, 1296 and by 3 runs it backwards, while doubling the lengths runs the different loop 3456, 2592, 864, "
+        "1728, which 1296 enters from outside": np.array_equal((3105 * (j % 32) + 2080 * (j % 27) + 864 * phase(j)) % N, j)
+            and yuga == [2, 4, 3, 1] and all(2 * a % 5 == b and 3 * b % 5 == a for a, b in zip(yuga, yuga[1:] + yuga[:1]))
+            and loop == [3456, 2592, 864, 1728] and 2 * 1296 % N == 2592 and 1296 not in loop,
+    }
+
+
+def tick_actions():
+    """The time clock through the tick: free pentagons of roots, one zero mode per character, an automorphism of the
+    triple."""
+    _, _, _, _, g, _ = spine.spine_clock()
+    G = spine.to_standard(g)
+    R = glue.roots()
+    key = lambda r: tuple(np.rint(2 * r).astype(int))
+    index = {key(r): i for i, r in enumerate(R)}
+    perm = [index[key(G @ r)] for r in R]
+    Gr = np.rint(R @ R.T).astype(int)
+    orbits = Permutation(perm).full_cyclic_form
+    kinds = Counter((int(Gr[c[0], c[1]]), int(Gr[c[0], c[2]])) for c in orbits)
+    _, A, Ap = glue.a4_pair()
+    copies = [{index[key(r)] for r in X} for X in (A, Ap)]
+    E = carrier.edges()
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    U = sp.diag(R5, compound2(R5).applyfunc(abs))
+    ker = sp.Matrix.hstack(*sp.Matrix(carrier.signless_incidence()).nullspace())
+    X = (ker.T * ker).inv() * ker.T * U[5:, 5:] * ker
+    nf = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    gamma = sp.Matrix(carrier.grading())
+    Pl = carrier.spectral_projectors()
+    tr = {lam: [(Pl[lam] * U ** j).trace() for j in range(5)] for lam in (0, 3, 8)}
+    mult = {lam: ((t[0] + 4 * t[1]) / 5, (t[0] - t[1]) / 5) for lam, t in tr.items()}
+    x = sp.symbols("x")
+    return {
+        "the time clock acts on the root graph through the tick g = r r', an automorphism with no fixed root: the 240 "
+        "roots fall in 48 five-cycles, each summing to zero and spanning an A4 root lattice (Gram determinant 5), an "
+        "extended A4 diagram with products -1 around a pentagon, 24 in the order of g and 24 in the order of g^2; each "
+        "copy of A4 + A4' is 4 of them": sorted(perm) == list(range(240)) and np.array_equal(Gr[np.ix_(perm, perm)], Gr)
+            and len(orbits) == 48 and all(len(c) == 5 and np.allclose(R[c].sum(axis=0), 0) for c in orbits)
+            and all(round(np.linalg.det(R[c[:4]] @ R[c[:4]].T)) == 5 for c in orbits)
+            and kinds == Counter({(-1, 0): 24, (0, -1): 24})
+            and all(sum(1 for c in orbits if set(c) <= s) == 4 for s in copies),
+        "through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the "
+        "regular representation: one zero mode for each character, the invariant one the near-minus-far line":
+            sp.expand(X.charpoly(x).as_expr() - (x - 1) * (x ** 4 + x ** 3 + x ** 2 + x + 1)) == 0
+            and U[5:, 5:] * nf == nf,
+        "the tick (the vertex five-cycle with its edge permutation) commutes with D and gamma and permutes the atoms, so "
+        "it is an automorphism of the triple, free on its 15 points; tr(P_lambda U^j) = 0, -2, 2 for j = 1..4 on the "
+        "eigenvalues 0, 3, 8, so each of the five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and "
+        "0, 3, 3 on each other": U * D == D * U and U * gamma == gamma * U
+            and Counter(len(c) for c in Permutation([list(U.col(k)).index(1) for k in range(15)]).full_cyclic_form) == Counter({5: 3})
+            and all(len(set(t[1:])) == 1 for t in tr.values()) and [tr[lam][1] for lam in (0, 3, 8)] == [0, -2, 2]
+            and mult == {0: (1, 1), 3: (0, 2), 8: (2, 0)},
+    }
+
+
+def theorem_connectivity():
+    """THEOREM maps alone: the dots they reach, and that no one or two of them hold that diagram together."""
+    thm = [k for k, j in enumerate(JOINS) if j[4] == T]
+    big = set(max(components([True] * len(JOINS), statuses=(T,)), key=len))
+    degree = Counter(d for k in thm for d in JOINS[k][:2])
+    pairs = Counter(tuple(sorted((LEVEL_OF[JOINS[k][0]], LEVEL_OF[JOINS[k][1]]))) for k in thm)
+    held = lambda drop: sum(1 for c in components([k not in drop for k in range(len(JOINS))], statuses=(T,))
+                            if big & set(c)) == 1
+    return {
+        "THEOREM maps alone reach every dot but the product geometry, FLRW and the memory clock":
+            set(DOTS) - big == {"gravity", "cosmology", "memory"},
+        "every one of those dots lies on at least three THEOREM maps": all(degree[d] >= 3 for d in big),
+        "no one THEOREM map and no two THEOREM maps hold that diagram together":
+            all(held((x,)) for x in thm) and all(held(pair) for pair in itertools.combinations(thm, 2)),
+        "every pair of the six levels is joined directly by at least two THEOREM maps":
+            all(pairs[p] >= 2 for p in itertools.combinations(range(len(LEVELS)), 2)),
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -4967,6 +5159,13 @@ JOINS = [
     ("circle", "E8", "the root address", "f(j) = R_diag^(2 floor(j/48)) r_(j mod 48) sends the 4320 frames onto the 240 roots, 18 each, through j mod 240, with f(j + 864) = R_diag f(j): the tick acts on addresses as the diagonal five-cycle; a chosen encoder, whose unit step is not an isometry (the hub, 11:58)", SR, "clock_root_address"),
     ("time", "L0", "the phase is not a glue class", "no permutation of the 240 roots advances every glue class by 1 (class 0 has 40 roots, the others 50), so the tick's phase 4j mod 5 is not the glue grade; R_diag keeps every class", OB, "clock_root_address"),
     ("AGL", "L0", "the carrier's doubling", "the doubling i -> 2i of AGL(1,5) on the carrier's sites, the twin fixed, permutes the 240 roots in 40 fixed, 10 two-cycles and 45 four-cycles; the 20 fixed beyond the twin copy are not a root system; every mixed root meets the two copies in the patterns (6, 8, 6) and (4, 12, 4) (the hub, 12:04)", T, "coordinate_bridge"),
+    ("S5", "datum", "a regular orbit", "the 120 vertex permutations carry (psi0, v0) to 120 distinct data, all of energy 34: the datum's stabilizer in S5 is trivial, so its orbit labels S5, and the reflection 0 <-> 3, 1 <-> 2 that keeps the velocity's 4-cycle moves psi0", T, "datum_orbit"),
+    ("charges", "cycles", "the charge map", "Q sends an oriented edge a -> a + d to q(a + 2d) - q(a + 4d): Q^T Q = 5 P_A4 onto the four moving cycles, the witness loop, commuting with the tick and the doubling; it is the only AGL(1,5)-map up to scale, no S5-map exists, and L = (U^2 - U^4) Q/5 (the sibling's MODEL, 12:24)", T, "witness_loop"),
+    ("kerM", "cycles", "the midpoint", "the midpoint map (edge ab to the vertex 3(a + b)) takes ker M onto the trace-free sites with Gram (5/3) P_A4, killing only the near-minus-far line (square 10, fixed by the tick, negated by the doubling), and Q after it carries the other four zero modes onto the witness loop, whose seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3) has rotates of strengths 25 phi^2 and 25 phi^-2", T, "witness_loop"),
+    ("AGL", "circle", "the affine group on the frames", "j -> j + 864 (order 5) and j -> 3457 j (order 4, conjugating the tick to its square) generate AGL(1,5) on the 4320 frames, keeping the address j mod 36 and acting on the phase 4j mod 5 as x -> x + 1 and x -> 2x; every frame is 3105 (j mod 32) + 2080 (j mod 27) + 864 (4j mod 5) (the sibling's MODEL, 12:24)", T, "frame_affine"),
+    ("time", "rootgraph", "free pentagons", "the time clock acts on the root graph through the tick g = r r', with no fixed root: the 240 roots fall in 48 five-cycles, each an extended A4 diagram (five roots summing to zero, products -1 around a pentagon, spanning an A4 root lattice), 24 in the order of g and 24 in the order of g^2, and each copy of A4 + A4' is 4 of them", T, "tick_actions"),
+    ("time", "kerM", "one zero mode per character", "through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line", T, "tick_actions"),
+    ("time", "triple", "an automorphism of the triple", "the tick commutes with D and gamma and permutes the 15 atoms freely, so the time clock acts on the triple by automorphisms; each of its five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other (tr(P_lambda U^j) = 0, -2, 2 on the eigenvalues 0, 3, 8)", T, "tick_actions"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
@@ -5106,6 +5305,8 @@ LEDGER_ROWS = [
     ("the clock-to-root address (hub, 11:58)", "R_diag and R_first: 0/20 fixed roots, 48/44 five-cycles, det 25/0; f(j + 864) = R_diag f(j), 18 frames per root; no permutation advances the glue classes", "replayed and joined (circle -> E8, a selection; an obstruction time -> A4 + A4')", SR, "23"),
     ("the coordinate bridge (hub, 12:04)", "y2 = M x5 with M^T M = (4/25) P; k_native = 2 k_glue; doubling census 40/10/45; angle patterns (6,8,6) and (4,12,4)", "replayed: layer 24's site/twin embedding is that bridge; joined (AGL(1,5) -> A4 + A4')", T, "23"),
     ("MODEL (11:36-12:07)", "yuga residues 2, 4, 1, 3; syntheme orbits 1, 2, 3, 3, 6; trace moments 15, 40, 200, 1240, 8840, 67480; the sixth cycle direction of square 30; S_even S_odd = 16/5", "replayed, with three corrections: the parity sums differ by (4/5) Curl, not J; S_even = (16/5) S_odd^-1, not 5/16; the yuga doubling is a residue-label action", T, "23"),
+    ("the chain (MODEL, 12:24)", "Q: a -> a + d to q(a + 2d) - q(a + 4d); m: ab -> 3(a + b); seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3); frames j -> j + 864 and j -> 3457 j", "replayed and joined (charges -> cycles, zero modes -> cycles, AGL(1,5) -> circle): Q^T Q = 5 P_A4 onto the moving cycles, the only AGL(1,5)-map up to scale; the midpoint kills only the near-minus-far line; the seed's rotates have strengths 25 phi^+-2; the frames carry AGL(1,5)", T, "23"),
+    ("the THEOREM diagram", "-", f"THEOREM maps alone join {len(DOTS) - 3} of the {len(DOTS)} dots, no one or two of them hold it together, and they join every pair of levels at least twice; the datum's regular S5-orbit and the time clock's actions on the roots (48 extended A4 pentagons), the zero modes (one per character) and the triple close the last cuts", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -5204,6 +5405,8 @@ def _checks():
         "word_duads": word_duads, "words_c5": words_c5, "hodge_contexts": hodge_contexts,
         "context_responses": context_responses, "overlap_hodge": overlap_hodge, "hodge_averaging": hodge_averaging,
         "word_sylow": word_sylow, "clock_root_address": clock_root_address, "coordinate_bridge": coordinate_bridge,
+        "datum_orbit": datum_orbit, "witness_loop": witness_loop, "frame_affine": frame_affine,
+        "tick_actions": tick_actions,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -5273,7 +5476,8 @@ def dots_page():
               "diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect "
               "every dot but the product geometry and FLRW, which attach through the conditional heat coefficients "
               "(J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections "
-              "(one circle step is one memory step).", "",
+              "(one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and "
+              "they join every pair of levels at least twice.", "",
               "## Levels", "", "| level | what lives there | dots | joins inside | joins to the next level |",
               "|---|---|---|---|---|"]
     cell = lambda x: x.replace("|", "\\|")
@@ -5336,6 +5540,10 @@ def run():
     rep.add("no two maps hold the diagram together: every dot but the product geometry and FLRW lies on three maps, and "
             "removing any two leaves it connected, except that it can cut off those two conditional dots", T,
             all(n2.values()), n2)
+    tc = theorem_connectivity()
+    rep.add(f"no one and no two THEOREM maps hold the THEOREM diagram together: its {len(DOTS) - 3} dots each lie on at "
+            "least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six "
+            "levels is joined directly by at least two THEOREM maps", T, all(tc.values()), tc)
     a8 = air_801()
     rep.add("AIR_801's matrix [[108, 801], [106, 901]]: det 12402; mod 5 a Singer cycle of order 24 in GL(2,5) and 6 in "
             "PGL(2,5); the clock polynomial has degree 27 and a simple root at 1", T, all(a8.values()), a8)
@@ -5587,6 +5795,10 @@ def run():
             "here) and the receipts context_hodge, operator_geometry and causal_completion (283 assertions in six "
             "receipts); the historical F4KDS1 identification of the six Sylow views with the synthematic totals and the "
             "provenance of the Lorentz reference eta; and the conditional M6 = M4 x Sigma2 photon reduction, Z4 = V2 Z6", RP, True)
+    rep.add("Drive check 12:24, with the join: the sibling's MODEL edition of 12:24 ('Chain'; that of 12:23 is "
+            "superseded) was read; its charge map, midpoint map, witness loop and frame group replay in the joins "
+            "charges -> cycles, zero modes -> cycles and AGL(1,5) -> circle, and its yuga residues agree with the 11:44 "
+            "correction (multiplying the residues by 2 runs 432, 864, 1728, 1296; doubling the lengths does not)", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

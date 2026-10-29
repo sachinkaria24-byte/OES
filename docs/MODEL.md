@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 62 dots and 184 joins: 177 maps (164 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL) and seven obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
+The diagram has 62 dots and 191 joins: 184 maps (171 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL) and seven obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). The THEOREM maps alone are as robust: no one or two of them hold the THEOREM diagram together, and they join every pair of levels at least twice (see *THEOREM maps alone* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1444,6 +1444,27 @@ The notes repeat INFRARED's 17/10, which stays corrected (2 in the lexicographic
   - Its 8 × 10 coordinate matrix and the receipts context_hodge, operator_geometry and causal_completion (283 assertions in six receipts) were not run.
   - Also recorded: the historical identification of the Sylow views with the synthematic totals, the provenance of η, and the conditional M6 = M4 × Σ2 photon reduction Z4 = V2 Z6.
   - The exact zip (790830 bytes) was not run.
+
+**THEOREM maps alone, and the 12:24 chain.** The request was again to join all dots. With the obstructions left out, no two maps held the diagram together, but the THEOREM maps alone were weaker. The datum lay on only two of them (zero modes → datum and datum → carrier), so those two cut it off. Three pairs of levels (number–lattice, number–operator and number–physics) were joined by a single THEOREM map each. Seven THEOREM joins close all of it, and three of them come from the sibling's MODEL of 12:24 ("Chain"; the 12:23 edition is superseded).
+
+- **A regular orbit** (S5 → datum). The 120 vertex permutations carry (ψ₀, v₀) to 120 distinct data, all of energy 34, so the datum's stabilizer in S5 is trivial. The reflection 0 ↔ 3, 1 ↔ 2 keeps the velocity's 4-cycle and moves ψ₀.
+- **The charge map** (five-site charges → cycles).
+  - Q sends an oriented edge a → a + d to q(a + 2d) − q(a + 4d). It lands in the cycles with QᵀQ = 5P_A4, onto the four moving cycles (the witness loop), and it commutes with the tick and the doubling.
+  - Up to scale it is the only AGL(1,5)-map from the trace-free sites into the cycles, and no S5-map exists: the sites carry the standard 4, the cycles Λ² of it.
+  - The marked map of 11:12 is L = (U² − U⁴)Q/5.
+- **The midpoint** (zero modes → cycles).
+  - The midpoint map ab ↦ 3(a + b) takes ker M onto the trace-free sites with Gram (5/3)P_A4. Its kernel there is the near-minus-far line (square 10, divergence (0, 2, 0, −2, 0)), fixed by the tick and negated by the doubling.
+  - Q after it carries the other four zero modes onto the witness loop.
+  - The loop's seed (−3, 1, 2, 0, −1, 0, −2, 1, −1, 3) has square 30. Its rotates sum to zero, with Gram row (30, 5, −20, −20, 5) and strengths 25φ² and 25φ⁻², twice each.
+- **The affine group on the frames** (AGL(1,5) → circle).
+  - j ↦ j + 864 (order 5) and j ↦ 3457j (order 4, conjugating the tick to its square) generate AGL(1,5) on the 4320 frames. Both keep the address j mod 36, and on the phase 4j mod 5 they act as x ↦ x + 1 and x ↦ 2x.
+  - Every frame is 3105(j mod 32) + 2080(j mod 27) + 864(4j mod 5).
+  - Multiplying the yuga residues by 2 runs 432, 864, 1728, 1296, and by 3 runs it backwards. Doubling the lengths runs the different loop 3456, 2592, 864, 1728, which 1296 enters from outside.
+- **Free pentagons** (time → root graph). The time clock acts on the root graph through the tick g = rr′, with no fixed root. The 240 roots fall in 48 five-cycles, each an extended A4 diagram: five roots summing to zero, with products −1 around a pentagon, spanning an A4 root lattice. 24 run in the order of g and 24 in the order of g², and each copy of A4 + A4′ is four of them.
+- **One zero mode per character** (time → zero modes). Through κ the time clock acts on ker M with characteristic polynomial (x − 1)Φ₅. That is the regular representation, and its invariant line is the near-minus-far line.
+- **An automorphism of the triple** (time → spectral triple). The tick commutes with D and γ and permutes the 15 atoms freely. Each of its five characters has rank 3, with D² = 0, 8, 8 on the invariant one and 0, 3, 3 on each other, since tr(P_λU^j) = 0, −2, 2 for j = 1, …, 4 on the eigenvalues 0, 3, 8.
+
+So THEOREM maps alone connect every dot but the product geometry, FLRW and the memory clock. Each of those 59 dots lies on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of levels is joined by at least two THEOREM maps. The tests drop S5 → datum and time → spectral triple to show that the checks can fail.
 
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….

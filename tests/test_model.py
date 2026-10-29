@@ -394,6 +394,27 @@ def test_the_1144_replay():
     assert not dots._zero(J * G - G * J)
 
 
+def test_the_theorem_diagram(monkeypatch):
+    for check in (dots.datum_orbit, dots.witness_loop, dots.frame_affine, dots.tick_actions, dots.theorem_connectivity):
+        out = check()
+        assert all(out.values()), out
+    # the checks can fail: without S5 -> datum the datum lies on two THEOREM maps, which then cut it off; without
+    # time -> triple the number and physics levels are joined by one THEOREM map
+    joins = dots.JOINS
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] != ("S5", "datum")])
+    out = dots.theorem_connectivity()
+    assert not out["every one of those dots lies on at least three THEOREM maps"]
+    assert not out["no one THEOREM map and no two THEOREM maps hold that diagram together"]
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] != ("time", "triple")])
+    out = dots.theorem_connectivity()
+    assert not out["every pair of the six levels is joined directly by at least two THEOREM maps"]
+    assert out["no one THEOREM map and no two THEOREM maps hold that diagram together"]
+    # the frame maps really are affine: j -> 3457 j keeps the address, while j -> 2 j does not
+    import numpy as np
+    j = np.arange(4320)
+    assert np.array_equal(3457 * j % 4320 % 36, j % 36) and not np.array_equal(2 * j % 4320 % 36, j % 36)
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):

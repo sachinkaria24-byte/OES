@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 24 layers and 794 checks. Of these, 711 hold: THEOREM 550, OBSTRUCTION 53, ARITHMETIC 41, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 18, REMOVED 2. The other 83 are REPORTED records.
-- `pytest` runs 67 tests.
-- The newest layers are `oes/dots.py` (layer 23, 281 checks) and `oes/assignment.py` (layer 24, 41 checks).
+- `python verify.py` runs 24 layers and 803 checks. Of these, 719 hold: THEOREM 558, OBSTRUCTION 53, ARITHMETIC 41, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 18, REMOVED 2. The other 83 are REPORTED records.
+- `pytest` runs 68 tests.
+- The newest layers are `oes/dots.py` (layer 23, 290 checks) and `oes/assignment.py` (layer 24, 41 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 62 dots and 184 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
@@ -41,7 +41,7 @@ New in layer 24 (the particle assignment on E8's roots, 09:00 on 29 October):
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 62 dots and 184 joins (177 maps, seven obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 62 dots and 191 joins (184 maps, seven obstructions) form one connected diagram that no two maps hold together, and no two THEOREM maps hold the THEOREM diagram together. A test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -134,6 +134,9 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - The words' D3 acts on the six Sylow views, and maps to the carrier have rank ≤ 13 (attained). No order-five operator commutes with D² and that D3 (obstruction).
   - The root address f(j + 864) = R_diag f(j) meets every root 18 times (a selection). No permutation of the roots advances the glue classes (obstruction).
   - Corrections: the parity sums differ by (4/5) Curl, S_even = (16/5)S_odd⁻¹, and the yuga doubling is a residue-label action.
+- **THEOREM maps alone, and the 12:24 chain:**
+  - Seven THEOREM joins: the datum's regular S5-orbit; the sibling's charge map Q (QᵀQ = 5P_A4 onto the witness loop, the only AGL(1,5)-map) and midpoint map (killing only the near-minus-far line); AGL(1,5) on the 4320 frames (j ↦ j + 864, j ↦ 3457j); and the time clock on the root graph (48 extended A4 pentagons), on the zero modes (the regular representation) and on the spectral triple (automorphisms).
+  - No one or two THEOREM maps hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):

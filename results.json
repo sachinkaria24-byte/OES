@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.64,
+  "1-carrier": 0.94,
   "2-spectral": 0.01,
-  "3-spacetime": 10.85,
-  "4-native": 110.02,
-  "5-observer": 1.75,
-  "6-gravity": 7.06,
-  "7-cosmology": 1.9,
-  "8-frontier": 39.47,
-  "9-joins": 11.49,
-  "10-literal": 40.56,
-  "11-glue": 0.19,
-  "12-binding": 0.05,
-  "13-gates": 0.37,
-  "14-recurrence": 80.41,
-  "15-court": 2.13,
-  "16-handover": 1.59,
-  "17-waves": 0.82,
-  "18-snapshot": 1.67,
-  "19-spine": 5.25,
-  "20-canon": 7.39,
-  "21-ledger": 54.56,
-  "22-counts": 26.65,
-  "23-dots": 46.51,
-  "24-assignment": 4.63
+  "3-spacetime": 10.04,
+  "4-native": 103.47,
+  "5-observer": 0.26,
+  "6-gravity": 6.87,
+  "7-cosmology": 2.11,
+  "8-frontier": 40.51,
+  "9-joins": 12.12,
+  "10-literal": 42.93,
+  "11-glue": 0.25,
+  "12-binding": 0.06,
+  "13-gates": 0.36,
+  "14-recurrence": 90.97,
+  "15-court": 2.18,
+  "16-handover": 1.42,
+  "17-waves": 1.09,
+  "18-snapshot": 2.07,
+  "19-spine": 6.1,
+  "20-canon": 7.54,
+  "21-ledger": 53.3,
+  "22-counts": 26.57,
+  "23-dots": 52.52,
+  "24-assignment": 4.64
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 550,
-   "total": 550
+   "passed": 558,
+   "total": 558
   },
   "OBSTRUCTION": {
    "passed": 53,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 83,
-   "total": 83
+   "passed": 84,
+   "total": 84
   }
  },
  "checks": [
@@ -7885,6 +7885,89 @@
   },
   {
    "layer": "23-dots",
+   "name": "S5 -> datum: the 120 vertex permutations carry (psi0, v0) to 120 distinct data, all of energy 34: the datum's stabilizer in S5 is trivial, so its orbit labels S5, and the reflection 0 <-> 3, 1 <-> 2 that keeps the velocity's 4-cycle moves psi0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 120 vertex permutations carry the datum (psi0, v0) to 120 distinct data, so its stabilizer in S5 is trivial and the datum labels S5; every image has energy 34, since S5 commutes with D^2, and the reflection 0 <-> 3, 1 <-> 2 keeps the velocity's 4-cycle but not psi0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "five-site charges -> cycles: Q sends an oriented edge a -> a + d to q(a + 2d) - q(a + 4d): Q^T Q = 5 P_A4 onto the four moving cycles, the witness loop, commuting with the tick and the doubling; it is the only AGL(1,5)-map up to scale, no S5-map exists, and L = (U^2 - U^4) Q/5 (the sibling's MODEL, 12:24)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the charge map Q (an oriented edge a -> a + d goes to q(a + 2d) - q(a + 4d)) lands in the cycles with Q^T Q = 5 P_A4 and image the four moving cycles, the witness loop; it commutes with the tick and the doubling, and the marked map is L = (U^2 - U^4) Q/5": true,
+    "Q is the only such map up to scale: the AGL(1,5)-maps from the trace-free sites into the cycles form a line, and no S5-map but 0 exists (the sites carry the standard 4, the cycles Lambda^2 of it)": true,
+    "the midpoint map (edge ab to the vertex 3(a + b), halfway mod 5) takes the five zero modes ker M onto the trace-free sites with Gram (5/3) P_A4, commuting with the tick and the doubling; its kernel there is the near-minus-far line (square 10, divergence (0, 2, 0, -2, 0), fixed by the tick, negated by the doubling), and Q after it carries the other four zero modes onto the witness loop": true,
+    "the loop's seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3) is a charge image of square 30, a moving cycle; its five rotates sum to zero, span the loop and have Gram row (30, 5, -20, -20, 5), with strengths 25 phi^2 and 25 phi^-2 twice each": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> cycles: the midpoint map (edge ab to the vertex 3(a + b)) takes ker M onto the trace-free sites with Gram (5/3) P_A4, killing only the near-minus-far line (square 10, fixed by the tick, negated by the doubling), and Q after it carries the other four zero modes onto the witness loop, whose seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3) has rotates of strengths 25 phi^2 and 25 phi^-2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the charge map Q (an oriented edge a -> a + d goes to q(a + 2d) - q(a + 4d)) lands in the cycles with Q^T Q = 5 P_A4 and image the four moving cycles, the witness loop; it commutes with the tick and the doubling, and the marked map is L = (U^2 - U^4) Q/5": true,
+    "Q is the only such map up to scale: the AGL(1,5)-maps from the trace-free sites into the cycles form a line, and no S5-map but 0 exists (the sites carry the standard 4, the cycles Lambda^2 of it)": true,
+    "the midpoint map (edge ab to the vertex 3(a + b), halfway mod 5) takes the five zero modes ker M onto the trace-free sites with Gram (5/3) P_A4, commuting with the tick and the doubling; its kernel there is the near-minus-far line (square 10, divergence (0, 2, 0, -2, 0), fixed by the tick, negated by the doubling), and Q after it carries the other four zero modes onto the witness loop": true,
+    "the loop's seed (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3) is a charge image of square 30, a moving cycle; its five rotates sum to zero, span the loop and have Gram row (30, 5, -20, -20, 5), with strengths 25 phi^2 and 25 phi^-2 twice each": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> circle: j -> j + 864 (order 5) and j -> 3457 j (order 4, conjugating the tick to its square) generate AGL(1,5) on the 4320 frames, keeping the address j mod 36 and acting on the phase 4j mod 5 as x -> x + 1 and x -> 2x; every frame is 3105 (j mod 32) + 2080 (j mod 27) + 864 (4j mod 5) (the sibling's MODEL, 12:24)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "j -> j + 864 has order 5 and j -> 3457 j order 4, and conjugating the tick by the multiplication squares it, so together they generate AGL(1,5) on the frames, 20 maps; both keep the address j mod 36, and on the phase 4j mod 5 they act as x -> x + 1 and x -> 2x": true,
+    "every frame is 3105 (j mod 32) + 2080 (j mod 27) + 864 (4j mod 5); multiplying the yuga residues by 2 runs 432, 864, 1728, 1296 and by 3 runs it backwards, while doubling the lengths runs the different loop 3456, 2592, 864, 1728, which 1296 enters from outside": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> root graph: the time clock acts on the root graph through the tick g = r r', with no fixed root: the 240 roots fall in 48 five-cycles, each an extended A4 diagram (five roots summing to zero, products -1 around a pentagon, spanning an A4 root lattice), 24 in the order of g and 24 in the order of g^2, and each copy of A4 + A4' is 4 of them",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time clock acts on the root graph through the tick g = r r', an automorphism with no fixed root: the 240 roots fall in 48 five-cycles, each summing to zero and spanning an A4 root lattice (Gram determinant 5), an extended A4 diagram with products -1 around a pentagon, 24 in the order of g and 24 in the order of g^2; each copy of A4 + A4' is 4 of them": true,
+    "through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line": true,
+    "the tick (the vertex five-cycle with its edge permutation) commutes with D and gamma and permutes the atoms, so it is an automorphism of the triple, free on its 15 points; tr(P_lambda U^j) = 0, -2, 2 for j = 1..4 on the eigenvalues 0, 3, 8, so each of the five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> zero modes: through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time clock acts on the root graph through the tick g = r r', an automorphism with no fixed root: the 240 roots fall in 48 five-cycles, each summing to zero and spanning an A4 root lattice (Gram determinant 5), an extended A4 diagram with products -1 around a pentagon, 24 in the order of g and 24 in the order of g^2; each copy of A4 + A4' is 4 of them": true,
+    "through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line": true,
+    "the tick (the vertex five-cycle with its edge permutation) commutes with D and gamma and permutes the atoms, so it is an automorphism of the triple, free on its 15 points; tr(P_lambda U^j) = 0, -2, 2 for j = 1..4 on the eigenvalues 0, 3, 8, so each of the five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> spectral triple: the tick commutes with D and gamma and permutes the 15 atoms freely, so the time clock acts on the triple by automorphisms; each of its five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other (tr(P_lambda U^j) = 0, -2, 2 on the eigenvalues 0, 3, 8)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time clock acts on the root graph through the tick g = r r', an automorphism with no fixed root: the 240 roots fall in 48 five-cycles, each summing to zero and spanning an A4 root lattice (Gram determinant 5), an extended A4 diagram with products -1 around a pentagon, 24 in the order of g and 24 in the order of g^2; each copy of A4 + A4' is 4 of them": true,
+    "through kappa the time clock acts on the five zero modes with characteristic polynomial (x - 1) Phi_5, the regular representation: one zero mode for each character, the invariant one the near-minus-far line": true,
+    "the tick (the vertex five-cycle with its edge permutation) commutes with D and gamma and permutes the atoms, so it is an automorphism of the triple, free on its 15 points; tr(P_lambda U^j) = 0, -2, 2 for j = 1..4 on the eigenvalues 0, 3, 8, so each of the five characters has rank 3, with D^2 = 0, 8, 8 on the invariant one and 0, 3, 3 on each other": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "root assignment -> binding: taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time",
    "status": "OBSTRUCTION",
    "passed": true,
@@ -7898,7 +7981,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 62 dots and 184 joins form one connected diagram (the obstructions left out)",
+   "name": "the 62 dots and 191 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8132,7 +8215,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 9, combinatorics-lattice 4, lattice-operator 13, operator-physics 13 joins",
+   "name": "each level is joined to the next: number-symmetry 6, symmetry-combinatorics 9, combinatorics-lattice 4, lattice-operator 13, operator-physics 13 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8141,7 +8224,8 @@
      "G120 -> circle",
      "golden -> circle",
      "golden -> atlas",
-     "golden -> time"
+     "golden -> time",
+     "AGL -> circle"
     ],
     [
      "V -> clocks",
@@ -8199,7 +8283,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 164,
+    "THEOREM": 171,
     "OBSTRUCTION": 7,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8219,24 +8303,24 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 2, number-operator 1, number-physics 1, symmetry-combinatorics 9, symmetry-lattice 8, symmetry-operator 4, symmetry-physics 6, combinatorics-lattice 4, combinatorics-operator 10, combinatorics-physics 6, lattice-operator 13, lattice-physics 4, operator-physics 13",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 6, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 9, symmetry-lattice 8, symmetry-operator 5, symmetry-physics 6, combinatorics-lattice 4, combinatorics-operator 11, combinatorics-physics 7, lattice-operator 13, lattice-physics 4, operator-physics 13",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
     "(3, 4)": 13,
-    "(2, 4)": 10,
+    "(2, 4)": 11,
     "(1, 3)": 8,
     "(1, 2)": 9,
-    "(0, 1)": 5,
+    "(0, 1)": 6,
     "(0, 2)": 3,
-    "(1, 4)": 4,
+    "(1, 4)": 5,
     "(4, 5)": 13,
-    "(2, 5)": 6,
+    "(2, 5)": 7,
     "(3, 5)": 4,
-    "(0, 3)": 2,
-    "(0, 4)": 1,
-    "(0, 5)": 1,
+    "(0, 3)": 3,
+    "(0, 4)": 2,
+    "(0, 5)": 2,
     "(1, 5)": 6
    },
    "note": ""
@@ -8249,6 +8333,19 @@
    "value": {
     "every dot but the product geometry and FLRW lies on at least three maps": true,
     "removing any two maps leaves the diagram connected, except that it can cut off the product geometry or FLRW, whose only maps are conditional": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 59 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "THEOREM maps alone reach every dot but the product geometry, FLRW and the memory clock": true,
+    "every one of those dots lies on at least three THEOREM maps": true,
+    "no one THEOREM map and no two THEOREM maps hold that diagram together": true,
+    "every pair of the six levels is joined directly by at least two THEOREM maps": true
    },
    "note": ""
   },
@@ -8965,6 +9062,14 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the hub's own Sylow enumeration (labels 3, 1, 2, 5, 0, 4; a relabeling is built here instead), the J7 rank witnesses 5 and 4, its 8 x 10 coordinate matrix (layer 24's site and twin embedding plays its role here) and the receipts context_hodge, operator_geometry and causal_completion (283 assertions in six receipts); the historical F4KDS1 identification of the six Sylow views with the synthematic totals and the provenance of the Lorentz reference eta; and the conditional M6 = M4 x Sigma2 photon reduction, Z4 = V2 Z6",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 12:24, with the join: the sibling's MODEL edition of 12:24 ('Chain'; that of 12:23 is superseded) was read; its charge map, midpoint map, witness loop and frame group replay in the joins charges -> cycles, zero modes -> cycles and AGL(1,5) -> circle, and its yuga residues agree with the 11:44 correction (multiplying the residues by 2 runs 432, 864, 1728, 1296; doubling the lengths does not)",
    "status": "REPORTED",
    "passed": true,
    "value": null,
