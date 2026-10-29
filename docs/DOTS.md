@@ -252,20 +252,29 @@ flowchart TB
     words -->|"the twisted duads"| surface
     words -->|"the Coxeter five-cycle"| A4
     words -->|"the extension's golden equation"| golden
+    S5 -->|"the parity contexts"| waves
+    waves -->|"the Hodge defect"| goldenport
+    waves -->|"the Hodge-isotropic overlap"| sixsite
+    waves -->|"the Hodge repair"| bath
+    words -->|"the six Sylow views"| S5
+    words -.->|"no native Golden action"| carrier
+    circle -->|"the root address"| E8
+    time -.->|"the phase is not a glue class"| L0
+    AGL -->|"the carrier's doubling"| L0
     assignment -.->|"one root of every pair"| binding
 ```
 
-62 dots and 175 joins: 158 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
+62 dots and 184 joins: 164 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 7 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 5 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 9 | 9 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 10 | 9 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 9 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 13 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port | 19 | 10 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port | 19 | 13 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -274,12 +283,12 @@ The maps that join each pair of levels directly.
 
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
-| number | - | 5 | 3 | 1 | 1 | 1 |
-| symmetry | 5 | - | 9 | 7 | 4 | 5 |
+| number | - | 5 | 3 | 2 | 1 | 1 |
+| symmetry | 5 | - | 9 | 8 | 4 | 6 |
 | combinatorics | 3 | 9 | - | 4 | 10 | 6 |
-| lattice | 1 | 7 | 4 | - | 13 | 4 |
-| operator | 1 | 4 | 10 | 13 | - | 10 |
-| physics | 1 | 5 | 6 | 4 | 10 | - |
+| lattice | 2 | 8 | 4 | - | 13 | 4 |
+| operator | 1 | 4 | 10 | 13 | - | 13 |
+| physics | 1 | 6 | 6 | 4 | 13 | - |
 
 ## Dots
 
@@ -526,6 +535,15 @@ The maps that join each pair of levels directly.
 | fifteen words | surface | the fifteen words are the oriented edges of K6 under c: i -> i + 2 and r: i -> -i with the reflection's sign twisted, isometrically over Q(sqrt2) (O = A + B/sqrt2) and over no smaller field (fixed Gram determinants 108 and 54), integrally with index 8 (T_Z = A + B, Smith 1^12 2^3) and never unimodularly (mod-2 coinvariants 3 and 4); the untwisted duads differ (reflection trace 3) | THEOREM | `word_duads` |
 | fifteen words | A4 | D3 on J7 = 1 + 3 std has commutant Q + M3(Q) and no rational C5; the least extension with one is 9 = 1 + 4 std, where U9 = 1 + I2 x companion(Phi_5), and the companion is A4's Coxeter element on its simple roots | THEOREM | `words_c5` |
 | fifteen words | golden companion | on the extension's eight moving directions -(U9 + U9^-1) satisfies X^2 = X + I, so the golden companion acts there as it does on the edges | THEOREM | `words_c5` |
+| S5 | sound and light | the six even and six odd contexts sum to 2 P_cycle -+ (2/sqrt5) J_H with J_H = Curl/sqrt5, so their difference is (4/5) Curl; every permutation acts on Curl through its sign, and S_even S_odd = (16/5) P_cycle (the hub, 11:58) | THEOREM | `hodge_contexts` |
+| sound and light | Golden port | Curl/sqrt5 commutes with the Golden port's response except on the fixed plane: \|\|[J_H, G]\|\|^2 = (8/5)(g_+ - g_-)^2, 32/5 for the means and 64000 for the variances; four labelled context responses (determinant -64 sqrt5/625) recover the four channels and the defect, and from the computed densities R_C/R_D -> 2/3 and R_even/R_odd -> 3/2 | THEOREM | `context_responses` |
+| sound and light | six-site port | the clique sees a 2-plane of the Golden port with C J_H C* = 0, so no orthogonal clique action extends the Hodge star (\|\|AC - C J_H\|\|^2 = 12/5 for every A), while the mixed involution K(x, y) = (x, J_H y + (J_H - I) C* x) keeps the joint Gram (det 3/25, condition 9 + 4 sqrt5); the residual clique S = I - CC* has S^-1 = I + 4 P_8 + (2/3) P_4 | THEOREM | `overlap_hodge` |
+| sound and light | bath | two copies of the bath realize the Hodge-averaged response (G + J_H G J_H)/2 at every s; averaging after inversion is smaller by the factor (a - b)^2/(a^2 + 3ab + b^2); the memory pays M_odd^2 = (4/5) P_fix, the fixed means become 240 +- 1/sqrt5, and both Hodge lines start at E^3 | THEOREM | `hodge_averaging` |
+| fifteen words | S5 | c = (012) and r = (01)(34) act on the six Sylow five-cycle groups as i -> i + 2 and i -> -i on six points, so the words' twisted duads are duads of the Sylow views; as D3-modules the words are 3 + 2 sign + 5 std, the native V5 + E10 5 + 2 sign + 4 std and the cycles 2 sign + 2 std, so equivariant maps have rank at most 13 (attained), 5 and 4 | THEOREM | `word_sylow` |
+| fifteen words | carrier | D^2's eigenspaces 0, 3 and 8 carry D3 multiplicities (1, 0, 2), (2, 2, 2) and (2, 0, 0), all at most 2, so no rational operator of order five other than I commutes with both D^2 and the word D3 | OBSTRUCTION | `word_sylow` |
+| circle | E8 | f(j) = R_diag^(2 floor(j/48)) r_(j mod 48) sends the 4320 frames onto the 240 roots, 18 each, through j mod 240, with f(j + 864) = R_diag f(j): the tick acts on addresses as the diagonal five-cycle; a chosen encoder, whose unit step is not an isometry (the hub, 11:58) | SELECTED_REFERENCE | `clock_root_address` |
+| time clock | A4 + A4' | no permutation of the 240 roots advances every glue class by 1 (class 0 has 40 roots, the others 50), so the tick's phase 4j mod 5 is not the glue grade; R_diag keeps every class | OBSTRUCTION | `clock_root_address` |
+| AGL(1,5) | A4 + A4' | the doubling i -> 2i of AGL(1,5) on the carrier's sites, the twin fixed, permutes the 240 roots in 40 fixed, 10 two-cycles and 45 four-cycles; the 20 fixed beyond the twin copy are not a root system; every mixed root meets the two copies in the patterns (6, 8, 6) and (4, 12, 4) (the hub, 12:04) | THEOREM | `coordinate_bridge` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
 ## Not joined

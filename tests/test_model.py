@@ -374,6 +374,26 @@ def test_the_1112_replay():
     assert (R.trace(), Rt.trace(), Rt.applyfunc(abs).trace()) == (1, 1, 3)
 
 
+def test_the_1144_replay():
+    for check in (dots.hodge_contexts, dots.context_responses, dots.overlap_hodge, dots.hodge_averaging,
+                  dots.word_sylow, dots.clock_root_address, dots.coordinate_bridge, dots.notes_1207):
+        out = check()
+        assert all(out.values()), out
+    import sympy as sp
+    J, P, Pc, U, K, Qf, Pm, L = dots._hodge()
+    ctx = dots._contexts()
+    Se = sum((C for C, s in ctx if s == 1), sp.zeros(10))
+    So = sum((C for C, s in ctx if s == -1), sp.zeros(10))
+    # the coefficient tests can fail: 16/5 is not the inverse's coefficient, and the parity difference is not J itself
+    assert not dots._zero(Se * sp.Rational(16, 5) * So - Pc) and dots._zero(Se * sp.Rational(5, 16) * So - Pc)
+    assert not dots._zero(So - Se - J)
+    # the defect vanishes exactly when the two fixed responses agree
+    G = 3 * P["+"] + 3 * P["-"] + 5 * P["phi"] + 7 * P["psi"]
+    assert dots._zero(J * G - G * J)
+    G = 2 * P["+"] + 3 * P["-"] + 5 * P["phi"] + 7 * P["psi"]
+    assert not dots._zero(J * G - G * J)
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):

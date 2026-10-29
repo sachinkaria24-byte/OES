@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 62 dots and 175 joins: 170 maps (158 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL) and five obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
+The diagram has 62 dots and 184 joins: 177 maps (164 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL) and seven obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1386,9 +1386,64 @@ The notes repeat INFRARED's 17/10, which stays corrected (2 in the lexicographic
   - The circle's widths times 36 (72, 108, 144, 216, 252, 288 and 468, of orders 60, 40, 30, 20, 120, 15 and 120) and the hub's small counts are kept as arithmetic.
 - **Recorded (REPORTED).**
   - The hub's observation chain needs the literal J7 matrix, which is in its receipts, not its text. That covers rank(H9) = 9 and rank([H9; L]) = 13, H13's kernel, the two coordinate anchors (determinant ±1) against two sums (±9), and the transported Return residues. So do its own T (determinant 6245535592857600), A and B.
-  - The sibling's four labelled responses at weight 1/√5 (determinant −64√5/625) and their low-energy ratio 2/3 are not defined in the notes.
+  - The sibling's four labelled responses at weight 1/√5 (determinant −64√5/625) and their low-energy ratio 2/3 are not defined in the notes. The hub defines them at 11:58, and they are replayed at 11:44 (below).
   - Also recorded: the intertwiner count 2 × 72 × 5 = 720, and the Schur bound V/(s + 256) ≤ Σ(s) ≤ V/s, which rests on the stated band bound H ≤ 256.
   - The exact zip (518931 bytes) was not run.
+
+**The Hodge star on the ports, and the root address (Drive check 11:44).** The sibling's MODEL grew through fourteen editions (11:36–12:07; the 12:07 edition was read). The hub's `OES_Unified_Model_20261029.txt` was revised at 11:58 and 12:04, and both were read. Nine joins follow: six THEOREM, one SELECTED_REFERENCE and two obstructions.
+- **The parity contexts** (S5 → sound and light).
+  - The hub's Hodge star J_H on the cycles, (J_H)_(ab,cd) = (1/√5) Σ_m ε_abcdm, is exactly layer 17's Curl divided by √5. It is symmetric with J_H² = P_cycle, its eigenprojectors (P_cycle ± J_H)/2 have rank 3, and every permutation acts on it through its sign.
+  - A context is fixed by a D10, so there are 12, two over each of the six Sylow five-cycle groups, one even and one odd.
+  - The six even contexts sum to S_even = 2P_cycle − (2/√5)J_H and the six odd ones to S_odd = 2P_cycle + (2/√5)J_H. So their difference is (4/5) Curl.
+  - Each sextet has eigenvalues 2 ∓ 2/√5 three times, condition φ². S_even S_odd = (16/5) P_cycle, so on the cycles S_even⁻¹ = (5/16) S_odd.
+  - J_H is −1 on the Golden doublet K = √5 and +1 on K = −√5, so K P_cycle = 5P_fix − √5 J_H P_moving. The doubling i → 2i is odd: it negates J_H, swaps the sextets and turns U into U².
+  - Of the 66 context pairs, the 6 within one view sum to a projector, with overlap tr(C_iC_j) = 4/5. The 30 of opposite parity across views have overlap 12/25, and the 30 of equal parity 18/25.
+- **The Hodge defect** (sound and light → Golden port).
+  - The Golden port's fixed lines are f₊ = (n + f)/√2 (its monopole, mean 239, variance 371) and f₋ (mean 241, variance 171). On them J_H = (1/√5)[[−1, 2], [2, 1]].
+  - For a response G = Σ g_a P_a, ‖[J_H, G]‖² = (8/5)(g₊ − g₋)². The means give 32/5 and the variances 64000. The Lorentz reference η = P_moving + J_H P_fix squares to P_cycle with signature (5, 1) and has the same defect.
+  - The twelve contexts give four response signatures, with multiplicities 1, 1, 5, 5 and determinant −64√5/625. So four labelled responses recover the four channels, and g₊ − g₋ = (25/4)[R_D − R_C − (3/5)(R_A − R_B)].
+  - Three summaries measure the defect: D = (R_even − R_odd) − (3/2)(13R_near − 17R_far) = (4/5)(g₊ − g₋), with error at most 46ε. For any positive response, R_even/R_odd lies in [φ⁻², φ²].
+  - From the densities computed at 11:12, R_A and R_B start at E⁴/120 and R_C, R_D at (16/5)E³ and (24/5)E³. So R_C/R_D → 2/3, and the parity sums give R_even/R_odd → 3/2.
+- **The Hodge-isotropic overlap** (sound and light → six-site port).
+  - The joint Gram Q = [[I, C], [C*, I]] has eigenvalues 1 ± 2/√5, 1 ± √(2/5) and 1 eight times, so det 3/25 on its range and condition 9 + 4√5. The port map's condition is 2 + √5, tr(P_C P_G) = 6/5, and the squared chordal distance is 24/5.
+  - Residualizing the clique, F = T_C − T_G C* has F*F = S = I − CC* (eigenvalues 1/5, 3/5, 1⁴) and F*T_G = 0. S⁻¹ = I + 4P₈ + (2/3)P₄ with rational projectors, and S^(−1/2) = I − P₈ − P₄ + √5 P₈ + (√15/3)P₄.
+  - The clique's view of the Golden port is Hodge-isotropic: C J_H C* = 0 and ‖[J_H, C*C]‖² = 8/5. So for every orthogonal A, ‖AC − C J_H‖² = 12/5, and no portwise orthogonal extension of the star keeps the cross-Gram.
+  - The mixed involution K(x, y) = (x, J_H y + (J_H − I)C*x) has K² = I and K*QK = Q, with a mixed term of rank 2. It still moves the Golden first moment by J M_G J − M_G, of square 32/5.
+- **The Hodge repair** (sound and light → bath).
+  - On the fixed plane E_H(G) = (1/5)[[3a + 2b, b − a], [b − a, 2a + 3b]], with ‖G − E_H(G)‖² = (2/5)(a − b)². The nearest diagonal replacement costs (a − b)²/2 instead.
+  - Averaging after inversion is smaller: E_H(G⁻¹)⁻¹ = (5ab/(a² + 3ab + b²)) E_H(G), and the gap is a positive multiple of E_H(G), zero only when a = b. For the port a(s) − b(s) = 2/s² − 760/s³ + O(s⁻⁴), so ‖[J_H, G(s)]‖² = 32/(5s⁴) + O(s⁻⁵).
+  - Two copies of the bath realize the averaged response at every s, through T̃ = (T; T J_H)/√2. The memory pays M_odd² = (4/5) P_fix.
+  - The repaired fixed means are 240 ± 1/√5 and the variances 1359/5 ± 20√5. The floor (1987 − 31√5)/10 > 171 stays on the moving channels.
+  - The Hodge lines mix the fixed channels with weights (1 ∓ 1/√5)/2, so both start at (5 ∓ √5)E³. The minus channel's E⁵ start is lost.
+- **The six Sylow views** (fifteen words → S5).
+  - c = (012) and r = (01)(34) act on the six Sylow five-cycle groups as c: i → i + 2 and r: i → −i on six points, after an explicit relabeling. So the words' twisted duads are duads of the Sylow views. r is even, so the twist is local to D3, not an S5 character.
+  - As D3-modules the words are 3 + 2 sign + 5 std, the native V5 + E10 (unsigned edges) 5 + 2 sign + 4 std, and the oriented cycles 2 sign + 2 std.
+  - So an equivariant map from the words to the native fifteen has rank at most 13, attained by a Reynolds average. J7's stated 1 + 3 std gives the bounds 5 and 4.
+  - The auxiliary A4 ⊗ V2 carries G8 = companion(Φ₅) ⊗ I₂ and K8 with K8² = 5I, trace 0 and det 625. Mod 5, G8 − I has ranks 6, 4, 2, 0 while K8 has rank 4 and square 0: two different order-five groups.
+- **No native Golden action** (fifteen words → carrier, OBSTRUCTION). D²'s eigenspaces 0, 3, 8 carry D3 multiplicities (1, 0, 2), (2, 2, 2), (2, 0, 0), all at most 2. So no rational operator of order five other than I commutes with both D² and the word D3.
+- **The root address** (circle → E8, SELECTED_REFERENCE).
+  - R_diag turns both A4's and R_first only the carrier's. They fix 0 and 20 roots, make 48 and 44 root five-cycles, and have det(R − I) = 25 and 0.
+  - On the half-periods R_diag fixes only the origin (24 + 27 five-cycles, the tick's census). R_first fixes 16 and turns 22 + 26.
+  - f(j) = R_diag^(2⌊j/48⌋) r_(j mod 48) meets every root 18 times through j mod 240, and f(j + 864) = R_diag f(j). It is a chosen encoder, and its unit step is not an isometry. The address j mod 36 with the phase takes 180 values, 24 frames each; with the root address it takes 720, 6 each.
+- **The phase is not a glue class** (time → A4 + A4′, OBSTRUCTION). No permutation of the 240 roots advances every glue class by 1, since class 0 has 40 roots and the others 50.
+- **The carrier's doubling** (AGL(1,5) → A4 + A4′).
+  - The hub's coordinate bridge is layer 24's site and twin embedding. Its ten columns have Gram P_A4 + P_A4′, and the roots it produces are 112 integer and 128 half-integer vectors, with k_native = 2k_glue.
+  - The doubling i → 2i of the carrier's sites, with the twin fixed, permutes the roots in 40 fixed, 10 two-cycles and 45 four-cycles. The 20 fixed beyond the twin copy lie in classes 2 and 3, are not a root system, and meet the twin in 240 nonzero products of 400.
+  - Every mixed root meets the two copies in the patterns (6, 8, 6) and (4, 12, 4).
+- **The rest of the 11:36–12:07 model, replayed.**
+  - The yuga lengths 432, 864, 1296 and 1728 have residues 2, 4, 1 and 3 mod 5. The phase 4j mod 5 rises by 1 per tick.
+  - Under the six-cycle the 15 synthemes fall in orbits of 1, 2, 3, 3 and 6, the single one being the diameters. The 6 totals fall in orbits of 1, 2 and 3.
+  - The coordinate five-cycle fixes the second copy and makes 44 five-cycles of the rest. The signless and signed edge kernels meet in 3 dimensions (three 4-cycles), and with the pentagon and pentagram they span 5 cycle directions. The sixth is (−3, 1, 2, 0, −1, 0, −2, 1, −1, 3), of square 30.
+  - The signless D² has trace moments 15, 40, 200, 1240, 8840 and 67480, with M_(n+2) = 11M_(n+1) − 24M_n from M₁ on, and projectors of ranks 5, 8 and 2.
+- **Three corrections go back to the sibling.**
+  - The parity sums differ by (4/5) Curl = (4/√5) J_H, not by J_H.
+  - S_even = (16/5) S_odd⁻¹, not 5/16 of it. The hub makes the same correction.
+  - The yuga doubling is a label action on residues, as the hub says. In Z/4320 the steps 432 and 864 have orders 10 and 5, and 2 × 1728 = 3456, not 1296.
+- **Recorded (REPORTED).**
+  - The hub's own Sylow enumeration (labels 3, 1, 2, 5, 0, 4) is not replayed; a relabeling is built here instead. The J7 rank witnesses 5 and 4 are also not replayed.
+  - Its 8 × 10 coordinate matrix and the receipts context_hodge, operator_geometry and causal_completion (283 assertions in six receipts) were not run.
+  - Also recorded: the historical identification of the Sylow views with the synthematic totals, the provenance of η, and the conditional M6 = M4 × Σ2 photon reduction Z4 = V2 Z6.
+  - The exact zip (790830 bytes) was not run.
 
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
@@ -1523,6 +1578,7 @@ At 09:00 UTC the request was to work out the mathematics of assigning physical p
 - relayed by the user at 00:35: the sibling's `ONE_MACHINE_29.md` (1EQqJlcXKqOTx4CSrWjJ_xofjFE-nFHVJ, 00:20; its source `one-machine-29.typ`, 1Xjs-MbN1SJHnwRIxj-wMR3v7Tg7SdL7I, not opened) and its notes CLOSURE_092 (1cF4DFGH9sS1OxdOmdKY438WAqj6hpTU9), LAYER23B (11YQ_3BLajqeam8PfHircl-grIGkg_X7A), LEVELS (15pwuy92okVOE1kroi_aUqzF5f4xVrq2Y), OBS_SUN (1-hVBE6IXFAmvH5jYJ4GApOL4H_N_mGHO), GRAIN_SPLIT (1nD1IqQneNfuAIBCMP0QBs4A8ua6tXW_y), FRAME_WALKS (1KcOKYsAAsiLvzdZoOeUC8jYNalXlo_xZ) and DEEP_COURT (1QpU7xRGxOK7dEngbVvDQdg3s5RUNYf9V): §24, the 00:35 relay
 - the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
+- the sibling's MODEL_20261029.md edition of 12:07 (1mfPLmOqikwJul3J-yFDn9bgTq6S6urzR), superseding the thirteen editions of 11:36–12:05, and the hub's `OES_Unified_Model_20261029.txt` as revised at 11:58 and 12:04, with its exact zip (790830 bytes, not run): §24, the 11:44 items
 - the sibling's MODEL_20261029.md editions of 11:04 (1yz6lAgVU9Q3jLdaXio17tKYTEajMdhTZ) and 11:19 (1HV_BwfUexoC9zeamXnosDQ10kZSV_d3n), superseding those of 10:42, 10:57 and 11:03, and the hub's `OES_Unified_Model_20261029.txt` (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy) as revised at 11:18, with `OES_Unified_Model_Exact_20261029.zip` (1dqKmWQyYEsn7h-Bo-K0eFAG1WvJdptnU, 518931 bytes, not run): §24, the 11:12 items
 - the sibling's PLANE (1BsfjU3OdX_WDs7_Ko4WVNND_qI4zVAjN, 10:17) and fourteen editions of MODEL_20261029.md (10:09–10:38, the last 1mJT8HBram2aJvN0-KE7jdGSHv5SKfrCQ) with `one-machine-20261029-spine.pdf`, the receipt `oes-spectral-kernel-verification-20261029.json` (1et8Ksi4cFS62JREacuPFdyAgmMSGVd0L), and the hub's `OES_Unified_Model_20261029.txt` (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, 10:33): §24, the 10:40 check
 - the sibling's eight notes of 09:43–10:07 UTC in One Machine 20261028 (SHELLS 1WBGx61o33IiFWqJPEgkJ8Cspnff6l0zQ, SCRIPT 1-wa_1vLL5tTplZtOOIUqqxS2m9lrJdJ5, LEDGER 1yxVwhehyb4JNQ8viA7vf45Dv_fjl7Pl6, LEDGER48 1yZfyQ5DHl10f8DjAskPINrmXP-zYnuHu, ATLAS 15rhRsswOIW7wfrd7Ke1lSPs31ltYP3jU, SYMBOL 12ecZPqloKbxBoAYd3q48l5m0f5eCH7vV, MODEL 1HkWHjBBNhF2o1pI-_3tLiBJG2tTdZxb7 and 1ACwNfG5Q5NUd9Ljy0VOANMZi2iXkobHg): §24, the 10:07 check

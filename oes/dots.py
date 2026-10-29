@@ -233,6 +233,18 @@ units of 1/(1536 pi^4 30^4). These were the hub's inherited coefficients, which 
 fifteen words of 088, 086 and 980 become a dot. As a D3-module they are the oriented duads of six points with the
 reflection's sign twisted: isometrically over Q(sqrt2) and over no smaller field, integrally with index 8 and never
 unimodularly. The C5 that the selected J7 lacks first appears in dimension 9, as A4's Coxeter element.
+
+At 11:44 the hub's text (11:58, 12:04) and the sibling's MODEL (11:36-12:07) joined the Hodge star to the ports. The hub's
+J_H is layer 17's Curl over sqrt5: the six even and six odd contexts sum to 2 P_cycle -+ (2/5) Curl, and every
+permutation acts on Curl through its sign. Curl commutes with the Golden port's response except on the fixed plane,
+where ||[J_H, G]||^2 = (8/5)(g_+ - g_-)^2, 32/5 for the means and 64000 for the variances; four labelled context
+responses, of determinant -64 sqrt5/625, recover the four channels and this defect. The clique's view of the Golden
+port is Hodge-isotropic, so no orthogonal clique action extends the star, while a mixed involution keeps the joint Gram.
+Two copies of the bath realize the Hodge-averaged response, at a memory cost (4/5) P_fix. The words' D3 is the action
+on the six Sylow views, the native carrier admits no Golden action commuting with D^2 and that D3, the 4320 frames
+address the 240 roots through the diagonal five-cycle (a chosen encoder), and no permutation of the roots advances the
+glue classes. Three corrections go back to the sibling: the parity sums differ by (4/5) Curl, S_even = (16/5) S_odd^-1,
+and the yuga doubling acts on residue labels, not on the clock.
 """
 
 import functools
@@ -3879,10 +3891,11 @@ def _isotropic(d):
     return found.pop() if len(found) == 1 else None
 
 
-def golden_infrared():
-    """The Golden port's four channels at low energy, from its ten root sites (the hub, 11:18), in units of
-    C = 1/(1536 pi^4 30^4). The roots are a 7-design, so eps = 30u - 3u^2/2 + u^3/24 + O(u^4) with u = |k|^2 is
-    isotropic; the series below are exact through relative order E^2, where the anisotropic degree-8 term cannot reach."""
+@functools.lru_cache(maxsize=None)
+def _golden_channels():
+    """The Golden port's four channels at low energy, from its ten root sites: the distance kernels S_c, the channel
+    weights, the monopole, dipole and quadrupole data, and the densities rho[channel][j], the coefficient of E^j in
+    units of C = 1/(1536 pi^4 30^4), exact through relative order E^2."""
     site, sign = _golden_sites()
     Pc, R5, U, K, Qf, Pm, L = _marked()
     X = [sp.Matrix([sp.Rational(int(c), 10) for c in s]) for s in site]
@@ -3916,6 +3929,16 @@ def golden_infrared():
         ser = trunc(30 ** 4 * sum(a * Phi(c * u) for a, c in zip(wt, cs)) * u ** 3 * inv, u, 7)
         ser = sp.expand(sum(ser.coeff(u, j) * upow[j] for j in range(3, 8)))
         rho[nm] = [sp.expand(sp.radsimp(ser.coeff(E, j))) for j in range(8)]
+    return dict(cs=cs, S=S, Pp=Pp, Pn=Pn, w=w, Dp=Dp, mono=mono, Q2=Q2, rho=rho, U=U, Pm=Pm)
+
+
+def golden_infrared():
+    """The Golden port's four channels at low energy, from its ten root sites (the hub, 11:18), in units of
+    C = 1/(1536 pi^4 30^4). The roots are a 7-design, so eps = 30u - 3u^2/2 + u^3/24 + O(u^4) with u = |k|^2 is
+    isotropic; the series below are exact through relative order E^2, where the anisotropic degree-8 term cannot reach."""
+    ch = _golden_channels()
+    cs, S, Pp, Pn, Dp, mono, Q2, rho, U, Pm = (ch[k] for k in ("cs", "S", "Pp", "Pn", "Dp", "mono", "Q2", "rho", "U", "Pm"))
+    r5 = sp.sqrt(5)
     pick = lambda f, j: sp.expand(sp.radsimp(f(*(rho[n][j] for n in ("plus", "minus", "phi", "psi")))))
     near = lambda p, n, f, s: ((17 + 5 * r5) * f + (17 - 5 * r5) * s) / 45
     far = lambda p, n, f, s: ((13 + r5) * f + (13 - r5) * s) / 45
@@ -4152,6 +4175,521 @@ def notes_1119_arithmetic():
             and (11 + 1) * (5 + 2) == 84 < 195,
     }
 
+
+
+def _hodge():
+    """The Hodge star of the cycles, J_H = Curl/sqrt5 (layer 17's light operator), and the Golden port's four channel
+    projectors: the fixed lines f+ (the port's monopole, mean 239) and f- (mean 241) and the Golden doublets."""
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    r5 = sp.sqrt(5)
+    J = sp.Matrix(waves.complex_ops()[3]) / r5
+    ch = _golden_channels()
+    P = {"+": ch["Pp"], "-": ch["Pn"], "phi": Pm * (sp.eye(10) + K / r5) / 2, "psi": Pm * (sp.eye(10) - K / r5) / 2}
+    return J, P, Pc, U, K, Qf, Pm, L
+
+
+def _contexts():
+    """The twelve marked squares h L L^T h^T, each with the parity of the permutations that give it."""
+    Pc, R5, U, K, Qf, Pm, L = _marked()
+    out = {}
+    for p in itertools.permutations(range(5)):
+        h = compound2(sp.Matrix(5, 5, lambda r, c: int(r == p[c])))
+        out.setdefault(tuple(h * L * L.T * h.T), Permutation(list(p)).signature())
+    return [(sp.Matrix(10, 10, list(k)), s) for k, s in out.items()]
+
+
+def _zero(a):
+    """Exact zero test for scalars and matrices over Q(sqrt5, sqrt2, sqrt3)."""
+    f = lambda z: sp.expand(sp.radsimp(z)) == 0
+    return all(f(z) for z in a) if hasattr(a, "shape") else f(a)
+
+
+def hodge_contexts():
+    """The hub's text (11:58): the twelve contexts over the six Sylow views, and the Hodge star they reconstruct."""
+    J, P, Pc, U, K, Qf, Pm, L = _hodge()
+    r5 = sp.sqrt(5)
+    lift = lambda p: compound2(sp.Matrix(5, 5, lambda r, c: int(r == p[c])))
+    perms = list(itertools.permutations(range(5)))
+    ctx = _contexts()
+    Se = sum((C for C, s in ctx if s == 1), sp.zeros(10))
+    So = sum((C for C, s in ctx if s == -1), sp.zeros(10))
+    sylow = {frozenset(tuple((Permutation(list(p)) ** k).array_form) for k in range(5)) for p in perms
+             if Permutation(list(p)).order() == 5}
+    over = Counter()
+    for H in sylow:
+        gen = next(h for h in H if Permutation(list(h)).order() == 5)
+        over[tuple(sorted(s for C, s in ctx if lift(gen) * C * lift(gen).T == C))] += 1
+    stab = [p for p in perms if lift(p) * L * L.T * lift(p).T == L * L.T]
+    pairs = Counter()
+    for (A, s), (B, t) in itertools.combinations(ctx, 2):
+        pairs[((A + B) ** 2 == A + B, s == t, (A * B).trace())] += 1
+    x = sp.symbols("x")
+    d = lift((0, 2, 4, 1, 3))
+    return {
+        "J_H = Curl/sqrt5, layer 17's light operator, is symmetric with J_H^2 = P_cycle, and every permutation acts on it "
+        "through its sign, U J_H U^T = sgn J_H; its eigenprojectors (P_cycle +- J_H)/2 have rank 3":
+            J == J.T and _zero(J * J - Pc) and all(lift(p) * J * lift(p).T == Permutation(list(p)).signature() * J for p in perms)
+            and all(((Pc + s * J) / 2).applyfunc(sp.radsimp).rank() == 3 for s in (1, -1)),
+        "a context is fixed by 10 permutations (a D10), so there are 12, two over each of the six Sylow five-cycle groups, "
+        "six even and six odd; the even sextet sums to 2 P_cycle - (2/sqrt5) J_H and the odd one to 2 P_cycle + "
+        "(2/sqrt5) J_H, so their difference is (4/5) Curl": len(stab) == 10 and len(ctx) == 12 and len(sylow) == 6
+            and Counter(s for _, s in ctx) == Counter({1: 6, -1: 6}) and over == Counter({(-1, 1): 6})
+            and _zero(Se - 2 * Pc + 2 * J / r5) and _zero(So - 2 * Pc - 2 * J / r5) and _zero(So - Se - 4 * r5 * J / 5),
+        "each sextet has eigenvalues 2 -+ 2/sqrt5 three times (condition phi^2), and S_even S_odd = (16/5) P_cycle, so on "
+        "the cycles S_even^-1 = (5/16) S_odd and S_even = (16/5) S_odd^-1":
+            _zero((Se * Pc).charpoly(x).as_expr() - x ** 4 * (x ** 2 - 4 * x + sp.Rational(16, 5)) ** 3)
+            and _zero(Se * So - sp.Rational(16, 5) * Pc) and _zero((2 + 2 / r5) / (2 - 2 / r5) - (3 + r5) / 2),
+        "J_H is -1 on the Golden doublet K = sqrt5 and +1 on K = -sqrt5, so K P_cycle = 5 P_fix - sqrt5 J_H P_moving; the "
+        "doubling i -> 2i is odd, negates J_H, swaps the two sextets and turns U into U^2":
+            _zero(J * P["phi"] + P["phi"]) and _zero(J * P["psi"] - P["psi"]) and _zero(K * Pc - 5 * Qf + r5 * J * Pm)
+            and d * J * d.T == -J and _zero(d * Se * d.T - So) and d * U * d.T == U ** 2,
+        "of the 66 pairs of contexts the 6 within one view sum to a projector (overlap tr(C_i C_j) = 4/5); the 30 of "
+        "opposite parity across views have overlap 12/25 and the 30 of equal parity 18/25":
+            pairs == Counter({(True, False, sp.Rational(4, 5)): 6, (False, False, sp.Rational(12, 25)): 30,
+                              (False, True, sp.Rational(18, 25)): 30}),
+    }
+
+
+def context_responses():
+    """The hub's text (11:58): four labelled context responses recover the four channels and measure the Hodge defect."""
+    J, P, Pc, U, K, Qf, Pm, L = _hodge()
+    r5 = sp.sqrt(5)
+    u = 1 / r5
+    ex = lambda z: sp.expand(sp.radsimp(z))
+    ctx = _contexts()
+    keys = ("+", "-", "phi", "psi")
+    sig = Counter(tuple(ex((C * P[k]).trace()) for k in keys) for C, _ in ctx)
+    M4 = sp.Matrix([[0, 0, 1 + u, 1 - u], [0, 0, 1 - u, 1 + u],
+                    [sp.Rational(8, 25), sp.Rational(12, 25), sp.Rational(3, 5) * (1 - u), sp.Rational(3, 5) * (1 + u)],
+                    [sp.Rational(12, 25), sp.Rational(8, 25), sp.Rational(3, 5) * (1 + u), sp.Rational(3, 5) * (1 - u)]])
+    inverse = sp.Matrix([[-sp.Rational(9, 4), sp.Rational(3, 2), -sp.Rational(5, 2), sp.Rational(15, 4)],
+                         [sp.Rational(3, 2), -sp.Rational(9, 4), sp.Rational(15, 4), -sp.Rational(5, 2)],
+                         [(1 + r5) / 4, (1 - r5) / 4, 0, 0], [(1 - r5) / 4, (1 + r5) / 4, 0, 0]])
+    g = sp.symbols("g_p g_m g_f g_s")
+    R = M4 * sp.Matrix(g)
+    G = sum((gi * P[k] for gi, k in zip(g, keys)), sp.zeros(10))
+    comm = J * G - G * J
+    Se = sum((C for C, s in ctx if s == 1), sp.zeros(10))
+    So = sum((C for C, s in ctx if s == -1), sp.zeros(10))
+    Rn = ((17 + 5 * r5) * g[2] + (17 - 5 * r5) * g[3]) / 45
+    Rf = ((13 + r5) * g[2] + (13 - r5) * g[3]) / 45
+    chi = sp.symbols("chi")
+    ratio = (1 - chi / r5) / (1 + chi / r5)
+    eta = Pm + J * Qf
+    rho = _golden_channels()["rho"]
+    name = {"+": "plus", "-": "minus", "phi": "phi", "psi": "psi"}
+    low = [ex(sum(M4[i, j] * rho[name[k]][n] for j, k in enumerate(keys))) for i, n in ((0, 4), (1, 4), (2, 3), (3, 3))]
+    parity = [ex(sum((S_ * P[k]).trace() * rho[name[k]][3] for k in keys)) for S_ in (Se, So)]
+    return {
+        "the twelve contexts give four response signatures on (rho_+, rho_-, rho_phi, rho_psi), with u = 1/sqrt5: R_A = "
+        "(0, 0, 1 + u, 1 - u) and R_B = (0, 0, 1 - u, 1 + u) once each, R_C = (8/25, 12/25, (3/5)(1 - u), (3/5)(1 + u)) "
+        "and R_D = (12/25, 8/25, (3/5)(1 + u), (3/5)(1 - u)) five times each, with determinant -64 sqrt5/625":
+            sig == Counter({tuple(ex(z) for z in M4.row(i)): m for i, m in enumerate((1, 1, 5, 5))})
+            and _zero(M4.det() + 64 * r5 / 625),
+        "four labelled responses recover the four channels: rho_phi,psi = [R_A + R_B +- sqrt5 (R_A - R_B)]/4, rho_+ = "
+        "-(5/2) X + (15/4) Y and rho_- = (15/4) X - (5/2) Y with X = R_C - (3/5) R_B, Y = R_D - (3/5) R_A":
+            _zero(M4 * inverse - sp.eye(4)),
+        "the defect: for G = sum g_a P_a, ||[J_H, G]||^2 = (8/5)(g_+ - g_-)^2, and g_+ - g_- = (25/4)[R_D - R_C - (3/5)"
+        "(R_A - R_B)], so ||[J_H, G]||^2 = (125/2)|R_D - R_C - (3/5)(R_A - R_B)|^2; the port's means 239, 241 and "
+        "variances 371, 171 give 32/5 and 64000": _zero((comm.T * comm).trace() - sp.Rational(8, 5) * (g[0] - g[1]) ** 2)
+            and _zero(sp.Rational(25, 4) * (R[3] - R[2] - sp.Rational(3, 5) * (R[0] - R[1])) - (g[0] - g[1]))
+            and sp.Rational(8, 5) * sp.Rational(25, 4) ** 2 == sp.Rational(125, 2)
+            and (sp.Rational(8, 5) * (239 - 241) ** 2, sp.Rational(8, 5) * (371 - 171) ** 2) == (sp.Rational(32, 5), 64000),
+        "the Lorentz reference eta = P_moving + J_H P_fix squares to P_cycle with signature (5, 1) and has the same "
+        "fixed-plane commutator": _zero(eta * eta - Pc) and ex((eta * Pc).trace()) == 4
+            and _zero(((eta * G - G * eta).T * (eta * G - G * eta)).trace() - sp.Rational(8, 5) * (g[0] - g[1]) ** 2),
+        "three summaries measure it: D = (R_even - R_odd) - (3/2)(13 R_near - 17 R_far) = (4/5)(g_+ - g_-), so "
+        "||[J_H, G]||^2 = (5/2) D^2, and an error eps in each summary moves D by at most 46 eps (47 with the parities "
+        "measured apart)": _zero((Se * G).trace() - (So * G).trace() - sp.Rational(3, 2) * (13 * Rn - 17 * Rf)
+                                 - sp.Rational(4, 5) * (g[0] - g[1]))
+            and 1 + sp.Rational(3, 2) * (13 + 17) == 46 and 2 + sp.Rational(3, 2) * (13 + 17) == 47,
+        "for any positive response R_even/R_odd = (1 - chi/sqrt5)/(1 + chi/sqrt5) with chi = tr(J_H R)/tr R in [-1, 1], "
+        "so it lies in [phi^-2, phi^2], the ends attained on the Hodge eigenspaces":
+            _zero(Se - 2 * Pc + 2 * J / r5) and _zero(ratio.subs(chi, 1) - (3 - r5) / 2) and _zero(ratio.subs(chi, -1) - (3 + r5) / 2),
+        "with the computed densities R_A and R_B start at E^4/120 and R_C, R_D at (16/5) E^3 and (24/5) E^3, so R_C/R_D "
+        "-> 2/3, while the parity sums give R_even/R_odd -> 3/2 (units 1/(1536 pi^4 30^4))":
+            low == [sp.Rational(1, 120), sp.Rational(1, 120), sp.Rational(16, 5), sp.Rational(24, 5)]
+            and ex(parity[0] / parity[1]) == sp.Rational(3, 2),
+    }
+
+
+def overlap_hodge():
+    """The hub's text (11:58): the two-port Gram, residual whitening, and the overlap's Hodge isotropy."""
+    J, P, Pc, U, K, Qf, Pm, L = _hodge()
+    clique, sites, TC, Fm = _two_ports()
+    X = TC.T * Fm * Pc
+    Q = sp.Matrix(sp.BlockMatrix([[sp.eye(6), X], [X.T, Pc]]))
+    x = sp.symbols("x")
+    CC = X * X.T
+    S = sp.eye(6) - CC
+    P8 = CC * (CC - sp.Rational(2, 5) * sp.eye(6)) * sp.Rational(25, 8)
+    P4 = CC * (CC - sp.Rational(4, 5) * sp.eye(6)) * sp.Rational(-25, 4)
+    Sih = sp.eye(6) - P8 - P4 + sp.sqrt(5) * P8 + sp.sqrt(15) / 3 * P4
+    F = TC - Fm * Pc * X.T
+    N = (J - Pc) * X.T
+    Km = sp.Matrix(sp.BlockMatrix([[sp.eye(6), sp.zeros(6, 10)], [N, J]]))
+    Hn = _walk_entries()
+    site, sign = _golden_sites()
+    MG = Pc * sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * Hn(site[f] - site[e], 1)) * Pc
+    D = J * MG * J - MG
+    signed = [sp.diag(*s) * sp.Matrix(6, 6, lambda i, j: int(j == p[i]))
+              for p, s in zip(itertools.islice(itertools.permutations(range(6)), 0, 720, 97), itertools.product((1, -1), repeat=6))]
+    r5 = sp.sqrt(5)
+    return {
+        "the joint Gram Q = [[I, C], [C*, I]] has eigenvalues 1 +- 2/sqrt5, 1 +- sqrt(2/5) and 1 eight times on the "
+        "12-dimensional range, so det 3/25 there and condition 9 + 4 sqrt5 (the port map's is its root, 2 + sqrt5); "
+        "tr(P_C P_G) = 6/5 and the squared chordal distance is 6 - 6/5 = 24/5":
+            _zero(Q.charpoly(x).as_expr() - x ** 4 * (x - 1) ** 8 * ((x - 1) ** 2 - sp.Rational(4, 5)) * ((x - 1) ** 2 - sp.Rational(2, 5)))
+            and sp.Rational(1, 5) * sp.Rational(3, 5) == sp.Rational(3, 25)
+            and _zero((1 + 2 / r5) / (1 - 2 / r5) - (9 + 4 * r5)) and (X.T * X).trace() == sp.Rational(6, 5),
+        "residualizing the clique against the Golden port, F = T_C - T_G C* has F*F = S = I - CC* (eigenvalues 1/5, 3/5 "
+        "and 1 four times) and F*T_G = 0; S^-1 = I + 4 P_8 + (2/3) P_4 with rational projectors, and S^-1/2 = I - P_8 - "
+        "P_4 + sqrt5 P_8 + (sqrt15/3) P_4 squares to it": F.T * F == S and (F.T * Fm * Pc).is_zero_matrix
+            and S.eigenvals() == {sp.Rational(1, 5): 1, sp.Rational(3, 5): 1, 1: 4}
+            and P8 * P8 == P8 and P4 * P4 == P4 and S * (sp.eye(6) + 4 * P8 + sp.Rational(2, 3) * P4) == sp.eye(6)
+            and _zero(Sih * Sih - sp.eye(6) - 4 * P8 - sp.Rational(2, 3) * P4),
+        "the overlap is Hodge-isotropic: C J_H C* = 0 and ||[J_H, C*C]||^2 = 8/5, so for every orthogonal A on the clique "
+        "||AC - C J_H||^2 = 2 tr(C*C) = 12/5 (24/5 as a Gram defect for involutions): no portwise orthogonal extension of "
+        "the Hodge star keeps the cross-Gram": _zero(X * J * X.T)
+            and _zero(((J * X.T * X - X.T * X * J).T * (J * X.T * X - X.T * X * J)).trace() - sp.Rational(8, 5))
+            and all(_zero(((A * X - X * J).T * (A * X - X * J)).trace() - sp.Rational(12, 5)) for A in signed),
+        "the mixed involution K(x, y) = (x, J_H y + (J_H - I) C* x) has K^2 = I, K* Q K = Q and K(0, y) = (0, J_H y), "
+        "with a mixed term of rank 2; it moves the Golden first moment by J M_G J - M_G of square 32/5":
+            _zero(Km * Km - sp.Matrix(sp.BlockMatrix([[sp.eye(6), sp.zeros(6, 10)], [sp.zeros(10, 6), Pc]])))
+            and _zero(Km.T * Q * Km - Q) and N.applyfunc(sp.radsimp).rank() == 2
+            and _zero((D.T * D).trace() - sp.Rational(32, 5)),
+    }
+
+
+def hodge_averaging():
+    """The hub's text (11:58, 12:04): averaging the response against averaging the stiffness, and the two-copy
+    realization of the Hodge-averaged response."""
+    J, P, Pc, U, K, Qf, Pm, L = _hodge()
+    r5 = sp.sqrt(5)
+    a, b, s = sp.symbols("a b s", positive=True)
+    fp = P["+"] * sp.Matrix(_golden_sites()[1])
+    fp = fp / sp.sqrt((fp.T * fp)[0])
+    fm = P["-"] * sp.Matrix([1] * 10)
+    fm = fm / sp.sqrt((fm.T * fm)[0])
+    Jf = sp.Matrix(2, 2, lambda i, j: sp.radsimp(([fp, fm][i].T * J * [fp, fm][j])[0]))
+    Jf = Jf if Jf[0, 1] > 0 else sp.diag(1, -1) * Jf * sp.diag(1, -1)
+    E = lambda M: (M + Jf * M * Jf) / 2
+    G = sp.diag(a, b)
+    q = a ** 2 + 3 * a * b + b ** 2
+    simp = lambda M: M.applyfunc(sp.simplify)
+    delta = sp.symbols("delta")
+    A_ = 1 / s - 239 / s ** 2 + (371 + 239 ** 2) / s ** 3
+    B_ = 1 / s - 241 / s ** 2 + (171 + 241 ** 2) / s ** 3
+    Hn = _walk_entries()
+    site, sign = _golden_sites()
+    M = {n: Pc * sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * Hn(site[f] - site[e], n)) * Pc for n in (1, 2)}
+    EH = lambda Z: (Z + J * Z * J) / 2
+    Modd = (M[1] - J * M[1] * J) / 2
+    Vbar = EH(M[2]) - EH(M[1]) ** 2
+    x = sp.symbols("x")
+    fixed = lambda Z: sp.Matrix(2, 2, lambda i, j: sp.radsimp(([fp, fm][i].T * Z * [fp, fm][j])[0]))
+    rho = _golden_channels()["rho"]
+    alpha, beta = (1 - 1 / r5) / 2, (1 + 1 / r5) / 2
+    return {
+        "on the fixed plane J_H = (1/sqrt5)[[-1, 2], [2, 1]] in the basis (f+, f-), and for G = diag(a, b) there "
+        "E_H(G) = (G + J G J)/2 = (1/5)[[3a + 2b, b - a], [b - a, 2a + 3b]], with ||G - E_H(G)||^2 = (2/5)(a - b)^2 = "
+        "(5/8) D^2, against (a - b)^2/2 for the nearest diagonal replacement, and det E_H(G) = (a^2 + 3ab + b^2)/5":
+            _zero(Jf - sp.Matrix([[-1, 2], [2, 1]]) / r5) and simp(E(G) - sp.Matrix([[3 * a + 2 * b, b - a], [b - a, 2 * a + 3 * b]]) / 5) == sp.zeros(2)
+            and sp.simplify(((G - E(G)).T * (G - E(G))).trace() - sp.Rational(2, 5) * (a - b) ** 2) == 0
+            and sp.Rational(2, 5) == sp.Rational(5, 8) * sp.Rational(4, 5) ** 2 and sp.simplify(E(G).det() - q / 5) == 0,
+        "averaging after inversion is smaller: E_H(G^-1)^-1 = (5ab/(a^2 + 3ab + b^2)) E_H(G), so E_H(G) - E_H(G^-1)^-1 = "
+        "((a - b)^2/(a^2 + 3ab + b^2)) E_H(G) >= 0, equal only when a = b, with relative size 4 delta^2/(5 - delta^2) "
+        "for delta = (a - b)/(a + b)": simp(E(G.inv()).inv() - 5 * a * b / q * E(G)) == sp.zeros(2)
+            and sp.simplify((a - b) ** 2 / q - (4 * delta ** 2 / (5 - delta ** 2)).subs(delta, (a - b) / (a + b))) == 0,
+        "for the port, a(s) - b(s) = 2/s^2 - 760/s^3 + O(s^-4) from the means 239, 241 and variances 371, 171, so "
+        "||[J_H, G(s)]||^2 = 32/(5 s^4) + O(s^-5) and the fixed-block gap is 4 P_fix/(5 s^3) + O(s^-4)":
+            sp.expand(A_ - B_) == 2 / s ** 2 - 760 / s ** 3
+            and sp.limit(sp.Rational(8, 5) * (A_ - B_) ** 2 * s ** 4, s, sp.oo) == sp.Rational(32, 5)
+            and sp.limit((A_ - B_) ** 2 / (A_ ** 2 + 3 * A_ * B_ + B_ ** 2) / s * s ** 3, s, sp.oo) == sp.Rational(4, 5),
+        "two copies of the bath realize the averaged response at every s: with T~ = (T; T J_H)/sqrt2 on H + H, T~* T~ = "
+        "P_cycle, the swap commutes with H + H and sends T~ to T~ J_H, and T~*(H + H)^n T~ = E_H(T* H^n T); the memory "
+        "pays M_odd^2 = (4/5) P_fix, so the repaired fixed means are 240 +- 1/sqrt5 and variances 1359/5 +- 20 sqrt5, while "
+        "the floor (1987 - 31 sqrt5)/10 > 171 stays on the moving channels":
+            _zero((Pc + J * Pc * J) / 2 - Pc) and _zero(Modd * Modd - sp.Rational(4, 5) * Qf)
+            and _zero(Vbar - EH(M[2] - M[1] ** 2) - Modd * Modd)
+            and _zero(fixed(EH(M[1])).charpoly(x).as_expr() - ((x - 240) ** 2 - sp.Rational(1, 5)))
+            and _zero(fixed(Vbar).charpoly(x).as_expr() - ((x - sp.Rational(1359, 5)) ** 2 - 2000))
+            and _zero((Vbar * Pm).charpoly(x).as_expr() - x ** 6 * (x ** 2 - sp.Rational(1987, 5) * x + sp.Rational(985841, 25)) ** 2)
+            and 1359 / 5 - 20 * 5 ** 0.5 > (1987 - 31 * 5 ** 0.5) / 10 > 171,
+        "the Hodge lines mix the port's fixed channels with weights alpha = (1 - 1/sqrt5)/2 and beta = (1 + 1/sqrt5)/2, "
+        "so both start at E^3, as (5 -+ sqrt5) E^3: the minus channel's E^5 start is lost, and the averaging channel needs "
+        "two Kraus terms, since it kills the nonzero Hodge-odd part":
+            _zero(((fp.T * (Pc + J) / 2 * fp)[0]) - alpha) and _zero(alpha * rho["plus"][3] + beta * rho["minus"][3] - (5 - r5))
+            and _zero(beta * rho["plus"][3] + alpha * rho["minus"][3] - (5 + r5)) and not _zero(Modd) and _zero(EH(Modd)),
+    }
+
+
+def word_sylow():
+    """The hub's text (11:58): the word branch on the six Sylow views, the D3 rank bounds, the native carrier, and the
+    two order-five actions mod 5."""
+    from sympy.polys.matrices import DomainMatrix
+    perm = lambda p: Permutation(list(p))
+    c, r = perm((1, 2, 0, 3, 4)), perm((1, 0, 2, 4, 3))
+    sylow = sorted({frozenset(tuple((perm(p) ** k).array_form) for k in range(5)) for p in itertools.permutations(range(5))
+                    if perm(p).order() == 5}, key=lambda h: sorted(h))
+    act = lambda g: tuple(sylow.index(frozenset(tuple((g * Permutation(list(h)) * g ** -1).array_form) for h in H))
+                          for H in sylow)
+    pc, pr = act(c), act(r)
+    cyc = lambda t: sorted(len(o) for o in Permutation(list(t)).full_cyclic_form)
+    relabel = next((f for f in itertools.permutations(range(6))
+                    if all(pc[f[i]] == f[(i + 2) % 6] and pr[f[i]] == f[-i % 6] for i in range(6))), None)
+    pm = lambda p: sp.Matrix(5, 5, lambda i, j: int(i == p(j)))
+    Pc_, Pr_ = pm(c), pm(r)
+    un = lambda Mx: compound2(Mx).applyfunc(abs)
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pcyc = sp.eye(10) - Bs.T * Bs / 5
+    mult = lambda chi: ((chi[0] + 2 * chi[1] + 3 * chi[2]) // 6, (chi[0] + 2 * chi[1] - 3 * chi[2]) // 6, (2 * chi[0] - 2 * chi[1]) // 6)
+    trs = lambda A, B_, Pr=None: tuple(int((M if Pr is None else M * Pr).trace()) for M in (sp.eye(A.shape[0]), A, B_))
+    nat_c, nat_r = sp.diag(Pc_, un(Pc_)), sp.diag(Pr_, un(Pr_))
+    native = mult(trs(nat_c, nat_r))
+    cyc6 = mult(trs(compound2(Pc_), compound2(Pr_), Pcyc))
+    words, C, R = _words()
+    word = mult((15, C.trace(), R.trace()))
+    schur = lambda m1, m2: min(m1[0], m2[0]) + min(m1[1], m2[1]) + 2 * min(m1[2], m2[2])
+    group = [(sp.eye(15), sp.eye(15)), (C, nat_c), (C * C, nat_c ** 2), (R, nat_r), (R * C, nat_r * nat_c), (R * C * C, nat_r * nat_c ** 2)]
+    Xr = sp.Matrix(15, 15, lambda i, j: (7 * i + 3 * j * j + i * j) % 11 - 5)
+    witness = sum((gn * Xr * gw.inv() for gw, gn in group), sp.zeros(15))
+    Ms = sp.Matrix(5, 10, lambda i, e: int(i in carrier.edges()[e]))
+    D = sp.Matrix(sp.BlockMatrix([[sp.zeros(5), Ms], [Ms.T, sp.zeros(10)]]))
+    K15 = D * D
+    proj = {0: (K15 - 3 * sp.eye(15)) * (K15 - 8 * sp.eye(15)) / 24, 3: K15 * (8 * sp.eye(15) - K15) / 15, 8: K15 * (K15 - 3 * sp.eye(15)) / 40}
+    eig = {lam: mult(trs(nat_c, nat_r, Pl)) for lam, Pl in proj.items()}
+    comp = sp.Matrix(4, 4, lambda i, j: int(i == j + 1) - int(j == 3))
+    G8 = sp.kronecker_product(comp, sp.eye(2))
+    K8 = sp.eye(8) + 2 * (G8 + G8.inv())
+    f5 = lambda Mx: DomainMatrix.from_Matrix(Mx).convert_to(sp.GF(5)).rank()
+    sizes = (5, 7, 4, 5, 5, 5, 5)
+    return {
+        "c = (012) and r = (01)(34) generate a D3 in S5; on the six Sylow five-cycle groups c is two 3-cycles and r fixes "
+        "two and swaps two pairs, and an explicit relabeling carries this action to c: i -> i + 2, r: i -> -i on six "
+        "points, the action under the words' twisted duads; r is even, so every one-dimensional character of S5 is 1 on "
+        "it and the twist is local to D3": len(sylow) == 6 and cyc(pc) == [3, 3] and cyc(pr) == [1, 1, 2, 2]
+            and relabel is not None and (r * c * r) == c ** 2 and r.signature() == 1,
+        "as D3-modules the words are 3 + 2 sign + 5 std, the native V5 + E10 (unsigned edges) 5 + 2 sign + 4 std, and the "
+        "oriented cycles 2 sign + 2 std (with the trivial Lambda^4 A4, 1 + 2 sign + 2 std); so an equivariant map from the "
+        "words to the native fifteen has rank at most 13, attained by a Reynolds average, and the stated J7 = 1 + 3 std "
+        "gives the bounds 5 and 4": word == (3, 2, 5) and native == (5, 2, 4) and cyc6 == (0, 2, 2)
+            and schur(word, native) == 13 and witness.rank() == 13
+            and all(gn * witness == witness * gw for gw, gn in group)
+            and schur((1, 0, 3), (1, 2, 2)) == 5 and schur((0, 0, 3), cyc6) == 4,
+        "on the native carrier D^2 has eigenspaces 0, 3, 8 with D3 multiplicities (1, 0, 2), (2, 2, 2) and (2, 0, 0): "
+        "every multiplicity space has dimension at most 2, so no rational operator of order five other than I commutes "
+        "with both D^2 and this D3 (Phi_5 needs 4)": eig == {0: (1, 0, 2), 3: (2, 2, 2), 8: (2, 0, 0)}
+            and max(max(m) for m in eig.values()) == 2,
+        "the auxiliary A4 x V2: G8 = companion(Phi_5) x I2 commutes with the D3 on V2, K8 = I + 2(G8 + G8^-1) has K8^2 = "
+        "5I, trace 0 and determinant 625; mod 5, G8 - I has ranks 6, 4, 2, 0 (two J4 blocks) while K8 has rank 4 and "
+        "square 0 (I + 4 K8 is four J2 blocks): two different order-five groups":
+            G8 * sp.kronecker_product(sp.eye(4), sp.Matrix([[0, -1], [1, -1]])) == sp.kronecker_product(sp.eye(4), sp.Matrix([[0, -1], [1, -1]])) * G8
+            and K8 * K8 == 5 * sp.eye(8) and K8.trace() == 0 and K8.det() == 625
+            and [f5((G8 - sp.eye(8)) ** k) for k in range(1, 5)] == [6, 4, 2, 0] and f5(K8) == 4
+            and all(v % 5 == 0 for v in K8 * K8) and f5(4 * K8) == 4,
+        "the exact fields Q(sqrt2) of the words and Q(sqrt5) of the Hodge star meet only in Q (2, 5 and 10 are not "
+        "squares), and the atlas weights 1/(7 n) over groups of sizes 5, 7, 4, 5, 5, 5, 5 sum to 1, so W E = I7 and E W "
+        "is a rank-7 projector in dimension 252": all(not sp.sqrt(k).is_rational for k in (2, 5, 10))
+            and sum(sizes) == 36 and sum(sp.Rational(1, 7 * n) * n for n in sizes) == 1 and 36 * 7 == 252,
+    }
+
+
+def clock_root_address():
+    """The hub's text (11:58): two order-five lattice actions, and a 4320-to-240 root address with its limits."""
+    R = assignment.roots10()
+    keys = {tuple(v): i for i, v in enumerate(R)}
+    S, T_ = assignment.SITE, assignment.TWIN
+    base = sp.Matrix([list(S[i]) for i in range(4)] + [list(T_[i]) for i in range(4)])
+    mat = lambda imgs: (base.inv() * sp.Matrix([list(v) for v in imgs])).T
+    Rd = mat([S[(i + 1) % 5] for i in range(4)] + [T_[(i + 1) % 5] for i in range(4)])
+    Rf = mat([S[(i + 1) % 5] for i in range(4)] + [T_[i] for i in range(4)])
+    on = lambda M_: [keys[tuple(int(z) for z in M_ * sp.Matrix(v))] for v in R]
+    cycles = lambda img: Counter(len(o) for o in Permutation(img).full_cyclic_form)
+    cls = lambda v: int(round(v[:5].sum() / 5)) % 5
+    B8 = np.array(spine.frame()[0], float)
+    D2 = np.rint(2 * glue.roots()).astype(int)
+    classes = list(itertools.product((0, 1), repeat=8))
+    band = [240 - int(sum((-1) ** ((r2 @ np.rint(2 * B8 @ np.array(cl)).astype(int) // 4) % 2) for r2 in D2)) for cl in classes]
+    def census(M_):
+        Mc = np.rint(np.linalg.inv(B8) @ np.array(M_, float) @ B8).astype(int)
+        idx = {cl: i for i, cl in enumerate(classes)}
+        step = [idx[tuple(Mc @ np.array(cl) % 2)] for cl in classes]
+        out = Counter()
+        seen = set()
+        for i in range(256):
+            if i not in seen:
+                o = [i]
+                while step[o[-1]] != i:
+                    o.append(step[o[-1]])
+                seen |= set(o)
+                out[(len(o), band[i])] += 1
+        return out
+    img_d = on(Rd)
+    orbit_reps, seen = [], set()
+    for i in sorted(range(240), key=lambda i: tuple(R[i])):
+        if i not in seen:
+            j, orb = i, []
+            while j not in orb:
+                orb.append(j)
+                j = img_d[j]
+            seen |= set(orb)
+            orbit_reps.append(i)
+    def f(j):
+        i = orbit_reps[j % 48]
+        for _ in range((2 * (j // 48)) % 5):
+            i = img_d[i]
+        return i
+    F = [f(j) for j in range(4320)]
+    ip = lambda i, k: int(R[i] @ R[k])
+    witness = next((j, k) for j in range(240) for k in range(240) if ip(F[j], F[k]) != ip(F[j + 1], F[k + 1]))
+    sizes = Counter(cls(v) for v in R)
+    return {
+        "R_diag turns both A4's and R_first only the carrier's: they fix 0 and 20 roots, make 48 and 44 root five-cycles, "
+        "have det(R - I) = 25 and 0, and both keep the five glue classes 40/50/50/50/50":
+            Rd ** 5 == sp.eye(8) and Rf ** 5 == sp.eye(8) and cycles(img_d) == Counter({5: 48})
+            and cycles(on(Rf)) == Counter({1: 20, 5: 44}) and (Rd - sp.eye(8)).det() == 25 and (Rf - sp.eye(8)).det() == 0
+            and all(cls(R[img_d[i]]) == cls(R[i]) for i in range(240)) and sizes == Counter({0: 40, 1: 50, 2: 50, 3: 50, 4: 50}),
+        "on the half-periods R_diag fixes only the origin and turns 24 five-cycles at energy 224 and 27 at 256 (the tick's "
+        "census), while R_first fixes 16 (the origin, 10 at 224, 5 at 256) and turns 22 and 26 five-cycles":
+            census(Rd) == Counter({(1, 0): 1, (5, 224): 24, (5, 256): 27})
+            and census(Rf) == Counter({(1, 0): 1, (1, 224): 10, (1, 256): 5, (5, 224): 22, (5, 256): 26}),
+        "the address f(j) = R_diag^(2 floor(j/48) mod 5) r_(j mod 48), with r_a the least root of each of the 48 orbits, "
+        "factors through j mod 240, meets every root 18 times, and f(j + 864) = R_diag f(j); the unit step is not an "
+        "isometry of the roots": len(orbit_reps) == 48 and all(F[j] == F[j % 240] for j in range(4320))
+            and set(Counter(F).values()) == {18} and len(set(F)) == 240
+            and all(F[(j + 864) % 4320] == img_d[F[j]] for j in range(4320)) and witness is not None,
+        "the address j mod 36 and the phase 4j mod 5 take 180 joint values, 24 frames each; the address with the root "
+        "address takes 720, 6 frames each": set(Counter((j % 36, 4 * j % 5) for j in range(4320)).values()) == {24}
+            and len(Counter((j % 36, 4 * j % 5) for j in range(4320))) == 180
+            and set(Counter((j % 36, F[j]) for j in range(4320)).values()) == {6}
+            and len(Counter((j % 36, F[j]) for j in range(4320))) == 720,
+        "no permutation of the 240 roots advances every glue class by 1, since class 0 has 40 roots and the others 50, and "
+        "the 864 frames of one phase are not a multiple of 40 or 50": sizes[0] != sizes[1] and 864 % 40 and 864 % 50,
+    }
+
+
+def coordinate_bridge():
+    """The hub's text (12:04): the A4 coordinate map, the native label, the doubling census and the angle patterns."""
+    R = assignment.roots10()
+    S, T_ = np.array(assignment.SITE), np.array(assignment.TWIN)
+    Mb = np.vstack([S, T_]).T / 10
+    keys = {tuple(v): i for i, v in enumerate(R)}
+    cls = lambda v: int(round(v[:5].sum() / 5)) % 5
+    perm2 = [0, 2, 4, 1, 3]
+    dbl = lambda v: np.array([v[perm2.index(i)] for i in range(5)] + list(v[5:]))
+    img = [keys[tuple(dbl(v))] for v in R]
+    cyc = Counter(len(o) for o in Permutation(img).full_cyclic_form)
+    fixed = [i for i in range(240) if img[i] == i]
+    twin = [i for i, v in enumerate(R) if not v[:5].any() or len(set(v[:5])) == 1]
+    extra = [i for i in fixed if i not in twin]
+    rootset = set(keys)
+    carrier_copy = [i for i, v in enumerate(R) if not v[5:].any() and v[:5].sum() == 0]
+    pattern = lambda i, copy: tuple(sum(1 for k in copy if int(R[i] @ R[k]) == t) for t in (100, 0, -100))
+    mixed = [i for i in range(240) if cls(R[i]) != 0]
+    gram = Mb.T @ Mb
+    P4 = np.eye(5) - np.ones((5, 5)) / 5
+    return {
+        "the site/twin embedding of layer 24 is the hub's coordinate bridge: its 10 columns have Gram P_A4 + P_A4' on the "
+        "two trace-zero five-spaces, and the 240 roots it produces are 112 integer and 128 half-integer vectors":
+            np.allclose(gram, np.block([[P4, np.zeros((5, 5))], [np.zeros((5, 5)), P4]]))
+            and sum(1 for v in R if not (v % 10).any()) == 112 and sum(1 for v in R if (v % 10).any()) == 128,
+        "the doubling i -> 2i of the carrier's sites, the twin fixed, has 40 fixed roots, 10 two-cycles and 45 "
+        "four-cycles; the 20 fixed roots beyond the twin copy lie in classes 2 and 3, are not closed under root sums, and "
+        "meet the twin copy in 240 nonzero products of 400": cyc == Counter({1: 40, 2: 10, 4: 45}) and len(twin) == 20
+            and len(extra) == 20 and Counter(cls(R[i]) for i in extra) == Counter({2: 10, 3: 10})
+            and any(tuple(R[i] + R[k]) in rootset and keys[tuple(R[i] + R[k])] not in extra for i in extra for k in extra)
+            and sum(1 for i in extra for k in twin if int(R[i] @ R[k])) == 240,
+        "every mixed root meets one copy in the pattern (6, 8, 6) and the other in (4, 12, 4) at products 1, 0, -1; "
+        "classes 1 and 4 have the first pattern against the carrier's copy, classes 2 and 3 against the twin's":
+            len(carrier_copy) == 20
+            and all(pattern(i, carrier_copy) == ((6, 8, 6) if cls(R[i]) in (1, 4) else (4, 12, 4)) for i in mixed)
+            and all(pattern(i, twin) == ((4, 12, 4) if cls(R[i]) in (1, 4) else (6, 8, 6)) for i in mixed),
+    }
+
+
+def notes_1207():
+    """The sibling's MODEL of 11:36-12:07: the remaining exact items, with three corrections."""
+    J, P, Pc, U, K, Qf, Pm, L = _hodge()
+    r5 = sp.sqrt(5)
+    E_ = carrier.edges()
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Ms = sp.Matrix(5, 10, lambda i, e: int(i in E_[e]))
+    both = sp.Matrix.vstack(Ms, Bs).nullspace()
+    n_, f_ = sp.Matrix(counts._oriented_cycle(1)), sp.Matrix(counts._oriented_cycle(2))
+    v = sp.Matrix([-3, 1, 2, 0, -1, 0, -2, 1, -1, 3])
+    D = sp.Matrix(sp.BlockMatrix([[sp.zeros(5), Ms], [Ms.T, sp.zeros(10)]]))
+    K15 = D * D
+    tr = [(K15 ** n).trace() for n in range(6)]
+    I15 = sp.eye(15)
+    P0, P3, P8 = (K15 - 3 * I15) * (K15 - 8 * I15) / 24, K15 * (8 * I15 - K15) / 15, K15 * (K15 - 3 * I15) / 40
+    matchings = lambda pts: [[]] if not pts else [[(pts[0], q)] + m for q in pts[1:]
+                                                  for m in matchings([t for t in pts[1:] if t != q])]
+    synth = [frozenset(frozenset(e) for e in m) for m in matchings(list(range(6)))]
+    rot = lambda sy: frozenset(frozenset((x + 1) % 6 for x in e) for e in sy)
+    ref = lambda sy: frozenset(frozenset(-x % 6 for x in e) for e in sy)
+    orbit = lambda sy: frozenset([sy, rot(sy), rot(rot(sy)), rot(rot(rot(sy))), rot(rot(rot(rot(sy)))), rot(rot(rot(rot(rot(sy)))))])
+    s_orbits = {orbit(sy) for sy in synth}
+    totals = [frozenset(t) for t in itertools.combinations(synth, 5)
+              if len({e for sy in t for e in sy}) == 15]
+    rot_t = lambda t: frozenset(rot(sy) for sy in t)
+    t_orbits = {frozenset([t, rot_t(t), rot_t(rot_t(t)), rot_t(rot_t(rot_t(t))), rot_t(rot_t(rot_t(rot_t(t)))),
+                           rot_t(rot_t(rot_t(rot_t(rot_t(t)))))]) for t in totals}
+    diam = frozenset(frozenset((i, i + 3)) for i in range(3))
+    inv_total = [t for t in totals if rot_t(t) == t]
+    Rr = assignment.roots10()
+    keys = {tuple(x): i for i, x in enumerate(Rr)}
+    cyc5 = [keys[tuple(np.r_[np.roll(x[:5], 1), x[5:]])] for x in Rr]
+    fixed = [i for i in range(240) if cyc5[i] == i]
+    second = [Rr[i] for i in fixed]
+    first = [x for x in Rr if not x[5:].any() and x[:5].sum() == 0]
+    Sx = sp.symbols("S", commutative=True)
+    ctx = _contexts()
+    Se = sum((C for C, s in ctx if s == 1), sp.zeros(10))
+    So = sum((C for C, s in ctx if s == -1), sp.zeros(10))
+    yuga = [432, 864, 1296, 1728]
+    return {
+        "the yuga lengths 432, 864, 1296, 1728 are 1, 2, 3, 4 times 432 and sum to 4320, with residues 2, 4, 1, 3 mod 5; "
+        "the frame phase 4j mod 5 rises by 1 per tick, each phase holds 864 frames, each (address, phase) 24, and a "
+        "tick keeps the address (864 = 24 x 36)": [y // 432 for y in yuga] == [1, 2, 3, 4] and sum(yuga) == 4320
+            and [y % 5 for y in yuga] == [2, 4, 1, 3] and (4 * 864) % 5 == 1 and set(Counter(4 * j % 5 for j in range(4320)).values()) == {864}
+            and 864 % 36 == 0,
+        "under the six-cycle the 15 synthemes fall in orbits of 1, 2, 3, 3 and 6, each kept by the reflection, the "
+        "single one being the three diameters; each duad lies in 3 synthemes; the 6 totals fall in orbits of 1, 2 and 3, "
+        "and the invariant total is the orbit of 2 with one orbit of 3, without the diameters":
+            len(synth) == 15 and sorted(len(o) for o in s_orbits) == [1, 2, 3, 3, 6]
+            and all({ref(sy) for sy in o} == set(o) for o in s_orbits) and frozenset([diam]) in s_orbits
+            and all(sum(1 for sy in synth if frozenset(e) in sy) == 3 for e in itertools.combinations(range(6), 2))
+            and len(totals) == 6 and sorted(len(o) for o in t_orbits) == [1, 2, 3] and len(inv_total) == 1
+            and diam not in inv_total[0]
+            and sorted(len(o) for o in s_orbits if set(o) <= inv_total[0]) == [2, 3],
+        "the coordinate five-cycle fixes the 20 roots of the second copy and makes 44 five-cycles of the rest; each copy "
+        "is a root system in which a root meets 6 others at product 1, and all 400 cross products vanish":
+            len(fixed) == 20 and len(first) == 20 and all(sum(1 for y in c if int(x @ y) == 100) == 6 for c in (first, second) for x in c)
+            and all(int(x @ y) == 0 for x in first for y in second)
+            and Counter(len(o) for o in Permutation(cyc5).full_cyclic_form) == Counter({1: 20, 5: 44}),
+        "on the edges the signless and signed kernels have dimensions 5 and 6 and meet in 3 (three 4-cycles), filling 8; "
+        "J_H does not keep that overlap; the vertex Grams 3I + J and 5I - J commute; the pentagon and pentagram are "
+        "cycles outside the overlap, and with it span 5 cycle directions, the sixth being (-3, 1, 2, 0, -1, 0, -2, 1, -1, 3) "
+        "of square 30": len(Ms.nullspace()) == 5 and len(Bs.nullspace()) == 6 and len(both) == 3
+            and sp.Matrix.hstack(*Ms.nullspace(), *Bs.nullspace()).rank() == 8
+            and sp.Matrix.hstack(*both, *(J * w for w in both)).applyfunc(sp.radsimp).rank() > 3
+            and (Ms * Ms.T) * (Bs * Bs.T) == (Bs * Bs.T) * (Ms * Ms.T)
+            and (Bs * n_).is_zero_matrix and (Bs * f_).is_zero_matrix and sp.Matrix.hstack(n_, f_, *both).rank() == 5
+            and (Bs * v).is_zero_matrix and all((v.T * w)[0] == 0 for w in [n_, f_] + both) and (v.T * v)[0] == 30,
+        "the signless D^2 has trace moments 15, 40, 200, 1240, 8840, 67480; M_(n+2) = 11 M_(n+1) - 24 M_n from M_1 on, but "
+        "11 x 40 - 24 x 15 = 80, not 200; its spectral projectors (K - 3)(K - 8)/24, K(8 - K)/15 and K(K - 3)/40 have "
+        "ranks 5, 8, 2 and sum to I; and S^2 + S^-2 = 3 gives (S + S^-1)^2 = 5": tr == [15, 40, 200, 1240, 8840, 67480]
+            and all(tr[n + 2] == 11 * tr[n + 1] - 24 * tr[n] for n in range(1, 4)) and 11 * 40 - 24 * 15 == 80
+            and [Pj.rank() for Pj in (P0, P3, P8)] == [5, 8, 2] and P0 + P3 + P8 == I15
+            and P0 * P3 == sp.zeros(15) and P3 * P8 == sp.zeros(15)
+            and sp.expand((Sx + 1 / Sx) ** 2 - (Sx ** 2 + Sx ** -2) - 2) == 0,
+        "corrections: the parity sums differ by (4/5) Curl = (4/sqrt5) J_H, not by J_H; on the cycles S_even = (16/5) "
+        "S_odd^-1, not 5/16 of it; and the yuga doubling is a label action on residues: in Z/4320 the steps 432 and 864 "
+        "have orders 10 and 5, and 2 x 1728 = 3456, not 1296": _zero(So - Se - 4 * J / r5) and not _zero(So - Se - J)
+            and _zero(Se * So - sp.Rational(16, 5) * Pc) and 4320 // gcd(432, 4320) == 10 and 4320 // gcd(864, 4320) == 5
+            and 2 * 1728 == 3456 != 1296,
+    }
 
 # ------------------------------------------------------------------- the diagram
 
@@ -4420,6 +4958,15 @@ JOINS = [
     ("words", "surface", "the twisted duads", "the fifteen words are the oriented edges of K6 under c: i -> i + 2 and r: i -> -i with the reflection's sign twisted, isometrically over Q(sqrt2) (O = A + B/sqrt2) and over no smaller field (fixed Gram determinants 108 and 54), integrally with index 8 (T_Z = A + B, Smith 1^12 2^3) and never unimodularly (mod-2 coinvariants 3 and 4); the untwisted duads differ (reflection trace 3)", T, "word_duads"),
     ("words", "A4", "the Coxeter five-cycle", "D3 on J7 = 1 + 3 std has commutant Q + M3(Q) and no rational C5; the least extension with one is 9 = 1 + 4 std, where U9 = 1 + I2 x companion(Phi_5), and the companion is A4's Coxeter element on its simple roots", T, "words_c5"),
     ("words", "golden", "the extension's golden equation", "on the extension's eight moving directions -(U9 + U9^-1) satisfies X^2 = X + I, so the golden companion acts there as it does on the edges", T, "words_c5"),
+    ("S5", "waves", "the parity contexts", "the six even and six odd contexts sum to 2 P_cycle -+ (2/sqrt5) J_H with J_H = Curl/sqrt5, so their difference is (4/5) Curl; every permutation acts on Curl through its sign, and S_even S_odd = (16/5) P_cycle (the hub, 11:58)", T, "hodge_contexts"),
+    ("waves", "goldenport", "the Hodge defect", "Curl/sqrt5 commutes with the Golden port's response except on the fixed plane: ||[J_H, G]||^2 = (8/5)(g_+ - g_-)^2, 32/5 for the means and 64000 for the variances; four labelled context responses (determinant -64 sqrt5/625) recover the four channels and the defect, and from the computed densities R_C/R_D -> 2/3 and R_even/R_odd -> 3/2", T, "context_responses"),
+    ("waves", "sixsite", "the Hodge-isotropic overlap", "the clique sees a 2-plane of the Golden port with C J_H C* = 0, so no orthogonal clique action extends the Hodge star (||AC - C J_H||^2 = 12/5 for every A), while the mixed involution K(x, y) = (x, J_H y + (J_H - I) C* x) keeps the joint Gram (det 3/25, condition 9 + 4 sqrt5); the residual clique S = I - CC* has S^-1 = I + 4 P_8 + (2/3) P_4", T, "overlap_hodge"),
+    ("waves", "bath", "the Hodge repair", "two copies of the bath realize the Hodge-averaged response (G + J_H G J_H)/2 at every s; averaging after inversion is smaller by the factor (a - b)^2/(a^2 + 3ab + b^2); the memory pays M_odd^2 = (4/5) P_fix, the fixed means become 240 +- 1/sqrt5, and both Hodge lines start at E^3", T, "hodge_averaging"),
+    ("words", "S5", "the six Sylow views", "c = (012) and r = (01)(34) act on the six Sylow five-cycle groups as i -> i + 2 and i -> -i on six points, so the words' twisted duads are duads of the Sylow views; as D3-modules the words are 3 + 2 sign + 5 std, the native V5 + E10 5 + 2 sign + 4 std and the cycles 2 sign + 2 std, so equivariant maps have rank at most 13 (attained), 5 and 4", T, "word_sylow"),
+    ("words", "carrier", "no native Golden action", "D^2's eigenspaces 0, 3 and 8 carry D3 multiplicities (1, 0, 2), (2, 2, 2) and (2, 0, 0), all at most 2, so no rational operator of order five other than I commutes with both D^2 and the word D3", OB, "word_sylow"),
+    ("circle", "E8", "the root address", "f(j) = R_diag^(2 floor(j/48)) r_(j mod 48) sends the 4320 frames onto the 240 roots, 18 each, through j mod 240, with f(j + 864) = R_diag f(j): the tick acts on addresses as the diagonal five-cycle; a chosen encoder, whose unit step is not an isometry (the hub, 11:58)", SR, "clock_root_address"),
+    ("time", "L0", "the phase is not a glue class", "no permutation of the 240 roots advances every glue class by 1 (class 0 has 40 roots, the others 50), so the tick's phase 4j mod 5 is not the glue grade; R_diag keeps every class", OB, "clock_root_address"),
+    ("AGL", "L0", "the carrier's doubling", "the doubling i -> 2i of AGL(1,5) on the carrier's sites, the twin fixed, permutes the 240 roots in 40 fixed, 10 two-cycles and 45 four-cycles; the 20 fixed beyond the twin copy are not a root system; every mixed root meets the two copies in the patterns (6, 8, 6) and (4, 12, 4) (the hub, 12:04)", T, "coordinate_bridge"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
@@ -4551,6 +5098,14 @@ LEDGER_ROWS = [
     ("J7 and the C5 extension (hub, 11:18)", "no rational C5 commutes with D3 on 1 + 3 std; the least extension is 9 = 1 + 4 std, with U9 = 1 + I2 x companion(Phi_5)", "replayed and joined (words -> A4: the companion is A4's Coxeter element; words -> golden)", T, "23"),
     ("the observation chain (hub, 11:18)", "rank(H9) = 9, rank([H9; L]) = 13, H13, anchors of determinant +-1, sums of +-9, the transported Return residues", "recorded, not replayed: the literal J7 matrix is in the receipts, not in the text", RP, "23"),
     ("MODEL (10:42-11:19)", "closed walks through 2872800; the wrong 220.6349198210; S5's orders and the cyclic fibre; condition 2 + sqrt5; the widths times 36", "replayed, the widths and factorizations as arithmetic; its four labelled responses at weight 1/sqrt5 are not defined in the notes and stay recorded", T, "23"),
+    ("the twelve contexts and the Hodge star (hub, 11:58)", "S_even, S_odd = 2 P_cycle -+ (2/sqrt5) J_H; J_H = (sqrt5/4)(S_odd - S_even); sextet condition phi^2; pair overlaps 4/5, 12/25, 18/25", "replayed and joined (S5 -> sound and light): J_H is layer 17's Curl over sqrt5", T, "23"),
+    ("the Hodge defect and the context responses (hub, 11:58)", "||[J_H, G]||^2 = (8/5)(g_+ - g_-)^2: 32/5 and 64000; R_A..R_D of determinant -64 sqrt5/625; D = (4/5)(g_+ - g_-) with error 46 eps; R_even/R_odd in [phi^-2, phi^2]; R_C/R_D -> 2/3", "replayed and joined (sound and light -> Golden port); the low-energy ratios now from the computed densities", T, "23"),
+    ("the two-port Gram and the overlap (hub, 11:58)", "det Q = 3/25, condition 9 + 4 sqrt5; S^-1 = I + 4 P_8 + (2/3) P_4; C J_H C* = 0; ||AC - C J_H||^2 = 12/5; K_mix keeps Q", "replayed and joined (sound and light -> six-site port)", T, "23"),
+    ("averaging and the causal repair (hub, 11:58, 12:04)", "E_H(G^-1)^-1 = (5ab/(a^2 + 3ab + b^2)) E_H(G); a - b = 2/s^2 - 760/s^3; the two-copy dilation; M_odd^2 = (4/5) P_fix; means 240 +- 1/sqrt5; Hodge lines (5 -+ sqrt5) C E^3", "replayed and joined (sound and light -> bath)", T, "23"),
+    ("the word branch on the Sylow views (hub, 11:58)", "c = (012), r = (01)(34) on six Sylow views; D3 decompositions; ranks 13, 5, 4; native D^2 multiplicities (1,0,2), (2,2,2), (2,0,0); G8, K8 mod 5", "replayed and joined (words -> S5; an obstruction words -> carrier); the ranks 5 and 4 rest on J7's stated character", T, "23"),
+    ("the clock-to-root address (hub, 11:58)", "R_diag and R_first: 0/20 fixed roots, 48/44 five-cycles, det 25/0; f(j + 864) = R_diag f(j), 18 frames per root; no permutation advances the glue classes", "replayed and joined (circle -> E8, a selection; an obstruction time -> A4 + A4')", SR, "23"),
+    ("the coordinate bridge (hub, 12:04)", "y2 = M x5 with M^T M = (4/25) P; k_native = 2 k_glue; doubling census 40/10/45; angle patterns (6,8,6) and (4,12,4)", "replayed: layer 24's site/twin embedding is that bridge; joined (AGL(1,5) -> A4 + A4')", T, "23"),
+    ("MODEL (11:36-12:07)", "yuga residues 2, 4, 1, 3; syntheme orbits 1, 2, 3, 3, 6; trace moments 15, 40, 200, 1240, 8840, 67480; the sixth cycle direction of square 30; S_even S_odd = 16/5", "replayed, with three corrections: the parity sums differ by (4/5) Curl, not J; S_even = (16/5) S_odd^-1, not 5/16; the yuga doubling is a residue-label action", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -4646,7 +5201,9 @@ def _checks():
         "walks_by_angle": walks_by_angle, "port_leak": port_leak, "two_ticks": two_ticks, "filled_simplex": filled_simplex,
         "charge_marks": charge_marks, "golden_root_port": golden_root_port, "shared_bath": shared_bath,
         "marked_charge": marked_charge, "twelve_markings": twelve_markings, "golden_infrared": golden_infrared,
-        "word_duads": word_duads, "words_c5": words_c5,
+        "word_duads": word_duads, "words_c5": words_c5, "hodge_contexts": hodge_contexts,
+        "context_responses": context_responses, "overlap_hodge": overlap_hodge, "hodge_averaging": hodge_averaging,
+        "word_sylow": word_sylow, "clock_root_address": clock_root_address, "coordinate_bridge": coordinate_bridge,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -5012,9 +5569,24 @@ def run():
             "probes), H13's kernel and rank([H13; H13 R]) = 15, the two coordinate anchors (determinant +-1) against two "
             "sums (+-9), the transported Return residues, and the hub's own T (determinant 6245535592857600), A and B (A "
             "and B are rebuilt here to the stated relations); the sibling's four labelled responses at weight 1/sqrt5 "
-            "(determinant -64 sqrt5/625) and their low-energy ratio 2/3, whose probes the notes do not define; the "
+            "(determinant -64 sqrt5/625) and their low-energy ratio 2/3, whose probes the notes do not define (the hub "
+            "defines them at 11:58, and they are replayed at 11:44); the "
             "intertwiner count 2 x 72 x 5 = 720; and the Schur bound V/(s + 256) <= Sigma(s) <= V/s, which rests on the "
             "stated band bound H <= 256", RP, True)
+    n07 = notes_1207()
+    rep.add("the 11:36-12:07 model: yuga residues and the frame phase, syntheme orbits under the six-cycle, the coordinate "
+            "five-cycle on the two copies, the kernel overlap and the sixth cycle direction, the signless trace moments and "
+            "projectors, with three corrections (the parity sums differ by (4/5) Curl, S_even = (16/5) S_odd^-1, and the "
+            "yuga doubling acts on residue labels, not on the clock)", T, all(n07.values()), n07)
+    rep.add("Drive check 11:44: the sibling's MODEL edition of 12:07 (those of 11:36-12:05, with the spine PDFs, are "
+            "superseded) and the hub's OES_Unified_Model_20261029.txt as revised at 11:58 and 12:04 were read; its exact "
+            "zip (761026, then 790830 bytes) was not run. The hub corrects the sibling's parity inverse (5/16 belongs to "
+            "the inverse) and its yuga doubling (a label action, not the clock), as here", RP, True)
+    rep.add("not replayed: the hub's own Sylow enumeration (labels 3, 1, 2, 5, 0, 4; a relabeling is built here instead), "
+            "the J7 rank witnesses 5 and 4, its 8 x 10 coordinate matrix (layer 24's site and twin embedding plays its role "
+            "here) and the receipts context_hodge, operator_geometry and causal_completion (283 assertions in six "
+            "receipts); the historical F4KDS1 identification of the six Sylow views with the synthematic totals and the "
+            "provenance of the Lorentz reference eta; and the conditional M6 = M4 x Sigma2 photon reduction, Z4 = V2 Z6", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
