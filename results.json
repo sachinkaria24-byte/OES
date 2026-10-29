@@ -57,36 +57,37 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.72,
+  "1-carrier": 0.73,
   "2-spectral": 0.01,
-  "3-spacetime": 10.44,
-  "4-native": 106.1,
-  "5-observer": 5.87,
-  "6-gravity": 6.94,
-  "7-cosmology": 1.9,
-  "8-frontier": 44.44,
-  "9-joins": 11.09,
-  "10-literal": 39.69,
-  "11-glue": 0.19,
-  "12-binding": 0.05,
-  "13-gates": 0.25,
-  "14-recurrence": 82.56,
-  "15-court": 1.83,
-  "16-handover": 1.47,
-  "17-waves": 0.89,
-  "18-snapshot": 1.78,
-  "19-spine": 5.93,
-  "20-canon": 6.5,
-  "21-ledger": 48.75,
-  "22-counts": 24.09,
-  "23-dots": 193.15,
-  "24-assignment": 3.51
+  "3-spacetime": 10.36,
+  "4-native": 107.59,
+  "5-observer": 7.05,
+  "6-gravity": 6.95,
+  "7-cosmology": 1.87,
+  "8-frontier": 45.94,
+  "9-joins": 8.95,
+  "10-literal": 42.09,
+  "11-glue": 0.23,
+  "12-binding": 0.08,
+  "13-gates": 0.3,
+  "14-recurrence": 87.54,
+  "15-court": 1.72,
+  "16-handover": 1.52,
+  "17-waves": 0.95,
+  "18-snapshot": 2.08,
+  "19-spine": 5.66,
+  "20-canon": 6.37,
+  "21-ledger": 46.25,
+  "22-counts": 22.91,
+  "23-dots": 187.2,
+  "24-assignment": 3.86,
+  "25-unify": 4.9
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 622,
-   "total": 622
+   "passed": 666,
+   "total": 666
   },
   "OBSTRUCTION": {
    "passed": 57,
@@ -101,8 +102,8 @@
    "total": 42
   },
   "SELECTED_REFERENCE": {
-   "passed": 18,
-   "total": 18
+   "passed": 20,
+   "total": 20
   },
   "UNFORMED": {
    "passed": 24,
@@ -113,8 +114,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 101,
-   "total": 101
+   "passed": 105,
+   "total": 105
   }
  },
  "checks": [
@@ -8760,6 +8761,149 @@
   },
   {
    "layer": "23-dots",
+   "name": "E8 -> cyclotomic line: every root generates E8 over Z[c'], so E8 is the ring Z[zeta30] with the trace form Tr(alpha x ybar), alpha = (2 + 2 eta + eta^2)/15, totally positive of norm 1/disc Q(zeta15); only the thirty roots of unity commute with c' (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Phi_30(c') = 0, so Z[c'] = Z[zeta30], and every one of the 240 roots v generates E8 over it: v, c'v, ..., c'^7 v is a basis": true,
+    "the form is the trace form <x v, y v> = Tr(alpha x ybar) with alpha = (2 + 2 eta + eta^2)/15, eta = zeta + zeta^-1: <v, c'^m v> = Tr(alpha zeta^m) for all thirty m (the trace of multiplication on E8 = O)": true,
+    "alpha is totally positive (alpha(c') is a positive self-adjoint operator) and N(alpha) = det alpha(c') = 1/1265625 = 1/disc Q(zeta15) = 3^-4 5^-6, which is why E8 is unimodular": true,
+    "only the thirty roots of unity commute with c' (Kronecker): exactly 30 roots w have the data <w, c'^m w> = <v, c'^m v>, the images of v under C_W(c') = <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cyclotomic line -> W(E8) clocks: the normalizer of <c'> is the roots of unity times Gal(Q(zeta30)/Q) = <7> x <11>, 240 elements; the day is sigma7, the golden clock sigma11 and the mirror sigma29, each times a unit u with u ubar = sigma(alpha)/alpha (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the normalizer of <c'> has 240 = 30 x 8 elements: for each unit k mod 30 exactly 30 roots w carry the data <w, c'^(km) w> = <v, c'^m v>, so every Galois automorphism of Q(zeta30) is realized, each by thirty isometries": true,
+    "the day, the golden clock and the mirror are sigma7, sigma11 and sigma29: n(x(c') v) = x(c'^k) u_n(c') v with u_n in Z[c'], and alpha u_n ubar_n = sigma_k(alpha); Gal = <7> x <11> with 29 = 7^2 x 11 mod 30": true,
+    "on the tick's field Q(zeta5) the day doubles (sigma7 = sigma2), the golden clock is trivial and the mirror inverts; on the sun's field Q(zeta3) the day is trivial and the other two conjugate": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "W(E8) clocks -> residue plane: the tick's 25 fixed momenta are E8/(1 - g)E8 = F25, the residue field of Q(zeta15) at 5, with c' a primitive sixth root of unity; the 240 roots lie ten over each of its 24 nonzero points (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1 - g has Smith form 1^6 5^2, so the tick's 25 fixed momenta are E8/(1 - g)E8 = F5^2; c' acts on it with x^2 - x + 1, irreducible mod 5, so F5[c'] is the field F25 = O/P (P the one prime of Q(zeta15) over 5) and c' is a primitive sixth root of unity there": true,
+    "the 240 roots fall on the 24 nonzero points of the plane, ten on each": true,
+    "the six lines pull back to six A4 + A4 sublattices: each holds 40 roots in two orthogonal A4 systems of rank 8, and the six root systems partition the 240 roots": true,
+    "the carrier's A4 + A4' is the pullback of one line: all 40 of its roots lie on it, and the index is 5 for both; its four glue classes are the four lines parallel to it, five points and fifty roots each": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "residue plane -> A4 + A4': the six F5-lines pull back to six A4 + A4 sublattices whose root systems partition the 240 roots; the carrier's A4 + A4' is one of them, and its four glue classes are the parallel lines (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1 - g has Smith form 1^6 5^2, so the tick's 25 fixed momenta are E8/(1 - g)E8 = F5^2; c' acts on it with x^2 - x + 1, irreducible mod 5, so F5[c'] is the field F25 = O/P (P the one prime of Q(zeta15) over 5) and c' is a primitive sixth root of unity there": true,
+    "the 240 roots fall on the 24 nonzero points of the plane, ten on each": true,
+    "the six lines pull back to six A4 + A4 sublattices: each holds 40 roots in two orthogonal A4 systems of rank 8, and the six root systems partition the 240 roots": true,
+    "the carrier's A4 + A4' is the pullback of one line: all 40 of its roots lie on it, and the index is 5 for both; its four glue classes are the four lines parallel to it, five points and fifty roots each": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "residue plane -> PGL(2,5): C_W(g) has 600 elements and acts on the plane as SL(2,5), the binary icosahedral group; with the day N_W(<g>) acts as GL(2,5), and on the six lines as PGL(2,5), the exceptional S5 (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C_W(g) has 600 elements; modulo <g> (the five that fix the plane) it acts on the plane as SL(2,5), the binary icosahedral group (120 matrices of determinant 1, one involution), and on the six lines as PSL(2,5) = A5, transitively": true,
+    "with the day the normalizer N_W(<g>) has 2400 elements, acting on the plane as GL(2,5) (480) and on the six lines as PGL(2,5) = S5, the exceptional S5, transitively": true,
+    "the carrier line's stabilizer has 400 elements, and 200 of them exchange A4 and A4': the carrier is the same from every line and either factor": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 + A4' -> A4: the carrier line's stabilizer in N_W(<g>) has 400 elements, half of which exchange A4 and A4', so the carrier's A4 is either factor of any residue line, unique up to the tick's symmetry (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C_W(g) has 600 elements; modulo <g> (the five that fix the plane) it acts on the plane as SL(2,5), the binary icosahedral group (120 matrices of determinant 1, one involution), and on the six lines as PSL(2,5) = A5, transitively": true,
+    "with the day the normalizer N_W(<g>) has 2400 elements, acting on the plane as GL(2,5) (480) and on the six lines as PGL(2,5) = S5, the exceptional S5, transitively": true,
+    "the carrier line's stabilizer has 400 elements, and 200 of them exchange A4 and A4': the carrier is the same from every line and either factor": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "residue plane -> surface: C_W(g) acts on the six residue lines as PSL(2,5) = A5, transitively, as the icosahedral rotations act on the six axes: the hemi-icosahedron's vertices are the tick's six A4 + A4 (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C_W(g) has 600 elements; modulo <g> (the five that fix the plane) it acts on the plane as SL(2,5), the binary icosahedral group (120 matrices of determinant 1, one involution), and on the six lines as PSL(2,5) = A5, transitively": true,
+    "with the day the normalizer N_W(<g>) has 2400 elements, acting on the plane as GL(2,5) (480) and on the six lines as PGL(2,5) = S5, the exceptional S5, transitively": true,
+    "the carrier line's stabilizer has 400 elements, and 200 of them exchange A4 and A4': the carrier is the same from every line and either factor": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "residue plane -> 801 matrix: on F25 the day is the Singer cycle 2 + 2 omega of order 24, turning the six lines in one 6-cycle, and AIR_801 mod 5 has the characteristic polynomial of minus the day, so the canon's 801 matrix is that Singer cycle (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on F25 the Coxeter clock has order 6 (order 3 on the lines); the day is the F25-element 2 + 2 omega, omega the image of c', of order 24: a Singer cycle, which turns the six lines in one 6-cycle": true,
+    "the golden clock (order 4) and the mirror (order 2) do not commute with omega: they are Frobenius-semilinear, as sigma11 and sigma29 act on Q(zeta3); each swaps lines in pairs": true,
+    "the carrier and twin rotations are transvections along the carrier line, inverse to each other (r r' = g acts trivially): each fixes the carrier line and turns the other five in a 5-cycle": true,
+    "AIR_801 mod 5 = [[3, 1], [1, 1]] has the irreducible characteristic polynomial x^2 + x + 2 of minus the day, so it is conjugate in GL(2,5) to -d on the tick's residue plane: the canon's 801 matrix is that Singer cycle": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cyclotomic line -> golden companion: Q(sqrt5) is the real quadratic field of Q(zeta5) inside Q(zeta30): the canon's A(h0) is the quadratic Gauss sum r + r^4 - r^2 - r^3, and on E8 the tick's Gauss sum squares to 5 (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the canon's golden operator K = A(h0), +1 on the pentagon and -1 on the pentagram, is the quadratic Gauss sum r + r^4 - r^2 - r^3 = sum (j/5) r^j of the carrier rotation, so K^2 = 5 on A4 and Phi = (1 + K)/2 is the golden ratio, the real quadratic field Q(sqrt5) inside Q(zeta5)": true,
+    "on all of E8 the tick's Gauss sum g + g^4 - g^2 - g^3 squares to 5 (1 + g + ... + g^4 = 0, as g fixes no vector), so sqrt5 and the golden ratio act on the whole lattice": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 + A4' -> carrier: the mixed roots project onto the carrier's A4 as the five vertex and ten edge weights, and their Gram plus 2/5 is the signless incidence M, so D = [[0, M], [M^T, 0]] is the shadow incidence (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 200 mixed roots project onto the carrier's A4 as the five vertex weights e_i - u (norm 4/5) and the ten edge weights e_j + e_k - 2u (norm 6/5), with signs: the carrier's fifteen atoms, 5 + 10, one SU(5) generation": true,
+    "the shadows' Gram plus 2/5 is the signless incidence M, so the carrier's Dirac D = [[0, M], [M^T, 0]] is the shadow incidence, and D^2 = M M^T + M^T M has spectrum 0^5 3^8 8^2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> 360 parent: with the six residue lines labelled so that the carrier rotation is (01234) and the carrier line is 5, the hub's t = (23)(45) lies outside the tick's PSL(2,5) and the two generate A6: the 360 parent is the alternating group of the tick's hexad (layer 25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "label the six residue lines so that the carrier rotation is (01234), fixing the carrier line as 5: the hub's t = (23)(45) lies outside the tick's PSL(2,5), and the two generate A6, so the 360 parent is the alternating group of the tick's hexad, marked at the carrier line": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> 360 parent: address(j) = r^p c_q sends the 4320 circle onto the 360 parent's settings twelve to one, with address(j + 864) = r address(j); no address is equivariant for the natural doubling (the settings' F20 orbits are 5^4 10^2 20^16 against the clock's fives), so this is a selected scheduling convention (the hub, 19:39)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "address(j) = r^p c_q with p = 4j mod 5, q = floor((j mod 864)/12) and c_q the least elements of the 72 left r-cycles of A6 sends the 4320 circle onto the 360 settings, twelve to one, with address(j + 864) = r address(j)": true,
+    "under the clock's F20 (j -> j + 864 and the doubling j -> 3457 j) every orbit has five states, but on the settings (left r and conjugation by the doubling d, odd in S6) the orbits are 5^4 10^2 20^16, so an equivariant image covers at most 20 settings: no natural equivariant address exists, and this one has 4200 doubling mismatches (a selected scheduling convention)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -8784,7 +8928,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 66 dots and 250 joins form one connected diagram (the obstructions left out)",
+   "name": "the 68 dots and 262 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8814,6 +8958,7 @@
      "cosmology",
      "cube",
      "cycles",
+     "cyclo",
      "darkport",
      "datum",
      "frame",
@@ -8838,6 +8983,7 @@
      "pg25",
      "pgl",
      "readout",
+     "residue",
      "rootgraph",
      "rotor",
      "simplex",
@@ -8861,7 +9007,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every layer of the build, 1 to 24, has a dot",
+   "name": "every layer of the build, 1 to 25, has a dot",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8888,7 +9034,8 @@
     21,
     22,
     23,
-    24
+    24,
+    25
    ],
    "note": ""
   },
@@ -8957,7 +9104,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 4, lattice (roots, lattices and tori): its 10 dots are joined among themselves",
+   "name": "level 4, lattice (roots, lattices and tori): its 12 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8967,9 +9114,11 @@
      "E8",
      "L0",
      "census",
+     "cyclo",
      "frame",
      "halfper",
      "momenta",
+     "residue",
      "rootgraph",
      "torus"
     ]
@@ -9026,7 +9175,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 20, operator-physics 22 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 21, operator-physics 22 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9056,7 +9205,8 @@
      "E -> A4",
      "E -> D5",
      "rotor -> E8",
-     "petersen -> D5"
+     "petersen -> D5",
+     "residue -> surface"
     ],
     [
      "D5 -> carrier",
@@ -9078,7 +9228,8 @@
      "halfper -> wedgeport",
      "L0 -> darkport",
      "L0 -> darkport",
-     "A4 -> parent"
+     "A4 -> parent",
+     "L0 -> carrier"
     ],
     [
      "carrier -> triple",
@@ -9109,13 +9260,13 @@
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 63 of the 66 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 65 of the 68 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 226,
+    "THEOREM": 237,
     "OBSTRUCTION": 11,
-    "SELECTED_REFERENCE": 9,
+    "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 4
    },
    "note": ""
@@ -9133,23 +9284,23 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 9, symmetry-operator 11, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 20, lattice-physics 5, operator-physics 22",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 14, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 21, lattice-physics 5, operator-physics 22",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "(2, 3)": 4,
-    "(3, 4)": 20,
+    "(2, 3)": 5,
+    "(3, 4)": 21,
     "(2, 4)": 19,
-    "(1, 3)": 9,
+    "(1, 3)": 14,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
-    "(1, 4)": 11,
+    "(1, 4)": 12,
     "(4, 5)": 22,
     "(2, 5)": 7,
     "(3, 5)": 5,
     "(0, 3)": 3,
-    "(0, 4)": 2,
+    "(0, 4)": 3,
     "(0, 5)": 2,
     "(1, 5)": 7
    },
@@ -9168,7 +9319,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 63 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
+   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 65 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -10147,6 +10298,62 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 19:00-19:15 model's exact claims: the dark detector's readings 4 and -1, the transposition traces 7 and 3 of the two 15s, and the roots 30 +- 3 sqrt97",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the fixed dark detector p_s/3 reads 4 on its own plane and -1 on the other four, summing to 0": true,
+    "a transposition fixes 3 vertices and 4 edges, trace 7 on the native 15, but in the exceptional action it fixes 3 of the 15 duads of the six Sylow labels, trace 3: the two 15s are different S5-modules": true,
+    "the metric polynomial's factor t^2 - 60 t + 27 has roots 30 +- 3 sqrt97, the larger below 60 since 97 < 100": "True"
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 19:09: the sibling's MODEL editions of 19:00-19:15, the latest (19:15) read as text; the spine29.ts editions and the OES-paper PDFs of 19:00-19:15 not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the sibling's integer readings of 19:00-19:15 (the twelve-mode bath's transfers, the rank ladders' minors, the moment band and the power-trace numerators)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 19:39 text's and the 19:37-20:02 model's other claims: the Fibonacci no-go det(Phi4^5 - I) = 121, the 37-channel reader's r-ranks 37 to 41, the weights 1, -3, 3, -1, A6's element orders and M^T M = 0^5 3^4 8^1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a Fibonacci block cannot meet an order-five tick: B^5 = [[8, 5], [5, 3]] has det(B^5 - I) = -11 and the native Phi4 has det(Phi4^5 - I) = 121, so T Phi4 = R T with R^5 = I forces T (Phi4^5 - I) = 0 and T = 0": true,
+    "under powers of r alone the 37-channel reader (O36 and the chi10 reader) reaches ranks 37, 38, 39, 40, 41, leaving 319 blind: waiting on the five-cycle does not install t": true,
+    "the sibling's notes: the weights 1, -3, 3, -1 kill every quadratic, with moments -6, -36, -150 and -540 at degrees 3 to 6; A6 has 1, 45, 80, 90 and 144 elements of orders 1 to 5, none of order 6, and its 144 of order 5 form 36 subgroups; M^T M on the ten edges has spectrum 0^5 3^4 8^1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 19:50: the hub's OES_Unified_Model_20261029.txt as revised at 19:39 (sources through 19:12), read as text (its zip, 6685879 bytes, not downloaded); the sibling's MODEL editions of 19:37-20:02, the latest (20:02) read as text; the spine29.ts editions and the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's record courts (R51 at raw distance 16, the balanced 56 layout, R50 at 14, the 924-case word census), the source dyad from covariance and commutator, the hidden-wave aliases of an unknown bath, the local observation table at the double-dark source, the 37-channel reader's convolution inverse, condition number 3 and 13-setting erasures, the minimum 100-setting decoder, the changed fibre action, and the sibling's readings",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -10629,6 +10836,262 @@
    "layer": "24-assignment",
    "name": "data/e8_assignment.json is the table of all 240 roots",
    "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "Phi_30(c') = 0, so Z[c'] = Z[zeta30], and every one of the 240 roots v generates E8 over it: v, c'v, ..., c'^7 v is a basis",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the form is the trace form <x v, y v> = Tr(alpha x ybar) with alpha = (2 + 2 eta + eta^2)/15, eta = zeta + zeta^-1: <v, c'^m v> = Tr(alpha zeta^m) for all thirty m (the trace of multiplication on E8 = O)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "alpha is totally positive (alpha(c') is a positive self-adjoint operator) and N(alpha) = det alpha(c') = 1/1265625 = 1/disc Q(zeta15) = 3^-4 5^-6, which is why E8 is unimodular",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "only the thirty roots of unity commute with c' (Kronecker): exactly 30 roots w have the data <w, c'^m w> = <v, c'^m v>, the images of v under C_W(c') = <c'>",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the normalizer of <c'> has 240 = 30 x 8 elements: for each unit k mod 30 exactly 30 roots w carry the data <w, c'^(km) w> = <v, c'^m v>, so every Galois automorphism of Q(zeta30) is realized, each by thirty isometries",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the day, the golden clock and the mirror are sigma7, sigma11 and sigma29: n(x(c') v) = x(c'^k) u_n(c') v with u_n in Z[c'], and alpha u_n ubar_n = sigma_k(alpha); Gal = <7> x <11> with 29 = 7^2 x 11 mod 30",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "on the tick's field Q(zeta5) the day doubles (sigma7 = sigma2), the golden clock is trivial and the mirror inverts; on the sun's field Q(zeta3) the day is trivial and the other two conjugate",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "1 - g has Smith form 1^6 5^2, so the tick's 25 fixed momenta are E8/(1 - g)E8 = F5^2; c' acts on it with x^2 - x + 1, irreducible mod 5, so F5[c'] is the field F25 = O/P (P the one prime of Q(zeta15) over 5) and c' is a primitive sixth root of unity there",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the 240 roots fall on the 24 nonzero points of the plane, ten on each",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the six lines pull back to six A4 + A4 sublattices: each holds 40 roots in two orthogonal A4 systems of rank 8, and the six root systems partition the 240 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the carrier's A4 + A4' is the pullback of one line: all 40 of its roots lie on it, and the index is 5 for both; its four glue classes are the four lines parallel to it, five points and fifty roots each",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "C_W(g) has 600 elements; modulo <g> (the five that fix the plane) it acts on the plane as SL(2,5), the binary icosahedral group (120 matrices of determinant 1, one involution), and on the six lines as PSL(2,5) = A5, transitively",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "with the day the normalizer N_W(<g>) has 2400 elements, acting on the plane as GL(2,5) (480) and on the six lines as PGL(2,5) = S5, the exceptional S5, transitively",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the carrier line's stabilizer has 400 elements, and 200 of them exchange A4 and A4': the carrier is the same from every line and either factor",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "on F25 the Coxeter clock has order 6 (order 3 on the lines); the day is the F25-element 2 + 2 omega, omega the image of c', of order 24: a Singer cycle, which turns the six lines in one 6-cycle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the golden clock (order 4) and the mirror (order 2) do not commute with omega: they are Frobenius-semilinear, as sigma11 and sigma29 act on Q(zeta3); each swaps lines in pairs",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the carrier and twin rotations are transvections along the carrier line, inverse to each other (r r' = g acts trivially): each fixes the carrier line and turns the other five in a 5-cycle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "AIR_801 mod 5 = [[3, 1], [1, 1]] has the irreducible characteristic polynomial x^2 + x + 2 of minus the day, so it is conjugate in GL(2,5) to -d on the tick's residue plane: the canon's 801 matrix is that Singer cycle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the canon's golden operator K = A(h0), +1 on the pentagon and -1 on the pentagram, is the quadratic Gauss sum r + r^4 - r^2 - r^3 = sum (j/5) r^j of the carrier rotation, so K^2 = 5 on A4 and Phi = (1 + K)/2 is the golden ratio, the real quadratic field Q(sqrt5) inside Q(zeta5)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "on all of E8 the tick's Gauss sum g + g^4 - g^2 - g^3 squares to 5 (1 + g + ... + g^4 = 0, as g fixes no vector), so sqrt5 and the golden ratio act on the whole lattice",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the 200 mixed roots project onto the carrier's A4 as the five vertex weights e_i - u (norm 4/5) and the ten edge weights e_j + e_k - 2u (norm 6/5), with signs: the carrier's fifteen atoms, 5 + 10, one SU(5) generation",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the shadows' Gram plus 2/5 is the signless incidence M, so the carrier's Dirac D = [[0, M], [M^T, 0]] is the shadow incidence, and D^2 = M M^T + M^T M has spectrum 0^5 3^8 8^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "label the six residue lines so that the carrier rotation is (01234), fixing the carrier line as 5: the hub's t = (23)(45) lies outside the tick's PSL(2,5), and the two generate A6, so the 360 parent is the alternating group of the tick's hexad, marked at the carrier line",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the 68 dots split into the seed, 47 derived dots, 10 canon inputs and 10 dots built from the inputs, with no dot left over or counted twice",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "every derived dot is built by a THEOREM join of layer 23 whose check holds, and its parents lead back to E8 without a cycle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "every dot built from an input comes by a held join that is not an obstruction, and leads back to an input",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "every input meets the derived part or another input at a held interface join, and two meet the seed exactly: the circle's selection 144 -> c' and the 801 matrix mod 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the trunk E8 -> cyclotomic line -> clocks -> residue plane -> A4 + A4' -> A4 -> K5 edges -> zero modes -> source has depth 8, and no dot is deeper than 8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the seed has no parameters: E8 is the only even unimodular lattice of rank 8 (cited), and the Coxeter element c' is a conjugate w c w^-1 of c = s1 ... s8 (layer 19's w)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the carrier line is any of the six residue lines (they are one orbit of N_W(<g>)), and the carrier's A4 is either factor of it (the line's stabilizer exchanges them)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the circle's selection 144 -> c'^k is one of eight, and the normalizer of <c'> realizes every unit k, so all eight are conjugate",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "cited: E8 is the unique even unimodular lattice of rank 8; Coxeter elements are conjugate; a transitive A5 on six points is the icosahedral action on the axes",
+   "status": "SELECTED_REFERENCE",
    "passed": true,
    "value": null,
    "note": ""

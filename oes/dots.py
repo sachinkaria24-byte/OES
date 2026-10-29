@@ -330,6 +330,16 @@ source plane, and six never can, since G(2, 5) has odd degree 5. Fifteen bright 
 exterior code. The dark measurement carries 6/5 bits, while the source states read nothing. An ideal bath record keeps
 the whole forcing history. The hub's 360 parent, Q[A6] with its coset readers, is a new dot: its Golden adapter reads
 the source at rank 5, its Golden30 has eight Fibonacci blocks, and its blind 126 is a central projector.
+
+Layer 25 adds two dots on the lattice level and eleven joins. The cyclotomic line is E8 = Z[zeta30] with the trace form,
+c' = zeta30. The residue plane is E8/(1 - g)E8 = F25, the tick's fixed momenta. From them the clocks are Galois, and the
+carrier's A4 + A4' is one of six residue lines. The tick's normalizer acts on those lines as PGL(2,5), and the day is a
+Singer cycle whose negative is AIR_801 mod 5. The golden ratio is the Gauss sum of the tick, the carrier is the shadow
+of the mixed roots, and the 360 parent lives on the tick's hexad.
+
+At 19:50 the hub's text (19:39) and the sibling's MODEL (19:37-20:02) came in. The hub's address map sends the
+4320 circle onto the 360 parent's settings twelve to one, but no address is equivariant for the natural doubling, so it
+joins the circle to the parent as a selection. A Fibonacci block cannot meet an order-five tick: det(Phi4^5 - I) = 121.
 """
 
 import functools
@@ -343,8 +353,8 @@ import sympy as sp
 from sympy.combinatorics import Permutation
 from sympy.matrices.normalforms import smith_normal_form
 
-from . import (assignment, band, binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover,
-               ledger, literal, native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
+from . import (assignment, band, binding, carrier, cosmology, counts, court, cyclotomic, gates, gatework, glue, gravity,
+               handover, ledger, literal, native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
 from .record import Report
 
 N = spine.N
@@ -7736,6 +7746,100 @@ def notes_1835():
     }
 
 
+def notes_1909():
+    """The sibling's MODEL (19:00-19:15): the exact claims among its readings."""
+    D = 15 * sp.eye(4) - 3 * sp.ones(4, 4)
+    P = [sp.eye(4)[:, k] for k in range(4)] + [-sp.ones(4, 1)]
+    reads = sp.Matrix(5, 5, lambda i, j: (P[i].T * D * P[j])[0] / 3)
+    H, sig, S5, sgn, U = _six_lines()
+    p = (1, 0, 2, 3, 4)
+    fixed_atoms = sum(p[i] == i for i in range(5)) + sum(tuple(sorted((p[i], p[j]))) == (i, j) for i, j in carrier.edges())
+    fixed_duads = sum({sig[p][a], sig[p][b]} == {a, b} for a, b in itertools.combinations(range(6), 2))
+    t = sp.Symbol("t")
+    return {
+        "the fixed dark detector p_s/3 reads 4 on its own plane and -1 on the other four, summing to 0":
+            reads == 5 * sp.eye(5) - sp.ones(5, 5) and all(sum(reads.row(i)) == 0 for i in range(5)),
+        "a transposition fixes 3 vertices and 4 edges, trace 7 on the native 15, but in the exceptional action it fixes "
+        "3 of the 15 duads of the six Sylow labels, trace 3: the two 15s are different S5-modules":
+            fixed_atoms == 7 and fixed_duads == 3 and all(sig[p][a] != a for a in range(6)),
+        "the metric polynomial's factor t^2 - 60 t + 27 has roots 30 +- 3 sqrt97, the larger below 60 since 97 < 100":
+            set(sp.solve(t ** 2 - 60 * t + 27, t)) == {30 - 3 * sp.sqrt(97), 30 + 3 * sp.sqrt(97)} and 30 + 3 * sp.sqrt(97) < 60,
+    }
+
+
+def address_map():
+    """The hub's text (19:39): the 4320 circle addresses the 360 parent's settings without becoming their dynamics."""
+    A = _a6()
+    Gr, mul, inv, r = A["G"], A["mul"], A["inv"], A["r"]
+    seen, reps = set(), []
+    for g in Gr:
+        if g not in seen:
+            cyc = [g]
+            for _ in range(4):
+                cyc.append(mul(r, cyc[-1]))
+            seen |= set(cyc)
+            reps.append(min(cyc))
+    reps = sorted(reps)
+    rp = [functools.reduce(mul, [r] * k, tuple(range(6))) for k in range(5)]
+    address = lambda j: mul(rp[(4 * j) % 5], reps[(j % 864) // 12])
+    d = tuple([(2 * i) % 5 for i in range(5)] + [5])
+    Cd = lambda a: mul(mul(d, a), inv(d))
+
+    def orbits(points, moves):
+        seen, out = set(), []
+        for a in points:
+            if a not in seen:
+                o, new = {a}, [a]
+                while new:
+                    new = [y for x in new for y in (m(x) for m in moves) if y not in o and not o.add(y)]
+                seen |= o
+                out.append(len(o))
+        return Counter(out)
+    images = Counter(address(j) for j in range(4320))
+    return {
+        "address(j) = r^p c_q with p = 4j mod 5, q = floor((j mod 864)/12) and c_q the least elements of the 72 left "
+        "r-cycles of A6 sends the 4320 circle onto the 360 settings, twelve to one, with address(j + 864) = r address(j)":
+            len(reps) == 72 and set(images.values()) == {12} and len(images) == 360
+            and all(address((j + 864) % 4320) == mul(r, address(j)) for j in range(4320)),
+        "under the clock's F20 (j -> j + 864 and the doubling j -> 3457 j) every orbit has five states, but on the "
+        "settings (left r and conjugation by the doubling d, odd in S6) the orbits are 5^4 10^2 20^16, so an equivariant "
+        "image covers at most 20 settings: no natural equivariant address exists, and this one has 4200 doubling "
+        "mismatches (a selected scheduling convention)":
+            set(orbits(range(4320), [lambda j: (j + 864) % 4320, lambda j: (3457 * j) % 4320])) == {5}
+            and orbits(Gr, [lambda a: mul(r, a), Cd]) == Counter({5: 4, 10: 2, 20: 16})
+            and Permutation(list(d)).is_odd and 3457 % 5 == 2
+            and sum(address((3457 * j) % 4320) != Cd(address(j)) for j in range(4320)) == 4200,
+    }
+
+
+def notes_1950():
+    """The hub's text (19:39) and the sibling's MODEL (19:37-20:02): the rest."""
+    A = _a6()
+    Gr, mul, right, r = A["G"], A["mul"], A["right"], A["r"]
+    Bm = sp.Matrix([[1, 1], [1, 0]])
+    c = np.array([[A["chi10"][g] for g in Gr]], dtype=np.int64)
+    order = lambda g: next(k for k in range(1, 7) if functools.reduce(mul, [g] * k) == tuple(range(6)))
+    orders = Counter(order(g) for g in Gr)
+    sylow = {frozenset(functools.reduce(mul, [g] * k, tuple(range(6))) for k in range(5)) for g in Gr if order(g) == 5}
+    w = [1, -3, 3, -1]
+    M = sp.Matrix(carrier.signless_incidence())
+    return {
+        "a Fibonacci block cannot meet an order-five tick: B^5 = [[8, 5], [5, 3]] has det(B^5 - I) = -11 and the native "
+        "Phi4 has det(Phi4^5 - I) = 121, so T Phi4 = R T with R^5 = I forces T (Phi4^5 - I) = 0 and T = 0":
+            Bm ** 5 == sp.Matrix([[8, 5], [5, 3]]) and (Bm ** 5 - sp.eye(2)).det() == -11
+            and (sp.diag(Bm, Bm) ** 5 - sp.eye(4)).det() == 121,
+        "under powers of r alone the 37-channel reader (O36 and the chi10 reader) reaches ranks 37, 38, 39, 40, 41, leaving "
+        "319 blind: waiting on the five-cycle does not install t":
+            _word_ranks(np.vstack([A["O36"], c]), lambda B_: right(B_, r), 5) == [37, 38, 39, 40, 41, 41],
+        "the sibling's notes: the weights 1, -3, 3, -1 kill every quadratic, with moments -6, -36, -150 and -540 at "
+        "degrees 3 to 6; A6 has 1, 45, 80, 90 and 144 elements of orders 1 to 5, none of order 6, and its 144 of order 5 "
+        "form 36 subgroups; M^T M on the ten edges has spectrum 0^5 3^4 8^1":
+            [sum(x * k ** j for k, x in enumerate(w)) for j in range(7)] == [0, 0, 0, -6, -36, -150, -540]
+            and orders == Counter({1: 1, 2: 45, 3: 80, 4: 90, 5: 144}) and len(sylow) == 36
+            and sorted((M.T * M).eigenvals().items()) == [(0, 5), (3, 4), (8, 1)],
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -7793,6 +7897,8 @@ DOTS = {
     "waves": ("sound and light", "the K5 edge Hodge complex: sound im d0, light ker d0^T, Curl = *d1", "17"),
     "torus": ("nine-torus", "T^9 of the nine positive critical frequencies, with a dense flow", "18"),
     "rootgraph": ("root graph", "the 240 roots, adjacent at inner product 1: a four-class association scheme", "3, 22, 23"),
+    "cyclo": ("cyclotomic line", "E8 = Z[zeta30] with the trace form Tr(alpha x ybar), alpha = (2 + 2 eta + eta^2)/15, and c' = zeta30", "25"),
+    "residue": ("residue plane", "E8/(1 - g)E8 = F25, the tick's 25 fixed momenta, and its six lines", "25"),
     "simplex": ("4-simplex", "the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade", "17, 23"),
     "air801": ("801 matrix", "AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24", "23"),
     "pg25": ("PG(2,5)", "the projective plane over F5: the conic, 15 exterior and 10 interior points", "23"),
@@ -7816,7 +7922,7 @@ LEVELS = [
     ("combinatorics", "graphs, complexes and the cube",
      ["V", "E", "cycles", "rotor", "petersen", "cube", "surface", "simplex", "pg25", "synthemes"]),
     ("lattice", "roots, lattices and tori",
-     ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph"]),
+     ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph", "cyclo", "residue"]),
     ("operator", "spaces with operators, ports and moments",
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
       "pauli", "gksl", "goldenport", "wedgeport", "darkport", "parent"]),
@@ -8081,6 +8187,18 @@ JOINS = [
     ("A4", "parent", "the marked injection", "a rank-4 T with Phi16 T = T Phi4 carries A4's two Fibonacci blocks (Phi4 = (1 + K)/2, K = A(h0)) into the Golden30's eight: a marked operator injection, not an A6 map (the hub, 18:22)", T, "golden30"),
     ("parent", "readout", "the blind 126", "closing the F30 rows under r and t gives ranks 30, 60, 90, 145, 216, 225, 234; the blind 126 = 1 + 25 + 100 is the central projector of the trivial, chi5 and chi10 blocks; the fibre means reach 260, and one chi10 reader completes 360 (the hub, 18:22)", T, "parent_closure"),
     ("synthemes", "parent", "two 36s", "the coset 36 has orbits 6 + 30 and the six-label/duad/syntheme 36 has orbits 6 + 15 + 5 + 10 under the transitive A5, so no A5-module isomorphism identifies them: their common cardinality is not a map (the hub, 18:22)", OB, "two_36s"),
+    ("E8", "cyclo", "the cyclotomic line", "every root generates E8 over Z[c'], so E8 is the ring Z[zeta30] with the trace form Tr(alpha x ybar), alpha = (2 + 2 eta + eta^2)/15, totally positive of norm 1/disc Q(zeta15); only the thirty roots of unity commute with c' (layer 25)", T, "cyclotomic_line"),
+    ("cyclo", "clocks", "the clocks are Galois", "the normalizer of <c'> is the roots of unity times Gal(Q(zeta30)/Q) = <7> x <11>, 240 elements; the day is sigma7, the golden clock sigma11 and the mirror sigma29, each times a unit u with u ubar = sigma(alpha)/alpha (layer 25)", T, "galois_clocks"),
+    ("clocks", "residue", "the residue plane", "the tick's 25 fixed momenta are E8/(1 - g)E8 = F25, the residue field of Q(zeta15) at 5, with c' a primitive sixth root of unity; the 240 roots lie ten over each of its 24 nonzero points (layer 25)", T, "residue_plane"),
+    ("residue", "L0", "one residue line", "the six F5-lines pull back to six A4 + A4 sublattices whose root systems partition the 240 roots; the carrier's A4 + A4' is one of them, and its four glue classes are the parallel lines (layer 25)", T, "residue_plane"),
+    ("residue", "pgl", "the tick's normalizer", "C_W(g) has 600 elements and acts on the plane as SL(2,5), the binary icosahedral group; with the day N_W(<g>) acts as GL(2,5), and on the six lines as PGL(2,5), the exceptional S5 (layer 25)", T, "tick_normalizer"),
+    ("L0", "A4", "either factor", "the carrier line's stabilizer in N_W(<g>) has 400 elements, half of which exchange A4 and A4', so the carrier's A4 is either factor of any residue line, unique up to the tick's symmetry (layer 25)", T, "tick_normalizer"),
+    ("residue", "surface", "the six axes", "C_W(g) acts on the six residue lines as PSL(2,5) = A5, transitively, as the icosahedral rotations act on the six axes: the hemi-icosahedron's vertices are the tick's six A4 + A4 (layer 25)", T, "tick_normalizer"),
+    ("residue", "air801", "the Singer cycle", "on F25 the day is the Singer cycle 2 + 2 omega of order 24, turning the six lines in one 6-cycle, and AIR_801 mod 5 has the characteristic polynomial of minus the day, so the canon's 801 matrix is that Singer cycle (layer 25)", T, "clock_residues"),
+    ("cyclo", "golden", "the Gauss sum", "Q(sqrt5) is the real quadratic field of Q(zeta5) inside Q(zeta30): the canon's A(h0) is the quadratic Gauss sum r + r^4 - r^2 - r^3, and on E8 the tick's Gauss sum squares to 5 (layer 25)", T, "golden_gauss"),
+    ("L0", "carrier", "the shadows", "the mixed roots project onto the carrier's A4 as the five vertex and ten edge weights, and their Gram plus 2/5 is the signless incidence M, so D = [[0, M], [M^T, 0]] is the shadow incidence (layer 25)", T, "carrier_shadows"),
+    ("pgl", "parent", "the hexad", "with the six residue lines labelled so that the carrier rotation is (01234) and the carrier line is 5, the hub's t = (23)(45) lies outside the tick's PSL(2,5) and the two generate A6: the 360 parent is the alternating group of the tick's hexad (layer 25)", T, "parent_hexad"),
+    ("circle", "parent", "the address map", "address(j) = r^p c_q sends the 4320 circle onto the 360 parent's settings twelve to one, with address(j + 864) = r address(j); no address is equivariant for the natural doubling (the settings' F20 orbits are 5^4 10^2 20^16 against the clock's fives), so this is a selected scheduling convention (the hub, 19:39)", SR, "address_map"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -8182,7 +8300,7 @@ LEDGER_ROWS = [
     ("the Hodge star mod 2", "Lambda^4 R^8 = 35 + 35", "joined: e_S = e_T mod 2 Lambda exactly for Hodge-dual four-sets, onto 35 D8 half-periods", T, "23"),
     ("the memory clock (layer 3)", "order-90 quotient of a 125-state operator", "joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate", SR, "3, 23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
-    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-24 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
+    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-25 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
     ("SHELLS, CONVOLUTION, SEVENTH (08:43-08:58)", "two roots land on 9361 points in five shells; a root is a sum of three, four and six roots in 5253, 574224 and 9734696160 ways", "replayed: shells 240/56/14/2/1 deep on 1/240/2160/6720/240 points, and W_(k+1)/240 by transitivity", T, "23"),
     ("MEMORY, FOURTH (09:16, 09:19)", "four-step walks between roots 1260720, 574224, 253512, 107508, 43936 by inner product, with their fourth moments", "replayed against all 240 partners: the walks of length 0 to 4 depend only on the inner product, and the five fourth moments hold", T, "23"),
     ("MOMENTS, DEGREE (08:37, 08:40)", "241, 183, 235, 495 are walk moments; 183 = 240 - 56 - 1 and 495 = 183 + 6(56 - 4), the 4 the cut rank and the 6 the cycles", "replayed, with a correction: in G0 = X^T X the 4 counts the clique's other sites next to two sites and the 6 the port's sites; the cut rank and the cycle count are the same integers, not the same counts", T, "23, 24"),
@@ -8257,6 +8375,14 @@ LEDGER_ROWS = [
     ("Golden30 (hub, 18:22)", "ranks 30 and 60; q^6 (q + 6)^5 (q - 6)^9 (q^2 + 3q - 99)^8; Return > 17/20; (24/25)^14 (7821/10000)^8; eight Fibonacci blocks; Phi16 T = T Phi4", "replayed and joined (360 parent -> golden companion, A4 -> 360 parent)", T, "23"),
     ("the blind 126 (hub, 18:22)", "30, 60, 90, 145, 216, 225, 234; trace 126 = 1 + 25 + 100; 260; the chi10 reader's 100; 360 and 37", "replayed and joined (360 parent -> readout)", T, "23"),
     ("two 36s (hub, 18:22)", "6 + 30 against 6 + 15 + 5 + 10", "replayed as an obstruction (synthemes -> 360 parent)", OB, "23"),
+    ("the cyclotomic line (layer 25)", "every root generates E8 over Z[c']; alpha = (2 + 2 eta + eta^2)/15, N(alpha) = 1/1265625; C_W(c') = <c'>", "constructed and joined (E8 -> cyclotomic line)", T, "25"),
+    ("the Galois clocks (layer 25)", "|N(<c'>)| = 240 = 30 x 8; the day sigma7, the golden clock sigma11, the mirror sigma29; u ubar = sigma(alpha)/alpha", "constructed and joined (cyclotomic line -> W(E8) clocks)", T, "25"),
+    ("the residue plane (layer 25)", "SNF(1 - g) = 1^6 5^2; F25 with c' of order 6; 24 points of 10 roots; six A4 + A4", "constructed and joined (W(E8) clocks -> residue plane -> A4 + A4')", T, "25"),
+    ("the tick's normalizer (layer 25)", "|C_W(g)| = 600 onto SL(2,5); |N| = 2400 onto GL(2,5), PGL(2,5) on the lines; stabilizer 400 with 200 swaps", "constructed and joined (residue plane -> PGL(2,5), surface; A4 + A4' -> A4)", T, "25"),
+    ("the Singer cycle (layer 25)", "the day = 2 + 2 omega, order 24, a 6-cycle on the lines; AIR_801 mod 5 ~ -day (x^2 + x + 2)", "constructed and joined (residue plane -> 801 matrix)", T, "25"),
+    ("the Gauss sum and the shadows (layer 25)", "A(h0) = r + r^4 - r^2 - r^3; (g + g^4 - g^2 - g^3)^2 = 5; shadow Gram + 2/5 = M", "constructed and joined (cyclotomic line -> golden companion; A4 + A4' -> carrier)", T, "25"),
+    ("the hexad (layer 25)", "r = (01234) fixing the carrier line; t outside PSL(2,5); <PSL(2,5), t> = A6", "constructed and joined (PGL(2,5) -> 360 parent)", T, "25"),
+    ("the address map (hub, 19:39)", "4320 -> 360 twelve to one, address(j + 864) = r address(j); orbits 5^4 10^2 20^16; 4200 mismatches", "replayed and joined as a selection (circle -> 360 parent)", SR, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
     ("the six-line frame (hub, 14:07)", "Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle", "replayed; the twenty-term cubic formulas hold as polynomial identities", T, "23"),
@@ -8377,6 +8503,11 @@ def _checks():
         "plane_tomography": plane_tomography, "seventh_sensor": seventh_sensor, "preparability": preparability,
         "exterior_code": exterior_code, "dark_information": dark_information, "causal_records": causal_records,
         "parent_readers": parent_readers, "golden30": golden30, "parent_closure": parent_closure, "two_36s": two_36s,
+        "cyclotomic_line": cyclotomic.cyclotomic_line, "galois_clocks": cyclotomic.galois_clocks,
+        "residue_plane": cyclotomic.residue_plane, "tick_normalizer": cyclotomic.tick_normalizer,
+        "clock_residues": cyclotomic.clock_residues, "golden_gauss": cyclotomic.golden_gauss,
+        "carrier_shadows": cyclotomic.carrier_shadows, "parent_hexad": cyclotomic.parent_hexad,
+        "address_map": address_map,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -8474,10 +8605,15 @@ def dots_page():
     return "\n".join(lines)
 
 
+@functools.lru_cache(maxsize=1)
+def check_results():
+    """Every join's check, evaluated once (layer 25 reuses them)."""
+    return {key: fn() for key, fn in _checks().items()}
+
+
 def run():
     rep = Report("23-dots")
-    checks = _checks()
-    results = {key: fn() for key, fn in checks.items()}
+    results = check_results()
     held = {key: all(bool(v) for v in res.values()) for key, res in results.items()}
     passed = [held[ck] for *_, ck in JOINS]
     for (a, b, _, what, status, ck), ok in zip(JOINS, passed):
@@ -8486,7 +8622,7 @@ def run():
     rep.add(f"the {len(DOTS)} dots and {len(JOINS)} joins form one connected diagram (the obstructions left out)", T,
             len(comps) == 1, [sorted(c) for c in comps])
     lv = levels(passed)
-    rep.add("every layer of the build, 1 to 24, has a dot", T, lv["layers"] == list(range(1, 25)), lv["layers"])
+    rep.add("every layer of the build, 1 to 25, has a dot", T, lv["layers"] == list(range(1, 26)), lv["layers"])
     for k, (name, what, dots) in enumerate(LEVELS):
         rep.add(f"level {k + 1}, {name} ({what}): its {len(dots)} dots are joined among themselves", T,
                 len(lv["inside"][name]) == 1, [sorted(c) for c in lv["inside"][name]])
@@ -8885,6 +9021,25 @@ def run():
             "leak 2/245 and its placements (W36 E36 = I7, W36 K49 = 0, the two-error decodings), the 60-dimensional "
             "dilation's literal R and W, the Through736 reports (the 47-copy Gaussian reader, the determinant-155 adapter, "
             "the circle frequency 605.65), and the sibling's readings", RP, True)
+    n09 = notes_1909()
+    rep.add("the 19:00-19:15 model's exact claims: the dark detector's readings 4 and -1, the transposition traces 7 and "
+            "3 of the two 15s, and the roots 30 +- 3 sqrt97", T, all(n09.values()), n09)
+    rep.add("Drive check 19:09: the sibling's MODEL editions of 19:00-19:15, the latest (19:15) read as text; the "
+            "spine29.ts editions and the OES-paper PDFs of 19:00-19:15 not read", RP, True)
+    rep.add("not replayed: the sibling's integer readings of 19:00-19:15 (the twelve-mode bath's transfers, the rank "
+            "ladders' minors, the moment band and the power-trace numerators)", RP, True)
+    n50 = notes_1950()
+    rep.add("the 19:39 text's and the 19:37-20:02 model's other claims: the Fibonacci no-go det(Phi4^5 - I) = 121, the "
+            "37-channel reader's r-ranks 37 to 41, the weights 1, -3, 3, -1, A6's element orders and M^T M = 0^5 3^4 8^1",
+            T, all(n50.values()), n50)
+    rep.add("Drive check 19:50: the hub's OES_Unified_Model_20261029.txt as revised at 19:39 (sources through 19:12), read "
+            "as text (its zip, 6685879 bytes, not downloaded); the sibling's MODEL editions of 19:37-20:02, the latest "
+            "(20:02) read as text; the spine29.ts editions and the OES-paper PDFs not read", RP, True)
+    rep.add("not replayed: the hub's record courts (R51 at raw distance 16, the balanced 56 layout, R50 at 14, the "
+            "924-case word census), the source dyad from covariance and commutator, the hidden-wave aliases of an unknown "
+            "bath, the local observation table at the double-dark source, the 37-channel reader's convolution inverse, "
+            "condition number 3 and 13-setting erasures, the minimum 100-setting decoder, the changed fibre action, and "
+            "the sibling's readings", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

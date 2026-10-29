@@ -3,9 +3,9 @@ from fractions import Fraction
 
 import pytest
 
-from oes import (assignment, band, binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates,
-                 gatework, glue, gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot,
-                 spacetime, spectral, spine, waves)
+from oes import (assignment, band, binding, canon_sync, carrier, cosmology, counts, court, cyclotomic, dots, frontier,
+                 gates, gatework, glue, gravity, handover, joins, ledger, literal, native, observer, recurrence,
+                 snapshot, spacetime, spectral, spine, unify, waves)
 
 LAYERS = {
     "carrier": carrier.run,
@@ -314,7 +314,7 @@ def test_all_dots_are_joined():
 def test_every_level_is_joined():
     passed = [True] * len(dots.JOINS)
     lv = dots.levels(passed)
-    assert lv["layers"] == list(range(1, 25))
+    assert lv["layers"] == list(range(1, 26))
     assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
     assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
     # THEOREM joins alone leave out exactly the two conditional dots and the memory clock, joined by selection
@@ -335,11 +335,11 @@ def test_every_pair_of_levels_and_no_two_maps(monkeypatch):
         out = check()
         assert all(out.values()), out
     # both checks can fail: drop the maps between symmetry and physics, and that pair has none;
-    # drop the 801 matrix's map to the surface, and two maps cut the matrix off
+    # drop the 801 matrix's maps to the surface and from the residue plane, and two maps cut the matrix off
     joins = dots.JOINS
     monkeypatch.setattr(dots, "JOINS", [j for j in joins if {dots.LEVEL_OF[j[0]], dots.LEVEL_OF[j[1]]} != {1, 5}])
     assert dots.level_pairs()[(1, 5)] == 0
-    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] != ("air801", "surface")])
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] not in (("air801", "surface"), ("residue", "air801"))])
     assert not all(dots.no_two_maps().values())
 
 
@@ -624,6 +624,32 @@ def test_the_1835_replay():
     r4 = [functools.reduce(A["mul"], [A["r"]] * k) for k in range(1, 4)]
     assert len(dots._rref_p(np.vstack([A["O90"]] + [A["right"](A["O90"], g) for g in r4]))[1]) < 360
 
+
+
+def test_the_one_object():
+    for check in (cyclotomic.cyclotomic_line, cyclotomic.galois_clocks, cyclotomic.residue_plane,
+                  cyclotomic.tick_normalizer, cyclotomic.clock_residues, cyclotomic.golden_gauss,
+                  cyclotomic.carrier_shadows, cyclotomic.parent_hexad, unify.uniqueness, unify.derivation,
+                  dots.notes_1909, dots.address_map, dots.notes_1950):
+        out = check()
+        assert all(out.values()), out
+    import numpy as np
+    k = cyclotomic.clocks()
+    I8 = np.eye(8, dtype=np.int64)
+    # the carrier rotation alone fixes the twin A4', so it has no finite residue plane; the tick alone does not make
+    # E8 a cyclic line (its ring Z[zeta5] has rank 4)
+    assert np.linalg.matrix_rank((I8 - k["r"]).astype(float)) == 4
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    g = k["g"]
+    assert all(np.linalg.matrix_rank(np.array([spine.mpow(g, j) @ v for j in range(8)], dtype=float)) == 4 for v in RB[:24])
+    # the golden clock is not F25-linear, and a wrong derivation edge is caught
+    Q = cyclotomic.on_plane(k["golden"])
+    X = cyclotomic.on_plane(k["c"])
+    assert not np.array_equal((Q @ X) % 5, (X @ Q) % 5)
+    assert unify._join("L0", "residue", "k5_roots") is None
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent
+    assert (root / "docs" / "UNIFIED.md").read_text() == unify.unified_page()
 
 def test_the_free_chain():
     out = dots.free_chain()

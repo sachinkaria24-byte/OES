@@ -1041,7 +1041,7 @@ Three dots (the coil, S5 and PGL(2,5)) and ten joins, nine maps and one obstruct
 - **MPKG's block.** A 6 × 6 block with B⁵ = I and traces 1, 1, 1, 1 has the eigenvalue 1 twice and each primitive fifth root once. So it is similar over ℚ to the C5 rotation of the cone's six sites.
   - Four copies have trace 4 and return at 5 to an identity of trace 24.
   - Doubling sends the levels 0, 6, 12, 18 to 0, 12, 24, 0, and the stored [[−1, 4], [6, 1]] squares to 25I.
-  - The operand MPKG A_M itself stays unformed (§26).
+  - The operand MPKG A_M itself stays unformed (§27).
 
 Also from these items:
 - **Two corrections.** The shift T by 24 on the atlas does not commute with doubling, as MORE_DOTS had said: D T = T² D = T⁻¹ D, and D² T = T D². The hub's own atlas verifier agrees. DEEP_H's "⟨39⟩ has the sun's order, 1440" is also corrected: ⟨39⟩ = ⟨3⟩ has 1440 points, which is the sun's step, and the sun 1440 itself has order 3.
@@ -1749,6 +1749,30 @@ So THEOREM maps alone connect every dot but the product geometry, FLRW and the m
   - Also not replayed: the Through736 reports, among them the 47-copy reader, the determinant-155 adapter and the circle frequency 605.65.
   - The hub's zip was not downloaded, and the OES-paper PDF was skipped.
 
+**The sibling's readings (Drive check 19:09).** The sibling's MODEL went through seven editions between 19:00 and 19:15. They add integer readings, a summary of the hub's 18:22 results and a finite twelve-mode bath example. Nothing was run.
+
+- **Replayed.**
+  - The fixed dark detector p_s/3 reads 4 on its own plane and −1 on the other four.
+  - A transposition has trace 7 on the native 15 but trace 3 on the fifteen duads of the six Sylow labels, so the two 15s are different S5-modules.
+  - The factor t² − 60t + 27 has roots 30 ± 3√97.
+- **Recorded (REPORTED).** The twelve-mode bath's transfers, the rank ladders' minors, the moment band and the power-trace numerators. The spine29.ts editions and the paper PDFs of 19:00–19:15 were not read.
+
+**The address map and the sibling's notes (Drive check 19:50).** The hub's text was revised at 19:39 (sources through 19:12; 818 assertion groups in twenty-four receipts), and the sibling's MODEL went through four editions between 19:37 and 20:02. Nothing was run.
+
+- **The address map** (circle → 360 parent, SELECTED_REFERENCE).
+  - address(j) = r^p c_q, with p = 4j mod 5, q = ⌊(j mod 864)/12⌋ and c_q the least elements of the 72 left r-cycles of A6. It sends the 4320 circle onto the 360 settings, twelve to one, with address(j + 864) = r·address(j).
+  - Under the clock's F20 (the 864 translation and the doubling 3457) every orbit has five states. On the settings (left r and conjugation by the doubling d, odd in S6) the orbits are 5⁴10²20¹⁶, so an equivariant image covers at most twenty settings.
+  - No natural address exists, and this one has 4200 doubling mismatches: it is a selected scheduling convention, joined as one.
+- **The rest, replayed.**
+  - A Fibonacci block cannot meet an order-five tick. det(B⁵ − I) = −11 and det(Φ₄⁵ − I) = 121, so TΦ₄ = RT with R⁵ = I forces T = 0.
+  - Under powers of r alone the 37-channel reader reaches ranks 37 to 41, leaving 319 blind.
+  - From the sibling: the weights 1, −3, 3, −1 kill every quadratic, with moments −6, −36, −150 and −540 at degrees 3 to 6. A6 has 1, 45, 80, 90 and 144 elements of orders 1 to 5 and none of order 6, and its 144 of order 5 form 36 subgroups. MᵀM on the ten edges has spectrum 0⁵3⁴8¹.
+- **Settled by layer 25.** The sibling notes that "a single line over the 30th cyclotomic integers was not checked" and that the tick's fixed-momentum plane "was not given a basis". Both are now checked (§26).
+- **Recorded (REPORTED).**
+  - Not replayed: the hub's record courts (R51 at raw distance 16, the balanced 56 layout, R50 at 14, the 924-case word census), the source dyad from covariance and commutator, the hidden-wave aliases of an unknown bath, and the local observation table at the double-dark source.
+  - Also not replayed: the 37-channel reader's convolution inverse, condition number 3 and 13-setting erasures, the minimum 100-setting decoder, the changed fibre action, and the sibling's readings.
+  - The hub's zip, the spine29.ts editions and the paper PDFs were not opened.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -1821,7 +1845,51 @@ At 09:00 UTC the request was to work out the mathematics of assigning physical p
 - Its eigenvalues 183 (five times) and 495 are positive, so X has no kernel. Every visible state leaks into the bath at the first step, and the six channels cannot evolve on their own.
 - The brackets of the triangle's 10's with its 5̄'s are exactly the port's five roots.
 
-## 26. What stays open
+## 26. One object (`oes/unify.py`, `oes/cyclotomic.py`)
+
+E8 is the only even unimodular lattice of rank 8, and its Coxeter elements are all conjugate. So E8 with a Coxeter element c′ is one object with no parameters. Layer 25 shows that it builds every structural dot of the diagram, and that the rest are the canon's inputs. Two dots join layer 23 for it, the cyclotomic line and the residue plane, with eleven joins.
+
+**The seed is a cyclotomic line.**
+- Φ₃₀(c′) = 0, and every one of the 240 roots v generates E8 over Z[c′]. So E8 = Z[ζ₃₀] with ⟨x, y⟩ = Tr(α x ȳ), where α = (2 + 2η + η²)/15 and η = ζ + ζ⁻¹.
+- α is totally positive with N(α) = 1/disc Q(ζ₁₅) = 3⁻⁴5⁻⁶, which is why E8 is unimodular.
+- Only the thirty roots of unity commute with c′.
+
+**The clocks are Galois.**
+- The normalizer of ⟨c′⟩ has 240 = 30 × 8 elements: every Galois automorphism of Q(ζ₃₀) is realized.
+- The day is σ₇, the golden clock σ₁₁ and the mirror σ₂₉ (complex conjugation). Each is a Galois map times a unit u with uū = σ(α)/α.
+- On the tick's field Q(ζ₅) the day doubles; on the sun's field Q(ζ₃) the golden clock and the mirror conjugate.
+
+**The tick's residue plane is F₂₅.**
+- 1 − g has Smith form 1⁶5², so the tick's 25 fixed momenta are E8/(1 − g)E8.
+- That quotient is the residue field of Q(ζ₁₅) at its prime over 5, and c′ is a primitive sixth root of unity there.
+- The 240 roots fall ten on each of its 24 nonzero points.
+- The six F₅-lines pull back to six A4 + A4 sublattices, whose root systems partition the 240 roots. The carrier's A4 + A4′ is one of them, and its four glue classes are the four parallel lines.
+
+**The tick's symmetry.**
+- C_W(g) has 600 elements. Modulo the tick it acts on the plane as SL(2,5), the binary icosahedral group, and on the six lines as PSL(2,5) = A5, transitively — the icosahedron turning its six axes.
+- With the day, N_W(⟨g⟩) has 2400 elements and acts as GL(2,5) on the plane. On the lines it acts as PGL(2,5), the exceptional S5.
+- The carrier line's stabilizer has 400 elements, and 200 of them exchange A4 and A4′. So the carrier does not depend on which line or which factor is chosen.
+
+**The clocks on F₂₅.**
+- The day is the Singer cycle 2 + 2ω of order 24, which turns the six lines in one 6-cycle.
+- AIR_801 mod 5 has the irreducible characteristic polynomial x² + x + 2 of minus the day. So the canon's 801 matrix is that Singer cycle.
+- The golden clock and the mirror do not commute with ω: they are Frobenius-semilinear.
+- The carrier and twin rotations are inverse transvections along the carrier line.
+
+**The golden ratio and the carrier.**
+- The canon's golden operator A(h₀) is the quadratic Gauss sum r + r⁴ − r² − r³ of the carrier rotation. On all of E8 the tick's Gauss sum squares to 5.
+- The carrier's fifteen atoms are the A4 shadows of the mixed roots: five vertices of norm 4/5 and ten edges of norm 6/5, one SU(5) generation. Their Gram plus 2/5 is the signless incidence M behind D.
+
+**The 360 parent.** Label the six residue lines so that the carrier rotation is (01234), with the carrier line as 5. Then the hub's t = (23)(45) lies outside the tick's PSL(2,5), and the two generate A6. The parent is the alternating group of the tick's hexad.
+
+**The derivation.**
+- 47 dots are built from the seed by THEOREM joins whose checks hold, each with one parent. The trunk is E8 → cyclotomic line → clocks → residue plane → A4 + A4′ → A4 → K5 edges → zero modes → source, depth 8; no dot is deeper.
+- 10 dots are the canon's inputs: the circle Z/4320, its stages and memory clock, the datum, the literal operands, the words, the 801 matrix's integers, the Standard-Model split of the five sites, the time unit and the product geometry. 10 more dots are built from them.
+- Each input meets the derived part at a held interface join. Two meet the seed exactly: the circle's selection 144 → c′ is one of eight choices, all conjugate under the Galois clocks, and the 801 matrix mod 5 is minus the day.
+- [`docs/UNIFIED.md`](UNIFIED.md) draws the derivation and lists the inputs.
+- Cited: the uniqueness of E8, the conjugacy of Coxeter elements, and the icosahedral action of a transitive A5 on six points.
+
+## 27. What stays open
 
 **Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
 - the six SCR6 operands;
@@ -1882,6 +1950,8 @@ At 09:00 UTC the request was to work out the mathematics of assigning physical p
 - relayed by the user at 00:35: the sibling's `ONE_MACHINE_29.md` (1EQqJlcXKqOTx4CSrWjJ_xofjFE-nFHVJ, 00:20; its source `one-machine-29.typ`, 1Xjs-MbN1SJHnwRIxj-wMR3v7Tg7SdL7I, not opened) and its notes CLOSURE_092 (1cF4DFGH9sS1OxdOmdKY438WAqj6hpTU9), LAYER23B (11YQ_3BLajqeam8PfHircl-grIGkg_X7A), LEVELS (15pwuy92okVOE1kroi_aUqzF5f4xVrq2Y), OBS_SUN (1-hVBE6IXFAmvH5jYJ4GApOL4H_N_mGHO), GRAIN_SPLIT (1nD1IqQneNfuAIBCMP0QBs4A8ua6tXW_y), FRAME_WALKS (1KcOKYsAAsiLvzdZoOeUC8jYNalXlo_xZ) and DEEP_COURT (1QpU7xRGxOK7dEngbVvDQdg3s5RUNYf9V): §24, the 00:35 relay
 - the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
+- the sibling's MODEL_20261029.md editions of 19:37–20:02 (the latest, 1_TfETkjO8Ra6ofUhZi0PTrIXc9ODtzfU, read as text) and the hub's `OES_Unified_Model_20261029.txt` as revised at 19:39, read as text (its zip, 6685879 bytes, not downloaded); the spine29.ts editions and the OES-paper PDFs of 19:37–20:02, not read: §24, the 19:50 check
+- the sibling's MODEL_20261029.md editions of 19:00–19:15 (the latest, 101AxFvhDWD3Io5jVfs8GBCPO4bO9t8xu, read as text); the spine29.ts editions (the latest 1bHfsW5fftKT_iJ-ihGug_SbJNOnLfwyX) and the OES-paper PDFs of 19:00–19:15, not read: §24, the 19:09 check
 - the sibling's MODEL_20261029.md edition of 18:33 (1YqQ7EgCGfkQzHXyw9Aec5l2wMMugx_XB), superseding that of 18:00, and the hub's `OES_Unified_Model_20261029.txt` as revised at 18:22, read as text (its zip, 4262705 bytes, not downloaded); the `OES-paper-20261029.pdf` of 18:33 (1DsHUNisUVEOoTOjxhamG724Gut-LbSL9) was skipped: §24, the 18:35 check
 - the sibling's MODEL_20261029.md edition of 18:00 (1nTMAMVOR3rcBROJws8nKJ2-3-3sPzwUw), superseding that of 17:18, read as text; the `OES-paper-20261029.pdf` uploaded with it (1K1lyNOA46wkFqN6Fx52CHKUA2CAJNeY3) was skipped: §24, the 18:04 check
 - the sibling's MODEL_20261029.md edition of 17:18 (1peMKD47KQO32FT6K1AN2_vy687wldWkh), superseding those of 16:59–17:10; the hub's `OES_Unified_Model_20261029.txt` as revised at 17:26, read as text (its zip, 3612599 bytes, not downloaded); the 28 Oct notes `OPEN_CHAINS_2026-10-28.md` (1qM8NQAfxH-sFbECyRZJDRGcxrUD6I37d), `RANKS_2026-10-28.md` (1mDMU8PeWJIhKXMpjs51ZBBquTE2kmKDZ), `J7_LOOPS_20261028.md` (1c9a6vJdicJy7IYOAr4DDUKlaLV07CAQq), `DENSITY_20261028.md` (1HgXpMKXkRfXxzwsEVredpqXzKQlor2UB) and `SEPTUPLE_JOIN_20261028.md` (1LYYCOooHEDLeU9r-5PGVOIapfvqZ4D3o), read as text; the 26–28 Oct sources mirrored into 1_iq2D5-5rcebZZODDF57WhN6Z6b9lHbF and 1g98a1Q9sTfCFqKOrFDHHkVPMmxKKXkot at 17:15–17:26, not re-read: §24, the 17:31 check
