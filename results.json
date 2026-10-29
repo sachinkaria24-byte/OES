@@ -57,53 +57,54 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.73,
+  "1-carrier": 0.78,
   "2-spectral": 0.01,
-  "3-spacetime": 10.36,
-  "4-native": 107.59,
-  "5-observer": 7.05,
-  "6-gravity": 6.95,
-  "7-cosmology": 1.87,
-  "8-frontier": 45.94,
-  "9-joins": 8.95,
-  "10-literal": 42.09,
-  "11-glue": 0.23,
+  "3-spacetime": 9.84,
+  "4-native": 95.21,
+  "5-observer": 6.45,
+  "6-gravity": 5.42,
+  "7-cosmology": 1.88,
+  "8-frontier": 41.08,
+  "9-joins": 7.55,
+  "10-literal": 37.83,
+  "11-glue": 0.17,
   "12-binding": 0.08,
-  "13-gates": 0.3,
-  "14-recurrence": 87.54,
-  "15-court": 1.72,
-  "16-handover": 1.52,
-  "17-waves": 0.95,
-  "18-snapshot": 2.08,
-  "19-spine": 5.66,
-  "20-canon": 6.37,
-  "21-ledger": 46.25,
-  "22-counts": 22.91,
-  "23-dots": 187.2,
-  "24-assignment": 3.86,
-  "25-unify": 4.9
+  "13-gates": 0.36,
+  "14-recurrence": 76.93,
+  "15-court": 1.79,
+  "16-handover": 1.48,
+  "17-waves": 0.77,
+  "18-snapshot": 1.77,
+  "19-spine": 5.74,
+  "20-canon": 6.32,
+  "21-ledger": 45.62,
+  "22-counts": 22.4,
+  "23-dots": 197.66,
+  "24-assignment": 3.49,
+  "25-unify": 4.05,
+  "26-primes": 5.4
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 666,
-   "total": 666
+   "passed": 702,
+   "total": 702
   },
   "OBSTRUCTION": {
-   "passed": 57,
-   "total": 57
+   "passed": 65,
+   "total": 65
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 42,
-   "total": 42
+   "passed": 43,
+   "total": 43
   },
   "SELECTED_REFERENCE": {
-   "passed": 20,
-   "total": 20
+   "passed": 21,
+   "total": 21
   },
   "UNFORMED": {
    "passed": 24,
@@ -114,8 +115,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 105,
-   "total": 105
+   "passed": 108,
+   "total": 108
   }
  },
  "checks": [
@@ -8904,6 +8905,165 @@
   },
   {
    "layer": "23-dots",
+   "name": "W(E8) clocks -> regular clocks: the regular numbers of E8 are the divisors of the clocks' orders 30, 24 and 20; each regular class is a power of c', d or v with every eigenvalue a primitive d-th root, and its centralizer, counted from the images of a Z[w]-basis of roots, has the order the degrees give: 30, 24, 20, 288, 192, 600, 46080 and 155520 (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "c' has the characteristic polynomial Phi_30, so E8's exponents are the eight units mod 30 and its degrees are 2, 8, 12, 14, 18, 20, 24, 30, with product |W(E8)| = 696729600 (cited: the order of a reflection group is the product of its degrees)": true,
+    "the regular numbers (cited: Lehrer-Springer, d divides as many degrees as codegrees d_i - 2) are 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 30: exactly the divisors of the three clocks' orders 30, 24 and 20": true,
+    "each regular class is a power of c', the day or the golden clock whose eigenvalues are all primitive d-th roots: its characteristic polynomial is Phi_d^(8/phi(d)), so its zeta_d-eigenspace has the dimension #{i : d | d_i} = 8/phi(d) of a regular eigenspace": true,
+    "the centralizers, counted from the images of a Z[w]-basis of roots, have the orders prod_(d | d_i) d_i (Springer): 30, 24, 20, 288, 192, 600, 46080 and 155520 for d = 30, 24, 20, 12, 8, 5, 4 and 3; c'^2, c'^3 and c'^5 have the centralizers of c', g and s (c' = -(c'^2)^8, c'^3 = -g^3, c'^5 = -s^2), and -1 is central": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "regular clocks -> cyclotomic line: the clocks with cyclic centralizers make E8 a line over Z[zeta30], Z[zeta24] and Z[zeta20], each with a trace form of norm 1/disc (3^-4 5^-6, 2^-16 3^-4, 2^-8 5^-6) and a normalizer that realizes its Galois group (240, 192, 160) (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the three clocks with cyclic centralizers make E8 a line over their cyclotomic integers: 240, 144 and 160 of the roots v have Z[w] v = E8 for w = c', the day and the golden clock (Phi_30, Phi_24 and Phi_20)": true,
+    "the forms are trace forms Tr(beta x ybar), eta = zeta + zeta^-1: beta = (2 + 2 eta + eta^2)/15 over Q(zeta30), (1 - 2 eta + eta^2 + eta^3)/12 over Q(zeta24) and (5 + 3 eta - eta^2 - eta^3)/10 over Q(zeta20), each real and totally positive": true,
+    "each beta has norm 1/disc: 3^-4 5^-6, 2^-16 3^-4 and 2^-8 5^-6, so all three lines are unimodular": true,
+    "each normalizer realizes its Galois group: for every unit u mod n exactly |C_W(w)| roots carry the data of w^u, so |N_W(<w>)| = 30 x 8 = 240, 24 x 8 = 192 and 20 x 8 = 160": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "regular clocks -> residue plane: the regular class 5 is the tick, whose centralizer of order 20 x 30 = 600 acts on its residue plane F25 as SL(2,5) = Sp(2,5), the isometries of the plane's symplectic form (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C_W(s), 155520 elements, acts on the sun's 81 momenta by 51840 = 155520/3 matrices over F3, three elements to each, with kernel <s>": true,
+    "all of them keep the alternating form <x, (s - s^2) y> mod 3, which is well defined on E8/(1 - s)E8 ((1 - s)^T C (s - s^2) = 3 C s) and nondegenerate: C_W(s)/<s> is Sp(4,3), of order 3^4 (3^2 - 1)(3^4 - 1) = 51840": true,
+    "likewise C_W(g), 600 elements, acts on the tick's plane as SL(2,5) = Sp(2,5), of order 600/5 = 120, and W(E8) acts on the half-periods keeping q(x) = <x, x>/2 mod 2, with |W(E8)| = 2 |GO8+(2)| = 2 x 348364800 (cited: W(E8)/<-1> = GO8+(2))": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "regular clocks -> sun's decad: the regular class 3 is the sun s = c'^10, whose centralizer of order 12 x 18 x 24 x 30 = 155520 acts on its 81 momenta as Sp(4,3), 155520/3 = 51840 isometries of <x, (s - s^2) y> mod 3, with kernel <s> (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C_W(s), 155520 elements, acts on the sun's 81 momenta by 51840 = 155520/3 matrices over F3, three elements to each, with kernel <s>": true,
+    "all of them keep the alternating form <x, (s - s^2) y> mod 3, which is well defined on E8/(1 - s)E8 ((1 - s)^T C (s - s^2) = 3 C s) and nondegenerate: C_W(s)/<s> is Sp(4,3), of order 3^4 (3^2 - 1)(3^4 - 1) = 51840": true,
+    "likewise C_W(g), 600 elements, acts on the tick's plane as SL(2,5) = Sp(2,5), of order 600/5 = 120, and W(E8) acts on the half-periods keeping q(x) = <x, x>/2 mod 2, with |W(E8)| = 2 |GO8+(2)| = 2 x 348364800 (cited: W(E8)/<-1> = GO8+(2))": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "regular clocks -> half-periods: the regular class 2 is -1, the half-turn, whose centralizer is W(E8), of order 2 |GO8+(2)|; it keeps the half-period form q(x) = <x, x>/2 mod 2 (cited: W(E8)/<-1> = GO8+(2)) (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C_W(s), 155520 elements, acts on the sun's 81 momenta by 51840 = 155520/3 matrices over F3, three elements to each, with kernel <s>": true,
+    "all of them keep the alternating form <x, (s - s^2) y> mod 3, which is well defined on E8/(1 - s)E8 ((1 - s)^T C (s - s^2) = 3 C s) and nondegenerate: C_W(s)/<s> is Sp(4,3), of order 3^4 (3^2 - 1)(3^4 - 1) = 51840": true,
+    "likewise C_W(g), 600 elements, acts on the tick's plane as SL(2,5) = Sp(2,5), of order 600/5 = 120, and W(E8) acts on the half-periods keeping q(x) = <x, x>/2 mod 2, with |W(E8)| = 2 |GO8+(2)| = 2 x 348364800 (cited: W(E8)/<-1> = GO8+(2))": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cyclotomic line -> sun's decad: c' = (-1) s g, and the sun s = c'^10 fixes E8/(1 - s)E8 = F81 (Smith form 1^4 3^4), the residue field of Q(zeta15) at its prime over 3, on which c' has order 10; with the half-turn's F16 x F16 and the tick's F25 these are the residue rings of Z[zeta30] at 2, 3 and 5, and the roots lie 2, 3 and 10 over their points (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "c' = c'^15 c'^10 c'^6 = (-1) s g, the half-turn, the sun and the tick (31 = 1 mod 30); under 144 k -> c'^k they are the circle's 2160, 1440 and 864, in its 2-clock <135>, its 27-clock <160> and its time clock <864>": true,
+    "each fixes p^(8/(p-1)) momenta: 1 - h has Smith form 2^8, 1^4 3^4 and 1^6 5^2, so E8/(1 - h)E8 has 256, 81 and 25 points": true,
+    "these are the residue rings of Z[zeta30] at 2, 3 and 5: Phi_30 is a product of two quartics mod 2, the square of Phi_10 mod 3 and the fourth power of Phi_6 mod 5, so c' acts on the three quotients with order 30/p = 15, 10 and 6, and they are F16 x F16, F81 and F25": true,
+    "the roots lie two over each of the 120 nonsingular half-periods, three over each of the sun's 80 nonzero momenta and ten over each of the tick's 24: 240 = 2 x 120 = 3 x 80 = 10 x 24": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "sun's decad -> root graph: the sun's 40 projective points pull back to 40 A2 that partition the roots, two orthogonal exactly when their points are; the 40 totally isotropic lines are 40 frames 4A2 (the quadrangle W(3)), and the ten F9-lines, F9 = F3[phi] with phi = c' + c'^-1, are a spread of them: the decad (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the sun's momenta c' + c'^-1 satisfies phi^2 = phi + 1, the golden ratio, which is not in F3: so F9 = F3[phi] and the 81 momenta are the plane F9^2": true,
+    "the 40 projective points pull back to 40 A2 (six roots each, r, sr, s^2 r and their negatives) that partition the 240 roots, and two of them are orthogonal exactly when their points are orthogonal for the form": true,
+    "so the 40 totally isotropic lines, four points on each and four through each point (the generalized quadrangle W(3)), are 40 frames 4A2: four mutually orthogonal A2 of 24 roots": true,
+    "the ten F9-lines are totally isotropic and partition the 40 points: a spread of W(3), ten 4A2 frames that partition the 240 roots (the sun's decad)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "regular clocks -> cyclotomic line: Q(zeta16), the fourth cyclotomic field of degree 8, carries Z^8 and not E8: W(E8) has no element of order 16, since one would square to a conjugate of d^3 (cited: Springer) and C_W(d^3), 192 elements, has none (layer 26)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "Q(zeta16) carries Z^8, not E8: the signed 8-cycle of Z^8 has characteristic polynomial x^8 + 1 = Phi_16": true,
+    "W(E8) has no element of order 16: one would have the characteristic polynomial Phi_16, so its square would have Phi_8^2 and be a regular element of order 8, conjugate to d^3 (cited: Springer); but C_W(d^3), 192 elements, has orders 1, 2, 3, 4, 6, 8, 12 and 24 only": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cyclotomic line -> half-periods: E8/2E8 = Z[zeta30]/2 = F16 x F16: the two primes over 2 are complementary totally singular subspaces, swapped by the mirror, on each of which c' is a Singer cycle of order 15; the 120 nonsingular half-periods carry the roots, two each (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "E8/2E8 = F16 x F16: the kernels of c'^4 + c' + 1 and c'^4 + c'^3 + 1 mod 2 have dimension 4 each and are complementary, and c' is a Singer cycle of order 15 on each": true,
+    "both are totally singular for q(x) = <x, x>/2 mod 2, and the mirror (complex conjugation) swaps them: they are the two primes over 2": true,
+    "q is 1 on 120 half-periods and 0 on 136 = 1 + 135: the hyperbolic form of GO8+(2), whose 120 nonsingular points carry the 240 roots, two each": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "sun's decad -> 360 parent: the 2160 isometries that commute with the sun and with phi act on the ten F9-lines as PSL(2,9) with kernel <c'^5>, and an isomorphism from the hub's <r, t> sends r to the Coxeter clock: the 360 parent is the sun's A6 on its ten 4A2 frames (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the isometries that commute with the sun and with phi, F9-linear on its momenta, are 2160 = 3 x 720, each of determinant 1 over F9, so modulo <s> they are SL(2,9); they act on the ten F9-lines as a group of 360 with kernel <c'^5> = <-s>": true,
+    "an isomorphism from the hub's A6 = <r, t> onto that group sends r to the Coxeter clock c' (the tick acts on the lines as c' does): the 360 parent is the sun's PSL(2,9) on its ten 4A2 frames": true,
+    "on the ten frames c' is a fixed-point-free 5-element, and the day has order 4, conjugates it to its square (d c' d^-1 = c'^7) and lies outside the 360: the day-Coxeter group acts as AGL(1,5), and the isomorphism extends to S6 = PSigmaL(2,9) with the hub's doubling sent to the day": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "sun's decad -> AGL(1,5): on the ten frames c' and the tick act as one fixed-point-free 5-element and the day as its doubling, of order 4 and outside A6: the day-Coxeter group acts as AGL(1,5), and the isomorphism extends to S6 = PSigmaL(2,9) with the hub's doubling sent to the day (layer 26)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the isometries that commute with the sun and with phi, F9-linear on its momenta, are 2160 = 3 x 720, each of determinant 1 over F9, so modulo <s> they are SL(2,9); they act on the ten F9-lines as a group of 360 with kernel <c'^5> = <-s>": true,
+    "an isomorphism from the hub's A6 = <r, t> onto that group sends r to the Coxeter clock c' (the tick acts on the lines as c' does): the 360 parent is the sun's PSL(2,9) on its ten 4A2 frames": true,
+    "on the ten frames c' is a fixed-point-free 5-element, and the day has order 4, conjugates it to its square (d c' d^-1 = c'^7) and lies outside the 360: the day-Coxeter group acts as AGL(1,5), and the isomorphism extends to S6 = PSigmaL(2,9) with the hub's doubling sent to the day": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> 360 parent: A6's elements have orders 1 to 5, all dividing 4320, so Z/4320 has exactly 360 homomorphisms to A6, each with a cyclic image of at most five elements: the address map's orbits add to 360, but no clock homomorphism covers A6, and the address map is not one (the owner, 20:22)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "A6 has 1, 45, 80, 90 and 144 elements of orders 1 to 5, all dividing 4320, so Z/4320 has exactly 360 homomorphisms to A6, one for each image of 1, and each has a cyclic image of at most five elements: the address map's orbits 5^4 10^2 20^16 add to 360, but no clock homomorphism covers A6, and the address map, onto all 360, is not a homomorphism": true,
+    "every clock lies in the normalizer of <c'>, 240 elements, whose derived series 240 > 30 > 1 ends at the identity (its commutator subgroup is <c'>), so every clock group, the day-Coxeter group of 120 among them, is solvable, as are the circle (abelian) and AGL(1,5) (20 > 5 > 1); A6 is perfect, its commutators generate all 360, so no clock group maps onto it": true,
+    "on the tick's hexad the seed acts only through GL(2,5), whose image on the six lines is PGL(2,5): 120 permutations, of which the 60 even ones are PSL(2,5), one sixth of A6. A6 is reached by the sun's symmetry, which is not a clock": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "W(E8) clocks -> 360 parent: every clock lies in the normalizer of <c'>, which is solvable (240 > 30 > 1), and A6 is perfect, so no clock group maps onto it; on the tick's hexad the seed acts through PGL(2,5), whose even part holds 60 of the 360 (layer 26)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "A6 has 1, 45, 80, 90 and 144 elements of orders 1 to 5, all dividing 4320, so Z/4320 has exactly 360 homomorphisms to A6, one for each image of 1, and each has a cyclic image of at most five elements: the address map's orbits 5^4 10^2 20^16 add to 360, but no clock homomorphism covers A6, and the address map, onto all 360, is not a homomorphism": true,
+    "every clock lies in the normalizer of <c'>, 240 elements, whose derived series 240 > 30 > 1 ends at the identity (its commutator subgroup is <c'>), so every clock group, the day-Coxeter group of 120 among them, is solvable, as are the circle (abelian) and AGL(1,5) (20 > 5 > 1); A6 is perfect, its commutators generate all 360, so no clock group maps onto it": true,
+    "on the tick's hexad the seed acts only through GL(2,5), whose image on the six lines is PGL(2,5): 120 permutations, of which the 60 even ones are PSL(2,5), one sixth of A6. A6 is reached by the sun's symmetry, which is not a clock": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -8928,7 +9088,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 68 dots and 262 joins form one connected diagram (the obstructions left out)",
+   "name": "the 70 dots and 275 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8983,6 +9143,7 @@
      "pg25",
      "pgl",
      "readout",
+     "regular",
      "residue",
      "rootgraph",
      "rotor",
@@ -8990,6 +9151,7 @@
      "sixsite",
      "source",
      "stages",
+     "sun",
      "surface",
      "synthemes",
      "time",
@@ -9007,7 +9169,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every layer of the build, 1 to 25, has a dot",
+   "name": "every layer of the build, 1 to 26, has a dot",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9035,7 +9197,8 @@
     22,
     23,
     24,
-    25
+    25,
+    26
    ],
    "note": ""
   },
@@ -9063,7 +9226,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 2, symmetry (groups, their actions and modules): its 9 dots are joined among themselves",
+   "name": "level 2, symmetry (groups, their actions and modules): its 10 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9076,6 +9239,7 @@
      "golden",
      "hodge",
      "pgl",
+     "regular",
      "words"
     ]
    ],
@@ -9104,7 +9268,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 4, lattice (roots, lattices and tori): its 12 dots are joined among themselves",
+   "name": "level 4, lattice (roots, lattices and tori): its 13 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9120,6 +9284,7 @@
      "momenta",
      "residue",
      "rootgraph",
+     "sun",
      "torus"
     ]
    ],
@@ -9175,7 +9340,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 21, operator-physics 22 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 22, operator-physics 22 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9229,7 +9394,8 @@
      "L0 -> darkport",
      "L0 -> darkport",
      "A4 -> parent",
-     "L0 -> carrier"
+     "L0 -> carrier",
+     "sun -> parent"
     ],
     [
      "carrier -> triple",
@@ -9260,12 +9426,12 @@
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 65 of the 68 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 67 of the 70 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 237,
-    "OBSTRUCTION": 11,
+    "THEOREM": 247,
+    "OBSTRUCTION": 14,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 4
    },
@@ -9284,14 +9450,14 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 14, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 21, lattice-physics 5, operator-physics 22",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 19, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 22, lattice-physics 5, operator-physics 22",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 5,
-    "(3, 4)": 21,
+    "(3, 4)": 22,
     "(2, 4)": 19,
-    "(1, 3)": 14,
+    "(1, 3)": 19,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
@@ -9319,7 +9485,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 65 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
+   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 67 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -10354,6 +10520,63 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 20:20 text's, the 20:08-21:02 model's and the monograph's exact claims: A6's classes, the weighted contexts, the dark code [10, 4, 6] as a Dirac spectral subspace, the norm-31 element, the run-parity weights, the Golden15 stiffness and the S5 selection rule, with three corrections (the saddle quartic is -rho^4/2, the monograph's element has norm 61, and the line stabilizer is not the tick's PSL(2,5))",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "A6's 80 elements of order 3 are 40 three-cycles and 40 products of two, its 90 of order 4 are a 4-cycle times a transposition, and each point is fixed by 15 double transpositions and 24 five-cycles (the sibling, 20:08-21:02)": true,
+    "the weighted contexts (5, 7, 4, 5, 5, 5, 5) with weights 1/(7 n) have index moments 251/14 and 5983/14 and squared weight 39/1372 = (351/343)/36; their weight steps are 2/245 and 1/140, the repaired gamma are 2/35, 12/343 and 9/112, (36/343) x 28 = 144/49, C(36, 3) = 7140, and a quadratic code of context distance 34 corrects 16 errors or 33 erasures (the hub, 20:20)": true,
+    "the dark code is range P3: with K = M^T M (K^2 = 3K + 4J) the projectors (K - 3)(K - 8)/24, K(8 - K)/15 = M^T P_A4 M/3 and K(K - 3)/40 sum to I, and c = M^T x on the zero-sum x is a [10, 4, 6] code: every five edges span it, exactly 25 of the 210 four-edge sets fail (15 four-cycles with an isolated vertex, 10 triangles with a disjoint edge), and (1, -1, 1, -1, 0) has weight 6 (the hub, 20:20)": true,
+    "2 + zeta - zeta^2 has norm 31 and squared modulus (13 + 3 sqrt5)/2 = 8 + 3(zeta + zeta^4), and times 5 - 8 zeta + zeta^2 - 10 zeta^3 it is 31; its companion has characteristic polynomial x^4 - 8x^3 + 24x^2 - 37x + 31, which is 31, 11, 5, 1 at 0, 1, 2, 3, and 6 + sqrt5 also has norm 31. Correction to the monograph: its 3 - zeta - zeta^4 + 2 zeta^2 has norm 61, not 31, so its 155 = 5 x 31 does not come from that element": true,
+    "the run-parity weights (1, -3, 3, -1)/8 annihilate quadratics and leak -3/4 of a cubic; a linear gain drift gives 1 + 3 epsilon/2; the odd and even contrasts have variance factors 5/16 and 5/4; and the sixth Fibonacci matrix [[13, 8], [8, 5]] sums to 34, not 27 (the separate model's correction, 20:40)": true,
+    "the monograph's Golden15 stiffness R = 3 - U - U^T on the fifteen atoms has characteristic polynomial (x - 1)^3 (x^2 - 7x + 11)^6, determinant 11^6 and inverse (R^2 - 8R + 18)/11; R - D R D^T has rank 12, and the F20 average is P_F + (7/2)(I - P_F), off R by Tr = 15": true,
+    "correction to the monograph: at the 224 saddle the transverse quartic is -rho^4/2, not 0, since the 126 E7 roots give sum (y.r)^4 = 24|y|^4 and the 112 oblique roots 12|y|^4, not 18 each; so its collar regime II rests on an expansion missing that term": 1.0,
+    "correction to the sibling: the 60 even permutations that fix the carrier line are a point stabilizer A5, not the tick's PSL(2,5), which is transitive on the six lines and meets it in 10; the two are the two classes of A5 in A6": true,
+    "the hub's selection rule, from S5 characters: the source (ker M), the cycles and the dark four (A4 twisted by the sign) have dimensions 5, 6, 4; a Klein four fixing one vertex fixes 2, 0 and 1 of them; Hom(dark, cycles) = Hom(source, cycles) = 0; and dark x source = 6 + 5 + 5 + 4 holds the cycles, the source, its sign twist and the dark four once each": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 20:33: the hub's OES_Unified_Model_20261029.txt as revised at 20:20 (sources through 19:56), read as text (its zip, 8710160 bytes, not downloaded); the sibling's MODEL editions of 20:08-21:02, the latest (21:02) read as text; the owner's monograph OES_Grand_Unified_Mathematical_Monograph_20261030 (20:13), read as text; the separate model's source continuation (20:40), current-model certificate (20:47) and update checkpoint (20:50), read as receipts; its 24173180-byte capsule (20:46), the spine29.ts editions and the OES-paper PDFs not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's checksum doublets and the [30, 12, 12] code, R53 and R55, the cyclic56 weight repair and its burst decoders, the polynomial encoder's decodings, the all-time dark families (dimensions 11, 8, 8; ranks 17, 9, 12, 12), the ten 3+2 dark marks and their pentagon frames, the run-parity decoder, the coherent phase lift, the noisy estimator's envelopes and its custody (958 groups in 30 receipts); the monograph's other remediations, its collar regimes and its master script (not run); the separate model's 114 and 237 independent groups and its two corrections (a mislabelled right inverse and the Fibonacci sum 34); and the canon's controlled workbooks, which gained additive appendices at 19:24, with two intake workbooks (19:21), not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 21:05-21:17 model and maps29.ts: the circle as a ring (the CRT idempotents 3105, 2080, 3456 and 2241, their mirrors and their products on the tick levels), the levels that meet the tick, the unit landings and depths, the doubling cycle, the golden ticks' mirror, the petal and dark Grams and the seed",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "3105, 2080 and 3456 are orthogonal idempotents of Z/4320 summing to 1, and 2241 = 3105 + 3456 is the idempotent of Z/160 (it kills 2080); every frame is 3105 (j mod 32) + 2080 (j mod 27) + 3456 (j mod 5) and also 2241 (j mod 160) + 2080 (j mod 27), both maps recover all 4320 frames, and the mirrors of 3456, 2080 and 3105 are 864, 2240 and 1215": true,
+    "the tick squares to 3456, its mirror; 3456 and 2241 fix the tick while 3105 and 2080 kill it; the landings 1728 and 2592 square to the tick; the half-turn 2160 lies 432 (of order 10) from both and squares to 0; and 3456 fixes the four landings and kills the half-turn, 3105 does the opposite and 2080 kills all five": true,
+    "a level meets the tick exactly when 5 does not divide it, that is when its gcd with 4320 divides 864: 6, 7, 8, 9, 13, 27, 32, 36, 216, 224 and 256 meet it, and 5, 10, 15, 30, 60, 90, 120, 170, 240, 250, 330, 360 and 2160 miss it; the readers climb 90, 170, 250, 330, 360 by 80, 80, 80, 30, and 12 x 360 = 5 x 864 = 4320": true,
+    "a unit of residue r mod 5 first lands on 864 r: the host 7 lands on 1728 and reaches the tick in 2592 steps, the oak 13 lands on 2592 and reaches it in 1728, and the depths add to the circle; the landings 864 r reach the tick in r^-1 mod 5 = 1, 3, 2, 4 steps, mirror pairs adding to 5": true,
+    "doubling cycles the landings 864 -> 1728 -> 3456 -> 2592 -> 864 and kills the half-turn; on the twenty golden ticks 216 k the mirror fixes 0 and 2160 and pairs the other eighteen": true,
+    "maps29.ts: the petal 6I - J and the dark Gram 2(6I - J) have zero row sums, so each of the six dark lines is minus the sum of the other five; the golden parent's sixth power is [[13, 8], [8, 5]], of determinant 1, and its seventh has determinant -1; the seed has squared length 30; an address and a phase leave a fiber of 24": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 21:18: the sibling's MODEL editions of 21:05-21:17, the latest (21:17) read as text, and its new maps29.ts (21:12), read as data and not run; the spine29.ts editions and the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11026,7 +11249,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the 68 dots split into the seed, 47 derived dots, 10 canon inputs and 10 dots built from the inputs, with no dot left over or counted twice",
+   "name": "the 70 dots split into the seed, 49 derived dots, 10 canon inputs and 10 dots built from the inputs, with no dot left over or counted twice",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -11091,6 +11314,254 @@
   {
    "layer": "25-unify",
    "name": "cited: E8 is the unique even unimodular lattice of rank 8; Coxeter elements are conjugate; a transitive A5 on six points is the icosahedral action on the axes",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "c' has the characteristic polynomial Phi_30, so E8's exponents are the eight units mod 30 and its degrees are 2, 8, 12, 14, 18, 20, 24, 30, with product |W(E8)| = 696729600 (cited: the order of a reflection group is the product of its degrees)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the regular numbers (cited: Lehrer-Springer, d divides as many degrees as codegrees d_i - 2) are 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 30: exactly the divisors of the three clocks' orders 30, 24 and 20",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "each regular class is a power of c', the day or the golden clock whose eigenvalues are all primitive d-th roots: its characteristic polynomial is Phi_d^(8/phi(d)), so its zeta_d-eigenspace has the dimension #{i : d | d_i} = 8/phi(d) of a regular eigenspace",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the centralizers, counted from the images of a Z[w]-basis of roots, have the orders prod_(d | d_i) d_i (Springer): 30, 24, 20, 288, 192, 600, 46080 and 155520 for d = 30, 24, 20, 12, 8, 5, 4 and 3; c'^2, c'^3 and c'^5 have the centralizers of c', g and s (c' = -(c'^2)^8, c'^3 = -g^3, c'^5 = -s^2), and -1 is central",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the three clocks with cyclic centralizers make E8 a line over their cyclotomic integers: 240, 144 and 160 of the roots v have Z[w] v = E8 for w = c', the day and the golden clock (Phi_30, Phi_24 and Phi_20)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the forms are trace forms Tr(beta x ybar), eta = zeta + zeta^-1: beta = (2 + 2 eta + eta^2)/15 over Q(zeta30), (1 - 2 eta + eta^2 + eta^3)/12 over Q(zeta24) and (5 + 3 eta - eta^2 - eta^3)/10 over Q(zeta20), each real and totally positive",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "each beta has norm 1/disc: 3^-4 5^-6, 2^-16 3^-4 and 2^-8 5^-6, so all three lines are unimodular",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "each normalizer realizes its Galois group: for every unit u mod n exactly |C_W(w)| roots carry the data of w^u, so |N_W(<w>)| = 30 x 8 = 240, 24 x 8 = 192 and 20 x 8 = 160",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "Q(zeta16) carries Z^8, not E8: the signed 8-cycle of Z^8 has characteristic polynomial x^8 + 1 = Phi_16",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "W(E8) has no element of order 16: one would have the characteristic polynomial Phi_16, so its square would have Phi_8^2 and be a regular element of order 8, conjugate to d^3 (cited: Springer); but C_W(d^3), 192 elements, has orders 1, 2, 3, 4, 6, 8, 12 and 24 only",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "c' = c'^15 c'^10 c'^6 = (-1) s g, the half-turn, the sun and the tick (31 = 1 mod 30); under 144 k -> c'^k they are the circle's 2160, 1440 and 864, in its 2-clock <135>, its 27-clock <160> and its time clock <864>",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "each fixes p^(8/(p-1)) momenta: 1 - h has Smith form 2^8, 1^4 3^4 and 1^6 5^2, so E8/(1 - h)E8 has 256, 81 and 25 points",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "these are the residue rings of Z[zeta30] at 2, 3 and 5: Phi_30 is a product of two quartics mod 2, the square of Phi_10 mod 3 and the fourth power of Phi_6 mod 5, so c' acts on the three quotients with order 30/p = 15, 10 and 6, and they are F16 x F16, F81 and F25",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the roots lie two over each of the 120 nonsingular half-periods, three over each of the sun's 80 nonzero momenta and ten over each of the tick's 24: 240 = 2 x 120 = 3 x 80 = 10 x 24",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "C_W(s), 155520 elements, acts on the sun's 81 momenta by 51840 = 155520/3 matrices over F3, three elements to each, with kernel <s>",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "all of them keep the alternating form <x, (s - s^2) y> mod 3, which is well defined on E8/(1 - s)E8 ((1 - s)^T C (s - s^2) = 3 C s) and nondegenerate: C_W(s)/<s> is Sp(4,3), of order 3^4 (3^2 - 1)(3^4 - 1) = 51840",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "likewise C_W(g), 600 elements, acts on the tick's plane as SL(2,5) = Sp(2,5), of order 600/5 = 120, and W(E8) acts on the half-periods keeping q(x) = <x, x>/2 mod 2, with |W(E8)| = 2 |GO8+(2)| = 2 x 348364800 (cited: W(E8)/<-1> = GO8+(2))",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "E8/2E8 = F16 x F16: the kernels of c'^4 + c' + 1 and c'^4 + c'^3 + 1 mod 2 have dimension 4 each and are complementary, and c' is a Singer cycle of order 15 on each",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "both are totally singular for q(x) = <x, x>/2 mod 2, and the mirror (complex conjugation) swaps them: they are the two primes over 2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "q is 1 on 120 half-periods and 0 on 136 = 1 + 135: the hyperbolic form of GO8+(2), whose 120 nonsingular points carry the 240 roots, two each",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "on the sun's momenta c' + c'^-1 satisfies phi^2 = phi + 1, the golden ratio, which is not in F3: so F9 = F3[phi] and the 81 momenta are the plane F9^2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the 40 projective points pull back to 40 A2 (six roots each, r, sr, s^2 r and their negatives) that partition the 240 roots, and two of them are orthogonal exactly when their points are orthogonal for the form",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "so the 40 totally isotropic lines, four points on each and four through each point (the generalized quadrangle W(3)), are 40 frames 4A2: four mutually orthogonal A2 of 24 roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the ten F9-lines are totally isotropic and partition the 40 points: a spread of W(3), ten 4A2 frames that partition the 240 roots (the sun's decad)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "the isometries that commute with the sun and with phi, F9-linear on its momenta, are 2160 = 3 x 720, each of determinant 1 over F9, so modulo <s> they are SL(2,9); they act on the ten F9-lines as a group of 360 with kernel <c'^5> = <-s>",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "an isomorphism from the hub's A6 = <r, t> onto that group sends r to the Coxeter clock c' (the tick acts on the lines as c' does): the 360 parent is the sun's PSL(2,9) on its ten 4A2 frames",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "on the ten frames c' is a fixed-point-free 5-element, and the day has order 4, conjugates it to its square (d c' d^-1 = c'^7) and lies outside the 360: the day-Coxeter group acts as AGL(1,5), and the isomorphism extends to S6 = PSigmaL(2,9) with the hub's doubling sent to the day",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "A6 has 1, 45, 80, 90 and 144 elements of orders 1 to 5, all dividing 4320, so Z/4320 has exactly 360 homomorphisms to A6, one for each image of 1, and each has a cyclic image of at most five elements: the address map's orbits 5^4 10^2 20^16 add to 360, but no clock homomorphism covers A6, and the address map, onto all 360, is not a homomorphism",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "every clock lies in the normalizer of <c'>, 240 elements, whose derived series 240 > 30 > 1 ends at the identity (its commutator subgroup is <c'>), so every clock group, the day-Coxeter group of 120 among them, is solvable, as are the circle (abelian) and AGL(1,5) (20 > 5 > 1); A6 is perfect, its commutators generate all 360, so no clock group maps onto it",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "on the tick's hexad the seed acts only through GL(2,5), whose image on the six lines is PGL(2,5): 120 permutations, of which the 60 even ones are PSL(2,5), one sixth of A6. A6 is reached by the sun's symmetry, which is not a clock",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "26-primes",
+   "name": "cited: the order of W(E8) is the product of its degrees; Lehrer-Springer's criterion for regular numbers and Springer's theorems (regular elements of one order are conjugate, and their centralizers have the orders of the degrees, replayed here); W(E8)/<-1> = GO8+(2)",
    "status": "SELECTED_REFERENCE",
    "passed": true,
    "value": null,
