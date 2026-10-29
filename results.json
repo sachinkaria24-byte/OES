@@ -57,39 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.73,
+  "1-carrier": 0.67,
   "2-spectral": 0.01,
-  "3-spacetime": 13.62,
-  "4-native": 103.75,
-  "5-observer": 0.81,
-  "6-gravity": 5.99,
-  "7-cosmology": 1.55,
-  "8-frontier": 38.4,
-  "9-joins": 13.28,
-  "10-literal": 41.29,
-  "11-glue": 0.22,
-  "12-binding": 0.06,
-  "13-gates": 0.11,
-  "14-recurrence": 85.86,
-  "15-court": 2.01,
-  "16-handover": 1.65,
-  "17-waves": 0.79,
-  "18-snapshot": 1.78,
-  "19-spine": 4.87,
-  "20-canon": 6.61,
-  "21-ledger": 47.27,
-  "22-counts": 21.71,
-  "23-dots": 16.46
+  "3-spacetime": 8.6,
+  "4-native": 103.37,
+  "5-observer": 0.36,
+  "6-gravity": 5.95,
+  "7-cosmology": 1.76,
+  "8-frontier": 39.05,
+  "9-joins": 11.15,
+  "10-literal": 40.62,
+  "11-glue": 0.21,
+  "12-binding": 0.09,
+  "13-gates": 0.1,
+  "14-recurrence": 81.84,
+  "15-court": 1.83,
+  "16-handover": 1.44,
+  "17-waves": 0.92,
+  "18-snapshot": 1.69,
+  "19-spine": 4.64,
+  "20-canon": 6.28,
+  "21-ledger": 47.22,
+  "22-counts": 24.49,
+  "23-dots": 21.55,
+  "24-assignment": 4.13
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 483,
-   "total": 483
+   "passed": 525,
+   "total": 525
   },
   "OBSTRUCTION": {
-   "passed": 47,
-   "total": 47
+   "passed": 51,
+   "total": 51
   },
   "REMOVED": {
    "passed": 2,
@@ -100,16 +101,16 @@
    "total": 38
   },
   "SELECTED_REFERENCE": {
-   "passed": 16,
-   "total": 16
+   "passed": 17,
+   "total": 17
   },
   "UNFORMED": {
-   "passed": 22,
-   "total": 22
+   "passed": 24,
+   "total": 24
   },
   "CONDITIONAL": {
-   "passed": 21,
-   "total": 21
+   "passed": 23,
+   "total": 23
   },
   "REPORTED": {
    "passed": 73,
@@ -7473,7 +7474,133 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 59 dots and 152 joins form one connected diagram (the obstructions left out)",
+   "name": "A4 + A4' -> root assignment: the 240 roots are (24,1) + (1,24) + (10,5) + (5b,10) + (10b,5b) + (5,10b): (10,5) is the carrier's ten duads times the twin's five sites, (5b,10) its five sites times the twin's ten duads, each pair once",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the twin sites mu_i sum to 0 with |mu_i|^2 = 4/5 and mu_i.mu_j = -1/5, and their differences are the 20 roots of A4', the orthogonal complement of the carrier's A4": true,
+    "every root is a carrier root, a twin root, a pair (duad, site'), a pair (-site, duad') or minus one of these pairs: 20 + 20 + 4 x 50": true,
+    "each class is the full product of its weight sets, each pair once: (10, 5) is the carrier's 10 duads times the twin's 5 sites, (5b, 10) the carrier's 5 sites times the twin's 10 duads, so the twin's 10 is Lambda^2 of its 5": true,
+    "it agrees with layer 11: 20 + 20 + 200, and four class pairs of 50 for the carrier grades 1, 2, 3, 4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> root assignment: 10 I on A4 + A4', 15 P + 10 P' and 10 P + 15 P' on the mixed classes, 60 I in all: the band starts 30 |k|^2, and sum (T3.rho)^2 : sum (Q.rho)^2 = 3 : 8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "over A4 + A4' the second moment is 10 I (each A4 gives 10 times its projection)": true,
+    "the weight covariances are sum mu mu^T = P' over the 5 and sum lambda lambda^T = 3 P over the 10, so (10, 5) and (10b, 5b) each give 5 x 3 P + 10 P' = 15 P + 10 P', and (5b, 10) and (5, 10b) each give 10 P + 15 P'": true,
+    "each mixed class is anisotropic, but (10, 5) + (5b, 10) is 25 I and all 240 roots give 10 I + 2 x 25 I = 60 I": true,
+    "so the band eps(k) = sum (1 - cos rho.k) starts (1/2) sum (rho.k)^2 = 30 |k|^2, the native dispersion coefficient (checked at a rational k)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "five-site charges -> root assignment: Q = Y + T3 on the carrier factor gives every root its Standard-Model charge, and Q minus each colour coordinate is an integer on all 240 roots (the Z6); only the 20 family roots carry no Standard-Model charge",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Cartan elements of the carrier factor that commute with SU(3) x SU(2) (orthogonal to e_0 - e_1, e_1 - e_2 and e_3 - e_4) form one line, spanned by Y = (-1/3, -1/3, -1/3, 1/2, 1/2); Q(e^c) = 1 fixes its scale": true,
+    "(10, 5) holds at each of the 5 twin sites u, d (3 colours each), u^c (3) and e^c; (5b, 10) holds at each of the 10 twin duads d^c (3), e and nu; the conjugate classes hold the antiparticles": true,
+    "the carrier roots are the 6 gluon roots, W+ and W-, and 12 leptoquark roots X, Y (and conjugates) at Y = -5/6 with Q = -4/3 and -1/3; the twin roots are all family roots": true,
+    "every root of each kind has the Standard Model's hypercharge and charge, and its antiparticle the opposite: u (1/6, 2/3), d (1/6, -1/3), u^c (-2/3, -2/3), e^c (1, 1), d^c (1/3, 1/3), e (-1/2, -1), nu (-1/2, 0), W+- (0, +-1), X (-5/6, -4/3), Y (-5/6, -1/3)": true,
+    "charge quantization on all 240 roots: Q minus each colour coordinate is an integer, so colour singlets and octets have integer charge, triplets 2/3 and antitriplets 1/3 mod 1 (the Z6 of the Standard Model)": true,
+    "the roots with no Standard-Model charge (Y = T3 = 0, colour weight 0) are exactly the 20 family roots": true,
+    "the second moment fixes the trace ratio: sum (T3.rho)^2 : sum (Q.rho)^2 = 60 |T3|^2 : 60 |Q|^2 = 3 : 8 over all 240 roots and over each mixed class; it fixes no coupling": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> root assignment: the carrier's ten duads are the weights of the 10 in (10,5): u^c on the colour duads, the quark doublet on the colour-weak ones, e^c on the weak duad 34",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Cartan elements of the carrier factor that commute with SU(3) x SU(2) (orthogonal to e_0 - e_1, e_1 - e_2 and e_3 - e_4) form one line, spanned by Y = (-1/3, -1/3, -1/3, 1/2, 1/2); Q(e^c) = 1 fixes its scale": true,
+    "(10, 5) holds at each of the 5 twin sites u, d (3 colours each), u^c (3) and e^c; (5b, 10) holds at each of the 10 twin duads d^c (3), e and nu; the conjugate classes hold the antiparticles": true,
+    "the carrier roots are the 6 gluon roots, W+ and W-, and 12 leptoquark roots X, Y (and conjugates) at Y = -5/6 with Q = -4/3 and -1/3; the twin roots are all family roots": true,
+    "every root of each kind has the Standard Model's hypercharge and charge, and its antiparticle the opposite: u (1/6, 2/3), d (1/6, -1/3), u^c (-2/3, -2/3), e^c (1, 1), d^c (1/3, 1/3), e (-1/2, -1), nu (-1/2, 0), W+- (0, +-1), X (-5/6, -4/3), Y (-5/6, -1/3)": true,
+    "charge quantization on all 240 roots: Q minus each colour coordinate is an integer, so colour singlets and octets have integer charge, triplets 2/3 and antitriplets 1/3 mod 1 (the Z6 of the Standard Model)": true,
+    "the roots with no Standard-Model charge (Y = T3 = 0, colour weight 0) are exactly the 20 family roots": true,
+    "the second moment fixes the trace ratio: sum (T3.rho)^2 : sum (Q.rho)^2 = 60 |T3|^2 : 60 |Q|^2 = 3 : 8 over all 240 roots and over each mixed class; it fixes no coupling": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> root assignment: J (site_a -> mu_a, mu_a -> -site_a) lies in W(E8), J^2 = -1, and it cycles the four mixed classes, multiplying the grade in Z/5 by 2; the normalizer of A4 + A4' acts on them through the units of Z/5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "J (site_a -> mu_a, mu_a -> -site_a) is orthogonal and permutes the 240 roots, so it lies in W(E8) (the automorphisms of the E8 root system are its Weyl group), and J^2 = -1": true,
+    "J exchanges the carrier and twin factors and carries (10, 5) -> (5b, 10) -> (10b, 5b) -> (5, 10b) -> (10, 5), multiplying the grade in E8 / L0 = Z/5 by 2, the glue's doubling": true,
+    "of the sign changes of the two factors only (1, 1) and (-1, -1) keep the roots, so the normalizer of A4 + A4' is (W(A4) x W(A4')) x <J>, of order 2 x 2 x 120^2 = 57600, acting on the four mixed classes through all four units of Z/5 (W x W' as 1, J as 2, -1 as 4)": true,
+    "the 120 permutations of the carrier sites are Weyl elements that keep every twin weight, and the ten colour triples are one orbit: the colour choice is unique up to W(A4)": true,
+    "-1 lies in W(E8) and sends each mixed class to its conjugate: no W(E8)-invariant rule tells a particle from its antiparticle (the 248 is real)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "S5 -> root assignment: the ten colour triples are one orbit of S5 = W(A4), which keeps every twin weight; with J and -1 the factor, the orientation and the colour triple are all W(E8)-equivalent",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "J (site_a -> mu_a, mu_a -> -site_a) is orthogonal and permutes the 240 roots, so it lies in W(E8) (the automorphisms of the E8 root system are its Weyl group), and J^2 = -1": true,
+    "J exchanges the carrier and twin factors and carries (10, 5) -> (5b, 10) -> (10b, 5b) -> (5, 10b) -> (10, 5), multiplying the grade in E8 / L0 = Z/5 by 2, the glue's doubling": true,
+    "of the sign changes of the two factors only (1, 1) and (-1, -1) keep the roots, so the normalizer of A4 + A4' is (W(A4) x W(A4')) x <J>, of order 2 x 2 x 120^2 = 57600, acting on the four mixed classes through all four units of Z/5 (W x W' as 1, J as 2, -1 as 4)": true,
+    "the 120 permutations of the carrier sites are Weyl elements that keep every twin weight, and the ten colour triples are one orbit: the colour choice is unique up to W(A4)": true,
+    "-1 lies in W(E8) and sends each mixed class to its conjugate: no W(E8)-invariant rule tells a particle from its antiparticle (the 248 is real)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "six-site port -> root assignment: the six-site port's roots e_a + e_5 are the 5 at -(mu_3 + mu_4), the twin duad disjoint from the generation triangle, and the brackets of its 10's with its 5b's; its memory variance 183 I + 52 J counts bath neighbours",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the port's memory variance M_2 - M_1^2 = X^T X, with X = (1 - P) Delta P, counts the bath points next to two sites: 240 - 5 = 235 on the diagonal and 56 - 4 = 52 off it, which is 183 I + 52 J (layer 22)": true,
+    "its eigenvalues 183 (five times) and 495 are positive, so X has no kernel: every visible state leaks into the bath at the first step, and the six channels cannot evolve on their own": true,
+    "the brackets of the triangle's 10's with its 5b's are exactly the port's five roots e_a + e_5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "binding -> root assignment: with the orientation and the bracket rule (the 5b's are the brackets of the 10's), anomaly freedom |S| = C(|S|, 2) forces a triangle of K5': 45 roots, three generations, every anomaly zero; B6 sharpened, not discharged",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "two roots of (10, 5) sum to a root exactly when their twin sites differ and their carrier duads are disjoint, and the sum is then the root of (5b, 10) at the twin duad of the two sites; every root of (5b, 10) arises so, and two roots at one twin site never sum to a root": true,
+    "if the 5b's are exactly the brackets of the 10's (D = the duads of S), anomaly freedom |S| = C(|S|, 2) forces |S| = 3: the closed anomaly-free selections are the ten triangles of K5' (and the empty one)": true,
+    "the ten triangles are one S5-orbit and the triangle {0, 1, 2} has stabilizer S3 x S2 of order 12, the family symmetry left by the selection": true,
+    "on the triangle {0, 1, 2}: 45 roots, three times u, d, u^c, e^c (10 per site) and d^c, e, nu (5 per edge), the 45 Weyl fermions of three generations": true,
+    "every perturbative anomaly vanishes on the 45 (SU(3)^3, SU(3)^2 Y, SU(2)^2 Y, Y^3 and the mixed gravitational Y), and they carry 12 doublets, an even number": true,
+    "the six-site port's five roots e_a + e_5 are the GUT 5 at the twin weight -(mu_3 + mu_4): their twin duad {3, 4} is the one disjoint from the triangle": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "root assignment -> binding: taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "per twin site the 10 has anomaly A(10) = A(5) = 1 and per twin duad the 5b has -1 (layer 12's B4)": true,
+    "taking one of each pair +-rho as whole multiplets (the 10 or 10b at each twin site, the 5b or 5 at each twin duad, 2^15 = 32768 choices), the SU(5) anomaly sum eps - sum eta is odd every time, from -15 to 15, never 0": true,
+    "and every such choice carries 5 x 3 + 10 x 1 = 25 SU(2) doublets, an odd number: Witten's global anomaly. No chiral assignment that uses each mixed root pair once is consistent": true,
+    "an anomaly-free set of 10's at twin sites S and 5b's at twin duads D needs |S| = |D|; there are sum C(5,k) C(10,k) = C(15,5) = 3003 such sets, so the roots do not fix the generation number": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 60 dots and 161 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7488,6 +7615,7 @@
      "S5",
      "V",
      "air801",
+     "assignment",
      "atlas",
      "bath",
      "binding",
@@ -7543,7 +7671,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every layer of the build, 1 to 23, has a dot",
+   "name": "every layer of the build, 1 to 24, has a dot",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7569,7 +7697,8 @@
     20,
     21,
     22,
-    23
+    23,
+    24
    ],
    "note": ""
   },
@@ -7681,11 +7810,12 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 6, physics (geometry, readout, waves, binding and the conditional cosmos): its 8 dots are joined among themselves",
+   "name": "level 6, physics (geometry, readout, waves, binding and the conditional cosmos): its 9 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
     [
+     "assignment",
      "binding",
      "calibration",
      "charges",
@@ -7700,7 +7830,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 7, combinatorics-lattice 4, lattice-operator 12, operator-physics 8 joins",
+   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 7, combinatorics-lattice 4, lattice-operator 12, operator-physics 9 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7748,21 +7878,22 @@
      "source -> binding",
      "datum -> cosmology",
      "source -> readout",
-     "charges -> kerM"
+     "charges -> kerM",
+     "sixsite -> assignment"
     ]
    ],
    "note": ""
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 56 of the 59 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 57 of the 60 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 137,
-    "OBSTRUCTION": 4,
+    "THEOREM": 144,
+    "OBSTRUCTION": 5,
     "SELECTED_REFERENCE": 8,
-    "CONDITIONAL": 3
+    "CONDITIONAL": 4
    },
    "note": ""
   },
@@ -7779,7 +7910,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 1, number-operator 1, number-physics 1, symmetry-combinatorics 7, symmetry-lattice 5, symmetry-operator 4, symmetry-physics 3, combinatorics-lattice 4, combinatorics-operator 9, combinatorics-physics 4, lattice-operator 12, lattice-physics 2, operator-physics 8",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 1, number-operator 1, number-physics 1, symmetry-combinatorics 7, symmetry-lattice 5, symmetry-operator 4, symmetry-physics 5, combinatorics-lattice 4, combinatorics-operator 9, combinatorics-physics 5, lattice-operator 12, lattice-physics 4, operator-physics 9",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -7791,13 +7922,13 @@
     "(0, 1)": 5,
     "(0, 2)": 3,
     "(1, 4)": 4,
-    "(4, 5)": 8,
-    "(2, 5)": 4,
-    "(3, 5)": 2,
+    "(4, 5)": 9,
+    "(2, 5)": 5,
+    "(3, 5)": 4,
     "(0, 3)": 1,
     "(0, 4)": 1,
     "(0, 5)": 1,
-    "(1, 5)": 3
+    "(1, 5)": 5
    },
    "note": ""
   },
@@ -8351,6 +8482,14 @@
   },
   {
    "layer": "23-dots",
+   "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: separate model's joined model (22:02): 158 check groups, 12 review groups, 80 matrices, 63 typed relationships; sha256 b0c17731...",
    "status": "REPORTED",
    "passed": true,
@@ -8497,6 +8636,334 @@
    "layer": "23-dots",
    "name": "not joined: the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51): Python verifiers, JSON receipts and SHA256SUMS: not downloaded and not run; their stated results are replayed",
    "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the twin sites mu_i sum to 0 with |mu_i|^2 = 4/5 and mu_i.mu_j = -1/5, and their differences are the 20 roots of A4', the orthogonal complement of the carrier's A4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "every root is a carrier root, a twin root, a pair (duad, site'), a pair (-site, duad') or minus one of these pairs: 20 + 20 + 4 x 50",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "each class is the full product of its weight sets, each pair once: (10, 5) is the carrier's 10 duads times the twin's 5 sites, (5b, 10) the carrier's 5 sites times the twin's 10 duads, so the twin's 10 is Lambda^2 of its 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "it agrees with layer 11: 20 + 20 + 200, and four class pairs of 50 for the carrier grades 1, 2, 3, 4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "over A4 + A4' the second moment is 10 I (each A4 gives 10 times its projection)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the weight covariances are sum mu mu^T = P' over the 5 and sum lambda lambda^T = 3 P over the 10, so (10, 5) and (10b, 5b) each give 5 x 3 P + 10 P' = 15 P + 10 P', and (5b, 10) and (5, 10b) each give 10 P + 15 P'",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "each mixed class is anisotropic, but (10, 5) + (5b, 10) is 25 I and all 240 roots give 10 I + 2 x 25 I = 60 I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "so the band eps(k) = sum (1 - cos rho.k) starts (1/2) sum (rho.k)^2 = 30 |k|^2, the native dispersion coefficient (checked at a rational k)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the selection: the carrier's A4 as SU(5), colour sites 0, 1, 2 and weak sites 3, 4, and (10, 5) + (5b, 10) as matter; these three free choices are stated, DYN_BIND stays NOT_INSTALLED, and B1 still forbids any atom-diagonal charge on the carrier",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the Cartan elements of the carrier factor that commute with SU(3) x SU(2) (orthogonal to e_0 - e_1, e_1 - e_2 and e_3 - e_4) form one line, spanned by Y = (-1/3, -1/3, -1/3, 1/2, 1/2); Q(e^c) = 1 fixes its scale",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "(10, 5) holds at each of the 5 twin sites u, d (3 colours each), u^c (3) and e^c; (5b, 10) holds at each of the 10 twin duads d^c (3), e and nu; the conjugate classes hold the antiparticles",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the carrier roots are the 6 gluon roots, W+ and W-, and 12 leptoquark roots X, Y (and conjugates) at Y = -5/6 with Q = -4/3 and -1/3; the twin roots are all family roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "every root of each kind has the Standard Model's hypercharge and charge, and its antiparticle the opposite: u (1/6, 2/3), d (1/6, -1/3), u^c (-2/3, -2/3), e^c (1, 1), d^c (1/3, 1/3), e (-1/2, -1), nu (-1/2, 0), W+- (0, +-1), X (-5/6, -4/3), Y (-5/6, -1/3)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "charge quantization on all 240 roots: Q minus each colour coordinate is an integer, so colour singlets and octets have integer charge, triplets 2/3 and antitriplets 1/3 mod 1 (the Z6 of the Standard Model)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the roots with no Standard-Model charge (Y = T3 = 0, colour weight 0) are exactly the 20 family roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the second moment fixes the trace ratio: sum (T3.rho)^2 : sum (Q.rho)^2 = 60 |T3|^2 : 60 |Q|^2 = 3 : 8 over all 240 roots and over each mixed class; it fixes no coupling",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "J (site_a -> mu_a, mu_a -> -site_a) is orthogonal and permutes the 240 roots, so it lies in W(E8) (the automorphisms of the E8 root system are its Weyl group), and J^2 = -1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "J exchanges the carrier and twin factors and carries (10, 5) -> (5b, 10) -> (10b, 5b) -> (5, 10b) -> (10, 5), multiplying the grade in E8 / L0 = Z/5 by 2, the glue's doubling",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "of the sign changes of the two factors only (1, 1) and (-1, -1) keep the roots, so the normalizer of A4 + A4' is (W(A4) x W(A4')) x <J>, of order 2 x 2 x 120^2 = 57600, acting on the four mixed classes through all four units of Z/5 (W x W' as 1, J as 2, -1 as 4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the 120 permutations of the carrier sites are Weyl elements that keep every twin weight, and the ten colour triples are one orbit: the colour choice is unique up to W(A4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "-1 lies in W(E8) and sends each mixed class to its conjugate: no W(E8)-invariant rule tells a particle from its antiparticle (the 248 is real)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "per twin site the 10 has anomaly A(10) = A(5) = 1 and per twin duad the 5b has -1 (layer 12's B4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "taking one of each pair +-rho as whole multiplets (the 10 or 10b at each twin site, the 5b or 5 at each twin duad, 2^15 = 32768 choices), the SU(5) anomaly sum eps - sum eta is odd every time, from -15 to 15, never 0",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "and every such choice carries 5 x 3 + 10 x 1 = 25 SU(2) doublets, an odd number: Witten's global anomaly. No chiral assignment that uses each mixed root pair once is consistent",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "an anomaly-free set of 10's at twin sites S and 5b's at twin duads D needs |S| = |D|; there are sum C(5,k) C(10,k) = C(15,5) = 3003 such sets, so the roots do not fix the generation number",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "two roots of (10, 5) sum to a root exactly when their twin sites differ and their carrier duads are disjoint, and the sum is then the root of (5b, 10) at the twin duad of the two sites; every root of (5b, 10) arises so, and two roots at one twin site never sum to a root",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "if the 5b's are exactly the brackets of the 10's (D = the duads of S), anomaly freedom |S| = C(|S|, 2) forces |S| = 3: the closed anomaly-free selections are the ten triangles of K5' (and the empty one)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the ten triangles are one S5-orbit and the triangle {0, 1, 2} has stabilizer S3 x S2 of order 12, the family symmetry left by the selection",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "on the triangle {0, 1, 2}: 45 roots, three times u, d, u^c, e^c (10 per site) and d^c, e, nu (5 per edge), the 45 Weyl fermions of three generations",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "every perturbative anomaly vanishes on the 45 (SU(3)^3, SU(3)^2 Y, SU(2)^2 Y, Y^3 and the mixed gravitational Y), and they carry 12 doublets, an even number",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the six-site port's five roots e_a + e_5 are the GUT 5 at the twin weight -(mu_3 + mu_4): their twin duad {3, 4} is the one disjoint from the triangle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "three generations rest on two inputs the roots do not supply, the orientation and the bracket rule; with them the count is 3 and the triangle is the one opposite the six-site port's duad. Layer 12's B6 is sharpened, not discharged",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "for roots alpha != +-beta, alpha + beta is a root exactly when alpha.beta = -1, so a cubic coupling of three root fields, which comes from the bracket [E_alpha, E_beta] ~ E_(alpha + beta), needs alpha + beta + gamma = 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "on the triangle, 10_i 5b_jk reaches a 5b root (the down-type Higgs H_d) exactly when i is not in {j, k}, and always at the twin duad {3, 4}, 20 root triangles for each of the three pairs: the down-quark and charged-lepton pattern is the permutation from each vertex to its opposite edge",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "10_i 10_j reaches a 5 root (the up-type Higgs H_u) exactly when i != j, at the twin weight -(mu_i + mu_j), 30 root triangles for each ordered pair",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "no root triangle couples two 10's at one twin site, at any of the five: the GUT top coupling 10_3 10_3 5_H has no root realization, and a symmetric matrix on the up-type support (zero diagonal) has rank one only if it is 0, so no up-type coupling matrix on these roots has rank one",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the roots fix which couplings can be nonzero, not their sizes: no Yukawa block is formed, and masses and mixings stay with the canon's removed constants",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the port's memory variance M_2 - M_1^2 = X^T X, with X = (1 - P) Delta P, counts the bath points next to two sites: 240 - 5 = 235 on the diagonal and 56 - 4 = 52 off it, which is 183 I + 52 J (layer 22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "its eigenvalues 183 (five times) and 495 are positive, so X has no kernel: every visible state leaks into the bath at the first step, and the six channels cannot evolve on their own",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "the brackets of the triangle's 10's with its 5b's are exactly the port's five roots e_a + e_5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "24-assignment",
+   "name": "data/e8_assignment.json is the table of all 240 roots",
+   "status": "THEOREM",
    "passed": true,
    "value": null,
    "note": ""

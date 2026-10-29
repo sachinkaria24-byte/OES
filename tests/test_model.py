@@ -1,10 +1,11 @@
 import itertools
+from fractions import Fraction
 
 import pytest
 
-from oes import (binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates, gatework, glue,
-                 gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot, spacetime,
-                 spectral, spine, waves)
+from oes import (assignment, binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates,
+                 gatework, glue, gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot,
+                 spacetime, spectral, spine, waves)
 
 LAYERS = {
     "carrier": carrier.run,
@@ -313,7 +314,7 @@ def test_all_dots_are_joined():
 def test_every_level_is_joined():
     passed = [True] * len(dots.JOINS)
     lv = dots.levels(passed)
-    assert lv["layers"] == list(range(1, 24))
+    assert lv["layers"] == list(range(1, 25))
     assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
     assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
     # THEOREM joins alone leave out exactly the two conditional dots and the memory clock, joined by selection
@@ -340,6 +341,37 @@ def test_every_pair_of_levels_and_no_two_maps(monkeypatch):
     assert dots.level_pairs()[(1, 5)] == 0
     monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] != ("air801", "surface")])
     assert not all(dots.no_two_maps().values())
+
+
+def test_the_particle_assignment_on_e8_roots():
+    for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
+                  assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):
+        out = check()
+        assert all(out.values()), out
+    # J squares to -1 and swaps the factors; the opposite sign does not keep the roots
+    import sympy as sp
+    J = assignment.swap()
+    assert J * J == -sp.eye(8)
+    # a wrong hypercharge (colour and weak exchanged) breaks the charges, and a relabelled twin moves the port
+    Y, Q, twin = assignment.Y, assignment.QE, assignment.TWIN
+    try:
+        assignment.Y = [Fraction(-1, 2)] * 2 + [Fraction(1, 3)] * 3 + [Fraction(0)] * 3
+        assignment.QE = [y + t for y, t in zip(assignment.Y, assignment.T3)]
+        assert not all(assignment.standard_model().values())
+        assignment.Y, assignment.QE = Y, Q
+        assignment.TWIN = twin[[3, 1, 2, 0, 4]]
+        assignment.TWIN_DUAD = {d: assignment.TWIN[d[0]] + assignment.TWIN[d[1]] for d in assignment.DUADS}
+        assert not all(assignment.generations().values())
+    finally:
+        assignment.Y, assignment.QE, assignment.TWIN = Y, Q, twin
+        assignment.TWIN_DUAD = {d: twin[d[0]] + twin[d[1]] for d in assignment.DUADS}
+    rep = assignment.run()
+    assert all(c.passed for c in rep.checks)
+
+
+def test_assignment_table_is_current():
+    import json
+    assert json.loads(assignment.DATA.read_text()) == assignment.table_data()
 
 
 def test_dots_page_is_current():

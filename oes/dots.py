@@ -184,6 +184,15 @@ synthematic totals, carries the cone's S5 onto PGL(2,5); S5 is W(A4) and the Wey
 Hodge star is the deck involution of S -> e_S mod 2 Lambda, onto 35 half-periods of type D8. The memory clock of
 layer 3 becomes a dot: its order-90 quotient is stepped by the circle (a selection, since 90 divides 4320), and its
 9- and 10-cycles read the vortex and the time coordinate.
+
+At 09:00 the request was to work out the mathematics of assigning particles to E8's roots. That is layer 24
+(oes/assignment.py), and its result becomes the dot "root assignment". It is joined to A4 + A4' by the branching, to
+E8 by the second moment (60 I, so the band starts 30 |k|^2 and T3 : Q is 3 : 8 in square sums), to the charges by
+Q = Y + T3 on all 240 roots, to K5's edges by the 10 of matter, to the affine group by J, the Weyl element with J^2 = -1
+that swaps the two factors and doubles the grade in E8 / L0, to S5 by the colour triples, and to the six-site port,
+whose roots are the 5 at the twin duad opposite the generation triangle. The join from the binding is conditional: with
+the orientation and the bracket rule, anomaly freedom forces three generations. An obstruction runs back to the
+binding: taking one root of every pair +-rho is always anomalous.
 """
 
 import functools
@@ -197,8 +206,8 @@ import sympy as sp
 from sympy.combinatorics import Permutation
 from sympy.matrices.normalforms import smith_normal_form
 
-from . import (binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover, ledger, literal,
-               native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
+from . import (assignment, binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover,
+               ledger, literal, native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
 from .record import Report
 
 N = spine.N
@@ -3294,6 +3303,7 @@ DOTS = {
     "simplex": ("4-simplex", "the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade", "17, 23"),
     "air801": ("801 matrix", "AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24", "23"),
     "pg25": ("PG(2,5)", "the projective plane over F5: the conic, 15 exterior and 10 interior points", "23"),
+    "assignment": ("root assignment", "Standard-Model quantum numbers on the 240 roots under A4 + A4'", "24"),
     "charges": ("five-site charges", "Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges", "12, 23"),
     "memory": ("memory clock", "the 120-state quotient of layer 3's memory operator, of order 90", "3"),
 }
@@ -3312,7 +3322,7 @@ LEVELS = [
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
       "pauli", "gksl"]),
     ("physics", "geometry, readout, waves, binding and the conditional cosmos",
-     ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges"]),
+     ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges", "assignment"]),
 ]
 LEVEL_OF = {dot: k for k, (_, _, dots) in enumerate(LEVELS) for dot in dots}
 
@@ -3476,6 +3486,15 @@ JOINS = [
     ("circle", "memory", "one step, one step", "k -> A^k is a homomorphism onto the memory clock's order-90 quotient (90 divides 4320), with kernel <90>: one circle step is one memory step, a selection", SR, "memory_clock"),
     ("memory", "vortex", "the 9-cycle", "on the memory clock's 9-cycle A^k moves by k mod 9, so its composite with the circle is the vortex x mod 9", SR, "memory_clock"),
     ("memory", "time", "the 10-cycles", "on each 10-cycle A^k moves by k mod 10, which carries the time coordinate k mod 5", SR, "memory_clock"),
+    ("L0", "assignment", "the branching", "the 240 roots are (24,1) + (1,24) + (10,5) + (5b,10) + (10b,5b) + (5,10b): (10,5) is the carrier's ten duads times the twin's five sites, (5b,10) its five sites times the twin's ten duads, each pair once", T, "assignment.factors"),
+    ("E8", "assignment", "the second moment", "10 I on A4 + A4', 15 P + 10 P' and 10 P + 15 P' on the mixed classes, 60 I in all: the band starts 30 |k|^2, and sum (T3.rho)^2 : sum (Q.rho)^2 = 3 : 8", T, "assignment.moments"),
+    ("charges", "assignment", "charges on the roots", "Q = Y + T3 on the carrier factor gives every root its Standard-Model charge, and Q minus each colour coordinate is an integer on all 240 roots (the Z6); only the 20 family roots carry no Standard-Model charge", T, "assignment.standard_model"),
+    ("E", "assignment", "the 10 of matter", "the carrier's ten duads are the weights of the 10 in (10,5): u^c on the colour duads, the quark doublet on the colour-weak ones, e^c on the weak duad 34", T, "assignment.standard_model"),
+    ("AGL", "assignment", "the doubling on E8 / L0", "J (site_a -> mu_a, mu_a -> -site_a) lies in W(E8), J^2 = -1, and it cycles the four mixed classes, multiplying the grade in Z/5 by 2; the normalizer of A4 + A4' acts on them through the units of Z/5", T, "assignment.choices"),
+    ("S5", "assignment", "one orbit of choices", "the ten colour triples are one orbit of S5 = W(A4), which keeps every twin weight; with J and -1 the factor, the orientation and the colour triple are all W(E8)-equivalent", T, "assignment.choices"),
+    ("sixsite", "assignment", "the port's twin duad", "the six-site port's roots e_a + e_5 are the 5 at -(mu_3 + mu_4), the twin duad disjoint from the generation triangle, and the brackets of its 10's with its 5b's; its memory variance 183 I + 52 J counts bath neighbours", T, "assignment.six_site_port"),
+    ("binding", "assignment", "three generations", "with the orientation and the bracket rule (the 5b's are the brackets of the 10's), anomaly freedom |S| = C(|S|, 2) forces a triangle of K5': 45 roots, three generations, every anomaly zero; B6 sharpened, not discharged", gates.CONDITIONAL, "assignment.generations"),
+    ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -3575,12 +3594,18 @@ LEDGER_ROWS = [
     ("the Hodge star mod 2", "Lambda^4 R^8 = 35 + 35", "joined: e_S = e_T mod 2 Lambda exactly for Hodge-dual four-sets, onto 35 D8 half-periods", T, "23"),
     ("the memory clock (layer 3)", "order-90 quotient of a 125-state operator", "joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate", SR, "3, 23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
-    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
+    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-24 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
+    ("the mixed root classes (09:00)", "the 200 mixed roots are four classes of 50 with a (5, 10b) or (10, 5) weight structure; K5's five sites and ten duads meet E8's mixed classes at the level of representations", "replayed: (10,5) is the carrier's ten duads times the twin's five sites and (5b,10) its five sites times the twin's ten duads, each pair once; layer 11's (10, 5b') is (10,5) with the twin's 5 renamed", T, "11, 24"),
+    ("the second moment (09:00)", "40 + 4 x 50 = 240; the weight-orbit covariances give sum rho rho^T = 60 I8, so the dispersion coefficient is 30", "replayed: 10 I on A4 + A4', 15 P + 10 P' on (10,5) and its conjugate, 10 P + 15 P' on (5b,10) and its conjugate, 60 I in all, and 30 = 60/2; the same moment gives T3 : Q = 3 : 8", T, "24"),
+    ("the particle assignment (09:00)", "the construction does not by itself assign particles to E8 roots; work out the mathematics", "worked out (layer 24): Standard-Model quantum numbers on all 240 roots under a stated selection, unique up to W(E8); one root of every pair is always anomalous (OBSTRUCTION); three generations follow from the bracket rule and anomaly freedom (CONDITIONAL); the top coupling has no root realization (OBSTRUCTION); no Yukawa block is formed", SR, "24"),
+    ("the K5 -> E8 reference port (09:00)", "a strictly positive six-channel memory variance: the visible sector cannot evolve without the bath", "replayed: M_2 - M_1^2 = X^T X = 183 I + 52 J counts the bath points next to two sites (235 and 52); its eigenvalues 183 and 495 are positive, so X = (1 - P) Delta P has no kernel", T, "22, 24"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
 NOT_JOINED = [
+    ("the Yukawa sizes (layer 24)", "the roots give which couplings can be nonzero, not their sizes; "
+                                    "no Yukawa block is formed, and masses and mixings stay removed", gates.UNFORMED),
     ("separate model's joined model (22:02)", "158 check groups, 12 review groups, 80 matrices, 63 typed relationships; "
                                               "sha256 b0c17731...", RP),
     ("canon SMEAR (184 / 481)", "a rank-6 port T and a rank-4 projector P with minor -512 alpha^4 / 25; the operands are "
@@ -3662,6 +3687,10 @@ def _checks():
         "tick_halfperiods": tick_halfperiods, "light_symmetries": light_symmetries, "outer_s6": outer_s6,
         "s5_weyl": s5_weyl, "air801_surface": air801_surface, "tick_cuts_f2": tick_cuts_f2, "small_joins": small_joins,
         "hodge_halfper": hodge_halfper, "memory_clock": memory_clock,
+        "assignment.factors": assignment.factors, "assignment.moments": assignment.moments,
+        "assignment.standard_model": assignment.standard_model, "assignment.choices": assignment.choices,
+        "assignment.six_site_port": assignment.six_site_port, "assignment.generations": assignment.generations,
+        "assignment.chirality": assignment.chirality,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -3770,7 +3799,7 @@ def run():
     rep.add(f"the {len(DOTS)} dots and {len(JOINS)} joins form one connected diagram (the obstructions left out)", T,
             len(comps) == 1, [sorted(c) for c in comps])
     lv = levels(passed)
-    rep.add("every layer of the build, 1 to 23, has a dot", T, lv["layers"] == list(range(1, 24)), lv["layers"])
+    rep.add("every layer of the build, 1 to 24, has a dot", T, lv["layers"] == list(range(1, 25)), lv["layers"])
     for k, (name, what, dots) in enumerate(LEVELS):
         rep.add(f"level {k + 1}, {name} ({what}): its {len(dots)} dots are joined among themselves", T,
                 len(lv["inside"][name]) == 1, [sorted(c) for c in lv["inside"][name]])

@@ -1,0 +1,4871 @@
+{
+ "about": "The 240 roots of E8 under A4 + A4' (layer 24, oes/assignment.py). The carrier's A4 is taken as SU(5) with colour sites 0, 1, 2 and weak sites 3, 4, and the orientation (10,5) + (5b,10) is taken as matter (SELECTED_REFERENCE; every choice is W(E8)-equivalent). 'triangle_selection' marks the three generations on the twin triangle {0, 1, 2}, which is CONDITIONAL on the bracket rule. A '~' marks an antiparticle. DYN_BIND stays NOT_INSTALLED.",
+ "twin_sites_times_10": [
+  [
+   4,
+   4,
+   4,
+   4,
+   4,
+   0,
+   0,
+   0
+  ],
+  [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   5,
+   5,
+   -5
+  ],
+  [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   5,
+   -5,
+   5
+  ],
+  [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -5,
+   5,
+   5
+  ],
+  [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -5,
+   -5,
+   -5
+  ]
+ ],
+ "hypercharge": [
+  "-1/3",
+  "-1/3",
+  "-1/3",
+  "1/2",
+  "1/2"
+ ],
+ "T3": [
+  "0",
+  "0",
+  "0",
+  "1/2",
+  "-1/2"
+ ],
+ "roots": [
+  {
+   "root_times_2": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 01",
+   "twin": "+site' 0",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    2,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 0-1",
+   "twin": "0",
+   "particle": "gluon",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 1-0",
+   "twin": "0",
+   "particle": "gluon",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 01",
+   "twin": "-site' 0",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 02",
+   "twin": "+site' 0",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 0-2",
+   "twin": "0",
+   "particle": "gluon",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 2-0",
+   "twin": "0",
+   "particle": "gluon",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 02",
+   "twin": "-site' 0",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 03",
+   "twin": "+site' 0",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 0-3",
+   "twin": "0",
+   "particle": "X",
+   "T3": "-1/2",
+   "hypercharge": "-5/6",
+   "Q": "-4/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 3-0",
+   "twin": "0",
+   "particle": "X~",
+   "T3": "1/2",
+   "hypercharge": "5/6",
+   "Q": "4/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 03",
+   "twin": "-site' 0",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 04",
+   "twin": "+site' 0",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 0-4",
+   "twin": "0",
+   "particle": "Y",
+   "T3": "1/2",
+   "hypercharge": "-5/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 4-0",
+   "twin": "0",
+   "particle": "Y~",
+   "T3": "-1/2",
+   "hypercharge": "5/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 04",
+   "twin": "-site' 0",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 34",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": "six-site port"
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 12",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 12",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 34",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "H_d"
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 24",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 13",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 13",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 24",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 14",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 23",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 23",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 14",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 12",
+   "twin": "+site' 0",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 1-2",
+   "twin": "0",
+   "particle": "gluon",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 2-1",
+   "twin": "0",
+   "particle": "gluon",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 12",
+   "twin": "-site' 0",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 13",
+   "twin": "+site' 0",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 1-3",
+   "twin": "0",
+   "particle": "X",
+   "T3": "-1/2",
+   "hypercharge": "-5/6",
+   "Q": "-4/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 3-1",
+   "twin": "0",
+   "particle": "X~",
+   "T3": "1/2",
+   "hypercharge": "5/6",
+   "Q": "4/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 13",
+   "twin": "-site' 0",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 14",
+   "twin": "+site' 0",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 1-4",
+   "twin": "0",
+   "particle": "Y",
+   "T3": "1/2",
+   "hypercharge": "-5/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 4-1",
+   "twin": "0",
+   "particle": "Y~",
+   "T3": "-1/2",
+   "hypercharge": "5/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 14",
+   "twin": "-site' 0",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 34",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": "six-site port"
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 12",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 12",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 34",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "H_d"
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 24",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 13",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 13",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 24",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 14",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 23",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 23",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 14",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 23",
+   "twin": "+site' 0",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 2-3",
+   "twin": "0",
+   "particle": "X",
+   "T3": "-1/2",
+   "hypercharge": "-5/6",
+   "Q": "-4/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 3-2",
+   "twin": "0",
+   "particle": "X~",
+   "T3": "1/2",
+   "hypercharge": "5/6",
+   "Q": "4/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 23",
+   "twin": "-site' 0",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 24",
+   "twin": "+site' 0",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 2-4",
+   "twin": "0",
+   "particle": "Y",
+   "T3": "1/2",
+   "hypercharge": "-5/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 4-2",
+   "twin": "0",
+   "particle": "Y~",
+   "T3": "-1/2",
+   "hypercharge": "5/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 24",
+   "twin": "-site' 0",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 34",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": "six-site port"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 12",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 12",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 34",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "H_d"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 24",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 13",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 13",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 24",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 14",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 23",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 23",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 14",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 34",
+   "twin": "+site' 0",
+   "particle": "e^c",
+   "T3": "0",
+   "hypercharge": "1",
+   "Q": "1",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 3-4",
+   "twin": "0",
+   "particle": "W+",
+   "T3": "1",
+   "hypercharge": "0",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "class": "(24,1)",
+   "carrier": "root 4-3",
+   "twin": "0",
+   "particle": "W-",
+   "T3": "-1",
+   "hypercharge": "0",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    -2,
+    0,
+    0,
+    0
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 34",
+   "twin": "-site' 0",
+   "particle": "e^c~",
+   "T3": "0",
+   "hypercharge": "-1",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 34",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": "six-site port"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 12",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    0,
+    2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 12",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 34",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": "H_d"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 24",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 13",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 13",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 24",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 14",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 23",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 23",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 14",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 34",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": "six-site port"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 12",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 12",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": "generation 1"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    -2,
+    0,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 34",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": "H_d"
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 24",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 13",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 13",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    -2,
+    0
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 24",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 14",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 23",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 23",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0,
+    -2
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 14",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    0
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 1-4",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    -2,
+    0
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 2-3",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    2,
+    0
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 3-2",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    -2,
+    0
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 4-1",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 2-4",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    -2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 1-3",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 3-1",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    -2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 4-2",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 3-4",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    -2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 1-2",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 2-1",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -2,
+    -2
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 4-3",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 0-4",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 0-3",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 0-2",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 0-1",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 01",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 02",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 03",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 4",
+   "twin": "+duad' 04",
+   "particle": "nu",
+   "T3": "1/2",
+   "hypercharge": "-1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 01",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 02",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 03",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 3",
+   "twin": "+duad' 04",
+   "particle": "e",
+   "T3": "-1/2",
+   "hypercharge": "-1/2",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 34",
+   "twin": "-site' 4",
+   "particle": "e^c~",
+   "T3": "0",
+   "hypercharge": "-1",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 34",
+   "twin": "-site' 3",
+   "particle": "e^c~",
+   "T3": "0",
+   "hypercharge": "-1",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 34",
+   "twin": "-site' 2",
+   "particle": "e^c~",
+   "T3": "0",
+   "hypercharge": "-1",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 34",
+   "twin": "-site' 1",
+   "particle": "e^c~",
+   "T3": "0",
+   "hypercharge": "-1",
+   "Q": "-1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 01",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 02",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 03",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 2",
+   "twin": "+duad' 04",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 24",
+   "twin": "-site' 4",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 24",
+   "twin": "-site' 3",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 24",
+   "twin": "-site' 2",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 24",
+   "twin": "-site' 1",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 23",
+   "twin": "-site' 4",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 23",
+   "twin": "-site' 3",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 23",
+   "twin": "-site' 2",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 23",
+   "twin": "-site' 1",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 01",
+   "twin": "+site' 1",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 01",
+   "twin": "+site' 2",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 01",
+   "twin": "+site' 3",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 01",
+   "twin": "+site' 4",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 01",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 02",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 03",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 1",
+   "twin": "+duad' 04",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 14",
+   "twin": "-site' 4",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 14",
+   "twin": "-site' 3",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 14",
+   "twin": "-site' 2",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 14",
+   "twin": "-site' 1",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 13",
+   "twin": "-site' 4",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 13",
+   "twin": "-site' 3",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 13",
+   "twin": "-site' 2",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 13",
+   "twin": "-site' 1",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 02",
+   "twin": "+site' 1",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 02",
+   "twin": "+site' 2",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 02",
+   "twin": "+site' 3",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 02",
+   "twin": "+site' 4",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 12",
+   "twin": "-site' 4",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 12",
+   "twin": "-site' 3",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 12",
+   "twin": "-site' 2",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 12",
+   "twin": "-site' 1",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 03",
+   "twin": "+site' 1",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 03",
+   "twin": "+site' 2",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 03",
+   "twin": "+site' 3",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 03",
+   "twin": "+site' 4",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 04",
+   "twin": "+site' 1",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 04",
+   "twin": "+site' 2",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 04",
+   "twin": "+site' 3",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 04",
+   "twin": "+site' 4",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 04",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 03",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 02",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 0",
+   "twin": "-duad' 01",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 01",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 02",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 03",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(5b,10)",
+   "carrier": "-site 0",
+   "twin": "+duad' 04",
+   "particle": "d^c",
+   "T3": "0",
+   "hypercharge": "1/3",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 04",
+   "twin": "-site' 4",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 04",
+   "twin": "-site' 3",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 04",
+   "twin": "-site' 2",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 04",
+   "twin": "-site' 1",
+   "particle": "d~",
+   "T3": "1/2",
+   "hypercharge": "-1/6",
+   "Q": "1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 03",
+   "twin": "-site' 4",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 03",
+   "twin": "-site' 3",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 03",
+   "twin": "-site' 2",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 03",
+   "twin": "-site' 1",
+   "particle": "u~",
+   "T3": "-1/2",
+   "hypercharge": "-1/6",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 12",
+   "twin": "+site' 1",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 12",
+   "twin": "+site' 2",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 12",
+   "twin": "+site' 3",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 12",
+   "twin": "+site' 4",
+   "particle": "u^c",
+   "T3": "0",
+   "hypercharge": "-2/3",
+   "Q": "-2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 02",
+   "twin": "-site' 4",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 02",
+   "twin": "-site' 3",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 02",
+   "twin": "-site' 2",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 02",
+   "twin": "-site' 1",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 13",
+   "twin": "+site' 1",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 13",
+   "twin": "+site' 2",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 13",
+   "twin": "+site' 3",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 13",
+   "twin": "+site' 4",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 14",
+   "twin": "+site' 1",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 14",
+   "twin": "+site' 2",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 14",
+   "twin": "+site' 3",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 14",
+   "twin": "+site' 4",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 04",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 03",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 02",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 1",
+   "twin": "-duad' 01",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 01",
+   "twin": "-site' 4",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 01",
+   "twin": "-site' 3",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 01",
+   "twin": "-site' 2",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(10b,5b)",
+   "carrier": "-duad 01",
+   "twin": "-site' 1",
+   "particle": "u^c~",
+   "T3": "0",
+   "hypercharge": "2/3",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 23",
+   "twin": "+site' 1",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 23",
+   "twin": "+site' 2",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 23",
+   "twin": "+site' 3",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 23",
+   "twin": "+site' 4",
+   "particle": "u",
+   "T3": "1/2",
+   "hypercharge": "1/6",
+   "Q": "2/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 24",
+   "twin": "+site' 1",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 24",
+   "twin": "+site' 2",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 24",
+   "twin": "+site' 3",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 24",
+   "twin": "+site' 4",
+   "particle": "d",
+   "T3": "-1/2",
+   "hypercharge": "1/6",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 04",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 03",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 02",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 2",
+   "twin": "-duad' 01",
+   "particle": "d^c~",
+   "T3": "0",
+   "hypercharge": "-1/3",
+   "Q": "-1/3",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 34",
+   "twin": "+site' 1",
+   "particle": "e^c",
+   "T3": "0",
+   "hypercharge": "1",
+   "Q": "1",
+   "triangle_selection": "generation 2"
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 34",
+   "twin": "+site' 2",
+   "particle": "e^c",
+   "T3": "0",
+   "hypercharge": "1",
+   "Q": "1",
+   "triangle_selection": "generation 3"
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 34",
+   "twin": "+site' 3",
+   "particle": "e^c",
+   "T3": "0",
+   "hypercharge": "1",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(10,5)",
+   "carrier": "+duad 34",
+   "twin": "+site' 4",
+   "particle": "e^c",
+   "T3": "0",
+   "hypercharge": "1",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 04",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 03",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 02",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 3",
+   "twin": "-duad' 01",
+   "particle": "e~",
+   "T3": "1/2",
+   "hypercharge": "1/2",
+   "Q": "1",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 04",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 03",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    1,
+    -1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 02",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    1
+   ],
+   "class": "(5,10b)",
+   "carrier": "+site 4",
+   "twin": "-duad' 01",
+   "particle": "nu~",
+   "T3": "-1/2",
+   "hypercharge": "1/2",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 1-0",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 2-0",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 3-0",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  },
+  {
+   "root_times_2": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+   ],
+   "class": "(1,24)",
+   "carrier": "0",
+   "twin": "root' 4-0",
+   "particle": "family",
+   "T3": "0",
+   "hypercharge": "0",
+   "Q": "0",
+   "triangle_selection": null
+  }
+ ]
+}

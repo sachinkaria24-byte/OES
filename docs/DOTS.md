@@ -74,6 +74,7 @@ flowchart TB
         gravity["product geometry"]
         cosmology["FLRW"]
         charges["five-site charges"]
+        assignment["root assignment"]
     end
     E -->|"B"| A4
     E -->|"B and M"| D5
@@ -227,9 +228,18 @@ flowchart TB
     circle -->|"one step, one step"| memory
     memory -->|"the 9-cycle"| vortex
     memory -->|"the 10-cycles"| time
+    L0 -->|"the branching"| assignment
+    E8 -->|"the second moment"| assignment
+    charges -->|"charges on the roots"| assignment
+    E -->|"the 10 of matter"| assignment
+    AGL -->|"the doubling on E8 / L0"| assignment
+    S5 -->|"one orbit of choices"| assignment
+    sixsite -->|"the port's twin duad"| assignment
+    binding -->|"three generations"| assignment
+    assignment -.->|"one root of every pair"| binding
 ```
 
-59 dots and 152 joins: 137 THEOREM, 8 SELECTED_REFERENCE, 3 CONDITIONAL and 4 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
+60 dots and 161 joins: 144 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
 
 ## Levels
 
@@ -239,8 +249,8 @@ flowchart TB
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix | 8 | 7 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 8 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 12 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 15 | 8 |
-| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges | 8 | - |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 15 | 9 |
+| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
 
@@ -249,11 +259,11 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 5 | 3 | 1 | 1 | 1 |
-| symmetry | 5 | - | 7 | 5 | 4 | 3 |
-| combinatorics | 3 | 7 | - | 4 | 9 | 4 |
-| lattice | 1 | 5 | 4 | - | 12 | 2 |
-| operator | 1 | 4 | 9 | 12 | - | 8 |
-| physics | 1 | 3 | 4 | 2 | 8 | - |
+| symmetry | 5 | - | 7 | 5 | 4 | 5 |
+| combinatorics | 3 | 7 | - | 4 | 9 | 5 |
+| lattice | 1 | 5 | 4 | - | 12 | 4 |
+| operator | 1 | 4 | 9 | 12 | - | 9 |
+| physics | 1 | 5 | 5 | 4 | 9 | - |
 
 ## Dots
 
@@ -316,6 +326,7 @@ The maps that join each pair of levels directly.
 | 4-simplex | the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade | combinatorics | 17, 23 |
 | 801 matrix | AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24 | symmetry | 23 |
 | PG(2,5) | the projective plane over F5: the conic, 15 exterior and 10 interior points | combinatorics | 23 |
+| root assignment | Standard-Model quantum numbers on the 240 roots under A4 + A4' | physics | 24 |
 | five-site charges | Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges | physics | 12, 23 |
 | memory clock | the 120-state quotient of layer 3's memory operator, of order 90 | number | 3 |
 
@@ -475,11 +486,21 @@ The maps that join each pair of levels directly.
 | circle | memory clock | k -> A^k is a homomorphism onto the memory clock's order-90 quotient (90 divides 4320), with kernel <90>: one circle step is one memory step, a selection | SELECTED_REFERENCE | `memory_clock` |
 | memory clock | vortex | on the memory clock's 9-cycle A^k moves by k mod 9, so its composite with the circle is the vortex x mod 9 | SELECTED_REFERENCE | `memory_clock` |
 | memory clock | time clock | on each 10-cycle A^k moves by k mod 10, which carries the time coordinate k mod 5 | SELECTED_REFERENCE | `memory_clock` |
+| A4 + A4' | root assignment | the 240 roots are (24,1) + (1,24) + (10,5) + (5b,10) + (10b,5b) + (5,10b): (10,5) is the carrier's ten duads times the twin's five sites, (5b,10) its five sites times the twin's ten duads, each pair once | THEOREM | `assignment.factors` |
+| E8 | root assignment | 10 I on A4 + A4', 15 P + 10 P' and 10 P + 15 P' on the mixed classes, 60 I in all: the band starts 30 \|k\|^2, and sum (T3.rho)^2 : sum (Q.rho)^2 = 3 : 8 | THEOREM | `assignment.moments` |
+| five-site charges | root assignment | Q = Y + T3 on the carrier factor gives every root its Standard-Model charge, and Q minus each colour coordinate is an integer on all 240 roots (the Z6); only the 20 family roots carry no Standard-Model charge | THEOREM | `assignment.standard_model` |
+| K5 edges | root assignment | the carrier's ten duads are the weights of the 10 in (10,5): u^c on the colour duads, the quark doublet on the colour-weak ones, e^c on the weak duad 34 | THEOREM | `assignment.standard_model` |
+| AGL(1,5) | root assignment | J (site_a -> mu_a, mu_a -> -site_a) lies in W(E8), J^2 = -1, and it cycles the four mixed classes, multiplying the grade in Z/5 by 2; the normalizer of A4 + A4' acts on them through the units of Z/5 | THEOREM | `assignment.choices` |
+| S5 | root assignment | the ten colour triples are one orbit of S5 = W(A4), which keeps every twin weight; with J and -1 the factor, the orientation and the colour triple are all W(E8)-equivalent | THEOREM | `assignment.choices` |
+| six-site port | root assignment | the six-site port's roots e_a + e_5 are the 5 at -(mu_3 + mu_4), the twin duad disjoint from the generation triangle, and the brackets of its 10's with its 5b's; its memory variance 183 I + 52 J counts bath neighbours | THEOREM | `assignment.six_site_port` |
+| binding | root assignment | with the orientation and the bracket rule (the 5b's are the brackets of the 10's), anomaly freedom \|S\| = C(\|S\|, 2) forces a triangle of K5': 45 roots, three generations, every anomaly zero; B6 sharpened, not discharged | CONDITIONAL | `assignment.generations` |
+| root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
 ## Not joined
 
 | object | why | status |
 |---|---|---|
+| the Yukawa sizes (layer 24) | the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed | UNFORMED |
 | separate model's joined model (22:02) | 158 check groups, 12 review groups, 80 matrices, 63 typed relationships; sha256 b0c17731... | REPORTED |
 | canon SMEAR (184 / 481) | a rank-6 port T and a rank-4 projector P with minor -512 alpha^4 / 25; the operands are not stored here | REPORTED |
 | source-to-cube bridge | rank 10 with an exact left decoder (canon); not stored here | REPORTED |

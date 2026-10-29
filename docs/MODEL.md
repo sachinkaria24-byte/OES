@@ -402,7 +402,7 @@ So "doing the maths to get to the gates" means two things: drive every gate to t
 
 **Conditional consequence (CONDITIONAL).** One carrier supports one anomaly-free 5 + 10, the state content of one Standard-Model generation. Nature has three (LEP N_ν = 2.984 ± 0.008), so the generation multiplicity is an explicit **operand of DYN_BIND**, not a carrier theorem.
 
-**The structural route.** The route the mathematics points to is e8 ⊃ su(5) ⊕ su(5)′ (layer 11). Choosing it, and supplying the multiplicity and the chirality index, is the binding decision.
+**The structural route.** The route the mathematics points to is e8 ⊃ su(5) ⊕ su(5)′ (layer 11). Choosing it, and supplying the multiplicity and the chirality index, is the binding decision. Layer 24 works the route out on the roots (§25). The choice is one W(E8) orbit, one root of every pair ±ρ is always anomalous, and the multiplicity 3 follows from the bracket rule and anomaly freedom.
 
 ## 13. The gates, executed to the edge of their type (`oes/gatework.py`)
 
@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 59 dots and 152 joins: 148 maps (137 THEOREM, 8 SELECTED_REFERENCE, 3 CONDITIONAL) and four obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
+The diagram has 60 dots and 161 joins: 156 maps (144 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL) and five obstructions. No two maps hold it together: every dot except the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots (see *Every pair of levels, and no two maps* below). Every dot sits on one of six levels, from the integers up to physics, and every pair of levels is joined directly (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1033,7 +1033,7 @@ Three dots (the coil, S5 and PGL(2,5)) and ten joins, nine maps and one obstruct
 - **MPKG's block.** A 6 × 6 block with B⁵ = I and traces 1, 1, 1, 1 has the eigenvalue 1 twice and each primitive fifth root once. So it is similar over ℚ to the C5 rotation of the cone's six sites.
   - Four copies have trace 4 and return at 5 to an identity of trace 24.
   - Doubling sends the levels 0, 6, 12, 18 to 0, 12, 24, 0, and the stored [[−1, 4], [6, 1]] squares to 25I.
-  - The operand MPKG A_M itself stays unformed (§25).
+  - The operand MPKG A_M itself stays unformed (§26).
 
 Also from these items:
 - **Two corrections.** The shift T by 24 on the atlas does not commute with doubling, as MORE_DOTS had said: D T = T² D = T⁻¹ D, and D² T = T D². The hub's own atlas verifier agrees. DEEP_H's "⟨39⟩ has the sun's order, 1440" is also corrected: ⟨39⟩ = ⟨3⟩ has 1440 points, which is the sun's step, and the sun 1440 itself has order 3.
@@ -1286,12 +1286,90 @@ Also from these items:
 - **The memory clock** (layer 3) becomes a dot on the number level. Its order-90 quotient A is stepped by the circle through k ↦ A^k, a homomorphism because 90 divides 4320. This is a selection: one circle step is one memory step. On its 9-cycle A^k moves by k mod 9, and on each 10-cycle by k mod 10, so it reads the vortex and the time coordinate. THEOREM joins alone now reach every dot except the product geometry, FLRW and the memory clock.
 - **Still not joined:** the [9, 3, 7] code over F₁₁ (nothing identifies it with H90), air, the board's fine-structure digits, and the objects whose operands are not stored here.
 
+**The root assignment (09:00).** Layer 24's result (§25) becomes the dot "root assignment" on the physics level, with seven THEOREM joins:
+- from A4 + A4′, the branching;
+- from E8, the second moment (60 I, so the band starts 30|k|², and T3 : Q is 3 : 8 in square sums);
+- from the charges, Q = Y + T3 on all 240 roots;
+- from K5's edges, the 10 of matter;
+- from the affine group, J, which doubles the grade in E8/L0;
+- from S5, the colour triples;
+- from the six-site port, whose roots are the 5 at the twin duad opposite the generation triangle.
+
+The join from the binding is CONDITIONAL: three generations, given the orientation and the bracket rule. An obstruction runs back to the binding: one root of every pair ±ρ is always anomalous. The Yukawa sizes are listed as not joined (UNFORMED).
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
 - Not joined: the canon's SMEAR operands and the source-to-cube bridge (no operand is stored for either), and an air operator (UNFORMED). AIR_801's 31-point orbit list, listed here at 22:08, was rebuilt at 22:31 through the symmetric square.
 
-## 25. What stays open
+## 25. The particle assignment on E8's roots (`oes/assignment.py`)
+
+At 09:00 UTC the request was to work out the mathematics of assigning physical particles to E8's roots. Layer 12 named the route e8 ⊃ su(5) ⊕ su(5)′ and left three things to DYN_BIND: the route itself, the generation multiplicity and the chirality. This layer works the route out on the 240 roots. It gives every root its Standard-Model quantum numbers and says what the roots force, what is chosen and what is ruled out. DYN_BIND stays NOT_INSTALLED, and nothing here enters the carrier Lagrangian. The table of all 240 roots is [`data/e8_assignment.json`](../data/e8_assignment.json), and a test keeps it current.
+
+**The two factors (THEOREM).**
+- The carrier's A4 (the roots e_i − e_j, i, j < 5) is taken as the GUT factor SU(5), and its orthogonal complement A4′ as the family factor SU(5)′.
+- The carrier's sites are e_a − u and its duads e_a + e_b − 2u, with u = (1, 1, 1, 1, 1; 0, 0, 0)/5.
+- The twin's sites are μ₀ = 2u and μ_i = −u/2 + s_i/2 on the last three coordinates, with s = (1, 1, −1), (1, −1, 1), (−1, 1, 1), (−1, −1, −1). They sum to 0, with |μ_i|² = 4/5 and μ_i·μ_j = −1/5. Their differences are the 20 roots of A4′, and the twin's duads are μ_i + μ_j.
+- Every root is a pair (carrier part, twin part). There are 20 carrier roots (24, 1) and 20 twin roots (1, 24). The mixed roots are 50 pairs (duad, site′) = (10, 5), 50 pairs (−site, duad′) = (5̄, 10), and their negatives (10̄, 5̄) and (5, 10̄). Each pair occurs exactly once.
+- So K5's sites and duads are the weights on both sides. (10, 5) is the carrier's ten duads times the twin's five sites, and (5̄, 10) is the carrier's five sites times the twin's ten duads. This is layer 11's decomposition, with the twin's 5 renamed by its outer automorphism: layer 11's (10, 5̄′) is (10, 5) here.
+
+**Moments (THEOREM).**
+- Over A4 + A4′ the second moment Σρρᵀ is 10 I.
+- The weight covariances are Σμμᵀ = P′ over the 5 and Σλλᵀ = 3P over the 10. So (10, 5) and (10̄, 5̄) each give 5 × 3P + 10 P′ = 15P + 10P′, and (5̄, 10) and (5, 10̄) each give 10P + 15P′. Here P and P′ project onto the two factors.
+- Each mixed class is anisotropic, but (10, 5) + (5̄, 10) is 25 I, and the 240 roots give 10 I + 2 × 25 I = 60 I.
+- So the band ε(k) = Σ(1 − cos ρ·k) starts at ½Σ(ρ·k)² = 30|k|², the native dispersion coefficient.
+
+**The Standard Model on the carrier factor.** The selection (SELECTED_REFERENCE) is colour sites 0, 1, 2 and weak sites 3, 4, with T3 = (e₃ − e₄)/2 and Y = −(e₀ + e₁ + e₂)/3 + (e₃ + e₄)/2. Its free choices are the factor, the colour triple and the orientation. Then (THEOREM):
+- Y is, up to scale, the only Cartan element of the carrier that commutes with SU(3) × SU(2), and Q(e^c) = 1 fixes the scale.
+- Every root has a colour weight, T3, Y and Q = T3 + Y:
+
+| class | at each | roots |
+|---|---|---|
+| (10, 5) | twin site (5) | u and d (3 colours each), u^c (3), e^c |
+| (5̄, 10) | twin duad (10) | d^c (3), e, ν |
+| (10̄, 5̄) and (5, 10̄) | | the antiparticles |
+| (24, 1) | | 6 gluon roots, W±, 12 leptoquark roots X and Y (Y = −5/6, Q = −4/3 and −1/3, and their conjugates) |
+| (1, 24) | | 20 family roots, the only roots with no Standard-Model charge |
+
+- The hypercharges and charges are the Standard Model's: u (1/6, 2/3), d (1/6, −1/3), u^c (−2/3, −2/3), e^c (1, 1), d^c (1/3, 1/3), e (−1/2, −1), ν (−1/2, 0).
+- Charge quantization holds on all 240 roots: Q minus each colour coordinate is an integer. So singlets and octets have integer charge, triplets 2/3 and antitriplets 1/3 mod 1. This is the ℤ6 of the Standard Model.
+- The second moment gives Σ(T3·ρ)² : Σ(Q·ρ)² = 60|T3|² : 60|Q|² = 3 : 8, over all 240 roots and over each mixed class. This is the GUT trace ratio, and it fixes no coupling.
+- B1 still holds: no atom-diagonal charge commutes with the carrier's D. The charges act on the roots, not on the carrier's atoms.
+
+**The choices are one Weyl orbit (THEOREM).**
+- J (site_a ↦ μ_a, μ_a ↦ −site_a) is orthogonal and permutes the 240 roots, so it lies in W(E8), the automorphism group of the E8 root system. J² = −1. With the other sign (μ_a ↦ +site_a) the roots are not kept.
+- J swaps the factors and carries (10, 5) → (5̄, 10) → (10̄, 5̄) → (5, 10̄) → (10, 5). That multiplies the grade in E8/L0 = ℤ/5 by 2, the glue's doubling.
+- Of the sign changes of the two factors, only (1, 1) and (−1, −1) keep the roots. So the normalizer of A4 + A4′ is (W(A4) × W(A4′)) ⋊ ⟨J⟩, of order 4 × 120² = 57600. It acts on the four mixed classes through the four units of ℤ/5.
+- The ten colour triples are one orbit of S5 = W(A4), which fixes every twin weight.
+- So the factor, the orientation and the colour triple are unique up to W(E8), and so is the whole table. And −1 ∈ W(E8) exchanges every particle with its antiparticle: the 248 is real, and no W(E8)-invariant rule makes the spectrum chiral. Compare Distler and Garibaldi (arXiv:0905.2658), who show that embedding gravity and the Standard Model in a form of E8 cannot give three chiral generations.
+
+**Chirality (OBSTRUCTION).**
+- Take one root of each pair ±ρ, as whole multiplets: per twin site the 10 or the 10̄, per twin duad the 5̄ or the 5. There are 2¹⁵ = 32768 such choices.
+- The SU(5) anomaly is Σε − Ση, five signs minus ten. It is odd every time, from −15 to 15, and never 0.
+- Every such choice also carries 5 × 3 + 10 = 25 SU(2) doublets, an odd number, so it has Witten's global anomaly. No chiral assignment that uses every mixed pair once is consistent.
+- An anomaly-free set of 10's at twin sites S and 5̄'s at twin duads D needs |S| = |D|. There are C(15, 5) = 3003 such sets (THEOREM), so the roots alone do not fix the number of generations.
+
+**Three generations (CONDITIONAL).**
+- Two roots of (10, 5) sum to a root exactly when their twin sites differ and their carrier duads are disjoint. The sum is then the root of (5̄, 10) at the twin duad of the two sites, and every root of (5̄, 10) arises this way. Two roots at one twin site never sum to a root (THEOREM).
+- So the 5̄'s are exactly the brackets of the 10's when D is the set of duads of S. Call this the bracket rule. With it, anomaly freedom says |S| = C(|S|, 2), which forces |S| = 3: a triangle of K5′ (THEOREM). The ten triangles are one S5-orbit, and a triangle's stabilizer S3 × S2 is the family symmetry the selection leaves.
+- The triangle {0, 1, 2} gives 45 roots: u, d, u^c and e^c at each of its sites, and d^c, e and ν on each of its edges. These are the 45 Weyl fermions of three generations, without right-handed neutrinos. Each 10 pairs with the 5̄ on the opposite edge.
+- On these 45 roots every perturbative anomaly vanishes (SU(3)³, SU(3)²Y, SU(2)²Y, Y³ and the gravitational Y), and their 12 doublets are an even number.
+- The six-site port's five roots e_a + e₅ are the 5 at −(μ₃ + μ₄). Their twin duad {3, 4} is the one disjoint from the triangle.
+- The count 3 rests on two inputs the roots do not supply: the orientation and the bracket rule. So B6 is sharpened, not discharged.
+
+**Couplings are root triangles.**
+- For roots α ≠ ±β, α + β is a root exactly when α·β = −1. So a cubic coupling of three root fields, which comes from the bracket [E_α, E_β] ∝ E_{α+β}, needs α + β + γ = 0 (THEOREM).
+- On the triangle, 10_i 5̄_jk reaches a 5̄ root (the down-type Higgs H_d) exactly when i ∉ {j, k}. That always happens at the twin duad {3, 4}, with 20 root triangles for each of the three pairs. So the down-quark and charged-lepton pattern is the permutation that sends each vertex to its opposite edge (THEOREM).
+- 10_i 10_j reaches a 5 root (the up-type Higgs H_u) exactly when i ≠ j, at −(μ_i + μ_j), with 30 root triangles for each ordered pair (THEOREM).
+- No root triangle couples two 10's at the same twin site (OBSTRUCTION). So the GUT top coupling 10₃10₃5_H has no root realization. A symmetric matrix with zero diagonal has rank one only if it is 0, so no up-type coupling matrix on these roots has rank one. A rank-one top Yukawa needs two twin weights identified, and no root fact supplies that. F-theory models make the identification by a monodromy of the twin weights; see for example Heckman, Tavanfar and Vafa (arXiv:0906.0581).
+- The roots fix which couplings can be nonzero, not their sizes (UNFORMED). No Yukawa block is formed, and masses and mixings stay with the canon's removed constants.
+
+**The six-site port, the K5 → E8 reference port (THEOREM).**
+- Its memory variance M₂ − M₁² = XᵀX, with X = (1 − P)ΔP, counts the bath points next to two sites: 240 − 5 = 235 on the diagonal and 56 − 4 = 52 off it. So it is 183 I + 52 J, layer 22's block.
+- Its eigenvalues 183 (five times) and 495 are positive, so X has no kernel. Every visible state leaks into the bath at the first step, and the six channels cannot evolve on their own.
+- The brackets of the triangle's 10's with its 5̄'s are exactly the port's five roots.
+
+## 26. What stays open
 
 **Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
 - the six SCR6 operands;
@@ -1308,7 +1386,7 @@ Also from these items:
 
 **Recovered in this build:** the native source matrices, the 155/4805 adapter, the E8 glue map, W₉₀ exactly, W₆₀₀ modulo primes, and the W_n recurrence modulo four primes (order 16, degree 58).
 
-**Formed in this build (SELECTED_REFERENCE, with THEOREM properties):** an action of the circle's Coxeter subgroup ⟨144⟩ on the bath through the E8 Coxeter element, whose tick is two K5 carrier rotations and whose fixed momenta are Morse points (§20). It is the largest part of the circle that can act on the bath; the atlas, moon, nakshatra and pada cannot. Its normalizer (order 240) carries the day, the golden clock and the mirror, and the tick is the commutator of the day and the Coxeter clock (§22).
+**Formed in this build (SELECTED_REFERENCE, with THEOREM properties):** an action of the circle's Coxeter subgroup ⟨144⟩ on the bath through the E8 Coxeter element, whose tick is two K5 carrier rotations and whose fixed momenta are Morse points (§20). It is the largest part of the circle that can act on the bath; the atlas, moon, nakshatra and pada cannot. Its normalizer (order 240) carries the day, the golden clock and the mirror, and the tick is the commutator of the day and the Coxeter clock (§22). Also formed: the Standard-Model table of the 240 roots under A4 + A4′ (§25), unique up to W(E8), with three generations conditional on the bracket rule.
 
 **Open mathematics:**
 - the convexity collar inside (223.58, 224), now reduced to a certified bound away from the 224 saddle (with margin law 15/16·d²);

@@ -11,9 +11,9 @@ import json
 import sys
 import time
 
-from oes import (binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates, gatework, glue,
-                 gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot, spacetime,
-                 spectral, spine, waves)
+from oes import (assignment, binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates,
+                 gatework, glue, gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot,
+                 spacetime, spectral, spine, waves)
 
 
 def main(argv):
@@ -42,6 +42,7 @@ def main(argv):
         ("21-ledger", ledger.run),
         ("22-counts", counts.run),
         ("23-dots", dots.run),
+        ("24-assignment", assignment.run),
     ]
     checks, timing = [], {}
     for name, fn in layers:

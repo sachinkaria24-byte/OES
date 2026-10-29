@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 702 checks. Of these, 629 hold: THEOREM 483, OBSTRUCTION 47, ARITHMETIC 38, UNFORMED 22, CONDITIONAL 21, SELECTED_REFERENCE 16, REMOVED 2. The other 73 are REPORTED records.
-- `pytest` runs 62 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 230 checks).
+- `python verify.py` runs 24 layers and 753 checks. Of these, 680 hold: THEOREM 525, OBSTRUCTION 51, ARITHMETIC 38, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 73 are REPORTED records.
+- `pytest` runs 64 tests.
+- The newest layers are `oes/dots.py` (layer 23, 240 checks) and `oes/assignment.py` (layer 24, 41 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 59 dots and 152 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 60 dots and 161 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -27,9 +27,21 @@ New in this edition:
 - **Spin counts.** 240 = D8 (112) + one half-spin orbit (128). 135 = [W(E8) : W(D8)] is the band-top D8 family, and 256 = 1 + 120 + 135.
 - **Field.** The source q̈ + 4q = 0 is not a carrier mode, because 4 ∉ spec D² (OBSTRUCTION).
 
+New in layer 24 (the particle assignment on E8's roots, 09:00 on 29 October):
+
+- **Both factors.** The carrier's A4 is taken as SU(5) and its complement A4′ as the family SU(5)′. The 240 roots are (24,1) + (1,24) + (10,5) + (5̄,10) + (10̄,5̄) + (5,10̄), where (10,5) is the carrier's ten duads times the twin's five sites and (5̄,10) its five sites times the twin's ten duads, each pair once. Layer 11's (10, 5̄′) is (10,5) with the twin's 5 renamed.
+- **Moments.** 10 I on A4 + A4′, 15P + 10P′ and 10P + 15P′ on the mixed classes, 60 I in all: the band starts 30|k|², and Σ(T3·ρ)² : Σ(Q·ρ)² = 3 : 8.
+- **The Standard Model (a selection, then theorems).** With colour sites 0, 1, 2 and weak sites 3, 4, Y is the only Cartan direction commuting with SU(3) × SU(2). Every root gets its colour, T3, Y and Q: u, d, u^c, e^c per twin site; d^c, e, ν per twin duad; gluons, W± and the leptoquarks X, Y on the carrier roots; the 20 family roots are the only roots with no Standard-Model charge. Q minus each colour coordinate is an integer on all 240 roots (the ℤ6). The table is `data/e8_assignment.json`.
+- **One orbit.** J (site_a ↦ μ_a, μ_a ↦ −site_a) lies in W(E8) with J² = −1, swaps the factors and doubles the grade in E8/L0. The normalizer of A4 + A4′ has order 57600, the colour triples are one S5-orbit, and −1 swaps particles and antiparticles, so the assignment is unique up to W(E8) and the 248 is real.
+- **Chirality (OBSTRUCTION).** One root of every pair ±ρ, as whole multiplets, always has an odd SU(5) anomaly and 25 doublets (Witten's anomaly). Anomaly-free sets of 10's and 5̄'s need equal numbers, and 3003 exist.
+- **Three generations (CONDITIONAL).** [10_i, 10_j] = 5̄_ij for disjoint carrier duads, so with the bracket rule anomaly freedom forces a triangle of K5′: 45 roots, every anomaly zero, 12 doublets. The six-site port's roots are the 5 at the twin duad opposite the triangle. B6 is sharpened, not discharged.
+- **Couplings.** Root triangles α + β + γ = 0. Down-type: vertex to opposite edge through the twin duad {3, 4}. Up-type: zero diagonal, so never rank one. The top coupling 10 10 5_H has no root realization (OBSTRUCTION). No Yukawa sizes (UNFORMED).
+- **The six-site port.** M₂ − M₁² = XᵀX = 183 I + 52 J counts bath neighbours (235, 52); it is positive definite, so the six channels cannot evolve without the bath.
+- **In layer 23** the result is the dot "root assignment", with seven THEOREM joins (A4 + A4′, E8, the charges, K5's edges, the affine group, S5, the six-site port), one CONDITIONAL join from the binding and one obstruction back to it.
+
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 59 dots and 152 joins (148 maps, four obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 60 dots and 161 joins (156 maps, five obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
