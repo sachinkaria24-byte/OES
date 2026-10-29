@@ -282,6 +282,23 @@ def test_root_scheme_simplex_and_the_golden_split():
     assert all((ticks <= spine.subgroup(spine.N // d)) == (d % 5 == 0) for d in range(1, spine.N + 1) if spine.N % d == 0)
 
 
+def test_sidebands_observer_charges_and_the_golden_hessian():
+    for check in (dots.walk_convolutions, dots.clock_sidebands, dots.observer_completion, dots.six_site_torsion,
+                  dots.seven_pairs_algebra, dots.golden_port, dots.charges, dots.census_stabilizers, dots.frame_faces,
+                  dots.rotor_firewall, dots.notes_0252):
+        out = check()
+        assert all(out.values()), out
+    # the sideband lift needs the address: read the fibre index without subtracting it and most ticks come back wrong
+    wrong = [j for j in range(spine.N)
+             if (j % 36 + 36 * ((105 * (j % 32 // 4) + 40 * (j % 27 // 9) + 96 * (j % 5)) % 120)) % spine.N != j]
+    assert len(wrong) > spine.N // 2
+    # the hypercharge alone on the zero modes is anomalous; only with Lambda^2 at the other chirality does it cancel
+    third, half = dots.Fraction(1, 3), dots.Fraction(1, 2)
+    Y = [-third, -third, -third, half, half]
+    assert sum(y ** 3 for y in Y) == dots.Fraction(5, 36) != 0
+    assert "charges" in dots.LEVELS[-1][2] and dots.LEVEL_OF["charges"] == 5
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

@@ -144,17 +144,36 @@ outside PSL(2,5) and swaps the hemi-icosahedron and its complement. On the Veron
 the conic, the surface's 15 edges are the 15 exterior points, and its 10 faces are the 10 interior points (a face and its
 complementary face share their perspector). The matrix's orbits on the 31 points are conic 6, exterior 3 + 6 + 6 and
 interior 1 + 3 + 6.
+
+At 02:52 the sibling's 29 notes of 01:57-02:49 (SPECTRUM_AND_ATLAS to TRIPLET) and its spine29 audit, and the hub's
+observer completion with the releases K+ADDENDUM2 and K+ADDENDUM3, were read. One dot and nine joins come from them.
+The five-site charges Q = Y + T3 of the removed hypercharge shell become a dot. Their shells are the simplex's even and
+odd faces, each with sum q^2 = 16/3. On B4's 5 + 10 at opposite chiralities the cubic hypercharge sums cancel (5/36
+each). Through an identification with the zero modes, Y lies in the dark U(5). On the atoms B1 forbids any such charge,
+an obstruction to the carrier. At the tick's 24 fixed momenta of type A4 + A4, minus a fifth of the band's Hessian
+satisfies the golden equation, so the momenta meet the golden companion there, with det 5^8 (ENERGY_250's (-25)^4). The
+port metric is twice the pentagon Laplacian plus 2/5; on the contrast it is 4I + 2X with X^2 = X + I. The joint
+observer joins the source to the readout: the wedge has rank 7 and fibre SL(2), and three frame probes make it
+injective with an explicit inverse. The sideband lift joins the atlas to the circle: the address and the residues mod
+32, 27 and 5 rebuild the tick, and three sensors of largest alphabet 32 are optimal. Also replayed: Canon K's W5/W6
+convolution, which gives layer 3's returns; the 160 x 27 clock, with the tick in 2241; the six-site torsion, whose 5 is
+the 5 in 240; the census's stabilizers, the Weyl groups of the extended diagram's subsystems; the rotor firewall; and the
+Bargmann repair, whose phase pi/4 is half the solid angle of the Pauli octant. CHECK_0154's "no clique of nine roots"
+and this layer's 9-clique are about two graphs, and both hold; all 84 faces of the 9-clique are prisms. One correction
+goes back to the sibling: of the tick's 25 fixed momenta, 24 sit at 250 and the 25th is the minimum. The board's
+fine-structure digits are not joined: they invert to about 137.036 and are put in by hand.
 """
 
 import functools
 import itertools
 from collections import Counter
 from fractions import Fraction
-from math import gcd
+from math import ceil, gcd, lcm, log2
 
 import numpy as np
 import sympy as sp
 from sympy.combinatorics import Permutation
+from sympy.matrices.normalforms import smith_normal_form
 
 from . import (binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover, ledger, literal,
                native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
@@ -2430,6 +2449,443 @@ def no_bridge():
             "removing any one map leaves the diagram connected: it has no bridge": not bridges}
 
 
+# ------------------------------------------------------------------- the 01:57-02:52 notes and release K+ADDENDUM3
+
+def _keys(V):
+    """Integer keys for doubled lattice vectors with entries in -16..15 (base 32, one digit per coordinate)."""
+    return ((np.asarray(V, dtype=np.int64) + 16) * (32 ** np.arange(8, dtype=np.int64))).sum(axis=-1)
+
+
+def walk_convolutions():
+    """Canon K's W5/W6 root convolution: the pair, triple and quadruple sums of the 240 roots."""
+    D = np.rint(2 * glue.roots()).astype(np.int64)
+    off = int(_keys(np.zeros(8, dtype=np.int64)))
+    k2, c2 = np.unique(_keys(D)[:, None] + _keys(D)[None, :] - off, return_counts=True)
+    k3, inv = np.unique((k2[:, None] + _keys(D)[None, :] - off).ravel(), return_inverse=True)
+    c3 = np.rint(np.bincount(inv, weights=np.repeat(c2, 240))).astype(np.int64)
+    at = lambda keys: (lambda i: np.where(k3[np.minimum(i, len(k3) - 1)] == keys, c3[np.minimum(i, len(k3) - 1)], 0))(
+        np.searchsorted(k3, keys))
+    c3_roots = at(_keys(D))
+    c4_roots = at(_keys(D)[:, None] - _keys(D)[None, :] + off).sum(axis=1)
+    W5, W6 = int(c4_roots.sum()), int((c3 * c3).sum())
+    return {
+        "the ordered pair sums of the 240 roots take 9361 values and the triple sums 131041, with total 240^3 = "
+        "13824000; every root is a triple sum in exactly 5253 ways and a quadruple sum in 574224 (Canon K)":
+            len(k2) == 9361 and len(k3) == 131041 and int(c3.sum()) == 240 ** 3 == 13824000
+            and set(c3_roots.tolist()) == {5253} and set(c4_roots.tolist()) == {574224},
+        "so W_5 = 240 x 574224 = 137813760 and W_6 = sum of the squared triple counts = 17141798400, layer 3's "
+        "returns N_5 and N_6; WALKS_CLOCK's 'orders five and six are new' holds for the sibling, not here":
+            W5 == 240 * 574224 == 137813760 and W6 == 17141798400 and _walks()[0][5:7] == [W5, W6],
+    }
+
+
+def clock_sidebands():
+    """WALKS_CLOCK, LEVELS_160, SUN_MOON_ORDERS and the observer completion: the clock as 160 x 27 and its sidebands."""
+    j = np.arange(N)
+    A, r32, r27, r5 = j % 36, j % 32, j % 27, j % 5
+    t8, t3, t5 = (r32 - A) % 32 // 4, (r27 - A) % 27 // 9, (r5 - A) % 5
+    t = (105 * t8 + 40 * t3 + 96 * t5) % 120
+    div = [int(d) for d in sp.divisors(N)]
+    covers = lambda ms: lcm(36, *ms) == N
+    best = lambda n: min(max(ms) for ms in itertools.combinations(div, n) if covers(ms))
+    return {
+        "4320 = 160 x 27 with idempotents 2241 = 3105 + 3456 (the 2-part and the time part) and 2080, so j = 2241 (j mod "
+        "160) + 2080 (j mod 27) for every j; 2241 is 1 mod 5 and 2080 is 0, so the tick bit is read on the 160-clock, "
+        "and every residue mod 27 meets all five time residues: the 27-clock is blind to the tick; 2241 = 3^8 mod 4320":
+            np.array_equal((2241 * (j % 160) + 2080 * (j % 27)) % N, j) and (3105 + 3456) % N == 2241
+            and (2241 % 5, 2080 % 5) == (1, 0) and all(len(set(r5[r27 == b])) == 5 for b in range(27))
+            and pow(3, 8, N) == 2241,
+        "the sun 1440 is (0, 9), of order 3 on the 27-clock and fixed on the 160-clock; the moon 120 is (120, 12), of "
+        "orders 4 and 9 on the two clocks and 36 = 4 x 9 on the circle; and the moon's square 14400 is the sun "
+        "mod 4320 (ENERGY_250's squared tail)": (1440 % 160, 1440 % 27, 120 % 160, 120 % 27) == (0, 9, 120, 12)
+        and (27 // gcd(9, 27), 160 // gcd(120, 160), 27 // gcd(12, 27)) == (3, 4, 9)
+        and (spine.order(1440), spine.order(120)) == (3, 36) and 120 ** 2 % N == 1440,
+        "the observer completion's sidebands: with the address A = j mod 36, the residues mod 32, 27 and 5 meet the "
+        "checksums mod 4 and mod 9, and t8, t3, t5 rebuild t = 105 t8 + 40 t3 + 96 t5 mod 120 and j = A + 36 t for all "
+        "4320 ticks; each atlas fibre holds its 120 = 8 x 3 x 5 sideband states once; the direct CRT is j = 3105 r32 + "
+        "2080 r27 + 3456 r5": np.all((r32 - A) % 4 == 0) and np.all((r27 - A) % 9 == 0)
+        and np.array_equal((A + 36 * t) % N, j) and all(len(set(zip(t8[A == a], t3[A == a], t5[A == a]))) == 120 for a in range(36))
+        and np.array_equal((3105 * r32 + 2080 * r27 + 3456 * r5) % N, j)
+        and [(e % 8, e % 3, e % 5) for e in (105, 40, 96)] == [(1, 0, 0), (0, 1, 0), (0, 0, 1)],
+        "over residue sensors whose moduli divide 4320 (48 divisors), one sensor beside the address must read j mod "
+        "4320 itself, two need a largest alphabet of 135 (32 and 135), three one of 32 (5, 27 and 32, 64 symbols); a "
+        "120-state fibre needs at least 7 bits": len(div) == 48 and [m for m in div if covers((m,))] == [N]
+        and best(2) == 135 and covers((32, 135)) and best(3) == 32 and covers((5, 27, 32)) and 5 + 27 + 32 == 64
+        and ceil(log2(120)) == 7,
+    }
+
+
+def observer_completion():
+    """The hub's observer completion: the wedge readout misses SL(2), and three frame probes complete it."""
+    a, b = sp.symbols("a1:6"), sp.symbols("b1:6")
+    pairs = list(itertools.combinations(range(5), 2))
+    wedge = lambda x, y: [x[i] * y[k] - x[k] * y[i] for i, k in pairs]
+    w = sp.Matrix(wedge(a, b))
+    X = sp.Matrix(list(a) + list(b))
+    point = dict(zip(X, (2, 1, -1, 3, 1, 1, 3, 2, -1, 4)))
+    J = w.jacobian(X).subs(point)
+    probes = sp.Matrix([[int(k == m) for k in range(10)] for m in (0, 1, 5)])
+
+    def recover(W, a1, a2, b1):
+        W = dict(zip(pairs, W))
+        w12 = W[(0, 1)]
+        b2 = (w12 + a2 * b1) / a1
+        return ([a1, a2] + [(a2 * W[(0, i)] - a1 * W[(1, i)]) / w12 for i in (2, 3, 4)],
+                [b1, b2] + [(b2 * W[(0, i)] - b1 * W[(1, i)]) / w12 for i in (2, 3, 4)])
+    rng = np.random.default_rng(225)
+    trials = []
+    while len(trials) < 53:
+        p, q = ([Fraction(int(v), int(d)) for v, d in zip(rng.integers(-9, 10, 5), rng.integers(1, 6, 5))] for _ in range(2))
+        if p[0] != 0 and p[0] * q[1] - p[1] * q[0] != 0:
+            trials.append((p, q))
+    U = ((2, 1), (1, 1))
+    turned = lambda p, q: ([U[0][0] * x + U[1][0] * y for x, y in zip(p, q)], [U[0][1] * x + U[1][1] * y for x, y in zip(p, q)])
+    plucker = lambda W: (lambda W: W[(0, 1)] * W[(2, 3)] - W[(0, 2)] * W[(1, 3)] + W[(0, 3)] * W[(1, 2)])(dict(zip(pairs, W)))
+    e = lambda i: [int(k == i) for k in range(5)]
+    simple_sum = [x + y for x, y in zip(wedge(e(0), e(1)), wedge(e(2), e(3)))]
+    tick = lambda A, r32, r27, r5: (A + 36 * ((105 * ((r32 - A) % 32 // 4) + 40 * ((r27 - A) % 27 // 9)
+                                          + 96 * ((r5 - A) % 5)) % 120)) % N
+    return {
+        "the wedge (a, b) -> a ^ b of a source pair in five dimensions has derivative rank 7 at a generic pair, and the "
+        "three probes a1, a2, b1 complete it to rank 10": J.rank() == 7 and sp.Matrix.vstack(J, probes).rank() == 10,
+        "a pair turned by U of determinant 1 has the same wedge, so the readout's fibre is the SL(2) frame (Canon K's "
+        "joint observer; the clock residues do not see it either)": all(
+            wedge(*turned(p, q)) == wedge(p, q) for p, q in trials[:10]),
+        "on the chart a1 w12 != 0 the explicit inverse b2 = (w12 + a2 b1)/a1, a_i = (a2 w1i - a1 w2i)/w12, b_i = (b2 w1i "
+        "- b1 w2i)/w12 rebuilds the pair exactly in 53 rational trials, and with the sidebands the whole observation "
+        "(a ^ b, a1, a2, b1, j mod 36, 32, 27, 5) is injective": all(
+            recover(wedge(p, q), p[0], p[1], q[0]) == (p, q) for p, q in trials)
+        and all(recover(wedge(p, q), p[0], p[1], q[0]) == (p, q) and tick(k % 36, k % 32, k % 27, k % 5) == k
+                for (p, q), k in zip(trials, map(int, rng.integers(0, N, 53)))),
+        "the anti-alias court: every wedge a ^ b meets the Pluecker relation w12 w34 - w13 w24 + w14 w23 = 0, and e1 ^ e2 "
+        "+ e3 ^ e4 gives 1, so the rank-7 locus is a cone, not a linear 7-space": sp.expand(plucker(wedge(a, b))) == 0
+        and plucker(simple_sum) == 1,
+    }
+
+
+def six_site_torsion():
+    """SEVEN_PAIRS, TORSION_FIVE and INVERSE_TWO: the six-site moment blocks carry one 5, on the uniform line."""
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    G0, G1 = 183 * I6 + 52 * J6, 35366 * I6 + 8134 * J6
+    stack = sp.Matrix.vstack(G0, G1)
+    snf = lambda M: [smith_normal_form(M, domain=sp.ZZ)[i, i] for i in range(6)]
+    masks = [sp.Matrix([[int(i in S) for i in range(6)]]) for n in range(1, 7) for S in itertools.combinations(range(6), n)]
+    clears = [sum(m) % 5 != 0 for m in masks]
+    rng = np.random.default_rng(57)
+    x = sp.Matrix(rng.integers(-9, 10, 6).tolist())
+    mod5 = lambda M: M.applyfunc(lambda v: v % 5)
+    contrasts = [sp.Matrix([int(i == k) - int(i == 5) for i in range(6)]) for k in range(5)]
+    _, E = _walks()
+    uniform = [6 * E[k] - 5 * E[k + 1] // 240 for k in range(4)]
+    return {
+        "35366 G0 - 183 G1 = 350510 J for G0 = 183I + 52J and G1 = 35366I + 8134J, so on a mask of k sites the same "
+        "combination of the masked sums gives 350510 k times the sum of the six coordinates, and not the coordinates":
+            35366 * G0 - 183 * G1 == 350510 * J6 and all(
+                (35366 * m * G0 * x - 183 * m * G1 * x)[0] == 350510 * sum(m) * sum(x) for m in masks),
+        "the stacked blocks have Smith form diag(1, 1, 1, 1, 1, 5): their rows span the vectors with coordinate sum "
+        "divisible by 5, so a mask clears the 5 exactly when 5 does not divide its size, 57 masks, and the six of size 5 "
+        "do not": snf(stack) == [1, 1, 1, 1, 1, 5] and all(sum(stack.row(i)) % 5 == 0 for i in range(12))
+        and snf(sp.Matrix.vstack(stack, masks[0]))[-1] == 1 and snf(sp.Matrix.vstack(stack, masks[-2]))[-1] == 5
+        and sum(masks[-2]) == 5 and clears.count(True) == 57 and clears.count(False) == 6,
+        "mod 5 the blocks are 3I + 2J and I - J, both kill the all-ones vector, and 2 inverts the first on the five "
+        "contrasts (INVERSE_TWO); det G0 = 183^5 x 495 has one factor 5, as do 350510 and gcd(495, 84170)":
+            mod5(G0) == mod5(3 * I6 + 2 * J6) and mod5(G1) == mod5(I6 - J6) and mod5(G0 * sp.ones(6, 1)).is_zero_matrix
+            and mod5(G1 * sp.ones(6, 1)).is_zero_matrix and all(mod5(2 * G0 * c) == mod5(c) for c in contrasts)
+            and G0.det() == 183 ** 5 * 495 and sp.multiplicity(5, G0.det()) == sp.multiplicity(5, 350510) == 1
+            and gcd(495, 84170) == 5,
+        "the 5 is the 5 in 240: the uniform moments 6 E_k - 5 E_(k+1)/240 are E_k mod 5, and E_1, E_2, E_3 are multiples "
+        "of 240, so every uniform moment past the zeroth, and the cumulants 495 and 84170, vanish mod 5, while the "
+        "contrast values 183 and 35366 are units": uniform[:3] == [1, 235, 55720]
+        and all((u - E[k]) % 5 == 0 for k, u in enumerate(uniform)) and all(E[k] % 240 == 0 for k in (1, 2, 3))
+        and uniform[2] - uniform[1] ** 2 == 495 and 183 % 5 != 0 and 35366 % 5 != 0,
+    }
+
+
+def seven_pairs_algebra():
+    """SEVEN_PAIRS's operator identities: the weights' second moment, the compression defect and the protected lift."""
+    Z = sp.diag(1, -1)
+    W = {-1: sp.Matrix([[1, 1], [1, 1]]) / 4, 0: sp.Matrix([[1, -1], [-1, 1]]) / 2, 1: sp.Matrix([[1, 1], [1, 1]]) / 4}
+    M = [sum((x ** n * W[x] for x in W), sp.zeros(2, 2)) for n in range(3)]
+    rng = np.random.default_rng(7)
+    rnd = lambda r, c: sp.Matrix(rng.integers(-4, 5, (r, c)).tolist())
+    A, B, U1, U2 = rnd(5, 5), rnd(5, 5), rnd(3, 3), rnd(3, 3)
+    E = sp.Matrix.vstack(sp.eye(3), rnd(2, 3))
+    L = sp.Matrix.hstack(sp.eye(3), sp.zeros(3, 2))
+    P, Q = E * L, sp.eye(5) - E * L
+    lift = lambda U: E * U * L + Q
+    return {
+        "weights with off-diagonals 1/4, -1/2, 1/4 at -1, 0, 1 (here rank-one and positive): the moments of order 0 and "
+        "1 are diagonal and commute with diag(1, -1), and [diag(1, -1), M_2] = [[0, 1], [-1, 0]] whatever the diagonals":
+            all(w.is_positive_semidefinite for w in W.values()) and Z * M[0] == M[0] * Z and Z * M[1] == M[1] * Z
+            and Z * M[2] - M[2] * Z == sp.Matrix([[0, 1], [-1, 0]]),
+        "with L E = I and P = E L the compression defect L A (I - P) B E is L A B E - (L A E)(L B E), and the lift "
+        "U -> E U L + Q, Q = I - E L, multiplies correctly and fixes Q": L * E == sp.eye(3)
+        and L * A * (sp.eye(5) - P) * B * E == L * A * B * E - (L * A * E) * (L * B * E)
+        and lift(U1) * lift(U2) == lift(U1 * U2) and lift(U1) * Q == Q == Q * lift(U1),
+        "and the arithmetic: 3 x 6 - 2 x 9 = 0, 33 x 15 x 2 = 990, 66 + 99 - 33 = 132": 3 * 6 - 2 * 9 == 0
+        and 33 * 15 * 2 == 990 and 66 + 99 - 33 == 132,
+    }
+
+
+def golden_port():
+    """GOLDEN_PORT, PORT_FORMULA, CANON_BOARD and CAYLEY: the port is twice the pentagon Laplacian plus 2/5."""
+    x, k = sp.symbols("x"), sp.symbols("k", real=True)
+    R = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    L5 = 2 * sp.eye(5) - R - R.T
+    W = sp.diag(sp.Rational(2, 5), 4 * sp.eye(5) + sp.ones(5, 5) * sp.Rational(2, 5) - 2 * (R + R.T))
+    r5 = sp.sqrt(5)
+    Xc = -(R + R.T)
+    contrast = sp.Matrix.hstack(*[sp.Matrix([int(i == m) - int(i == 4) for i in range(5)]) for m in range(4)])
+    Lp = (L5 + sp.ones(5, 5) / 5).inv() - sp.ones(5, 5) / 5
+    g = sp.Matrix([[0, 0, 0, -1], [1, 0, 0, -1], [0, 1, 0, -1], [0, 0, 1, -1]])
+    S = (1 - sp.I * k) / (1 + sp.I * k)
+    angle = np.array([np.cos(2 * np.pi * i / 5) for i in range(5)])
+    block = np.array(W[1:, 1:].tolist(), float)
+    return {
+        "the port metric W_p is [2/5] + 4I + (2/5)J - 2(R + R^-1) (PORT_FORMULA), that is twice the pentagon Laplacian "
+        "plus the uniform 2/5": np.allclose(native.port_metric(), np.array(W.tolist(), float))
+        and W[1:, 1:] == 2 * L5 + sp.ones(5, 5) * sp.Rational(2, 5),
+        "its characteristic polynomial is (x - 2/5)(x - 2)(x^2 - 10x + 20)^2: eigenvalues 2/5, 2 and 5 -+ sqrt5 twice, "
+        "trace 112/5, determinant 320, and the golden pair multiplies to 20, the order of the golden step 216":
+            sp.expand(W.charpoly(x).as_expr() - (x - sp.Rational(2, 5)) * (x - 2) * (x ** 2 - 10 * x + 20) ** 2) == 0
+            and W.trace() == sp.Rational(112, 5) and W.det() == 320 and spine.order(216) == 20,
+        "on the five sites' contrast X = -(R + R^-1) satisfies X^2 = X + I, the golden equation, and the port block is "
+        "4I + 2X there: its golden eigenvalues are 4 + 2 phi = 5 + sqrt5 and 6 - 2 phi = 5 - sqrt5, 4 - 2 lambda for the "
+        "eigenvalues lambda of T + T^-1 on the golden edges; the 72-degree mode has 5 - sqrt5":
+            (Xc * Xc - Xc - sp.eye(5)) * contrast == sp.zeros(5, 4)
+            and (W[1:, 1:] - 4 * sp.eye(5) - 2 * Xc) * contrast == sp.zeros(5, 4)
+            and np.allclose(block @ angle, (5 - 5 ** 0.5) * angle)
+            and sp.simplify(4 - 2 * (r5 - 1) / 2 - (5 - r5)) == 0 and sp.simplify(4 + 2 * (r5 + 1) / 2 - (5 + r5)) == 0,
+        "CANON_BOARD's four values (5 +- sqrt5)/10, each twice, are the spectrum of the pentagon Laplacian's "
+        "pseudo-inverse, with power sums 4, 2, 6/5, 4/5, 14/25 and then 2/5 (the corner of the port, as a number); "
+        "tr L^+ = 2 gives the pentagon's Kirchhoff index 5 x 2 = 10 = (5^3 - 5)/12": Lp.rank() == 4
+        and [sp.nsimplify((Lp ** n).trace()) for n in range(1, 6)] == [2, sp.Rational(6, 5), sp.Rational(4, 5),
+                                                                         sp.Rational(14, 25), sp.Rational(2, 5)]
+        and 5 * Lp.trace() == 10 == (5 ** 3 - 5) // 12,
+        "CAYLEY: the companion g of Phi_5 has g^5 = I, (g - I)(-(4I + 3g + 2g^2 + g^3)) = 5I and (g^2 - I)(-2I + g - "
+        "g^2 + 2g^3) = 5I, and the Cayley map S = (1 - ik)/(1 + ik) has |S| = 1, inverse k = i(S - 1)/(S + 1) and "
+        "S'(0) = -2i": g ** 5 == sp.eye(4)
+        and (g - sp.eye(4)) * -(4 * sp.eye(4) + 3 * g + 2 * g ** 2 + g ** 3) == 5 * sp.eye(4)
+        and (g ** 2 - sp.eye(4)) * (-2 * sp.eye(4) + g - g ** 2 + 2 * g ** 3) == 5 * sp.eye(4)
+        and sp.simplify(S * sp.conjugate(S)) == 1 and sp.simplify(sp.I * (S - 1) / (S + 1) - k) == 0
+        and sp.diff(S, k).subs(k, 0) == -2 * sp.I,
+    }
+
+
+def charges():
+    """ALPHA_JOIN, CHARGE_SHELL, HYPERCHARGE, CUT, KERNEL and TRIPLET: the five-site charges of the removed shell."""
+    third, half = Fraction(1, 3), Fraction(1, 2)
+    Q = [-third, -third, -third, Fraction(1), Fraction(0)]
+    Y = [-third, -third, -third, half, half]
+    T3 = [Fraction(0)] * 3 + [half, -half]
+    faces = [S for n in range(6) for S in itertools.combinations(range(5), n)]
+    q = lambda c, S: sum((c[i] for i in S), Fraction(0))
+    shell = lambda par: [q(Q, S) for S in faces if len(S) % 2 == par]
+    sq = lambda v: sum(t * t for t in v)
+    cubes = lambda c: (sum(t ** 3 for t in c), sum(q(c, S) ** 3 for S in itertools.combinations(range(5), 2)))
+    keeps = lambda c: [p for p in itertools.permutations(range(5)) if all(c[p[i]] == c[i] for i in range(5))]
+    D = np.array(carrier.dirac(carrier.signless_incidence()), float)
+    P = native.p5_basis()
+    dark = np.zeros((15, 15))
+    dark[5:, 5:] = P @ np.diag([float(t) for t in Y]) @ P.T
+    gen = sorted([Fraction(0)] * 2 + [Fraction(1), Fraction(-1)] + [third] * 3 + [-third] * 3 + [2 * third] * 3 + [-2 * third] * 3)
+    return {
+        "Q = Y + T3 with Y = (-1/3, -1/3, -1/3, 1/2, 1/2) and T3 = (0, 0, 0, 1/2, -1/2): all three sum to 0, Y and T3 are "
+        "orthogonal, and sum Q^2 = 4/3 = 5/6 + 1/2 (HYPERCHARGE); sum T3^2 / sum Q^2 = 3/8 and sum Y^2 / sum T3^2 = 5/3, "
+        "the SU(5) normalizations, are identities of these charges and not a measured angle": [a + b for a, b in zip(Y, T3)] == Q
+        and sum(Q) == sum(Y) == sum(T3) == 0 and sum(a * b for a, b in zip(Y, T3)) == 0
+        and (sq(Q), sq(Y), sq(T3)) == (Fraction(4, 3), Fraction(5, 6), half)
+        and sq(T3) / sq(Q) == Fraction(3, 8) and sq(Y) / sq(T3) == Fraction(5, 3),
+        "on the 32 faces of the simplex (the empty face too) q(S) = sum of Q over S has sum q^2 = 16/3 = 2^(5-3) x 4/3 on "
+        "the even faces and on the odd ones (CHARGE_SHELL); the 16 even faces, Lambda^0 + Lambda^2 + Lambda^4, carry one "
+        "generation's charges 0, 0, +-1, +-1/3 and +-2/3 three times each; six copies make 32 = 192/6 (ALPHA_JOIN, CUT)":
+            sq(shell(0)) == sq(shell(1)) == Fraction(16, 3) == 4 * sq(Q) and sorted(shell(0)) == gen
+            and 6 * Fraction(16, 3) == 32 == Fraction(192, 6),
+        "the cubic sums over the 5 and over Lambda^2 5 are equal, 5/36 for Y and 8/9 for Q (A(Lambda^2 5) = A(5), B4), "
+        "and the linear ones vanish: with the zero modes and Lambda^2 ker D at opposite chiralities the hypercharge "
+        "anomaly cancels, while on the zero modes alone it is 5/36": cubes(Y) == (Fraction(5, 36), Fraction(5, 36))
+        and cubes(Q) == (Fraction(8, 9), Fraction(8, 9)) and sum(q(Y, S) for S in itertools.combinations(range(5), 2)) == 0,
+        "the permutations of the sites that keep Q are the 3! = 6 of the three -1/3 sites and those that keep Y are 12; "
+        "the 5-cycle keeps neither (TRIPLET); 3Q has eigenvalues -1, -1, -1, 3, 0, rank 4 and nonzero product -3 (KERNEL)":
+            len(keeps(Q)) == 6 and len(keeps(Y)) == 12 and (1, 2, 3, 4, 0) not in keeps(Q) + keeps(Y)
+            and sorted(3 * t for t in Q) == [-1, -1, -1, 0, 3] and sum(1 for t in Q if t) == 4
+            and sp.prod([3 * t for t in Q if t]) == -3,
+        "through an identification of the five zero modes with the sites, Y acts on ker D inside the exact dark U(5) of "
+        "B2 and commutes with D (a selection)": np.allclose(D @ dark, dark @ D) and not np.allclose(dark, 0),
+        "on the atoms no charge but the global phase commutes with D (B1): the diagonal commutant has dimension 1, so "
+        "Q and Y on the five atoms are not symmetries of the carrier": binding.diagonal_commutant_dim() == 1
+        and len(set(Q)) > 1 and len(set(Y)) > 1,
+    }
+
+
+def census_stabilizers():
+    """CENSUS_STABILIZERS, ENERGY_250 and CENSUS_CUBE: Weyl stabilizers, and the Hessian at the tick's momenta."""
+    weyl = lambda c: {"A": lambda n: sp.factorial(n + 1), "D": lambda n: 2 ** (n - 1) * sp.factorial(n),
+                      "E": lambda n: {6: 51840, 7: 2903040, 8: 696729600}[n]}[c[0]](int(c[1:]))
+    parts = lambda t: Counter(t.split("+"))
+    fam = {t: f for (_, t), f in _census().items()}
+    eps = {t: (lambda q: 240 - sp.Rational(q.numerator, q.denominator))(Fraction(f["lambda"]).limit_denominator(1000))
+           for t, f in fam.items()}
+    # the extended E8 diagram: Bourbaki nodes 1..8 and the affine node 0
+    edges = [(1, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (2, 4), (8, 0)]
+
+    def kind(nodes):
+        adj = {v: [u for e in edges if v in e for u in e if u != v and u in nodes] for v in nodes}
+        hub = [v for v in nodes if len(adj[v]) == 3]
+        if not hub:
+            return f"A{len(nodes)}"
+
+        def arm(u, prev):
+            n, nxt = 1, [w for w in adj[u] if w != prev]
+            while nxt:
+                prev, u = u, nxt[0]
+                n, nxt = n + 1, [w for w in adj[u] if w != prev]
+            return n
+        arms = tuple(sorted(arm(u, hub[0]) for u in adj[hub[0]]))
+        return {(1, 2, 2): "E6", (1, 2, 3): "E7", (1, 2, 4): "E8"}.get(arms, f"D{len(nodes)}")
+
+    def deleted(d):
+        rest, out = set(range(9)) - {d}, []
+        while rest:
+            comp, todo = set(), [rest.pop()]
+            while todo:
+                v = todo.pop()
+                comp.add(v)
+                todo += [u for e in edges if v in e for u in e if u != v and u in rest]
+                rest -= set(todo)
+            out.append(kind(comp))
+        return Counter(out)
+    R = glue.roots()
+    D2 = np.rint(2 * R).astype(int)
+    cosines = {0: sp.Integer(1), 1: (sp.sqrt(5) - 1) / 4, 4: (sp.sqrt(5) - 1) / 4, 2: -(sp.sqrt(5) + 1) / 4,
+               3: -(sp.sqrt(5) + 1) / 4}
+    _, pts = _tick_fixed_momenta()
+    golden = []
+    for p in pts:
+        cls = np.rint(5 * (R @ p)).astype(int) % 5
+        if not np.allclose(5 * (R @ p), np.rint(5 * (R @ p))):
+            golden.append(False)
+            continue
+        H = sum((cosines[c] * sp.Matrix(sum(np.outer(r, r) for r in D2[cls == c]).tolist()) / 4
+                 for c in range(5) if (cls == c).any()), sp.zeros(8, 8))
+        X = -H / 5
+        golden.append(H == 60 * sp.eye(8) or (X * X - X - sp.eye(8)).applyfunc(sp.expand).is_zero_matrix)
+    return {
+        "every census family's orbit times the Weyl group of its type is |W(E8)| = 696729600; the nine vertex types are "
+        "the extended E8 diagram with one node deleted, and the two edge types A6 + A1 and A7 have rank 7": all(
+            f["orbit"] * sp.prod([weyl(c) for c in t.split("+")]) == 696729600 for t, f in fam.items())
+        and sorted(map(sorted, (list(parts(t).elements()) for t in fam if sum(int(c[1:]) for c in t.split("+")) == 8)))
+        == sorted(map(sorted, (list(deleted(d).elements()) for d in range(9))))
+        and sorted(t for t in fam if sum(int(c[1:]) for c in t.split("+")) == 7) == ["A6+A1", "A7"],
+        "the class at 250 is A4 + A4 with stabilizer 120^2 = 14400 = 10 x 1440, and 120^2 is the sun mod 4320; the class "
+        "at 251 is A5 + A2 + A1 with stabilizer 8640 = 10 x 864 = 2 x 4320; the class at 6800/27 is A7, orbit 17280 = "
+        "|W(E8)|/8!, and A8 has stabilizer 9! (CENSUS_STABILIZERS, ENERGY_250)": eps["A4+A4"] == 250 and eps["A5+A2+A1"] == 251
+        and 696729600 // fam["A4+A4"]["orbit"] == 14400 == 120 ** 2 == 10 * 1440 and 120 ** 2 % N == 1440
+        and 696729600 // fam["A5+A2+A1"]["orbit"] == 8640 == 10 * TICK == 2 * N
+        and eps["A7"] == sp.Rational(6800, 27) and fam["A7"]["orbit"] == 17280 == 696729600 // sp.factorial(8)
+        and 696729600 // fam["A8"]["orbit"] == sp.factorial(9),
+        "at the tick's 24 fixed momenta of type A4 + A4 the Hessian H = sum r r^T cos(2 pi r.x) is -5 times a golden "
+        "companion: X = -H/5 satisfies X^2 = X + I exactly in Q(sqrt5), so H has eigenvalues -5 phi and 5/phi four times "
+        "each and det 5^8 = (-25)^4 (ENERGY_250's determinant); the 25th is the minimum, where H = 60 I, so 24 of the 25 "
+        "momenta sit at 250, not all (CENSUS_CUBE)": len(pts) == 25 and all(golden),
+    }
+
+
+def frame_faces():
+    """CHECK_0154: in the root graph the frame is an 8-clique; in the lattice graph every face of its 9-clique is a prism."""
+    R = glue.roots()
+    half = {tuple(np.rint(2 * r).astype(int)) for r in R}
+    e = lambda i: np.eye(8)[i]
+    F = [np.zeros(8)] + [-e(0) - e(i) for i in range(1, 8)] + [-0.5 * np.ones(8)]
+    K = [tuple(np.rint(2 * f).astype(int)) for f in F]
+    add = lambda p, r: tuple(a + b for a, b in zip(p, r))
+    sub = lambda p, r: tuple(a - b for a, b in zip(p, r))
+    ip = lambda p, r: sum(a * b for a, b in zip(p, r)) / 4
+    near = lambda p: {add(p, r) for r in half}
+
+    def prism(face):
+        c = set.intersection(*[near(p) for p in face]) - set(face)
+        inside, outside = c & set(K), c - set(K)
+        matched = [[y for y in inside if sub(x, y) in half] for x in outside]
+        return (len(inside) == len(outside) == 3 and all(sub(x, y) in half for x, y in itertools.combinations(outside, 2))
+                and all(len(m) == 1 for m in matched) and len({m[0] for m in matched}) == 3)
+    roots_faces = []
+    for S in itertools.combinations(range(1, 9), 6):
+        common = [r for r in half if all(ip(r, K[i]) == 1 for i in S)]
+        others = [K[i] for i in range(1, 9) if i not in S]
+        out = [r for r in common if r not in others]
+        roots_faces.append(sorted(others) == sorted(r for r in common if r in others) and len(common) == 3
+                           and len(out) == 1 and all(ip(out[0], o) == 0 for o in others))
+    gram = lambda n: sp.eye(n) + sp.ones(n, n)
+    return {
+        "in the root graph the eight frame roots are a maximal clique: nine roots with pairwise products 1 would have "
+        "Gram I + J of size 9, determinant 10 and rank 9 > 8; a face of six frame roots has three common neighbours, the "
+        "other two and one root orthogonal to both, so not a triangle (CHECK_0154)": gram(8).det() == 9
+        and gram(9).det() == 10 and gram(9).rank() == 9 and len(roots_faces) == 28 and all(roots_faces),
+        "in the lattice graph the origin and the frame are a 9-clique, and all 84 of its six-point faces, not only the "
+        "56 through the origin, have six common neighbours forming a prism: each lies in exactly two maximal 9-cliques. "
+        "The two statements are about two graphs, and both hold": all(
+            prism([K[i] for i in S]) for S in itertools.combinations(range(9), 6)),
+    }
+
+
+def rotor_firewall():
+    """The hub's rotor firewall and Bargmann repair (Canon K), replayed with the Pauli axes."""
+    C6 = sp.Matrix(6, 6, lambda r, c: int(r == (c + 1) % 6))
+    Q = sp.diag(sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5)), sp.Matrix([[1]]))
+    Xs = sp.Matrix(6, 6, sp.symbols("x0:36"))
+    sol = sp.Matrix(list(Xs * C6 - Q * Xs)).jacobian(list(Xs)).nullspace()
+    mats = [sp.Matrix(6, 6, list(v)) for v in sol]
+    u, v, w = (sp.Matrix(z) for z in ([1, 0], [1, 1], [1, sp.I]))
+    dyad = lambda z: z * z.H
+    tr3 = lambda a, b, c: (dyad(a) * dyad(b) * dyad(c)).trace()
+    norm = lambda z: z / sp.sqrt((z.H * z)[0])
+    pauli = [sp.Matrix([[1, 0], [0, -1]]), sp.Matrix([[0, 1], [1, 0]]), sp.Matrix([[0, -sp.I], [sp.I, 0]])]
+    a, b, c = np.eye(3)
+    omega = 2 * np.arctan2(abs(a @ np.cross(b, c)), 1 + a @ b + b @ c + c @ a)
+    return {
+        "the intertwiners X C6 = (C5 + I1) X form a space of dimension 2 and every nonzero one has rank 1, since the "
+        "six-cycle and the five-cycle with a fixed line share only the eigenvalue 1: 6 = 5 + 1 is no faithful bridge":
+            len(mats) == 2 and all(m.rank() == 1 for m in mats + [mats[0] + mats[1], mats[0] - 2 * mats[1]]),
+        "raw dyads of u = (1, 0), v = (1, 1), w = (1, i) give tr = 1 + i and 1 - i reversed, but v v* squares to twice "
+        "itself; normalized they give (1 + i)/4, of phase pi/4": sp.expand(tr3(u, v, w)) == 1 + sp.I
+        and sp.expand(tr3(w, v, u)) == 1 - sp.I and dyad(v) ** 2 == 2 * dyad(v)
+        and sp.simplify(tr3(*map(norm, (u, v, w))) - (1 + sp.I) / 4) == 0,
+        "the three are the +1 eigenvectors of sigma_z, sigma_x and sigma_y, and pi/4 is half the solid angle pi/2 of "
+        "the octant their Bloch vectors span": all(s * z == z for s, z in zip(pauli, (u, v, w)))
+        and np.isclose(omega, np.pi / 2),
+    }
+
+
+def notes_0252():
+    """The 01:57-02:52 notes and release K+ADDENDUM3: arithmetic, the board's digits and one correction."""
+    a = Fraction("0.0072973525664")
+    O = sp.symbols("O")
+    al = sp.symbols("alpha", positive=True)
+    return {
+        "SPECTRUM_AND_ATLAS: the moon 120 is 12 in the atlas, of order 3, the sun 1440 is 0 there, and an order-11, "
+        "degree-5 recurrence has (11 + 1)(5 + 2) = 84 < 195 coefficients": 120 % 36 == 12 and 36 // gcd(12, 36) == 3
+        and 1440 % 36 == 0 and (11 + 1) * (5 + 2) == 84 < 195,
+        "CHECK_0154's tick counts: the circle's subgroups of orders 120, 60, 30 and 10 hold 96, 48, 24 and 8 points with "
+        "a nonzero tick part": [sum(1 for y in spine.subgroup(N // d) if ledger.contains_tick(y)) for d in (120, 60, 30, 10)]
+        == [96, 48, 24, 8],
+        "BOARD_A and CANON_BOARD: the thirteen written digits 0.0072973525664 invert to 312500000000/2280422677, about "
+        "137.036, not 137; (5/137) = -1 and 137 = 5 x 27 + 2 = 120 + 17 generates the circle; a/(2 pi) = a^2 O forces "
+        "O = 1/(2 pi a)": 1 / a == Fraction(312500000000, 2280422677) and abs(float(1 / a) - 137.036) < 1e-3
+        and len("0072973525664") == 13 and sp.legendre_symbol(5, 137) == -1 and gcd(137, N) == 1
+        and 137 == 5 * 27 + 2 == 120 + 17 and sp.solve(sp.Eq(al / (2 * sp.pi), al ** 2 * O), O) == [1 / (2 * sp.pi * al)],
+        "ALPHA_JOIN: 32 c = 1/(4 pi alpha) puts c = 1/(128 pi alpha) at 0.3407805726 from the written digits and "
+        "0.3407805727 from 137.035999177: both are the measurement put in by hand, not computed from the action":
+            round(float(1 / a) / (128 * np.pi), 10) == 0.3407805726 and round(137.035999177 / (128 * np.pi), 10) == 0.3407805727,
+        "INTEGRATION's older determinant 176173056 = 2^12 3^6 59 is the hub's Hermitian-selector fixture, which this "
+        "layer rebuilds as the anchored commutator court's Gram determinant (CLOSURE_092); it is not the port's 320":
+            sp.factorint(176173056) == {2: 12, 3: 6, 59: 1} and 176173056 != 320,
+        "the spine's rows: 245 generates the 864 misses, 4320 = 1 mod 7, and the chart labels 95, 98, 101 agree mod 3, "
+        "not mod 30 (adopted from the 00:29 correction)": spine.order(245) == TICK and spine.subgroup(245) == spine.subgroup(5)
+        and N % 7 == 1 and {n % 3 for n in (95, 98, 101)} == {2} and len({n % 30 for n in (95, 98, 101)}) == 3,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -2490,6 +2946,7 @@ DOTS = {
     "simplex": ("4-simplex", "the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade", "17, 23"),
     "air801": ("801 matrix", "AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24", "23"),
     "pg25": ("PG(2,5)", "the projective plane over F5: the conic, 15 exterior and 10 interior points", "23"),
+    "charges": ("five-site charges", "Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges", "12, 23"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -2506,7 +2963,7 @@ LEVELS = [
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
       "pauli", "gksl"]),
     ("physics", "geometry, readout, waves, binding and the conditional cosmos",
-     ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology"]),
+     ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges"]),
 ]
 LEVEL_OF = {dot: k for k, (_, _, dots) in enumerate(LEVELS) for dot in dots}
 
@@ -2634,6 +3091,15 @@ JOINS = [
     ("measure", "census", "the band", "the spectral measures live on [0, 256], from the census's minimum (type E8) to its maximum (type D8), with every Gauss node inside", T, "measure_band"),
     ("waves", "calibration", "invariant ratios", "a calibration divides every native frequency by tau, and light/sound = 1, port/source = 2, band top/source = 8 and carrier^2 + sound^2 = 8 stay as they are", T, "wave_calibration"),
     ("datum", "cosmology", "the stiff sector", "with the checked datum as initial value, the FLRW kernel sector holds the datum's 2 and scales exactly as a^-6", gates.CONDITIONAL, "friedmann"),
+    ("momenta", "golden", "the Hessian", "at the tick's 24 fixed momenta of type A4 + A4, X = -(1/5) sum r r^T cos(2 pi r.x) satisfies X^2 = X + I: the band's Hessian there is -5 times a golden companion, det 5^8 (ENERGY_250)", T, "census_stabilizers"),
+    ("sixsite", "golden", "twice the pentagon Laplacian", "the port metric is [2/5] + 4I + (2/5)J - 2(R + R^-1) (PORT_FORMULA); on the contrast X = -(R + R^-1) satisfies X^2 = X + I and the block is 4I + 2X, with golden eigenvalues 5 -+ sqrt5 of product 20, the golden step's order (GOLDEN_PORT)", T, "golden_port"),
+    ("source", "readout", "the joint observer", "the wedge readout a ^ b of the source pair has rank 7, its fibre the SL(2) frame; with the probes a1, a2, b1 it is injective on a1 w12 != 0, with an explicit inverse (the hub's observer completion)", T, "observer_completion"),
+    ("atlas", "circle", "the sideband lift", "the address and the residues mod 32, 27 and 5 (checksums mod 4 and 9) rebuild the tick, j = A + 36 t with t = 105 t8 + 40 t3 + 96 t5 mod 120; three sensors of largest alphabet 32 are optimal, one must read j itself", T, "clock_sidebands"),
+    ("V", "charges", "a charge on the sites", "Q, Y and T3 are functions on the five sites; Q is kept by 3! = 6 permutations and Y by 12, and the 5-cycle keeps neither (TRIPLET)", T, "charges"),
+    ("simplex", "charges", "q(S) on the faces", "on the even faces and on the odd ones sum q^2 = 16/3 = 2^(5-3) sum Q^2 (CHARGE_SHELL); the 16 even faces carry one generation's charges", T, "charges"),
+    ("charges", "binding", "the anomaly", "the cubic charge sums over 5 and Lambda^2 5 are equal (5/36 for Y), so on B4's 5 + 10 at opposite chiralities the hypercharge anomaly cancels; on the zero modes alone it is 5/36", T, "charges"),
+    ("charges", "kerM", "the dark U(5)", "through an identification of the five zero modes with the sites, Y acts on ker D inside B2's exact dark U(5) and commutes with D", SR, "charges"),
+    ("charges", "carrier", "B1", "on the atoms no charge but the global phase commutes with D: the diagonal commutant of D has dimension 1", OB, "charges"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -2713,6 +3179,17 @@ LEDGER_ROWS = [
     ("the separate model's unified build (01:28)", "104 new check groups; three source corrections (CHERN_SPLIT twice, SPECTRA)", "the corrections are replayed; the build is not opened", RP, "23"),
     ("the 801 matrix and PG(2,5) (AIR_801; 02:20)", "a Singer cycle of order 24; orbits 1 + 3 + 3 + 6 + 6 + 6 + 6 on 31 points", "joined: in PGL(2,5) it lies outside PSL(2,5) and swaps the two triangulations; the Veronese conic carries the six axes, the 15 exterior points are the surface's edges and the 10 interior points its faces (perspectors); its orbits are conic 6, exterior 3 + 6 + 6, interior 1 + 3 + 6", T, "23"),
     ("the half-periods and the census", "1 + 120 + 135 half-period modes; GKSL rates 0, 224, 256", "joined: the 256 half-periods are the census's critical points of types E8, E7 + A1 and D8, whole orbits", T, "23"),
+    ("the walk convolution (Canon K, W5/W6)", "c2 support 9361, c3 support 131041, c3(root) = 5253, c4(root) = 574224", "replayed: W_5 = 240 x 574224 and W_6 = sum c3^2 are layer 3's returns", T, "3, 23"),
+    ("the 160 x 27 clock and the sidebands (WALKS_CLOCK, LEVELS_160, SUN_MOON_ORDERS; the observer completion)", "j = 2241 (j mod 160) + 2080 (j mod 27); t = 105 t8 + 40 t3 + 96 t5 mod 120", "joined: the sideband lift from the atlas to the circle; the tick sits in 2241 = 3105 + 3456 and the 27-clock is blind to it; three sensors of largest alphabet 32 are optimal", T, "23"),
+    ("the joint observer (the hub's observer completion)", "wedge rank 7; a1, a2, b1 complete it to rank 10", "joined: the source to the readout, injective on a1 w12 != 0 with an explicit inverse; the rank-7 locus is a cone (Pluecker), not a linear 7-space", T, "23"),
+    ("the six-site torsion (SEVEN_PAIRS, TORSION_FIVE, INVERSE_TWO)", "35366 G0 - 183 G1 = 350510 J; Smith form diag(1, 1, 1, 1, 1, 5); 57 masks", "replayed; the 5 is the 5 in 240, through the uniform moments", T, "22, 23"),
+    ("the golden port (GOLDEN_PORT, PORT_FORMULA, CANON_BOARD, CAYLEY)", "W_p = [2/5] + 4I + (2/5)J - 2(R + R^-1); golden pair of product 20", "joined to the golden companion: on the contrast the block is 4I + 2X with X^2 = X + I; the canon's (5 +- sqrt5)/10 are the pentagon Laplacian's pseudo-inverse", T, "4, 23"),
+    ("the census stabilizers and the class at 250 (CENSUS_STABILIZERS, ENERGY_250, CENSUS_CUBE)", "orbits 1 to 135, alternating sum 0; 14400 = 10 x 1440, 8640 = 10 x 864; det (-25)^4", "replayed: the stabilizers are the Weyl groups of the extended diagram's subsystems; joined: at the 24 A4 + A4 momenta the Hessian is -5 times a golden companion (det 5^8); corrected: 24 of the 25 momenta sit at 250, the 25th is the minimum", T, "16, 23"),
+    ("the five-site charges (ALPHA_JOIN, CHARGE_SHELL, HYPERCHARGE, CUT, KERNEL, TRIPLET)", "Q = Y + T3; even and odd shells 16/3; sum Y^2 = 5/6", "joined as a dot: the shells are the simplex's even and odd faces, the hypercharge anomaly cancels on B4's 5 + 10, Y acts in the dark U(5) (a selection), and B1 forbids an atom-diagonal charge (OBSTRUCTION)", T, "12, 23"),
+    ("the fine-structure board (BOARD_A, CANON_BOARD, ALPHA_JOIN)", "a = 0.0072973525664; r_2 = a/(2 pi); c = 1/(128 pi alpha)", "not joined: the digits invert to about 137.036 and are put in by hand; no e, hbar, c or length is stored", gates.UNFORMED, "23"),
+    ("the frame's two cliques (CHECK_0154)", "no clique of nine roots; a face has three common neighbours, not a triangle", "both hold, in two graphs: the root graph's maximal 8-clique, and the lattice graph's 9-clique with the origin, all 84 of whose faces are prisms", T, "23"),
+    ("the rotor firewall and the Bargmann repair (Canon K)", "C6 against C5 + I1; tr = 1 + i for raw dyads, (1 + i)/4 normalized", "replayed: every intertwiner has rank 1; the phase pi/4 is half the solid angle of the Pauli octant", T, "23"),
+    ("releases K+ADDENDUM2 and K+ADDENDUM3 (hub, 02:31 and 02:41)", "W5/W6, the 160/27 clock, Bargmann, the rotor firewall, the joint observer, the sidebands, the sensor optimum, the anti-alias court", "every stated bridge is replayed; the verifiers and evidence zips are recorded, not run", RP, "23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
     ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
@@ -2757,6 +3234,16 @@ NOT_JOINED = [
                                                     "and a JSON receipt): not downloaded and not run; their stated bridges "
                                                     "are replayed from the Google Doc", RP),
     ("air", "no air operator is stored, and none is formed", gates.UNFORMED),
+    ("the board's fine-structure digits (BOARD_A, ALPHA_JOIN)", "a = 0.0072973525664 is written by hand; no e, hbar, c, "
+                                                                "electron mass or length is stored, the canon removed "
+                                                                "alpha = 1/137, and nothing here forms alpha or r_2",
+     gates.UNFORMED),
+    ("SEVEN_PAIRS's decoder", "D4 C4 = I3 and the reading ladder need operands not stored here", RP),
+    ("the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51)", "Python verifiers, JSON "
+                                                                                              "receipts and SHA256SUMS: not "
+                                                                                              "downloaded and not run; their "
+                                                                                              "stated results are replayed",
+     RP),
 ]
 
 
@@ -2789,7 +3276,8 @@ def _checks():
         "simplex_grades": simplex_grades, "golden_split": golden_split, "projective_plane": projective_plane,
         "air_801_joins": air_801_joins, "gksl_census": gksl_census, "stage_landings": stage_landings,
         "torus_calibration": torus_calibration, "literal_incidences": literal_incidences, "measure_band": measure_band,
-        "wave_calibration": wave_calibration,
+        "wave_calibration": wave_calibration, "census_stabilizers": census_stabilizers, "golden_port": golden_port,
+        "observer_completion": observer_completion, "clock_sidebands": clock_sidebands, "charges": charges,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -3044,6 +3532,36 @@ def run():
     rep.add("the sibling's HEMI_ICOSAHEDRON (01:37) and FIXED_CYCLES (01:42) state independently what layer 23 joined at "
             "01:30: the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5), with links the pentagon and the pentagram, and "
             "the tick's fixed cycles; its CHECKPOINT_0051 (01:31) reviews this layer's 00:51 checkpoint and agrees", RP, True)
+    for fn, text in (
+            (walk_convolutions, "Canon K's W5/W6 convolution, replayed: the pair sums of the roots take 9361 values and the "
+             "triple sums 131041; every root is a triple sum in 5253 ways and a quadruple sum in 574224, so W_5 = 240 x "
+             "574224 and W_6 = sum c_3^2 are layer 3's returns"),
+            (six_site_torsion, "SEVEN_PAIRS, TORSION_FIVE and INVERSE_TWO: 35366 G0 - 183 G1 = 350510 J; the stacked blocks "
+             "have Smith form diag(1, 1, 1, 1, 1, 5), so 57 masks clear the 5 and the six of size 5 do not; mod 5 the "
+             "contrast inverse is 2; the 5 is the 5 in 240, through the uniform moments"),
+            (seven_pairs_algebra, "SEVEN_PAIRS's operator identities: the weights' second moment does not commute with "
+             "diag(1, -1); the compression defect is L A (I - P) B E; the protected lift multiplies correctly and fixes Q"),
+            (frame_faces, "CHECK_0154's clique, reconciled: in the root graph the frame is a maximal 8-clique whose six-root "
+             "faces have three common neighbours, not a triangle; in the lattice graph all 84 faces of the 9-clique with "
+             "the origin are prisms, each in two maximal cliques"),
+            (rotor_firewall, "the hub's rotor firewall and Bargmann repair: X C6 = (C5 + I1) X has only rank-1 solutions; "
+             "raw dyads give 1 + i, normalized ones (1 + i)/4, and the three states are the Pauli axes z, x, y, whose "
+             "octant has solid angle pi/2"),
+            (notes_0252, "the 01:57-02:52 arithmetic: the moon and the sun in the atlas, the subgroups' tick counts, the "
+             "board's written digits (about 137.036, not 137), ALPHA_JOIN's c put in by hand, the rebuilt 176173056 and "
+             "the spine's rows")):
+        out = fn()
+        rep.add(text, T, all(out.values()), out)
+    rep.add("Drive check 02:52: the sibling's 29 notes of 01:57-02:49, from SPECTRUM_AND_ATLAS to TRIPLET, with the 02:28 "
+            "spine29.ts (24 audit rows) and Spine29.tsx (its view), read as text and not run (their 02:09 editions are superseded and were not read); the hub's Canon K doc as revised "
+            "at 02:37, OES_All_Dots_Canon_Completion (02:37), and the releases K+ADDENDUM2 and K+ADDENDUM3 (intake cutoffs "
+            "02:31 and 02:41, scientific cutoff still 01:06) with 00_START_HERE, CURRENT_STATUS, CURRENT_RELEASE and three "
+            "claim files; the evidence and verifier zips were not downloaded or run", RP, True)
+    rep.add("the sibling's CHECK_0154 (02:23) reviews this layer's 01:54 check: its three corrections hold (the subgroups' "
+            "ticks, the square-free parts, 36 x 120 not split); its 'no nine-root clique' is about the root graph and "
+            "agrees with the 9-clique here, which contains the origin. The hub's KB and KC rows replay the W5/W6 walk, the "
+            "160/27 clock, the Bargmann repair, the rotor firewall, the joint observer and the sidebands, all replayed "
+            "here too", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

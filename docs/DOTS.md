@@ -72,6 +72,7 @@ flowchart TB
         calibration["calibration"]
         gravity["product geometry"]
         cosmology["FLRW"]
+        charges["five-site charges"]
     end
     E -->|"B"| A4
     E -->|"B and M"| D5
@@ -189,20 +190,29 @@ flowchart TB
     measure -->|"the band"| census
     waves -->|"invariant ratios"| calibration
     datum -->|"the stiff sector"| cosmology
+    momenta -->|"the Hessian"| golden
+    sixsite -->|"twice the pentagon Laplacian"| golden
+    source -->|"the joint observer"| readout
+    atlas -->|"the sideband lift"| circle
+    V -->|"a charge on the sites"| charges
+    simplex -->|"q(S) on the faces"| charges
+    charges -->|"the anomaly"| binding
+    charges -->|"the dark U(5)"| kerM
+    charges -.->|"B1"| carrier
 ```
 
-57 dots and 116 joins: 106 THEOREM, 4 SELECTED_REFERENCE, 3 CONDITIONAL and 3 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and it has no bridge: every dot has at least two maps, so no single map holds it together. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector.
+58 dots and 125 joins: 113 THEOREM, 5 SELECTED_REFERENCE, 3 CONDITIONAL and 4 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and it has no bridge: every dot has at least two maps, so no single map holds it together. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
-| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages | 17 | 5 |
+| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages | 18 | 5 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix | 7 | 5 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 8 | 3 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 12 | 11 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 13 | 6 |
-| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW | 7 | - |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 13 | 8 |
+| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges | 8 | - |
 
 ## Dots
 
@@ -265,6 +275,7 @@ flowchart TB
 | 4-simplex | the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade | combinatorics | 17, 23 |
 | 801 matrix | AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24 | symmetry | 23 |
 | PG(2,5) | the projective plane over F5: the conic, 15 exterior and 10 interior points | combinatorics | 23 |
+| five-site charges | Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges | physics | 12, 23 |
 
 ## Joins
 
@@ -386,6 +397,15 @@ flowchart TB
 | spectral measures | critical census | the spectral measures live on [0, 256], from the census's minimum (type E8) to its maximum (type D8), with every Gauss node inside | THEOREM | `measure_band` |
 | sound and light | calibration | a calibration divides every native frequency by tau, and light/sound = 1, port/source = 2, band top/source = 8 and carrier^2 + sound^2 = 8 stay as they are | THEOREM | `wave_calibration` |
 | datum | FLRW | with the checked datum as initial value, the FLRW kernel sector holds the datum's 2 and scales exactly as a^-6 | CONDITIONAL | `friedmann` |
+| tick momenta | golden companion | at the tick's 24 fixed momenta of type A4 + A4, X = -(1/5) sum r r^T cos(2 pi r.x) satisfies X^2 = X + I: the band's Hessian there is -5 times a golden companion, det 5^8 (ENERGY_250) | THEOREM | `census_stabilizers` |
+| six-site port | golden companion | the port metric is [2/5] + 4I + (2/5)J - 2(R + R^-1) (PORT_FORMULA); on the contrast X = -(R + R^-1) satisfies X^2 = X + I and the block is 4I + 2X, with golden eigenvalues 5 -+ sqrt5 of product 20, the golden step's order (GOLDEN_PORT) | THEOREM | `golden_port` |
+| source | readout | the wedge readout a ^ b of the source pair has rank 7, its fibre the SL(2) frame; with the probes a1, a2, b1 it is injective on a1 w12 != 0, with an explicit inverse (the hub's observer completion) | THEOREM | `observer_completion` |
+| atlas | circle | the address and the residues mod 32, 27 and 5 (checksums mod 4 and 9) rebuild the tick, j = A + 36 t with t = 105 t8 + 40 t3 + 96 t5 mod 120; three sensors of largest alphabet 32 are optimal, one must read j itself | THEOREM | `clock_sidebands` |
+| K5 vertices | five-site charges | Q, Y and T3 are functions on the five sites; Q is kept by 3! = 6 permutations and Y by 12, and the 5-cycle keeps neither (TRIPLET) | THEOREM | `charges` |
+| 4-simplex | five-site charges | on the even faces and on the odd ones sum q^2 = 16/3 = 2^(5-3) sum Q^2 (CHARGE_SHELL); the 16 even faces carry one generation's charges | THEOREM | `charges` |
+| five-site charges | binding | the cubic charge sums over 5 and Lambda^2 5 are equal (5/36 for Y), so on B4's 5 + 10 at opposite chiralities the hypercharge anomaly cancels; on the zero modes alone it is 5/36 | THEOREM | `charges` |
+| five-site charges | zero modes | through an identification of the five zero modes with the sites, Y acts on ker D inside B2's exact dark U(5) and commutes with D | SELECTED_REFERENCE | `charges` |
+| five-site charges | carrier | on the atoms no charge but the global phase commutes with D: the diagonal commutant of D has dimension 1 | OBSTRUCTION | `charges` |
 
 ## Not joined
 
@@ -408,5 +428,8 @@ flowchart TB
 | the separate model's unified build (01:25) | 43752185 bytes, 286 payloads, 104 new check groups (root graph 50, simplex 26, K operators 20, API 8); not opened or rerun; its three source corrections are replayed | REPORTED |
 | the hub's release-K packages (01:13, 01:53) | OES_Canon_K_Evidence and OES_Canon_K_All_Dots_Exact (a Python verifier and a JSON receipt): not downloaded and not run; their stated bridges are replayed from the Google Doc | REPORTED |
 | air | no air operator is stored, and none is formed | UNFORMED |
+| the board's fine-structure digits (BOARD_A, ALPHA_JOIN) | a = 0.0072973525664 is written by hand; no e, hbar, c, electron mass or length is stored, the canon removed alpha = 1/137, and nothing here forms alpha or r_2 | UNFORMED |
+| SEVEN_PAIRS's decoder | D4 C4 = I3 and the reading ladder need operands not stored here | REPORTED |
+| the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51) | Python verifiers, JSON receipts and SHA256SUMS: not downloaded and not run; their stated results are replayed | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.
