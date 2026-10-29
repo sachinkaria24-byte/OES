@@ -57,38 +57,38 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.69,
-  "2-spectral": 0.01,
-  "3-spacetime": 10.85,
-  "4-native": 97.77,
-  "5-observer": 0.36,
-  "6-gravity": 5.96,
-  "7-cosmology": 1.99,
-  "8-frontier": 40.9,
-  "9-joins": 8.45,
-  "10-literal": 38.08,
-  "11-glue": 0.17,
-  "12-binding": 0.04,
-  "13-gates": 0.27,
-  "14-recurrence": 78.16,
-  "15-court": 1.74,
-  "16-handover": 1.26,
-  "17-waves": 0.73,
-  "18-snapshot": 1.56,
-  "19-spine": 4.99,
-  "20-canon": 6.28,
+  "1-carrier": 0.7,
+  "2-spectral": 0.02,
+  "3-spacetime": 10.52,
+  "4-native": 97.47,
+  "5-observer": 1.12,
+  "6-gravity": 6.21,
+  "7-cosmology": 1.69,
+  "8-frontier": 40.51,
+  "9-joins": 10.36,
+  "10-literal": 36.3,
+  "11-glue": 0.19,
+  "12-binding": 0.05,
+  "13-gates": 0.25,
+  "14-recurrence": 76.53,
+  "15-court": 1.78,
+  "16-handover": 1.61,
+  "17-waves": 0.85,
+  "18-snapshot": 1.26,
+  "19-spine": 4.51,
+  "20-canon": 5.84,
   "21-ledger": 44.45,
-  "22-counts": 21.82,
-  "23-dots": 184.94,
-  "24-assignment": 3.33,
-  "25-unify": 3.89,
-  "26-primes": 5.05
+  "22-counts": 23.75,
+  "23-dots": 188.6,
+  "24-assignment": 3.41,
+  "25-unify": 3.61,
+  "26-primes": 5.33
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 702,
-   "total": 702
+   "passed": 703,
+   "total": 703
   },
   "OBSTRUCTION": {
    "passed": 65,
@@ -115,8 +115,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 109,
-   "total": 109
+   "passed": 111,
+   "total": 111
   }
  },
  "checks": [
@@ -10584,7 +10584,7 @@
     "multiplication by 3105, 2080, 3456 and 2241 lands on the 32 multiples of 135, the 27 of 160, the 5 tick levels and the 160 multiples of 27, fixing 135, 160, 864 and 27; the phase idempotent sends a frame of residue r to the mirror landing -864 r; and the multiples of 27 are the multiples of 135 plus the five tick levels": true,
     "the golden tick 216 k is 1080 (k mod 4) + 3456 (k mod 5), so 2 x 1080 = 2160 and the sixth golden tick 1296 is the half-turn plus the reverse tick; 1296 squares to 3456 and 3105 sends it to 2160; 351 = 13 x 27 squares to 2241, is killed by 2080, fixed by 2241 and sent to 3456 by the phase idempotent": true,
     "the digit cycles 471, 714, 147 and 174, 741, 417 each sum to 1332 = 36 x 37 = 1296 + 36; all six are 12 mod 27, so 2080 sends them to 3360 = 21 x 160, and their phase images are 864, 2592, 3456 twice each; 351 = 9 x 39 and 741 = 19 x 39 have gcd 39 and lcm 6669, and 39 meets 4320 only in 3": true,
-    "the landing 864 x = 864 (x mod 5) depends only on the residue, and it is the first tick level the multiples of x reach exactly for units: 7, 13, 29 and 37 first reach 864 times their residues, while 147, 148 and 153 first reach 3456, 1728 and 1728 rather than 1728, 2592 and 2592": true,
+    "the landing 864 x = 864 (x mod 5) depends only on the residue, and it is the first tick level the multiples of x reach for every unit (7, 13, 29 and 37 among them) but not always otherwise: 147, 148 and 153 first reach 3456, 1728 and 1728 rather than 1728, 2592 and 2592, while the non-unit 1332 does reach its 1728": true,
     "the traceless five (1, -1/3, -1/3, -1/3, 0) has square sum 4/3 and cube sum 8/9, its ten pair sums have square sum 4 and cube sum 8/9, and 60 x 4/3 = 80; the companion polynomial is 31, 11, 5, 1, 11, 71 at 0 to 5; the cubic 135t^3 - 180t^2 + 54t - 2 changes sign between 0.043 and 0.044; sqrt(5/3), sqrt3 and sqrt15 round to 1.291, 1.732 and 3.873, while sqrt(16/3) is 2.309, not 2.306": true
    },
    "note": ""
@@ -10592,6 +10592,36 @@
   {
    "layer": "23-dots",
    "name": "Drive check 21:50: the sibling's MODEL editions of 21:19-21:46, the latest (21:46) read as text; the canon's release OES_N30_W3_D3_SELECTED_INTAKE_20261030 (three new N30 tabs in each controlled workbook, 3738 and 3693 sheets, every prior cell identical, no source check replayed, no gate changed), its release JSON and four-copy receipt read, the workbooks not opened; the spine29.ts editions and the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 21:54 text and the 21:57-22:21 model: the landing count (units suffice, 328 non-units also match), the dark syndrome floor 1/15 with its ten tight supports, the Dirac polynomial T = -P0 - 7P3 + 3P8, the encoder variants' moments and Vandermonde minima, and the idempotent readings",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "correction to this repository's 21:50 statement (the sibling, 21:57-22:21): the landing 864 x is the first tick level reached by all 1152 units and also by 328 of the 2304 non-units prime to 5, 1332 among them, so being a unit is sufficient, not necessary": true,
+    "the hub's sharp dark syndrome floor: with S_D = P0 + P8, all 385 principal minors of orders 1 to 4 of S_D - I/15 are nonnegative, so every error on at most four edges keeps ||S_D e||^2 >= ||e||^2/15, with equality on exactly ten supports, an edge with its complementary triangle (the hub, 21:54)": true,
+    "one polynomial makes those errors: T = (K^2 - 7K - 2I)/2 = 2J - 2K - I = -P0 - 7P3 + 3P8, whose columns are -3 on their edge and +2 on the complementary triangle; V = S_D T has V V^T = P0 + 9P8 and (V - (3/10)J)(V - (3/10)J)^T = P0, the source projector": true,
+    "the hub's orthogonal-feature encoder on t_c = (2c - 35)/35 with the native weights 1/(7 n): mu1 = 6/245, mu2 = 2971/8575, gamma = 3048/726635, nu1 = 20761/60025 and nu2 = 22555368816/218081329375, with weighted orthogonal, mean-zero features; the mod 13 labels 13 i mod 36 have moments 8401/490 and 39205/98 and raise the least consecutive Vandermonde determinant from 2 to 2990, where 13 and 23 tie as the best of the twelve units": true,
+    "the majority decoder's counts C(20, 3) = 1140 > C(18, 3) = 816 and 6 x 33 + 35 + 7 = 240 constraints; and the sibling's idempotent readings: the distance 241 is a unit, 25 mod 27 and 17 mod 32, with images 160, 945 and 3456 summing to 241 + 4320; 2080 sends 120 to 3360, 3105 sends 120 and 240 to 1080 and 2160, 36^2 = 1296, and 990 = 18 x 135 + 18 x 160 - 4320": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 22:22: the hub's OES_Unified_Model_20261029.txt as revised at 21:54 (sources through 21:22), read as text (its zip, 10650481 bytes, not downloaded); the sibling's MODEL editions of 21:57-22:21, the latest (22:21) read as text; the spine29.ts editions and the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's canonical exterior inverse (gain 1/5 against 149/720), the genuine [32, 12, 14] code, the bright floor (9 - sqrt37)/20, the source-power gate and the parent bound B >= ||w||/60, the feasibility routine, the six Golden references and the causal jets; and the sibling's N30 sheet gap (3724 and 3679 against 3735 and 3690 in the release's own previous entry) and its other readings",
    "status": "REPORTED",
    "passed": true,
    "value": null,
