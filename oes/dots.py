@@ -1,4 +1,4 @@
-"""Layer 23. All dots joined (28 Oct 2026, Drive checks 22:08 to 23:44 UTC).
+"""Layer 23. All dots joined (28-29 Oct 2026, Drive checks 22:08 to 00:15 UTC).
 
 A dot is an object the model builds: a space with its operator, a lattice, a group, a circle, a port. A join is a map
 between two dots, built here and checked against the property that makes it that kind of map (an intertwiner, a
@@ -77,6 +77,14 @@ vortex Z/9 is read off the address (9 | 36) and is the 27-clock without the sun.
 the 23:03 correction: doubling inverts exactly the shifts with 3s = 0. Three corrections: 3456 is the time part of 216,
 not its 2-part; the clock tower is a chain only down to the golden orbit; and order and step are dual (3 has order 1440,
 while the sun 1440 has order 3).
+
+At 00:15 the sibling's notes of 23:46-00:14 were read, with the separate model's relations receipt and a new Locked
+Memory synthesis (cross-parent compatibility, modules 8-11), read only. One dot and three joins come from them: the
+circle is the ticks <864> times the misses <5>, a point misses exactly when its tick part is 0, and the observer and the
+nakshatra clock lie in the miss set; the nakshatra clock maps onto the coil's 27 golden cosets, where doubling has
+cycles 18 + 6 + 2 + 1 (the sun's swap among them). The towers of 3 and 2 freeze on the circle at 27 and 736, and the
+tower of 5 does not. The synthesis's two-tick T12 is not semisimple, as it says. Its "N = 25 annihilator on W0..W50" is
+not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive.
 """
 
 import functools
@@ -1200,6 +1208,138 @@ def notes_2343():
     }
 
 
+# ------------------------------------------------------------ the 23:46-00:14 items
+
+def tick_miss():
+    """TICK_MISS and COORD_LAW: the circle is the ticks times the misses, and the tick bit is the tick coordinate."""
+    tick, miss = spine.subgroup(TICK), spine.subgroup(5)
+    part = lambda x: 3456 * x % N                              # the time idempotent: the tick part of x
+    loops = {frozenset((c + 216 * k) % N for k in range(20)) for c in range(N)}
+    misses = [sorted(x for x in c if not ledger.contains_tick(x)) for c in loops]
+    fate = lambda n: functools.reduce(lambda m, _: 2 * m % 20, range(10), n)
+    return {
+        "Z/4320 is the direct sum of the five ticks <864> and the 864 misses <5>: every point is a tick part plus a miss":
+            tick & miss == {0} and len(tick) * len(miss) == N and {(a + m) % N for a in tick for m in miss} == set(range(N)),
+        "a point misses the tick exactly when its tick part is 0; the golden step is 216 = 3456 + 1080, tick part -864 "
+        "and miss part 1080 (5 x 216)": all(ledger.contains_tick(x) == (part(x) != 0) for x in range(N))
+        and (part(216), (216 - part(216)) % N) == (3456, 1080),
+        "864 copies of a point clear its miss part and land on the pure tick with the opposite coordinate (13, of tick "
+        "coordinate 2, lands on 2592); two doublings and 864 copies agree exactly on the golden orbit <216>":
+            all(TICK * x % N == -part(x) % N for x in range(N)) and part(13) == 2 * TICK and 13 * TICK % N == 2592
+            and {x for x in range(N) if 4 * x % N == TICK * x % N} == spine.subgroup(216),
+        "each of the 216 golden loops holds exactly four misses, one coset of the observer clock; the observer and the "
+        "whole nakshatra clock lie in the miss set": len(loops) == 216
+        and all(len(m) == 4 and {(y - m[0]) % N for y in m} == spine.subgroup(1080) for m in misses)
+        and spine.subgroup(1080) <= miss and spine.subgroup(160) <= miss,
+        "doubling sorts the golden orbit by the tick bit: an index prime to 5 ends in the tick cycle 4, 8, 16, 12, a "
+        "multiple of 5 ends at 0": all((fate(n) in (4, 8, 12, 16)) == (n % 5 != 0) for n in range(20))
+        and [216 * n % N for n in (4, 8, 16, 12)] == [TICK, 1728, 3456, 2592],
+    }
+
+
+def doubling_orbits():
+    """TICK_CYCLE, OBS_FALLS, NAKSHATRA_SPLIT and THREE_DOUBLES: what doubling does to each clock."""
+    def cycle_lengths(points, step):
+        seen, lengths = set(), []
+        for s in points:
+            if s in seen:
+                continue
+            n, y = 0, s
+            while y not in seen:
+                seen.add(y)
+                y, n = step(y), n + 1
+            lengths.append(n)
+        return sorted(lengths)
+    nak = [160 * k % N for k in range(27)]
+    coset = lambda x: frozenset((x + 216 * k) % N for k in range(20))
+    cosets = {coset(x) for x in spine.subgroup(8)}
+    odd = cycle_lengths(range(135), lambda y: 2 * y % 135)
+    return {
+        "doubling cycles the four nonzero ticks, 864 -> 1728 -> 3456 -> 2592 -> 864 (one doubling squares the shift, "
+        "two invert it), and kills the observer: 1080 and 3240 fall to 2160 and then to 0": [2 * x % N for x in (
+            TICK, 1728, 3456, 2592)] == [1728, 3456, 2592, TICK] and [2 * x % N for x in (1080, 3240, 2160)] == [2160, 2160, 0]
+        and 4 * TICK % N == -TICK % N,
+        "doubling permutes the 27 nakshatra points as an 18-cycle, a 6-cycle through 480, the sun's swap 1440 <-> 2880 "
+        "and 0": cycle_lengths(nak, lambda y: 2 * y % N) == [1, 2, 6, 18] and (2 * 1440 % N, 2 * 2880 % N) == (2880, 1440)
+        and len({480 * 2 ** k % N for k in range(6)}) == 6,
+        "three doublings put every point in the coil, and on the coil's 27 golden cosets doubling has the same cycles; "
+        "the nakshatra clock meets every coset once": all(8 * x % N in spine.subgroup(8) for x in range(N))
+        and len(cosets) == 27 and cycle_lengths(cosets, lambda c: coset(2 * min(c) % N)) == [1, 2, 6, 18]
+        and {coset(x) for x in nak} == cosets,
+        "corrected (the separate model's relations receipt, adopted by the sibling's CORRECTIONS): on the odd part "
+        "doubling has order 36 but its orbit lengths are 1, 2, 4, 6, 12, 18, 36, not one 36-cycle; and doubling keeps "
+        "the vortex coordinate 0, not the points (216 -> 432)": sorted(set(odd)) == [1, 2, 4, 6, 12, 18, 36]
+        and 2 * 216 % N == 432 and 432 % 9 == 0,
+    }
+
+
+def towers():
+    """POWER_TOWER and SALINA_CONG: the towers of 3, 2 and 5 reduced on the circle and mod 12."""
+    return {
+        "the tower of threes freezes at 27: 3^3 = 27, 3^27 = 27 and 3^(3^27) = 27 mod 4320 (an exponent = 3 mod 8 returns "
+        "27 mod 32, and mod 5 and 27 as well)": (27 % N, pow(3, 27, N), pow(3, 3 ** 27, N)) == (27, 27, 27),
+        "the tower of twos freezes one floor later: 2^16 = 736 = 32 x 23 and 2^65536 = 736 mod 4320":
+            pow(2, 16, N) == pow(2, 2 ** 16, N) == 736 == 32 * 23,
+        "the tower of fives does not freeze there: 5^5 = 3125 but 5^3125 = 245 mod 4320": pow(5, 5, N) == 3125
+        and pow(5, 3125, N) == 245,
+        "mod 12 all three freeze at once, at 3, 4 and 5, which sum to 12 (3125 and 245 are both 5 mod 12); the step 12 "
+        "has order 360 and index 12, and 72 x 12 = 864": (pow(3, 27, 12), pow(2, 16, 12), pow(5, 3125, 12), 245 % 12)
+        == (3, 4, 5, 5) and 3 + 4 + 5 == 12 and spine.order(12) == 360 and N // len(spine.subgroup(12)) == 12
+        and 72 * 12 == TICK,
+    }
+
+
+def modules_8_11():
+    """The Locked Memory synthesis's modules 8-11 (00:06), read only: what can be checked from the stated formulas."""
+    R6 = sp.Matrix(6, 6, lambda r, c: int(r == (c + 1) % 6))
+    I6, I12 = sp.eye(6), sp.eye(12)
+    T12 = sp.BlockMatrix([[sp.zeros(6), R6], [-R6, 2 * R6]]).as_explicit()
+    U = sp.BlockMatrix([[sp.zeros(6), I6], [-I6, 2 * I6]]).as_explicit()
+    x, y = sp.symbols("x y")
+    r2 = 1 + x ** 2 + y ** 2
+    reader = lambda s: gcd(s, 240) + (11 if s % 241 == 0 else 1)
+    B, K = sp.Matrix([[1, 1], [1, 0]]), sp.Matrix([[0, 1], [-4, 0]])
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    z = sp.symbols("z")
+    return {
+        "the 5-cycle has characteristic polynomial z^5 - 1, and JOIN_MODULES's missing map exists: kappa(x) = 4x mod 5 "
+        "carries the tick translation to the vertex 5-cycle (the join time -> K5 vertices)": R5.charpoly(z).as_expr()
+        == z ** 5 - 1 and 4 * TICK % 5 == 1,
+        "the two-tick T12 = [[0, B6], [-B6, 2 B6]] (B6 the 6-cycle) is (B6 + B6) U with U = [[0, I], [-I, 2I]] unipotent, "
+        "U != I and (U - I)^2 = 0, the factors commuting; so T12 - B6 + B6 squares to 0, T12 is not semisimple, has "
+        "infinite order and keeps no positive-definite form, unlike the 5-cycle": sp.diag(R6, R6) * U == T12
+        == U * sp.diag(R6, R6) and ((U - I12) ** 2).is_zero_matrix and not (U - I12).is_zero_matrix
+        and ((T12 - sp.diag(R6, R6)) ** 2).is_zero_matrix and all(T12 ** k != I12 for k in (6, 12, 30, 60)),
+        "the curvature of A = (x dy - y dx)/(1 + x^2 + y^2) is dA = 2 dx dy / (1 + x^2 + y^2)^2": sp.simplify(
+            sp.diff(x / r2, x) - sp.diff(-y / r2, y) - 2 / r2 ** 2) == 0,
+        "the stride reader gcd(s, 240) + 1 (or + 11 when 241 | s) gives 2, 121, 241, 12 at s = 1, 120, 240, 241; the "
+        "formal period lcm(240, 241) = 57840 = 240^2 + 240, the bath's second return moment, meets the circle in 240 "
+        "and has lcm 241 x 4320 with it": [reader(s) for s in (1, 120, 240, 241)] == [2, 121, 241, 12]
+        and sp.ilcm(240, 241) == 57840 == 240 ** 2 + 240 and gcd(57840, N) == 240 and sp.ilcm(57840, N) == 241 * N,
+        "121 and 241 generate the circle, are 1 mod 12 and differ by 120 = 10 x 12; 120 has order 36 and 36 has order "
+        "120; dim SU(6) = 35; B sends (2, 1) to (3, 2)": gcd(121, N) == gcd(241, N) == 1 and 121 % 12 == 241 % 12 == 1
+        and 241 - 121 == 10 * 12 and (spine.order(120), spine.order(36)) == (36, 120) and 6 ** 2 - 1 == 35
+        and B * sp.Matrix([2, 1]) == sp.Matrix([3, 2]),
+        "KARMA_COMM corrected (relations receipt): [K, B^5] = [[25, -5], [-20, -25]] has det -725 = -29 x 25, so the "
+        "determinant is divisible by 25 and the entries only by 5": K * B ** 5 - B ** 5 * K == sp.Matrix([[25, -5], [-20, -25]])
+        and (K * B ** 5 - B ** 5 * K).det() == -725 == -29 * 25,
+    }
+
+
+def hankel_25():
+    """The synthesis's 'N = 25 Stieltjes-Jacobi annihilator on W0..W50' is not an annihilator of the walk counts."""
+    W, _ = _walks()
+    H = sp.Matrix(26, 26, lambda i, j: W[i + j])
+    return {
+        "the 26 x 26 Hankel matrix [W_(i+j)] of W_0..W_50 has positive determinant, so no nonzero c gives "
+        "sum_k c_k W_(n+k) = 0 for n = 0..25: the walk counts have no order-25 annihilator on that window":
+            H.det(method="bareiss") > 0,
+        "what 51 moments always give is a depth-25 Jacobi fit, which reproduces them by construction and predicts "
+        "nothing; the walk measure has infinite support, so every Hankel determinant is positive": all(
+            sp.Matrix(n, n, lambda i, j: W[i + j]).det(method="bareiss") > 0 for n in (2, 5, 10)),
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -1242,6 +1382,7 @@ DOTS = {
     "pgl": ("PGL(2,5)", "the transitive S5 in S6, on the projective line over F5", "23"),
     "grain": ("grain", "<72> = <216> x <1440>, the golden orbit times the sun", "23"),
     "vortex": ("vortex", "Z/9, the address mod 9", "23"),
+    "miss": ("miss set", "<5>, the 864 points the tick does not see", "23"),
 }
 
 # (from, to, short label, the map, status, check)
@@ -1318,6 +1459,9 @@ JOINS = [
     ("grain", "c27", "j -> 9 j", "the 27-clock reads only the sun coordinate of a grain point, and time and the 2-clock read only its golden index", T, "grain"),
     ("atlas", "vortex", "x mod 9", "9 | 36, so the vortex coordinate is read off the address; doubling runs through its six units 2, 4, 8, 7, 5, 1", T, "vortex"),
     ("c27", "vortex", "kernel the sun", "Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates: the vortex is the 27-clock without the sun", T, "vortex"),
+    ("miss", "circle", "Z/4320 = <864> + <5>", "every point is a tick part plus a miss, uniquely; it misses exactly when its tick part is 0, and 864 copies of it give the pure tick with the opposite coordinate", T, "tick_miss"),
+    ("observer", "miss", "inclusion", "the observer clock and the whole nakshatra clock lie in the miss set; in each golden loop the four misses are one observer coset", T, "tick_miss"),
+    ("c27", "coil", "onto the golden cosets", "the nakshatra clock meets each of the coil's 27 golden cosets once, and doubling acts on both with cycles 18 + 6 + 2 + 1, the sun's swap among them", T, "doubling_orbits"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -1356,6 +1500,12 @@ LEDGER_ROWS = [
     ("doubling (DOUBLE_SPLIT, TWO_DOUBLES)", "nilpotent on the 2-part, a 36-cycle on the odd part; the atlas is that length", "replayed; the circle's doubling period 36 and the atlas modulus 36 are the same integer, not the same cycle (on the atlas the period is 6)", T, "23"),
     ("the 2-part of 216 (GOLDEN_EVERYWHERE)", "3456, the fourth tick, is the 2-part of one step", "corrected: 216 = 1080 (2-part) + 3456 (time part); the hub's release J agrees", T, "23"),
     ("BassForge and the 38-fiber (BASS_STOP, BASS_38, BASS_DEEP)", "GB-018 unformable; 38 = 7 x 4 + 4 x 2 + 2; rates 1/9, -1/3, 2/3, 0", "the arithmetic holds; the 117 checks, the view and the retraction are not stored here", RP, "23"),
+    ("ticks and misses (TICK_MISS, COORD_LAW, FOUR_MISS, MISS_COSET, TWO_AGREE)", "the circle is the tick subgroup times the miss subgroup; four misses per loop", "replayed: Z/4320 = <864> + <5>; a point misses iff its tick part is 0; the four misses of a golden loop are an observer coset; two doublings and 864 copies agree exactly on <216>", T, "23"),
+    ("doubling on the clocks (TICK_CYCLE, OBS_FALLS, NAKSHATRA_SPLIT, THREE_DOUBLES, GOLDEN_FATE)", "ticks cycle, the observer falls, the nakshatra splits 18 + 6 + 2 + 1", "replayed; the nakshatra clock maps onto the coil's 27 golden cosets with the same cycles, and doubling sorts the golden orbit by the tick bit", T, "23"),
+    ("the relations receipt's corrections (23:50)", "the clock chain; the vortex points; the 36-cycle; p1; the fifth commutator", "agreed: two match the 23:44 corrections, and the other three are replayed (216 -> 432 moves; orbit lengths 1, 2, 4, 6, 12, 18, 36; [K, B^5] has entries divisible by 5, det by 25); the sibling adopted all five", T, "23"),
+    ("towers (POWER_TOWER, SALINA_CONG)", "threes freeze at 27, twos at 736, fives do not; mod 12: 3, 4, 5", "replayed, including 3^(3^27) and 2^65536 mod 4320", T, "23"),
+    ("modules 8-11 (Locked Memory synthesis, 00:06)", "T12 non-semisimple; dA = 2 dx dy/(1 + r^2)^2; reader 2, 121, 241, 12; 57840", "replayed from the stated formulas; JOIN_MODULES's missing time-rotor map is the join kappa = 4x mod 5 of layer 22", T, "23"),
+    ("N = 25 annihilator (Locked Memory synthesis)", "a Stieltjes-Jacobi annihilator of order 25 on W_0..W_50", "not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive; a depth-25 Jacobi fit is not a recurrence", OB, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -1378,6 +1528,10 @@ NOT_JOINED = [
                            "checks are not stored here", gates.UNFORMED),
     ("the source shape's witness (SHAPE_091)", "the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, "
                                                "which is not stored here", RP),
+    ("the separate model's relations overlay (23:50)", "197642 bytes, 73 check groups, 32 matrix outputs; not opened or "
+                                                       "rerun; its five source corrections are replayed", RP),
+    ("modules 8-11, unreplayed parts", "the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel "
+                                       "realization and the [9, 3, 7] code over F11 need operands not stored here", RP),
     ("air", "no air operator is stored, and none is formed", gates.UNFORMED),
 ]
 
@@ -1402,7 +1556,7 @@ def _checks():
         "cone_line_graph": cone_line_graph, "paired_response": paired_response, "band_expansion": band_expansion,
         "walks_join": walks_join, "coil": coil, "nakshatra_map": nakshatra_map, "address_lift": address_lift,
         "golden_family": golden_family, "cone_symmetry": cone_symmetry, "mpkg_block": mpkg_block, "grain": grain,
-        "vortex": vortex,
+        "vortex": vortex, "tick_miss": tick_miss, "doubling_orbits": doubling_orbits,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -1531,6 +1685,23 @@ def run():
     rep.add("Drive check 23:44: the sibling's 29 notes of 23:05-23:43, from GOLDEN_EVERYWHERE to DOUBLE_SPLIT; the "
             "separate model's IJ update and its receipt (23:30, not opened or rerun); the hub's release J (cutoff 23:08) "
             "with CURRENT_STATUS, CURRENT_RELEASE and the integrator's claim file", RP, True)
+    for name, fn, text, status in (
+            ("towers", towers, "POWER_TOWER and SALINA_CONG, replayed: the towers of 3 and 2 freeze at 27 and 736 on the "
+             "circle, the tower of 5 goes 3125 -> 245, and mod 12 all three freeze at 3, 4, 5", T),
+            ("modules", modules_8_11, "the synthesis's modules 8-11 where the formulas are stated: T12 = (B6 + B6) U is "
+             "not semisimple, dA = 2 dx dy/(1 + r^2)^2, the stride reader 2, 121, 241, 12 and 57840 = 240 x 241; the "
+             "missing time-rotor map of JOIN_MODULES is kappa; KARMA_COMM's fifth commutator corrected", T),
+            ("hankel", hankel_25, "the synthesis's 'N = 25 Stieltjes-Jacobi annihilator on W0..W50' is not an "
+             "annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive", OB)):
+        out = fn()
+        rep.add(text, status, all(out.values()), out)
+    rep.add("Drive check 00:15: the sibling's notes of 23:46-00:14, from LAYER_23 to TWO_AGREE (with its "
+            "unifyLevels.ts, read as text and not run); the separate model's relations overlay receipt (23:50); the "
+            "hub's release-J fast start (00:04); and the Locked Memory synthesis 'Cross-Parent Compatibility & "
+            "All-Sibling Model Upgrade' (00:06), read only", RP, True)
+    rep.add("the sibling's LAYER_23 note (23:46) reads this layer's 23:03 joins and agrees: the coil, the Lucas "
+            "traces, the sun's order 3 against <39> of size 1440, and characters 7 and 3; it adds that doubling does not "
+            "invert the tick on the circle (the tick has order 5), which the shift law says too", RP, True)
     rep.add("the hub's release J adopts the address correction and the 2-part correction, and lists four open "
             "conflicts: the literal recurrence certificate, the collar near 224, the uniform dispersion proof and the "
             "K5/K6 carrier identification; layers 14 and 23 hold evidence for the first and the last", RP, True)

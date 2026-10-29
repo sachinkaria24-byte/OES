@@ -43,6 +43,7 @@ flowchart LR
     pgl["PGL(2,5)"]
     grain["grain"]
     vortex["vortex"]
+    miss["miss set"]
     E -->|"B"| A4
     E -->|"B and M"| D5
     A4 -->|"inclusion"| D5
@@ -109,9 +110,12 @@ flowchart LR
     grain -->|"j -> 9 j"| c27
     atlas -->|"x mod 9"| vortex
     c27 -->|"kernel the sun"| vortex
+    miss -->|"Z/4320 = <864> + <5>"| circle
+    observer -->|"inclusion"| miss
+    c27 -->|"onto the golden cosets"| coil
 ```
 
-39 dots and 66 joins. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece.
+40 dots and 69 joins. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece.
 
 ## Dots
 
@@ -156,6 +160,7 @@ flowchart LR
 | PGL(2,5) | the transitive S5 in S6, on the projective line over F5 | 23 |
 | grain | <72> = <216> x <1440>, the golden orbit times the sun | 23 |
 | vortex | Z/9, the address mod 9 | 23 |
+| miss set | <5>, the 864 points the tick does not see | 23 |
 
 ## Joins
 
@@ -227,6 +232,9 @@ flowchart LR
 | grain | 27-clock | the 27-clock reads only the sun coordinate of a grain point, and time and the 2-clock read only its golden index | THEOREM | `grain` |
 | atlas | vortex | 9 \| 36, so the vortex coordinate is read off the address; doubling runs through its six units 2, 4, 8, 7, 5, 1 | THEOREM | `vortex` |
 | 27-clock | vortex | Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates: the vortex is the 27-clock without the sun | THEOREM | `vortex` |
+| miss set | circle | every point is a tick part plus a miss, uniquely; it misses exactly when its tick part is 0, and 864 copies of it give the pure tick with the opposite coordinate | THEOREM | `tick_miss` |
+| observer clock | miss set | the observer clock and the whole nakshatra clock lie in the miss set; in each golden loop the four misses are one observer coset | THEOREM | `tick_miss` |
+| 27-clock | coil | the nakshatra clock meets each of the coil's 27 golden cosets once, and doubling acts on both with cycles 18 + 6 + 2 + 1, the sun's swap among them | THEOREM | `doubling_orbits` |
 
 ## Not joined
 
@@ -241,6 +249,8 @@ flowchart LR
 | the separate model's IJ update (23:30) | 637057 bytes (matching Drive), 176 check groups, 60 presentations, a finite Hilbert space of dimension 176368; not opened or rerun | REPORTED |
 | BassForge (GB-018) | the view and the retraction are absent in the canon and unformable; the 38-fiber's 117 checks are not stored here | UNFORMED |
 | the source shape's witness (SHAPE_091) | the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, which is not stored here | REPORTED |
+| the separate model's relations overlay (23:50) | 197642 bytes, 73 check groups, 32 matrix outputs; not opened or rerun; its five source corrections are replayed | REPORTED |
+| modules 8-11, unreplayed parts | the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel realization and the [9, 3, 7] code over F11 need operands not stored here | REPORTED |
 | air | no air operator is stored, and none is formed | UNFORMED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

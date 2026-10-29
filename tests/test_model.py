@@ -239,6 +239,14 @@ def test_grain_vortex_and_the_shift_law():
     assert [s for s in range(spine.N) if 2 * s % spine.N == -s % spine.N] == [0, 1440, 2880]
 
 
+def test_ticks_misses_towers_and_the_hankel_obstruction():
+    for check in (dots.tick_miss, dots.doubling_orbits, dots.towers, dots.modules_8_11, dots.hankel_25):
+        out = check()
+        assert all(out.values()), out
+    # the tick bit is the tick part: x misses exactly when 3456 x = 0
+    assert all(ledger.contains_tick(x) == (3456 * x % spine.N != 0) for x in range(spine.N))
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

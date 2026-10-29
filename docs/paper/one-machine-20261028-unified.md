@@ -7,8 +7,8 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 23 layers in **567 checks**. Of these, 510 hold: THEOREM 377, OBSTRUCTION 44, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 57 are REPORTED records.
-- `python -m pytest` runs 54 tests.
+- `python verify.py` replays 23 layers in **577 checks**. Of these, 516 hold: THEOREM 382, OBSTRUCTION 45, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 61 are REPORTED records.
+- `python -m pytest` runs 55 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, `docs/LEDGER.md` holds the unified ledger, and `docs/DOTS.md` draws every checked join.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -41,7 +41,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 - Seven moments that the sibling reported as not replayed are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly from the 240 roots, and the eighth is new.
 - The canon's 19:10 continuation asks two things. A commutator should not be called 864 without a map: every map from the day–Coxeter group to the circle kills it. Equal energy totals do not make equal splits: the three splits are the margins of one conserved table.
 
-**It joins all the dots (layer 23).** Every object of the model is a dot and every checked map a join, and 39 dots with 66 joins form one connected diagram. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits. The carrier's symmetry is the S5 that fixes the cone point of K6, the only S5 in S6 that keeps D; the transitive S5 = PGL(2,5) gives a different module.
+**It joins all the dots (layer 23).** Every object of the model is a dot and every checked map a join, and 40 dots with 69 joins form one connected diagram. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits. The carrier's symmetry is the S5 that fixes the cone point of K6, the only S5 in S6 that keeps D; the transitive S5 = PGL(2,5) gives a different module.
 
 ## 0. The model on one page
 
@@ -59,7 +59,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 | waves | Hodge complex on the K5 edges | sound (4) and light (6) are isochronous at √5; Agni = Curl² | 17 |
 | circle | Z/4320 = 2⁵·3³·5 | one lemma; the tower 36 × 4 × 3 × 2 × 5; the tick bit | 19, 21 |
 | clocks | the normalizer of ⟨c′⟩ in W(E8), order 240 | every circle unit realized; the tick = [day, Coxeter] | 19, 21 |
-| dots | 39 objects, 66 checked maps | one connected diagram; the K5 incidences are the A4 and D5 roots | 23 |
+| dots | 40 objects, 69 checked maps | one connected diagram; the K5 incidences are the A4 and D5 roots | 23 |
 | curvature, cosmology | Lin–Lu–Yau; spectral action on M⁴ × F | discretely flat bath; G and Λ_cc only with external inputs (CONDITIONAL) | 6, 7 |
 | gates | AUTH, TIME_BIND, DYN_BIND, PredictionFreeze, W_L, T3081 | none moves | 13 |
 
@@ -309,7 +309,7 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more, at 20:33 one more, at 21:05 fifteen more, at 21:36 nineteen more (21:09–21:38), with the separate model's revised status, and at 22:08 eight more, whose structure is joined in §9. Layer 22 replays all of them in 60 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1191 readings from 137 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1319 readings from 158 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -394,7 +394,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 
 ## 9. All dots joined (layer 23)
 
-Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 39 dots and 66 joins (64 maps and two obstructions) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
+Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 40 dots and 69 joins (67 maps and two obstructions) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
 
 **New joins (THEOREM).**
 
@@ -415,12 +415,15 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 - **The golden family.** Bⁿ = F_n B + F_{n−1} I for every integer n. Its trace is the Lucas number L_n, which runs 2, 1, 3, 4 mod 5, so no trace of a golden power misses the tick. The k-th golden point 216k misses exactly when 5 | F_k, that is, when 5 | k.
 - **Which S5.** In S6 the permutations of K6 that keep D are exactly the 120 that fix the cone point, and for them the atoms and the bonds are one S5-set (transposition character 7). The transitive S5 = PGL(2,5) has one orbit on the bonds and involution character 3: the second obstruction. The two S5s meet in F20 = AGL(1,5), so agreement on C5 or F20 does not identify S5-modules. A 6 × 6 block of order 5 with traces 1 (MPKG) is the C5 rotation of the cone's six sites, up to similarity over ℚ.
 - **The grain and the vortex.** The multiples of 72 are the golden orbit ⟨216⟩ times the sun ⟨1440⟩. Time and the 2-clock read the golden index, the 27-clock reads the sun, and doubling doubles the one and inverts the other. Doubling inverts a shift exactly when the shift has order 3. The vortex ℤ/9 is read off the address and is the 27-clock without the sun.
+- **Ticks and misses.** The circle is the ticks ⟨864⟩ times the misses ⟨5⟩, and a point misses exactly when its tick part is 0. The observer and the nakshatra clock lie in the miss set. The nakshatra clock meets each of the coil's 27 golden cosets once, with the same doubling cycles 18 + 6 + 2 + 1.
 
 **Corrections (the 22:08 notes).** An atlas address does not carry the tick bit: 1 and 145 share an address, and only 1 meets. Address 18 reaches the seam in one contraction, not two. Address 16 moves around the 6-cycle. Thirty-six atlas steps, 36 × 36 = 1296, meet the tick.
 
 **Corrections (the 23:03 notes).** The atlas shift by 24 does not commute with doubling: D T = T⁻¹ D, while D² T = T D², as the hub's verifier also finds. ⟨39⟩ has 1440 points, the sun's step, but the sun 1440 has order 3. Several notes still gave an address a tick bit, and their own steps correct them: 155 and 11 share an address, and only 11 meets. The sibling's ADDRESS_TICK has since withdrawn those sentences. The 31-point clock's characteristic polynomial, left open, is (x − 1)(x³ − 1)²(x⁶ − 1)⁴.
 
 **Corrections (the 23:44 notes).** 3456 is the time part of 216, not its 2-part; the 2-part is 1080, and the hub's release J agrees. The clock tower is a chain only down to the golden orbit: the ticks and the observer are two of its subgroups meeting in 0, and the sun lies in the grain. Order and step are dual: 3 has order 1440, while the sun 1440 has order 3.
+
+**The 00:15 items.** The separate model's relations receipt adds three corrections, all replayed. Doubling keeps the vortex coordinate of the seam, not its points. The odd part's doubling orbits have lengths 1 to 36, so it is not one 36-cycle. [K, B⁵] has its determinant divisible by 25 but its entries only by 5. A new synthesis lists an "N = 25 annihilator on W₀..W₅₀". The 26 × 26 Hankel determinant of W₀..W₅₀ is positive, so no such annihilator exists (OBSTRUCTION).
 
 **Replay for the hub (OES-C01).** At commit f41b278 the reported state replays exactly: 21 layers, 412 checks (383 hold and 29 reported), 31 tests, and the TypeScript audits at residual 0. The logs and a handover are in `docs/hub/OES-C01/`.
 
@@ -469,7 +472,9 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 | the grain | ⟨72⟩ = ⟨216⟩ × ⟨1440⟩; time reads the golden index, the 27-clock the sun | THEOREM |
 | shift and doubling | D T_s = T_s² D; inversion exactly when 3s = 0 | THEOREM |
 | order and step | d has order 4320/d: 3 has order 1440, the sun 1440 has order 3 | THEOREM |
-| all dots | 39 dots, 66 joins, one connected diagram | THEOREM |
+| ticks and misses | Z/4320 = ⟨864⟩ ⊕ ⟨5⟩; a point misses iff its tick part is 0 | THEOREM |
+| N = 25 annihilator (synthesis) | the Hankel determinant of W₀..W₅₀ is positive | OBSTRUCTION |
+| all dots | 40 dots, 69 joins, one connected diagram | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
 ## 11. What is not formed, and the gates
@@ -524,16 +529,16 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 60 | the evening notes: 1191 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
-| 23 | dots | 95 | 39 dots and 66 checked joins in one diagram (`docs/DOTS.md`); the 22:08–23:43 notes |
+| 22 | counts | 60 | the evening notes: 1319 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
+| 23 | dots | 105 | 40 dots and 69 checked joins in one diagram (`docs/DOTS.md`); the 22:08–00:14 notes |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 23 layers, 567 checks, about 4 minutes
-python -m pytest -q           # 54 tests
+python verify.py              # 23 layers, 577 checks, about 4 minutes
+python -m pytest -q           # 55 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: "One Machine 20261028" on Drive (183 notes and papers, 17:01–23:43 UTC), two canon sheets, the hub (releases I and J) and the 22:31 synthesis.
+Sources: "One Machine 20261028" on Drive (204 notes and papers, 17:01–00:14 UTC), two canon sheets, the hub (releases I and J) and two syntheses.

@@ -57,39 +57,39 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.75,
+  "1-carrier": 0.63,
   "2-spectral": 0.01,
-  "3-spacetime": 8.57,
-  "4-native": 96.27,
-  "5-observer": 0.23,
-  "6-gravity": 5.05,
-  "7-cosmology": 1.7,
-  "8-frontier": 35.26,
-  "9-joins": 8.92,
-  "10-literal": 36.0,
+  "3-spacetime": 8.06,
+  "4-native": 89.89,
+  "5-observer": 0.22,
+  "6-gravity": 4.72,
+  "7-cosmology": 1.65,
+  "8-frontier": 34.21,
+  "9-joins": 9.07,
+  "10-literal": 34.06,
   "11-glue": 0.16,
   "12-binding": 0.03,
   "13-gates": 0.1,
-  "14-recurrence": 71.79,
-  "15-court": 1.73,
-  "16-handover": 1.07,
+  "14-recurrence": 70.75,
+  "15-court": 1.8,
+  "16-handover": 1.22,
   "17-waves": 0.52,
-  "18-snapshot": 0.73,
-  "19-spine": 3.8,
-  "20-canon": 5.84,
-  "21-ledger": 42.93,
-  "22-counts": 20.93,
-  "23-dots": 5.5
+  "18-snapshot": 0.76,
+  "19-spine": 3.96,
+  "20-canon": 5.91,
+  "21-ledger": 43.02,
+  "22-counts": 20.37,
+  "23-dots": 5.61
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 377,
-   "total": 377
+   "passed": 382,
+   "total": 382
   },
   "OBSTRUCTION": {
-   "passed": 44,
-   "total": 44
+   "passed": 45,
+   "total": 45
   },
   "REMOVED": {
    "passed": 2,
@@ -112,8 +112,8 @@
    "total": 18
   },
   "REPORTED": {
-   "passed": 57,
-   "total": 57
+   "passed": 61,
+   "total": 61
   }
  },
  "checks": [
@@ -4642,13 +4642,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1191 readings from 137 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1319 readings from 158 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 137,
-    "claims": 1191,
+    "notes": 158,
+    "claims": 1319,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -6421,7 +6421,48 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 39 dots and 66 joins form one connected diagram (the obstructions left out)",
+   "name": "miss set -> circle: every point is a tick part plus a miss, uniquely; it misses exactly when its tick part is 0, and 864 copies of it give the pure tick with the opposite coordinate",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Z/4320 is the direct sum of the five ticks <864> and the 864 misses <5>: every point is a tick part plus a miss": true,
+    "a point misses the tick exactly when its tick part is 0; the golden step is 216 = 3456 + 1080, tick part -864 and miss part 1080 (5 x 216)": true,
+    "864 copies of a point clear its miss part and land on the pure tick with the opposite coordinate (13, of tick coordinate 2, lands on 2592); two doublings and 864 copies agree exactly on the golden orbit <216>": true,
+    "each of the 216 golden loops holds exactly four misses, one coset of the observer clock; the observer and the whole nakshatra clock lie in the miss set": true,
+    "doubling sorts the golden orbit by the tick bit: an index prime to 5 ends in the tick cycle 4, 8, 16, 12, a multiple of 5 ends at 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "observer clock -> miss set: the observer clock and the whole nakshatra clock lie in the miss set; in each golden loop the four misses are one observer coset",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Z/4320 is the direct sum of the five ticks <864> and the 864 misses <5>: every point is a tick part plus a miss": true,
+    "a point misses the tick exactly when its tick part is 0; the golden step is 216 = 3456 + 1080, tick part -864 and miss part 1080 (5 x 216)": true,
+    "864 copies of a point clear its miss part and land on the pure tick with the opposite coordinate (13, of tick coordinate 2, lands on 2592); two doublings and 864 copies agree exactly on the golden orbit <216>": true,
+    "each of the 216 golden loops holds exactly four misses, one coset of the observer clock; the observer and the whole nakshatra clock lie in the miss set": true,
+    "doubling sorts the golden orbit by the tick bit: an index prime to 5 ends in the tick cycle 4, 8, 16, 12, a multiple of 5 ends at 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "27-clock -> coil: the nakshatra clock meets each of the coil's 27 golden cosets once, and doubling acts on both with cycles 18 + 6 + 2 + 1, the sun's swap among them",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "doubling cycles the four nonzero ticks, 864 -> 1728 -> 3456 -> 2592 -> 864 (one doubling squares the shift, two invert it), and kills the observer: 1080 and 3240 fall to 2160 and then to 0": true,
+    "doubling permutes the 27 nakshatra points as an 18-cycle, a 6-cycle through 480, the sun's swap 1440 <-> 2880 and 0": true,
+    "three doublings put every point in the coil, and on the coil's 27 golden cosets doubling has the same cycles; the nakshatra clock meets every coset once": true,
+    "corrected (the separate model's relations receipt, adopted by the sibling's CORRECTIONS): on the odd part doubling has order 36 but its orbit lengths are 1, 2, 4, 6, 12, 18, 36, not one 36-cycle; and doubling keeps the vortex coordinate 0, not the points (216 -> 432)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 40 dots and 69 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6451,6 +6492,7 @@
      "halfper",
      "hodge",
      "kerM",
+     "miss",
      "momenta",
      "moments",
      "observer",
@@ -6672,6 +6714,61 @@
   },
   {
    "layer": "23-dots",
+   "name": "POWER_TOWER and SALINA_CONG, replayed: the towers of 3 and 2 freeze at 27 and 736 on the circle, the tower of 5 goes 3125 -> 245, and mod 12 all three freeze at 3, 4, 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tower of threes freezes at 27: 3^3 = 27, 3^27 = 27 and 3^(3^27) = 27 mod 4320 (an exponent = 3 mod 8 returns 27 mod 32, and mod 5 and 27 as well)": true,
+    "the tower of twos freezes one floor later: 2^16 = 736 = 32 x 23 and 2^65536 = 736 mod 4320": true,
+    "the tower of fives does not freeze there: 5^5 = 3125 but 5^3125 = 245 mod 4320": true,
+    "mod 12 all three freeze at once, at 3, 4 and 5, which sum to 12 (3125 and 245 are both 5 mod 12); the step 12 has order 360 and index 12, and 72 x 12 = 864": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the synthesis's modules 8-11 where the formulas are stated: T12 = (B6 + B6) U is not semisimple, dA = 2 dx dy/(1 + r^2)^2, the stride reader 2, 121, 241, 12 and 57840 = 240 x 241; the missing time-rotor map of JOIN_MODULES is kappa; KARMA_COMM's fifth commutator corrected",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 5-cycle has characteristic polynomial z^5 - 1, and JOIN_MODULES's missing map exists: kappa(x) = 4x mod 5 carries the tick translation to the vertex 5-cycle (the join time -> K5 vertices)": true,
+    "the two-tick T12 = [[0, B6], [-B6, 2 B6]] (B6 the 6-cycle) is (B6 + B6) U with U = [[0, I], [-I, 2I]] unipotent, U != I and (U - I)^2 = 0, the factors commuting; so T12 - B6 + B6 squares to 0, T12 is not semisimple, has infinite order and keeps no positive-definite form, unlike the 5-cycle": true,
+    "the curvature of A = (x dy - y dx)/(1 + x^2 + y^2) is dA = 2 dx dy / (1 + x^2 + y^2)^2": true,
+    "the stride reader gcd(s, 240) + 1 (or + 11 when 241 | s) gives 2, 121, 241, 12 at s = 1, 120, 240, 241; the formal period lcm(240, 241) = 57840 = 240^2 + 240, the bath's second return moment, meets the circle in 240 and has lcm 241 x 4320 with it": true,
+    "121 and 241 generate the circle, are 1 mod 12 and differ by 120 = 10 x 12; 120 has order 36 and 36 has order 120; dim SU(6) = 35; B sends (2, 1) to (3, 2)": true,
+    "KARMA_COMM corrected (relations receipt): [K, B^5] = [[25, -5], [-20, -25]] has det -725 = -29 x 25, so the determinant is divisible by 25 and the entries only by 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the synthesis's 'N = 25 Stieltjes-Jacobi annihilator on W0..W50' is not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the 26 x 26 Hankel matrix [W_(i+j)] of W_0..W_50 has positive determinant, so no nonzero c gives sum_k c_k W_(n+k) = 0 for n = 0..25: the walk counts have no order-25 annihilator on that window": "True",
+    "what 51 moments always give is a depth-25 Jacobi fit, which reproduces them by construction and predicts nothing; the walk measure has infinite support, so every Hankel determinant is positive": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 00:15: the sibling's notes of 23:46-00:14, from LAYER_23 to TWO_AGREE (with its unifyLevels.ts, read as text and not run); the separate model's relations overlay receipt (23:50); the hub's release-J fast start (00:04); and the Locked Memory synthesis 'Cross-Parent Compatibility & All-Sibling Model Upgrade' (00:06), read only",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the sibling's LAYER_23 note (23:46) reads this layer's 23:03 joins and agrees: the coil, the Lucas traces, the sun's order 3 against <39> of size 1440, and characters 7 and 3; it adds that doubling does not invert the tick on the circle (the tick has order 5), which the shift law says too",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "the hub's release J adopts the address correction and the 2-part correction, and lists four open conflicts: the literal recurrence certificate, the collar near 224, the uniform dispersion proof and the K5/K6 carrier identification; layers 14 and 23 hold evidence for the first and the last",
    "status": "REPORTED",
    "passed": true,
@@ -6745,6 +6842,22 @@
   {
    "layer": "23-dots",
    "name": "not joined: the source shape's witness (SHAPE_091): the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, which is not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's relations overlay (23:50): 197642 bytes, 73 check groups, 32 matrix outputs; not opened or rerun; its five source corrections are replayed",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: modules 8-11, unreplayed parts: the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel realization and the [9, 3, 7] code over F11 need operands not stored here",
    "status": "REPORTED",
    "passed": true,
    "value": null,
