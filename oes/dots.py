@@ -324,6 +324,12 @@ with T T^T = 20 P_cycle. E - 2 sigma Q is a sum of squares. The marked Golden op
 At 18:04 the sibling's MODEL (18:00) added one paragraph. The five dark planes are a measurement with probabilities
 4/5 and 1/20, which carries exactly 6/5 bits. Every bivector of the source is tangent to its oriented planes, so a
 linear reading of them needs all ten channels. Since Gr+(2, 5) = Q3 has p1 = h^2, no smooth reading fits in eight.
+
+At 18:35 the hub's text (18:22) and the sibling's MODEL (18:33) came in. A fixed seventh dark reading detects every
+source plane, and six never can, since G(2, 5) has odd degree 5. Fifteen bright and ten dark readings form a [25, 10, 5]
+exterior code. The dark measurement carries 6/5 bits, while the source states read nothing. An ideal bath record keeps
+the whole forcing history. The hub's 360 parent, Q[A6] with its coset readers, is a new dot: its Golden adapter reads
+the source at rank 5, its Golden30 has eight Fibonacci blocks, and its blind 126 is a central projector.
 """
 
 import functools
@@ -7103,6 +7109,633 @@ def notes_1804():
     }
 
 
+# ------------------------------------------------------------------- the 18:22 text
+
+def _dark_chart():
+    """The hub's primitive source-wedge chart (18:22): Lambda^2 of the source in primitive coordinates with
+    H = Lambda^2 G, the commutator W on it, its kernel basis (sympy's, the hub's) and the consistently oriented dark rays
+    z_i = -p_(4-i), whose kernel coordinates are e0, e1, e2, e3, (1, -1, 1, -1) up to sign."""
+    E, N5, sym, F, a0, b0 = _source()
+    G = N5.T * N5
+    pairs = list(itertools.combinations(range(5), 2))
+    wedge = lambda x, y: sp.Matrix([x[i] * y[j] - x[j] * y[i] for i, j in pairs])
+    Hm = sp.Matrix(10, 10, lambda r, c: G.extract(list(pairs[r]), list(pairs[c])).det())
+    W = sp.Matrix.hstack(*[F(N5[:, i], N5[:, j]) for i, j in pairs])
+    p = [(-1) ** r * wedge(u[:, 0], u[:, 1]) for r, u in enumerate(_planes())]
+    return G, pairs, wedge, Hm, W, sp.Matrix.hstack(*W.nullspace()), [-p[4 - i] for i in range(5)]
+
+
+def _kkt_gaps():
+    """Separate the ten signed labels +-u_k by 1 at least squared norm: magnitudes u0 >= 1/2 with gaps >= 1, sign
+    pattern s (s_0 = +1) and sum s_k u_k = 0. Each of the 16 x 32 active sets is a square KKT system; returns the least
+    squared norm of every feasible pattern, its minimizer, and the number of cases."""
+    u, lam, mu = sp.symbols("u0:5"), sp.symbols("l0:5"), sp.Symbol("mu")
+    g = [u[0] - sp.Rational(1, 2)] + [u[k + 1] - u[k] - 1 for k in range(4)]
+    best, cases = {}, 0
+    for s in itertools.product((1, -1), repeat=4):
+        s = (1,) + s
+        for act in itertools.product((0, 1), repeat=5):
+            cases += 1
+            unk = list(u) + [lam[a] for a in range(5) if act[a]] + [mu]
+            eqs = [2 * u[i] - sum(lam[a] * sp.diff(g[a], u[i]) for a in range(5) if act[a]) - mu * s[i] for i in range(5)]
+            eqs += [g[a] for a in range(5) if act[a]] + [sum(si * ui for si, ui in zip(s, u))]
+            A, b = sp.linear_eq_to_matrix(eqs, unk)
+            if A.det() == 0:
+                continue
+            sol = dict(zip(unk, A.LUsolve(b)))
+            if all(sol[lam[a]] >= 0 for a in range(5) if act[a]) and all(c.subs(sol) >= 0 for c in g):
+                val = sum(sol[x] ** 2 for x in u)
+                if val < best.get(s, (sp.oo,))[0]:
+                    best[s] = (val, tuple(sol[x] for x in u))
+    return best, cases
+
+
+def seventh_sensor():
+    """The hub's text (18:22): a fixed seventh dark reading, and the different minima for detecting, labelling and
+    reconstructing the source's planes. Cited: the five dark rays are all the simple bivectors the commutator kills
+    (k4_complete); a real linear section of odd degree has a real point; the skew normal form."""
+    G, pairs, wedge, Hm, W, Km, z = _dark_chart()
+    ip = lambda x, y: (x.T * Hm * y)[0]
+    ell12 = sp.Matrix([0, -3, 0, -1, 0, 3, 1, 0, 1, -1])
+    star = sp.Matrix([-17, -5, -10, -2, -6, -15, -10, 15, -4, 16])
+    h12, hs = (z[0] + z[1]) / 3, Hm.inv() * star
+    coords = [list((Km.T * Km).inv() * Km.T * x) for x in z]
+    rays = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1], [1, -1, 1, -1]]
+    ballots = sum(1 for s in set(itertools.permutations([1, 1, 1, -1, -1, -1]))
+                  if all(sum(s[:k]) >= 0 for k in range(7)))
+    e = [sp.eye(5)[:, k] for k in range(5)]
+    up = lambda x, y: sp.Matrix([(x * y.T - y * x.T)[i, j] for i, j in pairs])
+    tan = sp.Matrix.hstack(*[up(e[0], e[k]) for k in (1, 3, 4)], *[up(e[k], e[2]) for k in (1, 3, 4)])
+    i01, i23 = pairs.index((0, 1)), pairs.index((2, 3))
+    L = sp.Matrix([[int(c == k) for c in range(10)] for k in range(10) if k not in (i01, i23)]
+                  + [[2 * int(c == i01) - int(c == i23) for c in range(10)]])
+    bound = min(max(k, 5 - k) ** 2 * (sp.Rational(1, k) + sp.Rational(1, 5 - k)) for k in range(1, 5))
+    best, cases = _kkt_gaps()
+    resp = [(star.T * x)[0] for x in z]
+    labels = sorted(resp + [-x for x in resp])
+    img = [sp.Matrix([[1, 1, 1, 1], [1, 2, 3, 4]]) * sp.Matrix(v) for v in rays]
+    return {
+        "the fixed dark probe h12 = (z0 + z1)/3, of squared norm 2, has covector ell12 = (0, -3, 0, -1, 0, 3, 1, 0, 1, -1) "
+        "in the primitive wedge chart and responses (3, 3, -2, -2, -2) on the five dark rays z_i (kernel coordinates e0, "
+        "e1, e2, e3, (1, -1, 1, -1), H-Gram 15 I - 3 J); those rays are the only simple bivectors the six bright readings "
+        "miss, so the six readings and ell12 never all vanish on a nonzero simple bivector":
+            Hm * h12 == ell12 and ip(h12, h12) == 2 and [(ell12.T * x)[0] for x in z] == [3, 3, -2, -2, -2]
+            and all(sp.Matrix(c) in (sp.Matrix(v), -sp.Matrix(v)) for c, v in zip(coords, rays))
+            and sp.Matrix(5, 5, lambda i, j: ip(z[i], z[j])) == 15 * sp.eye(5) - 3 * sp.ones(5, 5),
+        "six readings never suffice: the Pluecker G(2, 5) has degree 5 (the five ballot sequences, 6!/(4 3 2 3 2 1)), "
+        "which is odd, so a real codimension-six section always meets it; and global reconstruction of the simple cone "
+        "needs all ten readings (a kernel vector is a multiple or a difference of simple bivectors): the rank-nine observer "
+        "keeping eight coordinates and 2 w01 - w23 has kernel e01 + 2 e23 and tangent rank 5 at span(e0, e2)":
+            ballots == 5 == factorial(6) // (4 * 3 * 2 * 3 * 2 * 1) and L.rank() == 9
+            and L * (up(e[0], e[1]) + 2 * up(e[2], e[3])) == sp.zeros(9, 1) and (L * tan).rank() == 5,
+        "a zero-sum response with every |r_i| >= m has square at least (15/2) m^2, at (3m/2, 3m/2, -m, -m, -m), so the "
+        "nonblind margin is sqrt2 on primitive rays and 1/sqrt6 on unit planes, attained by h12; to separate the ten signed "
+        "labels by 1 (u0 >= 1/2, gaps >= 1) the 512 active-set cases leave six feasible sign patterns, least squares 46, "
+        "105/2, 70, 85, 90 and 190, the optimum at (1/2, -3/2, 5/2, 7/2, -5); ell* = (-17, -5, -10, -2, -6, -15, -10, 15, "
+        "-4, 16) is dark with responses 10 times that, norm^2 920/3 and label gap 10, so the sharp gap is sqrt(15/46), "
+        "or sqrt(5/184) on unit planes":
+            bound == sp.Rational(15, 2) and 2 * (sp.Rational(3, 2)) ** 2 + 3 == bound
+            and sp.Rational(15, 2) * 2 == 15 and sp.sqrt(sp.Rational(2, 12)) == 1 / sp.sqrt(6)
+            and min(abs(x) for x in [3, 3, -2, -2, -2]) / sp.sqrt(ip(h12, h12)) == sp.sqrt(2)
+            and cases == 512 and sorted(v for v, _ in best.values()) == [46, sp.Rational(105, 2), 70, 85, 90, 190]
+            and best[(1, -1, 1, 1, -1)] == (46, (sp.Rational(1, 2), sp.Rational(3, 2), sp.Rational(5, 2), sp.Rational(7, 2), 5))
+            and sp.Matrix.hstack(Km, hs).rank() == 4 and resp == [5, -15, 25, 35, -50] and ip(hs, hs) == sp.Rational(920, 3)
+            and min(y - x for x, y in zip(labels, labels[1:])) == 10
+            and 10 / sp.sqrt(sp.Rational(920, 3)) == sp.sqrt(sp.Rational(15, 46))
+            and sp.sqrt(sp.Rational(15, 46)) / sp.sqrt(12) == sp.sqrt(sp.Rational(5, 184)),
+        "two signed dark readings, the kernel-chart rows (1, 1, 1, 1) and (1, 2, 3, 4), send the five rays to five "
+        "distinct projective directions, (1, 1), (1, 2), (1, 3), (1, 4) and (0, -2)":
+            all(sp.Matrix.hstack(a, b).det() != 0 for a, b in itertools.combinations(img, 2)),
+    }
+
+
+def preparability():
+    """The hub's text (18:22): when a reconstructed exterior vector comes from one source pair."""
+    G, pairs, wedge, Hm, W, Km, z = _dark_chart()
+    quads = list(itertools.combinations(range(5), 4))
+    H4 = sp.Matrix(5, 5, lambda r, c: G.extract(list(quads[r]), list(quads[c])).det())
+    R, *w = sp.polys.rings.ring(",".join(f"w{k}" for k in range(10)), sp.ZZ)
+    K = [[R(0)] * 5 for _ in range(5)]
+    for k, (i, j) in enumerate(pairs):
+        K[i][j], K[j][i] = w[k], -w[k]
+    mm = lambda X, Y: [[sum(X[i][k] * Y[k][j] for k in range(5)) for j in range(5)] for i in range(5)]
+    A2 = mm(K, [[int(G[i, j]) for j in range(5)] for i in range(5)])
+    A2 = mm(A2, A2)
+    tr4 = sum(A2[i][k] * A2[k][i] for i in range(5) for k in range(5))
+    c = lambda x, i, j: x[pairs.index((i, j))]
+    plu = lambda x: [c(x, i, j) * c(x, k, l) - c(x, i, k) * c(x, j, l) + c(x, i, l) * c(x, j, k) for i, j, k, l in quads]
+    q = plu(w)
+    s = sum(int(Hm[a, b]) * w[a] * w[b] for a in range(10) for b in range(10))
+    l2, d = sp.symbols("l2 d", positive=True)
+    l1 = l2 + d
+    S, T_ = l1 ** 2 + l2 ** 2, 4 * l1 ** 2 * l2 ** 2
+    root = sp.sqrt(sp.factor(S ** 2 - T_))
+    fit = lambda s_, t_: ((s_ - sp.sqrt(s_ ** 2 - t_)) / 2, s_ + 1 - 2 * sp.sqrt((s_ + sp.sqrt(s_ ** 2 - t_)) / 2))
+    return {
+        "in the native chart t = |w ^ w|^2 = 4 q^T H4 q = 2 (w^T H w)^2 - Tr[(K_w G)^4], an identity of quartics in the ten "
+        "exterior coordinates (q the five Pluecker quadrics, H = Lambda^2 G, H4 = Lambda^4 G, K_w the skew coefficient "
+        "matrix); the unweighted 4 sum q^2 is not, so the metric must be kept":
+            4 * sum(int(H4[a, b]) * q[a] * q[b] for a in range(5) for b in range(5)) == 2 * s ** 2 - tr4
+            and 4 * sum(x * x for x in q) != 2 * s ** 2 - tr4,
+        "the skew normal form's block squares are (s +- sqrt(s^2 - t))/2, so the squared distance to the simple cone is "
+        "(s - sqrt(s^2 - t))/2 = lambda_2^2 and to the unit oriented planes s + 1 - 2 lambda_1; at w = e01 + 2 e23 (s = 5, "
+        "t = 16) they are 1 and 2, and an orthogonal output error of amplitude 3 makes the best one-pair fit 1 + 9 = 10":
+            root == d * (d + 2 * l2) and sp.expand((S - root) / 2 - l2 ** 2) == 0
+            and sp.simplify(sp.sqrt(sp.factor((S + root) / 2)) - l1) == 0 and fit(5, 16) == (1, 2) and fit(5, 16)[0] + 9 == 10,
+        "two dark planes are each preparable but their sum is not: W kills z0 + z1, whose Pluecker quadrics are "
+        "(1, 0, 0, 0, 0), so a dark-four signal need not come from one source pair":
+            all(x == 0 for y in z for x in plu(list(y))) and (W * (z[0] + z[1])).is_zero_matrix
+            and plu(list(z[0] + z[1])) == [1, 0, 0, 0, 0],
+    }
+
+
+def _rank_mod(rows, p):
+    """Rank of an integer matrix over GF(p)."""
+    M = [[x % p for x in r] for r in rows]
+    rk = 0
+    for col in range(len(M[0])):
+        piv = next((i for i in range(rk, len(M)) if M[i][col]), None)
+        if piv is None:
+            continue
+        M[rk], M[piv] = M[piv], M[rk]
+        iv = pow(M[rk][col], -1, p)
+        M[rk] = [(x * iv) % p for x in M[rk]]
+        for i in range(len(M)):
+            if i != rk and M[i][col]:
+                f = M[i][col]
+                M[i] = [(a - f * b) % p for a, b in zip(M[i], M[rk])]
+        rk += 1
+    return rk
+
+
+def exterior_code():
+    """The hub's text (18:22): fifteen bright Golden-pair readings and ten dark duad readings."""
+    G, pairs, wedge, Hm, W, Km, z = _dark_chart()
+    E, N5, sym, F, a0, b0 = _source()
+    H, sig, S5, sgn, U = _six_lines()
+    HG = sp.Matrix.hstack(*H)
+    V = G.inv() * N5.T * HG
+    Q = [wedge(V[:, i], V[:, j]) for i, j in itertools.combinations(range(6), 2)]
+    h = [(z[i] + z[j]) / 3 for i, j in itertools.combinations(range(5), 2)]
+    SQ, Sh = sum((x * x.T * Hm for x in Q), sp.zeros(10)), sum((x * x.T * Hm for x in h), sp.zeros(10))
+    PD = Km * (Km.T * Hm * Km).inv() * Km.T * Hm
+    PB = sp.eye(10) - PD
+    Bb = sp.Matrix.hstack(*(Km.T * Hm).nullspace())
+    Mb = sp.Matrix.vstack(*[x.T * Hm * Bb for x in Q])
+    Mb = Mb * sp.ilcm(*[sp.fraction(v)[1] for v in Mb])
+    rows = Mb.tolist()
+    Md = sp.Matrix.vstack(*[x.T * Hm * Km for x in h])
+    four = [Md.extract(list(S), list(range(4))).rank() for S in itertools.combinations(range(10), 4)]
+    mod2 = [_rank_mod([Md.row(i) for i in S], 2) for S in itertools.combinations(range(10), 5)]
+    return {
+        "the six coherently oriented Golden source vectors (H_G^T H_G = 12 I - 2 J) give fifteen exterior pairs "
+        "Q_ij = v_i ^ v_j with sum Q Q* = 144 I on all ten coordinates, and the ten dark probes h_ij = (z_i + z_j)/3 give "
+        "sum h h* = 5 P_D; so w = (1/144) sum Q_ij <Q_ij, P_B w> + (1/5) sum h_ij <h_ij, w>, the cross terms cancelling, "
+        "and |w|^2 = (1/144) sum b^2 + (1/5) sum d^2":
+            HG.T * HG == 12 * sp.eye(6) - 2 * sp.ones(6, 6) and SQ == 144 * sp.eye(10) and Sh == 5 * PD
+            and SQ * PB / 144 + Sh / 5 == sp.eye(10) and PB.T * Hm * SQ * PB / 144 + Hm * Sh / 5 == Hm,
+        "the bright readings are a [15, 6, 5] code: all 1365 eleven-reading sets have rank 6 (over a prime, hence over Q) "
+        "and a ten-reading set has rank 5; the dark readings are a [10, 4, 6] code: all 252 five-reading sets have rank 4, "
+        "and of the 210 four-reading sets 185 have rank 4 and 25 rank 3; together a [25, 10, 5] code, which corrects two "
+        "errors or four erasures":
+            all(_rank_mod([rows[i] for i in S], 2147483629) == 6 for S in itertools.combinations(range(15), 11))
+            and any(Mb.extract(list(S), list(range(6))).rank() == 5 for S in itertools.combinations(range(15), 10))
+            and all(Md.extract(list(S), list(range(4))).rank() == 4 for S in itertools.combinations(range(10), 5))
+            and (four.count(4), four.count(3), len(four)) == (185, 25, 210) and min(5, 6) == 5,
+        "the dark readings' integer matrix (entries +-2 and +-3) has Smith invariants 1, 5, 5, 5; mod 5 its rank is 1, and "
+        "mod 2 thirty of the 252 five-reading sets drop to rank 3 (222 keep 4), so the code's guarantees need "
+        "characteristic zero":
+            all(x.is_integer for x in Md) and {abs(x) for x in Md} == {2, 3}
+            and list(smith_normal_form(Md, domain=sp.ZZ).diagonal()) == [1, 5, 5, 5]
+            and _rank_mod(Md.tolist(), 5) == 1 and (mod2.count(3), mod2.count(4)) == (30, 222),
+    }
+
+
+def dark_information():
+    """The hub's text (18:22) and the sibling's MODEL (18:33): what the dark measurement can tell, against the source
+    states. Cited: the complement property for real intensity recovery."""
+    D = 15 * sp.eye(4) - 3 * sp.ones(4, 4)
+    P = [sp.eye(4)[:, k] for k in range(4)] + [-sp.ones(4, 1)]
+    rho, Ef = [x * x.T * D / 12 for x in P], [x * x.T * D / 15 for x in P]
+    prob = [[(Ef[r] * rho[s]).trace() for r in range(5)] for s in range(5)]
+    info = sum(x * sp.log(5 * x, 2) for x in prob[0])
+    kl = sum(x * sp.log(x / y, 2) for x, y in zip(prob[0], prob[1]))
+    E, N5, sym, F, a0, b0 = _source()
+    H, sig, S5, sgn, U = _six_lines()
+    G = N5.T * N5
+    V = G.inv() * N5.T * sp.Matrix.hstack(*H)
+    Pr = [u * (u.T * G * u).inv() * u.T * G for u in _planes()]
+    eff = [V[:, j] * V[:, j].T * G / 12 for j in range(6)]
+    cols = [sp.eye(4)[:, k] for k in range(4)] + [sp.Matrix(c) for c in (
+        [-1, -1, -1, -1], [1, 2, 3, 5], [2, 3, 5, 7], [1, 3, 9, 27], [1, 5, 25, 125], [1, 6, 36, 216])]
+    dets = lambda n: [sp.Matrix.hstack(*[cols[i] for i in S]).det() for S in itertools.combinations(range(n), 4)]
+    return {
+        "with pure states rho_r = p_r p_r^T D/12 and effects E_r = p_r p_r^T D/15, uniform-prior success is 4/5, and that "
+        "is optimal, since rho_r <= I bounds it by sum Tr E_r / 5 = 4/5; the likelihood ratios are 4 and 1/4, so the "
+        "information is 8/5 - 2/5 = 6/5 bits (the outcome entropy log2 5 - 6/5 is about 1.1219); the mean state is I/4, "
+        "a Holevo bound of 2 bits, and distinct labels have KL divergence 3 bits":
+            all(x.trace() == 1 for x in rho) and all(prob[s][s] == sp.Rational(4, 5) for s in range(5))
+            and sum(x.trace() for x in Ef) / 5 == sp.Rational(4, 5)
+            and {x * 5 for x in prob[0]} == {4, sp.Rational(1, 4)}
+            and sp.simplify(sp.expand_log(info, force=True)) == sp.Rational(6, 5) == 2 * sp.Rational(4, 5) - 2 * sp.Rational(1, 5)
+            and abs(sp.N(sp.log(5, 2) - sp.Rational(6, 5)) - sp.Float("1.1219")) < 1e-4
+            and sum(rho, sp.zeros(4)) / 5 == sp.eye(4) / 4 and sp.simplify(sp.expand_log(kl, force=True)) == 3,
+        "independent repeats err at most 4 (11/20)^n, below 1% from eleven repeats (4 (11/20)^10 > 1/100)":
+            4 * sp.Rational(11, 20) ** 11 < sp.Rational(1, 100) < 4 * sp.Rational(11, 20) ** 10,
+        "the five mixed source states P(E_r)/2 against the six Golden effects v_j v_j^T G/12 (which sum to I) give "
+        "probability 1/6 for every label and outcome, no label information: the dark measurement is another instrument":
+            sum(eff, sp.zeros(5)) == sp.eye(5) and {(Pr[r] / 2 * x).trace() for r in range(5) for x in eff} == {sp.Rational(1, 6)},
+        "nine and ten real dark sensors, adding (1, 5, 25, 125) and (1, 6, 36, 216), are full spark (all 126 and 210 "
+        "four-minors nonzero), so they survive two and three erasures; 7 + r full-spark sensors survive r":
+            len(dets(9)) == 126 and all(x != 0 for x in dets(9)) and len(dets(10)) == 210 and all(x != 0 for x in dets(10)),
+    }
+
+
+def causal_records():
+    """The hub's text (18:22): an ideal boundary record of the native bath keeps the whole forcing history. Cited: the
+    Volterra comparison inequality."""
+    E, N5, sym, F, a0, b0 = _source()
+    G = N5.T * N5
+    t, s = sp.symbols("t s", positive=True)
+    c = sp.Rational(495 * 256, 183)
+    u = sp.cosh(sp.sqrt(c) * t)
+    GC, Pu = 183 * sp.eye(6) + 52 * sp.ones(6, 6), sp.ones(6, 6) / 6
+    gk, Mj = sp.symbols("g0:13"), sp.symbols("M0:7")
+    gt = sum(gk[k] * t ** k / sp.factorial(k) for k in range(13))
+    Kt = sum((-1) ** j * Mj[j] * t ** (2 * j + 1) / sp.factorial(2 * j + 1) for j in range(7))
+    y = sp.expand(-sp.integrate(sp.expand(Kt.subs(t, t - s) * gt.subs(t, s)), (s, 0, t)))
+    jets = all(sp.expand(sp.diff(y, t, n + 2).subs(t, 0) + sum((-1) ** j * Mj[j] * gk[n - 2 * j] for j in range(n // 2 + 1)))
+               == 0 for n in range(11))
+    ev = lambda pr: sp.Matrix([int(e in pr) for e in E])
+    X, Y, Z = ev([(0, 1), (2, 3)]), ev([(0, 2), (1, 3)]), ev([(0, 3), (1, 2)])
+    a, b = X - Z, Y - Z
+    va, vb = -2 * b, 2 * a
+    n = lambda x, y: (x.T * y)[0] / 4
+    A, B = sym(a), sym(b)
+    xa, xb, xu, xv = [sp.Matrix(sp.symbols(f"{k}0:5")) for k in ("x", "y", "u", "v")]
+    q = lambda x, y: (x.T * G * y)[0]
+    En, Qn = (q(xu, xu) + q(xv, xv)) / 8 + (q(xa, xa) + q(xb, xb)) / 2, (q(xa, xv) - q(xb, xu)) / 4
+    th = sp.Symbol("th")
+    at, bt = a * sp.cos(th) + va / 2 * sp.sin(th), b * sp.cos(th) + vb / 2 * sp.sin(th)
+    return {
+        "the record y = -K * g with K(t) = C* sin(t sqrtD)/sqrtD C has y'' = -G_C g - int K''(t - s) g(s) ds, a "
+        "second-kind Volterra equation: G_C = C* C = 183 P_contrast + 495 P_uniform (the six-site Gram 183 I + 52 J) has "
+        "inverse P_contrast/183 + P_uniform/495, and the jets y^(n+2)(0) = -sum (-1)^j M_j g^(n-2j)(0), M_j = C* D^j C, "
+        "hold for n <= 10 as formal identities in twelve force jets":
+            GC == 183 * (sp.eye(6) - Pu) + 495 * Pu and GC.inv() == (sp.eye(6) - Pu) / 183 + Pu / 495 and jets,
+        "with |K''(t)| <= 495 x 256 t the comparison u = cosh(sqrt(c) t), c = 495 x 256/183 = 42240/61, solves "
+        "u = 1 + int c (t - s) u(s) ds, so |delta g| <= (1/183) cosh(sqrt(42240/61) T) |delta y''|":
+            c == sp.Rational(42240, 61) and sp.simplify(1 + sp.integrate(c * (t - s) * u.subs(t, s), (s, 0, t)) - u) == 0,
+        "a harmonic pair q = q0 cos 2t + (v/2) sin 2t is force-free exactly when W(a0, b0) = W(va, vb) = "
+        "W(va, b0) + W(a0, vb) = 0; on the native stratum (mass G/4) E - 2 sigma Q = (|va + 2 sigma b|^2 + "
+        "|vb - 2 sigma a|^2)/8 for both signs; and a = X - Z, b = Y - Z, va = -2b, vb = 2a has E = 8, Q = 4 and an empty "
+        "exterior, but its cubic phasor is (-4/3, -4/3) and its dark wedge has norm^2 12":
+            (F(at, bt) - (F(a, b) * sp.cos(th) ** 2 + (F(a, vb) + F(va, b)) / 2 * sp.sin(th) * sp.cos(th)
+                          + F(va, vb) / 4 * sp.sin(th) ** 2)).applyfunc(sp.expand).is_zero_matrix
+            and all(sp.expand(En - 2 * g * Qn - (q(xu + 2 * g * xb, xu + 2 * g * xb) + q(xv - 2 * g * xa, xv - 2 * g * xa)) / 8)
+                    == 0 for g in (1, -1))
+            and ((n(va, va) + n(vb, vb)) / 2 + 2 * (n(a, a) + n(b, b)), n(a, vb) - n(b, va)) == (8, 4)
+            and F(a, b).is_zero_matrix and F(va, vb).is_zero_matrix and (F(va, b) + F(a, vb)).is_zero_matrix
+            and [((A ** 2 + B ** 2) * A).trace() / 6, ((A ** 2 + B ** 2) * B).trace() / 6] == [sp.Rational(-4, 3)] * 2
+            and (a.T * a)[0] * (b.T * b)[0] - (a.T * b)[0] ** 2 == 12,
+    }
+
+
+PRIME = 2147483629
+
+
+def _rref_p(M, p=PRIME):
+    """Reduced row echelon form of an integer matrix over GF(p) (numpy, p < 2^31): the basis rows and pivot columns."""
+    A = np.array(M, dtype=np.int64) % p
+    rk, piv = 0, []
+    for c in range(A.shape[1]):
+        nz = np.nonzero(A[rk:, c])[0]
+        if not len(nz):
+            continue
+        A[[rk, rk + nz[0]]] = A[[rk + nz[0], rk]]
+        A[rk] = (A[rk] * pow(int(A[rk, c]), p - 2, p)) % p
+        col = A[:, c].copy()
+        col[rk] = 0
+        nz = np.nonzero(col)[0]
+        if len(nz):
+            A[nz] = (A[nz] - (col[nz, None] * A[rk][None, :]) % p) % p
+        piv.append(c)
+        rk += 1
+        if rk == A.shape[0]:
+            break
+    return A[:rk], piv
+
+
+def _word_ranks(M, step, levels, p=PRIME):
+    """Ranks over GF(p) of the spans V_0 = rows(M), V_(L+1) = V_L + step(V_L), for the given number of levels."""
+    B, piv = _rref_p(M, p)
+    out = [len(piv)]
+    for _ in range(levels):
+        X = np.array(step(B), dtype=np.int64) % p
+        for k, c in enumerate(piv):
+            f = X[:, c].copy()
+            nz = np.nonzero(f)[0]
+            if len(nz):
+                X[nz] = (X[nz] - (f[nz, None] * B[k][None, :]) % p) % p
+        R, pv = _rref_p(X, p)
+        if pv:
+            for k, c in enumerate(pv):
+                f = B[:, c].copy()
+                nz = np.nonzero(f)[0]
+                if len(nz):
+                    B[nz] = (B[nz] - (f[nz, None] * R[k][None, :]) % p) % p
+            B, piv = np.vstack([B, R]), piv + pv
+        out.append(len(piv))
+    return out
+
+
+def _exact_rank(M, p=PRIME):
+    """The rank over Q of an integer matrix with a certificate: the rank over GF(p) bounds it below, and an integer
+    kernel of the complementary dimension, lifted by rational reconstruction and checked exactly, bounds it above.
+    Returns the rank, or None if the lift fails."""
+    R, piv = _rref_p(M, p)
+    bound = int((p // 2) ** 0.5)
+
+    def lift(a):
+        r0, r1, s0, s1 = p, a % p, 0, 1
+        while r1 > bound:
+            k = r0 // r1
+            r0, r1, s0, s1 = r1, r0 - k * r1, s1, s0 - k * s1
+        return Fraction(r1, s1) if 0 < abs(s1) <= bound else None
+    ker = []
+    for f in (c for c in range(M.shape[1]) if c not in piv):
+        v = {f: Fraction(1)}
+        for i, c in enumerate(piv):
+            x = lift(-int(R[i, f]))
+            if x is None:
+                return None
+            v[c] = x
+        den = lcm(*(x.denominator for x in v.values()))
+        ker.append([int(v.get(c, 0) * den) for c in range(M.shape[1])])
+    N = np.array(ker, dtype=object).T
+    if ker and (np.array(M, dtype=object).dot(N) != 0).any():
+        return None
+    if ker and len(_rref_p(np.array(ker, dtype=object) % p, p)[1]) != len(ker):
+        return None
+    return len(piv)
+
+
+@functools.lru_cache(maxsize=None)
+def _a6():
+    """The hub's constructed 360 parent (18:22): A6 on 0..5 with x = (0123)(45), r = (01234), w = (14)(23) and
+    t = (23)(45); C4 = <x>, D10 = <r, w>, A5 = Stab(5); the left-coset readers O90 and O36 on Q[A6] (rows the cosets,
+    columns the group) and the right action (f U_g)(h) = f(hg)."""
+    def perm(*cycles):
+        p = list(range(6))
+        for c in cycles:
+            for a, b in zip(c, c[1:] + c[:1]):
+                p[a] = b
+        return tuple(p)
+    Gr = sorted(p for p in itertools.permutations(range(6)) if Permutation(list(p)).is_even)
+    idx = {g: k for k, g in enumerate(Gr)}
+    mul = lambda a, b: tuple(a[b[i]] for i in range(6))
+    inv = lambda a: tuple(sorted(range(6), key=lambda i: a[i]))
+
+    def closure(gens):
+        S, new = {tuple(range(6))}, [tuple(range(6))]
+        while new:
+            new = [mul(a, g) for a in new for g in gens if mul(a, g) not in S]
+            S |= set(new)
+        return frozenset(S)
+
+    def cosets(H):
+        seen, out = set(), []
+        for g in Gr:
+            if g not in seen:
+                c = frozenset(mul(g, h) for h in H)
+                seen |= c
+                out.append(c)
+        return out
+    x, r, w, t = perm((0, 1, 2, 3), (4, 5)), perm((0, 1, 2, 3, 4)), perm((1, 4), (2, 3)), perm((2, 3), (4, 5))
+    C4, D10 = closure([x]), closure([r, w])
+    c90, c36 = cosets(C4), cosets(D10)
+    reader = lambda cs: np.array([[int(g in c) for g in Gr] for c in cs], dtype=np.int64)
+    right = lambda M, g: np.asarray(M)[:, [idx[mul(h, g)] for h in Gr]]
+    chi5 = {g: sum(g[i] == i for i in range(6)) - 1 for g in Gr}
+    chi10 = {g: (chi5[g] ** 2 - chi5[mul(g, g)]) // 2 for g in Gr}
+    E = np.array([[int(next(iter(c))[5] == i) for i in range(6)] for c in c36], dtype=np.int64)
+    O36 = reader(c36)
+    return dict(G=Gr, idx=idx, mul=mul, inv=inv, perm=perm, closure=closure, cosets=cosets, x=x, r=r, w=w, t=t, C4=C4,
+                D10=D10, c90=c90, c36=c36, O90=reader(c90), O36=O36, right=right, chi5=chi5, chi10=chi10, E=E,
+                F30=(6 * np.eye(36, dtype=np.int64) - E @ E.T) @ O36)
+
+
+def parent_readers():
+    """The hub's text (18:22): the A6 coset readers, their histories, and the marked Golden adapter. Cited: the
+    chi-isotypic part of Q[G/H] has dimension d_chi dim chi^H (Frobenius reciprocity)."""
+    A = _a6()
+    Gr, mul, inv, closure, right, r, t = A["G"], A["mul"], A["inv"], A["closure"], A["right"], A["r"], A["t"]
+    C4, D10, O90, O36 = A["C4"], A["D10"], A["O90"], A["O36"]
+    conj = lambda H, g: [mul(mul(g, h), inv(g)) for h in H]
+    rk = lambda M: len(_rref_p(M)[1])
+    hist = [np.vstack([right(O90, g) for g in [tuple(range(6))] + [functools.reduce(mul, [r] * k) for k in range(1, j)]])
+            for j in range(1, 6)]
+    psl = closure([A["perm"]((0, 1, 2, 3, 4)), A["perm"]((0, 5), (1, 4))])
+    fix6 = lambda g, cs: sum(1 for c in cs if frozenset(mul(g, h) for h in c) == c)
+    six = A["cosets"](psl)
+    chi5b = {g: fix6(g, six) - 1 for g in Gr}
+    m = lambda ch: sp.Rational(sum(ch[h] for h in C4), 4)
+    irred = lambda ch: sum(ch[g] ** 2 for g in Gr) == 360
+    Ed = carrier.edges()
+    H, sig, S5, sgn, U = _six_lines()
+    HG = sp.Matrix.hstack(*H)
+
+    def golden(g):
+        if g[5] != 5:
+            return sp.zeros(10, 1)
+        o = list(g[:5])
+        return sp.Matrix([1 if (o.index(j) - o.index(i)) % 5 in (1, 4) else -1 for i, j in Ed])
+    BG = sp.Matrix.hstack(*[golden(g) for g in Gr])
+    BGn = np.array(BG.tolist(), dtype=np.int64)
+    marked = [c for c in A["c36"] if next(iter(c))[5] == 5]
+    s3 = A["perm"]((0, 1, 2))
+    gens5 = [r, s3]
+    equi = all(BG[:, A["idx"][mul(a, g)]] == _edge_perm(a[:5]) * BG[:, A["idx"][g]] for a in gens5 for g in Gr)
+    return {
+        "C4 and D10 generate A6, so O90 and O36 share only the constants: their joint static rank is 90 + 36 - 1 = 125; "
+        "<C4, t C4 t> has order 24, so O90 with its t-history has rank 180 - 15 = 165; with both readers and both "
+        "t-histories the rank is 230, blind 130 (a rank over a prime and an exact integer kernel)":
+            len(closure(list(C4 | D10))) == 360 and rk(np.vstack([O90, O36])) == 125
+            and len(closure(list(C4) + conj(C4, t))) == 24 and rk(np.vstack([O90, right(O90, t)])) == 165
+            and _exact_rank(np.vstack([O90, O36, right(O90, t), right(O36, t)])) == 230,
+        "under the right five-cycle r the O90 history ranks are 90, 170 (<C4, r C4 r^-1> has order 36), 250 (with an exact "
+        "kernel), 330 and 360: the fourth is at most 330 because chi5, chi5' and chi10 (irreducible, chi5' from the "
+        "transitive A5 = <(01234), (05)(14)>) keep 1, 1 and 2 C4-fixed dimensions, leaving 5 + 5 + 20 unread; four "
+        "settings share the constant and stay below 1 + 4 x 89 = 357, so five are needed":
+            [rk(Mh) for Mh in hist] == [90, 170, 250, 330, 360] and len(closure(list(C4) + conj(C4, r))) == 36
+            and _exact_rank(hist[2]) == 250 and len(psl) == 60 and len({g[0] for g in psl}) == 6
+            and all(irred(ch) for ch in (A["chi5"], chi5b, A["chi10"])) and A["chi5"] != chi5b
+            and (m(A["chi5"]), m(chi5b), m(A["chi10"])) == (1, 1, 2)
+            and 360 - 5 * (5 - 4 * 1) * 2 - 10 * (10 - 4 * 2) == 330 and 1 + 4 * 89 == 357 < 360,
+        "marking point 5 selects the six cosets A5/D10, the Sylow-five labels; reading each by the Golden line of its "
+        "pentagon (g(0), ..., g(4)) gives B_G = H_G O36(marked), H_G^T H_G = 12 I - 2 J, with rank 5 and B_G B_G^T = "
+        "120 P_source, A5-equivariant (B_G(a f) = U(a) B_G f for a = (01234), (012)); O36 U_r = O36 and B_G U_r = B_G, so "
+        "under the same r that gives O90 rank 360 the adapter keeps rank 5 and blind 355":
+            len(marked) == 6 and all(len({tuple(golden(g)) for g in c}) == 1 for c in marked)
+            and all(BG[:, k] in H or BG[:, k].is_zero_matrix for k in range(360))
+            and HG.T * HG == 12 * sp.eye(6) - 2 * sp.ones(6, 6) and BG.rank() == 5 and BG * BG.T == 10 * HG * HG.T
+            and (HG * HG.T / 12) ** 2 == HG * HG.T / 12 and equi
+            and np.array_equal(right(O36, r), O36) and np.array_equal(right(BGn, r), BGn),
+        "the normalizer of <r> in A6 is D10; on the 90 cosets of C4 its characters are 90, 0 at the rotations and 2 at the "
+        "reflections, so the module is 10 trivial + 8 sign + 18 W4, while 18 copies of the five-point action give 90, 0, "
+        "18, which is 18 trivial + 18 W4: an action, not a reader, tells them apart":
+            {g for g in Gr if set(conj(closure([r]), g)) == set(closure([r]))} == D10
+            and {(Permutation(list(g)).order(), fix6(g, A["c90"])) for g in D10} == {(1, 90), (5, 0), (2, 2)}
+            and sp.solve([sp.Symbol("a") + sp.Symbol("b") + 4 * sp.Symbol("c") - 90, sp.Symbol("a") + sp.Symbol("b")
+                          - sp.Symbol("c"), sp.Symbol("a") - sp.Symbol("b") - 2], sp.symbols("a b c")) ==
+            dict(zip(sp.symbols("a b c"), (10, 8, 18)))
+            and sp.solve([sp.Symbol("a") + sp.Symbol("b") + 4 * sp.Symbol("c") - 90, sp.Symbol("a") + sp.Symbol("b")
+                          - sp.Symbol("c"), sp.Symbol("a") - sp.Symbol("b") - 18], sp.symbols("a b c")) ==
+            dict(zip(sp.symbols("a b c"), (18, 0, 18))),
+    }
+
+
+def two_36s():
+    """The hub's text (18:22): the coset 36 and the six-label/duad/syntheme 36 are different A5-sets."""
+    A = _a6()
+    mul, closure, perm = A["mul"], A["closure"], A["perm"]
+    psl = closure([perm((0, 1, 2, 3, 4)), perm((0, 5), (1, 4))])
+    stab = [g for g in A["G"] if g[5] == 5]
+
+    def orbits(group, pts, act):
+        seen, out = set(), []
+        for p in pts:
+            if p not in seen:
+                o = {act(g, p) for g in group}
+                seen |= o
+                out.append(len(o))
+        return sorted(out)
+    cact = lambda g, c: frozenset(mul(g, h) for h in c)
+    synth = {frozenset(frozenset(m) for m in mt) for mt in _matchings(range(6))}
+    pts = [(0, frozenset([i])) for i in range(6)] + [(1, frozenset(d)) for d in itertools.combinations(range(6), 2)] + [
+        (2, s) for s in synth]
+    sact = lambda g, p: (p[0], frozenset(g[i] for i in p[1])) if p[0] < 2 else (2, frozenset(
+        frozenset(g[i] for i in m) for m in p[1]))
+    return {
+        "the coset 36 has orbits 6 + 30 under Stab(5) and under the transitive A5 = <(01234), (05)(14)>, while the six "
+        "labels, fifteen duads and fifteen synthemes have orbits 6 + 15 + 5 + 10 under the transitive A5: invariant "
+        "dimensions 2 and 4, so no A5-module isomorphism identifies the two 36s":
+            orbits(stab, A["c36"], cact) == [6, 30] and orbits(psl, A["c36"], cact) == [6, 30] and len(synth) == 15
+            and orbits(psl, pts, sact) == [5, 6, 10, 15],
+    }
+
+
+def golden30():
+    """The hub's text (18:22): the coset 36 minus its fibre means is a global Golden30 with an exact Return."""
+    A = _a6()
+    E, F30, O36, right, r, t = A["E"], A["F30"], A["O36"], A["right"], A["r"], A["t"]
+    I6, I36 = np.eye(6, dtype=np.int64), np.eye(36, dtype=np.int64)
+    K = F30 @ right(F30, t).T
+    Kq = K // 12
+    rk = lambda M: len(_rref_p(M)[1])
+    quad = Kq @ Kq + 3 * Kq - 99 * I36
+    Ks = sp.Matrix(Kq)
+    sector = sp.Matrix.hstack(*(Ks * Ks + 3 * Ks - 99 * sp.eye(36)).nullspace())
+    J, Phi = (2 * Ks + 3 * sp.eye(36)) / 9, (Ks + 6 * sp.eye(36)) / 9
+    blocks = []
+    for k in range(sector.shape[1]):
+        cand = blocks + [Phi * sector[:, k], sector[:, k]]
+        if sp.Matrix.hstack(*cand).rank() == len(cand):
+            blocks = cand
+    S16 = sp.Matrix.hstack(*blocks)
+    Bm = sp.Matrix([[1, 1], [1, 0]])
+    Es, N5, sym, Fc, a0, b0 = _source()
+    H, sig, S5, sgn, U = _six_lines()
+    K5 = sym(H[0])
+    P5 = sp.eye(5) - sp.ones(5, 5) / 5
+    Phi4 = (P5 + K5) / 2
+    base = [sp.eye(5)[:, k] - sp.eye(5)[:, 4] for k in range(4)]
+    S4 = next(c for c in (sp.Matrix.hstack(v, (K5 * v - v) / 2, w, (K5 * w - w) / 2)
+                          for v, w in itertools.combinations(base, 2)) if c.rank() == 4)
+    T = S16[:, :4] * (S4.T * S4).inv() * S4.T
+    a, z = sp.symbols("a z")
+    lo = (sp.Rational(177) - 3 * sp.sqrt(5)) / 200
+    return {
+        "the 36 cosets fibre over the six points by g D10 -> g(5) (E^T E = 6 I); F30 = 6 P30 O36 with P30 = I - E E^T/6 "
+        "has F30 F30^T = 360 P30, rank 30, F30 U_r = F30, and [F30; F30 U_t] has rank 60: present 30, delayed 30, blind "
+        "300":
+            np.array_equal(E.T @ E, 6 * I6) and np.array_equal(F30 @ F30.T, 60 * (6 * I36 - E @ E.T)) and rk(F30) == 30
+            and np.array_equal(right(F30, r), F30) and _exact_rank(np.vstack([F30, right(F30, t)])) == 60,
+        "K = 30 A = F30 U_t F30^T/12 is an integral symmetric matrix whose factors K, K + 6, K - 6 and K^2 + 3K - 99 have "
+        "nullities 6, 5, 9 and 16 and multiply to zero: its characteristic polynomial is q^6 (q + 6)^5 (q - 6)^9 "
+        "(q^2 + 3q - 99)^8, so A has visible eigenvalues -1/5 (5), 1/5 (9) and (-1 +- 3 sqrt5)/20 (8 each) and minimal "
+        "polynomial (25 A^2 - 1)(100 A^2 + 10 A - 11)":
+            not (K % 12).any() and np.array_equal(Kq, Kq.T)
+            and [36 - rk(M) for M in (Kq, Kq + 6 * I36, Kq - 6 * I36, quad)] == [6, 5, 9, 16]
+            and not (Kq @ (Kq + 6 * I36) @ (Kq - 6 * I36) @ quad).any()
+            and set(sp.solve(100 * a ** 2 + 10 * a - 11, a)) == {(-1 + 3 * sp.sqrt(5)) / 20, (-1 - 3 * sp.sqrt(5)) / 20}
+            and sp.expand(9 * (100 * (sp.Symbol("q") / 30) ** 2 + 10 * sp.Symbol("q") / 30 - 11)
+                          - (sp.Symbol("q") ** 2 + 3 * sp.Symbol("q") - 99)) == 0,
+        "the Return I - A^2 has eigenvalues 24/25 (14) and (177 +- 3 sqrt5)/200 (8 each), all above 17/20; Sigma(z) = "
+        "(1 - a^2)/(z + a) gives G(z) = (z + a)/(z^2 - 1), with endpoint weights (1 + a)/2 and (1 - a)/2; and "
+        "det[[I, A], [A, I]] = (24/25)^14 (7821/10000)^8 > 0":
+            1 - sp.Rational(1, 25) == sp.Rational(24, 25) and sp.expand(1 - ((-1 + 3 * sp.sqrt(5)) / 20) ** 2 - (177 + 3 * sp.sqrt(5)) / 200) == 0
+            and sp.expand(1 - ((-1 - 3 * sp.sqrt(5)) / 20) ** 2 - lo) == 0
+            and lo > sp.Rational(17, 20)
+            and sp.simplify(1 / (z - a - (1 - a ** 2) / (z + a)) - (z + a) / (z ** 2 - 1)) == 0
+            and sp.simplify((z + a) / (z ** 2 - 1) - ((1 + a) / 2 / (z - 1) + (1 - a) / 2 / (z + 1))) == 0
+            and sp.Rational(24, 25) ** 14 * (sp.expand(lo * (sp.Rational(177) + 3 * sp.sqrt(5)) / 200)) ** 8
+            == sp.Rational(24, 25) ** 14 * sp.Rational(7821, 10000) ** 8,
+        "on the 16-dimensional sector J = (20 A + I)/3 has J^2 = 5 and Phi16 = (I + J)/2 = (K + 6)/9 has Phi16^2 = "
+        "Phi16 + I: eight rational Fibonacci blocks B = [[1, 1], [1, 0]]; and a rank-4 T with Phi16 T = T Phi4 carries "
+        "A4's two blocks (the Fibonacci bridge) into them, a marked injection, not an A6 map":
+            sector.shape[1] == 16 and (J * J * sector - 5 * sector).is_zero_matrix
+            and (Phi * Phi * sector - Phi * sector - sector).is_zero_matrix
+            and S16.rank() == 16 and (Phi * S16 - S16 * sp.diag(*[Bm] * 8)).is_zero_matrix
+            and T.rank() == 4 and (Phi * T - T * Phi4).is_zero_matrix,
+    }
+
+
+def parent_closure():
+    """The hub's text (18:22): the all-word closure of the Golden30 rows, its blind central projector, and one
+    character reader that completes the parent."""
+    A = _a6()
+    Gr, mul, inv, right, r, t, chi5, chi10 = A["G"], A["mul"], A["inv"], A["right"], A["r"], A["t"], A["chi5"], A["chi10"]
+    step = lambda B: np.vstack([right(B, r), right(B, t)])
+    cent = lambda ch, d: np.array([[d * ch[mul(inv(g), h)] for h in Gr] for g in Gr], dtype=np.int64)
+    P10 = cent(chi10, 10)
+    Pb = np.ones((360, 360), dtype=np.int64) + cent(chi5, 5) + P10
+    c = np.array([[chi10[g] for g in Gr]], dtype=np.int64)
+    return {
+        "r and t generate A6, and closing the F30 rows under them gives ranks 30, 60, 90, 145, 216, 225, 234 by word "
+        "length; 234 is exact, because P_blind[g, h] = (1 + 5 chi5(g^-1 h) + 10 chi10(g^-1 h))/360 (chi5 = fix - 1, "
+        "chi10 = (chi5^2 - chi5(g^2))/2) is a symmetric central idempotent of trace 126 = 1 + 25 + 100 that kills F30":
+            len(A["closure"]([r, t])) == 360 and _word_ranks(A["F30"], step, 8) == [30, 60, 90, 145, 216, 225, 234, 234, 234]
+            and np.array_equal(Pb @ Pb, 360 * Pb) and np.array_equal(Pb, Pb.T) and np.trace(Pb) == 360 * 126
+            and not (A["F30"] @ Pb).any(),
+        "the six fibre means restore O36, whose closure is 260: chi10 has no D10-fixed vector, and its central projector, "
+        "of trace 100, kills O36; one more reader c(f) = sum chi10(g) f_g has a 100-dimensional orbit inside that block, "
+        "so O36 and c reach 360, with static rank 37":
+            np.array_equal(A["F30"] + A["E"] @ (A["E"].T @ A["O36"]), 6 * A["O36"])
+            and _word_ranks(A["O36"], step, 10)[-1] == 260 and np.array_equal(P10 @ P10, 360 * P10)
+            and np.trace(P10) == 360 * 100 and not (A["O36"] @ P10).any() and sum(chi10[g] for g in A["D10"]) == 0
+            and np.array_equal(c @ P10, 360 * c) and _word_ranks(c, step, 12)[-1] == 100
+            and len(_rref_p(np.vstack([A["O36"], c]))[1]) == 37,
+    }
+
+
+def notes_1835():
+    """The hub's text (18:22) and the sibling's MODEL (18:33): the rest."""
+    W = recurrence.load_walks()
+    return {
+        "the sibling's note: 6/5 = 8/5 - 2/5, the log2 5 terms cancelling; the hub's walk correction W6 = 17141798400 is "
+        "the repository's W_6":
+            sp.Rational(4, 5) * 2 - 4 * sp.Rational(1, 20) * 2 == sp.Rational(6, 5) and W[6] == 17141798400,
+        "the weighted 49-record atlas: context groups (5, 7, 4, 5, 5, 5, 5) weighted 1/(7n) give 25 contexts of weight "
+        "1/35, seven of 1/49 and four of 1/28 (total 1); pairing inside these pools gives 12 + 3 + 2 = 17 pairs per slot, "
+        "so three slots hold 51 >= 49 = 12 + 12 + 25 records in 98 cells, while pairing inside the groups gives 15 and "
+        "only 45; and C(252, 2) = 31626 two-cell locations":
+            25 * sp.Rational(1, 35) + 7 * sp.Rational(1, 49) + 4 * sp.Rational(1, 28) == 1
+            and 25 // 2 + 7 // 2 + 4 // 2 == 17 and 3 * 17 == 51 >= 49 == 12 + 12 + 25 and 2 * 49 == 98
+            and 5 * (5 // 2) + 7 // 2 + 4 // 2 == 15 and 3 * 15 == 45 < 49 and 252 * 251 // 2 == 31626 == 36 * 7 * 251 // 2,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -7171,6 +7804,7 @@ DOTS = {
     "wedgeport": ("root-wedge port", "the hub's unmarked S5 port T_S x(rho) = <x, v ^ w>/sqrt24 on the 240 roots", "23"),
     "synthemes": ("synthemes", "the 15 perfect matchings of the six Sylow labels, 5 + 10 under the exceptional S5", "23"),
     "darkport": ("dark ports", "the hub's norm-four ports of the dark four: A on the 120 sites of the orbit of (-1, 0, 0, 1, 1, 0, 1, 0), and the triple wedge on 1200 sites", "23"),
+    "parent": ("360 parent", "Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36", "23"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -7185,7 +7819,7 @@ LEVELS = [
      ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph"]),
     ("operator", "spaces with operators, ports and moments",
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
-      "pauli", "gksl", "goldenport", "wedgeport", "darkport"]),
+      "pauli", "gksl", "goldenport", "wedgeport", "darkport", "parent"]),
     ("physics", "geometry, readout, waves, binding and the conditional cosmos",
      ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges", "assignment"]),
 ]
@@ -7437,6 +8071,16 @@ JOINS = [
     ("A4", "golden", "the Fibonacci bridge", "the marked K = A(h0) has K^2 = 5 on A4, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and a rational S carries Phi to two blocks B = [[1, 1], [1, 0]]; B^6 = [[13, 8], [8, 5]], entry sum 34 (the hub, 17:26)", T, "golden_bridge"),
     ("darkport", "readout", "the dark measurement", "the five dark planes have frame operator 15 I, so M_r = p_r p_r^T D/15 is a measurement: it reads a plane as itself with probability 4/5 and as each other plane with 1/20, carries exactly 6/5 bits under a uniform prior, and gives any two planes Bhattacharyya coefficient 11/20 (the sibling's MODEL, 18:00)", T, "dark_measurement"),
     ("source", "readout", "plane tomography", "every bivector of the source is tangent to its oriented planes, so a linear reading immerses them only with all ten channels, the bright six and the dark four; Gr+(2, 5) = Q3 has c = 1 + 3h + 4h^2 + 2h^3 and p = 1 + h^2, so a normal plane bundle in R^8 would need e^2 = -h^2, and a smooth reading needs at least nine (the sibling's MODEL, 18:00)", T, "plane_tomography"),
+    ("darkport", "readout", "the seventh sensor", "the fixed probe h12 = (z0 + z1)/3, covector ell12 = (0, -3, 0, -1, 0, 3, 1, 0, 1, -1), responds (3, 3, -2, -2, -2) on the five dark rays, so the six bright readings and ell12 detect every plane, while six readings never do (G(2, 5) has odd degree 5); the nonblind margin is sqrt2 and the sharp label gap sqrt(15/46), from the 512 active-set cases and ell* = (-17, -5, -10, -2, -6, -15, -10, 15, -4, 16) (the hub, 18:22)", T, "seventh_sensor"),
+    ("source", "darkport", "preparability", "a reconstructed exterior vector comes from one source pair exactly when its Pluecker quadrics vanish: in the native chart |w ^ w|^2 = 4 q^T H4 q = 2 (w^T H w)^2 - Tr[(K_w G)^4], the squared distances to the simple cone and to the unit planes are (s - sqrt(s^2 - t))/2 and s + 1 - 2 lambda_1, and z0 + z1 is dark but not simple (the hub, 18:22)", T, "preparability"),
+    ("cycles", "darkport", "the exterior code", "fifteen bright Golden-pair readings (sum Q Q* = 144 I) and ten dark duad probes (sum h h* = 5 P_D) give a Parseval inverse on all ten exterior coordinates and a [25, 10, 5] code, [15, 6, 5] + [10, 4, 6], whose dark integer part has Smith invariants 1, 5, 5, 5 (the hub, 18:22)", T, "exterior_code"),
+    ("source", "darkport", "two instruments", "the dark measurement names its plane with optimal success 4/5 and carries 6/5 = 8/5 - 2/5 bits (Holevo bound 2, KL divergence 3, eleven repeats for 1% error), while the source states P(E_r)/2 against the six Golden effects read 1/6 everywhere: two instruments, not one processed state (the hub, 18:22; the sibling's MODEL, 18:33)", T, "dark_information"),
+    ("bath", "source", "causal records", "an ideal known-state boundary record y = -K * g of the native bath, with G_C = 183 P_contrast + 495 P_uniform, inverts the forcing g through a second-kind Volterra equation, with exact jets and the bound (1/183) cosh(sqrt(42240/61) T); the empty-bath pair X - Z, Y - Z (E = 8, Q = 4) is force-free yet has cubic phasor (-4/3, -4/3) (the hub, 18:22)", T, "causal_records"),
+    ("parent", "source", "the Golden adapter", "marking point 5 reads the six Sylow cosets A5/D10 by their pentagons' Golden lines: B_G = H_G O36 has rank 5 and B_G B_G^T = 120 P_source, is A5-equivariant and fixed by r, so it keeps rank 5 where O90's r-history reaches 360 in five settings (90, 170, 250, 330, 360); the readers' joint ranks are 125, 165 and 230 (the hub, 18:22)", T, "parent_readers"),
+    ("parent", "golden", "Golden30", "F30 = 6 P30 O36 (rank 30, F30 F30^T = 360 P30) and the involution t give A = F30 U_t F30^T/360, and 30 A has characteristic polynomial q^6 (q + 6)^5 (q - 6)^9 (q^2 + 3q - 99)^8; the Return I - A^2 exceeds 17/20, det[[I, A], [A, I]] = (24/25)^14 (7821/10000)^8, and on the 16-sector Phi16 = (I + J)/2 is eight Fibonacci blocks (the hub, 18:22)", T, "golden30"),
+    ("A4", "parent", "the marked injection", "a rank-4 T with Phi16 T = T Phi4 carries A4's two Fibonacci blocks (Phi4 = (1 + K)/2, K = A(h0)) into the Golden30's eight: a marked operator injection, not an A6 map (the hub, 18:22)", T, "golden30"),
+    ("parent", "readout", "the blind 126", "closing the F30 rows under r and t gives ranks 30, 60, 90, 145, 216, 225, 234; the blind 126 = 1 + 25 + 100 is the central projector of the trivial, chi5 and chi10 blocks; the fibre means reach 260, and one chi10 reader completes 360 (the hub, 18:22)", T, "parent_closure"),
+    ("synthemes", "parent", "two 36s", "the coset 36 has orbits 6 + 30 and the six-label/duad/syntheme 36 has orbits 6 + 15 + 5 + 10 under the transitive A5, so no A5-module isomorphism identifies them: their common cardinality is not a map (the hub, 18:22)", OB, "two_36s"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -7604,6 +8248,15 @@ LEDGER_ROWS = [
     ("the Fibonacci bridge (hub, 17:26)", "K^2 = 5, Phi^2 = Phi + 1, K S = S(2B - 1 + 2B - 1); B^6 sum 34", "replayed and joined (A4 -> golden companion)", T, "23"),
     ("the dark measurement (MODEL, 18:00)", "frame operator 15 I; 4/5 and 1/20; 6/5 bits; Bhattacharyya 11/20", "replayed and joined (dark ports -> readout)", T, "23"),
     ("plane tomography (MODEL, 18:00)", "every bivector tangent; 10 = 6 + 4; c = 1 + 3h + 4h^2 + 2h^3, p = 1 + h^2; Euler number 4 from four fixed planes; e^2 = -h^2 impossible", "replayed and joined (source -> readout); the skew normal form, Gr+(2, 5) = Q3 with its bundle formulas, and the Lefschetz theorem are cited", T, "23"),
+    ("the seventh sensor (hub, 18:22)", "ell12: 3, 3, -2, -2, -2; G(2, 5) of degree 5; the rank-nine observer's tangent rank 5; margin sqrt2; 512 cases, 46, 105/2, 70, 85, 90, 190; ell* and the gap sqrt(15/46)", "replayed and joined (dark ports -> readout); the odd-degree section argument is cited", T, "23"),
+    ("preparability (hub, 18:22)", "|w ^ w|^2 = 4 q^T H4 q = 2 s^2 - Tr (K_w G)^4; 1 and 2 at e01 + 2 e23, 10 with an error of 3; z0 + z1 not simple", "replayed and joined (source -> dark ports)", T, "23"),
+    ("the exterior code (hub, 18:22)", "sum Q Q* = 144 I, sum h h* = 5 P_D, Parseval; [15, 6, 5], [10, 4, 6] (185 and 25), [25, 10, 5]; Smith 1, 5, 5, 5; rank 1 mod 5, 30 of 252 mod 2", "replayed and joined (cycles -> dark ports)", T, "23"),
+    ("two instruments (hub, 18:22; MODEL, 18:33)", "success 4/5, optimal; 6/5 = 8/5 - 2/5 bits; Holevo 2, KL 3; 4 (11/20)^11 < 1%; 1/6 for the source states; 126 and 210 minors", "replayed and joined (source -> dark ports); the complement property is cited", T, "23"),
+    ("causal records (hub, 18:22)", "G_C = 183 P_c + 495 P_u; jets through n = 10; 42240/61 and cosh; E = 8, Q = 4, phasor (-4/3, -4/3), wedge 12", "replayed and joined (bath -> source); the Volterra comparison is cited", T, "23"),
+    ("the A6 readers and the Golden adapter (hub, 18:22)", "125, 165, 230; 90, 170, 250, 330, 360 and 357; B_G of rank 5, 120 P_source; 10 + 8 + 18 W4 against 18 + 18 W4", "replayed and joined (360 parent -> source); the 360 parent is a new dot", T, "23"),
+    ("Golden30 (hub, 18:22)", "ranks 30 and 60; q^6 (q + 6)^5 (q - 6)^9 (q^2 + 3q - 99)^8; Return > 17/20; (24/25)^14 (7821/10000)^8; eight Fibonacci blocks; Phi16 T = T Phi4", "replayed and joined (360 parent -> golden companion, A4 -> 360 parent)", T, "23"),
+    ("the blind 126 (hub, 18:22)", "30, 60, 90, 145, 216, 225, 234; trace 126 = 1 + 25 + 100; 260; the chi10 reader's 100; 360 and 37", "replayed and joined (360 parent -> readout)", T, "23"),
+    ("two 36s (hub, 18:22)", "6 + 30 against 6 + 15 + 5 + 10", "replayed as an obstruction (synthemes -> 360 parent)", OB, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
     ("the six-line frame (hub, 14:07)", "Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle", "replayed; the twenty-term cubic formulas hold as polynomial identities", T, "23"),
@@ -7721,7 +8374,9 @@ def _checks():
         "free_chain": free_chain, "k4_complete": k4_complete, "dark_branches": dark_branches,
         "tomography": tomography, "quadratic_frames": quadratic_frames, "dark_readout": dark_readout,
         "cubic_null": cubic_null, "golden_bridge": golden_bridge, "dark_measurement": dark_measurement,
-        "plane_tomography": plane_tomography,
+        "plane_tomography": plane_tomography, "seventh_sensor": seventh_sensor, "preparability": preparability,
+        "exterior_code": exterior_code, "dark_information": dark_information, "causal_records": causal_records,
+        "parent_readers": parent_readers, "golden30": golden30, "parent_closure": parent_closure, "two_36s": two_36s,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -8219,6 +8874,17 @@ def run():
     rep.add("not replayed: the exterior code of 25 readings in 10 coordinates at distance 5, the 49-record atlas, the "
             "mixed-history rank 234, the 6/5 bits read as a stored charge norm's reciprocal, the six fibre means and the "
             "Golden16 injection, and the sibling's readings", RP, True)
+    n35 = notes_1835()
+    rep.add("the 18:22 text's and the 18:33 model's other numbers: 6/5 = 8/5 - 2/5, W6 = 17141798400 as the "
+            "repository's W_6, and the weighted 49-record atlas's 17 pairs per slot, 51 >= 49 records, 98 cells and 31626 "
+            "two-cell locations", T, all(n35.values()), n35)
+    rep.add("Drive check 18:35: the hub's OES_Unified_Model_20261029.txt as revised at 18:22 (sources through 17:26), read "
+            "as text (its zip, 4262705 bytes, not downloaded); the sibling's MODEL edition of 18:33, read as text; the "
+            "OES-paper PDF of 18:33 skipped", RP, True)
+    rep.add("not replayed: the fixed seven-reading covariance quotient through the compound inverse, the weighted atlas's "
+            "leak 2/245 and its placements (W36 E36 = I7, W36 K49 = 0, the two-error decodings), the 60-dimensional "
+            "dilation's literal R and W, the Through736 reports (the 47-copy Gaussian reader, the determinant-155 adapter, "
+            "the circle frequency 605.65), and the sibling's readings", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

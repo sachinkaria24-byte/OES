@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.73,
+  "1-carrier": 0.72,
   "2-spectral": 0.01,
-  "3-spacetime": 10.32,
-  "4-native": 95.09,
-  "5-observer": 6.31,
-  "6-gravity": 6.11,
-  "7-cosmology": 1.59,
-  "8-frontier": 40.92,
-  "9-joins": 9.24,
-  "10-literal": 36.74,
-  "11-glue": 0.17,
-  "12-binding": 0.08,
-  "13-gates": 0.45,
-  "14-recurrence": 77.19,
-  "15-court": 1.75,
-  "16-handover": 1.67,
-  "17-waves": 0.92,
-  "18-snapshot": 1.9,
-  "19-spine": 5.27,
-  "20-canon": 6.02,
-  "21-ledger": 45.28,
-  "22-counts": 22.21,
-  "23-dots": 154.55,
-  "24-assignment": 3.53
+  "3-spacetime": 10.44,
+  "4-native": 106.1,
+  "5-observer": 5.87,
+  "6-gravity": 6.94,
+  "7-cosmology": 1.9,
+  "8-frontier": 44.44,
+  "9-joins": 11.09,
+  "10-literal": 39.69,
+  "11-glue": 0.19,
+  "12-binding": 0.05,
+  "13-gates": 0.25,
+  "14-recurrence": 82.56,
+  "15-court": 1.83,
+  "16-handover": 1.47,
+  "17-waves": 0.89,
+  "18-snapshot": 1.78,
+  "19-spine": 5.93,
+  "20-canon": 6.5,
+  "21-ledger": 48.75,
+  "22-counts": 24.09,
+  "23-dots": 193.15,
+  "24-assignment": 3.51
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 612,
-   "total": 612
+   "passed": 622,
+   "total": 622
   },
   "OBSTRUCTION": {
-   "passed": 56,
-   "total": 56
+   "passed": 57,
+   "total": 57
   },
   "REMOVED": {
    "passed": 2,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 99,
-   "total": 99
+   "passed": 101,
+   "total": 101
   }
  },
  "checks": [
@@ -8638,6 +8638,128 @@
   },
   {
    "layer": "23-dots",
+   "name": "dark ports -> readout: the fixed probe h12 = (z0 + z1)/3, covector ell12 = (0, -3, 0, -1, 0, 3, 1, 0, 1, -1), responds (3, 3, -2, -2, -2) on the five dark rays, so the six bright readings and ell12 detect every plane, while six readings never do (G(2, 5) has odd degree 5); the nonblind margin is sqrt2 and the sharp label gap sqrt(15/46), from the 512 active-set cases and ell* = (-17, -5, -10, -2, -6, -15, -10, 15, -4, 16) (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the fixed dark probe h12 = (z0 + z1)/3, of squared norm 2, has covector ell12 = (0, -3, 0, -1, 0, 3, 1, 0, 1, -1) in the primitive wedge chart and responses (3, 3, -2, -2, -2) on the five dark rays z_i (kernel coordinates e0, e1, e2, e3, (1, -1, 1, -1), H-Gram 15 I - 3 J); those rays are the only simple bivectors the six bright readings miss, so the six readings and ell12 never all vanish on a nonzero simple bivector": true,
+    "six readings never suffice: the Pluecker G(2, 5) has degree 5 (the five ballot sequences, 6!/(4 3 2 3 2 1)), which is odd, so a real codimension-six section always meets it; and global reconstruction of the simple cone needs all ten readings (a kernel vector is a multiple or a difference of simple bivectors): the rank-nine observer keeping eight coordinates and 2 w01 - w23 has kernel e01 + 2 e23 and tangent rank 5 at span(e0, e2)": true,
+    "a zero-sum response with every |r_i| >= m has square at least (15/2) m^2, at (3m/2, 3m/2, -m, -m, -m), so the nonblind margin is sqrt2 on primitive rays and 1/sqrt6 on unit planes, attained by h12; to separate the ten signed labels by 1 (u0 >= 1/2, gaps >= 1) the 512 active-set cases leave six feasible sign patterns, least squares 46, 105/2, 70, 85, 90 and 190, the optimum at (1/2, -3/2, 5/2, 7/2, -5); ell* = (-17, -5, -10, -2, -6, -15, -10, 15, -4, 16) is dark with responses 10 times that, norm^2 920/3 and label gap 10, so the sharp gap is sqrt(15/46), or sqrt(5/184) on unit planes": true,
+    "two signed dark readings, the kernel-chart rows (1, 1, 1, 1) and (1, 2, 3, 4), send the five rays to five distinct projective directions, (1, 1), (1, 2), (1, 3), (1, 4) and (0, -2)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> dark ports: a reconstructed exterior vector comes from one source pair exactly when its Pluecker quadrics vanish: in the native chart |w ^ w|^2 = 4 q^T H4 q = 2 (w^T H w)^2 - Tr[(K_w G)^4], the squared distances to the simple cone and to the unit planes are (s - sqrt(s^2 - t))/2 and s + 1 - 2 lambda_1, and z0 + z1 is dark but not simple (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "in the native chart t = |w ^ w|^2 = 4 q^T H4 q = 2 (w^T H w)^2 - Tr[(K_w G)^4], an identity of quartics in the ten exterior coordinates (q the five Pluecker quadrics, H = Lambda^2 G, H4 = Lambda^4 G, K_w the skew coefficient matrix); the unweighted 4 sum q^2 is not, so the metric must be kept": true,
+    "the skew normal form's block squares are (s +- sqrt(s^2 - t))/2, so the squared distance to the simple cone is (s - sqrt(s^2 - t))/2 = lambda_2^2 and to the unit oriented planes s + 1 - 2 lambda_1; at w = e01 + 2 e23 (s = 5, t = 16) they are 1 and 2, and an orthogonal output error of amplitude 3 makes the best one-pair fit 1 + 9 = 10": true,
+    "two dark planes are each preparable but their sum is not: W kills z0 + z1, whose Pluecker quadrics are (1, 0, 0, 0, 0), so a dark-four signal need not come from one source pair": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cycles -> dark ports: fifteen bright Golden-pair readings (sum Q Q* = 144 I) and ten dark duad probes (sum h h* = 5 P_D) give a Parseval inverse on all ten exterior coordinates and a [25, 10, 5] code, [15, 6, 5] + [10, 4, 6], whose dark integer part has Smith invariants 1, 5, 5, 5 (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the six coherently oriented Golden source vectors (H_G^T H_G = 12 I - 2 J) give fifteen exterior pairs Q_ij = v_i ^ v_j with sum Q Q* = 144 I on all ten coordinates, and the ten dark probes h_ij = (z_i + z_j)/3 give sum h h* = 5 P_D; so w = (1/144) sum Q_ij <Q_ij, P_B w> + (1/5) sum h_ij <h_ij, w>, the cross terms cancelling, and |w|^2 = (1/144) sum b^2 + (1/5) sum d^2": true,
+    "the bright readings are a [15, 6, 5] code: all 1365 eleven-reading sets have rank 6 (over a prime, hence over Q) and a ten-reading set has rank 5; the dark readings are a [10, 4, 6] code: all 252 five-reading sets have rank 4, and of the 210 four-reading sets 185 have rank 4 and 25 rank 3; together a [25, 10, 5] code, which corrects two errors or four erasures": true,
+    "the dark readings' integer matrix (entries +-2 and +-3) has Smith invariants 1, 5, 5, 5; mod 5 its rank is 1, and mod 2 thirty of the 252 five-reading sets drop to rank 3 (222 keep 4), so the code's guarantees need characteristic zero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> dark ports: the dark measurement names its plane with optimal success 4/5 and carries 6/5 = 8/5 - 2/5 bits (Holevo bound 2, KL divergence 3, eleven repeats for 1% error), while the source states P(E_r)/2 against the six Golden effects read 1/6 everywhere: two instruments, not one processed state (the hub, 18:22; the sibling's MODEL, 18:33)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "with pure states rho_r = p_r p_r^T D/12 and effects E_r = p_r p_r^T D/15, uniform-prior success is 4/5, and that is optimal, since rho_r <= I bounds it by sum Tr E_r / 5 = 4/5; the likelihood ratios are 4 and 1/4, so the information is 8/5 - 2/5 = 6/5 bits (the outcome entropy log2 5 - 6/5 is about 1.1219); the mean state is I/4, a Holevo bound of 2 bits, and distinct labels have KL divergence 3 bits": true,
+    "independent repeats err at most 4 (11/20)^n, below 1% from eleven repeats (4 (11/20)^10 > 1/100)": "True",
+    "the five mixed source states P(E_r)/2 against the six Golden effects v_j v_j^T G/12 (which sum to I) give probability 1/6 for every label and outcome, no label information: the dark measurement is another instrument": true,
+    "nine and ten real dark sensors, adding (1, 5, 25, 125) and (1, 6, 36, 216), are full spark (all 126 and 210 four-minors nonzero), so they survive two and three erasures; 7 + r full-spark sensors survive r": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> source: an ideal known-state boundary record y = -K * g of the native bath, with G_C = 183 P_contrast + 495 P_uniform, inverts the forcing g through a second-kind Volterra equation, with exact jets and the bound (1/183) cosh(sqrt(42240/61) T); the empty-bath pair X - Z, Y - Z (E = 8, Q = 4) is force-free yet has cubic phasor (-4/3, -4/3) (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the record y = -K * g with K(t) = C* sin(t sqrtD)/sqrtD C has y'' = -G_C g - int K''(t - s) g(s) ds, a second-kind Volterra equation: G_C = C* C = 183 P_contrast + 495 P_uniform (the six-site Gram 183 I + 52 J) has inverse P_contrast/183 + P_uniform/495, and the jets y^(n+2)(0) = -sum (-1)^j M_j g^(n-2j)(0), M_j = C* D^j C, hold for n <= 10 as formal identities in twelve force jets": true,
+    "with |K''(t)| <= 495 x 256 t the comparison u = cosh(sqrt(c) t), c = 495 x 256/183 = 42240/61, solves u = 1 + int c (t - s) u(s) ds, so |delta g| <= (1/183) cosh(sqrt(42240/61) T) |delta y''|": true,
+    "a harmonic pair q = q0 cos 2t + (v/2) sin 2t is force-free exactly when W(a0, b0) = W(va, vb) = W(va, b0) + W(a0, vb) = 0; on the native stratum (mass G/4) E - 2 sigma Q = (|va + 2 sigma b|^2 + |vb - 2 sigma a|^2)/8 for both signs; and a = X - Z, b = Y - Z, va = -2b, vb = 2a has E = 8, Q = 4 and an empty exterior, but its cubic phasor is (-4/3, -4/3) and its dark wedge has norm^2 12": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "360 parent -> source: marking point 5 reads the six Sylow cosets A5/D10 by their pentagons' Golden lines: B_G = H_G O36 has rank 5 and B_G B_G^T = 120 P_source, is A5-equivariant and fixed by r, so it keeps rank 5 where O90's r-history reaches 360 in five settings (90, 170, 250, 330, 360); the readers' joint ranks are 125, 165 and 230 (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "C4 and D10 generate A6, so O90 and O36 share only the constants: their joint static rank is 90 + 36 - 1 = 125; <C4, t C4 t> has order 24, so O90 with its t-history has rank 180 - 15 = 165; with both readers and both t-histories the rank is 230, blind 130 (a rank over a prime and an exact integer kernel)": true,
+    "under the right five-cycle r the O90 history ranks are 90, 170 (<C4, r C4 r^-1> has order 36), 250 (with an exact kernel), 330 and 360: the fourth is at most 330 because chi5, chi5' and chi10 (irreducible, chi5' from the transitive A5 = <(01234), (05)(14)>) keep 1, 1 and 2 C4-fixed dimensions, leaving 5 + 5 + 20 unread; four settings share the constant and stay below 1 + 4 x 89 = 357, so five are needed": true,
+    "marking point 5 selects the six cosets A5/D10, the Sylow-five labels; reading each by the Golden line of its pentagon (g(0), ..., g(4)) gives B_G = H_G O36(marked), H_G^T H_G = 12 I - 2 J, with rank 5 and B_G B_G^T = 120 P_source, A5-equivariant (B_G(a f) = U(a) B_G f for a = (01234), (012)); O36 U_r = O36 and B_G U_r = B_G, so under the same r that gives O90 rank 360 the adapter keeps rank 5 and blind 355": true,
+    "the normalizer of <r> in A6 is D10; on the 90 cosets of C4 its characters are 90, 0 at the rotations and 2 at the reflections, so the module is 10 trivial + 8 sign + 18 W4, while 18 copies of the five-point action give 90, 0, 18, which is 18 trivial + 18 W4: an action, not a reader, tells them apart": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "360 parent -> golden companion: F30 = 6 P30 O36 (rank 30, F30 F30^T = 360 P30) and the involution t give A = F30 U_t F30^T/360, and 30 A has characteristic polynomial q^6 (q + 6)^5 (q - 6)^9 (q^2 + 3q - 99)^8; the Return I - A^2 exceeds 17/20, det[[I, A], [A, I]] = (24/25)^14 (7821/10000)^8, and on the 16-sector Phi16 = (I + J)/2 is eight Fibonacci blocks (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 36 cosets fibre over the six points by g D10 -> g(5) (E^T E = 6 I); F30 = 6 P30 O36 with P30 = I - E E^T/6 has F30 F30^T = 360 P30, rank 30, F30 U_r = F30, and [F30; F30 U_t] has rank 60: present 30, delayed 30, blind 300": true,
+    "K = 30 A = F30 U_t F30^T/12 is an integral symmetric matrix whose factors K, K + 6, K - 6 and K^2 + 3K - 99 have nullities 6, 5, 9 and 16 and multiply to zero: its characteristic polynomial is q^6 (q + 6)^5 (q - 6)^9 (q^2 + 3q - 99)^8, so A has visible eigenvalues -1/5 (5), 1/5 (9) and (-1 +- 3 sqrt5)/20 (8 each) and minimal polynomial (25 A^2 - 1)(100 A^2 + 10 A - 11)": true,
+    "the Return I - A^2 has eigenvalues 24/25 (14) and (177 +- 3 sqrt5)/200 (8 each), all above 17/20; Sigma(z) = (1 - a^2)/(z + a) gives G(z) = (z + a)/(z^2 - 1), with endpoint weights (1 + a)/2 and (1 - a)/2; and det[[I, A], [A, I]] = (24/25)^14 (7821/10000)^8 > 0": true,
+    "on the 16-dimensional sector J = (20 A + I)/3 has J^2 = 5 and Phi16 = (I + J)/2 = (K + 6)/9 has Phi16^2 = Phi16 + I: eight rational Fibonacci blocks B = [[1, 1], [1, 0]]; and a rank-4 T with Phi16 T = T Phi4 carries A4's two blocks (the Fibonacci bridge) into them, a marked injection, not an A6 map": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> 360 parent: a rank-4 T with Phi16 T = T Phi4 carries A4's two Fibonacci blocks (Phi4 = (1 + K)/2, K = A(h0)) into the Golden30's eight: a marked operator injection, not an A6 map (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 36 cosets fibre over the six points by g D10 -> g(5) (E^T E = 6 I); F30 = 6 P30 O36 with P30 = I - E E^T/6 has F30 F30^T = 360 P30, rank 30, F30 U_r = F30, and [F30; F30 U_t] has rank 60: present 30, delayed 30, blind 300": true,
+    "K = 30 A = F30 U_t F30^T/12 is an integral symmetric matrix whose factors K, K + 6, K - 6 and K^2 + 3K - 99 have nullities 6, 5, 9 and 16 and multiply to zero: its characteristic polynomial is q^6 (q + 6)^5 (q - 6)^9 (q^2 + 3q - 99)^8, so A has visible eigenvalues -1/5 (5), 1/5 (9) and (-1 +- 3 sqrt5)/20 (8 each) and minimal polynomial (25 A^2 - 1)(100 A^2 + 10 A - 11)": true,
+    "the Return I - A^2 has eigenvalues 24/25 (14) and (177 +- 3 sqrt5)/200 (8 each), all above 17/20; Sigma(z) = (1 - a^2)/(z + a) gives G(z) = (z + a)/(z^2 - 1), with endpoint weights (1 + a)/2 and (1 - a)/2; and det[[I, A], [A, I]] = (24/25)^14 (7821/10000)^8 > 0": true,
+    "on the 16-dimensional sector J = (20 A + I)/3 has J^2 = 5 and Phi16 = (I + J)/2 = (K + 6)/9 has Phi16^2 = Phi16 + I: eight rational Fibonacci blocks B = [[1, 1], [1, 0]]; and a rank-4 T with Phi16 T = T Phi4 carries A4's two blocks (the Fibonacci bridge) into them, a marked injection, not an A6 map": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "360 parent -> readout: closing the F30 rows under r and t gives ranks 30, 60, 90, 145, 216, 225, 234; the blind 126 = 1 + 25 + 100 is the central projector of the trivial, chi5 and chi10 blocks; the fibre means reach 260, and one chi10 reader completes 360 (the hub, 18:22)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "r and t generate A6, and closing the F30 rows under them gives ranks 30, 60, 90, 145, 216, 225, 234 by word length; 234 is exact, because P_blind[g, h] = (1 + 5 chi5(g^-1 h) + 10 chi10(g^-1 h))/360 (chi5 = fix - 1, chi10 = (chi5^2 - chi5(g^2))/2) is a symmetric central idempotent of trace 126 = 1 + 25 + 100 that kills F30": true,
+    "the six fibre means restore O36, whose closure is 260: chi10 has no D10-fixed vector, and its central projector, of trace 100, kills O36; one more reader c(f) = sum chi10(g) f_g has a 100-dimensional orbit inside that block, so O36 and c reach 360, with static rank 37": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "synthemes -> 360 parent: the coset 36 has orbits 6 + 30 and the six-label/duad/syntheme 36 has orbits 6 + 15 + 5 + 10 under the transitive A5, so no A5-module isomorphism identifies them: their common cardinality is not a map (the hub, 18:22)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the coset 36 has orbits 6 + 30 under Stab(5) and under the transitive A5 = <(01234), (05)(14)>, while the six labels, fifteen duads and fifteen synthemes have orbits 6 + 15 + 5 + 10 under the transitive A5: invariant dimensions 2 and 4, so no A5-module isomorphism identifies the two 36s": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -8662,7 +8784,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 65 dots and 240 joins form one connected diagram (the obstructions left out)",
+   "name": "the 66 dots and 250 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8710,6 +8832,7 @@
      "momenta",
      "moments",
      "observer",
+     "parent",
      "pauli",
      "petersen",
      "pg25",
@@ -8855,7 +8978,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 5, operator (spaces with operators, ports and moments): its 16 dots are joined among themselves",
+   "name": "level 5, operator (spaces with operators, ports and moments): its 17 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8870,6 +8993,7 @@
      "literal",
      "measure",
      "moments",
+     "parent",
      "pauli",
      "sixsite",
      "source",
@@ -8902,7 +9026,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 20 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 20, operator-physics 22 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8953,7 +9077,8 @@
      "rootgraph -> moments",
      "halfper -> wedgeport",
      "L0 -> darkport",
-     "L0 -> darkport"
+     "L0 -> darkport",
+     "A4 -> parent"
     ],
     [
      "carrier -> triple",
@@ -8975,19 +9100,21 @@
      "source -> readout",
      "darkport -> readout",
      "darkport -> readout",
-     "source -> readout"
+     "source -> readout",
+     "darkport -> readout",
+     "parent -> readout"
     ]
    ],
    "note": ""
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 62 of the 65 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 63 of the 66 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 217,
-    "OBSTRUCTION": 10,
+    "THEOREM": 226,
+    "OBSTRUCTION": 11,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
    },
@@ -9006,19 +9133,19 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 9, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 18, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 20",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 9, symmetry-operator 11, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 20, lattice-physics 5, operator-physics 22",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
-    "(3, 4)": 19,
-    "(2, 4)": 18,
+    "(3, 4)": 20,
+    "(2, 4)": 19,
     "(1, 3)": 9,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
-    "(1, 4)": 10,
-    "(4, 5)": 20,
+    "(1, 4)": 11,
+    "(4, 5)": 22,
     "(2, 5)": 7,
     "(3, 5)": 5,
     "(0, 3)": 3,
@@ -9041,7 +9168,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 62 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
+   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 63 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -9986,6 +10113,33 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the exterior code of 25 readings in 10 coordinates at distance 5, the 49-record atlas, the mixed-history rank 234, the 6/5 bits read as a stored charge norm's reciprocal, the six fibre means and the Golden16 injection, and the sibling's readings",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 18:22 text's and the 18:33 model's other numbers: 6/5 = 8/5 - 2/5, W6 = 17141798400 as the repository's W_6, and the weighted 49-record atlas's 17 pairs per slot, 51 >= 49 records, 98 cells and 31626 two-cell locations",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the sibling's note: 6/5 = 8/5 - 2/5, the log2 5 terms cancelling; the hub's walk correction W6 = 17141798400 is the repository's W_6": true,
+    "the weighted 49-record atlas: context groups (5, 7, 4, 5, 5, 5, 5) weighted 1/(7n) give 25 contexts of weight 1/35, seven of 1/49 and four of 1/28 (total 1); pairing inside these pools gives 12 + 3 + 2 = 17 pairs per slot, so three slots hold 51 >= 49 = 12 + 12 + 25 records in 98 cells, while pairing inside the groups gives 15 and only 45; and C(252, 2) = 31626 two-cell locations": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 18:35: the hub's OES_Unified_Model_20261029.txt as revised at 18:22 (sources through 17:26), read as text (its zip, 4262705 bytes, not downloaded); the sibling's MODEL edition of 18:33, read as text; the OES-paper PDF of 18:33 skipped",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the fixed seven-reading covariance quotient through the compound inverse, the weighted atlas's leak 2/245 and its placements (W36 E36 = I7, W36 K49 = 0, the two-error decodings), the 60-dimensional dilation's literal R and W, the Through736 reports (the 47-copy Gaussian reader, the determinant-155 adapter, the circle frequency 605.65), and the sibling's readings",
    "status": "REPORTED",
    "passed": true,
    "value": null,

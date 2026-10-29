@@ -1705,6 +1705,50 @@ So THEOREM maps alone connect every dot but the product geometry, FLRW and the m
   - Not replayed: the exterior code of 25 readings in 10 coordinates at distance 5, the 49-record atlas, the mixed-history rank 234, the six fibre means and the Golden16 injection.
   - The OES-paper PDF uploaded with the model was skipped.
 
+**The seventh sensor, the exterior code and the 360 parent (Drive check 18:35).** The hub's text was revised at 18:22 (sources through 17:26; 764 assertion groups in twenty-one receipts), and the sibling's MODEL reached its 18:33 edition. The hub works in the repository's own wedge chart: its dark covectors give the stated responses on the repository's dark planes. Ten joins follow, one of them an obstruction, and the hub's 360 parent becomes a dot. Nothing was run.
+
+- **The seventh sensor** (dark ports → readout).
+  - The fixed probe h₁₂ = (z₀ + z₁)/3 has squared norm 2. Its covector (0, −3, 0, −1, 0, 3, 1, 0, 1, −1) responds (3, 3, −2, −2, −2) on the five dark rays.
+  - The dark rays are the only simple bivectors the six bright readings miss, so the six bright readings and this one never all vanish on a source plane.
+  - Six readings never suffice: G(2, 5) has odd degree 5 (the five ballot sequences), so every real codimension-six section meets it.
+  - Global reconstruction needs all ten readings. A rank-nine observer has kernel e₀₁ + 2e₂₃ and tangent rank 5 at span(e₀, e₂).
+  - The nonblind margin is √2 on primitive rays (1/√6 on unit planes), attained by h₁₂.
+  - To separate the ten signed labels, the 512 active-set cases leave six feasible sign patterns, with least squares 46, 105/2, 70, 85, 90 and 190. The optimum is (1/2, −3/2, 5/2, 7/2, −5).
+  - The covector ℓ* = (−17, −5, −10, −2, −6, −15, −10, 15, −4, 16) responds ten times that optimum, with norm² 920/3. So the sharp gap is √(15/46), or √(5/184) on unit planes.
+  - Two generic readings already separate the five rays projectively.
+- **Preparability** (source → dark ports).
+  - In the native chart ‖w∧w‖² = 4qᵀH₄q = 2(wᵀHw)² − Tr[(K_wG)⁴], as an identity of quartics. The unweighted sum of q² fails there.
+  - The squared distance to the simple cone is (s − √(s² − t))/2, and to the unit planes s + 1 − 2λ₁. At e₀₁ + 2e₂₃ these are 1 and 2.
+  - z₀ + z₁ is dark but not simple, so a dark signal need not come from one source pair.
+- **The exterior code** (cycles → dark ports).
+  - The fifteen Golden pairs Q_ij = v_i∧v_j satisfy ΣQQ* = 144I, and the ten dark probes (z_i + z_j)/3 satisfy Σhh* = 5P_D. Together they give a Parseval inverse on all ten exterior coordinates.
+  - The bright readings form a [15, 6, 5] code and the dark readings a [10, 4, 6] code (185 and 25 of the four-sets), so all 25 readings form a [25, 10, 5] code.
+  - The dark integer part has Smith invariants 1, 5, 5, 5, rank 1 mod 5, and 30 rank drops mod 2. The code's guarantees need characteristic zero.
+- **Two instruments** (source → dark ports).
+  - The dark measurement's success rate 4/5 is optimal. Its information is 6/5 = 8/5 − 2/5 bits (the sibling's note), with Holevo bound 2 bits and KL divergence 3 bits.
+  - Eleven repeats push the error bound 4(11/20)ⁿ below 1%.
+  - The source states P(E_r)/2 read 1/6 against every Golden effect, so they carry no label information.
+  - Nine and ten Vandermonde-extended sensors are full spark, so they survive two and three erasures.
+- **Causal records** (bath → source).
+  - An ideal known-state boundary record inverts the forcing through a second-kind Volterra equation. Here G_C = 183P_contrast + 495P_uniform, the six-site Gram, and the jets are exact.
+  - The stability bound is (1/183)cosh(√(42240/61)T)‖δy″‖.
+  - On the native stratum E − 2σQ is a sum of two squares over 8. The pair X − Z, Y − Z has E = 8, Q = 4 and an empty exterior, but its cubic phasor is (−4/3, −4/3).
+- **The 360 parent**, a new dot: Q[A6] with x = (0123)(45), r = (01234), w = (14)(23), t = (23)(45).
+  - **The Golden adapter** (360 parent → source). The readers' joint ranks are 125 = 90 + 36 − 1, 165 = 180 − 15 and 230.
+  - O90's r-history ranks are 90, 170, 250, 330 and 360. The 330 is bounded above by the C4-fixed dimensions of χ₅, χ₅′ and χ₁₀, and four settings stay below 357.
+  - The marked fibre A5/D10, read by its pentagons' Golden lines, gives B_G of rank 5 with B_GB_Gᵀ = 120P_source. B_G is A5-equivariant and fixed by r, so it stays at rank 5.
+  - **Golden30** (360 parent → golden companion). F30 = 6P₃₀O36 has F30F30ᵀ = 360P₃₀. 30A has characteristic polynomial q⁶(q + 6)⁵(q − 6)⁹(q² + 3q − 99)⁸.
+  - The Return I − A² exceeds 17/20, and det[[I, A], [A, I]] = (24/25)¹⁴(7821/10000)⁸. On the 16-sector Φ₁₆ is eight Fibonacci blocks.
+  - **The marked injection** (A4 → 360 parent). A rank-4 T with Φ₁₆T = TΦ₄ carries A4's two blocks into those eight. It is a marked operator map, not an A6 map.
+  - **The blind 126** (360 parent → readout). Under r and t the F30 rows close at ranks 30, 60, 90, 145, 216, 225, 234.
+  - The blind 126 = 1 + 25 + 100 is the central projector of the trivial, χ₅ and χ₁₀ blocks. The fibre means reach 260, and one χ₁₀ reader completes 360.
+  - **Two 36s** (OBSTRUCTION, synthemes → 360 parent). Under the transitive A5 the coset 36 has orbits 6 + 30 and the label/duad/syntheme 36 has 6 + 15 + 5 + 10, so no A5-module map identifies them.
+- **The rest.** The hub's walk correction W₆ = 17141798400 is the repository's W₆. The weighted atlas's arithmetic holds: 17 pairs per slot, 51 ≥ 49 = 12 + 12 + 25 records, 98 cells and 31626 two-cell locations.
+- **Recorded (REPORTED).**
+  - Not replayed: the fixed seven-reading covariance quotient, the weighted atlas's leak 2/245 and its placements, and the dilation's literal R and W.
+  - Also not replayed: the Through736 reports, among them the 47-copy reader, the determinant-155 adapter and the circle frequency 605.65.
+  - The hub's zip was not downloaded, and the OES-paper PDF was skipped.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -1838,6 +1882,7 @@ At 09:00 UTC the request was to work out the mathematics of assigning physical p
 - relayed by the user at 00:35: the sibling's `ONE_MACHINE_29.md` (1EQqJlcXKqOTx4CSrWjJ_xofjFE-nFHVJ, 00:20; its source `one-machine-29.typ`, 1Xjs-MbN1SJHnwRIxj-wMR3v7Tg7SdL7I, not opened) and its notes CLOSURE_092 (1cF4DFGH9sS1OxdOmdKY438WAqj6hpTU9), LAYER23B (11YQ_3BLajqeam8PfHircl-grIGkg_X7A), LEVELS (15pwuy92okVOE1kroi_aUqzF5f4xVrq2Y), OBS_SUN (1-hVBE6IXFAmvH5jYJ4GApOL4H_N_mGHO), GRAIN_SPLIT (1nD1IqQneNfuAIBCMP0QBs4A8ua6tXW_y), FRAME_WALKS (1KcOKYsAAsiLvzdZoOeUC8jYNalXlo_xZ) and DEEP_COURT (1QpU7xRGxOK7dEngbVvDQdg3s5RUNYf9V): §24, the 00:35 relay
 - the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
+- the sibling's MODEL_20261029.md edition of 18:33 (1YqQ7EgCGfkQzHXyw9Aec5l2wMMugx_XB), superseding that of 18:00, and the hub's `OES_Unified_Model_20261029.txt` as revised at 18:22, read as text (its zip, 4262705 bytes, not downloaded); the `OES-paper-20261029.pdf` of 18:33 (1DsHUNisUVEOoTOjxhamG724Gut-LbSL9) was skipped: §24, the 18:35 check
 - the sibling's MODEL_20261029.md edition of 18:00 (1nTMAMVOR3rcBROJws8nKJ2-3-3sPzwUw), superseding that of 17:18, read as text; the `OES-paper-20261029.pdf` uploaded with it (1K1lyNOA46wkFqN6Fx52CHKUA2CAJNeY3) was skipped: §24, the 18:04 check
 - the sibling's MODEL_20261029.md edition of 17:18 (1peMKD47KQO32FT6K1AN2_vy687wldWkh), superseding those of 16:59–17:10; the hub's `OES_Unified_Model_20261029.txt` as revised at 17:26, read as text (its zip, 3612599 bytes, not downloaded); the 28 Oct notes `OPEN_CHAINS_2026-10-28.md` (1qM8NQAfxH-sFbECyRZJDRGcxrUD6I37d), `RANKS_2026-10-28.md` (1mDMU8PeWJIhKXMpjs51ZBBquTE2kmKDZ), `J7_LOOPS_20261028.md` (1c9a6vJdicJy7IYOAr4DDUKlaLV07CAQq), `DENSITY_20261028.md` (1HgXpMKXkRfXxzwsEVredpqXzKQlor2UB) and `SEPTUPLE_JOIN_20261028.md` (1LYYCOooHEDLeU9r-5PGVOIapfvqZ4D3o), read as text; the 26–28 Oct sources mirrored into 1_iq2D5-5rcebZZODDF57WhN6Z6b9lHbF and 1g98a1Q9sTfCFqKOrFDHHkVPMmxKKXkot at 17:15–17:26, not re-read: §24, the 17:31 check
 - the sibling's MODEL_20261029.md edition of 16:58 (1fC-14ingblwWDmjO99Y0Cis107dImKVd), superseding those of 16:19–16:57; the hub's `OES_Unified_Model_20261029.txt` as revised at 16:47, read as text (its zip, 3203676 bytes, not downloaded); and, in the new folder OES ChatGPT Library Mirror 20261029 (1ZxwAKskjD7NKb1w7CcdisdLMHPNvLmmr), `ALL_DOTS_INVERSE_DYSON_JOIN.md` (12tVVt1TFKAbGr8DkMvMo58W9PqUbhks0), read as text, with the folder's other packages, receipts and verifiers not opened: §24, the 16:51 check

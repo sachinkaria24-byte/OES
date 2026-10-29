@@ -597,6 +597,34 @@ def test_the_1804_replay():
     assert len(W.nullspace()) == 4
 
 
+def test_the_1835_replay():
+    for check in (dots.seventh_sensor, dots.preparability, dots.exterior_code, dots.dark_information,
+                  dots.causal_records, dots.parent_readers, dots.two_36s, dots.golden30, dots.parent_closure,
+                  dots.notes_1835):
+        out = check()
+        assert all(out.values()), out
+    import functools
+    import numpy as np
+    import sympy as sp
+    G, pairs, wedge, Hm, W, Km, z = dots._dark_chart()
+    # the six bright readings alone miss every dark ray, and ell12 alone repeats its labels
+    ell12 = sp.Matrix([0, -3, 0, -1, 0, 3, 1, 0, 1, -1])
+    assert all((W * x).is_zero_matrix for x in z)
+    assert len({(ell12.T * x)[0] for x in z}) == 2
+    # without the dark probes the bright frame inverts only the bright six
+    E, N5, sym, F, a0, b0 = dots._source()
+    H, sig, S5, sgn, U = dots._six_lines()
+    V = G.inv() * N5.T * sp.Matrix.hstack(*H)
+    Q = [wedge(V[:, i], V[:, j]) for i, j in itertools.combinations(range(6), 2)]
+    PD = Km * (Km.T * Hm * Km).inv() * Km.T * Hm
+    assert sum((x * x.T * Hm for x in Q), sp.zeros(10)) * (sp.eye(10) - PD) / 144 != sp.eye(10)
+    # a reflection of D10 in place of t delays nothing, and four r-settings never reach the whole parent
+    A = dots._a6()
+    assert len(dots._rref_p(np.vstack([A["F30"], A["right"](A["F30"], A["w"])]))[1]) == 30
+    r4 = [functools.reduce(A["mul"], [A["r"]] * k) for k in range(1, 4)]
+    assert len(dots._rref_p(np.vstack([A["O90"]] + [A["right"](A["O90"], g) for g in r4]))[1]) < 360
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out

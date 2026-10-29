@@ -69,6 +69,7 @@ flowchart TB
         goldenport["Golden port"]
         wedgeport["root-wedge port"]
         darkport["dark ports"]
+        parent["360 parent"]
     end
     subgraph level6["level 6: physics"]
         triple["spectral triple"]
@@ -319,11 +320,21 @@ flowchart TB
     A4 -->|"the Fibonacci bridge"| golden
     darkport -->|"the dark measurement"| readout
     source -->|"plane tomography"| readout
+    darkport -->|"the seventh sensor"| readout
+    source -->|"preparability"| darkport
+    cycles -->|"the exterior code"| darkport
+    source -->|"two instruments"| darkport
+    bath -->|"causal records"| source
+    parent -->|"the Golden adapter"| source
+    parent -->|"Golden30"| golden
+    A4 -->|"the marked injection"| parent
+    parent -->|"the blind 126"| readout
+    synthemes -.->|"two 36s"| parent
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-65 dots and 240 joins: 217 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 10 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+66 dots and 250 joins: 226 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 11 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
@@ -332,8 +343,8 @@ flowchart TB
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 7 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 11 | 11 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 4 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 19 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports | 31 | 20 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 20 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 22 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -343,11 +354,11 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 7 | 3 | 3 | 2 | 2 |
-| symmetry | 7 | - | 11 | 9 | 10 | 7 |
-| combinatorics | 3 | 11 | - | 4 | 18 | 7 |
-| lattice | 3 | 9 | 4 | - | 19 | 5 |
-| operator | 2 | 10 | 18 | 19 | - | 20 |
-| physics | 2 | 7 | 7 | 5 | 20 | - |
+| symmetry | 7 | - | 11 | 9 | 11 | 7 |
+| combinatorics | 3 | 11 | - | 4 | 19 | 7 |
+| lattice | 3 | 9 | 4 | - | 20 | 5 |
+| operator | 2 | 11 | 19 | 20 | - | 22 |
+| physics | 2 | 7 | 7 | 5 | 22 | - |
 
 ## Dots
 
@@ -418,6 +429,7 @@ The maps that join each pair of levels directly.
 | root-wedge port | the hub's unmarked S5 port T_S x(rho) = <x, v ^ w>/sqrt24 on the 240 roots | operator | 23 |
 | synthemes | the 15 perfect matchings of the six Sylow labels, 5 + 10 under the exceptional S5 | combinatorics | 23 |
 | dark ports | the hub's norm-four ports of the dark four: A on the 120 sites of the orbit of (-1, 0, 0, 1, 1, 0, 1, 0), and the triple wedge on 1200 sites | operator | 23 |
+| 360 parent | Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36 | operator | 23 |
 
 ## Joins
 
@@ -661,6 +673,16 @@ The maps that join each pair of levels directly.
 | A4 | golden companion | the marked K = A(h0) has K^2 = 5 on A4, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and a rational S carries Phi to two blocks B = [[1, 1], [1, 0]]; B^6 = [[13, 8], [8, 5]], entry sum 34 (the hub, 17:26) | THEOREM | `golden_bridge` |
 | dark ports | readout | the five dark planes have frame operator 15 I, so M_r = p_r p_r^T D/15 is a measurement: it reads a plane as itself with probability 4/5 and as each other plane with 1/20, carries exactly 6/5 bits under a uniform prior, and gives any two planes Bhattacharyya coefficient 11/20 (the sibling's MODEL, 18:00) | THEOREM | `dark_measurement` |
 | source | readout | every bivector of the source is tangent to its oriented planes, so a linear reading immerses them only with all ten channels, the bright six and the dark four; Gr+(2, 5) = Q3 has c = 1 + 3h + 4h^2 + 2h^3 and p = 1 + h^2, so a normal plane bundle in R^8 would need e^2 = -h^2, and a smooth reading needs at least nine (the sibling's MODEL, 18:00) | THEOREM | `plane_tomography` |
+| dark ports | readout | the fixed probe h12 = (z0 + z1)/3, covector ell12 = (0, -3, 0, -1, 0, 3, 1, 0, 1, -1), responds (3, 3, -2, -2, -2) on the five dark rays, so the six bright readings and ell12 detect every plane, while six readings never do (G(2, 5) has odd degree 5); the nonblind margin is sqrt2 and the sharp label gap sqrt(15/46), from the 512 active-set cases and ell* = (-17, -5, -10, -2, -6, -15, -10, 15, -4, 16) (the hub, 18:22) | THEOREM | `seventh_sensor` |
+| source | dark ports | a reconstructed exterior vector comes from one source pair exactly when its Pluecker quadrics vanish: in the native chart \|w ^ w\|^2 = 4 q^T H4 q = 2 (w^T H w)^2 - Tr[(K_w G)^4], the squared distances to the simple cone and to the unit planes are (s - sqrt(s^2 - t))/2 and s + 1 - 2 lambda_1, and z0 + z1 is dark but not simple (the hub, 18:22) | THEOREM | `preparability` |
+| cycles | dark ports | fifteen bright Golden-pair readings (sum Q Q* = 144 I) and ten dark duad probes (sum h h* = 5 P_D) give a Parseval inverse on all ten exterior coordinates and a [25, 10, 5] code, [15, 6, 5] + [10, 4, 6], whose dark integer part has Smith invariants 1, 5, 5, 5 (the hub, 18:22) | THEOREM | `exterior_code` |
+| source | dark ports | the dark measurement names its plane with optimal success 4/5 and carries 6/5 = 8/5 - 2/5 bits (Holevo bound 2, KL divergence 3, eleven repeats for 1% error), while the source states P(E_r)/2 against the six Golden effects read 1/6 everywhere: two instruments, not one processed state (the hub, 18:22; the sibling's MODEL, 18:33) | THEOREM | `dark_information` |
+| bath | source | an ideal known-state boundary record y = -K * g of the native bath, with G_C = 183 P_contrast + 495 P_uniform, inverts the forcing g through a second-kind Volterra equation, with exact jets and the bound (1/183) cosh(sqrt(42240/61) T); the empty-bath pair X - Z, Y - Z (E = 8, Q = 4) is force-free yet has cubic phasor (-4/3, -4/3) (the hub, 18:22) | THEOREM | `causal_records` |
+| 360 parent | source | marking point 5 reads the six Sylow cosets A5/D10 by their pentagons' Golden lines: B_G = H_G O36 has rank 5 and B_G B_G^T = 120 P_source, is A5-equivariant and fixed by r, so it keeps rank 5 where O90's r-history reaches 360 in five settings (90, 170, 250, 330, 360); the readers' joint ranks are 125, 165 and 230 (the hub, 18:22) | THEOREM | `parent_readers` |
+| 360 parent | golden companion | F30 = 6 P30 O36 (rank 30, F30 F30^T = 360 P30) and the involution t give A = F30 U_t F30^T/360, and 30 A has characteristic polynomial q^6 (q + 6)^5 (q - 6)^9 (q^2 + 3q - 99)^8; the Return I - A^2 exceeds 17/20, det[[I, A], [A, I]] = (24/25)^14 (7821/10000)^8, and on the 16-sector Phi16 = (I + J)/2 is eight Fibonacci blocks (the hub, 18:22) | THEOREM | `golden30` |
+| A4 | 360 parent | a rank-4 T with Phi16 T = T Phi4 carries A4's two Fibonacci blocks (Phi4 = (1 + K)/2, K = A(h0)) into the Golden30's eight: a marked operator injection, not an A6 map (the hub, 18:22) | THEOREM | `golden30` |
+| 360 parent | readout | closing the F30 rows under r and t gives ranks 30, 60, 90, 145, 216, 225, 234; the blind 126 = 1 + 25 + 100 is the central projector of the trivial, chi5 and chi10 blocks; the fibre means reach 260, and one chi10 reader completes 360 (the hub, 18:22) | THEOREM | `parent_closure` |
+| synthemes | 360 parent | the coset 36 has orbits 6 + 30 and the six-label/duad/syntheme 36 has orbits 6 + 15 + 5 + 10 under the transitive A5, so no A5-module isomorphism identifies them: their common cardinality is not a map (the hub, 18:22) | OBSTRUCTION | `two_36s` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
