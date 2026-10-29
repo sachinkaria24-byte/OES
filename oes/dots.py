@@ -213,6 +213,14 @@ things now checked here. Twice the sum of the first five coordinates, mod 5, is 
 integer and spinor counts 32/8, 10/40, 30/20, 30/20, 10/40. The collar witness (28, 28, 6, 2, 1, 0, 0, 0)/10 has
 energy 220.6345317313 and least tangent eigenvalue 6.985582, positive. The notes repeat INFRARED's 17/10, which stays
 corrected.
+
+At 10:40 the sibling's PLANE adopted that correction, and the hub's OES_Unified_Model (10:33) built the Golden root-site
+port. It becomes a dot. F sends the near edges to the roots e_i - e_(i+1) and the far edges to the glue roots
+site_i - (mu_i + mu_(i+1)), so T_G = F P_cycle is an isometry of the cycles into the bath. Its moment traces are 1442,
+347900, 84180666 and 20416532280. Its means are 239, 241 and 481/2 -+ sqrt5/10 and its variances 371, 171 and
+(1987 -+ 31 sqrt5)/10, so MEMORY's stated block and the trace that the notes left out are this port's. With the hub's
+clique it shares two sites; the cross map has squared singular values 4/5 and 2/5, and the joint Krylov ranks are 12,
+24 and 36. The 10:38 model's charges, root triangles, transposition sums and fivefold map replay too.
 """
 
 import functools
@@ -3574,6 +3582,192 @@ def notes_1007_arithmetic():
     }
 
 
+# ------------------------------------------------------------------- the hub's Golden port (10:33) and the 10:38 model
+
+def _walk_entries():
+    """(H^n)_(x, y) for H = 240 - A and lattice points given times 10, through the two-root sums (n <= 4)."""
+    R2, code, shift, pts, keys, mult = _two_root_sums()
+    roots10 = {tuple(r) for r in assignment.roots10()}
+
+    def at(c):
+        i = np.minimum(np.searchsorted(keys, c), len(keys) - 1)
+        return np.where(keys[i] == c, mult[i], 0)
+    cache = {}
+
+    def walks(t10):
+        k = tuple(int(v) for v in t10)
+        if k not in cache:
+            t = np.asarray(t10) // 5
+            ct = code(t)
+            cache[k] = (int(not t.any()), int(k in roots10), int(at(np.array([ct]))[0]),
+                        int(at(ct - code(R2) + shift).sum()), int((mult * at(ct - keys + shift)).sum()))
+        return cache[k]
+    return lambda t10, n: sum(sp.binomial(n, j) * 240 ** (n - j) * (-1) ** j * walks(t10)[j] for j in range(n + 1))
+
+
+def _golden_sites():
+    """The hub's Golden root-site port: near edges to e_i - e_(i+1), far edges to the glue roots site_i - (mu_i + mu_(i+1))."""
+    site, sign = [], []
+    for a, b in carrier.edges():
+        d = (b - a) % 5
+        if d in (1, 4):
+            i = a if d == 1 else b
+            site.append(assignment.SITE[i] - assignment.SITE[(i + 1) % 5])
+        else:
+            i = a if d == 2 else b
+            site.append(assignment.SITE[i] - assignment.TWIN[i] - assignment.TWIN[(i + 1) % 5])
+        sign.append(1 if d in (1, 2) else -1)
+    return site, sign
+
+
+def golden_root_port():
+    """The hub's OES_Unified_Model (10:33): the Golden root-site port T_G = F P_cycle and its moments."""
+    Hn = _walk_entries()
+    site, sign = _golden_sites()
+    roots10 = {tuple(r) for r in assignment.roots10()}
+    B = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - B.T * B / 5
+    Cb = sp.Matrix.hstack(*B.nullspace())
+    G = {n: sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * Hn(site[f] - site[e], n)) for n in range(5)}
+    M = {n: (Cb.T * Cb).inv() * Cb.T * G[n] * Cb for n in range(3)}
+    x = sp.symbols("x")
+    return {
+        "the hub's F sends the five near edges to the roots e_i - e_(i+1) and the five far edges to the glue roots "
+        "site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = "
+        "P_cycle and T_G B^T = 0": all(tuple(t) in roots10 for t in site) and len({tuple(t) for t in site}) == 10
+        and G[0] == sp.eye(10),
+        "its moment traces tr(P_cycle F^T H^n F) are 1442, 347900, 84180666 and 20416532280 for n = 1 to 4; the fourth "
+        "is the trace the notes left out": [(Pc * G[n]).trace() for n in range(1, 5)] == [1442, 347900, 84180666, 20416532280],
+        "its means are 239, 241 and 481/2 -+ sqrt5/10 (multiplicities 1, 1, 2, 2) and its variances 371, 171 and "
+        "(1987 -+ 31 sqrt5)/10: MEMORY's stated block, with the floor 171, is this port's fixed channels":
+            sp.expand(M[1].charpoly(x).as_expr() - (x - 239) * (x - 241) * (x ** 2 - 481 * x + sp.Rational(289201, 5)) ** 2) == 0
+            and sp.expand((M[2] - M[1] * M[1]).charpoly(x).as_expr()
+                          - (x - 171) * (x - 371) * (x ** 2 - sp.Rational(1987, 5) * x + sp.Rational(985841, 25)) ** 2) == 0,
+    }
+
+
+def shared_bath():
+    """The hub's clique port and Golden port in one bath: the cross map, the joint span and the joint Krylov ranks."""
+    from sympy.polys.matrices import DomainMatrix
+    Hn = _walk_entries()
+    site, sign = _golden_sites()
+    S, T = assignment.SITE, assignment.TWIN
+    clique = [S[0] - S[i] for i in range(1, 5)] + [S[0] - T[0] - T[1], S[0] - T[0] - T[2]]
+    roots10 = {tuple(r) for r in assignment.roots10()}
+    sites = []
+    for t in clique + site:
+        if not any(np.array_equal(t, q) for q in sites):
+            sites.append(t)
+    where = lambda t: next(k for k, q in enumerate(sites) if np.array_equal(t, q))
+    B = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - B.T * B / 5
+    TC = sp.zeros(len(sites), 6)
+    for k, t in enumerate(clique):
+        TC[where(t), k] = 1
+    Fm = sp.zeros(len(sites), 10)
+    for e, (t, g) in enumerate(zip(site, sign)):
+        Fm[where(t), e] = g
+    cross = TC.T * Fm * Pc * Fm.T * TC
+    J = sp.Matrix.hstack(TC, Fm * sp.Matrix.hstack(*B.nullspace()))
+    Hm = {n: sp.Matrix(len(sites), len(sites), lambda i, j: Hn(sites[j] - sites[i], n)) for n in range(5)}
+    ranks = [DomainMatrix.from_Matrix(sp.Matrix(sp.BlockMatrix([[J.T * Hm[i + j] * J for j in range(d + 1)]
+                                                                 for i in range(d + 1)]))).rank() for d in range(3)]
+    c, u = _sector_moments(8)
+    hankel = lambda m: sp.Matrix(4, 4, lambda i, j: m[i + j]).det()
+    return {
+        "the hub's clique is six roots whose differences are all roots, a six-site port with the moments of layer 22's; it "
+        "shares two of its sites with the Golden port, 14 in all": all(tuple(a - b) in roots10 for a, b in
+                                                                       itertools.permutations(clique, 2)) and len(sites) == 14,
+        "the cross map T_C* T_G has rank 2 with squared singular values 4/5 and 2/5, the joint span is 12, and the joint "
+        "Krylov ranks are 12, 24 and 36 through degree 2": cross.rank() == 2
+        and sorted(cross.eigenvals(multiple=True)) == [0, 0, 0, 0, sp.Rational(2, 5), sp.Rational(4, 5)] and J.rank() == 12
+        and ranks == [12, 24, 36],
+        "the seventh walk gives the clique's 4 x 4 Hankel determinants 31566087163013649 (contrast) and "
+        "1694632079790338625 (corner), positive: a fourth frequency in each channel": hankel(c) == 31566087163013649
+        and hankel(u) == 1694632079790338625,
+    }
+
+
+def notes_1038():
+    """The sibling's MODEL of 10:38: charges on the classes, the root triangles, the transpositions and the fivefold map."""
+    F_ = Fraction
+    rows = assignment.classify()
+    cls = lambda r: int(round(r[:5].sum() / 5)) % 5                      # twice the first-five sum (r is times 10)
+    h = [F_(2, 3)] * 3 + [F_(-1)] * 2 + [F_(0)] * 3
+    Qp = lambda r: assignment.dot(assignment.T3, r) + assignment.dot(h, r) / 2
+    t3 = lambda r: assignment.dot(assignment.T3, r)
+    up = Counter(cls(r) for r, *_ in rows if t3(r) == F_(1, 2))
+    half = lambda K: (sum(t3(r) ** 2 for r, *_ in rows if cls(r) in K), sum(Qp(r) ** 2 for r, *_ in rows if cls(r) in K))
+    cubic = {k: sum(Qp(r) ** 3 for r, *_ in rows if cls(r) == k) for k in range(5)}
+    R10 = assignment.roots10()
+    roots = {tuple(r) for r in R10}
+    tri = Counter(tuple(sorted((cls(a), cls(b), cls(-(a + b))))) for a in R10 for b in R10 if tuple(-(a + b)) in roots)
+    P = lambda p: sp.Matrix(5, 5, lambda i, j: int(i == p[j]))
+    trans = [tuple(j if k == i else i if k == j else k for k in range(5)) for i, j in itertools.combinations(range(5), 2)]
+    B = sp.Matrix(carrier.signed_incidence())
+    Pcut = B.T * B / 5
+    E = carrier.edges()
+    Mp = sp.zeros(10, 5)
+    for i in range(5):
+        a, b = i, (i + 1) % 5
+        Mp[E.index((min(a, b), max(a, b))), i] = 1 if a < b else -1
+    Tm = (sp.eye(10) - Pcut) * Mp
+    Zb = sp.Matrix.hstack(*sp.ones(1, 5).nullspace())
+    A2 = sp.Matrix(5, 5, lambda i, j: int((i - j) % 5 in (2, 3)))
+    pent, star = (sp.Matrix(counts._oriented_cycle(k)) for k in (1, 2))
+    R5 = sp.Matrix(5, 5, lambda r, k: int(r == (k + 1) % 5))
+    Sz = (Zb.T * Zb).inv() * Zb.T * (R5 + R5.T) * Zb
+    return {
+        "with h = (2, 2, 2, -3, -3)/3 and Q = T3 + h/2 (the note's signs) every charge is a multiple of 1/3, the traces of "
+        "T3^2 and Q^2 are 30 and 80 (3 : 8), and 56 roots have T3 = +1/2, 6 + 15 + 10 + 10 + 15 by class; a one-of-each-pair "
+        "selection of the mixed roots has 25 of them (layer 24)": all((3 * Qp(r)).denominator == 1 for r, *_ in rows)
+        and sum(t3(r) ** 2 for r, *_ in rows) == 30 and sum(Qp(r) ** 2 for r, *_ in rows) == 80
+        and up == Counter({0: 6, 1: 15, 2: 10, 3: 10, 4: 15}),
+        "the twin's 20 roots carry no T3 and no h, the carrier's are 6 neutral and 14 charged; classes 1 + 4 and 0 + 2 + 3 "
+        "each have traces 15 and 40; the cubic charge is 0, 40/9, -80/9, 80/9, -40/9 on classes 0 to 4, cancelling only in "
+        "conjugate pairs": half({1, 4}) == half({0, 2, 3}) == (15, 40)
+        and cubic == {0: 0, 1: F_(40, 9), 2: F_(-80, 9), 3: F_(80, 9), 4: F_(-40, 9)}
+        and Counter(t3(r) == 0 and assignment.dot(h, r) == 0 for r, k, *_ in rows if k == "(24,1)") == Counter({True: 6, False: 14})
+        and all(t3(r) == 0 and assignment.dot(h, r) == 0 for r, k, *_ in rows if k == "(1,24)"),
+        "three roots sum to zero in 13440 = W_3 ordered ways, with class multisets 0+1+4 and 0+2+3 (3000 each), 1+1+3, "
+        "1+2+2, 2+4+4, 3+3+4 (1800 each) and 0+0+0 (240), none inside one mixed class; negation swaps 1 with 4 and 2 with 3":
+            sum(tri.values()) == 13440 and tri == Counter({(0, 1, 4): 3000, (0, 2, 3): 3000, (1, 1, 3): 1800, (1, 2, 2): 1800,
+                                                            (2, 4, 4): 1800, (3, 3, 4): 1800, (0, 0, 0): 240})
+            and Counter((cls(r), cls(-r)) for r in R10) == Counter({(1, 4): 50, (4, 1): 50, (2, 3): 50, (3, 2): 50, (0, 0): 40}),
+        "the ten transpositions sum to 5I + J on the sites and to 5 P_cut on the edges (0 on the cycles), so no map that "
+        "treats the sites alike reaches the cycles; the fivefold map (site i to its outgoing edge, then the cycle part) has "
+        "rank 4 on the trace-free sites, misses the two fixed channels there, and has Gram (2I - A_2)/5 = (5I + T)/10 with "
+        "T = 2(P + P^-1) + I, T^2 = 5, eigenvalues (5 +- sqrt5)/10 twice (ratio phi^2)":
+            sum((P(t) for t in trans), sp.zeros(5)) == 5 * sp.eye(5) + sp.ones(5, 5)
+            and sum((compound2(P(t)) for t in trans), sp.zeros(10)) == 5 * Pcut and (Tm * Zb).rank() == 4
+            and pent.T * Tm * Zb == sp.zeros(1, 4) and star.T * Tm * Zb == sp.zeros(1, 4)
+            and Zb.T * Tm.T * Tm * Zb == Zb.T * (2 * sp.eye(5) - A2) / 5 * Zb
+            and Sz * Sz + Sz - sp.eye(4) == sp.zeros(4) and (2 * Sz + sp.eye(4)) ** 2 == 5 * sp.eye(4)
+            and sp.simplify((5 + sp.sqrt(5)) / (5 - sp.sqrt(5)) - ((1 + sp.sqrt(5)) / 2) ** 2) == 0,
+        "the root graph's eigenvalue squares 56^2 + 8 x 28^2 + 35 x 8^2 + 112 x 4 + 84 x 16 = 13440 = 240 x 56 = W_3; the clock "
+        "steps 120, 1440, 840, 1080, 3360 and 27 have orders 36, 3, 36, 4, 9 and 160, with 1080 + 3360 = 120, and the widths "
+        "2, 3, 4, 5, 6, 8 have orders 2160, 1440, 1080, 864, 720, 540 while 7 and 13 generate":
+            56 ** 2 + 8 * 28 ** 2 + 35 * 8 ** 2 + 112 * 4 + 84 * 16 == 13440 == 240 * 56
+            and [N // gcd(x, N) for x in (120, 1440, 840, 1080, 3360, 27)] == [36, 3, 36, 4, 9, 160] and (1080 + 3360) % N == 120
+            and [N // gcd(x, N) for x in (2, 3, 4, 5, 6, 8, 7, 13)] == [2160, 1440, 1080, 864, 720, 540, 4320, 4320],
+        "the vector meeting eight roots of pairwise product 1 at product 1 is their sum over 9, of square 8/9, not a root, "
+        "so the eight-root frame has no ninth root": (lambda F8: sp.Rational(int(sum(F8) @ sum(F8)), 4 * 81) == sp.Rational(8, 9)
+                                                    and all(sp.Rational(int(sum(F8) @ r), 4 * 9) == 1 for r in F8))(_eight_roots2()),
+    }
+
+
+def _eight_roots2():
+    """Eight roots with pairwise inner product 1, in doubled coordinates."""
+    R2 = np.rint(2 * glue.roots()).astype(int)
+    chosen = [R2[0]]
+    for r in R2:
+        if all(int(r @ c) == 4 for c in chosen):
+            chosen.append(r)
+        if len(chosen) == 8:
+            break
+    return chosen
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -3635,6 +3829,7 @@ DOTS = {
     "air801": ("801 matrix", "AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24", "23"),
     "pg25": ("PG(2,5)", "the projective plane over F5: the conic, 15 exterior and 10 interior points", "23"),
     "assignment": ("root assignment", "Standard-Model quantum numbers on the 240 roots under A4 + A4'", "24"),
+    "goldenport": ("Golden port", "the hub's root-site cycle port T_G = F P_cycle on ten roots", "23"),
     "charges": ("five-site charges", "Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges", "12, 23"),
     "memory": ("memory clock", "the 120-state quotient of layer 3's memory operator, of order 90", "3"),
 }
@@ -3651,7 +3846,7 @@ LEVELS = [
      ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph"]),
     ("operator", "spaces with operators, ports and moments",
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
-      "pauli", "gksl"]),
+      "pauli", "gksl", "goldenport"]),
     ("physics", "geometry, readout, waves, binding and the conditional cosmos",
      ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges", "assignment"]),
 ]
@@ -3830,6 +4025,9 @@ JOINS = [
     ("clocks", "halfper", "two order-5 actions", "the coordinate five-cycle alone fixes 16 half-periods (1 + 10 + 5) and makes 48 band-keeping five-cycles; the tick g = r r' fixes only the origin (TICK, COXETER)", T, "two_ticks"),
     ("simplex", "cycles", "the cycles bound", "the filled 4-simplex has boundary ranks 4, 6, 4, 1 and interior Laplacians 5I, so the six cycles of K5 bound triangles; K = I + 2(T + T^-1) squares to 5 on the moving edges (HELICITY)", T, "filled_simplex"),
     ("charges", "E", "the charge on the edges", "the minimum-norm lift B^T Q / 5 of the charge has square 4/15 and lies in the cuts with zero cycle part; Y is 5/6 of the weak duad's 10-weight (MARKS, CHARGE_WEIGHT)", T, "charge_marks"),
+    ("cycles", "goldenport", "the root-site isometry", "F sends the near edges to the roots e_i - e_(i+1) and the far edges to the glue roots site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = P_cycle (the hub's OES_Unified_Model)", T, "golden_root_port"),
+    ("goldenport", "bath", "the Golden moments", "traces 1442, 347900, 84180666, 20416532280; means 239, 241, 481/2 -+ sqrt5/10; variances 371, 171, (1987 -+ 31 sqrt5)/10, MEMORY's stated block", T, "golden_root_port"),
+    ("goldenport", "sixsite", "two windows on one bath", "with the hub's clique (six roots, differences roots) the Golden port shares two sites; the cross map has squared singular values 4/5 and 2/5, the joint span is 12 and the joint Krylov ranks are 12, 24, 36; the clique's 4 x 4 Hankels are positive", T, "shared_bath"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
@@ -3945,6 +4143,10 @@ LEDGER_ROWS = [
     ("ATLAS, SCRIPT (09:44, 10:04)", "twice the first-five sum mod 5 gives 40/50/50/50/50, integer/spinor 32/8, 10/40, 30/20, 30/20, 10/40; the zero filter returns 40, not 20", "replayed: the class is twice the A4*/A4 grade; the zero filter gives D5's 40 roots, of which A4 is the 20 with opposite signs; A4' is 12 integer roots and 8 spinors", T, "23, 24"),
     ("SYMBOL (10:05)", "the witness (28, 28, 6, 2, 1, 0, 0, 0)/10: 15.8548946233 + 3.5105736454, energy 220.6345317313; 12.54149 on the last three axes; least tangent eigenvalue 6.985582", "replayed, with the closed forms 2[(sum cos)^2 - sum cos^2] and 128(prod cos(x/2) + prod sin(x/2)); the least tangent eigenvalue is positive, computed by the projector and by a Householder basis", T, "23"),
     ("LEDGER, LEDGER48, MODEL (09:50-10:07)", "52 orbits; 171 = 271 - 100; 2 x 44 x 2 = 176; 4320 = 36 x 120 = 15 x 36 x 8; 9361 = 260 x 36 + 1", "arithmetic; the shared integers join nothing", gates.ARITHMETIC, "23"),
+    ("the Golden root-site port (hub, 10:33)", "T_G = F P_cycle on ten roots; traces 1442, 347900, 84180666, 20416532280; means and variances with the floor 171", "replayed and joined as a dot: F is a signed isometry onto ten roots, the traces hold, and MEMORY's stated block is this port's fixed channels", T, "23"),
+    ("the shared bath (hub, 10:33)", "clique and Golden ports: cross squared singular values 4/5 and 2/5, joint span 12, joint Krylov ranks 12, 24, 36; 4 x 4 clique Hankels 31566087163013649 and 1694632079790338625", "replayed", T, "23"),
+    ("MODEL (10:09-10:38)", "charges, traces 30 and 80, 56 doublets by class, cubic charges, 13440 root triangles by class, transposition sums, the fivefold map, clock orders", "replayed; the fivefold map's rank 4 and Gram (2I - A_2)/5 hold on the trace-free sites, where charges live", T, "23"),
+    ("PLANE (10:17)", "the square is 2; 17/10 was a miscount; 10 in the cyclic orientation", "adopts the 09:02 correction", T, "23"),
     ("the separate model's archives (08:35-09:13)", "completion, completion audit, critical port, connected model, glue-helicity", "recorded, not downloaded or run", RP, "23"),
     ("the mixed root classes (09:00)", "the 200 mixed roots are four classes of 50 with a (5, 10b) or (10, 5) weight structure; K5's five sites and ten duads meet E8's mixed classes at the level of representations", "replayed: (10,5) is the carrier's ten duads times the twin's five sites and (5b,10) its five sites times the twin's ten duads, each pair once; layer 11's (10, 5b') is (10,5) with the twin's 5 renamed", T, "11, 24"),
     ("the second moment (09:00)", "40 + 4 x 50 = 240; the weight-orbit covariances give sum rho rho^T = 60 I8, so the dispersion coefficient is 30", "replayed: 10 I on A4 + A4', 15 P + 10 P' on (10,5) and its conjugate, 10 P + 15 P' on (5b,10) and its conjugate, 60 I in all, and 30 = 60/2; the same moment gives T3 : Q = 3 : 8", T, "24"),
@@ -4043,7 +4245,7 @@ def _checks():
         "assignment.six_site_port": assignment.six_site_port, "assignment.generations": assignment.generations,
         "assignment.chirality": assignment.chirality,
         "walks_by_angle": walks_by_angle, "port_leak": port_leak, "two_ticks": two_ticks, "filled_simplex": filled_simplex,
-        "charge_marks": charge_marks,
+        "charge_marks": charge_marks, "golden_root_port": golden_root_port, "shared_bath": shared_bath,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -4356,8 +4558,8 @@ def run():
             "fixed plane holds 2 of the all-ones vector's square, not 17/10, and 10 in the cyclic orientation; the eight "
             "square-free parts have full rank over F2", T, all(ir.values()), ir)
     sb = stated_block()
-    rep.add("MEMORY's stated fixed block: means 239 and 241, variances 171 and 371, golden variances above 171 (the block "
-            "is not stored here)", gates.ARITHMETIC, all(sb.values()), sb)
+    rep.add("MEMORY's stated fixed block: means 239 and 241, variances 171 and 371, golden variances above 171, as "
+            "arithmetic (the block is the Golden port's, replayed at 10:40)", gates.ARITHMETIC, all(sb.values()), sb)
     rep.add("Drive check 09:02: the sibling's 20 notes of 08:35-09:28 were read (CRITICAL, MOMENTS, DEGREE, CONVOLUTION, "
             "SHELLS, UNIFIED, MARKS, LEAK, RANK, SEVENTH, HELICITY, GLUE, CHARGE_WEIGHT, TICK, CHAIN, COXETER, MEMORY, "
             "FOURTH, MODEL, INFRARED). CRITICAL adopts the 224 saddle and the 24 + 1 tick momenta, and GLUE and "
@@ -4367,8 +4569,8 @@ def run():
             "glue-helicity (202251 bytes, 56 check groups), with their receipts; the KD staging workbooks, the reconciled "
             "canon workbooks (modified 08:45) and MODEL_UPDATE_CHECKPOINT.json (09:13) were not opened, and the "
             "connected-model receipt marks KD as in progress, not admitted as canon head", RP, True)
-    rep.add("not replayed, for want of operands here: the reader rank 86, the trace 20416532280 and the stated tail "
-            "prefactors (the collar witness is replayed at 10:07)", RP, True)
+    rep.add("not replayed, for want of operands here: the reader rank 86 and the stated tail prefactors (the collar "
+            "witness is replayed at 10:07, the trace 20416532280 at 10:40 through the hub's Golden port)", RP, True)
     n10 = notes_1007()
     rep.add("the 09:43-10:07 notes: the coordinate classes are twice the grade in E8 / L0, the angle multiplicities are "
             "1, 56, 126, 56, 1, and the collar witness replays (eps 220.6345317313, least tangent eigenvalue 6.985582)",
@@ -4379,7 +4581,20 @@ def run():
     rep.add("Drive check 10:07: the sibling's eight notes of 09:43-10:07 were read (SHELLS, SCRIPT, LEDGER, LEDGER48, "
             "ATLAS, SYMBOL and two MODEL editions); they correct their own ledger lines and their script's labels, and "
             "repeat INFRARED's 17/10, which stays corrected here (2 in the lexicographic orientation, 10 in the cyclic "
-            "one); the trace 20416532280 stays out", RP, True)
+            "one); the trace 20416532280 was outside those notes' chain (it is the Golden port's, replayed at 10:40)", RP, True)
+    n38 = notes_1038()
+    rep.add("the 10:09-10:38 model: charges and traces on the five classes, the root triangles by class, the "
+            "transposition sums and the fivefold map, the root graph's squares and the clock orders, and the eight-root "
+            "frame's ninth vector of square 8/9", T, all(n38.values()), n38)
+    rep.add("Drive check 10:40: the sibling's PLANE (10:17) and 14 editions of MODEL (10:09-10:38) with their spine PDFs, "
+            "the separate model's spectral-kernel archive (882649 bytes, 70 new check groups) and receipt, the updated "
+            "checkpoint, and the hub's OES_Unified_Model_20261029.txt with its exact zip (462970 bytes) were read or "
+            "recorded; PLANE and the hub adopt the fixed-plane correction (2 lexicographic, 10 cyclic); the archives "
+            "were not run", RP, True)
+    rep.add("the hub's synthesis also reports, not replayed here: the Golden port's per-channel infrared densities and "
+            "heat tails, the scope bound that a six-channel port and three readings cannot recover the ten-dimensional "
+            "source pair (rank at most 9), the conditional photon normalization Z = 32 c_SA, and the 36-tattva "
+            "presentation as indexed maps", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

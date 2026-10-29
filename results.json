@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.78,
-  "2-spectral": 0.02,
-  "3-spacetime": 13.36,
-  "4-native": 107.74,
-  "5-observer": 1.07,
-  "6-gravity": 5.9,
-  "7-cosmology": 2.18,
-  "8-frontier": 42.49,
-  "9-joins": 10.59,
-  "10-literal": 39.85,
-  "11-glue": 0.32,
-  "12-binding": 0.1,
-  "13-gates": 0.25,
-  "14-recurrence": 89.82,
-  "15-court": 1.8,
-  "16-handover": 1.56,
-  "17-waves": 0.89,
-  "18-snapshot": 1.67,
-  "19-spine": 5.33,
-  "20-canon": 7.08,
-  "21-ledger": 50.92,
-  "22-counts": 24.31,
-  "23-dots": 25.04,
-  "24-assignment": 3.49
+  "1-carrier": 0.7,
+  "2-spectral": 0.01,
+  "3-spacetime": 9.75,
+  "4-native": 113.14,
+  "5-observer": 0.76,
+  "6-gravity": 5.49,
+  "7-cosmology": 1.9,
+  "8-frontier": 39.23,
+  "9-joins": 13.31,
+  "10-literal": 40.49,
+  "11-glue": 0.3,
+  "12-binding": 0.06,
+  "13-gates": 0.37,
+  "14-recurrence": 84.32,
+  "15-court": 1.88,
+  "16-handover": 1.67,
+  "17-waves": 0.98,
+  "18-snapshot": 1.53,
+  "19-spine": 5.88,
+  "20-canon": 7.95,
+  "21-ledger": 52.8,
+  "22-counts": 24.37,
+  "23-dots": 25.98,
+  "24-assignment": 4.03
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 532,
-   "total": 532
+   "passed": 536,
+   "total": 536
   },
   "OBSTRUCTION": {
    "passed": 51,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 77,
-   "total": 77
+   "passed": 79,
+   "total": 79
   }
  },
  "checks": [
@@ -7647,6 +7647,42 @@
   },
   {
    "layer": "23-dots",
+   "name": "cycles -> Golden port: F sends the near edges to the roots e_i - e_(i+1) and the far edges to the glue roots site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = P_cycle (the hub's OES_Unified_Model)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hub's F sends the five near edges to the roots e_i - e_(i+1) and the five far edges to the glue roots site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = P_cycle and T_G B^T = 0": true,
+    "its moment traces tr(P_cycle F^T H^n F) are 1442, 347900, 84180666 and 20416532280 for n = 1 to 4; the fourth is the trace the notes left out": true,
+    "its means are 239, 241 and 481/2 -+ sqrt5/10 (multiplicities 1, 1, 2, 2) and its variances 371, 171 and (1987 -+ 31 sqrt5)/10: MEMORY's stated block, with the floor 171, is this port's fixed channels": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Golden port -> bath: traces 1442, 347900, 84180666, 20416532280; means 239, 241, 481/2 -+ sqrt5/10; variances 371, 171, (1987 -+ 31 sqrt5)/10, MEMORY's stated block",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hub's F sends the five near edges to the roots e_i - e_(i+1) and the five far edges to the glue roots site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = P_cycle and T_G B^T = 0": true,
+    "its moment traces tr(P_cycle F^T H^n F) are 1442, 347900, 84180666 and 20416532280 for n = 1 to 4; the fourth is the trace the notes left out": true,
+    "its means are 239, 241 and 481/2 -+ sqrt5/10 (multiplicities 1, 1, 2, 2) and its variances 371, 171 and (1987 -+ 31 sqrt5)/10: MEMORY's stated block, with the floor 171, is this port's fixed channels": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Golden port -> six-site port: with the hub's clique (six roots, differences roots) the Golden port shares two sites; the cross map has squared singular values 4/5 and 2/5, the joint span is 12 and the joint Krylov ranks are 12, 24, 36; the clique's 4 x 4 Hankels are positive",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hub's clique is six roots whose differences are all roots, a six-site port with the moments of layer 22's; it shares two of its sites with the Golden port, 14 in all": true,
+    "the cross map T_C* T_G has rank 2 with squared singular values 4/5 and 2/5, the joint span is 12, and the joint Krylov ranks are 12, 24 and 36 through degree 2": true,
+    "the seventh walk gives the clique's 4 x 4 Hankel determinants 31566087163013649 (contrast) and 1694632079790338625 (corner), positive: a fourth frequency in each channel": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "root assignment -> binding: taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time",
    "status": "OBSTRUCTION",
    "passed": true,
@@ -7660,7 +7696,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 60 dots and 166 joins form one connected diagram (the obstructions left out)",
+   "name": "the 61 dots and 169 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7694,6 +7730,7 @@
      "frame",
      "gksl",
      "golden",
+     "goldenport",
      "grain",
      "gravity",
      "halfper",
@@ -7846,7 +7883,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 5, operator (spaces with operators, ports and moments): its 13 dots are joined among themselves",
+   "name": "level 5, operator (spaces with operators, ports and moments): its 14 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7855,6 +7892,7 @@
      "carrier",
      "datum",
      "gksl",
+     "goldenport",
      "kerM",
      "literal",
      "measure",
@@ -7947,11 +7985,11 @@
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 57 of the 60 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 58 of the 61 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 149,
+    "THEOREM": 152,
     "OBSTRUCTION": 5,
     "SELECTED_REFERENCE": 8,
     "CONDITIONAL": 4
@@ -7971,13 +8009,13 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 1, number-operator 1, number-physics 1, symmetry-combinatorics 7, symmetry-lattice 6, symmetry-operator 4, symmetry-physics 5, combinatorics-lattice 4, combinatorics-operator 9, combinatorics-physics 6, lattice-operator 13, lattice-physics 4, operator-physics 9",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 1, number-operator 1, number-physics 1, symmetry-combinatorics 7, symmetry-lattice 6, symmetry-operator 4, symmetry-physics 5, combinatorics-lattice 4, combinatorics-operator 10, combinatorics-physics 6, lattice-operator 13, lattice-physics 4, operator-physics 9",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
     "(3, 4)": 13,
-    "(2, 4)": 9,
+    "(2, 4)": 10,
     "(1, 3)": 6,
     "(1, 2)": 7,
     "(0, 1)": 5,
@@ -8555,7 +8593,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "MEMORY's stated fixed block: means 239 and 241, variances 171 and 371, golden variances above 171 (the block is not stored here)",
+   "name": "MEMORY's stated fixed block: means 239 and 241, variances 171 and 371, golden variances above 171, as arithmetic (the block is the Golden port's, replayed at 10:40)",
    "status": "ARITHMETIC",
    "passed": true,
    "value": {
@@ -8581,7 +8619,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "not replayed, for want of operands here: the reader rank 86, the trace 20416532280 and the stated tail prefactors (the collar witness is replayed at 10:07)",
+   "name": "not replayed, for want of operands here: the reader rank 86 and the stated tail prefactors (the collar witness is replayed at 10:07, the trace 20416532280 at 10:40 through the hub's Golden port)",
    "status": "REPORTED",
    "passed": true,
    "value": null,
@@ -8611,7 +8649,38 @@
   },
   {
    "layer": "23-dots",
-   "name": "Drive check 10:07: the sibling's eight notes of 09:43-10:07 were read (SHELLS, SCRIPT, LEDGER, LEDGER48, ATLAS, SYMBOL and two MODEL editions); they correct their own ledger lines and their script's labels, and repeat INFRARED's 17/10, which stays corrected here (2 in the lexicographic orientation, 10 in the cyclic one); the trace 20416532280 stays out",
+   "name": "Drive check 10:07: the sibling's eight notes of 09:43-10:07 were read (SHELLS, SCRIPT, LEDGER, LEDGER48, ATLAS, SYMBOL and two MODEL editions); they correct their own ledger lines and their script's labels, and repeat INFRARED's 17/10, which stays corrected here (2 in the lexicographic orientation, 10 in the cyclic one); the trace 20416532280 was outside those notes' chain (it is the Golden port's, replayed at 10:40)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 10:09-10:38 model: charges and traces on the five classes, the root triangles by class, the transposition sums and the fivefold map, the root graph's squares and the clock orders, and the eight-root frame's ninth vector of square 8/9",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "with h = (2, 2, 2, -3, -3)/3 and Q = T3 + h/2 (the note's signs) every charge is a multiple of 1/3, the traces of T3^2 and Q^2 are 30 and 80 (3 : 8), and 56 roots have T3 = +1/2, 6 + 15 + 10 + 10 + 15 by class; a one-of-each-pair selection of the mixed roots has 25 of them (layer 24)": true,
+    "the twin's 20 roots carry no T3 and no h, the carrier's are 6 neutral and 14 charged; classes 1 + 4 and 0 + 2 + 3 each have traces 15 and 40; the cubic charge is 0, 40/9, -80/9, 80/9, -40/9 on classes 0 to 4, cancelling only in conjugate pairs": true,
+    "three roots sum to zero in 13440 = W_3 ordered ways, with class multisets 0+1+4 and 0+2+3 (3000 each), 1+1+3, 1+2+2, 2+4+4, 3+3+4 (1800 each) and 0+0+0 (240), none inside one mixed class; negation swaps 1 with 4 and 2 with 3": true,
+    "the ten transpositions sum to 5I + J on the sites and to 5 P_cut on the edges (0 on the cycles), so no map that treats the sites alike reaches the cycles; the fivefold map (site i to its outgoing edge, then the cycle part) has rank 4 on the trace-free sites, misses the two fixed channels there, and has Gram (2I - A_2)/5 = (5I + T)/10 with T = 2(P + P^-1) + I, T^2 = 5, eigenvalues (5 +- sqrt5)/10 twice (ratio phi^2)": true,
+    "the root graph's eigenvalue squares 56^2 + 8 x 28^2 + 35 x 8^2 + 112 x 4 + 84 x 16 = 13440 = 240 x 56 = W_3; the clock steps 120, 1440, 840, 1080, 3360 and 27 have orders 36, 3, 36, 4, 9 and 160, with 1080 + 3360 = 120, and the widths 2, 3, 4, 5, 6, 8 have orders 2160, 1440, 1080, 864, 720, 540 while 7 and 13 generate": true,
+    "the vector meeting eight roots of pairwise product 1 at product 1 is their sum over 9, of square 8/9, not a root, so the eight-root frame has no ninth root": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 10:40: the sibling's PLANE (10:17) and 14 editions of MODEL (10:09-10:38) with their spine PDFs, the separate model's spectral-kernel archive (882649 bytes, 70 new check groups) and receipt, the updated checkpoint, and the hub's OES_Unified_Model_20261029.txt with its exact zip (462970 bytes) were read or recorded; PLANE and the hub adopt the fixed-plane correction (2 lexicographic, 10 cyclic); the archives were not run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the hub's synthesis also reports, not replayed here: the Golden port's per-channel infrared densities and heat tails, the scope bound that a six-channel port and three readings cannot recover the ten-dimensional source pair (rank at most 9), the conditional photon normalization Z = 32 c_SA, and the 36-tattva presentation as indexed maps",
    "status": "REPORTED",
    "passed": true,
    "value": null,

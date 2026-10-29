@@ -64,6 +64,7 @@ flowchart TB
         sixsite["six-site port"]
         pauli["Pauli algebra"]
         gksl["GKSL"]
+        goldenport["Golden port"]
     end
     subgraph level6["level 6: physics"]
         triple["spectral triple"]
@@ -241,10 +242,13 @@ flowchart TB
     clocks -->|"two order-5 actions"| halfper
     simplex -->|"the cycles bound"| cycles
     charges -->|"the charge on the edges"| E
+    cycles -->|"the root-site isometry"| goldenport
+    goldenport -->|"the Golden moments"| bath
+    goldenport -->|"two windows on one bath"| sixsite
     assignment -.->|"one root of every pair"| binding
 ```
 
-60 dots and 166 joins: 149 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
+61 dots and 169 joins: 152 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
 
 ## Levels
 
@@ -254,7 +258,7 @@ flowchart TB
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix | 8 | 7 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 9 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 13 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 16 | 9 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port | 18 | 9 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -265,9 +269,9 @@ The maps that join each pair of levels directly.
 |---|---|---|---|---|---|---|
 | number | - | 5 | 3 | 1 | 1 | 1 |
 | symmetry | 5 | - | 7 | 6 | 4 | 5 |
-| combinatorics | 3 | 7 | - | 4 | 9 | 6 |
+| combinatorics | 3 | 7 | - | 4 | 10 | 6 |
 | lattice | 1 | 6 | 4 | - | 13 | 4 |
-| operator | 1 | 4 | 9 | 13 | - | 9 |
+| operator | 1 | 4 | 10 | 13 | - | 9 |
 | physics | 1 | 5 | 6 | 4 | 9 | - |
 
 ## Dots
@@ -332,6 +336,7 @@ The maps that join each pair of levels directly.
 | 801 matrix | AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24 | symmetry | 23 |
 | PG(2,5) | the projective plane over F5: the conic, 15 exterior and 10 interior points | combinatorics | 23 |
 | root assignment | Standard-Model quantum numbers on the 240 roots under A4 + A4' | physics | 24 |
+| Golden port | the hub's root-site cycle port T_G = F P_cycle on ten roots | operator | 23 |
 | five-site charges | Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges | physics | 12, 23 |
 | memory clock | the 120-state quotient of layer 3's memory operator, of order 90 | number | 3 |
 
@@ -504,6 +509,9 @@ The maps that join each pair of levels directly.
 | W(E8) clocks | half-periods | the coordinate five-cycle alone fixes 16 half-periods (1 + 10 + 5) and makes 48 band-keeping five-cycles; the tick g = r r' fixes only the origin (TICK, COXETER) | THEOREM | `two_ticks` |
 | 4-simplex | cycles | the filled 4-simplex has boundary ranks 4, 6, 4, 1 and interior Laplacians 5I, so the six cycles of K5 bound triangles; K = I + 2(T + T^-1) squares to 5 on the moving edges (HELICITY) | THEOREM | `filled_simplex` |
 | five-site charges | K5 edges | the minimum-norm lift B^T Q / 5 of the charge has square 4/15 and lies in the cuts with zero cycle part; Y is 5/6 of the weak duad's 10-weight (MARKS, CHARGE_WEIGHT) | THEOREM | `charge_marks` |
+| cycles | Golden port | F sends the near edges to the roots e_i - e_(i+1) and the far edges to the glue roots site_i - (mu_i + mu_(i+1)), a signed isometry onto ten distinct roots, so T_G = F P_cycle has T_G* T_G = P_cycle (the hub's OES_Unified_Model) | THEOREM | `golden_root_port` |
+| Golden port | bath | traces 1442, 347900, 84180666, 20416532280; means 239, 241, 481/2 -+ sqrt5/10; variances 371, 171, (1987 -+ 31 sqrt5)/10, MEMORY's stated block | THEOREM | `golden_root_port` |
+| Golden port | six-site port | with the hub's clique (six roots, differences roots) the Golden port shares two sites; the cross map has squared singular values 4/5 and 2/5, the joint span is 12 and the joint Krylov ranks are 12, 24, 36; the clique's 4 x 4 Hankels are positive | THEOREM | `shared_bath` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
 ## Not joined

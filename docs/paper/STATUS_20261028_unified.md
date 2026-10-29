@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 24 layers and 766 checks. Of these, 689 hold: THEOREM 532, OBSTRUCTION 51, ARITHMETIC 40, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 77 are REPORTED records.
+- `python verify.py` runs 24 layers and 772 checks. Of these, 693 hold: THEOREM 536, OBSTRUCTION 51, ARITHMETIC 40, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 79 are REPORTED records.
 - `pytest` runs 65 tests.
-- The newest layers are `oes/dots.py` (layer 23, 253 checks) and `oes/assignment.py` (layer 24, 41 checks).
+- The newest layers are `oes/dots.py` (layer 23, 259 checks) and `oes/assignment.py` (layer 24, 41 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 60 dots and 166 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 61 dots and 169 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -41,7 +41,7 @@ New in layer 24 (the particle assignment on E8's roots, 09:00 on 29 October):
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 60 dots and 166 joins (161 maps, five obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 61 dots and 169 joins (164 maps, five obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -112,6 +112,12 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - Corrections: DEGREE's 4 and 6 count the clique's other sites and the port's sites, not the cut rank and the cycles. INFRARED's fixed plane holds 2 of the all-ones vector's square (both fixed vectors have square 5), and 10 in the cyclic orientation. The port reads [2/5] ⊕ (2L + (2/5)J).
   - Recorded, not run: the separate model's completion, critical-port, connected-model and glue-helicity archives, the KD staging workbooks and MODEL_UPDATE_CHECKPOINT.json.
 - **The 09:43–10:07 items (Drive check 10:07):** the coordinate classes (twice the first-five sum mod 5) are twice the grade in E8/L0, with integer and spinor counts 32/8, 10/40, 30/20, 30/20, 10/40. The collar witness (28, 28, 6, 2, 1, 0, 0, 0)/10 replays at ε = 220.6345317313 with least tangent eigenvalue 6.985582. The notes' own ledger corrections (52 orbits, 171 = 271 − 100) are arithmetic. INFRARED's 17/10 stays corrected.
+- **The Golden root-site port (Drive check 10:40):**
+  - The hub's T_G = F P_cycle maps the cycles isometrically onto ten roots: the near edges to e_i − e_{i+1}, the far edges to the glue roots. It is a dot.
+  - Its moment traces are 1442, 347900, 84180666 and 20416532280. Its means are 239, 241 and 481/2 ∓ √5/10, and its variances 371, 171 and (1987 ∓ 31√5)/10, which is MEMORY's block.
+  - With the hub's clique it shares two of 14 sites. The cross squared singular values are 4/5 and 2/5, the joint Krylov ranks 12, 24 and 36, and the clique's 4 × 4 Hankels are positive.
+  - PLANE adopts the fixed-plane correction. The 10:38 model's charges, root triangles, transposition sums, fivefold map and clock orders replay.
+  - The spectral-kernel archive, the hub's exact zip and the checkpoint are recorded, not run.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
