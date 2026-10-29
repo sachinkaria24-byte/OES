@@ -309,11 +309,15 @@ flowchart TB
     V -->|"the five K4 planes"| darkport
     bath -->|"absolutely continuous"| measure
     walks -->|"the free chain"| measure
+    V -->|"the matching planes"| source
+    source -->|"exactly five dark planes"| darkport
+    source -->|"two rotating branches"| readout
+    wedgeport -->|"one-frequency tomography"| darkport
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-65 dots and 230 joins: 207 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 10 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+65 dots and 234 joins: 211 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 10 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
@@ -323,7 +327,7 @@ flowchart TB
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 11 | 11 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 4 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 19 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports | 29 | 16 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports | 31 | 17 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -334,10 +338,10 @@ The maps that join each pair of levels directly.
 |---|---|---|---|---|---|---|
 | number | - | 7 | 3 | 3 | 2 | 2 |
 | symmetry | 7 | - | 11 | 8 | 10 | 7 |
-| combinatorics | 3 | 11 | - | 4 | 15 | 7 |
+| combinatorics | 3 | 11 | - | 4 | 16 | 7 |
 | lattice | 3 | 8 | 4 | - | 19 | 5 |
-| operator | 2 | 10 | 15 | 19 | - | 16 |
-| physics | 2 | 7 | 7 | 5 | 16 | - |
+| operator | 2 | 10 | 16 | 19 | - | 17 |
+| physics | 2 | 7 | 7 | 5 | 17 | - |
 
 ## Dots
 
@@ -641,6 +645,10 @@ The maps that join each pair of levels directly.
 | K5 vertices | dark ports | deleting a vertex leaves a commuting 2-plane of source vectors on its K4; their bivectors lie in the commutator's kernel with Gram 15 I - 3 J, the vertex simplex of the dark four, and every golden line puts 2/5 of its square into each plane (the sibling's MODEL, 16:17) | THEOREM | `k4_planes` |
 | bath | spectral measures | Fourier makes Delta multiplication by eps = 240 - Lambda, nonconstant with range [0, 256]; by the coarea formula and Sard every site vector's spectral measure is absolutely continuous, and a nonzero finitely supported one (a site, any port vector) has density positive almost everywhere on the whole band; both edges are nondegenerate, so the density of states vanishes as E^3 and (256 - E)^3 | THEOREM | `free_chain` |
 | closed walks | spectral measures | so (Rakhmanov) every port measure's Jacobi chain tends to alpha = 128, beta = 64^2; from W_0..W_90 the return, contrast and uniform chains reach alpha_44 = 128.03, 128.13 and 128.03 with beta rising to 4080.2, 4073.2 and 4080.6, close to the weight (E(256 - E))^3 with the same edge exponents (beta_45 = 4080.4) | THEOREM | `free_chain` |
+| K5 vertices | source | each vertex deletion leaves the 2-plane E_r of matching differences, the fixed source space of its Klein four group; the five G-projectors have sum 2 I and P_r P_s P_r = P_r/4 (all principal angles 60 degrees), and Tr(P_r R_j) = 2/5 against each of the six Golden lines (the hub, 16:47) | THEOREM | `k4_complete` |
+| source | dark ports | on the commutator's 4-dimensional kernel the Pluecker quadrics have exactly five projective solutions, all reduced, and they are the five planes: W_AS(a ^ b) = 0 only for collinear pairs or pairs spanning one E_r; each is a regular zero (tangent spectrum (2/3)^3 (10/9)^3), and the oriented bivectors, a 15-tight simplex of the dark four, are told apart by L = sum 2^r <p_r, .> (values 15 2^s - 93) | THEOREM | `k4_complete` |
+| source | readout | the finite return parent keeps each matching plane, with an exact blind circular orbit (energy 32, charge 16); on its S2 x S3 line u (\|u\|^2 = 18, Tr A^3/6 = -16) it rotates on two branches, X = omega^2 = 6 and 32/3 at r = 1/2, both checked in the full equations (the hub, 16:47) | THEOREM | `dark_branches` |
+| root-wedge port | dark ports | one complete retained response G^-1 = [[A, C], [C^T, D]] of the anchored F20 interaction gives back q = Tr CC^T/Tr(A - min A), X = C/q and both baselines (q = 1/7, a = 1/2, b = 1/3 for X0 + 2X1); the scalar determinant sees only four singular squares (a one-parameter isospectral family through X0 + 2X1 - X2 + 3X4), and the two-pole emulators have 0, 1, 3, 4 modes above the band at q = 1/7, 1, 2, 5 (the hub, 16:47) | THEOREM | `tomography` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 

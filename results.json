@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.71,
+  "1-carrier": 0.66,
   "2-spectral": 0.01,
-  "3-spacetime": 11.48,
-  "4-native": 99.3,
-  "5-observer": 6.74,
-  "6-gravity": 6.11,
-  "7-cosmology": 1.97,
-  "8-frontier": 43.27,
-  "9-joins": 10.31,
-  "10-literal": 39.05,
-  "11-glue": 0.26,
-  "12-binding": 0.1,
-  "13-gates": 0.29,
-  "14-recurrence": 83.48,
-  "15-court": 1.87,
-  "16-handover": 1.6,
-  "17-waves": 1.06,
-  "18-snapshot": 1.93,
-  "19-spine": 6.33,
-  "20-canon": 7.03,
-  "21-ledger": 50.89,
-  "22-counts": 27.5,
-  "23-dots": 149.19,
-  "24-assignment": 3.63
+  "3-spacetime": 10.49,
+  "4-native": 99.68,
+  "5-observer": 5.98,
+  "6-gravity": 6.28,
+  "7-cosmology": 1.7,
+  "8-frontier": 44.8,
+  "9-joins": 9.81,
+  "10-literal": 40.04,
+  "11-glue": 0.25,
+  "12-binding": 0.06,
+  "13-gates": 0.36,
+  "14-recurrence": 81.06,
+  "15-court": 1.79,
+  "16-handover": 1.81,
+  "17-waves": 1.11,
+  "18-snapshot": 1.88,
+  "19-spine": 6.19,
+  "20-canon": 6.73,
+  "21-ledger": 45.31,
+  "22-counts": 23.56,
+  "23-dots": 151.61,
+  "24-assignment": 4.14
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 599,
-   "total": 599
+   "passed": 604,
+   "total": 604
   },
   "OBSTRUCTION": {
    "passed": 56,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 93,
-   "total": 93
+   "passed": 95,
+   "total": 95
   }
  },
  "checks": [
@@ -8514,6 +8514,59 @@
   },
   {
    "layer": "23-dots",
+   "name": "K5 vertices -> source: each vertex deletion leaves the 2-plane E_r of matching differences, the fixed source space of its Klein four group; the five G-projectors have sum 2 I and P_r P_s P_r = P_r/4 (all principal angles 60 degrees), and Tr(P_r R_j) = 2/5 against each of the six Golden lines (the hub, 16:47)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "deleting vertex r leaves the 2-plane E_r of matching differences, the fixed source space of the Klein four group on the other four vertices; the five G-projectors have sum 2 I and P_r P_s P_r = P_r/4, so any two planes meet at both principal angles 60 degrees, and Tr(P_r R_j) = 2/5 against each of the six Golden lines": true,
+    "on the commutator's 4-dimensional kernel in Lambda^2 of the source the five Pluecker quadrics have exactly five projective solutions, each reduced (Jacobian rank 3), and they are the five planes: W_AS(a ^ b) = 0 only for collinear a, b or for a pair spanning one E_r": true,
+    "oriented by (-1)^r the planes' bivectors sum to zero and S5 moves them by p_r -> sgn(sigma) p_sigma(r); their H-Gram is 15 delta - 3 and sum p_r p_r^T H = 15 P_dark, so any four recover the dark four (eigenvalues 15, 15, 15, 3), and the marked scalar L = sum 2^r <p_r, .> tags the ten oriented planes by +-(15 2^s - 93): -78, -63, -33, 27, 147, at least 6 apart": true,
+    "at each plane the commutator's derivative on the six Grassmann tangent wedges has generalized spectrum (lambda - 2/3)^3 (lambda - 10/9)^3 against their H-Gram: every dark plane is a regular zero (condition number sqrt(5/3)), so the oriented unit planes near the ten zeros have exactly ten inverse branches": true,
+    "the word lattice (ell = a0 + 2a1 + 2a2 + a3 + 2a4 = 0 mod 3) meets each plane in index 3 (det 108; ell does not vanish on any E_r mod 3): its two minima are 12 and 12 on two planes and 4 and 28 on the other three, so the cheapest prepared rotor z = e^(2it)(a + ib) has energy |a|^2 + |b|^2 = 24 or 32 and charge 12 or 16": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> dark ports: on the commutator's 4-dimensional kernel the Pluecker quadrics have exactly five projective solutions, all reduced, and they are the five planes: W_AS(a ^ b) = 0 only for collinear pairs or pairs spanning one E_r; each is a regular zero (tangent spectrum (2/3)^3 (10/9)^3), and the oriented bivectors, a 15-tight simplex of the dark four, are told apart by L = sum 2^r <p_r, .> (values 15 2^s - 93)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "deleting vertex r leaves the 2-plane E_r of matching differences, the fixed source space of the Klein four group on the other four vertices; the five G-projectors have sum 2 I and P_r P_s P_r = P_r/4, so any two planes meet at both principal angles 60 degrees, and Tr(P_r R_j) = 2/5 against each of the six Golden lines": true,
+    "on the commutator's 4-dimensional kernel in Lambda^2 of the source the five Pluecker quadrics have exactly five projective solutions, each reduced (Jacobian rank 3), and they are the five planes: W_AS(a ^ b) = 0 only for collinear a, b or for a pair spanning one E_r": true,
+    "oriented by (-1)^r the planes' bivectors sum to zero and S5 moves them by p_r -> sgn(sigma) p_sigma(r); their H-Gram is 15 delta - 3 and sum p_r p_r^T H = 15 P_dark, so any four recover the dark four (eigenvalues 15, 15, 15, 3), and the marked scalar L = sum 2^r <p_r, .> tags the ten oriented planes by +-(15 2^s - 93): -78, -63, -33, 27, 147, at least 6 apart": true,
+    "at each plane the commutator's derivative on the six Grassmann tangent wedges has generalized spectrum (lambda - 2/3)^3 (lambda - 10/9)^3 against their H-Gram: every dark plane is a regular zero (condition number sqrt(5/3)), so the oriented unit planes near the ten zeros have exactly ten inverse branches": true,
+    "the word lattice (ell = a0 + 2a1 + 2a2 + a3 + 2a4 = 0 mod 3) meets each plane in index 3 (det 108; ell does not vanish on any E_r mod 3): its two minima are 12 and 12 on two planes and 4 and 28 on the other three, so the cheapest prepared rotor z = e^(2it)(a + ib) has energy |a|^2 + |b|^2 = 24 or 32 and charge 12 or 16": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> readout: the finite return parent keeps each matching plane, with an exact blind circular orbit (energy 32, charge 16); on its S2 x S3 line u (|u|^2 = 18, Tr A^3/6 = -16) it rotates on two branches, X = omega^2 = 6 and 32/3 at r = 1/2, both checked in the full equations (the hub, 16:47)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on its proportional line u (the S2 x S3-fixed source: -3 on edge 01, +1 across, -1 within {2, 3, 4}; |u|^2 = 18, Tr A(u)^3/6 = -16) the finite return parent has two rotating branches, a = r cos(wt) u, b = r sin(wt) u, h = s (cos wt, sin wt), with X = w^2 on X^2 - (14 + k) X + 40 + 9k = 0 (k = 128 r^4/3): P(4) = 5k, P(9) = -5 and P(10) = -k put one root in (4, 9) and one above 10 for every r > 0": true,
+    "at r = 1/2 both branches solve the full ten source and two hidden equations at three phases: the lower X = 6, s = -1/2 with energy 51/2 and charge (19/4) sqrt6, and the upper X = 32/3, s = 3 with energy 134 and charge 18 sqrt6": true,
+    "the parent's force keeps every matching plane, so each E_r carries a 12-dimensional all-time commutator-dark phase space; two matching differences of norm 4 with a' = b, b' = -a give phi = (-4/3, -4/3), energy 20 rho^2 + (16/9) rho^6 = (5/2)|Q| + |Q|^3/288 for Q = -8 rho^2, and the orthogonal pair a = u1, b = (u1 - 2 u2)/sqrt3 has phi = 0 and the exact circular orbit e^(2it)(a + ib), energy 32 and charge 16, blind to W and h": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "root-wedge port -> dark ports: one complete retained response G^-1 = [[A, C], [C^T, D]] of the anchored F20 interaction gives back q = Tr CC^T/Tr(A - min A), X = C/q and both baselines (q = 1/7, a = 1/2, b = 1/3 for X0 + 2X1); the scalar determinant sees only four singular squares (a one-parameter isospectral family through X0 + 2X1 - X2 + 3X4), and the two-pole emulators have 0, 1, 3, 4 modes above the band at q = 1/7, 1, 2, 5 (the hub, 16:47)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "for the anchored interaction q [X; I][X^T, I] with block responses a and b, the complete retained response G^-1 = [[A, C], [C^T, D]] gives the model back at one frequency: ell = min spec A = 1/a, q = Tr CC^T/Tr(A - ell), X = C/q, b = 1/(Tr D/4 - q). For X = X0 + 2X1 (singular squares 9, 1, 17/5, 17/5) the bright inverse spectrum is 2, 2, 15/7, 87/35, 87/35, 23/7 and the read-back is q = 1/7, a = 1/2, b = 1/3": true,
+    "the decrement G0 - G has its bright block G_BD (dG_DD)^-1 G_DB (rank 4, coupling-free), the first moments shift by q U U^T so that 4 Tr dM1_B/Tr dM1_D = |X|^2 = 84/5, and the six views averaged give (45/94) I_B + (15/47) I_D, inverse residual (4/45, 2/15), a forgotten context adding (8 q^2/9) I_B + q^2 I_D": true,
+    "the scalar perturbation determinant prod_j [1 + q(b + mu_j a)] sees only the four singular squares: for X0 + 2X1 - X2 + 3X4 they solve 25t^4 - 1300t^3 + 19140t^2 - 102560t + 162176 (power traces 52, 5864/5, 167408/5, 25763104/25), and the traces' 4 x 5 Jacobian has rank 4 with minor -3201739259904/625 and kernel (30595, -225, 55235, -6812, 41885), a one-parameter isospectral family. At q = 1/7, a = 1/2, b = 1/3 the determinant is 55899556/4862025, and log D = 8/s - (459567/245)/s^2 + ... from the moments 232 and 975/4": true,
+    "the two-pole emulators of the bright and dark moments have hidden diagonals 72928/389 and 1121463/5260 and edge responses 26656/488423 and 225097/2325132 at 256, so q[B + mu_j A] > 1 counts 0, 1, 3 and 4 emulator modes above the band at q = 1/7, 1, 2, 5 (the infinite E8 thresholds stay uncomputed)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -8538,7 +8591,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 65 dots and 230 joins form one connected diagram (the obstructions left out)",
+   "name": "the 65 dots and 234 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8778,7 +8831,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 16 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 17 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8847,6 +8900,7 @@
      "waves -> bath",
      "source -> waves",
      "source -> charges",
+     "source -> readout",
      "source -> readout"
     ]
    ],
@@ -8858,7 +8912,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 207,
+    "THEOREM": 211,
     "OBSTRUCTION": 10,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8878,19 +8932,19 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 8, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 15, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 16",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 8, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 16, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 17",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
     "(3, 4)": 19,
-    "(2, 4)": 15,
+    "(2, 4)": 16,
     "(1, 3)": 8,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
     "(1, 4)": 10,
-    "(4, 5)": 16,
+    "(4, 5)": 17,
     "(2, 5)": 7,
     "(3, 5)": 5,
     "(0, 3)": 3,
@@ -9776,6 +9830,34 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the [12, 6, 6] word code and its distances 1, 2, 5 over F2, F3, F5, the 24-record raw-cell code and its 31626 support pairs, the thirteen interferometric intensities, the 923 erasure patterns and the distance-4 edge reader, the CP4 phase floor, the Weyl certificates 117705 and 943098 (the norm-four shell argument makes them unnecessary), the bright-to-dark threshold transfer (inherited constants), the return slice's ranks 6, 9, 10 and its minors, and the free source's minors -41787850752 and -1337211224064; the sibling's integrated readings (numbers read as names) are not recorded",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 16:47 text and the 16:19-16:58 model: the dark plane's Fubini-Study connection (flux 2 pi, holonomy pi), the clock's plane labels p(j) = 4j mod 5 (864 adds 1, 3457 doubles; 180 address-plane pairs of 24 frames), and the sibling's checkable numbers (12 five-cycles, the decoder ratio -9, 14539767 = 3 x 11 x 593 x 743, the golden matrix, root grades 40, 50, 50, 50, 50)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a complexified dark plane carries the Fubini-Study connection A = (-y dx + x dy)/(1 + x^2 + y^2): curvature 2/(1 + x^2 + y^2)^2, flux 2 pi and unit-circle holonomy pi, a source phase bundle that stays commutator-dark": true,
+    "the clock labels the planes by p(j) = 4j mod 5: the 864 translation moves p by 1 and the 3457 multiplication doubles it, both keep j mod 36, and each of the 180 address-plane pairs has exactly 24 clock frames": true,
+    "the sibling's checkable numbers hold: K5 has 12 five-cycles; -22708224 = -9 x 2523136; 14539767 = 3 x 11 x 593 x 743; F = [[1, 1], [1, 0]] has F^2 = F + I, F^6 = [[13, 8], [8, 5]] and traces 7, 11, 18 at powers 4, 5, 6; and the mod-5 sums of the first five doubled root coordinates split the roots 40, 50, 50, 50, 50": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 16:51: the hub's OES_Unified_Model_20261029.txt as revised at 16:47 (sources through 16:23), read as text; its zip (3203676 bytes) and the OES ChatGPT Library Mirror 20261029 folder (16:51-16:56: eleven packages with their notes, receipts and verifiers) were not opened beyond ALL_DOTS_INVERSE_DYSON_JOIN.md, and no verifier was run; the sibling's MODEL edition of 16:58 (those of 16:19-16:57, with the spine PDFs, are superseded)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the ten-position derivative's gains (4/3, 20/3, (10 -+ 2 sqrt5)/3), the local bound (29/54) x, the norm-only and Stieltjes bounds on the determinant, the joint CP5 connection of the finite parent, and the sibling's recovery ranks 90, 170, 250, 330, 360 and its integrated readings (numbers read as names)",
    "status": "REPORTED",
    "passed": true,
    "value": null,

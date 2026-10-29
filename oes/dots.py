@@ -305,6 +305,14 @@ five K4 planes of the vertex deletions span the dark four as a simplex. The bath
 continuous on all of [0, 256], with density positive almost everywhere for every port vector. By Rakhmanov's theorem
 every port's Jacobi chain therefore tends to the free chain (128, 64^2), and the 91 exact walk counts reach
 alpha_44 = 128.03 and beta_45 = 4080.2.
+
+At 16:51 the hub's text (16:47) and the sibling's MODEL (16:19-16:58) came in, with a mirror of the hub's packages. The
+five K4 matching planes are all of the commutator's dark planes: on its kernel the Pluecker quadrics have exactly five
+reduced solutions. Each plane is a regular zero with tangent spectrum (2/3)^3 (10/9)^3, so near the dark planes the
+source has exactly ten oriented preimages, and one marked scalar tells them apart. The word lattice prices a prepared
+rotor on the planes at 24 or 32. The finite return parent keeps every plane and, on its proportional line, rotates on
+two exact branches, X = 6 and 32/3 at r = 1/2. One complete response at one frequency gives back the anchored
+interaction and both baselines, while the scalar determinant leaves a one-parameter isospectral family.
 """
 
 import functools
@@ -6505,6 +6513,295 @@ def free_chain():
     }
 
 
+# ------------------- 16:51: the five dark planes, two rotating branches, and the response read at one frequency
+
+def _planes():
+    """The five K4 matching planes (16:47): E_r, the source vectors vanishing on the edges at vertex r, as 5 x 2 bases in
+    primitive source coordinates (sympy's nullspace basis, Gram [[4, 2], [2, 4]])."""
+    E, N5, sym, F, a0, b0 = _source()
+    return [sp.Matrix.hstack(*N5.extract([k for k, e in enumerate(E) if v in e], list(range(5))).nullspace())
+            for v in range(5)]
+
+
+def _lagrange(u, v, G):
+    """A Lagrange-reduced basis of the plane lattice Z u + Z v under the metric G: its norms are the two minima."""
+    n = lambda x: (x.T * G * x)[0]
+    while True:
+        if n(v) < n(u):
+            u, v = v, u
+        k = sp.floor((u.T * G * v)[0] / n(u) + sp.Rational(1, 2))
+        if k == 0:
+            return u, v
+        v = v - k * u
+
+
+def k4_complete():
+    """The hub's text (16:47): the five K4 matching planes are all of the commutator's dark planes, and their geometry."""
+    E, N5, sym, F, a0, b0 = _source()
+    H, sig, S5, sgn, U = _six_lines()
+    G = N5.T * N5
+    Ur = _planes()
+    P = [u * (u.T * G * u).inv() * u.T * G for u in Ur]
+    V = G.inv() * N5.T * sp.Matrix.hstack(*H)
+    Rj = [V[:, j] * V[:, j].T * G / (V[:, j].T * G * V[:, j])[0] for j in range(6)]
+    act = lambda p: G.inv() * N5.T * _edge_perm(p) * N5
+    klein = lambda r: [p for p in S5 if p[r] == r and Permutation(list(p)).order() == 2
+                       and all(p[i] != i for i in range(5) if i != r)]
+    pairs = list(itertools.combinations(range(5), 2))
+    wedge = lambda x, y: sp.Matrix([x[i] * y[j] - x[j] * y[i] for i, j in pairs])
+    Hm = sp.Matrix(10, 10, lambda r, c: G.extract(list(pairs[r]), list(pairs[c])).det())
+    W = sp.Matrix.hstack(*[F(N5[:, i], N5[:, j]) for i, j in pairs])
+    K = W.nullspace()
+    t = sp.symbols("t0:4")
+    b = sum((t[k] * K[k] for k in range(4)), sp.zeros(10, 1))
+    c = lambda i, j: b[pairs.index((i, j))] if i < j else -b[pairs.index((j, i))]
+    quad = [sp.expand(c(i, j) * c(k, l) - c(i, k) * c(j, l) + c(i, l) * c(j, k))
+            for i, j, k, l in itertools.combinations(range(5), 4)]
+    pts = set()
+    for s in sp.solve(quad, t, dict=True):
+        v = [sp.sympify(s.get(x, x)).subs({f: 1 for f in t if f not in s}) for x in t]
+        lead = next(z for z in v if z != 0)
+        pts.add(tuple(z / lead for z in v))
+    jac = sp.Matrix(quad).jacobian(t)
+    Km = sp.Matrix.hstack(*K)
+    p = [(-1) ** r * wedge(u[:, 0], u[:, 1]) for r, u in enumerate(Ur)]
+    cls = set()
+    for x in p:
+        y = list((Km.T * Km).inv() * Km.T * x)
+        cls.add(tuple(z / next(w for w in y if w != 0) for z in y))
+    gram = sp.Matrix(5, 5, lambda i, j: (p[i].T * Hm * p[j])[0])
+    S = sum((x * x.T * Hm for x in p), sp.zeros(10))
+    L = [sum(2 ** r * (p[r].T * Hm * p[s])[0] for r in range(5)) for s in range(5)]
+    tags = sorted(L + [-x for x in L])
+    lam_ = sp.symbols("lam")
+    spec = set()
+    for u in Ur:
+        comp = (u.T * G).nullspace()
+        tang = [wedge(n, u[:, 1]) for n in comp] + [wedge(u[:, 0], n) for n in comp]
+        M = sp.Matrix(6, 6, lambda i, j: (tang[i].T * Hm * tang[j])[0])
+        J = W * sp.Matrix.hstack(*tang)
+        spec.add(sp.expand(sp.cancel((J.T * J - lam_ * M).det() / M.det())))
+    ell = sp.Matrix([[1, 2, 2, 1, 2]])
+    minima = []
+    for u in Ur:
+        l0, l1 = (ell * u[:, 0])[0] % 3, (ell * u[:, 1])[0] % 3
+        B = (u[:, 0] + ((-l0 * pow(int(l1), -1, 3)) % 3) * u[:, 1], 3 * u[:, 1]) if l1 else (3 * u[:, 0], u[:, 1])
+        x, y = _lagrange(B[0], B[1], G)
+        minima.append(((x.T * G * x)[0], (y.T * G * y)[0], (sp.Matrix.hstack(*B).T * G * sp.Matrix.hstack(*B)).det()))
+    return {
+        "deleting vertex r leaves the 2-plane E_r of matching differences, the fixed source space of the Klein four "
+        "group on the other four vertices; the five G-projectors have sum 2 I and P_r P_s P_r = P_r/4, so any two planes "
+        "meet at both principal angles 60 degrees, and Tr(P_r R_j) = 2/5 against each of the six Golden lines":
+            all(len(sp.Matrix.vstack(*[act(q) - sp.eye(5) for q in klein(r)]).nullspace()) == 2
+                and all((act(q) * u - u).is_zero_matrix for q in klein(r)) for r, u in enumerate(Ur))
+            and all(len(klein(r)) == 3 for r in range(5)) and sum(P, sp.zeros(5)) == 2 * sp.eye(5)
+            and all(P[r] * P[s] * P[r] == P[r] / 4 for r in range(5) for s in range(5) if r != s)
+            and all((Pr * R).trace() == sp.Rational(2, 5) for Pr in P for R in Rj),
+        "on the commutator's 4-dimensional kernel in Lambda^2 of the source the five Pluecker quadrics have exactly five "
+        "projective solutions, each reduced (Jacobian rank 3), and they are the five planes: W_AS(a ^ b) = 0 only for "
+        "collinear a, b or for a pair spanning one E_r": len(K) == 4 and len(pts) == 5
+            and all(jac.subs(dict(zip(t, q))).rank() == 3 for q in pts) and cls == pts,
+        "oriented by (-1)^r the planes' bivectors sum to zero and S5 moves them by p_r -> sgn(sigma) p_sigma(r); their "
+        "H-Gram is 15 delta - 3 and sum p_r p_r^T H = 15 P_dark, so any four recover the dark four (eigenvalues 15, 15, 15, "
+        "3), and the marked scalar L = sum 2^r <p_r, .> tags the ten oriented planes by +-(15 2^s - 93): -78, -63, -33, "
+        "27, 147, at least 6 apart": sum(p, sp.zeros(10, 1)).is_zero_matrix
+            and all(compound2(act(q)) * p[r] == sgn[q] * p[q[r]] for q in S5 for r in range(5))
+            and gram == 15 * sp.eye(5) - 3 * sp.ones(5, 5) and S * S == 15 * S and S.rank() == 4
+            and sorted((15 * sp.eye(4) - 3 * sp.ones(4, 4)).eigenvals().items()) == [(3, 1), (15, 3)]
+            and L == [-78, -63, -33, 27, 147] and min(y - x for x, y in zip(tags, tags[1:])) == 6,
+        "at each plane the commutator's derivative on the six Grassmann tangent wedges has generalized spectrum "
+        "(lambda - 2/3)^3 (lambda - 10/9)^3 against their H-Gram: every dark plane is a regular zero (condition number "
+        "sqrt(5/3)), so the oriented unit planes near the ten zeros have exactly ten inverse branches":
+            spec == {sp.expand((lam_ - sp.Rational(2, 3)) ** 3 * (lam_ - sp.Rational(10, 9)) ** 3)},
+        "the word lattice (ell = a0 + 2a1 + 2a2 + a3 + 2a4 = 0 mod 3) meets each plane in index 3 (det 108; ell does not "
+        "vanish on any E_r mod 3): its two minima are 12 and 12 on two planes and 4 and 28 on the other three, so the "
+        "cheapest prepared rotor z = e^(2it)(a + ib) has energy |a|^2 + |b|^2 = 24 or 32 and charge 12 or 16":
+            sorted(minima) == [(4, 28, 108)] * 3 + [(12, 12, 108)] * 2
+            and all((ell * u).applyfunc(lambda z: z % 3) != sp.zeros(1, 2) for u in Ur),
+    }
+
+
+def dark_branches():
+    """The hub's text (16:47): the finite return parent keeps the dark planes, and its proportional line rotates on two
+    branches."""
+    E, N5, sym, F, a0, b0 = _source()
+    G = N5.T * N5
+    av, bv = sp.Matrix(sp.symbols("a0:5")), sp.Matrix(sp.symbols("b0:5"))
+    A, B = sym(N5 * av), sym(N5 * bv)
+    phi = sp.Matrix([((A ** 2 + B ** 2) * A).trace() / 6, ((A ** 2 + B ** 2) * B).trace() / 6]).applyfunc(sp.expand)
+    Ja, Jb = phi.jacobian(list(av)), phi.jacobian(list(bv))
+    at = lambda a, b: dict(zip(list(av) + list(bv), list(a) + list(b)))
+
+    def residual(a, b, h, X):
+        """The finite parent's equations G a'' = -4 G a + (d_a phi)^T (h - phi), likewise b, h'' = phi - 10 h, on a
+        rotating ansatz with a'' = -X a, b'' = -X b, h'' = -X h."""
+        s = at(a, b)
+        f = h - phi.subs(s)
+        out = [(4 - X) * G * a - Ja.subs(s).T * f, (4 - X) * G * b - Jb.subs(s).T * f, (10 - X) * h - phi.subs(s)]
+        return all(r.applyfunc(sp.simplify).is_zero_matrix for r in out)
+    e = sp.Matrix([-3 if (i, j) == (0, 1) else (1 if (i < 2) != (j < 2) else -1) for i, j in E])
+    u = G.inv() * N5.T * e
+    s23 = [p for p in itertools.permutations(range(5)) if set(p[:2]) == {0, 1}]
+    r = sp.Rational(1, 2)
+    phases = [(1, 0), (sp.Rational(3, 5), sp.Rational(4, 5)), (0, 1)]
+    branch = {X: all(residual(r * c * u, r * s_ * u, h * sp.Matrix([c, s_]), X) for c, s_ in phases)
+              for X, h in ((6, sp.Rational(-1, 2)), (sp.Rational(32, 3), 3))}
+    k, X = sp.symbols("k X", positive=True)
+    P = X ** 2 - (14 + k) * X + 40 + 9 * k
+    nrg = lambda X_, s_: (X_ * (r ** 2 * 18 + s_ ** 2) / 2 + 2 * r ** 2 * 18 + sp.Rational(9, 2) * s_ ** 2
+                          + (s_ + 16 * r ** 3) ** 2 / 2)
+    chg = lambda X_, s_: sp.sqrt(X_) * (r ** 2 * 18 + s_ ** 2)
+    U4 = _planes()[4]
+    u1, u2 = U4[:, 0], U4[:, 1]
+    rho = sp.symbols("rho", positive=True)
+    pk = phi.subs(at(rho * u1, rho * u2))
+    Hk = (rho ** 2 * 4 + rho ** 2 * 4) / 2 + 2 * (4 + 4) * rho ** 2 + (pk.T * pk)[0] / 2
+    blind = (u1, (u1 - 2 * u2) / sp.sqrt(3))
+    Pl = U4 * (U4.T * G * U4).inv() * U4.T * G
+    s = at(u1 + 2 * u2, 3 * u1 - u2)
+    return {
+        "on its proportional line u (the S2 x S3-fixed source: -3 on edge 01, +1 across, -1 within {2, 3, 4}; |u|^2 = 18, "
+        "Tr A(u)^3/6 = -16) the finite return parent has two rotating branches, a = r cos(wt) u, b = r sin(wt) u, "
+        "h = s (cos wt, sin wt), with X = w^2 on X^2 - (14 + k) X + 40 + 9k = 0 (k = 128 r^4/3): P(4) = 5k, P(9) = -5 and "
+        "P(10) = -k put one root in (4, 9) and one above 10 for every r > 0": (N5 * u - e).is_zero_matrix
+            and all((G.inv() * N5.T * _edge_perm(p) * N5 * u - u).is_zero_matrix for p in s23)
+            and (u.T * G * u)[0] == 18 and (sym(N5 * u) ** 3).trace() / 6 == -16
+            and [sp.expand(P.subs(X, x)) for x in (4, 9, 10)] == [5 * k, -5, -k],
+        "at r = 1/2 both branches solve the full ten source and two hidden equations at three phases: the lower X = 6, "
+        "s = -1/2 with energy 51/2 and charge (19/4) sqrt6, and the upper X = 32/3, s = 3 with energy 134 and charge "
+        "18 sqrt6": all(branch.values())
+            and sp.solve(P.subs(k, sp.Rational(8, 3)), X) == [6, sp.Rational(32, 3)]
+            and [nrg(6, sp.Rational(-1, 2)), nrg(sp.Rational(32, 3), 3)] == [sp.Rational(51, 2), 134]
+            and sp.simplify(chg(6, sp.Rational(-1, 2)) - sp.Rational(19, 4) * sp.sqrt(6)) == 0
+            and sp.simplify(chg(sp.Rational(32, 3), 3) - 18 * sp.sqrt(6)) == 0,
+        "the parent's force keeps every matching plane, so each E_r carries a 12-dimensional all-time commutator-dark "
+        "phase space; two matching differences of norm 4 with a' = b, b' = -a give phi = (-4/3, -4/3), energy "
+        "20 rho^2 + (16/9) rho^6 = (5/2)|Q| + |Q|^3/288 for Q = -8 rho^2, and the orthogonal pair a = u1, "
+        "b = (u1 - 2 u2)/sqrt3 has phi = 0 and the exact circular orbit e^(2it)(a + ib), energy 32 and charge 16, blind to "
+        "W and h": all((Pl * G.inv() * Jx.subs(s).T * w - G.inv() * Jx.subs(s).T * w).is_zero_matrix
+                       for Jx in (Ja, Jb) for w in (sp.Matrix([1, 0]), sp.Matrix([0, 1])))
+            and pk == sp.Matrix([-sp.Rational(4, 3), -sp.Rational(4, 3)]) * rho ** 3
+            and sp.expand(Hk - 20 * rho ** 2 - sp.Rational(16, 9) * rho ** 6) == 0
+            and sp.expand(sp.Rational(5, 2) * 8 * rho ** 2 + (8 * rho ** 2) ** 3 / 288 - Hk) == 0
+            and phi.subs(at(*blind)).applyfunc(sp.simplify).is_zero_matrix
+            and residual(blind[0], blind[1], sp.zeros(2, 1), 4)
+            and [sp.simplify((x.T * G * x)[0]) for x in blind] == [4, 4] and sp.simplify((blind[0].T * G * blind[1])[0]) == 0
+            and ((4 * 4 + 4 * 4) / 2 + 2 * (4 + 4), 2 * (4 + 4)) == (32, 16),
+    }
+
+
+def tomography():
+    """The hub's text (16:47): the anchored F20 interaction read back from one complete response, the scalar shift's
+    blind direction, and the above-band modes of the two-pole emulators."""
+    Xs, F = _mixers()
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    P5 = sp.eye(5) - sp.ones(5, 5) / 5
+    PB, PD = sp.diag(Pc, sp.zeros(5)), sp.diag(sp.zeros(10), P5)
+    q, a, b = sp.Rational(1, 7), sp.Rational(1, 2), sp.Rational(1, 3)
+    X = Xs[0] + 2 * Xs[1]
+    Uq = sp.Matrix.vstack(X, P5)
+    K = PB / a + PD / b + q * Uq * Uq.T
+    Gm = (K + sp.eye(15) - PB - PD).inv() - (sp.eye(15) - PB - PD)
+    Kr = (Gm + sp.eye(15) - PB - PD).inv() - (sp.eye(15) - PB - PD)
+    A_, C_, D_ = Kr[:10, :10], Kr[:10, 10:], Kr[10:, 10:]
+    bright = sorted(e for e, k in A_.eigenvals().items() for _ in range(k) if e != 0)
+    ell = bright[0]
+    Rm = A_ - ell * Pc
+    q_ = (C_ * C_.T).trace() / Rm.trace()
+    m = D_.trace() / 4
+    G0 = a * PB + b * PD
+    dG = G0 - Gm
+    sch = dG[10:, 10:] + sp.eye(15)[10:, 10:] - P5
+    mean = sum((((PB / a + PD / b + q * sp.Matrix.vstack(x, P5) * sp.Matrix.vstack(x, P5).T + sp.eye(15) - PB - PD).inv()
+                 - (sp.eye(15) - PB - PD)) for x in Xs), sp.zeros(15)) / 6
+    t = sp.symbols("t")
+    Y = Xs[0] + 2 * Xs[1] - Xs[2] + 3 * Xs[4]
+    Q = Y.T * Y
+    cp = sp.Poly(sp.cancel(Q.charpoly(t).as_expr() / t), t)
+    pw = [(Q ** k).trace() for k in range(1, 5)]
+    Jp = sp.Matrix(4, 5, lambda k, i: (k + 1) * (Q ** k * (Xs[i].T * Y + Y.T * Xs[i])).trace())
+    ker = Jp.nullspace()[0]
+    ker = ker / ker[4] * 41885
+    c0, d = 1 + q * b, q * a
+    Dy = d ** 4 * cp.as_expr().subs(t, -c0 / d)
+    e1 = -cp.all_coeffs()[1]
+    coef2 = -q * (4 * sp.Rational(975, 4) + 232 * e1) - q ** 2 / 2 * (4 + 2 * e1 + pw[1])
+    alb = court.chebyshev([1, 232, 54213, 12740592])[0][1]
+    ald = court.chebyshev([1, sp.Rational(975, 4), sp.Rational(237985, 4), 14539767])[0][1]
+    edge = lambda m1, var, al: (256 - al) / ((256 - m1) * (256 - al) - var)
+    Ab, Bd = edge(232, 389, alb), edge(sp.Rational(975, 4), sp.Rational(1315, 16), ald)
+    above = [cp.count_roots((1 / qq - Bd) / Ab, sp.oo) for qq in (sp.Rational(1, 7), 1, 2, 5)]
+    return {
+        "for the anchored interaction q [X; I][X^T, I] with block responses a and b, the complete retained response "
+        "G^-1 = [[A, C], [C^T, D]] gives the model back at one frequency: ell = min spec A = 1/a, q = Tr CC^T/Tr(A - ell), "
+        "X = C/q, b = 1/(Tr D/4 - q). For X = X0 + 2X1 (singular squares 9, 1, 17/5, 17/5) the bright inverse spectrum is "
+        "2, 2, 15/7, 87/35, 87/35, 23/7 and the read-back is q = 1/7, a = 1/2, b = 1/3":
+            sorted(e for e, k in (X.T * X).eigenvals().items() for _ in range(k)) == [0, 1, sp.Rational(17, 5),
+                                                                                       sp.Rational(17, 5), 9]
+            and bright == [2, 2, sp.Rational(15, 7), sp.Rational(87, 35), sp.Rational(87, 35), sp.Rational(23, 7)]
+            and (ell, q_, C_ / q_ == X, 1 / (m - q_)) == (2, q, True, b),
+        "the decrement G0 - G has its bright block G_BD (dG_DD)^-1 G_DB (rank 4, coupling-free), the first moments shift "
+        "by q U U^T so that 4 Tr dM1_B/Tr dM1_D = |X|^2 = 84/5, and the six views averaged give (45/94) I_B + (15/47) I_D, "
+        "inverse residual (4/45, 2/15), a forgotten context adding (8 q^2/9) I_B + q^2 I_D":
+            (dG[:10, :10] - Gm[:10, 10:] * sch.inv() * Gm[10:, :10]).applyfunc(sp.simplify).is_zero_matrix
+            and 4 * (q * X * X.T).trace() / (4 * q) == sp.Rational(84, 5) == (X.T * X).trace()
+            and mean == sp.Rational(45, 94) * PB + sp.Rational(15, 47) * PD
+            and [sp.Rational(94, 45) - 2, sp.Rational(47, 15) - 3] == [sp.Rational(4, 45), sp.Rational(2, 15)]
+            and [(2 * q) ** 2 * (sp.Rational(1, 3) - sp.Rational(1, 9)), (2 * q) ** 2 * (sp.Rational(1, 2) - sp.Rational(1, 4))]
+            == [8 * q ** 2 / 9, q ** 2],
+        "the scalar perturbation determinant prod_j [1 + q(b + mu_j a)] sees only the four singular squares: for "
+        "X0 + 2X1 - X2 + 3X4 they solve 25t^4 - 1300t^3 + 19140t^2 - 102560t + 162176 (power traces 52, 5864/5, "
+        "167408/5, 25763104/25), and the traces' 4 x 5 Jacobian has rank 4 with minor -3201739259904/625 and kernel "
+        "(30595, -225, 55235, -6812, 41885), a one-parameter isospectral family. At q = 1/7, a = 1/2, b = 1/3 the "
+        "determinant is 55899556/4862025, and log D = 8/s - (459567/245)/s^2 + ... from the moments 232 and 975/4":
+            sp.Poly(25 * cp.as_expr(), t) == sp.Poly(25 * t ** 4 - 1300 * t ** 3 + 19140 * t ** 2 - 102560 * t + 162176, t)
+            and pw == [52, sp.Rational(5864, 5), sp.Rational(167408, 5), sp.Rational(25763104, 25)]
+            and Jp.rank() == 4 and Jp[:, :4].det() == sp.Rational(-3201739259904, 625)
+            and list(ker) == [30595, -225, 55235, -6812, 41885] and Dy == sp.Rational(55899556, 4862025)
+            and q * (4 + e1) == 8 and coef2 == sp.Rational(-459567, 245),
+        "the two-pole emulators of the bright and dark moments have hidden diagonals 72928/389 and 1121463/5260 and edge "
+        "responses 26656/488423 and 225097/2325132 at 256, so q[B + mu_j A] > 1 counts 0, 1, 3 and 4 emulator modes above "
+        "the band at q = 1/7, 1, 2, 5 (the infinite E8 thresholds stay uncomputed)":
+            (alb, ald) == (sp.Rational(72928, 389), sp.Rational(1121463, 5260))
+            and (Ab, Bd) == (sp.Rational(26656, 488423), sp.Rational(225097, 2325132)) and above == [0, 1, 3, 4],
+    }
+
+
+def notes_1651():
+    """The hub's text (16:47) and the sibling's MODEL (16:19-16:58): the remaining exact items."""
+    x, y, r, th = sp.symbols("x y r theta", real=True)
+    Ax, Ay = -y / (1 + x ** 2 + y ** 2), x / (1 + x ** 2 + y ** 2)
+    curv = sp.simplify(sp.diff(Ay, x) - sp.diff(Ax, y))
+    flux = sp.integrate(sp.integrate((2 / (1 + r ** 2) ** 2) * r, (r, 0, sp.oo)), (th, 0, 2 * sp.pi))
+    hol = sp.integrate((Ax * sp.diff(sp.cos(th), th) + Ay * sp.diff(sp.sin(th), th)).subs({x: sp.cos(th), y: sp.sin(th)}),
+                       (th, 0, 2 * sp.pi))
+    N = 4320
+    lab = lambda j: 4 * j % 5
+    cells = Counter((j % 36, lab(j)) for j in range(N))
+    F_ = sp.Matrix([[1, 1], [1, 0]])
+    cyc = {frozenset(frozenset((c[i], c[(i + 1) % 5])) for i in range(5)) for c in
+           ((0,) + p for p in itertools.permutations(range(1, 5)))}
+    R2 = 2 * glue.roots()
+    grade = Counter(int(round(v[:5].sum())) % 5 for v in R2)
+    return {
+        "a complexified dark plane carries the Fubini-Study connection A = (-y dx + x dy)/(1 + x^2 + y^2): curvature "
+        "2/(1 + x^2 + y^2)^2, flux 2 pi and unit-circle holonomy pi, a source phase bundle that stays commutator-dark":
+            sp.simplify(curv - 2 / (1 + x ** 2 + y ** 2) ** 2) == 0 and flux == 2 * sp.pi and sp.simplify(hol - sp.pi) == 0,
+        "the clock labels the planes by p(j) = 4j mod 5: the 864 translation moves p by 1 and the 3457 multiplication "
+        "doubles it, both keep j mod 36, and each of the 180 address-plane pairs has exactly 24 clock frames":
+            all(lab(j + 864) == (lab(j) + 1) % 5 and lab(3457 * j % N) == 2 * lab(j) % 5 for j in range(N))
+            and all((j + 864) % 36 == j % 36 == 3457 * j % N % 36 for j in range(N))
+            and len(cells) == 180 and set(cells.values()) == {24},
+        "the sibling's checkable numbers hold: K5 has 12 five-cycles; -22708224 = -9 x 2523136; 14539767 = 3 x 11 x 593 "
+        "x 743; F = [[1, 1], [1, 0]] has F^2 = F + I, F^6 = [[13, 8], [8, 5]] and traces 7, 11, 18 at powers 4, 5, 6; and "
+        "the mod-5 sums of the first five doubled root coordinates split the roots 40, 50, 50, 50, 50":
+            len(cyc) == 12 and -9 * 2523136 == -22708224 and 3 * 11 * 593 * 743 == 14539767
+            and F_ ** 2 == F_ + sp.eye(2) and F_ ** 6 == sp.Matrix([[13, 8], [8, 5]])
+            and [(F_ ** k).trace() for k in (4, 5, 6)] == [7, 11, 18] and sorted(grade.values()) == [40, 50, 50, 50, 50],
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -6829,6 +7126,10 @@ JOINS = [
     ("V", "darkport", "the five K4 planes", "deleting a vertex leaves a commuting 2-plane of source vectors on its K4; their bivectors lie in the commutator's kernel with Gram 15 I - 3 J, the vertex simplex of the dark four, and every golden line puts 2/5 of its square into each plane (the sibling's MODEL, 16:17)", T, "k4_planes"),
     ("bath", "measure", "absolutely continuous", "Fourier makes Delta multiplication by eps = 240 - Lambda, nonconstant with range [0, 256]; by the coarea formula and Sard every site vector's spectral measure is absolutely continuous, and a nonzero finitely supported one (a site, any port vector) has density positive almost everywhere on the whole band; both edges are nondegenerate, so the density of states vanishes as E^3 and (256 - E)^3", T, "free_chain"),
     ("walks", "measure", "the free chain", "so (Rakhmanov) every port measure's Jacobi chain tends to alpha = 128, beta = 64^2; from W_0..W_90 the return, contrast and uniform chains reach alpha_44 = 128.03, 128.13 and 128.03 with beta rising to 4080.2, 4073.2 and 4080.6, close to the weight (E(256 - E))^3 with the same edge exponents (beta_45 = 4080.4)", T, "free_chain"),
+    ("V", "source", "the matching planes", "each vertex deletion leaves the 2-plane E_r of matching differences, the fixed source space of its Klein four group; the five G-projectors have sum 2 I and P_r P_s P_r = P_r/4 (all principal angles 60 degrees), and Tr(P_r R_j) = 2/5 against each of the six Golden lines (the hub, 16:47)", T, "k4_complete"),
+    ("source", "darkport", "exactly five dark planes", "on the commutator's 4-dimensional kernel the Pluecker quadrics have exactly five projective solutions, all reduced, and they are the five planes: W_AS(a ^ b) = 0 only for collinear pairs or pairs spanning one E_r; each is a regular zero (tangent spectrum (2/3)^3 (10/9)^3), and the oriented bivectors, a 15-tight simplex of the dark four, are told apart by L = sum 2^r <p_r, .> (values 15 2^s - 93)", T, "k4_complete"),
+    ("source", "readout", "two rotating branches", "the finite return parent keeps each matching plane, with an exact blind circular orbit (energy 32, charge 16); on its S2 x S3 line u (|u|^2 = 18, Tr A^3/6 = -16) it rotates on two branches, X = omega^2 = 6 and 32/3 at r = 1/2, both checked in the full equations (the hub, 16:47)", T, "dark_branches"),
+    ("wedgeport", "darkport", "one-frequency tomography", "one complete retained response G^-1 = [[A, C], [C^T, D]] of the anchored F20 interaction gives back q = Tr CC^T/Tr(A - min A), X = C/q and both baselines (q = 1/7, a = 1/2, b = 1/3 for X0 + 2X1); the scalar determinant sees only four singular squares (a one-parameter isospectral family through X0 + 2X1 - X2 + 3X4), and the two-pole emulators have 0, 1, 3, 4 modes above the band at q = 1/7, 1, 2, 5 (the hub, 16:47)", T, "tomography"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -6986,6 +7287,10 @@ LEDGER_ROWS = [
     ("the coherent encoder and the Golden repair (hub, 16:11)", "V S = 12 I, S^T S = 12 G; |det S_-j| = 2592; 7776 per lane, 6^10 for twelve; 2^20 3^16; V index 16, T index 3, intersection 48; intensities 5/6 and 1/30", "replayed and joined (PGL(2,5) -> words, source -> words)", T, "23"),
     ("the five K4 planes (MODEL, 16:17)", "Gram 15 on the dark four; 2/5 of every golden line in every plane", "replayed and joined (K5 vertices -> dark ports)", T, "23"),
     ("the bath's spectral measures (new)", "-", "proved: every site vector's measure is absolutely continuous, a port vector's density is positive almost everywhere on all of [0, 256], and its Jacobi chain tends to (128, 64^2) (Rakhmanov's theorem, cited); 45 exact levels from W_0..W_90", T, "23"),
+    ("the five dark planes (hub, 16:47)", "sum P_r = 2 I, P_r P_s P_r = P_r/4; Tr(P_r R_j) = 2/5; five reduced Pluecker points; Gram 15 delta - 3; tangent spectrum (2/3)^3 (10/9)^3; ten inverse branches; tags -78, -63, -33, 27, 147", "replayed and joined (K5 vertices -> source -> dark ports)", T, "23"),
+    ("the dark-plane energy court (hub, 16:47)", "word lattice of index 3 in each plane (det 108); minima 12 + 12 on two planes, 4 + 28 on three; prepared rotor energies 24 and 32, charges 12 and 16", "replayed (Lagrange reduction of the five plane lattices)", T, "23"),
+    ("the finite parent's dark branches (hub, 16:47)", "E_r invariant (12-dimensional dark phase spaces); packet phi = (-4/3, -4/3), H = 20 rho^2 + (16/9) rho^6; blind circular orbit 32 and 16; branches X = 6 and 32/3 at r = 1/2 with H = 51/2, 134 and Q = (19/4) sqrt6, 18 sqrt6", "replayed in the full equations at three phases", T, "23"),
+    ("one-frequency tomography and the scalar shift (hub, 16:47)", "q = Tr CC*/Tr R, X = C/q, a = 1/ell, b = 1/(m - q); Schur decrement; 84/5; (45/94, 15/47); quartic 25t^4 - 1300t^3 + ...; kernel (30595, -225, 55235, -6812, 41885); D = 55899556/4862025; -459567/245; emulator counts 0, 1, 3, 4", "replayed and joined (root-wedge port -> dark ports); the infinite E8 thresholds stay uncomputed", T, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
     ("the six-line frame (hub, 14:07)", "Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle", "replayed; the twenty-term cubic formulas hold as polynomial identities", T, "23"),
@@ -7100,7 +7405,8 @@ def _checks():
         "sylow_frame": sylow_frame, "word_source": word_source, "clock_sylow": clock_sylow, "band_top": band_top,
         "pair_frame": pair_frame, "parity_ports": parity_ports, "dark_port": dark_port,
         "two_dark": two_dark, "fusion_frame": fusion_frame, "source_coding": source_coding, "k4_planes": k4_planes,
-        "free_chain": free_chain,
+        "free_chain": free_chain, "k4_complete": k4_complete, "dark_branches": dark_branches,
+        "tomography": tomography,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -7561,6 +7867,20 @@ def run():
             "argument makes them unnecessary), the bright-to-dark threshold transfer (inherited constants), the return "
             "slice's ranks 6, 9, 10 and its minors, and the free source's minors -41787850752 and -1337211224064; the "
             "sibling's integrated readings (numbers read as names) are not recorded", RP, True)
+    n51 = notes_1651()
+    rep.add("the 16:47 text and the 16:19-16:58 model: the dark plane's Fubini-Study connection (flux 2 pi, holonomy pi), "
+            "the clock's plane labels p(j) = 4j mod 5 (864 adds 1, 3457 doubles; 180 address-plane pairs of 24 frames), "
+            "and the sibling's checkable numbers (12 five-cycles, the decoder ratio -9, 14539767 = 3 x 11 x 593 x 743, the "
+            "golden matrix, root grades 40, 50, 50, 50, 50)", T, all(n51.values()), n51)
+    rep.add("Drive check 16:51: the hub's OES_Unified_Model_20261029.txt as revised at 16:47 (sources through 16:23), "
+            "read as text; its zip (3203676 bytes) and the OES ChatGPT Library Mirror 20261029 folder (16:51-16:56: eleven "
+            "packages with their notes, receipts and verifiers) were not opened beyond ALL_DOTS_INVERSE_DYSON_JOIN.md, and "
+            "no verifier was run; the sibling's MODEL edition of 16:58 (those of 16:19-16:57, with the spine PDFs, are "
+            "superseded)", RP, True)
+    rep.add("not replayed: the ten-position derivative's gains (4/3, 20/3, (10 -+ 2 sqrt5)/3), the local bound (29/54) x, "
+            "the norm-only and Stieltjes bounds on the determinant, the joint CP5 connection of the finite parent, and "
+            "the sibling's recovery ranks 90, 170, 250, 330, 360 and its integrated readings (numbers read as names)",
+            RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

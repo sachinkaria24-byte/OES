@@ -525,6 +525,35 @@ def test_the_1616_replay():
     assert not Fc(P0[:, 0], P1[:, 0]).is_zero_matrix
 
 
+def test_the_1651_replay():
+    for check in (dots.k4_complete, dots.dark_branches, dots.tomography, dots.notes_1651):
+        out = check()
+        assert all(out.values()), out
+    import sympy as sp
+    E, N5, sym, F, a0, b0 = dots._source()
+    G = N5.T * N5
+    # a generic dark bivector is not a plane: the sum of two kernel basis vectors fails a Pluecker quadric
+    pairs = list(itertools.combinations(range(5), 2))
+    W = sp.Matrix.hstack(*[F(N5[:, i], N5[:, j]) for i, j in pairs])
+    K = W.nullspace()
+    b = K[0] + K[1]
+    c = lambda i, j: b[pairs.index((i, j))] if i < j else -b[pairs.index((j, i))]
+    assert any(c(i, j) * c(k, l) - c(i, k) * c(j, l) + c(i, l) * c(j, k) != 0
+               for i, j, k, l in itertools.combinations(range(5), 4))
+    # without the word congruence every plane lattice has minimum 4 twice over: the 24 and 32 come from ell
+    for u in dots._planes():
+        x, y = dots._lagrange(u[:, 0], u[:, 1], G)
+        assert ((x.T * G * x)[0], (y.T * G * y)[0]) == (4, 4)
+    # the rotating ansatz fails off the two roots: X = 8 leaves the hidden equation unbalanced at r = 1/2
+    assert (10 - 8) * sp.Rational(-1, 2) != -16 * sp.Rational(1, 2) ** 3 and (10 - 8) * 3 != -2
+    # with X = 0 the response cannot separate q from b: (q, b) = (1/7, 1/3) and (2/7, 7/20) give the same response
+    Bs = sp.Matrix(carrier.signed_incidence())
+    PB = sp.diag(sp.eye(10) - Bs.T * Bs / 5, sp.zeros(5))
+    PD = sp.diag(sp.zeros(10), sp.eye(5) - sp.ones(5, 5) / 5)
+    K = lambda q, b: PB * 2 + PD / b + q * PD
+    assert K(sp.Rational(1, 7), sp.Rational(1, 3)) == K(sp.Rational(2, 7), sp.Rational(7, 20))
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out
