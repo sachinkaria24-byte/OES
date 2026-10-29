@@ -354,7 +354,9 @@ code is the Dirac spectral subspace range P3 of K = M^T M, a [10, 4, 6] code. Th
 selection rule. Three statements are corrected: the 224 saddle's transverse quartic is -rho^4/2, the monograph's
 element 3 - zeta - zeta^4 + 2 zeta^2 has norm 61, and the 60 permutations fixing the carrier line are not the tick's
 PSL(2,5). The sibling's 21:05-21:17 editions and maps29.ts read the circle as a ring: its CRT idempotents, their
-mirrors and their products on the tick levels replay as arithmetic.
+mirrors and their products on the tick levels replay as arithmetic. The 21:19-21:46 editions add the idempotents'
+images, the golden ticks as 1080 (k mod 4) + 3456 (k mod 5) and the digit cycles; their landing is 864 x, which is the
+first tick level reached only for units.
 """
 
 import functools
@@ -8068,6 +8070,58 @@ def notes_2117():
     }
 
 
+def notes_2150():
+    """The sibling's MODEL (21:19-21:46): the circle's idempotent images, the digit cycles and the traceless five."""
+    N = 4320
+    ring = lambda a, b: (a * b) % N
+    ticks = (864, 1728, 2592, 3456)
+    first = lambda x: next((k * x) % N for k in range(1, N + 1) if (k * x) % N in ticks)
+    digits = (471, 714, 147, 174, 741, 417)
+    q = [sp.Integer(1)] + [sp.Rational(-1, 3)] * 3 + [sp.Integer(0)]
+    pairs = list(itertools.combinations(q, 2))
+    x = sp.Symbol("x")
+    comp = x ** 4 - 8 * x ** 3 + 24 * x ** 2 - 37 * x + 31
+    cubic = lambda t: 135 * t ** 3 - 180 * t ** 2 + 54 * t - 2
+    return {
+        "multiplication by 3105, 2080, 3456 and 2241 lands on the 32 multiples of 135, the 27 of 160, the 5 tick levels and "
+        "the 160 multiples of 27, fixing 135, 160, 864 and 27; the phase idempotent sends a frame of residue r to the "
+        "mirror landing -864 r; and the multiples of 27 are the multiples of 135 plus the five tick levels":
+            [len({ring(e, j) for j in range(N)}) for e in (3105, 2080, 3456, 2241)] == [32, 27, 5, 160]
+            and [ring(e, f) for e, f in ((3105, 135), (2080, 160), (3456, 864), (2241, 27))] == [135, 160, 864, 27]
+            and all(ring(3456, j) == (-864 * (j % 5)) % N for j in range(N))
+            and {(a + b) % N for a in range(0, N, 135) for b in (0,) + ticks} == set(range(0, N, 27)),
+        "the golden tick 216 k is 1080 (k mod 4) + 3456 (k mod 5), so 2 x 1080 = 2160 and the sixth golden tick 1296 is "
+        "the half-turn plus the reverse tick; 1296 squares to 3456 and 3105 sends it to 2160; 351 = 13 x 27 squares to "
+        "2241, is killed by 2080, fixed by 2241 and sent to 3456 by the phase idempotent":
+            all((216 * k) % N == (1080 * (k % 4) + 3456 * (k % 5)) % N for k in range(20)) and (2160 + 3456) % N == 1296
+            and ring(1296, 1296) == 3456 and ring(3105, 1296) == 2160 and 13 * 27 == 351 and ring(351, 351) == 2241
+            and ring(2080, 351) == 0 and ring(2241, 351) == 351 and ring(3456, 351) == 3456,
+        "the digit cycles 471, 714, 147 and 174, 741, 417 each sum to 1332 = 36 x 37 = 1296 + 36; all six are 12 mod 27, "
+        "so 2080 sends them to 3360 = 21 x 160, and their phase images are 864, 2592, 3456 twice each; 351 = 9 x 39 and "
+        "741 = 19 x 39 have gcd 39 and lcm 6669, and 39 meets 4320 only in 3":
+            sum(digits[:3]) == sum(digits[3:]) == 1332 == 36 * 37 == 1296 + 36 and all(d % 27 == 12 for d in digits)
+            and {ring(2080, d) for d in digits} == {3360} and 3360 == 21 * 160
+            and sorted(ring(3456, d) for d in digits) == [864, 864, 2592, 2592, 3456, 3456]
+            and (gcd(351, 741), lcm(351, 741), gcd(39, N)) == (39, 6669, 3),
+        "the landing 864 x = 864 (x mod 5) depends only on the residue, and it is the first tick level the multiples of x "
+        "reach exactly for units: 7, 13, 29 and 37 first reach 864 times their residues, while 147, 148 and 153 first "
+        "reach 3456, 1728 and 1728 rather than 1728, 2592 and 2592":
+            all(ring(864, j) == 864 * (j % 5) for j in range(N))
+            and all(first(u) == 864 * (u % 5) for u in (7, 13, 29, 37))
+            and (first(147), first(148), first(153)) == (3456, 1728, 1728) and first(1332) == 1728,
+        "the traceless five (1, -1/3, -1/3, -1/3, 0) has square sum 4/3 and cube sum 8/9, its ten pair sums have square "
+        "sum 4 and cube sum 8/9, and 60 x 4/3 = 80; the companion polynomial is 31, 11, 5, 1, 11, 71 at 0 to 5; the cubic "
+        "135t^3 - 180t^2 + 54t - 2 changes sign between 0.043 and 0.044; sqrt(5/3), sqrt3 and sqrt15 round to 1.291, "
+        "1.732 and 3.873, while sqrt(16/3) is 2.309, not 2.306":
+            (sum(t * t for t in q), sum(t ** 3 for t in q)) == (sp.Rational(4, 3), sp.Rational(8, 9))
+            and (sum((a + b) ** 2 for a, b in pairs), sum((a + b) ** 3 for a, b in pairs)) == (4, sp.Rational(8, 9))
+            and 60 * sp.Rational(4, 3) == 80 and [comp.subs(x, t) for t in range(6)] == [31, 11, 5, 1, 11, 71]
+            and cubic(sp.Rational(43, 1000)) < 0 < cubic(sp.Rational(44, 1000))
+            and [round(float(sp.sqrt(v)), 3) for v in (sp.Rational(5, 3), 3, 15, sp.Rational(16, 3))]
+            == [1.291, 1.732, 3.873, 2.309],
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -8635,6 +8689,7 @@ LEDGER_ROWS = [
     ("the saddle quartic (monograph, 20:13)", "0 |y|^4 at the 224 saddle, from 18 + 18", "corrected: -rho^4/2, from 24 (E7) and 12 (oblique); the collar stays open", T, "23"),
     ("the norm 31 (monograph, 20:13)", "N(3 - zeta - zeta^4 + 2 zeta^2) = 31 and 5 x 31 = 155", "corrected: that element has norm 61; 2 + zeta - zeta^2 has norm 31", T, "23"),
     ("the line stabilizer (MODEL, 20:08-21:02)", "the 60 fixing the carrier line have the order of PSL(2,5)", "a point-stabilizer A5, not the tick's transitive PSL(2,5); they meet in 10", T, "23"),
+    ("the landings (MODEL, 21:19-21:46)", "147 lands on 1728; 148 and 153 land on 2592", "as 864 x = 864 (x mod 5), yes; as the first tick level the multiples reach, only for units: 147, 148, 153 first reach 3456, 1728, 1728", gates.ARITHMETIC, "23"),
     ("the circle as a ring (MODEL, 21:05-21:17; maps29.ts)", "idempotents 3105, 2080, 3456, 2241; mirrors 864, 2240, 1215; 864^2 = 3456; landings 864 r; depths 2592 + 1728", "replayed as arithmetic on Z/4320; the same integers are not the same operators", gates.ARITHMETIC, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
@@ -9324,6 +9379,14 @@ def run():
             all(n17.values()), n17)
     rep.add("Drive check 21:18: the sibling's MODEL editions of 21:05-21:17, the latest (21:17) read as text, and its new "
             "maps29.ts (21:12), read as data and not run; the spine29.ts editions and the OES-paper PDFs not read", RP, True)
+    n2150 = notes_2150()
+    rep.add("the 21:19-21:46 model: the idempotents' images, the golden ticks as 1080 (k mod 4) + 3456 (k mod 5), the "
+            "digit cycles, the traceless five, the companion values and the printed roots, with the landing read as "
+            "864 x (the first tick level only for units)", gates.ARITHMETIC, all(n2150.values()), n2150)
+    rep.add("Drive check 21:50: the sibling's MODEL editions of 21:19-21:46, the latest (21:46) read as text; the canon's "
+            "release OES_N30_W3_D3_SELECTED_INTAKE_20261030 (three new N30 tabs in each controlled workbook, 3738 and 3693 "
+            "sheets, every prior cell identical, no source check replayed, no gate changed), its release JSON and four-copy "
+            "receipt read, the workbooks not opened; the spine29.ts editions and the OES-paper PDFs not read", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
