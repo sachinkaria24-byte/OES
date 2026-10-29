@@ -3,7 +3,7 @@ from fractions import Fraction
 
 import pytest
 
-from oes import (assignment, binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates,
+from oes import (assignment, band, binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates,
                  gatework, glue, gravity, handover, joins, ledger, literal, native, observer, recurrence, snapshot,
                  spacetime, spectral, spine, waves)
 
@@ -435,6 +435,21 @@ def test_the_1259_replay():
     for sign, holds in ((-1, True), (1, False)):
         Lout = (sign * Qf + 3 * D * Qf + 2 * Pm) / 5
         assert (F(a, b) == Lout * wedge(m * a, m * b) - sp.Rational(2, 5) * mix) == holds
+
+
+def test_the_band_edge_is_256():
+    out = band.edge()
+    assert all(out.values()), out
+    # the reduced inequality is sharp exactly in dimension 8: at x = (1, ..., 1) both sides are 16, while in nine
+    # dimensions 2^(9/2) exceeds 2 + 36/2
+    assert 2 ** 4 == 2 + 28 // 2 and 2 ** 4.5 > 2 + 36 / 2
+    # the box bound alone cannot pass a zero: around the centre of (4, 2, 2) its lower bound is not positive
+    import numpy as np
+    L, U = np.full((1, 3), np.pi / 4 - 0.01), np.full((1, 3), np.pi / 4 + 0.01)
+    assert band.lower_bound((4, 2, 2), L, U)[0] <= 0
+    # and the edge is where the canon says: Lambda = -16 at the band vertex, above -16 just off it
+    assert abs(band.lam(np.pi * np.array([1, 1, 1, 1, 0, 0, 0, 0])) + 16) < 1e-12
+    assert band.lam(np.pi * np.array([1, 1, 1, 1, 0.1, 0, 0, 0])) > -16
 
 
 def test_the_particle_assignment_on_e8_roots():

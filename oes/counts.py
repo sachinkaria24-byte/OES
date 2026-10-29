@@ -3539,9 +3539,9 @@ def run():
             "6720, 240); checked directly through n = 6", T, all(identity.values()), identity)
     rep.add("the root-walk note's deep hole is the band vertex v* of layer 8: Delta's symbol 240 - sum cos(k . rho) "
             "is 256 at k = pi (1,1,1,1,0,0,0,0), so 256 lies in spec Delta", T, hole)
-    rep.add("sup spec Delta = 256 is reported twice and proved by neither here: the alcove branch-and-bound recorded "
-            "in layer 8 (247,920 pieces) and the root-walk note of 25 Oct (400-start search; Hankel of (256 - x) d mu "
-            "positive through order 10)", RP, True)
+    rep.add("sup spec Delta = 256 was reported twice before it was proved here (oes/band.py, layer 8): the alcove "
+            "branch-and-bound recorded in layer 8 (247,920 pieces) and the root-walk note of 25 Oct (400-start search; "
+            "Hankel of (256 - x) d mu positive through order 10)", RP, True)
 
     ck = clock_120()
     rep.add("the order-120 clock: element orders 1:1, 2:1, 3:2, 4:10, 5:4, 6:2, 8:20, 10:4, 12:20, 15:8, 24:40, 30:8; "

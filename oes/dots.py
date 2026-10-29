@@ -280,7 +280,7 @@ import sympy as sp
 from sympy.combinatorics import Permutation
 from sympy.matrices.normalforms import smith_normal_form
 
-from . import (assignment, binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover,
+from . import (assignment, band, binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover,
                ledger, literal, native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
 from .record import Report
 
@@ -5515,6 +5515,7 @@ JOINS = [
     ("source", "goldenport", "the E8 pullback", "through the Golden root-site port the witness's commutator has channel weights 288/5, 32/5 and 664 -+ (304/5) sqrt5, moments 1392, 334632 and 80732784, and memory variance form 1441112/5, above 171 x 1392 (the hub, 12:29)", T, "agni_pullback"),
     ("source", "readout", "the phase quadratures", "the ten native readings (six commutator coordinates, four quadratic contrasts) miss the SO(2) phase (rank 9); the phasor Z1 = Tr[(A + iB)(A^2 + B^2)]/6 turns as e^-i theta and reads the phase back on each orbit, and six coordinates, two contrasts and Re Z1, Im Z1 are ten readings with nonzero Jacobian at the witness (the hub, 12:29)", T, "source_phase"),
     ("pgl", "kerM", "the six Sylow sign lines", "each Sylow group's pentagon minus its pentagram is a zero mode of square 10; oriented, the six have products -2, sum to zero and frame ker M with factor 12, and S5 permutes them with signs through PGL(2,5), so ker M is the sign twist of PGL(2,5)'s 5; the triples' cubic traces are 16 and -16, ten each (the sibling's MODEL, 12:59)", T, "sylow_lines"),
+    ("halfper", "bath", "the band edge", "sum_r cos(r.k) >= -16, so the bath's spectrum is exactly [0, 256]: Lambda = 4 e2(cos k) + 128 (prod cos(k_i/2) + prod sin(k_i/2)), a minimizer of the worst-sign bound takes at most three values (one cubic), and five 3-parameter families are certified by interval arithmetic; 256 is attained exactly at the 135 half-periods of type D8", T, "band.edge"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
@@ -5760,7 +5761,7 @@ def _checks():
         "datum_orbit": datum_orbit, "witness_loop": witness_loop, "frame_affine": frame_affine,
         "tick_actions": tick_actions,
         "agni_soma": agni_soma, "agni_factor": agni_factor, "agni_pullback": agni_pullback, "source_phase": source_phase,
-        "sylow_lines": sylow_lines,
+        "sylow_lines": sylow_lines, "band.edge": band.edge,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,

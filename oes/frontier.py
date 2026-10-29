@@ -23,7 +23,7 @@ import numpy as np
 
 from sympy import Rational as sp_rational
 
-from . import carrier, gates, native, spacetime
+from . import band, carrier, gates, native, spacetime
 from .record import Report
 
 # Survey of the open collar region (218.9323 < eps < 224, sqrt(313/20) < |k| < 35/8),
@@ -38,7 +38,7 @@ REPORTED_ITEMS = [
      "the U19.74 note is not on Drive (latest court note found: U19.56); the 0741 paper "
      "also records it as not replayed. Numerically consistent with the survey below"),
     ("band [0,256] exact: alcove branch-and-bound, 247,920 pieces, margin > 1e-6",
-     "computer-assisted; pieces not in this repository"),
+     "computer-assisted; pieces not in this repository; proved here independently by oes/band.py"),
     ("eps > 100 on the alcove outside |k|^2 <= 6 (7,523 pieces)",
      "computer-assisted; removes the single-ball dependency"),
     ("W_n recurrence order is 11: (x+12)^2 divides the leading coefficient",
@@ -223,6 +223,10 @@ def run():
     n, cls = band_orbit()
     rep.add("W(E8)-orbit of v*: 2160 points in R^8, 135 classes mod 2 pi Lambda", T,
             (n, cls) == (2160, 135), [n, cls])
+    edge = band.edge()
+    rep.add("the band is exactly [0, 256]: sum_r cos(r.k) >= -16, by the D8 + spinor form, at most three values at a "
+            "minimizer, and an interval certificate on five 3-parameter families (oes/band.py); 256 is attained exactly "
+            "on these 135 classes", T, all(edge.values()), {k[:60]: v for k, v in edge.items()})
     slack = local_bound_slack()
     rep.add("S(v*+d) >= -16 + |d|^2 (2-|d|^2) for |d| <= sqrt2 (sampled)",
             gates.ARITHMETIC, slack > -1e-12, slack)

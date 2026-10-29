@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 1.03,
+  "1-carrier": 0.67,
   "2-spectral": 0.01,
-  "3-spacetime": 12.77,
-  "4-native": 112.56,
-  "5-observer": 0.78,
-  "6-gravity": 6.19,
-  "7-cosmology": 1.89,
-  "8-frontier": 42.94,
-  "9-joins": 11.67,
-  "10-literal": 39.64,
-  "11-glue": 0.17,
-  "12-binding": 0.08,
-  "13-gates": 0.12,
-  "14-recurrence": 84.32,
-  "15-court": 1.91,
-  "16-handover": 1.41,
-  "17-waves": 0.85,
-  "18-snapshot": 1.8,
-  "19-spine": 5.86,
-  "20-canon": 6.87,
-  "21-ledger": 49.21,
-  "22-counts": 23.6,
-  "23-dots": 60.95,
-  "24-assignment": 4.04
+  "3-spacetime": 12.45,
+  "4-native": 107.77,
+  "5-observer": 0.86,
+  "6-gravity": 6.88,
+  "7-cosmology": 1.91,
+  "8-frontier": 45.5,
+  "9-joins": 9.64,
+  "10-literal": 41.47,
+  "11-glue": 0.27,
+  "12-binding": 0.29,
+  "13-gates": 0.44,
+  "14-recurrence": 101.5,
+  "15-court": 2.15,
+  "16-handover": 2.97,
+  "17-waves": 1.5,
+  "18-snapshot": 3.0,
+  "19-spine": 8.56,
+  "20-canon": 7.77,
+  "21-ledger": 63.07,
+  "22-counts": 32.0,
+  "23-dots": 65.99,
+  "24-assignment": 4.32
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 564,
-   "total": 564
+   "passed": 566,
+   "total": 566
   },
   "OBSTRUCTION": {
    "passed": 53,
@@ -1262,6 +1262,19 @@
   },
   {
    "layer": "8-frontier",
+   "name": "the band is exactly [0, 256]: sum_r cos(r.k) >= -16, by the D8 + spinor form, at most three values at a minimizer, and an interval certificate on five 3-parameter families (oes/band.py); 256 is attained exactly on these 135 classes",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 240 roots are the 112 D8 roots +-e_i +- e_j and the 128 ": true,
+    "at a minimizer of phi each free coordinate t solves one moni": true,
+    "each phi_n >= 0 on [0, pi/2]^3: interval branch and bound (o": true,
+    "so Lambda >= -16 and sup eps = 256, attained exactly on the ": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "8-frontier",
    "name": "S(v*+d) >= -16 + |d|^2 (2-|d|^2) for |d| <= sqrt2 (sampled)",
    "status": "ARITHMETIC",
    "passed": true,
@@ -1379,7 +1392,7 @@
    "status": "REPORTED",
    "passed": true,
    "value": null,
-   "note": "computer-assisted; pieces not in this repository"
+   "note": "computer-assisted; pieces not in this repository; proved here independently by oes/band.py"
   },
   {
    "layer": "8-frontier",
@@ -4874,7 +4887,7 @@
   },
   {
    "layer": "22-counts",
-   "name": "sup spec Delta = 256 is reported twice and proved by neither here: the alcove branch-and-bound recorded in layer 8 (247,920 pieces) and the root-walk note of 25 Oct (400-start search; Hankel of (256 - x) d mu positive through order 10)",
+   "name": "sup spec Delta = 256 was reported twice before it was proved here (oes/band.py, layer 8): the alcove branch-and-bound recorded in layer 8 (247,920 pieces) and the root-walk note of 25 Oct (400-start search; Hankel of (256 - x) d mu positive through order 10)",
    "status": "REPORTED",
    "passed": true,
    "value": null,
@@ -8025,6 +8038,19 @@
   },
   {
    "layer": "23-dots",
+   "name": "half-periods -> bath: sum_r cos(r.k) >= -16, so the bath's spectrum is exactly [0, 256]: Lambda = 4 e2(cos k) + 128 (prod cos(k_i/2) + prod sin(k_i/2)), a minimizer of the worst-sign bound takes at most three values (one cubic), and five 3-parameter families are certified by interval arithmetic; 256 is attained exactly at the 135 half-periods of type D8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 240 roots are the 112 D8 roots +-e_i +- e_j and the 128 half-vectors (+-1/2)^8 with an even number of minus signs, so by Fourier coefficients Lambda = 4 e2(cos k) + 128 (prod cos(k_i/2) + prod sin(k_i/2)); at worst spinor signs Lambda + 16 >= 8 phi(cos k), phi = 2 + e2/2 - prod sqrt(1 + x_i) - prod sqrt(1 - x_i)": true,
+    "at a minimizer of phi each free coordinate t solves one monic cubic, 2(1 - t^2) d phi/d x_i = (S - t)(1 - t^2) - P+ (1 - t) + P- (1 + t): at most three values, so the five partitions (6,1,1), (5,2,1), (4,3,1), (4,2,2), (3,3,2) with values cos 2a, cos 2b, cos 2g carry every minimizer": true,
+    "each phi_n >= 0 on [0, pi/2]^3: interval branch and bound (outward rounding) outside boxes around its zeros, where phi_n and its gradient vanish exactly and the interval Hessian is positive definite": true,
+    "so Lambda >= -16 and sup eps = 256, attained exactly on the 135 classes of the band-edge orbit of layer 8 (x = 0, x = +-(1, ..., 1) or four entries +1 and four -1)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "root assignment -> binding: taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time",
    "status": "OBSTRUCTION",
    "passed": true,
@@ -8038,7 +8064,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 62 dots and 196 joins form one connected diagram (the obstructions left out)",
+   "name": "the 62 dots and 197 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8272,7 +8298,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 6, symmetry-combinatorics 9, combinatorics-lattice 4, lattice-operator 13, operator-physics 16 joins",
+   "name": "each level is joined to the next: number-symmetry 6, symmetry-combinatorics 9, combinatorics-lattice 4, lattice-operator 14, operator-physics 16 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8314,7 +8340,8 @@
      "census -> gksl",
      "measure -> census",
      "torus -> bath",
-     "rootgraph -> bath"
+     "rootgraph -> bath",
+     "halfper -> bath"
     ],
     [
      "carrier -> triple",
@@ -8343,7 +8370,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 176,
+    "THEOREM": 177,
     "OBSTRUCTION": 7,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8363,12 +8390,12 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 6, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 9, symmetry-lattice 8, symmetry-operator 6, symmetry-physics 6, combinatorics-lattice 4, combinatorics-operator 11, combinatorics-physics 7, lattice-operator 13, lattice-physics 4, operator-physics 16",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 6, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 9, symmetry-lattice 8, symmetry-operator 6, symmetry-physics 6, combinatorics-lattice 4, combinatorics-operator 11, combinatorics-physics 7, lattice-operator 14, lattice-physics 4, operator-physics 16",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
-    "(3, 4)": 13,
+    "(3, 4)": 14,
     "(2, 4)": 11,
     "(1, 3)": 8,
     "(1, 2)": 9,

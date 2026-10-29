@@ -250,6 +250,12 @@ This section records the sibling update received after the 01:27 UTC Drive cut. 
 - **Local bound (ARITHMETIC, sampled).** S(v*+δ) ≥ −16 + |δ|²(2 − |δ|²) holds for |δ| ≤ √2. The minimum slack is −3×10⁻¹⁵, so the bound is attained.
 - **224 saddle at πα (THEOREM, exact).** The expansion is ε = 224 + 6ρ² − 26z² − ρ⁴/2 + 3ρ²z² + (5/6)z⁴. On the cone 6ρ² = 26z² the quartic is exactly **(40/169)ρ⁴ > 0**, so the level set bends the convex way at the saddle.
 - **Agni–Soma (THEOREM).** (5I − G)/5 is the cycle projector and fixes the image of W_AS. The two are not rival operators; only the naming needs settling.
+- **The band is exactly [0, 256] (THEOREM, `oes/band.py`, 29 Oct).** Σ_r cos(r·k) ≥ −16, so the adjoint character of E8 is at least −8 = −rank. The proof has four steps.
+  - D8 + spinors: Λ = 4e₂(cos k) + 128(Π cos(kᵢ/2) + Π sin(kᵢ/2)), exactly, by Fourier coefficients.
+  - The spinor signs are free, so Λ + 16 ≥ 8φ(x) with φ = 2 + e₂(x)/2 − Π√(1 + xᵢ) − Π√(1 − xᵢ) on [−1, 1]⁸. The inequality φ ≥ 0 is sharp exactly in dimension 8.
+  - At a minimizer every free coordinate solves one monic cubic, (S − t)(1 − t²) − P₊(1 − t) + P₋(1 + t) = 0, so the coordinates take at most three values. Every minimizer lies in one of the partitions (6,1,1), (5,2,1), (4,3,1), (4,2,2), (3,3,2), with values cos 2a, cos 2b, cos 2g, where φ becomes a trigonometric polynomial in (a, b, g) ∈ [0, π/2]³.
+  - Each of the five is certified by vectorized interval branch and bound with outward rounding (about 40,000 boxes each, under a second). Around each zero the interval Hessian is positive definite, and φ and its gradient vanish there exactly, so convexity closes the box.
+  - So 256 is attained exactly on the 135 classes of the band-edge orbit (the half-periods of type D8), and spec Δ = [0, 256]. The alcove branch and bound reported below is confirmed by a different proof.
 
 **Reported, not replayed** (status REPORTED; the certificates and operands are not in this repository):
 - the band is exactly [0, 256] by an alcove branch-and-bound (247,920 pieces);

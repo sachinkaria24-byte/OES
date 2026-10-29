@@ -228,7 +228,7 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the source phase and the E8 pullback (hub, 12:29) | Jacobian -64; native rank 9; eta_B = 144 at rate -256; Z1 = 424/3 + 200i, Z3 = -200 + 24i; six decoder determinants; channel weights 288/5, 32/5, 664 -+ (304/5) sqrt5; moments 1392, 334632, 80732784; variance form 1441112/5 | replayed and joined (source -> readout, source -> Golden port), with the hub's basis rebuilt as sympy's nullspace basis of M | THEOREM | 23 |
 | the six Sylow sign lines (MODEL, 12:59) | six lines of square 10 and products -2, frame factor 12, Gram 12I - 2J on any five; cubic traces +-16; squared cosines 1, 1, 1, 7/15, 1/5 | replayed and joined (PGL(2,5) -> zero modes): ker M is the sign twist of PGL(2,5)'s 5; the cubic traces are matrix traces (edge by edge they are +-4) | THEOREM | 23 |
 | the THEOREM diagram | - | THEOREM maps alone join 59 of the 62 dots, no one or two of them hold it together, and they join every pair of levels at least twice; the datum's regular S5-orbit and the time clock's actions on the roots (48 extended A4 pentagons), the zero modes (one per character) and the triple close the last cuts | THEOREM | 23 |
-| all dots | - | 62 dots and 196 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| all dots | - | 62 dots and 197 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.
