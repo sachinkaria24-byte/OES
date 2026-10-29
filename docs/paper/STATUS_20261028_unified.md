@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 674 checks. Of these, 601 hold: THEOREM 457, OBSTRUCTION 47, ARITHMETIC 39, UNFORMED 22, CONDITIONAL 21, SELECTED_REFERENCE 13, REMOVED 2. The other 73 are REPORTED records.
-- `pytest` runs 61 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 202 checks).
+- `python verify.py` runs 23 layers and 702 checks. Of these, 629 hold: THEOREM 483, OBSTRUCTION 47, ARITHMETIC 38, UNFORMED 22, CONDITIONAL 21, SELECTED_REFERENCE 16, REMOVED 2. The other 73 are REPORTED records.
+- `pytest` runs 62 tests.
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 230 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 58 dots and 125 checked joins as one diagram on six levels, with no bridge.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 59 dots and 152 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -29,7 +29,7 @@ New in this edition:
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 58 dots and 125 joins (121 maps, four obstructions) form one connected diagram with no bridge, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 59 dots and 152 joins (148 maps, four obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -88,6 +88,11 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - Replayed: Canon K's W₅ and W₆ (layer 3's returns), the 160 × 27 clock, the six-site Smith torsion (its 5 is the 5 in 240), the census's stabilizers (Weyl groups of the extended diagram's subsystems), the rotor firewall and the Bargmann phase π/4 (half the Pauli octant's solid angle). The sibling's "no clique of nine roots" and the 9-clique here are about two graphs, and both hold.
   - Not joined: the board's fine-structure digits, which invert to about 137.036 and are put in by hand (UNFORMED). The hub's verifiers and evidence zips were not downloaded or run.
 - **The 02:55 items** (HALFPERIOD, TRACES): the half-periods by shortest length 0, 2, 4 on 1 + 120 + 135 classes; 224 certified exactly as the E7 + A1 saddle's critical value (gradient zero, ε = 240 − (128 − 112), Hessian 12P′ − 52P of index 1), a correction to HALFPERIOD; the even-shell traces 10/3, 2, 0, 16/3; the long-wave density of states E³/(1536 π⁴ 30⁴).
+- **Every pair of levels, and no two maps (08:48):**
+  - Four pairs of levels had no direct map, twenty dots lay on two maps, and 23 pairs of maps could cut the diagram. Twenty-seven joins and one dot close it: every pair of levels is joined, and no two maps hold the diagram together, except that two can cut off the conditional product geometry or FLRW.
+  - The time clock, through the tick g = r r′: it fixes only the zero half-period and turns the other 255 in 51 band-keeping five-cycles, so e^−tL is tick-equivariant; on light it fixes one line per helicity and turns a golden plane (144° on +√5, 72° on −√5); on the cuts mod 2 it is a fifth root of unity in F₁₆.
+  - Light: the golden companion acts by (I + Curl)/2, and x ↦ ax + b multiplies Curl by (a/5). The outer automorphism of S6 carries the cone's S5 onto PGL(2,5); S5 is W(A4) and the Weyl group of the binding's 5 + 10. The Hodge star is the deck involution of S ↦ e_S mod 2Λ.
+  - The memory clock of layer 3 is a dot, stepped by the circle (a selection); its 9- and 10-cycles read the vortex and the time coordinate.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):

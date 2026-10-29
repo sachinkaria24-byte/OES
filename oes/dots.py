@@ -169,6 +169,21 @@ gradient vanishes, 128 roots are integral on x and 112 half-integral, so eps = 2
 is 12 P' - 52 P, of index 1. That is the E7 + A1 saddle; the collar near 224 is another question and stays open. TRACES
 gives the even-shell traces 10/3, 2, 0 and 16/3 and the density of states E^3 / (1536 pi^4 30^4) of the long-wave band,
 both replayed.
+
+At 08:48 the request was again to join all dots. Four pairs of levels had no direct map (number-lattice,
+number-operator, number-physics and symmetry-physics), twenty dots lay on only two maps, and 23 pairs of maps could cut
+the diagram. Twenty-seven joins and one dot close all of it: every pair of the six levels is now joined directly, and
+no two maps hold the diagram together (every dot but the product geometry and FLRW lies on three maps, and those two
+have only conditional maps). The time clock does most of the new work. Through the tick g = r r' it fixes only the
+zero half-period and turns the other 255 in 51 five-cycles that keep the band, so the GKSL semigroup is tick-equivariant.
+On the edge Hodge complex the tick commutes with d0 and Curl and fixes one line in each helicity, turning a golden plane
+by 144 degrees on +sqrt5 and 72 on -sqrt5. On the cuts mod 2 it is a primitive fifth root of unity in F16. Light
+carries two more symmetries: the golden companion acts by B -> (I + Curl)/2, and the affine group multiplies Curl by
+the Legendre symbol (a/5), so the doubling exchanges the helicities. The outer automorphism of S6, acting on the six
+synthematic totals, carries the cone's S5 onto PGL(2,5); S5 is W(A4) and the Weyl group of the binding's 5 + 10. The
+Hodge star is the deck involution of S -> e_S mod 2 Lambda, onto 35 half-periods of type D8. The memory clock of
+layer 3 becomes a dot: its order-90 quotient is stepped by the circle (a selection, since 90 divides 4320), and its
+9- and 10-cycles read the vortex and the time coordinate.
 """
 
 import functools
@@ -2951,6 +2966,274 @@ def notes_0255():
         and sp.integrate(2 / (1 + r ** 2) ** 2 * 2 * sp.pi * r, (r, 0, sp.oo)) / (2 * sp.pi) == 1,
     }
 
+
+# ------------------------------------------------------------------- every pair of levels, and no two maps
+
+def tick_halfperiods():
+    """The time clock on the half-periods and the Paulis, through the tick g = r r' (864 -> r by kappa, r -> r r')."""
+    _, _, _, _, g, _ = spine.spine_clock()
+    B = np.array(spine.frame()[0], float)
+    gi = np.rint(g).astype(int)
+    D2 = np.rint(2 * glue.roots()).astype(int)
+    classes = list(itertools.product((0, 1), repeat=8))
+    index = {c: i for i, c in enumerate(classes)}
+    step = [index[tuple(gi @ np.array(c) % 2)] for c in classes]
+    band = [240 - int(sum((-1) ** ((r2 @ np.rint(2 * B @ np.array(c)).astype(int) // 4) % 2) for r2 in D2)) for c in classes]
+    orbits, seen = [], set()
+    for i in range(256):
+        if i not in seen:
+            o = [i]
+            while step[o[-1]] != i:
+                o.append(step[o[-1]])
+            seen |= set(o)
+            orbits.append(o)
+    P = np.zeros((256, 256), int)
+    P[step, range(256)] = 1
+    L = np.diag(band)
+    return {
+        "the tick g = r r' (the time clock's 864 through kappa and the carrier rotations) is integral of order 5, and "
+        "det(g - I) = 25 is odd, so mod 2 it fixes only the zero half-period": np.allclose(g, gi) and spine.mat_order(g) == 5
+        and round(abs(np.linalg.det(gi - np.eye(8)))) == 25 and [i for i in range(256) if step[i] == i] == [0],
+        "it turns the other 255 half-periods in 51 five-cycles and keeps the band on each: 24 cycles of type E7 + A1 "
+        "(eps 224) and 27 of type D8 (eps 256)": Counter((len(o), band[o[0]]) for o in orbits)
+        == Counter({(1, 0): 1, (5, 224): 24, (5, 256): 27}) and all(len({band[j] for j in o}) == 1 for o in orbits),
+        "in the Pauli basis L is diagonal with the band values, so the tick's permutation of the 256 Paulis commutes with L "
+        "and e^-tL is tick-equivariant": np.array_equal(P @ L, L @ P),
+    }
+
+
+def light_symmetries():
+    """The tick, the golden companion and the affine group on light, the K5 edge Hodge complex."""
+    d0, _, _, curl = waves.complex_ops()
+    perm = lambda f: sp.Matrix(5, 5, lambda r, c: int(r == f(c) % 5))
+    R5 = perm(lambda c: c + 1)
+    T = compound2(R5)
+    cycles = sp.Matrix.hstack(*sp.Matrix(carrier.signed_incidence()).nullspace())
+    Cn, Tn = np.array(curl.tolist(), float), np.array(T.tolist(), float)
+    w, V = np.linalg.eigh(Cn)
+    helicity = {s: V[:, np.isclose(w, s * 5 ** 0.5)] for s in (1, -1)}
+    spectrum = {s: np.linalg.eigvals(H.T @ Tn @ H) for s, H in helicity.items()}
+    turns = lambda s, ks: all(np.isclose(spectrum[s], np.exp(2j * np.pi * k / 5)).any() for k in ks)
+    phi = (1 + sp.sqrt(5)) / 2
+    X = (sp.eye(10) + curl) / 2
+    legendre = {a: sp.legendre_symbol(a, 5) for a in (1, 2, 3, 4)}
+    affine = {a: compound2(perm(lambda c, a=a: a * c)) for a in (1, 2, 3, 4)}
+    return {
+        "the edge tick T = Lambda^2 of the vertex rotation commutes with d0 and with Curl, so the time clock acts on "
+        "sound and light and keeps each helicity": T * d0 == d0 * R5 and T * curl == curl * T,
+        "on each helicity it fixes one line (the rotor plane splits one line to each) and turns a golden plane, by 144 "
+        "degrees on +sqrt5 and 72 on -sqrt5: its traces there are 1 - phi and phi": helicity[1].shape[1] == helicity[-1].shape[1] == 3
+        and turns(1, (0, 2, 3)) and turns(-1, (0, 1, 4))
+        and np.isclose(np.trace(helicity[1].T @ Tn @ helicity[1]), (1 - 5 ** 0.5) / 2)
+        and np.isclose(np.trace(helicity[-1].T @ Tn @ helicity[-1]), (1 + 5 ** 0.5) / 2),
+        "Curl^2 = 5 on light, so X = (I + Curl)/2 satisfies the golden equation X^2 = X + I there: the golden companion "
+        "acts on light by B -> X, as phi on helicity +sqrt5 and 1 - phi on -sqrt5": ((curl ** 2 - 5 * sp.eye(10)) * cycles).is_zero_matrix
+        and ((X * X - X - sp.eye(10)) * cycles).is_zero_matrix and sp.simplify((1 + sp.sqrt(5)) / 2 - phi) == 0,
+        "x -> a x + b multiplies Curl by the Legendre symbol (a/5): the rotations and the reflection keep the helicities, "
+        "the doubling and its inverse exchange them": all(affine[a] * curl == legendre[a] * curl * affine[a] for a in affine)
+        and legendre == {1: 1, 2: -1, 3: -1, 4: 1},
+    }
+
+
+def outer_s6():
+    """The outer automorphism of S6 carries the cone's S5 onto PGL(2,5)."""
+    def pairings(s):
+        s = sorted(s)
+        if not s:
+            yield frozenset()
+            return
+        for b in s[1:]:
+            for rest in pairings(set(s) - {s[0], b}):
+                yield rest | {frozenset((s[0], b))}
+    synthemes = list(set(pairings(set(range(6)))))
+    totals = [frozenset(f) for f in itertools.combinations(synthemes, 5) if len({d for s in f for d in s}) == 15]
+    where = {t: i for i, t in enumerate(totals)}
+    sigma = lambda p: tuple(where[frozenset(frozenset(frozenset(p[x] for x in d) for d in s) for s in t)] for t in totals)
+    after = lambda p, q: tuple(p[q[i]] for i in range(6))
+    S6 = list(itertools.permutations(range(6)))
+    gens = [(1, 0, 2, 3, 4, 5), (1, 2, 3, 4, 5, 0)]
+    cycle_type = lambda p: sorted(len(c) for c in Permutation(list(p)).full_cyclic_form)
+    image = {sigma(p) for p in S6 if p[5] == 5}
+    pgl, _ = projective_line()
+    match = next((b for b in itertools.permutations(range(6))
+                  if {tuple(b[p[b.index(x)]] for x in range(6)) for p in image} == pgl), None)
+    return {
+        "S6 permutes the 15 synthemes and the 6 synthematic totals; on the totals it acts by an automorphism that sends a "
+        "transposition to a product of three, so it is outer": len(synthemes) == 15 and len(totals) == 6
+        and all(sigma(after(p, q)) == after(sigma(p), sigma(q)) for p in gens for q in S6)
+        and cycle_type(sigma(gens[0])) == [2, 2, 2],
+        "it carries the cone's S5, the stabilizer of the cone point, onto a transitive S5 conjugate to PGL(2,5) on the "
+        "projective line: the two S5's in S6 are exchanged by the outer automorphism, which is why they act on the carrier "
+        "by different modules": len(image) == 120 and len({p[0] for p in image}) == 6 and match is not None,
+    }
+
+
+def s5_weyl():
+    """S5 is W(A4): the reflections in e_i - e_j are the transpositions, and they move the weights of 5 + Lambda^2 5."""
+    E5 = sp.eye(5)
+    refl = {(i, j): E5 - (E5[:, i] - E5[:, j]) * (E5[:, i] - E5[:, j]).T for i, j in itertools.combinations(range(5), 2)}
+    swap = lambda i, j: sp.Matrix(5, 5, lambda r, c: int(r == {i: j, j: i}.get(c, c)))
+    group, frontier = {tuple(E5)}, [E5]
+    while frontier:
+        nxt = []
+        for M in frontier:
+            for s in refl.values():
+                key = tuple(s * M)
+                if key not in group:
+                    group.add(key)
+                    nxt.append(s * M)
+        frontier = nxt
+    weights = [E5[:, i] for i in range(5)] + [E5[:, i] + E5[:, j] for i, j in carrier.edges()]
+    atoms = [(i,) for i in range(5)] + list(carrier.edges())
+    D = np.array(carrier.dirac(carrier.signless_incidence()), float)
+    moves = []
+    for (i, j), s in refl.items():
+        f = {i: j, j: i}
+        p = [atoms.index(tuple(sorted(f.get(v, v) for v in a))) for a in atoms]
+        P = np.zeros((15, 15))
+        P[p, range(15)] = 1
+        moves.append(all(s * weights[k] == weights[p[k]] for k in range(15)) and np.allclose(P @ D, D @ P))
+    return {
+        "the reflection in e_i - e_j is the transposition (i j), and the ten reflections generate the 120 permutation "
+        "matrices: S5 = W(A4)": all(s == swap(i, j) for (i, j), s in refl.items()) and len(group) == 120,
+        "each reflection moves the weights e_i of the 5 and e_i + e_j of Lambda^2 5 as it moves the carrier's atoms, and "
+        "commutes with D: S5 is the Weyl group of the binding's 5 + 10 (B5)": all(moves),
+    }
+
+
+def air801_surface():
+    """AIR_801's matrix maps the hemi-icosahedron's faces onto its complement's."""
+    A, Ac = _surface_labels()
+    inv = lambda y: pow(y, 3, 5)
+    m = lambda x: 3 * inv(1) % 5 if x == 5 else 5 if (x + 1) % 5 == 0 else (3 * x + 1) * inv(x + 1) % 5
+    img = lambda F: {tuple(sorted(m(x) for x in f)) for f in F}
+    return {
+        "x -> (3x + 1)/(x + 1), the 801 matrix mod 5, turns the six axes in one 6-cycle and maps the ten faces of the "
+        "hemi-icosahedron onto the ten of its complement, and back": Permutation([m(x) for x in range(6)]).cycle_structure
+        == {6: 1} and img(A) == Ac and img(Ac) == A,
+    }
+
+
+def tick_cuts_f2():
+    """The time clock on the four-cube's vertices, the cuts of K5 over F2: a fifth root of unity in F16."""
+    E = carrier.edges()
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    cube = list(itertools.product((0, 1), repeat=4))
+    f = {x: cut({k + 1 for k in range(4) if x[k]}) for x in cube}
+    back = {v: x for x, v in f.items()}
+    turn = {x: back[cut({(k + 2) % 5 for k in range(4) if x[k]})] for x in cube}
+    M = sp.Matrix([[turn[tuple(int(k == j) for k in range(4))][i] for j in range(4)] for i in range(4)])
+    mod2 = lambda X: X.applyfunc(lambda e: e % 2)
+    orbits = Counter(next(n for n in range(1, 6) if functools.reduce(lambda y, _: turn[y], range(n), x) == x) for x in cube)
+    t = sp.symbols("t")
+    return {
+        "the vertex rotation (the time clock's 864 through kappa) moves the cuts linearly over F2, and on the cube's "
+        "coordinates its matrix satisfies M^4 + M^3 + M^2 + M + I = 0 mod 2": all(
+            turn[tuple((a + b) % 2 for a, b in zip(x, y))] == tuple((p + q) % 2 for p, q in zip(turn[x], turn[y]))
+            for x in cube for y in cube) and mod2(M ** 4 + M ** 3 + M ** 2 + M + sp.eye(4)).is_zero_matrix and mod2(M) != sp.eye(4),
+        "Phi_5 is irreducible over F2, so the cuts are F16 and the tick is a primitive fifth root of unity: it fixes the "
+        "origin and turns the fifteen other vertices in three 5-cycles": sp.Poly(t ** 4 + t ** 3 + t ** 2 + t + 1, t,
+                                                                                 modulus=2).is_irreducible
+        and orbits == Counter({1: 1, 5: 15}),
+    }
+
+
+def small_joins():
+    """Number-level maps: the grain to time, the misses as a kernel, the stages that never land, x mod 9, the rotor."""
+    grain, time = spine.subgroup(72), spine.subgroup(TICK)
+    proj = lambda x: 3456 * x % N
+    E = carrier.edges()
+    perm2 = sp.Matrix(5, 5, lambda r, c: int(r == 2 * c % 5))
+    D2 = compound2(perm2)
+    pent, star = (sp.Matrix(counts._oriented_cycle(k)) for k in (1, 2))
+    tri = sp.zeros(10, 1)
+    for (a, b), s in (((0, 1), 1), ((1, 2), 1), ((0, 2), -1)):
+        tri[E.index((a, b))] = s
+    bd = sp.zeros(10, 1)
+    for k, sgn in ((0, 1), (1, -1), (2, 1)):
+        bd[E.index((0, 1, 2)[:k] + (0, 1, 2)[k + 1:])] += sgn
+    return {
+        "the time coordinate x -> 3456 x maps the grain <72> onto the time clock with kernel <360> (12 points): it reads "
+        "the golden index a of x = 216 a + 1440 b, since 216 = 1 and 1440 = 0 mod 5": {proj(x) for x in grain} == time
+        and {x for x in grain if proj(x) == 0} == spine.subgroup(360) and len(spine.subgroup(360)) == 12
+        and all((216 * a + 1440 * b) % 5 == a % 5 for a in range(20) for b in range(3)),
+        "the miss set <5> is the kernel of the time coordinate x -> 3456 x": spine.subgroup(5) == {x for x in range(N) if proj(x) == 0},
+        "the stages that never land, 0, 5 and 10, are exactly the stages in the miss set <5>": {
+            k for k in range(15) if counts.first_landing(k) is None} == {k for k in range(15) if k in spine.subgroup(5)} == {0, 5, 10},
+        "x -> x mod 9 maps the circle onto the vortex Z/9 with kernel <9>, through the atlas and through the 27-clock":
+            all((x % 36) % 9 == (x % 27) % 9 == x % 9 for x in range(N)) and len(spine.subgroup(9)) == 480,
+        "the doubling i -> 2i of AGL(1,5) turns the rotor plane by a quarter: the pentagon goes to the pentagram and the "
+        "pentagram to minus the pentagon": D2 * pent == star and D2 * star == -pent,
+        "the oriented triangle 0-1-2 of the triangle port is the boundary of the simplex's face 012, a cycle in ker B":
+            bd == tri and (sp.Matrix(carrier.signed_incidence()) * tri).is_zero_matrix,
+    }
+
+
+def hodge_halfper():
+    """The Hodge star is the deck involution of S -> e_S mod 2 Lambda on the 70 coordinate 4-forms."""
+    D2 = np.rint(2 * glue.roots()).astype(int)
+    S4 = list(itertools.combinations(range(8), 4))
+    v = {S: np.array([int(i in S) for i in range(8)]) for S in S4}
+
+    def in_e8(x2):                                             # is x2 / 2 in E8 (x2 an integer vector)?
+        if np.all(x2 % 2 == 0):
+            return (x2 // 2).sum() % 2 == 0
+        return bool(np.all(x2 % 2 == 1) and ((x2 - 1) // 2).sum() % 2 == 0)
+    comp = lambda S: tuple(i for i in range(8) if i not in S)
+    band = {S: 240 - int(sum((-1) ** ((r2 @ (2 * v[S]) // 4) % 2) for r2 in D2)) for S in S4}
+    halved = lambda x4: in_e8(x4 // 2) if np.all(x4 % 2 == 0) else False      # x4 = 4y: is y in E8?
+    short = all(not in_e8(v[S]) and not any(halved(2 * v[S] - r2) for r2 in D2) for S in S4)
+    classes = {frozenset((S, comp(S))) for S in S4}
+    return {
+        "e_S and e_T (S, T four of the eight coordinates) are congruent mod twice the lattice exactly when T = S or T is "
+        "its complement, the Hodge dual: the Hodge star is the deck involution of S -> [e_S]": all(
+            in_e8(v[S] - v[T]) == (T in (S, comp(S))) for S in S4 for T in S4) and len(classes) == 35,
+        "the 35 classes are half-periods of type D8 (band 256), none containing 0 or a root: Hodge 70 = 35 + 35 sits on 35 "
+        "of the 135 D8 half-periods": set(band.values()) == {256} and short,
+    }
+
+
+def memory_clock():
+    """Layer 3's memory clock: its order-90 quotient, stepped by the circle, reads the vortex and the time clock."""
+    _, _, _, A = spacetime.clock_quotient()
+    order = spacetime.matrix_order(A)
+    nine, ten = list(range(110, 119)), list(range(0, 10))
+    powers = {x: np.linalg.matrix_power(A, x) for x in range(1, 50)}
+    walk = lambda x, block: next(k for k in range(len(block)) if powers[x][block[k], block[0]] == 1)
+    return {
+        "the memory clock's 120-state quotient A has order 90, and 90 divides 4320, so k -> A^k is a homomorphism from "
+        "the circle with kernel <90> (48 points), one circle step to one memory step (a selection)": order == 90
+        and N % 90 == 0 and len(spine.subgroup(90)) == 48,
+        "on its 9-cycle A^k moves by k mod 9 and on each 10-cycle by k mod 10, so the circle's composite to the 9-cycle is "
+        "the vortex x mod 9, and to a 10-cycle reads the time coordinate x mod 5": all(
+            walk(x, nine) == x % 9 and walk(x, ten) == x % 10 for x in range(1, 50)),
+    }
+
+
+def level_pairs():
+    """How many maps join each pair of the six levels directly."""
+    return Counter(tuple(sorted((LEVEL_OF[a], LEVEL_OF[b]))) for a, b, _, _, s, _ in JOINS
+                   if s in MAPS and LEVEL_OF[a] != LEVEL_OF[b])
+
+
+def no_two_maps():
+    """No two maps hold the diagram together, apart from cutting off the two conditional dots."""
+    maps = [k for k, j in enumerate(JOINS) if j[4] in MAPS]
+    exempt = {"gravity", "cosmology"}
+    degree = Counter(d for k in maps for d in JOINS[k][:2])
+    cuts = []
+    for x, y in itertools.combinations(maps, 2):
+        comps = components([k not in (x, y) for k in range(len(JOINS))])
+        main = next(c for c in comps if "circle" in c)
+        if not set(DOTS) - set(main) <= exempt:
+            cuts.append((JOINS[x][:2], JOINS[y][:2]))
+    return {
+        "every dot but the product geometry and FLRW lies on at least three maps": all(
+            degree[k] >= 3 for k in DOTS if k not in exempt),
+        "removing any two maps leaves the diagram connected, except that it can cut off the product geometry or FLRW, "
+        "whose only maps are conditional": not cuts,
+    }
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -3012,12 +3295,13 @@ DOTS = {
     "air801": ("801 matrix", "AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24", "23"),
     "pg25": ("PG(2,5)", "the projective plane over F5: the conic, 15 exterior and 10 interior points", "23"),
     "charges": ("five-site charges", "Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges", "12, 23"),
+    "memory": ("memory clock", "the 120-state quotient of layer 3's memory operator, of order 90", "3"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
 LEVELS = [
     ("number", "the circle and its clocks",
-     ["circle", "time", "observer", "c27", "atlas", "coil", "grain", "vortex", "miss", "stages"]),
+     ["circle", "time", "observer", "c27", "atlas", "coil", "grain", "vortex", "miss", "stages", "memory"]),
     ("symmetry", "groups, their actions and modules",
      ["clocks", "G120", "AGL", "S5", "pgl", "golden", "hodge", "air801"]),
     ("combinatorics", "graphs, complexes and the cube",
@@ -3165,6 +3449,33 @@ JOINS = [
     ("charges", "binding", "the anomaly", "the cubic charge sums over 5 and Lambda^2 5 are equal (5/36 for Y), so on B4's 5 + 10 at opposite chiralities the hypercharge anomaly cancels; on the zero modes alone it is 5/36", T, "charges"),
     ("charges", "kerM", "the dark U(5)", "through an identification of the five zero modes with the sites, Y acts on ker D inside B2's exact dark U(5) and commutes with D", SR, "charges"),
     ("charges", "carrier", "B1", "on the atoms no charge but the global phase commutes with D: the diagonal commutant of D has dimension 1", OB, "charges"),
+    ("time", "halfper", "the tick on Lambda / 2 Lambda", "the time clock acts on the half-periods through the tick g = r r' (864 -> r by kappa): it fixes only the zero half-period and turns the other 255 in 51 five-cycles, 24 of type E7 + A1 and 27 of type D8, keeping the band", T, "tick_halfperiods"),
+    ("time", "gksl", "a tick-equivariant semigroup", "L is diagonal on the 256 Pauli labels with the band values, constant on each tick orbit, so e^-tL commutes with the tick's permutation of the Paulis", T, "tick_halfperiods"),
+    ("time", "waves", "the tick on sound and light", "the edge tick commutes with d0 and Curl; on each helicity it fixes one line and turns a golden plane, by 144 degrees on +sqrt5 and 72 on -sqrt5, with traces 1 - phi and phi", T, "light_symmetries"),
+    ("golden", "waves", "B -> (I + Curl)/2", "Curl^2 = 5 on light, so X = (I + Curl)/2 satisfies X^2 = X + I there: the golden companion acts on light, as phi on helicity +sqrt5 and 1 - phi on -sqrt5", T, "light_symmetries"),
+    ("AGL", "waves", "the helicity character", "x -> a x + b multiplies Curl by the Legendre symbol (a/5): the rotations and the reflection keep the helicities, the doubling exchanges them", T, "light_symmetries"),
+    ("pgl", "S5", "the outer automorphism of S6", "S6 acting on its six synthematic totals is an outer automorphism, and it carries the cone's S5 onto a transitive S5 conjugate to PGL(2,5)", T, "outer_s6"),
+    ("S5", "A4", "W(A4)", "the reflections in the roots e_i - e_j are the transpositions, and they generate the 120 vertex permutations: S5 = W(A4)", T, "s5_weyl"),
+    ("S5", "binding", "the Weyl group of 5 + 10", "each reflection moves the weights e_i of the 5 and e_i + e_j of Lambda^2 5 as it moves the carrier's atoms, commuting with D (B5)", T, "s5_weyl"),
+    ("air801", "surface", "the two triangulations", "x -> (3x + 1)/(x + 1) turns the six axes in one 6-cycle and maps the hemi-icosahedron's ten faces onto its complement's, and back", T, "air801_surface"),
+    ("time", "cube", "a fifth root of unity in F16", "the vertex rotation moves the cuts mod 2 linearly, with Phi_5 irreducible over F2: the tick is a primitive fifth root of unity on F16, fixing the origin and turning the other fifteen vertices in three 5-cycles", T, "tick_cuts_f2"),
+    ("grain", "time", "the golden index", "x -> 3456 x maps the grain onto the time clock with kernel <360>: it reads the golden index of x = 216 a + 1440 b", T, "small_joins"),
+    ("miss", "time", "the kernel", "the miss set <5> is the kernel of the time coordinate x -> 3456 x", T, "small_joins"),
+    ("stages", "miss", "the stages that never land", "the stages 0, 5 and 10, which never land, are exactly the stages in the miss set", T, "small_joins"),
+    ("circle", "vortex", "x mod 9", "x -> x mod 9 maps the circle onto the vortex with kernel <9>, through the atlas and through the 27-clock", T, "small_joins"),
+    ("rotor", "AGL", "a quarter turn", "the doubling i -> 2i turns the rotor plane by a quarter: pentagon to pentagram, pentagram to minus the pentagon", T, "small_joins"),
+    ("triangle", "simplex", "a 2-face", "the triangle port's oriented triangle 0-1-2 is the boundary of the simplex's face 012", T, "small_joins"),
+    ("hodge", "halfper", "the deck involution", "e_S = e_T mod 2 Lambda for four-sets S, T exactly when T = S or its complement: the Hodge star is the deck involution of S -> [e_S], onto 35 half-periods of type D8", T, "hodge_halfper"),
+    ("halfper", "census", "three critical types", "the 256 half-periods are critical points of the band, of types E8 (1), E7 + A1 (120) and D8 (135), whole census orbits", T, "gksl_census"),
+    ("L0", "momenta", "the characters of E8 / L0", "the tick momenta that are integral on A4 + A4' are the five characters of E8 / L0, with the folded values 0, 250^4", T, "tick_momenta"),
+    ("literal", "sixsite", "W_p", "the owner's port metric in boundary order is the six-site port's W_p exactly", T, "literal_port"),
+    ("measure", "sixsite", "the sector measures", "the measures are the six-port's contrast and uniform sector measures, with first moments 241 and 235, the six-site blocks' eigenvalues", T, "measure"),
+    ("petersen", "D5", "orthogonality", "the Petersen graph is the orthogonality graph of the ten positive roots e_i + e_j of D5", T, "petersen_roots"),
+    ("observer", "coil", "inclusion", "the observer clock <1080> lies in the coil <8> (1080 = 8 x 135), and with the tick and the nakshatra generates it", T, "coil"),
+    ("torus", "bath", "the nine frequencies", "the torus's nine squared frequencies are the bath symbol's nine positive critical values, with distinct square-free parts", T, "nine_torus"),
+    ("circle", "memory", "one step, one step", "k -> A^k is a homomorphism onto the memory clock's order-90 quotient (90 divides 4320), with kernel <90>: one circle step is one memory step, a selection", SR, "memory_clock"),
+    ("memory", "vortex", "the 9-cycle", "on the memory clock's 9-cycle A^k moves by k mod 9, so its composite with the circle is the vortex x mod 9", SR, "memory_clock"),
+    ("memory", "time", "the 10-cycles", "on each 10-cycle A^k moves by k mod 10, which carries the time coordinate k mod 5", SR, "memory_clock"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -3256,8 +3567,15 @@ LEDGER_ROWS = [
     ("the rotor firewall and the Bargmann repair (Canon K)", "C6 against C5 + I1; tr = 1 + i for raw dyads, (1 + i)/4 normalized", "replayed: every intertwiner has rank 1; the phase pi/4 is half the solid angle of the Pauli octant", T, "23"),
     ("releases K+ADDENDUM2 and K+ADDENDUM3 (hub, 02:31 and 02:41)", "W5/W6, the 160/27 clock, Bargmann, the rotor firewall, the joint observer, the sidebands, the sensor optimum, the anti-alias court", "every stated bridge is replayed; the verifiers and evidence zips are recorded, not run", RP, "23"),
     ("the critical value 224 (HALFPERIOD)", "224 not recomputed, not a certified critical value", "corrected: at x = r0/2 every r.x is in Z/2, so the gradient vanishes; eps = 240 - (128 - 112) = 224 exactly, with Hessian 12 P' - 52 P (index 1, nondegenerate): the E7 + A1 saddle; the collar near 224 stays open", T, "16, 23"),
+    ("every pair of levels (layer 23)", "join all dots", "the six levels are joined pairwise by maps: number-lattice by the tick on the half-periods, number-operator by the tick-equivariant GKSL semigroup, number-physics by the tick on light, symmetry-physics by the golden companion and the affine group on light and by S5 on 5 + 10", T, "23"),
+    ("no two maps (layer 23)", "join all dots", "every dot but the product geometry and FLRW lies on three maps, and removing any two maps leaves the diagram connected except for cutting off those conditional dots", T, "23"),
+    ("the outer automorphism of S6", "the cone S5 and PGL(2,5) give different carrier modules", "joined: S6 on its six synthematic totals is outer and carries the cone's S5 onto PGL(2,5)", T, "23"),
+    ("the tick on light", "light is the cycle space, helicities +-sqrt5", "joined: the edge tick commutes with d0 and Curl; one fixed line and a golden plane on each helicity (144 and 72 degrees); B -> (I + Curl)/2; x -> ax + b multiplies Curl by (a/5)", T, "17, 23"),
+    ("the tick on the half-periods", "51 five-cycles on the nonzero half-periods", "joined: g fixes only 0 mod 2 Lambda and keeps the band on each orbit, so e^-tL is tick-equivariant", T, "22, 23"),
+    ("the Hodge star mod 2", "Lambda^4 R^8 = 35 + 35", "joined: e_S = e_T mod 2 Lambda exactly for Hodge-dual four-sets, onto 35 D8 half-periods", T, "23"),
+    ("the memory clock (layer 3)", "order-90 quotient of a 125-state operator", "joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate", SR, "3, 23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
-    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW", T, "23"),
+    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -3288,9 +3606,6 @@ NOT_JOINED = [
     ("the separate model's splits update (00:49)", "413793 bytes; 90 new check groups (grain 43, towers 17, module "
                                                    "relations 27, API 3) and 47 review groups; not opened or rerun; its "
                                                    "five source corrections are replayed", RP),
-    ("the memory clock (layer 3)", "a 125-state operator with a Jordan block keeps no positive metric; its 120-state "
-                                   "quotient has order 90. It shares integers with the circle (90 divides 4320) and the "
-                                   "cycle Gram (125 = 5^3), and no map is built", gates.ARITHMETIC),
     ("the [9, 3, 7] code over F11 (layer 15)", "MDS and 3-error-correcting; nothing identifies it with H90 or with any "
                                                "dot", gates.UNFORMED),
     ("the separate model's unified build (01:25)", "43752185 bytes, 286 payloads, 104 new check groups (root graph 50, "
@@ -3344,6 +3659,9 @@ def _checks():
         "torus_calibration": torus_calibration, "literal_incidences": literal_incidences, "measure_band": measure_band,
         "wave_calibration": wave_calibration, "census_stabilizers": census_stabilizers, "golden_port": golden_port,
         "observer_completion": observer_completion, "clock_sidebands": clock_sidebands, "charges": charges,
+        "tick_halfperiods": tick_halfperiods, "light_symmetries": light_symmetries, "outer_s6": outer_s6,
+        "s5_weyl": s5_weyl, "air801_surface": air801_surface, "tick_cuts_f2": tick_cuts_f2, "small_joins": small_joins,
+        "hodge_halfper": hodge_halfper, "memory_clock": memory_clock,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -3394,7 +3712,7 @@ def dots_page():
              "builds and checks is a join. A dashed arrow is an obstruction: a proof that the map does not exist. Two "
              "dots that share an integer are not joined by it; those integers stay readings (`docs/LEDGER.md`). "
              "The dots sit on six levels, from the integers up to physics. Every layer of the build has a dot, every "
-             "level is joined inside, and each level is joined to the next. "
+             "level is joined inside, and every pair of levels is joined directly. "
              "Generated by `dots_page()`; `tests/test_model.py` checks that this file is current.", "",
              "```mermaid", "flowchart TB"]
     for k, (name, what, dots) in enumerate(LEVELS):
@@ -3408,10 +3726,12 @@ def dots_page():
     count = Counter(status for *_, status, _ in JOINS)
     lines += ["```", "", f"{len(DOTS)} dots and {len(JOINS)} joins: {count[T]} THEOREM, {count[SR]} SELECTED_REFERENCE, "
               f"{count[gates.CONDITIONAL]} CONDITIONAL and {count[OB]} OBSTRUCTION. With the obstructions left out, the "
-              "joins that hold connect every dot: the diagram is one piece, and it has no bridge: every dot has at least "
-              "two maps, so no single map holds it together. THEOREM joins alone connect every dot but the product "
-              "geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and "
-              "its stiff sector.", "",
+              "joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot "
+              "but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the "
+              "diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect "
+              "every dot but the product geometry and FLRW, which attach through the conditional heat coefficients "
+              "(J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections "
+              "(one circle step is one memory step).", "",
               "## Levels", "", "| level | what lives there | dots | joins inside | joins to the next level |",
               "|---|---|---|---|---|"]
     cell = lambda x: x.replace("|", "\\|")
@@ -3419,6 +3739,12 @@ def dots_page():
         inside = sum(1 for j in JOINS if j[4] in MAPS and LEVEL_OF[j[0]] == LEVEL_OF[j[1]] == k)
         up = len(lv["between"][k]) if k < len(LEVELS) - 1 else "-"
         lines.append(f"| {k + 1}. {name} | {what} | {', '.join(cell(DOTS[d][0]) for d in dots)} | {inside} | {up} |")
+    lp = level_pairs()
+    lines += ["", "## Level pairs", "", "The maps that join each pair of levels directly.", "",
+              "| | " + " | ".join(name for name, _, _ in LEVELS) + " |", "|---" * (len(LEVELS) + 1) + "|"]
+    for i, (name, _, _) in enumerate(LEVELS):
+        row = [str(lp[tuple(sorted((i, j)))]) if i != j else "-" for j in range(len(LEVELS))]
+        lines.append(f"| {name} | " + " | ".join(row) + " |")
     lines += ["", "## Dots", "", "| dot | what it is | level | layers |", "|---|---|---|---|"]
     for key, (name, what, layers) in DOTS.items():
         lines.append(f"| {cell(name)} | {cell(what)} | {LEVELS[LEVEL_OF[key]][0]} | {layers} |")
@@ -3452,14 +3778,22 @@ def run():
         f"{LEVELS[k][0]}-{LEVELS[k + 1][0]} {len(b)}" for k, b in enumerate(lv["between"])) + " joins", T,
         all(lv["between"]), [[f"{j[0]} -> {j[1]}" for j in b] for b in lv["between"]])
     rest = sorted(sorted(c) for c in lv["theorem"] if len(c) > 1)
-    rep.add(f"THEOREM joins alone connect {len(DOTS) - 2} of the {len(DOTS)} dots; the product geometry and FLRW "
-            "attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector)", T,
-            len(lv["theorem"]) == 3 and ["cosmology"] in [sorted(c) for c in lv["theorem"]]
-            and ["gravity"] in [sorted(c) for c in lv["theorem"]] and len(rest) == 1,
-            dict(lv["statuses"]))
+    rep.add(f"THEOREM joins alone connect {len(DOTS) - 3} of the {len(DOTS)} dots; the product geometry and FLRW "
+            "attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock "
+            "only through selections (one circle step is one memory step)", T,
+            len(lv["theorem"]) == 4 and all([d] in [sorted(c) for c in lv["theorem"]] for d in ("cosmology", "gravity", "memory"))
+            and len(rest) == 1, dict(lv["statuses"]))
     nb = no_bridge()
     rep.add("no dot hangs by one join: every dot has at least two maps, and removing any one map leaves the diagram "
             "connected", T, all(nb.values()), nb)
+    lp = level_pairs()
+    rep.add("every pair of the six levels is joined directly by a map: " + ", ".join(
+        f"{LEVELS[i][0]}-{LEVELS[j][0]} {lp[(i, j)]}" for i, j in itertools.combinations(range(len(LEVELS)), 2)), T,
+        all(lp[p] for p in itertools.combinations(range(len(LEVELS)), 2)), dict(lp))
+    n2 = no_two_maps()
+    rep.add("no two maps hold the diagram together: every dot but the product geometry and FLRW lies on three maps, and "
+            "removing any two leaves it connected, except that it can cut off those two conditional dots", T,
+            all(n2.values()), n2)
     a8 = air_801()
     rep.add("AIR_801's matrix [[108, 801], [106, 901]]: det 12402; mod 5 a Singer cycle of order 24 in GL(2,5) and 6 in "
             "PGL(2,5); the clock polynomial has degree 27 and a simple root at 1", T, all(a8.values()), a8)

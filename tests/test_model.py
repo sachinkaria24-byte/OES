@@ -1,3 +1,5 @@
+import itertools
+
 import pytest
 
 from oes import (binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates, gatework, glue,
@@ -314,12 +316,30 @@ def test_every_level_is_joined():
     assert lv["layers"] == list(range(1, 24))
     assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
     assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
-    # THEOREM joins alone leave out exactly the two conditional dots
-    assert sorted(sorted(c) for c in lv["theorem"] if len(c) == 1) == [["cosmology"], ["gravity"]]
+    # THEOREM joins alone leave out exactly the two conditional dots and the memory clock, joined by selection
+    assert sorted(sorted(c) for c in lv["theorem"] if len(c) == 1) == [["cosmology"], ["gravity"], ["memory"]]
     for check in (dots.surface, dots.cube_cuts, dots.critical_momenta, dots.nine_torus, dots.triple, dots.readout,
                   dots.sound_light, dots.calibration):
         out = check()
         assert all(out.values()), out
+
+
+def test_every_pair_of_levels_and_no_two_maps(monkeypatch):
+    pairs = list(itertools.combinations(range(len(dots.LEVELS)), 2))
+    assert all(dots.level_pairs()[p] for p in pairs)
+    n2 = dots.no_two_maps()
+    assert all(n2.values()), n2
+    for check in (dots.tick_halfperiods, dots.light_symmetries, dots.outer_s6, dots.s5_weyl, dots.air801_surface,
+                  dots.tick_cuts_f2, dots.small_joins, dots.hodge_halfper, dots.memory_clock):
+        out = check()
+        assert all(out.values()), out
+    # both checks can fail: drop the maps between symmetry and physics, and that pair has none;
+    # drop the 801 matrix's map to the surface, and two maps cut the matrix off
+    joins = dots.JOINS
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if {dots.LEVEL_OF[j[0]], dots.LEVEL_OF[j[1]]} != {1, 5}])
+    assert dots.level_pairs()[(1, 5)] == 0
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] != ("air801", "surface")])
+    assert not all(dots.no_two_maps().values())
 
 
 def test_dots_page_is_current():

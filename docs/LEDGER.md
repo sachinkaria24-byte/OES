@@ -176,9 +176,16 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the rotor firewall and the Bargmann repair (Canon K) | C6 against C5 + I1; tr = 1 + i for raw dyads, (1 + i)/4 normalized | replayed: every intertwiner has rank 1; the phase pi/4 is half the solid angle of the Pauli octant | THEOREM | 23 |
 | releases K+ADDENDUM2 and K+ADDENDUM3 (hub, 02:31 and 02:41) | W5/W6, the 160/27 clock, Bargmann, the rotor firewall, the joint observer, the sidebands, the sensor optimum, the anti-alias court | every stated bridge is replayed; the verifiers and evidence zips are recorded, not run | REPORTED | 23 |
 | the critical value 224 (HALFPERIOD) | 224 not recomputed, not a certified critical value | corrected: at x = r0/2 every r.x is in Z/2, so the gradient vanishes; eps = 240 - (128 - 112) = 224 exactly, with Hessian 12 P' - 52 P (index 1, nondegenerate): the E7 + A1 saddle; the collar near 224 stays open | THEOREM | 16, 23 |
+| every pair of levels (layer 23) | join all dots | the six levels are joined pairwise by maps: number-lattice by the tick on the half-periods, number-operator by the tick-equivariant GKSL semigroup, number-physics by the tick on light, symmetry-physics by the golden companion and the affine group on light and by S5 on 5 + 10 | THEOREM | 23 |
+| no two maps (layer 23) | join all dots | every dot but the product geometry and FLRW lies on three maps, and removing any two maps leaves the diagram connected except for cutting off those conditional dots | THEOREM | 23 |
+| the outer automorphism of S6 | the cone S5 and PGL(2,5) give different carrier modules | joined: S6 on its six synthematic totals is outer and carries the cone's S5 onto PGL(2,5) | THEOREM | 23 |
+| the tick on light | light is the cycle space, helicities +-sqrt5 | joined: the edge tick commutes with d0 and Curl; one fixed line and a golden plane on each helicity (144 and 72 degrees); B -> (I + Curl)/2; x -> ax + b multiplies Curl by (a/5) | THEOREM | 17, 23 |
+| the tick on the half-periods | 51 five-cycles on the nonzero half-periods | joined: g fixes only 0 mod 2 Lambda and keeps the band on each orbit, so e^-tL is tick-equivariant | THEOREM | 22, 23 |
+| the Hodge star mod 2 | Lambda^4 R^8 = 35 + 35 | joined: e_S = e_T mod 2 Lambda exactly for Hodge-dual four-sets, onto 35 D8 half-periods | THEOREM | 23 |
+| the memory clock (layer 3) | order-90 quotient of a 125-state operator | joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate | SELECTED_REFERENCE | 3, 23 |
 | no bridge (layer 23) | join all dots | every dot has at least two maps, and no single map holds the diagram together | THEOREM | 23 |
-| every level (layer 23) | join all dots at every level | 58 dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW | THEOREM | 23 |
-| all dots | - | 58 dots and 125 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| every level (layer 23) | join all dots at every level | 59 dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock | THEOREM | 23 |
+| all dots | - | 59 dots and 152 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.
