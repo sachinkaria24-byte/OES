@@ -353,7 +353,8 @@ At 20:33 the hub's text (20:20), the sibling's MODEL (20:08-21:02) and the owner
 code is the Dirac spectral subspace range P3 of K = M^T M, a [10, 4, 6] code. The S5 characters give the hub's
 selection rule. Three statements are corrected: the 224 saddle's transverse quartic is -rho^4/2, the monograph's
 element 3 - zeta - zeta^4 + 2 zeta^2 has norm 61, and the 60 permutations fixing the carrier line are not the tick's
-PSL(2,5).
+PSL(2,5). The sibling's 21:05-21:17 editions and maps29.ts read the circle as a ring: its CRT idempotents, their
+mirrors and their products on the tick levels replay as arithmetic.
 """
 
 import functools
@@ -8006,6 +8007,67 @@ def notes_2033():
     }
 
 
+def notes_2117():
+    """The sibling's MODEL (21:05-21:17) and maps29.ts: the circle as a ring, read on the tick."""
+    N = 4320
+    ring = lambda a, b: (a * b) % N
+    neg = lambda a: (-a) % N
+    ticks = (864, 1728, 2592, 3456)
+    meets = lambda x: 864 in {(k * x) % N for k in range(N // gcd(x, N) + 1)}
+    first = lambda x: next((k * x) % N for k in range(1, N) if (k * x) % N in ticks)
+    depth = lambda x: next(k for k in range(1, N + 1) if (k * x) % N == 864)
+    idem = (3105, 2080, 3456)
+    seed = [-3, 1, 2, 0, -1, 0, -2, 1, -1, 3]
+    petal = 6 * sp.eye(6) - sp.ones(6, 6)
+    Bf = sp.Matrix([[1, 1], [1, 0]])
+    golden = [(216 * k) % N for k in range(20)]
+    cyc = [864]
+    for _ in range(4):
+        cyc.append(ring(2, cyc[-1]))
+    return {
+        "3105, 2080 and 3456 are orthogonal idempotents of Z/4320 summing to 1, and 2241 = 3105 + 3456 is the idempotent "
+        "of Z/160 (it kills 2080); every frame is 3105 (j mod 32) + 2080 (j mod 27) + 3456 (j mod 5) and also 2241 "
+        "(j mod 160) + 2080 (j mod 27), both maps recover all 4320 frames, and the mirrors of 3456, 2080 and 3105 are "
+        "864, 2240 and 1215":
+            all(ring(e, e) == e for e in idem + (2241,)) and all(ring(a, b) == 0 for a, b in itertools.combinations(idem, 2))
+            and sum(idem) % N == 1 and (3105 + 3456) % N == 2241 and ring(2241, 2080) == 0
+            and all((3105 * (j % 32) + 2080 * (j % 27) + 3456 * (j % 5)) % N == j
+                    and (2241 * (j % 160) + 2080 * (j % 27)) % N == j for j in range(N))
+            and (neg(3456), neg(2080), neg(3105)) == (864, 2240, 1215),
+        "the tick squares to 3456, its mirror; 3456 and 2241 fix the tick while 3105 and 2080 kill it; the landings 1728 "
+        "and 2592 square to the tick; the half-turn 2160 lies 432 (of order 10) from both and squares to 0; and 3456 "
+        "fixes the four landings and kills the half-turn, 3105 does the opposite and 2080 kills all five":
+            ring(864, 864) == 3456 == neg(864) and ring(3456, 864) == 864 == ring(2241, 864)
+            and ring(3105, 864) == 0 == ring(2080, 864) and ring(1728, 1728) == 864 == ring(2592, 2592)
+            and 2160 - 1728 == 2592 - 2160 == 432 and N // gcd(432, N) == 10 and ring(2160, 2160) == 0
+            and all(ring(3456, t) == t and ring(3105, t) == 0 for t in ticks) and ring(3456, 2160) == 0
+            and ring(3105, 2160) == 2160 and all(ring(2080, t) == 0 for t in ticks + (2160,)),
+        "a level meets the tick exactly when 5 does not divide it, that is when its gcd with 4320 divides 864: 6, 7, 8, 9, "
+        "13, 27, 32, 36, 216, 224 and 256 meet it, and 5, 10, 15, 30, 60, 90, 120, 170, 240, 250, 330, 360 and 2160 miss "
+        "it; the readers climb 90, 170, 250, 330, 360 by 80, 80, 80, 30, and 12 x 360 = 5 x 864 = 4320":
+            all(meets(x) == (x % 5 != 0) == (864 % gcd(x, N) == 0) for x in range(1, 400))
+            and all(meets(x) for x in (6, 7, 8, 9, 13, 27, 32, 36, 216, 224, 256))
+            and not any(meets(x) for x in (5, 10, 15, 30, 60, 90, 120, 170, 240, 250, 330, 360, 2160))
+            and [170 - 90, 250 - 170, 330 - 250, 360 - 330] == [80, 80, 80, 30] and 12 * 360 == 5 * 864 == N,
+        "a unit of residue r mod 5 first lands on 864 r: the host 7 lands on 1728 and reaches the tick in 2592 steps, the "
+        "oak 13 lands on 2592 and reaches it in 1728, and the depths add to the circle; the landings 864 r reach the tick "
+        "in r^-1 mod 5 = 1, 3, 2, 4 steps, mirror pairs adding to 5":
+            all(first(u) == 864 * (u % 5) for u in range(1, 200) if gcd(u, N) == 1)
+            and (first(7), depth(7), first(13), depth(13)) == (1728, 2592, 2592, 1728) and depth(7) + depth(13) == N
+            and [depth(864 * r) for r in (1, 2, 3, 4)] == [pow(r, -1, 5) for r in (1, 2, 3, 4)] == [1, 3, 2, 4],
+        "doubling cycles the landings 864 -> 1728 -> 3456 -> 2592 -> 864 and kills the half-turn; on the twenty golden "
+        "ticks 216 k the mirror fixes 0 and 2160 and pairs the other eighteen":
+            cyc == [864, 1728, 3456, 2592, 864] and ring(2, 2160) == 0 and len(set(golden)) == 20
+            and sorted(t for t in golden if neg(t) == t) == [0, 2160] and all(neg(t) in golden for t in golden),
+        "maps29.ts: the petal 6I - J and the dark Gram 2(6I - J) have zero row sums, so each of the six dark lines is minus "
+        "the sum of the other five; the golden parent's sixth power is [[13, 8], [8, 5]], of determinant 1, and its "
+        "seventh has determinant -1; the seed has squared length 30; an address and a phase leave a fiber of 24":
+            (petal * sp.ones(6, 1)).is_zero_matrix and sorted(petal.eigenvals().items()) == [(0, 1), (6, 5)]
+            and Bf ** 6 == sp.Matrix([[13, 8], [8, 5]]) and (Bf ** 6).det() == 1 and (Bf ** 7).det() == -1
+            and sum(v * v for v in seed) == 30 and sum(1 for j in range(N) if j % 36 == 0 and (4 * j) % 5 == 0) == 24,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -8573,6 +8635,7 @@ LEDGER_ROWS = [
     ("the saddle quartic (monograph, 20:13)", "0 |y|^4 at the 224 saddle, from 18 + 18", "corrected: -rho^4/2, from 24 (E7) and 12 (oblique); the collar stays open", T, "23"),
     ("the norm 31 (monograph, 20:13)", "N(3 - zeta - zeta^4 + 2 zeta^2) = 31 and 5 x 31 = 155", "corrected: that element has norm 61; 2 + zeta - zeta^2 has norm 31", T, "23"),
     ("the line stabilizer (MODEL, 20:08-21:02)", "the 60 fixing the carrier line have the order of PSL(2,5)", "a point-stabilizer A5, not the tick's transitive PSL(2,5); they meet in 10", T, "23"),
+    ("the circle as a ring (MODEL, 21:05-21:17; maps29.ts)", "idempotents 3105, 2080, 3456, 2241; mirrors 864, 2240, 1215; 864^2 = 3456; landings 864 r; depths 2592 + 1728", "replayed as arithmetic on Z/4320; the same integers are not the same operators", gates.ARITHMETIC, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
     ("the six-line frame (hub, 14:07)", "Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle", "replayed; the twenty-term cubic formulas hold as polynomial identities", T, "23"),
@@ -9254,6 +9317,13 @@ def run():
             "independent groups and its two corrections (a mislabelled right inverse and the Fibonacci sum 34); and the "
             "canon's controlled workbooks, which gained additive appendices at 19:24, with two intake workbooks (19:21), "
             "not opened", RP, True)
+    n17 = notes_2117()
+    rep.add("the 21:05-21:17 model and maps29.ts: the circle as a ring (the CRT idempotents 3105, 2080, 3456 and 2241, "
+            "their mirrors and their products on the tick levels), the levels that meet the tick, the unit landings and "
+            "depths, the doubling cycle, the golden ticks' mirror, the petal and dark Grams and the seed", gates.ARITHMETIC,
+            all(n17.values()), n17)
+    rep.add("Drive check 21:18: the sibling's MODEL editions of 21:05-21:17, the latest (21:17) read as text, and its new "
+            "maps29.ts (21:12), read as data and not run; the spine29.ts editions and the OES-paper PDFs not read", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
