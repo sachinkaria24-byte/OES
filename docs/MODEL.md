@@ -1587,6 +1587,50 @@ So THEOREM maps alone connect every dot but the product geometry, FLRW and the m
   - Also not replayed: U21's G0 runs and physics gates. The canon workbooks and their U21 staging copies (14:48–14:55) were not opened.
   - The sibling's long paragraph is mostly readings and named roles, which are not recorded here.
 
+**Two dark ports, six F20 views and the free chain (Drive check 16:16).** The hub's text was revised at 16:11 (sources through 15:50), with three receipts adding 109 assertion groups (568 in all). Its zip was not downloaded, and the replays below come from the text. The sibling's MODEL reached its 16:17 edition. Six joins come from them, and two more from a new theorem on the bath's spectral measures. Nothing was run.
+
+- **The second dark port** (A4 + A4′ → dark ports → moments).
+  - Take the label blocks X and Y of a norm-four site, scaled by 5. The hub's D2(x) = [X ∧ Y ∧ (5 X∘Y − ⟨X, Y⟩1)]/625 has ten triple coordinates. It is even in Y, so the twin's sign convention drops out.
+  - D2 is nonzero at 1200 of the 2160 sites, has rank 4 and Gram G2 with G2² = 7200 G2, and its moments are scalar: 1, 232, 54150 (variance 326).
+  - With the first dark port D1, C = D1ᵀD2 has CCᵀ = 112500 P_A4. That is four equal squared principal cosines of 5/192, so the two ports span 8 dimensions.
+  - The mixed moments are D1ᵀΔD2 = 232C and D1ᵀΔ²D2 = 54150C. The part of D1 orthogonal to D2 has moments 45640/187 and 11152530/187.
+  - **Thirty-two at every order.** Every norm-four site meets some root at inner product 2 and none above. So the 15:34 argument holds at every site of the shell, and the eight dark columns grow by 8 per order. The root ports are orthogonal to them, so all the ports together grow by 32(n + 1). The hub certifies this with Weyl determinants (117705 and 943098); the shell argument makes them unnecessary.
+- **The six F20 views** (dark ports → rotor plane).
+  - Take half the Reynolds average of e₀e₀ᵀ over the stabilizer (an F20) of a Sylow label. It is an F20-equivariant isometry X₀ of the dark four into the cycles.
+  - Its S5 orbit X₀ … X₅ is well defined only with the sign twist on the dark four, and it sums to zero. Each X_i has X_iᵀX_i = P_A4 and X_iX_iᵀ = P_cycle − F_i, the moving plane of the i-th rotor.
+  - The graph projectors Π_i = ½[[X_iX_iᵀ, X_i], [X_iᵀ, I]] on bright 6 ⊕ dark 4 have rank 4, sum 2P_bright + 3P_dark and tr Π_iΠ_j = 6/5.
+  - k views have rank 4, 7, 9, 10, 10, 10, so any four views recover the ten.
+  - Four views have characteristic polynomial (t − 2)(t − 1)(t² − 3t + 1)(t³ − 5t² + (79/10)t − 4)², with determinant 32 and condition number φ⁴. Five views give (t − 2)²(t² − 4t + 7/2)⁴, and all six give (t − 2)⁶(t − 3)⁴.
+  - With block responses a and b, Woodbury gives H + λΠ_i the cross block −qabX_i/(1 + q(a + b)), where q = λ/2. At a = 1/2, b = 1/3, q = 1/7 this is −X_i/47.
+- **The coherent encoder and the Golden repair** (PGL(2,5) → words, source → words).
+  - In primitive source coordinates the six Sylow lines form a matrix V with entries ±1 and Smith factors 1, 2, 2, 2, 2.
+  - S = VᵀG has VS = 12I and SᵀS = 12G, and the six readings sum to zero.
+  - **Erasures.** Any five readings invert, with |det S₋ⱼ| = 2592 and frame eigenvalues 12, 12, 12, 12, 2. The pair coherences of five channels give 2592⁴ = 2²⁰3¹⁶.
+  - **Global decoder.** With an anchor, each word lane is read with |det| 7776. So the twelve word coordinates have a global linear inverse of |det| 6¹⁰.
+  - **Golden repair.** The word adapter T has index 3, with image a₀ + 2a₁ + 2a₂ + a₃ + 2a₄ ≡ 0 mod 3, and V has index 16. So VZ⁶ + TZ⁶ = Z⁵, and the intersection has index 48. Three of the lines lie outside T's image, and each of them repairs a lane.
+- **The five K4 planes** (K5 vertices → dark ports, from the sibling's MODEL).
+  - Deleting a vertex leaves a commuting 2-plane of source vectors on its K4.
+  - The planes' bivectors lie in the commutator's kernel, with Gram 15I − 3J. They form the vertex simplex of the dark four, which a dark port sees and the six-port does not.
+  - Every golden line puts 2/5 of its squared length into every plane.
+- **The rest, replayed.**
+  - The formed nonlinear return parent has φ = (−122/3, −10/3) at its witness, so the source and hidden charges exchange at rate 78 there.
+  - The free source a″ + 4a = 0 emits x = DC + CO cos 4t + SI sin 4t, so x‴ + 16x′ = 0. Its history ranks are 6, 12 and 17 on twenty initial data (an SL2 is blind), and 20 with three coordinates added.
+  - On the 4320 clock, the golden tick 216 generates a C20, and 864 together with ×3457 generates an F20. The two share only the five translations. F20 has 864 orbits of five, 24 in each atlas fibre, and acts regularly on the 20 ordered marks.
+  - The norm-four shell splits into 1136 integer and 1024 half-integer sites.
+- **The bath's spectral measures (new)** (bath → measure, walks → measure).
+  - Fourier makes Δ multiplication by ε = 240 − Λ on L²(T⁸), so a site vector φ has as spectral measure the pushforward of |φ̂|² dk under ε. ε is a nonconstant trigonometric polynomial, so its critical set is null, and by the coarea formula every such measure is absolutely continuous.
+  - The torus is connected and ε runs from 0 to the band edge 256. So by Sard the density of states is positive at almost every energy of [0, 256].
+  - A nonzero finitely supported φ (a site, or any port vector) has φ̂ vanishing only on a null set. So its density is positive almost everywhere on the whole band.
+  - Both edges are nondegenerate, with Hessian 60I at k = 0 and −4I at the band-edge half-periods. So the density of states vanishes as E³ at the bottom and (256 − E)³ at the top.
+  - By Rakhmanov's theorem (Rakhmanov 1983; Denisov 2004), every port measure's Jacobi chain tends to the free chain: α → 128 and β → 64².
+  - From W₀ … W₉₀ the return, contrast and uniform chains reach α₄₄ = 128.03, 128.13 and 128.03, with β increasing to 4080.2, 4073.2 and 4080.6. The weight (E(256 − E))³, with the same edge exponents, has β₄₅ = 4080.4.
+  - The first Jacobi steps of the contrast and uniform chains are the clique's block eigenvalues 241 and 235 and its memory variances 183 and 495.
+- **Recorded (REPORTED).**
+  - Not replayed: the [12, 6, 6] word code (distances 1, 2, 5 over F₂, F₃, F₅), the 24-record raw-cell code, the thirteen interferometric intensities and the 923 erasure patterns.
+  - Also not replayed: the CP⁴ phase floor, the bright-to-dark threshold transfer, the return slice's ranks 6, 9, 10 with their minors, and the free source's minors.
+  - The canon workbooks' audited transfers and reconciled copies (15:56–15:57) were not opened.
+  - The sibling's integrated section reads numbers as names, so it is not recorded here.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -1720,6 +1764,7 @@ At 09:00 UTC the request was to work out the mathematics of assigning physical p
 - relayed by the user at 00:35: the sibling's `ONE_MACHINE_29.md` (1EQqJlcXKqOTx4CSrWjJ_xofjFE-nFHVJ, 00:20; its source `one-machine-29.typ`, 1Xjs-MbN1SJHnwRIxj-wMR3v7Tg7SdL7I, not opened) and its notes CLOSURE_092 (1cF4DFGH9sS1OxdOmdKY438WAqj6hpTU9), LAYER23B (11YQ_3BLajqeam8PfHircl-grIGkg_X7A), LEVELS (15pwuy92okVOE1kroi_aUqzF5f4xVrq2Y), OBS_SUN (1-hVBE6IXFAmvH5jYJ4GApOL4H_N_mGHO), GRAIN_SPLIT (1nD1IqQneNfuAIBCMP0QBs4A8ua6tXW_y), FRAME_WALKS (1KcOKYsAAsiLvzdZoOeUC8jYNalXlo_xZ) and DEEP_COURT (1QpU7xRGxOK7dEngbVvDQdg3s5RUNYf9V): §24, the 00:35 relay
 - the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
+- the sibling's MODEL_20261029.md edition of 16:17 (1LmzL9P-LTR0LZJX3CUPnEQYG7WY5rLjY), superseding those of 15:37–16:15; the hub's `OES_Unified_Model_20261029.txt` as revised at 16:11, read as text (its exact zip, 2748971 bytes, not downloaded): §24, the 16:16 check
 - the sibling's MODEL_20261029.md edition of 15:11 (1bWdXkamFm-H7wFFe8EiuqH4e8UZ6-8Ac), superseding those of 14:27–15:08; the hub's `OES_Unified_Model_20261029.txt` as revised at 15:03, with its exact zip (1759114 bytes; the all_order_noether_shell receipt read as data, nothing run); and the U21 intake folder `20261029T143223Z_CLAUDE_OES-K-REPLAY-U21_intake_v01` (1gcbalO4DZLnG2I0BNTDAPAMIfPBOViwt) with `oes-u21-operands-and-physics-gates-20261028.md` (1QnzqI_GmIPA1L4g8OI3Ui8-NlPyr6x3z), read as text: §24, the 15:34 check
 - the sibling's MODEL_20261029.md edition of 14:18 (11Ehah9uy4nC_HyEQGEMg2BYV4Go7QHcr), superseding the editions of 13:02–14:17, and its `fourth_moment_comparator.json` (1ymZ6WKCDIhSMvrj1OMIh7qzMXvxoAOPM); the hub's `OES_Unified_Model_20261029.txt` (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy) as revised at 14:07, with `OES_Unified_Model_Exact_20261029.zip` (1dqKmWQyYEsn7h-Bo-K0eFAG1WvJdptnU, 1294801 bytes; receipts read as data, nothing run): §24, the 14:26 check
 - the sibling's MODEL_20261029.md edition of 12:59 (19o9zXqqSeL5ZEcA7YG1FqYpVWbwF788R) and the hub's text as revised at 12:29: §24, the 12:59 check

@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.84,
+  "1-carrier": 0.71,
   "2-spectral": 0.01,
-  "3-spacetime": 12.04,
-  "4-native": 114.47,
-  "5-observer": 9.28,
-  "6-gravity": 7.21,
-  "7-cosmology": 1.86,
-  "8-frontier": 49.1,
-  "9-joins": 13.27,
-  "10-literal": 42.71,
-  "11-glue": 0.28,
+  "3-spacetime": 11.48,
+  "4-native": 99.3,
+  "5-observer": 6.74,
+  "6-gravity": 6.11,
+  "7-cosmology": 1.97,
+  "8-frontier": 43.27,
+  "9-joins": 10.31,
+  "10-literal": 39.05,
+  "11-glue": 0.26,
   "12-binding": 0.1,
-  "13-gates": 0.44,
-  "14-recurrence": 86.24,
-  "15-court": 2.09,
-  "16-handover": 1.8,
-  "17-waves": 1.13,
-  "18-snapshot": 1.97,
-  "19-spine": 6.08,
-  "20-canon": 6.55,
-  "21-ledger": 47.99,
-  "22-counts": 23.69,
-  "23-dots": 127.4,
-  "24-assignment": 3.78
+  "13-gates": 0.29,
+  "14-recurrence": 83.48,
+  "15-court": 1.87,
+  "16-handover": 1.6,
+  "17-waves": 1.06,
+  "18-snapshot": 1.93,
+  "19-spine": 6.33,
+  "20-canon": 7.03,
+  "21-ledger": 50.89,
+  "22-counts": 27.5,
+  "23-dots": 149.19,
+  "24-assignment": 3.63
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 590,
-   "total": 590
+   "passed": 599,
+   "total": 599
   },
   "OBSTRUCTION": {
    "passed": 56,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 91,
-   "total": 91
+   "passed": 93,
+   "total": 93
   }
  },
  "checks": [
@@ -8369,7 +8369,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "A4 + A4' -> dark port: the glue's 2160 norm-four sites carry the dark four (A4 x sign) 36 times and the 240 roots none; the free orbit of x0 = (-1, 0, 0, 1, 1, 0, 1, 0) carries the isometric dark port A/sqrt600 (the hub, 15:03)",
+   "name": "A4 + A4' -> dark ports: the glue's 2160 norm-four sites carry the dark four (A4 x sign) 36 times and the 240 roots none; the free orbit of x0 = (-1, 0, 0, 1, 1, 0, 1, 0) carries the isometric dark port A/sqrt600 (the hub, 15:03)",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -8383,7 +8383,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "dark port -> bath: 1, 975/4, 237985/4, 14539767, variance 1315/16; spectrally orthogonal to every root-supported port; its sites lie on one sphere, so it grows by 4 at every order, and the five ports by 28",
+   "name": "dark ports -> bath: 1, 975/4, 237985/4, 14539767, variance 1315/16; spectrally orthogonal to every root-supported port; its sites lie on one sphere, so it grows by 4 at every order, and the five ports by 28",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -8397,7 +8397,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "PGL(2,5) -> dark port: the Reynolds average K: R^15 -> A4 (entries -2, 0, 2) has K^T K = 60 P_dark and K K^T = 60 P_A4, so the two-shell port [T_S C/sqrt160; A K/sqrt36000] is an isometry of the pair space modulo its cuts",
+   "name": "PGL(2,5) -> dark ports: the Reynolds average K: R^15 -> A4 (entries -2, 0, 2) has K^T K = 60 P_dark and K K^T = 60 P_A4, so the two-shell port [T_S C/sqrt160; A K/sqrt36000] is an isometry of the pair space modulo its cuts",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -8406,6 +8406,109 @@
     "its moments are scalar, 1, 975/4, 237985/4, 14539767 (variance 1315/16), and it is spectrally orthogonal to every root-supported port: Delta S5-equivariant and the dark four absent from the root module make T_D* f(Delta) vanish on all 240 root sites (checked for Delta^n, n <= 2)": true,
     "the root-shell argument holds on any sphere of sites: for s on it and r* a root maximizing <s, .>, the point s + n r* is reached in n steps only from s along r*, (Delta^n)_(s', s + n r*) = (-1)^n delta_(s s') with lower powers vanishing (checked on the 120 sites, n <= 4); so the dark port grows by 4 at every order, and with the four root ports, orthogonal to it, the five ports grow by 28 = 24 + 4": true,
     "the Reynolds average K of e_0 e_01^T over S5 (sign-twisted on A4) is the hub's intertwiner: entries -2, 0, 2, K rho(p) = sgn(p) p K, K^T K = 60 P_dark and K K^T = 60 P_A4; so D15 = [T_S C/sqrt160; A K/sqrt36000] has D15* D15 = P_bright + P_dark on the pair space, the cuts its kernel": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 + A4' -> dark ports: D2(x) = [X ^ Y ^ (5 X o Y - <X, Y> 1)]/625 on the label blocks of the norm-four sites is a second dark port: nonzero at 1200 sites, rank 4, Gram 7200 P, moments 1, 232, 54150, variance 326 (the hub, 16:11)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "D2(x) = [X ^ Y ^ (5 X o Y - <X, Y> 1)]/625 on the label blocks of the norm-four sites (scaled by 5) is nonzero at 1200 of the 2160, has rank 4 and Gram G2 with G2^2 = 7200 G2, and its moments are scalar: 1, 232, 54150, variance 326": true,
+    "with the first dark port D1 = A, C = D1^T D2 has C C^T = 112500 P_A4: four equal squared principal cosines 112500/(600 x 7200) = 5/192, so the two span 8 dimensions. The mixed moments are D1^T Delta D2 = 232 C and D1^T Delta^2 D2 = 54150 C, and the part of D1 orthogonal to D2 has moments 45640/187 and 11152530/187, variance 2513510/34969": true,
+    "every norm-four site meets some root at inner product 2 and none above (<s, r> <= sqrt8 < 3). So on the shell the point s + n r* is reached in n steps only from s along r* (the 15:34 argument, now at every site), the eight dark columns grow by 8 at every order, and with the four root ports, orthogonal to them because the dark four are absent from the roots, the ports grow by 32(n + 1)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "dark ports -> moments: the two dark ports meet at four squared principal cosines 5/192, with mixed moments 232 C and 54150 C; every norm-four site meets a root at 2 and none above, so their eight columns grow by 8 at every order, and with the root 24, orthogonal to them, the ports grow by 32(n + 1)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "D2(x) = [X ^ Y ^ (5 X o Y - <X, Y> 1)]/625 on the label blocks of the norm-four sites (scaled by 5) is nonzero at 1200 of the 2160, has rank 4 and Gram G2 with G2^2 = 7200 G2, and its moments are scalar: 1, 232, 54150, variance 326": true,
+    "with the first dark port D1 = A, C = D1^T D2 has C C^T = 112500 P_A4: four equal squared principal cosines 112500/(600 x 7200) = 5/192, so the two span 8 dimensions. The mixed moments are D1^T Delta D2 = 232 C and D1^T Delta^2 D2 = 54150 C, and the part of D1 orthogonal to D2 has moments 45640/187 and 11152530/187, variance 2513510/34969": true,
+    "every norm-four site meets some root at inner product 2 and none above (<s, r> <= sqrt8 < 3). So on the shell the point s + n r* is reached in n steps only from s along r* (the 15:34 argument, now at every site), the eight dark columns grow by 8 at every order, and with the four root ports, orthogonal to them because the dark four are absent from the roots, the ports grow by 32(n + 1)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "dark ports -> rotor plane: the F20-equivariant isometries X_i of the dark four onto the moving planes P_cycle - F_i (Reynolds averages, sum X_i = 0) have graph projectors with sum 2 P_bright + 3 P_dark; any four views recover the ten, with condition number phi^4, and the Woodbury cross response is -X_i/47 at a = 1/2, b = 1/3, q = 1/7 (the hub, 16:11)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "half the Reynolds average of e_0 e_0^T over the stabilizer F20 of a Sylow label is an F20-equivariant isometry X_0 of the dark four (A4 x sign) into the cycles; its S5 orbit X_0..X_5 is well defined, sums to zero, has X_i^T X_i = P_A4 and X_i X_i^T = P_cycle - F_i (the moving plane of the i-th rotor), and Frobenius Gram (24/5) delta_ij - 4/5": true,
+    "their graph projectors Pi_i = (1/2)[[X X^T, X], [X^T, I_D]] on the bright six plus dark four are rank-4 projectors with sum 2 P_bright + 3 P_dark and tr Pi_i Pi_j = 6/5; k views have rank 4, 7, 9, 10, 10, 10, so any four reconstruct the ten and any two whole views may be lost": true,
+    "every four views have characteristic polynomial (t - 2)(t - 1)(t^2 - 3t + 1)(t^3 - 5t^2 + (79/10)t - 4)^2 on the ten, five views (t - 2)^2 (t^2 - 4t + 7/2)^4 and all six (t - 2)^6 (t - 3)^4: determinants 32, 2401/4 and 5184, inverse traces 169/20, 39/7 and 13/3 (the sixth view cuts the five-view error by 2/9), and since the cubic's three roots lie in (1, 5/2), the four-view condition number is phi^4 = (7 + 3 sqrt5)/2": true,
+    "with block responses a (bright) and b (dark), the retained response to H + lambda Pi_i is a P_B + b P_D - (q/Delta)[[a^2 X X^T, a b X], [a b X^T, b^2 I_D]] (Woodbury; q = lambda/2, Delta = 1 + q(a + b)), whose cross block is -X_i/47 at a = 1/2, b = 1/3, q = 1/7": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> fifteen words: the six Sylow lines are V in primitive source coordinates (entries +-1, index 16) and the word adapter T has index 3, so V Z^6 + T Z^6 = Z^5 with an intersection of index 48, and each of the three lines outside T's image (a0 + 2a1 + 2a2 + a3 + 2a4 not 0 mod 3) repairs a lane (the hub, 16:11)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "in primitive source coordinates the six oriented Sylow lines are V = G^-1 N5^T H, with entries +-1 and Smith factors 1, 2, 2, 2, 2 (index 16), and S = V^T G encodes the source: V S = 12 I, S^T S = 12 G, and the six readings sum to zero": true,
+    "any five readings invert: without line j the frame operator 12 I - v_j v_j^T G has eigenvalues 12, 12, 12, 12 and 2, |det S_-j| = 2592 for every j, and the ten pair coherences of five channels have |det Lambda^2 S_-j| = 2592^4 = 2^20 3^16": true,
+    "a six-word lane is read globally by the five readings S_-j T u and its anchor u0, with |det| 7776 for every j, so the twelve word coordinates of 980 and 086 have a global linear inverse of |det| 7776^2 = 6^10 = 60466176": true,
+    "the word adapter T has index 3, with image ell(a) = a0 + 2a1 + 2a2 + a3 + 2a4 = 0 mod 3. Three of the six lines satisfy it and three do not, and V Z^6 + T Z^6 = Z^5, since the indices 16 and 3 are coprime. So the intersection has index 48, and each of the three blocked lines repairs the lane": true,
+    "a Golden line has A(h)^2 = 5 I - J and Tr A(h)^3 = 0, and its readings S v_i = H^T h_i are 10 on itself and -2 on the others: intensities 100 and 4, or 5/6 and 1/30 of the total 12 h^T h = 120 (per r^2 on its rotating orbit, where the 411 normalization has E = 10 r^2 and Q = 5 r^2: 12 E = 24 Q)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> fifteen words: S = V^T G encodes the source (V S = 12 I, S^T S = 12 G); any five readings invert (|det| 2592), and with an anchor the twelve word coordinates of 980 and 086 have a global linear inverse of |det| 6^10 (the hub, 16:11)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "in primitive source coordinates the six oriented Sylow lines are V = G^-1 N5^T H, with entries +-1 and Smith factors 1, 2, 2, 2, 2 (index 16), and S = V^T G encodes the source: V S = 12 I, S^T S = 12 G, and the six readings sum to zero": true,
+    "any five readings invert: without line j the frame operator 12 I - v_j v_j^T G has eigenvalues 12, 12, 12, 12 and 2, |det S_-j| = 2592 for every j, and the ten pair coherences of five channels have |det Lambda^2 S_-j| = 2592^4 = 2^20 3^16": true,
+    "a six-word lane is read globally by the five readings S_-j T u and its anchor u0, with |det| 7776 for every j, so the twelve word coordinates of 980 and 086 have a global linear inverse of |det| 7776^2 = 6^10 = 60466176": true,
+    "the word adapter T has index 3, with image ell(a) = a0 + 2a1 + 2a2 + a3 + 2a4 = 0 mod 3. Three of the six lines satisfy it and three do not, and V Z^6 + T Z^6 = Z^5, since the indices 16 and 3 are coprime. So the intersection has index 48, and each of the three blocked lines repairs the lane": true,
+    "a Golden line has A(h)^2 = 5 I - J and Tr A(h)^3 = 0, and its readings S v_i = H^T h_i are 10 on itself and -2 on the others: intensities 100 and 4, or 5/6 and 1/30 of the total 12 h^T h = 120 (per r^2 on its rotating orbit, where the 411 normalization has E = 10 r^2 and Q = 5 r^2: 12 E = 24 Q)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 vertices -> dark ports: deleting a vertex leaves a commuting 2-plane of source vectors on its K4; their bivectors lie in the commutator's kernel with Gram 15 I - 3 J, the vertex simplex of the dark four, and every golden line puts 2/5 of its square into each plane (the sibling's MODEL, 16:17)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "deleting a vertex of K5 leaves a 2-plane of source vectors supported on its K4 (the differences of its three perfect matchings); inside each plane the commutator vanishes, so the five bivectors lie in the commutator's 4-dimensional kernel, the dark four": true,
+    "with orientations (-1)^v their Gram is 15 I - 3 J, which kills the sum and is 15 on the rest: the five planes are the vertex simplex of the dark four, seen by a dark port and not by the six-port, and any four span it": true,
+    "every golden line puts 2/5 of its squared length into every plane": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> spectral measures: Fourier makes Delta multiplication by eps = 240 - Lambda, nonconstant with range [0, 256]; by the coarea formula and Sard every site vector's spectral measure is absolutely continuous, and a nonzero finitely supported one (a site, any port vector) has density positive almost everywhere on the whole band; both edges are nondegenerate, so the density of states vanishes as E^3 and (256 - E)^3",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Fourier makes Delta multiplication by eps = 240 - Lambda, a nonconstant trigonometric polynomial with range exactly [0, 256]: eps(0) = 0, and the band edge (layer 8's theorem). Both edges are nondegenerate, with Hessian sum r r^T = 60 I at k = 0 and -4 I at the band-edge half-periods, so the density of states vanishes as E^3 and (256 - E)^3": true,
+    "so every site vector's spectral measure is absolutely continuous, and a nonzero finitely supported one (a site, any port vector) has density positive almost everywhere on all of [0, 256]. The clique's contrast and uniform sector measures are E rho/240 and (288 - E) rho/48. Their first Jacobi steps are the block eigenvalues 241 and 235 and the memory variances 183 and 495": true,
+    "the exact chains from W_0..W_90 (45 levels) lie inside the band, with 0 < alpha_k < 256 and 0 < beta_k < 128^2, and approach the free chain as Rakhmanov's theorem requires. beta_k increases throughout, and at the last level |alpha - 128| < 0.13 and 0 < 4096 - beta < 23 (the return chain: alpha_44 = 128.026, beta_45 = 4080.23)": true,
+    "the slow approach is the edges': the weight (E (256 - E))^3, with the same edge exponents, has beta_45 = 4080.44, within 1/4 of the return chain's": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "closed walks -> spectral measures: so (Rakhmanov) every port measure's Jacobi chain tends to alpha = 128, beta = 64^2; from W_0..W_90 the return, contrast and uniform chains reach alpha_44 = 128.03, 128.13 and 128.03 with beta rising to 4080.2, 4073.2 and 4080.6, close to the weight (E(256 - E))^3 with the same edge exponents (beta_45 = 4080.4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Fourier makes Delta multiplication by eps = 240 - Lambda, a nonconstant trigonometric polynomial with range exactly [0, 256]: eps(0) = 0, and the band edge (layer 8's theorem). Both edges are nondegenerate, with Hessian sum r r^T = 60 I at k = 0 and -4 I at the band-edge half-periods, so the density of states vanishes as E^3 and (256 - E)^3": true,
+    "so every site vector's spectral measure is absolutely continuous, and a nonzero finitely supported one (a site, any port vector) has density positive almost everywhere on all of [0, 256]. The clique's contrast and uniform sector measures are E rho/240 and (288 - E) rho/48. Their first Jacobi steps are the block eigenvalues 241 and 235 and the memory variances 183 and 495": true,
+    "the exact chains from W_0..W_90 (45 levels) lie inside the band, with 0 < alpha_k < 256 and 0 < beta_k < 128^2, and approach the free chain as Rakhmanov's theorem requires. beta_k increases throughout, and at the last level |alpha - 128| < 0.13 and 0 < 4096 - beta < 23 (the return chain: alpha_44 = 128.026, beta_45 = 4080.23)": true,
+    "the slow approach is the edges': the weight (E (256 - E))^3, with the same edge exponents, has beta_45 = 4080.44, within 1/4 of the return chain's": true
    },
    "note": ""
   },
@@ -8435,7 +8538,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 65 dots and 222 joins form one connected diagram (the obstructions left out)",
+   "name": "the 65 dots and 230 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8675,7 +8778,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 18, operator-physics 16 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 16 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8725,6 +8828,7 @@
      "L0 -> wedgeport",
      "rootgraph -> moments",
      "halfper -> wedgeport",
+     "L0 -> darkport",
      "L0 -> darkport"
     ],
     [
@@ -8754,7 +8858,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 199,
+    "THEOREM": 207,
     "OBSTRUCTION": 10,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8774,18 +8878,18 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 8, symmetry-operator 9, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 13, combinatorics-physics 7, lattice-operator 18, lattice-physics 5, operator-physics 16",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 8, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 15, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 16",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
-    "(3, 4)": 18,
-    "(2, 4)": 13,
+    "(3, 4)": 19,
+    "(2, 4)": 15,
     "(1, 3)": 8,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
-    "(1, 4)": 9,
+    "(1, 4)": 10,
     "(4, 5)": 16,
     "(2, 5)": 7,
     "(3, 5)": 5,
@@ -9643,6 +9747,35 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the hub's Weyl-orbit certificates (184319 and 669652; 362979 and 983965 at 24), which the root-shell theorem makes unnecessary; the odd and dark infrared constants E^6/12960000 and E^7/8709120000, inherited in the hub too; the two-shell populations 6264/5 and 1836/5 at the source witness, the operational Return demonstration and the 20-coordinate replica; the U21 G0 runs and physics gates; the canon workbooks and their U21 staging copies (14:48-14:55), not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 16:11 text and the 15:37-16:17 model: the return parent's phi = (-122/3, -10/3) and its charge exchange of 78 at the witness, the free source's history (x''' + 16 x' = 0; ranks 6, 12, 17, and 20 with three coordinates), the clock's C20 and F20 (meeting in C5; 864 orbits of five, 24 per atlas fibre; no equivariant mark), and the norm-four shell's 1136 + 1024",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the formed nonlinear return parent at its witness a = (1, 0, 1, -1, 2), b = (0, 2, -1, 1, 0) has phi = (Tr[(A^2 + B^2)A], Tr[(A^2 + B^2)B])/6 = (-122/3, -10/3), so at h = (1, 2) the source charge falls at 78 and the hidden charge rises at 78": true,
+    "the free source a'' + 4a = 0 = b'' + 4b, with a(t) = a cos 2t + (u/2) sin 2t and b(t) likewise, emits the bilinear x = W(a(t) ^ b(t)) = cos^2(2t) C0 + cos(2t) sin(2t) C1/2 + sin^2(2t) C2/4 = DC + CO cos 4t + SI sin 4t (DC = C0/2 + C2/8, CO = C0/2 - C2/8, SI = C1/4): x''' + 16 x' = 0, x(0) = C0, x'(0) = C1, x''(0) = 2 C2 - 8 C0, and samples at 0, pi/8, pi/4 give (DC, CO, SI) with determinant 2. Its history ranks are 6, 12 and 17 on the twenty initial data (an SL2 left blind), and 20 with a0, a1 and b0 added": true,
+    "on the 4320 clock the golden tick 216 generates a cyclic C20 and 864 with x 3457 an affine F20 (3457 of order 4, nonabelian); they share only the five translations by 864. F20 has 864 orbits of five, 24 in each fibre of the 36-address atlas, a point's stabilizer is C4, and F20 is regular on the 20 ordered marks, so no equivariant map sends a clock orbit to the marks": true,
+    "the norm-four shell has 1136 integer and 1024 half-integer sites and no root (the sibling's split)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 16:16: the hub's OES_Unified_Model_20261029.txt as revised at 16:11 (sources through 15:50), read as text; its exact zip (2748971 bytes, 16:11) was not downloaded, the replays here coming from the text; the sibling's MODEL edition of 16:17 (those of 15:37-16:15, with the spine PDFs, are superseded); the canon workbooks' audited transfers and reconciled copies (15:56-15:57), not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the [12, 6, 6] word code and its distances 1, 2, 5 over F2, F3, F5, the 24-record raw-cell code and its 31626 support pairs, the thirteen interferometric intensities, the 923 erasure patterns and the distance-4 edge reader, the CP4 phase floor, the Weyl certificates 117705 and 943098 (the norm-four shell argument makes them unnecessary), the bright-to-dark threshold transfer (inherited constants), the return slice's ranks 6, 9, 10 and its minors, and the free source's minors -41787850752 and -1337211224064; the sibling's integrated readings (numbers read as names) are not recorded",
    "status": "REPORTED",
    "passed": true,
    "value": null,

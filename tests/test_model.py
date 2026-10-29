@@ -491,6 +491,53 @@ def test_the_1534_replay():
     assert np.array_equal(Od[neg], -Od) and np.array_equal(Bw[neg], Bw)
 
 
+def test_the_1616_replay():
+    for check in (dots.two_dark, dots.fusion_frame, dots.source_coding, dots.k4_planes, dots.notes_1616):
+        out = check()
+        assert all(out.values()), out
+    import sympy as sp
+    from sympy.matrices.normalforms import smith_normal_form
+    # the triple wedge is even in the twin block, so the twin's sign convention cannot change the second dark port
+    X, V4, W4 = dots._norm_four()
+    tw = lambda v, w: sp.Matrix([v, w, [5 * a * b - sum(p * q for p, q in zip(v, w)) for a, b in zip(v, w)]])
+    assert all(tw(V4[k].tolist(), W4[k].tolist()).extract([0, 1, 2], list(t)).det()
+               == tw(V4[k].tolist(), (-W4[k]).tolist()).extract([0, 1, 2], list(t)).det()
+               for k in range(0, 2160, 97) for t in itertools.combinations(range(5), 3))
+    # without the sign twist on the dark four the mixer orbit is not well defined: each label gets X and -X
+    H, sig, S5, sgn, U = dots._six_lines()
+    Xs, F = dots._mixers()
+    perm = lambda p: sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+    plain = {}
+    for p in S5:
+        plain.setdefault(sig[p][0], set()).add(tuple(dots.compound2(perm(p)) * Xs[0] * perm(p).T))
+    assert all(len(v) == 2 for v in plain.values())
+    # a Sylow line inside T's image leaves the word lattice at index 3
+    E, N5, sym, Fc, a0, b0 = dots._source()
+    G = N5.T * N5
+    V = G.inv() * N5.T * sp.Matrix.hstack(*H)
+    ell = sp.Matrix([[1, 2, 2, 1, 2]])
+    inside = [i for i in range(6) if (ell * V)[i] % 3 == 0]
+    assert all(smith_normal_form(sp.Matrix.hstack(dots._word_adapter(), V[:, i]), domain=sp.ZZ)[4, 4] == 3
+               for i in inside)
+    # source vectors from two different K4 planes do not commute
+    P0 = N5 * sp.Matrix.hstack(*N5.extract([k for k, e in enumerate(E) if 0 in e], list(range(5))).nullspace())
+    P1 = N5 * sp.Matrix.hstack(*N5.extract([k for k, e in enumerate(E) if 1 in e], list(range(5))).nullspace())
+    assert not Fc(P0[:, 0], P1[:, 0]).is_zero_matrix
+
+
+def test_the_free_chain():
+    out = dots.free_chain()
+    assert all(out.values()), out
+    from math import factorial
+    # a measure on three points has a chain that stops at the third step
+    assert court.chebyshev([sum(Fraction(x) ** n for x in (0, 100, 256)) for n in range(12)])[2] == 3
+    # the edge exponents show: the weight E (256 - E), exponent 1 instead of 3, misses the return chain's beta_45 by 14
+    beta = lambda a, b: Fraction(factorial(a - 1) * factorial(b - 1), factorial(a + b - 1))
+    lin = court.chebyshev([256 ** n * beta(n + 2, 2) / beta(2, 2) for n in range(91)])
+    ret = court.chebyshev(court.laplacian_moments(recurrence.load_walks(), 90))
+    assert abs(lin[1][44] - ret[1][44]) > 10
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):
