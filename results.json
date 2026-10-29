@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.85,
+  "1-carrier": 0.84,
   "2-spectral": 0.01,
-  "3-spacetime": 12.26,
-  "4-native": 105.12,
-  "5-observer": 6.37,
-  "6-gravity": 8.86,
-  "7-cosmology": 2.25,
-  "8-frontier": 43.14,
-  "9-joins": 10.51,
-  "10-literal": 40.02,
-  "11-glue": 0.19,
-  "12-binding": 0.09,
-  "13-gates": 0.28,
-  "14-recurrence": 89.09,
-  "15-court": 1.84,
-  "16-handover": 1.74,
-  "17-waves": 0.96,
-  "18-snapshot": 2.23,
-  "19-spine": 6.51,
-  "20-canon": 6.9,
-  "21-ledger": 50.37,
-  "22-counts": 25.59,
-  "23-dots": 92.0,
-  "24-assignment": 4.23
+  "3-spacetime": 12.04,
+  "4-native": 114.47,
+  "5-observer": 9.28,
+  "6-gravity": 7.21,
+  "7-cosmology": 1.86,
+  "8-frontier": 49.1,
+  "9-joins": 13.27,
+  "10-literal": 42.71,
+  "11-glue": 0.28,
+  "12-binding": 0.1,
+  "13-gates": 0.44,
+  "14-recurrence": 86.24,
+  "15-court": 2.09,
+  "16-handover": 1.8,
+  "17-waves": 1.13,
+  "18-snapshot": 1.97,
+  "19-spine": 6.08,
+  "20-canon": 6.55,
+  "21-ledger": 47.99,
+  "22-counts": 23.69,
+  "23-dots": 127.4,
+  "24-assignment": 3.78
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 583,
-   "total": 583
+   "passed": 590,
+   "total": 590
   },
   "OBSTRUCTION": {
    "passed": 56,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 88,
-   "total": 88
+   "passed": 91,
+   "total": 91
   }
  },
  "checks": [
@@ -2346,6 +2346,45 @@
    "passed": true,
    "value": null,
    "note": "an order-11 annihilator is not excluded by the data (it would need degree >= 49) but would be a right factor of this operator"
+  },
+  {
+   "layer": "14-recurrence",
+   "name": "computed outside the suite (lower_order_scan, 29 Oct): with W_n mod 1769473 extended to n = 2999 by the operator, no recurrence of order 11, 12, 13, 14 or 15 exists up to degree 247, 228, 211, 197 or 184 (each shape matrix has full column rank); so an order-11 annihilator, if any, has degree at least 248, conditional on the operator holding for every n",
+   "status": "REPORTED",
+   "passed": true,
+   "value": {
+    "11": [
+     247,
+     2989,
+     2976,
+     2976
+    ],
+    "12": [
+     228,
+     2988,
+     2977,
+     2977
+    ],
+    "13": [
+     211,
+     2987,
+     2968,
+     2968
+    ],
+    "14": [
+     197,
+     2986,
+     2970,
+     2970
+    ],
+    "15": [
+     184,
+     2985,
+     2960,
+     2960
+    ]
+   },
+   "note": "about 7 minutes per order, so not rerun by verify; the U21 note's unconditional bound (order 11, degree <= 35, from W_0..W_460) agrees with the exact bound above"
   },
   {
    "layer": "14-recurrence",
@@ -8291,6 +8330,87 @@
   },
   {
    "layer": "23-dots",
+   "name": "PGL(2,5) -> rotor plane: the fixed planes of the six Sylow C5s in the cycles are equi-isoclinic: sum F_i = 2 P_cycle and F_i F_j F_i = F_i/5, and centred they have the Gram of the six lines (1 and -1/5) (the hub, 15:03)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the fifteen pair commutators C_ij = upper([A(h_i), A(h_j)]) have square 64 and C C^T = 160 P_cycle (160 = 12^2 x 10/9), and S5 acts on the oriented pairs with C rho(p) = Lambda^2(p) C; on R^15 the cut projector B6^T B6/6 of K6, the bright C^T C/160 and the dark rest are orthogonal projectors of ranks 5, 6 and 4": true,
+    "every 11 of the 15 readings have rank 6, and of the 3003 sets of ten, 2991 have rank 6 and 12 rank 5: any four erasures are tolerated, and the twelve failing five-sets are exactly the pentagon and pentagram of each C5 on its five moving labels": true,
+    "each failure leaves one blind cycle line, of Curl-polarization +1 or -1, six each, and the two sums of their projectors are P_cycle +- Curl/5: J_H = (sqrt5/2)(F+ - F-), the Hodge star again, now from the erasures of an actual frame": true,
+    "the six Sylow fixed planes of the cycles (the rotor plane of each C5) are equi-isoclinic: sum F_i = 2 P_cycle and F_i F_j F_i = F_i/5, and the centred (sqrt3/2)(F_i - P_cycle/3) have the Gram of the lines h_i/sqrt10 (1 and -1/5)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> sound and light: the fifteen pair commutators of the six lines are a 160-tight frame of the cycles (cut 5, bright 6, dark 4 on the pair space); any four erasures are tolerated, the twelve failing five-sets are the pentagons and pentagrams of the six C5s, and their blind lines sum to P_cycle +- Curl/5, so J_H = (sqrt5/2)(F+ - F-)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the fifteen pair commutators C_ij = upper([A(h_i), A(h_j)]) have square 64 and C C^T = 160 P_cycle (160 = 12^2 x 10/9), and S5 acts on the oriented pairs with C rho(p) = Lambda^2(p) C; on R^15 the cut projector B6^T B6/6 of K6, the bright C^T C/160 and the dark rest are orthogonal projectors of ranks 5, 6 and 4": true,
+    "every 11 of the 15 readings have rank 6, and of the 3003 sets of ten, 2991 have rank 6 and 12 rank 5: any four erasures are tolerated, and the twelve failing five-sets are exactly the pentagon and pentagram of each C5 on its five moving labels": true,
+    "each failure leaves one blind cycle line, of Curl-polarization +1 or -1, six each, and the two sums of their projectors are P_cycle +- Curl/5: J_H = (sqrt5/2)(F+ - F-), the Hodge star again, now from the erasures of an actual frame": true,
+    "the six Sylow fixed planes of the cycles (the rotor plane of each C5) are equi-isoclinic: sum F_i = 2 P_cycle and F_i F_j F_i = F_i/5, and the centred (sqrt3/2)(F_i - P_cycle/3) have the Gram of the lines h_i/sqrt10 (1 and -1/5)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "root-wedge port -> triangle port: the odd S5 port, the S5 orbit of the triangle port, has its moments 1, 242, 58691, 14259954, 3470101592; the bath keeps inversion, so it is spectrally orthogonal to the even root-wedge port, and the four root ports span 24 and grow by 24 at every order (the hub, 15:03)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the odd S5 port T_O e_ij = (delta(alpha_ij) - delta(-alpha_ij))/sqrt2 on the first A4 is an isometry of the cycles with the triangle port's moments, 1, 242, 58691, 14259954, 3470101592 (variance 127): the S5 orbit of the triangle, scalar on the cycles": true,
+    "the bath commutes with inversion, the root-wedge port is even (b_-rho = b_rho) and T_O is odd, so T_S* f(Delta) T_O = 0 for every f (checked for Delta^n, n <= 4)": true,
+    "the clique, the Golden, the root-wedge and the odd port span 24 dimensions on the root shell, so by the root-shell theorem they grow by 24 at every order (24, 48 computed through degree 1); the hub certifies this by 24 x 24 Weyl-orbit determinants": true,
+    "S5 does not choose between the two: the mixtures sqrt(1 - q) T_S + sqrt(q) T_O have 3 x 3 Hankel determinant 219823907 - 194728114 q - 84325288 q^2 + 75159768 q^3, decreasing on [0, 1] (its derivative is convex, -194728114 and -137899386 at the ends) to 15930273 > 0": "True"
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 + A4' -> dark port: the glue's 2160 norm-four sites carry the dark four (A4 x sign) 36 times and the 240 roots none; the free orbit of x0 = (-1, 0, 0, 1, 1, 0, 1, 0) carries the isometric dark port A/sqrt600 (the hub, 15:03)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the A4 + A4' glue has 2160 norm-four sites, and in its label coordinates the diagonal S5 character sums give the dark four (A4 x sign, the commutator's kernel) multiplicity 0 on the 240 root sites and 36 on the norm-four shell: no S5 dark port lives on the roots": true,
+    "the site x0 = (-1, 0, 0, 1, 1, 0, 1, 0) (the hub's (-6, -1, -1, 4, 4; -2, -2, 3, -2, 3)/5, its twin read through the outer automorphism) has a free S5 orbit of 120 sites, and A_(sigma, i) = sgn(sigma)(5 delta_(i, sigma(0)) - 1) has A^T A = 600 P_A4: an isometric dark port A/sqrt600": true,
+    "its moments are scalar, 1, 975/4, 237985/4, 14539767 (variance 1315/16), and it is spectrally orthogonal to every root-supported port: Delta S5-equivariant and the dark four absent from the root module make T_D* f(Delta) vanish on all 240 root sites (checked for Delta^n, n <= 2)": true,
+    "the root-shell argument holds on any sphere of sites: for s on it and r* a root maximizing <s, .>, the point s + n r* is reached in n steps only from s along r*, (Delta^n)_(s', s + n r*) = (-1)^n delta_(s s') with lower powers vanishing (checked on the 120 sites, n <= 4); so the dark port grows by 4 at every order, and with the four root ports, orthogonal to it, the five ports grow by 28 = 24 + 4": true,
+    "the Reynolds average K of e_0 e_01^T over S5 (sign-twisted on A4) is the hub's intertwiner: entries -2, 0, 2, K rho(p) = sgn(p) p K, K^T K = 60 P_dark and K K^T = 60 P_A4; so D15 = [T_S C/sqrt160; A K/sqrt36000] has D15* D15 = P_bright + P_dark on the pair space, the cuts its kernel": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "dark port -> bath: 1, 975/4, 237985/4, 14539767, variance 1315/16; spectrally orthogonal to every root-supported port; its sites lie on one sphere, so it grows by 4 at every order, and the five ports by 28",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the A4 + A4' glue has 2160 norm-four sites, and in its label coordinates the diagonal S5 character sums give the dark four (A4 x sign, the commutator's kernel) multiplicity 0 on the 240 root sites and 36 on the norm-four shell: no S5 dark port lives on the roots": true,
+    "the site x0 = (-1, 0, 0, 1, 1, 0, 1, 0) (the hub's (-6, -1, -1, 4, 4; -2, -2, 3, -2, 3)/5, its twin read through the outer automorphism) has a free S5 orbit of 120 sites, and A_(sigma, i) = sgn(sigma)(5 delta_(i, sigma(0)) - 1) has A^T A = 600 P_A4: an isometric dark port A/sqrt600": true,
+    "its moments are scalar, 1, 975/4, 237985/4, 14539767 (variance 1315/16), and it is spectrally orthogonal to every root-supported port: Delta S5-equivariant and the dark four absent from the root module make T_D* f(Delta) vanish on all 240 root sites (checked for Delta^n, n <= 2)": true,
+    "the root-shell argument holds on any sphere of sites: for s on it and r* a root maximizing <s, .>, the point s + n r* is reached in n steps only from s along r*, (Delta^n)_(s', s + n r*) = (-1)^n delta_(s s') with lower powers vanishing (checked on the 120 sites, n <= 4); so the dark port grows by 4 at every order, and with the four root ports, orthogonal to it, the five ports grow by 28 = 24 + 4": true,
+    "the Reynolds average K of e_0 e_01^T over S5 (sign-twisted on A4) is the hub's intertwiner: entries -2, 0, 2, K rho(p) = sgn(p) p K, K^T K = 60 P_dark and K K^T = 60 P_A4; so D15 = [T_S C/sqrt160; A K/sqrt36000] has D15* D15 = P_bright + P_dark on the pair space, the cuts its kernel": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> dark port: the Reynolds average K: R^15 -> A4 (entries -2, 0, 2) has K^T K = 60 P_dark and K K^T = 60 P_A4, so the two-shell port [T_S C/sqrt160; A K/sqrt36000] is an isometry of the pair space modulo its cuts",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the A4 + A4' glue has 2160 norm-four sites, and in its label coordinates the diagonal S5 character sums give the dark four (A4 x sign, the commutator's kernel) multiplicity 0 on the 240 root sites and 36 on the norm-four shell: no S5 dark port lives on the roots": true,
+    "the site x0 = (-1, 0, 0, 1, 1, 0, 1, 0) (the hub's (-6, -1, -1, 4, 4; -2, -2, 3, -2, 3)/5, its twin read through the outer automorphism) has a free S5 orbit of 120 sites, and A_(sigma, i) = sgn(sigma)(5 delta_(i, sigma(0)) - 1) has A^T A = 600 P_A4: an isometric dark port A/sqrt600": true,
+    "its moments are scalar, 1, 975/4, 237985/4, 14539767 (variance 1315/16), and it is spectrally orthogonal to every root-supported port: Delta S5-equivariant and the dark four absent from the root module make T_D* f(Delta) vanish on all 240 root sites (checked for Delta^n, n <= 2)": true,
+    "the root-shell argument holds on any sphere of sites: for s on it and r* a root maximizing <s, .>, the point s + n r* is reached in n steps only from s along r*, (Delta^n)_(s', s + n r*) = (-1)^n delta_(s s') with lower powers vanishing (checked on the 120 sites, n <= 4); so the dark port grows by 4 at every order, and with the four root ports, orthogonal to it, the five ports grow by 28 = 24 + 4": true,
+    "the Reynolds average K of e_0 e_01^T over S5 (sign-twisted on A4) is the hub's intertwiner: entries -2, 0, 2, K rho(p) = sgn(p) p K, K^T K = 60 P_dark and K K^T = 60 P_A4; so D15 = [T_S C/sqrt160; A K/sqrt36000] has D15* D15 = P_bright + P_dark on the pair space, the cuts its kernel": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -8315,7 +8435,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 64 dots and 216 joins form one connected diagram (the obstructions left out)",
+   "name": "the 65 dots and 222 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8345,6 +8465,7 @@
      "cosmology",
      "cube",
      "cycles",
+     "darkport",
      "datum",
      "frame",
      "gksl",
@@ -8507,13 +8628,14 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 5, operator (spaces with operators, ports and moments): its 15 dots are joined among themselves",
+   "name": "level 5, operator (spaces with operators, ports and moments): its 16 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
     [
      "bath",
      "carrier",
+     "darkport",
      "datum",
      "gksl",
      "goldenport",
@@ -8553,7 +8675,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 10, combinatorics-lattice 4, lattice-operator 17, operator-physics 16 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 18, operator-physics 16 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8576,7 +8698,8 @@
      "rotor -> AGL",
      "S5 -> cycles",
      "words -> surface",
-     "pgl -> synthemes"
+     "pgl -> synthemes",
+     "pgl -> rotor"
     ],
     [
      "E -> A4",
@@ -8601,7 +8724,8 @@
      "halfper -> bath",
      "L0 -> wedgeport",
      "rootgraph -> moments",
-     "halfper -> wedgeport"
+     "halfper -> wedgeport",
+     "L0 -> darkport"
     ],
     [
      "carrier -> triple",
@@ -8626,11 +8750,11 @@
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 61 of the 64 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 62 of the 65 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 193,
+    "THEOREM": 199,
     "OBSTRUCTION": 10,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8650,25 +8774,25 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 10, symmetry-lattice 8, symmetry-operator 8, symmetry-physics 6, combinatorics-lattice 4, combinatorics-operator 13, combinatorics-physics 7, lattice-operator 17, lattice-physics 5, operator-physics 16",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 8, symmetry-operator 9, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 13, combinatorics-physics 7, lattice-operator 18, lattice-physics 5, operator-physics 16",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
-    "(3, 4)": 17,
+    "(3, 4)": 18,
     "(2, 4)": 13,
     "(1, 3)": 8,
-    "(1, 2)": 10,
+    "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
-    "(1, 4)": 8,
+    "(1, 4)": 9,
     "(4, 5)": 16,
     "(2, 5)": 7,
     "(3, 5)": 5,
     "(0, 3)": 3,
     "(0, 4)": 2,
     "(0, 5)": 2,
-    "(1, 5)": 6
+    "(1, 5)": 7
    },
    "note": ""
   },
@@ -8685,7 +8809,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 61 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
+   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 62 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -9488,6 +9612,37 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the hub's five context contrasts (an encoding contract that carries five supplied readings in the atlas's dark directions) and the named 36-tattva and physical-time bindings, open in the hub too; the sibling's selected host matrices (L30, N30, the bubble determinant 2304/44275, the 6 x 190 torus section), its joined-routes verification (13:37) and MODEL_UPDATE_CHECKPOINT.json, not opened; and its source pair of edge-square 12, which the notes still do not give",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 15:03 text and the 14:27-15:11 model: the dark-to-bright staircase 0, 0, 1, 2, 4 (S5, A5, F20, D10, C5), the lane rotation's Noether charge -1/2 and the phase decoder (2523136, -22708224), the clock extension of order 12, the resolvent between 1/(s + 232) and its chord, and the U21 note's subdivision spectrum",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the dark-to-bright intertwiners step down the subgroups: dim Hom(dark four, cycles) = 0 for S5 and A5, 1 for F20, 2 for D10 and 4 for C5 (the hub and the sibling)": true,
+    "the hub's selected Lagrangian is invariant under the lane rotation (a, b) -> (cos a - sin b, sin a + cos b) because Dg (-b, a) = W(a ^ a - b ^ b) = 0, and its Noether charge (a^T G bdot - b^T G adot)/4 is -1/2 at the word preparation a = T e0, b = T e1 with velocities (2, 0, -3, 4, 1), (1, 3, 0, -2, 2), G = N^T N": true,
+    "there Z1 = (28 + 52i)/3, and six commutator readings, two contrasts and Re Z1, Im Z1 have native 10 x 10 determinant 2523136; with one word sign from each lane the 12 x 12 word determinant is -22708224": true,
+    "the address clock 0 -> Z120 -> Z4320 -> Z36 -> 0 does not split: 36 (1 + 36k) = 0 mod 4320 would need 1 + 36k = 0 mod 120, impossible as gcd(36, 120) = 12; Ext(Z36, Z120) = Z12 and the carry is a generator, order 12": true,
+    "with spec Delta = [0, 256] proved, the root-wedge port's scalar resolvent g(s) = int dmu/(s + E), of mean 232, lies between 1/(s + 232) (Jensen) and the chord (3/32)/s + (29/32)/(s + 256): on [0, 256] the chord of 1/(s + E) exceeds it by E (256 - E)/(s (s + 256)(s + E)) >= 0, and integrating it against the measure of mean 232 gives the weights (the sibling's conditional statement, now unconditional)": true,
+    "the subdivision graph of K5 (vertex-edge incidence, the U21 note's Maxwell map) has Laplacian spectrum 0, 1^4, 2^5, 5^4, 6": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 15:34: the hub's OES_Unified_Model_20261029.txt as revised at 15:03 (sources through 14:27) with its exact zip (1759114 bytes), whose all_order_noether_shell receipt was read as data; the sibling's MODEL edition of 15:11 (those of 14:27-15:08, with the spine PDFs, are superseded); and a U21 intake folder from another Claude session (14:32-14:40: handover, claims, Release K replay 21/21, engine-vs-recursion W_0..W_24, and the 28 Oct operands and physics-gates note), read as text; no script was run. The hub proved the all-order growth at 14:27 by Weyl-orbit evaluation determinants, independently of the root-shell argument here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's Weyl-orbit certificates (184319 and 669652; 362979 and 983965 at 24), which the root-shell theorem makes unnecessary; the odd and dark infrared constants E^6/12960000 and E^7/8709120000, inherited in the hub too; the two-shell populations 6264/5 and 1836/5 at the source witness, the operational Return demonstration and the 20-coordinate replica; the U21 G0 runs and physics gates; the canon workbooks and their U21 staging copies (14:48-14:55), not opened",
    "status": "REPORTED",
    "passed": true,
    "value": null,

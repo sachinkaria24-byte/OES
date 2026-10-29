@@ -284,6 +284,16 @@ Lambda^2 A4. The exceptional S5 on the six Sylow labels is sharply 3-transitive.
 10, with the carrier's D as their incidence operator, while the ordinary duads are another module (traces 3 against 7).
 The regular word orbits reach the source through T: rationally, but integrally only with index 3. The clock's phase
 moves the Sylow labels.
+
+At 15:34 the hub's text (15:03), the sibling's MODEL (14:27-15:11) and an intake from another Claude session came in.
+The hub had proved the all-order growth at 14:27 by a different route, Weyl-orbit evaluation determinants. One dot and
+six joins follow. The fifteen pair commutators of the six Sylow lines are a 160-tight frame of the cycles. Their twelve
+minimal erasures are the pentagons and pentagrams of the six C5s, and the blind lines rebuild the Hodge star:
+J_H = (sqrt5/2)(F+ - F-). The six rotor planes are equi-isoclinic. The odd S5 port is the triangle port's S5 orbit,
+spectrally orthogonal to the even root-wedge port, and the four root ports grow by 24 at every order. The dark four
+cannot live on the roots, but they appear 36 times on the 2160 norm-four sites. The orbit of (-1, 0, 0, 1, 1, 0, 1, 0)
+carries them as a fifth port, orthogonal to every root port. Its sites lie on one sphere, so the root-shell argument
+gives 4 more per order and 28 in all.
 """
 
 import functools
@@ -5843,6 +5853,306 @@ def band_top():
             and sum(1 for f in first if f.any()) == 108,
     }
 
+# --------------------------------------------- 15:34: the pair frame, the parity pair and the norm-four dark port
+
+@functools.lru_cache(maxsize=None)
+def _pairs15():
+    """The hub's pair frame (15:03): the commutators C_ij = upper([A(h_i), A(h_j)]) of the six Sylow lines, the signed
+    action of S5 on the oriented pairs, and the cut, bright and dark projectors of R^15."""
+    H, sig, S5, sgn, U = _six_lines()
+    E = carrier.edges()
+    sym = _source()[2]
+    Si = [sym(h) for h in H]
+    pairs = list(itertools.combinations(range(6), 2))
+    C = sp.Matrix.hstack(*[sp.Matrix([(Si[i] * Si[j] - Si[j] * Si[i])[a, b] for a, b in E]) for i, j in pairs])
+    B6 = sp.zeros(6, 15)
+    for k, (i, j) in enumerate(pairs):
+        B6[i, k], B6[j, k] = -1, 1
+
+    def rho(p):
+        R = sp.zeros(15)
+        for k, (i, j) in enumerate(pairs):
+            a, b = sig[p][i], sig[p][j]
+            R[pairs.index(tuple(sorted((a, b)))), k] = 1 if a < b else -1
+        return R
+    Pcut, Pbr = B6.T * B6 / 6, C.T * C / 160
+    return pairs, C, rho, Pcut, Pbr, sp.eye(15) - Pcut - Pbr
+
+
+def pair_frame():
+    """The hub's text (15:03): the fifteen pair commutators of the six Sylow lines, their erasures and the rotor planes."""
+    H, sig, S5, sgn, U = _six_lines()
+    pairs, C, rho, Pcut, Pbr, Pdk = _pairs15()
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    Curl = sp.Matrix(waves.complex_ops()[3])
+    lam = lambda p: compound2(sp.Matrix(5, 5, lambda r, c: int(r == p[c])))
+    Cn = np.array(C, dtype=np.int64)
+    rank = lambda cols: np.linalg.matrix_rank(Cn[:, list(cols)])
+    r11 = Counter(int(rank(c)) for c in itertools.combinations(range(15), 11))
+    r10 = Counter(int(rank(c)) for c in itertools.combinations(range(15), 10))
+    erased = [frozenset(set(range(15)) - set(c)) for c in itertools.combinations(range(15), 10) if rank(c) == 5]
+    c5 = {}
+    for p in S5:
+        if Permutation(list(p)).order() == 5:
+            c5.setdefault(frozenset(tuple((Permutation(list(p)) ** k).array_form) for k in range(5)), p)
+
+    def polygon(p, step):
+        s = sig[p]
+        out = set()
+        for x in (i for i in range(6) if s[i] != i):
+            y = x
+            for _ in range(step):
+                y = s[y]
+            out.add(pairs.index(tuple(sorted((x, y)))))
+        return frozenset(out)
+    polygons = {polygon(p, k) for p in c5.values() for k in (1, 2)}
+    Fp, Fm, pol = sp.zeros(10), sp.zeros(10), []
+    for er in erased:
+        v = Pc * next(y for y in C[:, [k for k in range(15) if k not in er]].T.nullspace()
+                      if not (Pc * y).is_zero_matrix)
+        e = (v.T * Curl * v)[0] / (v.T * v)[0]
+        pol.append(e)
+        if e > 0:
+            Fp += v * v.T / (v.T * v)[0]
+        else:
+            Fm += v * v.T / (v.T * v)[0]
+    Fi = [sum((Pc * lam(p) ** k for k in range(5)), sp.zeros(10)) / 5 for p in c5.values()]
+    hs = lambda X, Y: (X.T * Y).trace()
+    v_ = [(f - Pc / 3) for f in Fi]
+    return {
+        "the fifteen pair commutators C_ij = upper([A(h_i), A(h_j)]) have square 64 and C C^T = 160 P_cycle (160 = 12^2 x "
+        "10/9), and S5 acts on the oriented pairs with C rho(p) = Lambda^2(p) C; on R^15 the cut projector B6^T B6/6 of K6, "
+        "the bright C^T C/160 and the dark rest are orthogonal projectors of ranks 5, 6 and 4":
+            all((C[:, k].T * C[:, k])[0] == 64 for k in range(15)) and C * C.T == 160 * Pc
+            and all(C * rho(p) == lam(p) * C for p in S5)
+            and all(P * P == P for P in (Pcut, Pbr, Pdk)) and [P.rank() for P in (Pcut, Pbr, Pdk)] == [5, 6, 4]
+            and (Pcut * Pbr).is_zero_matrix and (Pcut * Pdk).is_zero_matrix and (Pbr * Pdk).is_zero_matrix,
+        "every 11 of the 15 readings have rank 6, and of the 3003 sets of ten, 2991 have rank 6 and 12 rank 5: any four "
+        "erasures are tolerated, and the twelve failing five-sets are exactly the pentagon and pentagram of each C5 on "
+        "its five moving labels": r11 == Counter({6: 1365}) and r10 == Counter({6: 2991, 5: 12})
+            and set(erased) == polygons and len(polygons) == 12,
+        "each failure leaves one blind cycle line, of Curl-polarization +1 or -1, six each, and the two sums of their "
+        "projectors are P_cycle +- Curl/5: J_H = (sqrt5/2)(F+ - F-), the Hodge star again, now from the erasures of an "
+        "actual frame": Counter(pol) == Counter({1: 6, -1: 6}) and Fp == Pc + Curl / 5 and Fm == Pc - Curl / 5,
+        "the six Sylow fixed planes of the cycles (the rotor plane of each C5) are equi-isoclinic: sum F_i = 2 P_cycle and "
+        "F_i F_j F_i = F_i/5, and the centred (sqrt3/2)(F_i - P_cycle/3) have the Gram of the lines h_i/sqrt10 (1 and "
+        "-1/5)": all(f * f == f and f.rank() == 2 for f in Fi) and sum(Fi, sp.zeros(10)) == 2 * Pc
+            and all(Fi[i] * Fi[j] * Fi[i] == Fi[i] / 5 for i in range(6) for j in range(6) if i != j)
+            and all(sp.Rational(3, 4) * hs(v_[i], v_[j]) == (1 if i == j else sp.Rational(-1, 5))
+                    for i in range(6) for j in range(6)),
+    }
+
+
+def _odd_port():
+    """The hub's odd S5 port (15:03): e_ij -> delta(alpha_ij) - delta(-alpha_ij) on the first A4, as a 240 x 10 matrix."""
+    R10 = _wedge()[0]
+    idx = {tuple(r): k for k, r in enumerate(R10)}
+    e8 = np.eye(8, dtype=np.int64)
+    Od = np.zeros((240, 10), dtype=np.int64)
+    for k, (i, j) in enumerate(carrier.edges()):
+        Od[idx[tuple(10 * (e8[i] - e8[j]))], k] += 1
+        Od[idx[tuple(10 * (e8[j] - e8[i]))], k] -= 1
+    return Od
+
+
+def parity_ports():
+    """The hub's text (15:03): the odd S5 port, its parity with the root-wedge port, and four root ports."""
+    from sympy.polys.matrices import DomainMatrix
+    R10, V, W, Bw, G, h, Hc = _wedge()
+    Od = _odd_port()
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    Cn = np.array(sp.Matrix.hstack(*Bs.nullspace()), dtype=np.int64)
+    idx = {tuple(r): k for k, r in enumerate(R10)}
+    mo = [Pc * sp.Matrix(Od.T.dot(Hc[n]).dot(Od)) * Pc / 2 for n in range(5)]
+    clique, sites, TC, Fm = _two_ports()
+    site, sign = _golden_sites()
+    P = np.zeros((240, 24), dtype=np.int64)
+    for k, t in enumerate(clique):
+        P[idx[tuple(t)], k] = 1
+    for e, (t, g) in enumerate(zip(site, sign)):
+        P[idx[tuple(t)], 6:12] += g * Cn[e]
+    P[:, 12:18], P[:, 18:24] = Bw @ Cn, Od @ Cn
+    M = [sp.Matrix(P.T.dot(Hc[n]).dot(P)) for n in range(3)]
+    ranks = [DomainMatrix.from_Matrix(sp.Matrix(sp.BlockMatrix([[M[i + j] for j in range(d + 1)] for i in range(d + 1)])))
+             .rank() for d in range(2)]
+    q = sp.symbols("q")
+    me, mo_ = [1, 232, 54213, 12740592, 3008062816], [1, 242, 58691, 14259954, 3470101592]
+    mix = [(1 - q) * a + q * b for a, b in zip(me, mo_)]
+    Hq = sp.Poly(sp.expand(sp.Matrix(3, 3, lambda i, j: mix[i + j]).det()), q)
+    dq = Hq.diff(q)
+    return {
+        "the odd S5 port T_O e_ij = (delta(alpha_ij) - delta(-alpha_ij))/sqrt2 on the first A4 is an isometry of the cycles "
+        "with the triangle port's moments, 1, 242, 58691, 14259954, 3470101592 (variance 127): the S5 orbit of the "
+        "triangle, scalar on the cycles": all(mo[n] == mo_[n] * Pc for n in range(5)),
+        "the bath commutes with inversion, the root-wedge port is even (b_-rho = b_rho) and T_O is odd, so "
+        "T_S* f(Delta) T_O = 0 for every f (checked for Delta^n, n <= 4)":
+            all(not np.any(Bw.T.dot(Hc[n]).dot(Od)) for n in range(5)),
+        "the clique, the Golden, the root-wedge and the odd port span 24 dimensions on the root shell, so by the root-shell "
+        "theorem they grow by 24 at every order (24, 48 computed through degree 1); the hub certifies this by 24 x 24 "
+        "Weyl-orbit determinants": sp.Matrix(P.T @ P).rank() == 24 and ranks == [24, 48],
+        "S5 does not choose between the two: the mixtures sqrt(1 - q) T_S + sqrt(q) T_O have 3 x 3 Hankel determinant "
+        "219823907 - 194728114 q - 84325288 q^2 + 75159768 q^3, decreasing on [0, 1] (its derivative is convex, -194728114 "
+        "and -137899386 at the ends) to 15930273 > 0": Hq.all_coeffs()[::-1] == [219823907, -194728114, -84325288, 75159768]
+            and Hq.eval(1) == 15930273 and dq.eval(0) == -194728114 and dq.eval(1) == -137899386 and dq.LC() > 0,
+    }
+
+
+@functools.lru_cache(maxsize=None)
+def _norm_four():
+    """The 2160 norm-four lattice sites (times 10), with their A4 + A4' label coordinates 10 v and 10 w."""
+    pts = set()
+    for i in range(8):
+        for s in (20, -20):
+            v = [0] * 8
+            v[i] = s
+            pts.add(tuple(v))
+    for c in itertools.combinations(range(8), 4):
+        for sg in itertools.product((10, -10), repeat=4):
+            v = [0] * 8
+            for k, s in zip(c, sg):
+                v[k] = s
+            pts.add(tuple(v))
+    for i in range(8):
+        for sg in itertools.product((5, -5), repeat=8):
+            v = list(sg)
+            v[i] *= 3
+            if sum(v) % 20 == 0:
+                pts.add(tuple(v))
+    X = np.array(sorted(pts), dtype=np.int64)
+    V4 = np.array([assignment.carrier_part(r)[:5] for r in X], dtype=np.int64)
+    W4 = np.array([[int((r - assignment.carrier_part(r)) @ assignment.TWIN[k]) for k in range(5)] for r in X],
+                  dtype=np.int64)
+    assert not (W4 % 10).any()
+    return X, V4, W4 // 10
+
+
+def dark_port():
+    """The hub's text (15:03): the dark four need the norm-four shell, and there they make a fifth port."""
+    R10, V, W, Bw, G, h, Hc = _wedge()
+    X, V4, W4 = _norm_four()
+    H6, sig, S5, sgn, U = _six_lines()
+    lab2 = {tuple(V[k]) + tuple(W[k]): k for k in range(240)}
+    lab4 = {tuple(V4[k]) + tuple(W4[k]): k for k in range(len(X))}
+
+    def fixed(p, Vx, Wx, lab):
+        inv = list(np.argsort(p))
+        return sum(1 for k in range(len(Vx)) if lab[tuple(Vx[k][inv]) + tuple(Wx[k][inv])] == k)
+    chi = lambda p: sgn[p] * (sum(1 for i in range(5) if p[i] == i) - 1)
+    mult = [sp.Rational(sum(fixed(p, Vx, Wx, lab) * chi(p) for p in S5), 120) for Vx, Wx, lab in ((V, W, lab2),
+                                                                                                    (V4, W4, lab4))]
+    k0 = lab4[(-12, -2, -2, 8, 8, 4, 4, -6, 4, -6)]
+    sites = [lab4[tuple(V4[k0][list(np.argsort(p))]) + tuple(W4[k0][list(np.argsort(p))])] for p in S5]
+    A = np.array([[sgn[p] * (5 * int(i == p[0]) - 1) for i in range(5)] for p in S5], dtype=np.int64)
+    P5 = sp.eye(5) - sp.ones(5, 5) / 5
+    Hn = _walk_entries()
+    Y = X[sites]
+    Hs = [np.array([[Hn(Y[j] - Y[i], n) for j in range(120)] for i in range(120)], dtype=object) for n in range(4)]
+    Md = [sp.Matrix(A.T.dot(Hs[n]).dot(A)) / 600 for n in range(4)]
+    md = [M_[0, 0] / P5[0, 0] for M_ in Md]
+    cross = [np.array([[Hn(R10[j] - Y[i], n) for j in range(240)] for i in range(120)], dtype=object) for n in range(3)]
+    rs = R10[int(np.argmax(R10 @ Y[0]))]
+    top = all(Hn(Y[0] + n * rs - Y[i], n) == ((-1) ** n if i == 0 else 0)
+              and all(Hn(Y[0] + n * rs - Y[i], j) == 0 for j in range(n)) for n in range(5) for i in range(120))
+    pairs, C, rho, Pcut, Pbr, Pdk = _pairs15()
+    rhoA = lambda p: sgn[p] * sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+    seed = sp.zeros(5, 15)
+    seed[0, 0] = 1
+    K = sum((rhoA(p) * P5 * seed * rho(p).T for p in S5), sp.zeros(5, 15)) * Pdk
+    return {
+        "the A4 + A4' glue has 2160 norm-four sites, and in its label coordinates the diagonal S5 character sums give the "
+        "dark four (A4 x sign, the commutator's kernel) multiplicity 0 on the 240 root sites and 36 on the norm-four "
+        "shell: no S5 dark port lives on the roots": len(X) == 2160 and {int(x @ x) for x in X} == {400}
+            and bool(((X @ R10.T) % 100 == 0).all()) and mult == [0, 36],
+        "the site x0 = (-1, 0, 0, 1, 1, 0, 1, 0) (the hub's (-6, -1, -1, 4, 4; -2, -2, 3, -2, 3)/5, its twin read through "
+        "the outer automorphism) has a free S5 orbit of 120 sites, and A_(sigma, i) = sgn(sigma)(5 delta_(i, sigma(0)) - 1) "
+        "has A^T A = 600 P_A4: an isometric dark port A/sqrt600":
+            list(X[k0]) == [-10, 0, 0, 10, 10, 0, 10, 0] and len(set(sites)) == 120 and sp.Matrix(A.T @ A) == 600 * P5,
+        "its moments are scalar, 1, 975/4, 237985/4, 14539767 (variance 1315/16), and it is spectrally orthogonal to every "
+        "root-supported port: Delta S5-equivariant and the dark four absent from the root module make T_D* f(Delta) "
+        "vanish on all 240 root sites (checked for Delta^n, n <= 2)":
+            md == [1, sp.Rational(975, 4), sp.Rational(237985, 4), 14539767] and all(Md[n] == md[n] * P5 for n in range(4))
+            and md[2] - md[1] ** 2 == sp.Rational(1315, 16) and all(not np.any(A.T.dot(c)) for c in cross),
+        "the root-shell argument holds on any sphere of sites: for s on it and r* a root maximizing <s, .>, the point "
+        "s + n r* is reached in n steps only from s along r*, (Delta^n)_(s', s + n r*) = (-1)^n delta_(s s') with lower "
+        "powers vanishing (checked on the 120 sites, n <= 4); so the dark port grows by 4 at every order, and with the "
+        "four root ports, orthogonal to it, the five ports grow by 28 = 24 + 4": top,
+        "the Reynolds average K of e_0 e_01^T over S5 (sign-twisted on A4) is the hub's intertwiner: entries -2, 0, 2, "
+        "K rho(p) = sgn(p) p K, K^T K = 60 P_dark and K K^T = 60 P_A4; so D15 = [T_S C/sqrt160; A K/sqrt36000] has "
+        "D15* D15 = P_bright + P_dark on the pair space, the cuts its kernel":
+            set(K) == {-2, 0, 2} and all(K * rho(p) == rhoA(p) * K for p in S5) and K.T * K == 60 * Pdk
+            and K * K.T == 60 * P5,
+    }
+
+
+def notes_1534():
+    """The hub's text (15:03), the sibling's MODEL (14:27-15:11) and the U21 intake: the remaining exact items."""
+    E, N5, sym, F, a0, b0 = _source()
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    Nc = sp.Matrix.hstack(*Bs.nullspace())
+    Pk = N5 * (N5.T * N5).inv() * N5.T
+    S5 = list(itertools.permutations(range(5)))
+    sgn = lambda p: Permutation(list(p)).signature()
+    chd = lambda p: sgn(p) * (sum(1 for i in range(5) if p[i] == i) - 1)
+    chc = {p: (Pc * compound2(sp.Matrix(5, 5, lambda r, c: int(r == p[c])))).trace() for p in S5}
+    from sympy.combinatorics import PermutationGroup
+    gen = lambda gens: [tuple(y.array_form) for y in PermutationGroup([Permutation(list(z)) for z in gens]).elements]
+    g, d, r, c = (1, 2, 3, 4, 0), (0, 2, 4, 1, 3), (0, 4, 3, 2, 1), (1, 2, 0, 3, 4)
+    groups = [S5, gen([g, (1, 2, 0, 3, 4), (1, 0, 2, 4, 3)]), gen([g, d]), gen([g, r]), gen([g])]
+    hom = [sp.Rational(sum(chd(p) * chc[p] for p in grp), len(grp)) for grp in groups]
+    T_ = sp.Matrix([[1, -2, 2, 3, -1, -1], [-1, 3, -1, -2, 2, 1], [2, 1, -2, -1, -1, 3], [-1, -1, 3, 2, 1, -2],
+                    [-1, -1, -1, -1, -1, -1]])
+    G = N5.T * N5
+    a, b = T_[:, 0], T_[:, 1]
+    adot, bdot = sp.Matrix([2, 0, -3, 4, 1]), sp.Matrix([1, 3, 0, -2, 2])
+    Q = ((a.T * G * bdot)[0] - (b.T * G * adot)[0]) / 4
+    xs = sp.symbols("x0:10")
+    A_, B_ = sym(N5 * sp.Matrix(xs[:5])), sym(N5 * sp.Matrix(xs[5:]))
+    S2 = A_ * A_ + B_ * B_
+    U_, V_ = (A_ ** 3 + A_ * B_ ** 2).trace() / 6, (A_ ** 2 * B_ + B_ ** 3).trace() / 6
+    rows = list(F(N5 * sp.Matrix(xs[:5]), N5 * sp.Matrix(xs[5:]))[4:, 0]) + [S2[0, 0] - S2[4, 4], S2[1, 1] - S2[4, 4],
+                                                                            U_, V_]
+    wit = dict(zip(xs, list(a) + list(b)))
+    jn = sp.Matrix([[sp.diff(sp.expand(y), v) for v in xs] for y in rows]).subs(wit)
+    uu, vv = sp.symbols("u0:6"), sp.symbols("v0:6")
+    sub = dict(zip(xs, list(T_ * sp.Matrix(uu)) + list(T_ * sp.Matrix(vv))))
+    rows_w = [sp.expand(y.subs(sub, simultaneous=True)) for y in rows] + [uu[0], vv[0]]
+    jw = sp.Matrix([[sp.diff(y, v) for v in uu + vv] for y in rows_w]).subs(dict(zip(uu + vv, [1] + [0] * 6 + [1] + [0] * 4)))
+    M = sp.Matrix(carrier.signless_incidence())
+    Lsub = sp.diag(*([4] * 5 + [2] * 10)) - sp.BlockMatrix([[sp.zeros(5), M], [M.T, sp.zeros(10)]]).as_explicit()
+    x = sp.symbols("x")
+    s_, E_ = sp.symbols("s E", positive=True)
+    return {
+        "the dark-to-bright intertwiners step down the subgroups: dim Hom(dark four, cycles) = 0 for S5 and A5, 1 for "
+        "F20, 2 for D10 and 4 for C5 (the hub and the sibling)": hom == [0, 0, 1, 2, 4] and [len(x_) for x_ in groups]
+            == [120, 60, 20, 10, 5],
+        "the hub's selected Lagrangian is invariant under the lane rotation (a, b) -> (cos a - sin b, sin a + cos b) "
+        "because Dg (-b, a) = W(a ^ a - b ^ b) = 0, and its Noether charge (a^T G bdot - b^T G adot)/4 is -1/2 at the word "
+        "preparation a = T e0, b = T e1 with velocities (2, 0, -3, 4, 1), (1, 3, 0, -2, 2), G = N^T N":
+            Q == sp.Rational(-1, 2) and G == sp.Matrix([[4, 2, 2, 1, 3], [2, 4, 1, 2, 3], [2, 1, 4, 2, 3], [1, 2, 2, 4, 3],
+                                                        [3, 3, 3, 3, 6]]),
+        "there Z1 = (28 + 52i)/3, and six commutator readings, two contrasts and Re Z1, Im Z1 have native 10 x 10 "
+        "determinant 2523136; with one word sign from each lane the 12 x 12 word determinant is -22708224":
+            [sp.expand(U_).subs(wit), sp.expand(V_).subs(wit)] == [sp.Rational(28, 3), sp.Rational(52, 3)]
+            and jn.det() == 2523136
+            and jw.det() == -22708224,
+        "the address clock 0 -> Z120 -> Z4320 -> Z36 -> 0 does not split: 36 (1 + 36k) = 0 mod 4320 would need "
+        "1 + 36k = 0 mod 120, impossible as gcd(36, 120) = 12; Ext(Z36, Z120) = Z12 and the carry is a generator, order 12":
+            all((36 * (1 + 36 * k)) % N for k in range(120)) and gcd(36, 120) == 12,
+        "with spec Delta = [0, 256] proved, the root-wedge port's scalar resolvent g(s) = int dmu/(s + E), of mean 232, "
+        "lies between 1/(s + 232) (Jensen) and the chord (3/32)/s + (29/32)/(s + 256): on [0, 256] the chord of "
+        "1/(s + E) exceeds it by E (256 - E)/(s (s + 256)(s + E)) >= 0, and integrating it against the measure of mean 232 "
+        "gives the weights (the sibling's conditional statement, now unconditional)":
+            sp.simplify((1 - E_ / 256) / s_ + (E_ / 256) / (s_ + 256) - 1 / (s_ + E_)
+                        - E_ * (256 - E_) / (s_ * (s_ + 256) * (s_ + E_))) == 0
+            and (1 - sp.Rational(232, 256), sp.Rational(232, 256)) == (sp.Rational(3, 32), sp.Rational(29, 32))
+            and all(band.edge().values()),
+        "the subdivision graph of K5 (vertex-edge incidence, the U21 note's Maxwell map) has Laplacian spectrum 0, 1^4, "
+        "2^5, 5^4, 6": sp.factor(Lsub.charpoly(x).as_expr()) == x * (x - 1) ** 4 * (x - 2) ** 5 * (x - 5) ** 4 * (x - 6),
+    }
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -5910,6 +6220,7 @@ DOTS = {
     "words": ("fifteen words", "the dihedral closure of 088, 086 and 980 under rotation and reversal, a D3-module of rank 15", "23"),
     "wedgeport": ("root-wedge port", "the hub's unmarked S5 port T_S x(rho) = <x, v ^ w>/sqrt24 on the 240 roots", "23"),
     "synthemes": ("synthemes", "the 15 perfect matchings of the six Sylow labels, 5 + 10 under the exceptional S5", "23"),
+    "darkport": ("dark port", "the hub's norm-four port of the dark four, on the 120 sites of the orbit of (-1, 0, 0, 1, 1, 0, 1, 0)", "23"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -5924,7 +6235,7 @@ LEVELS = [
      ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph"]),
     ("operator", "spaces with operators, ports and moments",
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
-      "pauli", "gksl", "goldenport", "wedgeport"]),
+      "pauli", "gksl", "goldenport", "wedgeport", "darkport"]),
     ("physics", "geometry, readout, waves, binding and the conditional cosmos",
      ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges", "assignment"]),
 ]
@@ -6152,6 +6463,12 @@ JOINS = [
     ("words", "source", "index 3 per lane", "T has Smith invariants 1, 1, 1, 1, 3 and every orbit matrix over F3 has rank at most 4: no D3-map from one regular orbit onto the integral source is surjective, and no integer G has T G = S_g T", OB, "word_source"),
     ("cycles", "sixsite", "no A5 map to the sites", "Hom_A5(cycles, site6) = 0, while Hom_C5 = 8 and Hom_D3 = 4: no linear map to the natural six sites carries both the word D3 and the five-cycle", OB, "word_source"),
     ("halfper", "wedgeport", "quadrupolar at the band top", "at each of the band's 135 top half-periods the roots split as a D8 of second moment 28 I and its half-spin weights; b_rho is quadratic in rho and even, so the root-wedge port's amplitude and its first order vanish there: a quadrupole at the top as at the bottom, density 39 (256 - E)^5/(655360 pi^4) against C E^5/6000, while the clique and the Golden port start (256 - E)^3 and the odd triangle port (256 - E)^4", T, "band_top"),
+    ("pgl", "rotor", "six rotor planes", "the fixed planes of the six Sylow C5s in the cycles are equi-isoclinic: sum F_i = 2 P_cycle and F_i F_j F_i = F_i/5, and centred they have the Gram of the six lines (1 and -1/5) (the hub, 15:03)", T, "pair_frame"),
+    ("pgl", "waves", "the pair frame's blind lines", "the fifteen pair commutators of the six lines are a 160-tight frame of the cycles (cut 5, bright 6, dark 4 on the pair space); any four erasures are tolerated, the twelve failing five-sets are the pentagons and pentagrams of the six C5s, and their blind lines sum to P_cycle +- Curl/5, so J_H = (sqrt5/2)(F+ - F-)", T, "pair_frame"),
+    ("wedgeport", "triangle", "the parity pair", "the odd S5 port, the S5 orbit of the triangle port, has its moments 1, 242, 58691, 14259954, 3470101592; the bath keeps inversion, so it is spectrally orthogonal to the even root-wedge port, and the four root ports span 24 and grow by 24 at every order (the hub, 15:03)", T, "parity_ports"),
+    ("L0", "darkport", "the norm-four shell", "the glue's 2160 norm-four sites carry the dark four (A4 x sign) 36 times and the 240 roots none; the free orbit of x0 = (-1, 0, 0, 1, 1, 0, 1, 0) carries the isometric dark port A/sqrt600 (the hub, 15:03)", T, "dark_port"),
+    ("darkport", "bath", "the dark moments", "1, 975/4, 237985/4, 14539767, variance 1315/16; spectrally orthogonal to every root-supported port; its sites lie on one sphere, so it grows by 4 at every order, and the five ports by 28", T, "dark_port"),
+    ("pgl", "darkport", "the dark intertwiner", "the Reynolds average K: R^15 -> A4 (entries -2, 0, 2) has K^T K = 60 P_dark and K K^T = 60 P_A4, so the two-shell port [T_S C/sqrt160; A K/sqrt36000] is an isometry of the pair space modulo its cuts", T, "dark_port"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -6301,6 +6618,9 @@ LEDGER_ROWS = [
     ("Krylov growth at every order (the hub: 'no all-order claim'; MODEL: 'not in the chain')", "ranks 18(n + 1) checked through degree 2", "proved at every order for any port family on one root shell: the point (n + 1)s carries (-1)^n p_n(s)", T, "23"),
     ("the Schur memory (hub, 11:18)", "V/(s + 256) <= Sigma(s) <= V/s, resting on the stated band bound", "proved with the band edge; the n-th boundary moment is at most 495 x 256^n (MODEL's conditional), and Sigma is no finite sum of poles", T, "23"),
     ("the band top through the ports (new)", "-", "the root-wedge port vanishes to second order at all 135 band tops (each a D8 of second moment 28 I), so it is a quadrupole at both band edges: 39 (256 - E)^5/(655360 pi^4) at the top, C E^5/6000 at the bottom; clique and Golden (256 - E)^3, triangle (256 - E)^4", T, "23"),
+    ("the pair frame (hub, 15:03)", "C C^T = 160 P_cycle; projectors 5 + 6 + 4; 11-sets rank 6, 10-sets 2991 + 12; blind lines F+- = P_cycle +- eps/5; sum F_i = 2 P_cycle, F_i F_j F_i = F_i/5", "replayed and joined (PGL(2,5) -> rotor plane, -> sound and light): the frame's failures give the Hodge star", T, "23"),
+    ("the parity pair and four root ports (hub, 15:03)", "odd moments 1, 242, 58691, 14259954, 3470101592; T_S* f(H) T_O = 0; rank 24; 24(n + 1) by 24 x 24 Weyl determinants 362979 and 983965", "replayed; 24(n + 1) follows from the root-shell theorem (the Weyl certificates are not rerun)", T, "23"),
+    ("the norm-four dark port (hub, 15:03)", "2160 sites; dark multiplicities 0 and 36; A^T A = 600 P_A4; moments 1, 975/4, 237985/4, 14539767; K^T K = 60 P_dark; 28(n + 1)", "replayed (the hub's seed read through the twin's outer automorphism); the sphere version of the root-shell theorem gives 4(n + 1), orthogonality 28(n + 1)", T, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
     ("the six-line frame (hub, 14:07)", "Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle", "replayed; the twenty-term cubic formulas hold as polynomial identities", T, "23"),
@@ -6413,6 +6733,7 @@ def _checks():
         "wedge_port": wedge_port, "three_ports": three_ports, "root_shell_krylov": root_shell_krylov,
         "schur_memory": schur_memory, "hodge_star": hodge_star, "syntheme_bridge": syntheme_bridge,
         "sylow_frame": sylow_frame, "word_source": word_source, "clock_sylow": clock_sylow, "band_top": band_top,
+        "pair_frame": pair_frame, "parity_ports": parity_ports, "dark_port": dark_port,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -6841,6 +7162,23 @@ def run():
             "sibling's selected host matrices (L30, N30, the bubble determinant 2304/44275, the 6 x 190 torus section), "
             "its joined-routes verification (13:37) and MODEL_UPDATE_CHECKPOINT.json, not opened; and its source pair of "
             "edge-square 12, which the notes still do not give", RP, True)
+    n34 = notes_1534()
+    rep.add("the 15:03 text and the 14:27-15:11 model: the dark-to-bright staircase 0, 0, 1, 2, 4 (S5, A5, F20, D10, C5), "
+            "the lane rotation's Noether charge -1/2 and the phase decoder (2523136, -22708224), the clock extension of order "
+            "12, the resolvent between 1/(s + 232) and its chord, and the U21 note's subdivision spectrum", T,
+            all(n34.values()), n34)
+    rep.add("Drive check 15:34: the hub's OES_Unified_Model_20261029.txt as revised at 15:03 (sources through 14:27) with "
+            "its exact zip (1759114 bytes), whose all_order_noether_shell receipt was read as data; the sibling's MODEL "
+            "edition of 15:11 (those of 14:27-15:08, with the spine PDFs, are superseded); and a U21 intake folder from "
+            "another Claude session (14:32-14:40: handover, claims, Release K replay 21/21, engine-vs-recursion W_0..W_24, "
+            "and the 28 Oct operands and physics-gates note), read as text; no script was run. The hub proved the "
+            "all-order growth at 14:27 by Weyl-orbit evaluation determinants, independently of the root-shell argument here",
+            RP, True)
+    rep.add("not replayed: the hub's Weyl-orbit certificates (184319 and 669652; 362979 and 983965 at 24), which the "
+            "root-shell theorem makes unnecessary; the odd and dark infrared constants E^6/12960000 and E^7/8709120000, "
+            "inherited in the hub too; the two-shell populations 6264/5 and 1836/5 at the source witness, the operational "
+            "Return demonstration and the 20-coordinate replica; the U21 G0 runs and physics gates; the canon workbooks "
+            "and their U21 staging copies (14:48-14:55), not opened", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

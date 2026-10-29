@@ -68,6 +68,7 @@ flowchart TB
         gksl["GKSL"]
         goldenport["Golden port"]
         wedgeport["root-wedge port"]
+        darkport["dark port"]
     end
     subgraph level6["level 6: physics"]
         triple["spectral triple"]
@@ -294,21 +295,27 @@ flowchart TB
     words -.->|"index 3 per lane"| source
     cycles -.->|"no A5 map to the sites"| sixsite
     halfper -->|"quadrupolar at the band top"| wedgeport
+    pgl -->|"six rotor planes"| rotor
+    pgl -->|"the pair frame's blind lines"| waves
+    wedgeport -->|"the parity pair"| triangle
+    L0 -->|"the norm-four shell"| darkport
+    darkport -->|"the dark moments"| bath
+    pgl -->|"the dark intertwiner"| darkport
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-64 dots and 216 joins: 193 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 10 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+65 dots and 222 joins: 199 THEOREM, 9 SELECTED_REFERENCE, 4 CONDITIONAL and 10 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 7 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 10 | 10 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 10 | 11 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 4 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 17 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port | 24 | 16 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 18 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark port | 26 | 16 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -318,11 +325,11 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 7 | 3 | 3 | 2 | 2 |
-| symmetry | 7 | - | 10 | 8 | 8 | 6 |
-| combinatorics | 3 | 10 | - | 4 | 13 | 7 |
-| lattice | 3 | 8 | 4 | - | 17 | 5 |
-| operator | 2 | 8 | 13 | 17 | - | 16 |
-| physics | 2 | 6 | 7 | 5 | 16 | - |
+| symmetry | 7 | - | 11 | 8 | 9 | 7 |
+| combinatorics | 3 | 11 | - | 4 | 13 | 7 |
+| lattice | 3 | 8 | 4 | - | 18 | 5 |
+| operator | 2 | 9 | 13 | 18 | - | 16 |
+| physics | 2 | 7 | 7 | 5 | 16 | - |
 
 ## Dots
 
@@ -392,6 +399,7 @@ The maps that join each pair of levels directly.
 | fifteen words | the dihedral closure of 088, 086 and 980 under rotation and reversal, a D3-module of rank 15 | symmetry | 23 |
 | root-wedge port | the hub's unmarked S5 port T_S x(rho) = <x, v ^ w>/sqrt24 on the 240 roots | operator | 23 |
 | synthemes | the 15 perfect matchings of the six Sylow labels, 5 + 10 under the exceptional S5 | combinatorics | 23 |
+| dark port | the hub's norm-four port of the dark four, on the 120 sites of the orbit of (-1, 0, 0, 1, 1, 0, 1, 0) | operator | 23 |
 
 ## Joins
 
@@ -611,6 +619,12 @@ The maps that join each pair of levels directly.
 | fifteen words | source | T has Smith invariants 1, 1, 1, 1, 3 and every orbit matrix over F3 has rank at most 4: no D3-map from one regular orbit onto the integral source is surjective, and no integer G has T G = S_g T | OBSTRUCTION | `word_source` |
 | cycles | six-site port | Hom_A5(cycles, site6) = 0, while Hom_C5 = 8 and Hom_D3 = 4: no linear map to the natural six sites carries both the word D3 and the five-cycle | OBSTRUCTION | `word_source` |
 | half-periods | root-wedge port | at each of the band's 135 top half-periods the roots split as a D8 of second moment 28 I and its half-spin weights; b_rho is quadratic in rho and even, so the root-wedge port's amplitude and its first order vanish there: a quadrupole at the top as at the bottom, density 39 (256 - E)^5/(655360 pi^4) against C E^5/6000, while the clique and the Golden port start (256 - E)^3 and the odd triangle port (256 - E)^4 | THEOREM | `band_top` |
+| PGL(2,5) | rotor plane | the fixed planes of the six Sylow C5s in the cycles are equi-isoclinic: sum F_i = 2 P_cycle and F_i F_j F_i = F_i/5, and centred they have the Gram of the six lines (1 and -1/5) (the hub, 15:03) | THEOREM | `pair_frame` |
+| PGL(2,5) | sound and light | the fifteen pair commutators of the six lines are a 160-tight frame of the cycles (cut 5, bright 6, dark 4 on the pair space); any four erasures are tolerated, the twelve failing five-sets are the pentagons and pentagrams of the six C5s, and their blind lines sum to P_cycle +- Curl/5, so J_H = (sqrt5/2)(F+ - F-) | THEOREM | `pair_frame` |
+| root-wedge port | triangle port | the odd S5 port, the S5 orbit of the triangle port, has its moments 1, 242, 58691, 14259954, 3470101592; the bath keeps inversion, so it is spectrally orthogonal to the even root-wedge port, and the four root ports span 24 and grow by 24 at every order (the hub, 15:03) | THEOREM | `parity_ports` |
+| A4 + A4' | dark port | the glue's 2160 norm-four sites carry the dark four (A4 x sign) 36 times and the 240 roots none; the free orbit of x0 = (-1, 0, 0, 1, 1, 0, 1, 0) carries the isometric dark port A/sqrt600 (the hub, 15:03) | THEOREM | `dark_port` |
+| dark port | bath | 1, 975/4, 237985/4, 14539767, variance 1315/16; spectrally orthogonal to every root-supported port; its sites lie on one sphere, so it grows by 4 at every order, and the five ports by 28 | THEOREM | `dark_port` |
+| PGL(2,5) | dark port | the Reynolds average K: R^15 -> A4 (entries -2, 0, 2) has K^T K = 60 P_dark and K K^T = 60 P_A4, so the two-shell port [T_S C/sqrt160; A K/sqrt36000] is an isometry of the pair space modulo its cuts | THEOREM | `dark_port` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 

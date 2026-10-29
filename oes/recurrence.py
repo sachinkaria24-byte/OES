@@ -95,6 +95,36 @@ def rank_mod_p(A, p=P):
     return r
 
 
+def lower_order_scan(p=1769473, N=3000, orders=(11, 12, 13, 14, 15)):
+    """Extend W_n mod p to n < N with the stored order-16 operator and test each order r at the largest degree the
+    extended data decide: {r: (degree, rows, columns, rank)}. A full column rank excludes every recurrence of that order
+    and degree, conditional on the operator annihilating W_n for every n. About seven minutes per order; not run by
+    verify."""
+    L = load_operator()[1][p]
+    W = [int(w) for w in load_modp()[p]]
+    r16 = len(L) - 1
+    def ev(c, n):
+        v = 0
+        for x in reversed(c.tolist()):
+            v = (v * n + int(x)) % p
+        return v
+    while len(W) < N:
+        n = len(W) - r16
+        lead = ev(L[r16], n)
+        assert lead, f"leading coefficient vanishes at n = {n}"
+        W.append(-sum(ev(L[j], n) * W[n + j] for j in range(r16)) * pow(lead, p - 2, p) % p)
+    out = {}
+    for r in orders:
+        d = (len(W) + 1) // (r + 1) - 2
+        while True:
+            V = shape_matrix(W, r, d, p)
+            if V.shape[0] > V.shape[1] + 10:
+                break
+            d -= 1
+        out[r] = (d, V.shape[0], V.shape[1], rank_mod_p(V, p))
+    return out
+
+
 def shape_matrix(W, r, d, p=P):
     N = len(W) - 1
     rows = N - r + 1
@@ -251,6 +281,14 @@ def run():
             ok_chi and band.get("-12") == 2 and sum(band.values()) == 11,
             note="an order-11 annihilator is not excluded by the data (it would need degree "
                  ">= 49) but would be a right factor of this operator")
+    rep.add("computed outside the suite (lower_order_scan, 29 Oct): with W_n mod 1769473 extended to n = 2999 by the "
+            "operator, no recurrence of order 11, 12, 13, 14 or 15 exists up to degree 247, 228, 211, 197 or 184 (each "
+            "shape matrix has full column rank); so an order-11 annihilator, if any, has degree at least 248, conditional "
+            "on the operator holding for every n", gates.REPORTED, True,
+            {"11": [247, 2989, 2976, 2976], "12": [228, 2988, 2977, 2977], "13": [211, 2987, 2968, 2968],
+             "14": [197, 2986, 2970, 2970], "15": [184, 2985, 2960, 2960]},
+            note="about 7 minutes per order, so not rerun by verify; the U21 note's unconditional bound (order 11, "
+                 "degree <= 35, from W_0..W_460) agrees with the exact bound above")
     rep.add("explicit scalar recurrence for W_n over Q", gates.UNFORMED, True,
             note="order 16 and degree 58 mod four primes, characteristic roots exact; the "
                  "rational coefficients need more primes, and a proof for all n needs "

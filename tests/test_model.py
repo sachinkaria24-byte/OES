@@ -475,6 +475,22 @@ def test_the_1426_replay():
         assert pf(P * (A * B - B * A) * P.T) == sign * 175
 
 
+def test_the_1534_replay():
+    for check in (dots.pair_frame, dots.parity_ports, dots.dark_port, dots.notes_1534):
+        out = check()
+        assert all(out.values()), out
+    import numpy as np
+    # the hub's seed, read without the twin's outer automorphism, is not a lattice site here; with it, it is x0
+    X, V4, W4 = dots._norm_four()
+    keys = {tuple(V4[k]) + tuple(W4[k]) for k in range(len(X))}
+    assert (-12, -2, -2, 8, 8, -4, -4, 6, -4, 6) not in keys and (-12, -2, -2, 8, 8, 4, 4, -6, 4, -6) in keys
+    # the odd port is odd under inversion and the root-wedge port even: that is the whole parity argument
+    R10, V, W, Bw, G, h, Hc = dots._wedge()
+    neg = [{tuple(r): k for k, r in enumerate(R10)}[tuple(-r)] for r in R10]
+    Od = dots._odd_port()
+    assert np.array_equal(Od[neg], -Od) and np.array_equal(Bw[neg], Bw)
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):
