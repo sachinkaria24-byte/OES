@@ -236,10 +236,15 @@ flowchart TB
     S5 -->|"one orbit of choices"| assignment
     sixsite -->|"the port's twin duad"| assignment
     binding -->|"three generations"| assignment
+    rootgraph -->|"the bath between roots"| bath
+    walks -->|"the walks are the port"| sixsite
+    clocks -->|"two order-5 actions"| halfper
+    simplex -->|"the cycles bound"| cycles
+    charges -->|"the charge on the edges"| E
     assignment -.->|"one root of every pair"| binding
 ```
 
-60 dots and 161 joins: 144 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
+60 dots and 166 joins: 149 THEOREM, 8 SELECTED_REFERENCE, 4 CONDITIONAL and 5 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step).
 
 ## Levels
 
@@ -247,9 +252,9 @@ flowchart TB
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 5 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix | 8 | 7 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 8 | 4 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 12 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 15 | 9 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5) | 9 | 4 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph | 14 | 13 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL | 16 | 9 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
 ## Level pairs
@@ -259,11 +264,11 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 5 | 3 | 1 | 1 | 1 |
-| symmetry | 5 | - | 7 | 5 | 4 | 5 |
-| combinatorics | 3 | 7 | - | 4 | 9 | 5 |
-| lattice | 1 | 5 | 4 | - | 12 | 4 |
-| operator | 1 | 4 | 9 | 12 | - | 9 |
-| physics | 1 | 5 | 5 | 4 | 9 | - |
+| symmetry | 5 | - | 7 | 6 | 4 | 5 |
+| combinatorics | 3 | 7 | - | 4 | 9 | 6 |
+| lattice | 1 | 6 | 4 | - | 13 | 4 |
+| operator | 1 | 4 | 9 | 13 | - | 9 |
+| physics | 1 | 5 | 6 | 4 | 9 | - |
 
 ## Dots
 
@@ -494,6 +499,11 @@ The maps that join each pair of levels directly.
 | S5 | root assignment | the ten colour triples are one orbit of S5 = W(A4), which keeps every twin weight; with J and -1 the factor, the orientation and the colour triple are all W(E8)-equivalent | THEOREM | `assignment.choices` |
 | six-site port | root assignment | the six-site port's roots e_a + e_5 are the 5 at -(mu_3 + mu_4), the twin duad disjoint from the generation triangle, and the brackets of its 10's with its 5b's; its memory variance 183 I + 52 J counts bath neighbours | THEOREM | `assignment.six_site_port` |
 | binding | root assignment | with the orientation and the bracket rule (the 5b's are the brackets of the 10's), anomaly freedom \|S\| = C(\|S\|, 2) forces a triangle of K5': 45 roots, three generations, every anomaly zero; B6 sharpened, not discharged | CONDITIONAL | `assignment.generations` |
+| root graph | bath | Delta^4 = (240 - A)^4 between two roots depends only on their inner product (3389062320, -40411056, 3317832, 222708, 228256 at 2 to -2), as do the walks of length 0 to 4; two roots fill 9361 points in five shells, 240, 56, 14, 2 and 1 deep (SHELLS, MEMORY, FOURTH) | THEOREM | `walks_by_angle` |
+| closed walks | six-site port | the six-port's couplings 241, 183, 235 and 495 are walk moments; its leakage stays positive at the second step (55487966/183, 131183830/99), and its sector measures have positive Hankel determinants through size 11 (LEAK, RANK) | THEOREM | `port_leak` |
+| W(E8) clocks | half-periods | the coordinate five-cycle alone fixes 16 half-periods (1 + 10 + 5) and makes 48 band-keeping five-cycles; the tick g = r r' fixes only the origin (TICK, COXETER) | THEOREM | `two_ticks` |
+| 4-simplex | cycles | the filled 4-simplex has boundary ranks 4, 6, 4, 1 and interior Laplacians 5I, so the six cycles of K5 bound triangles; K = I + 2(T + T^-1) squares to 5 on the moving edges (HELICITY) | THEOREM | `filled_simplex` |
+| five-site charges | K5 edges | the minimum-norm lift B^T Q / 5 of the charge has square 4/15 and lies in the cuts with zero cycle part; Y is 5/6 of the weak duad's 10-weight (MARKS, CHARGE_WEIGHT) | THEOREM | `charge_marks` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
 ## Not joined

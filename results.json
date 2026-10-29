@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.67,
+  "1-carrier": 0.71,
   "2-spectral": 0.01,
-  "3-spacetime": 8.6,
-  "4-native": 103.37,
-  "5-observer": 0.36,
-  "6-gravity": 5.95,
-  "7-cosmology": 1.76,
-  "8-frontier": 39.05,
-  "9-joins": 11.15,
-  "10-literal": 40.62,
-  "11-glue": 0.21,
-  "12-binding": 0.09,
-  "13-gates": 0.1,
-  "14-recurrence": 81.84,
-  "15-court": 1.83,
-  "16-handover": 1.44,
-  "17-waves": 0.92,
-  "18-snapshot": 1.69,
-  "19-spine": 4.64,
-  "20-canon": 6.28,
-  "21-ledger": 47.22,
-  "22-counts": 24.49,
-  "23-dots": 21.55,
-  "24-assignment": 4.13
+  "3-spacetime": 9.1,
+  "4-native": 109.36,
+  "5-observer": 0.7,
+  "6-gravity": 6.17,
+  "7-cosmology": 1.8,
+  "8-frontier": 40.02,
+  "9-joins": 10.43,
+  "10-literal": 41.61,
+  "11-glue": 0.3,
+  "12-binding": 0.06,
+  "13-gates": 0.11,
+  "14-recurrence": 96.72,
+  "15-court": 2.02,
+  "16-handover": 1.92,
+  "17-waves": 0.82,
+  "18-snapshot": 2.17,
+  "19-spine": 6.61,
+  "20-canon": 9.64,
+  "21-ledger": 54.23,
+  "22-counts": 25.43,
+  "23-dots": 25.61,
+  "24-assignment": 4.52
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 525,
-   "total": 525
+   "passed": 531,
+   "total": 531
   },
   "OBSTRUCTION": {
    "passed": 51,
@@ -97,8 +97,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 38,
-   "total": 38
+   "passed": 39,
+   "total": 39
   },
   "SELECTED_REFERENCE": {
    "passed": 17,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 73,
-   "total": 73
+   "passed": 76,
+   "total": 76
   }
  },
  "checks": [
@@ -7030,7 +7030,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "the port metric W_p is [2/5] + 4I + (2/5)J - 2(R + R^-1) (PORT_FORMULA), that is twice the pentagon Laplacian plus the uniform 2/5": true,
+    "the port metric W_p is [2/5] + 4I + (2/5)J - 2(R + R^-1) (PORT_FORMULA), that is twice the pentagon Laplacian plus (2/5) J on the five sites, with the corner 2/5": true,
     "its characteristic polynomial is (x - 2/5)(x - 2)(x^2 - 10x + 20)^2: eigenvalues 2/5, 2 and 5 -+ sqrt5 twice, trace 112/5, determinant 320, and the golden pair multiplies to 20, the order of the golden step 216": true,
     "on the five sites' contrast X = -(R + R^-1) satisfies X^2 = X + I, the golden equation, and the port block is 4I + 2X there: its golden eigenvalues are 4 + 2 phi = 5 + sqrt5 and 6 - 2 phi = 5 - sqrt5, 4 - 2 lambda for the eigenvalues lambda of T + T^-1 on the golden edges; the 72-degree mode has 5 - sqrt5": true,
     "CANON_BOARD's four values (5 +- sqrt5)/10, each twice, are the spectrum of the pentagon Laplacian's pseudo-inverse, with power sums 4, 2, 6/5, 4/5, 14/25 and then 2/5 (the corner of the port, as a number); tr L^+ = 2 gives the pentagon's Kirchhoff index 5 x 2 = 10 = (5^3 - 5)/12": true,
@@ -7587,6 +7587,66 @@
   },
   {
    "layer": "23-dots",
+   "name": "root graph -> bath: Delta^4 = (240 - A)^4 between two roots depends only on their inner product (3389062320, -40411056, 3317832, 222708, 228256 at 2 to -2), as do the walks of length 0 to 4; two roots fill 9361 points in five shells, 240, 56, 14, 2 and 1 deep (SHELLS, MEMORY, FOURTH)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "SHELLS: the 240^2 ordered sums of two roots fill 9361 points in five shells, the origin 240 times, the 240 roots 56 times each, 2160 vectors of square 4 fourteen times, 6720 of square 6 twice and the 240 doubles once; 6720 = 240 x 56 / 2 and 2160 = 240 x 126 / 14": true,
+    "MEMORY and FOURTH: the walks of length 0 to 4 between two roots depend only on their inner product (checked against all 240 partners): (1, 0, 240, 13440, 1260720), (0, 1, 56, 5253, 574224), (0, 0, 14, 1848, 253512), (0, 0, 2, 600, 107508) and (0, 0, 1, 168, 43936) at 2, 1, 0, -1 and -2, with fourth moments of 240 - A 3389062320, -40411056, 3317832, 222708 and 228256": true,
+    "CONVOLUTION and SEVENTH: a root is a sum of three roots in 5253 = W_4 / 240 ways, of four in 574224 = W_5 / 240 and of six in 9734696160 = W_7 / 240, since W(E8) is transitive on the roots": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "closed walks -> six-site port: the six-port's couplings 241, 183, 235 and 495 are walk moments; its leakage stays positive at the second step (55487966/183, 131183830/99), and its sector measures have positive Hankel determinants through size 11 (LEAK, RANK)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "MOMENTS and DEGREE: the six-port's couplings are walk moments, 241 = 240 + 1, 183 = 240 - 56 - 1, 235 = 240 - 5 and 495 = 183 + 6(56 - 4), with 56 = W_3 / W_2 the degree. In G0 = X^T X the 4 counts the other four sites of the clique next to both of two sites, and the 6 is the number of sites; DEGREE reads them as the cut rank and the cycle count, which are the same integers but not the same counts": true,
+    "LEAK: every root has square 2, so the band's Hessian sum r r^T cos(2 pi r.x) has trace 480 - 2 eps everywhere; it is 60 I at 0, has trace 32 at the 224 saddles and is -4 I at the 256 points": true,
+    "LEAK: regressing the energy on the innovation leaves X^T Delta^2 X - G1 G0^-1 G1 with eigenvalues 55487966/183 and 131183830/99 (X^T Delta^2 X is 7137934 and 15637390 on the contrast and the corner), both positive: the six channels are a compression at the second step too": true,
+    "RANK and SEVENTH: the contrast moments 241, 58264, 14121093, 3429473376, 834329053600, 203278964862240 and the corner moments 235, 55720, 13294695, 3187007040, 766796393440 have 3 x 3 Hankel windows 355722345463331 = 7 x 11 x 47 x 120193 x 817793, 2865679183195625 = 5^4 x 4585086693113 and, on moments 2 to 6, 2825534000633635065824, none zero": true,
+    "and every Hankel determinant of both sector measures through size 11 is positive, so the six sites' Krylov space grows by exactly 6 at every order through 10 (MEMORY lists this as not established)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "W(E8) clocks -> half-periods: the coordinate five-cycle alone fixes 16 half-periods (1 + 10 + 5) and makes 48 band-keeping five-cycles; the tick g = r r' fixes only the origin (TICK, COXETER)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "TICK and COXETER: the coordinate five-cycle r alone keeps the lattice and fixes 16 half-periods (the origin, 10 at 224 and 5 at 256), turning the other 240 in 48 band-keeping five-cycles; the tick g = r r' = c'^6 fixes only the origin and makes 51 (layer 23). The two order-5 actions differ": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "4-simplex -> cycles: the filled 4-simplex has boundary ranks 4, 6, 4, 1 and interior Laplacians 5I, so the six cycles of K5 bound triangles; K = I + 2(T + T^-1) squares to 5 on the moving edges (HELICITY)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "HELICITY: K = I + 2(T + T^-1) is 5 on the rotor plane and +-sqrt5 four times each elsewhere; on the eight moving edges K^2 = 5, trace 0, det 625, and on the cycles 5, sqrt5 and -sqrt5 twice each": true,
+    "HELICITY: the filled 4-simplex has boundary ranks 4, 6, 4, 1 and its three interior Laplacians are 5I, so its first homology is 0: the six cycles of K5 bound triangles": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "five-site charges -> K5 edges: the minimum-norm lift B^T Q / 5 of the charge has square 4/15 and lies in the cuts with zero cycle part; Y is 5/6 of the weak duad's 10-weight (MARKS, CHARGE_WEIGHT)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "CHARGE_WEIGHT: Y = (5/6) w_2({3, 4}) is 5/6 of the weak duad's 10-weight, with square 5/6, and it is layer 24's hypercharge; T3 is half the A4 root e_3 - e_4, square 1/2, orthogonal to Y; |Q|^2 = 4/3": true,
+    "MARKS: over the 20 ordered weak pairs the outer products of Y, T3 and Q average (5/24) P, (1/8) P and (1/3) P, and the 20 charge vectors average 0": true,
+    "MARKS: the minimum-norm lift B^T Q / 5 of the charge to the edges has square 4/15 and lies in the cuts with zero cycle part, so a readout that vanishes on cuts sees no charge": true,
+    "MARKS: with the pentagon edges weighted 2 and the pentagram 3 the Laplacian's polynomial is t (t^2 - 25 t + 155)^2; its 155 shares an integer with the 155 block and is not a map to it": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "root assignment -> binding: taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time",
    "status": "OBSTRUCTION",
    "passed": true,
@@ -7600,7 +7660,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 60 dots and 161 joins form one connected diagram (the obstructions left out)",
+   "name": "the 60 dots and 166 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7830,7 +7890,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 7, combinatorics-lattice 4, lattice-operator 12, operator-physics 9 joins",
+   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 7, combinatorics-lattice 4, lattice-operator 13, operator-physics 9 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7868,7 +7928,8 @@
      "rootgraph -> walks",
      "census -> gksl",
      "measure -> census",
-     "torus -> bath"
+     "torus -> bath",
+     "rootgraph -> bath"
     ],
     [
      "carrier -> triple",
@@ -7890,7 +7951,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 144,
+    "THEOREM": 149,
     "OBSTRUCTION": 5,
     "SELECTED_REFERENCE": 8,
     "CONDITIONAL": 4
@@ -7910,20 +7971,20 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 1, number-operator 1, number-physics 1, symmetry-combinatorics 7, symmetry-lattice 5, symmetry-operator 4, symmetry-physics 5, combinatorics-lattice 4, combinatorics-operator 9, combinatorics-physics 5, lattice-operator 12, lattice-physics 4, operator-physics 9",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 1, number-operator 1, number-physics 1, symmetry-combinatorics 7, symmetry-lattice 6, symmetry-operator 4, symmetry-physics 5, combinatorics-lattice 4, combinatorics-operator 9, combinatorics-physics 6, lattice-operator 13, lattice-physics 4, operator-physics 9",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 4,
-    "(3, 4)": 12,
+    "(3, 4)": 13,
     "(2, 4)": 9,
-    "(1, 3)": 5,
+    "(1, 3)": 6,
     "(1, 2)": 7,
     "(0, 1)": 5,
     "(0, 2)": 3,
     "(1, 4)": 4,
     "(4, 5)": 9,
-    "(2, 5)": 5,
+    "(2, 5)": 6,
     "(3, 5)": 4,
     "(0, 3)": 1,
     "(0, 4)": 1,
@@ -8475,6 +8536,52 @@
   {
    "layer": "23-dots",
    "name": "Drive check 02:55: the sibling's HALFPERIOD (02:53) and TRACES (02:55) and the hub's 00_START_HERE for K+ADDENDUM3 (02:52; the hourly canon run was disabled after it); TRACES reaches the 3/8 ratio of the 02:52 check and says, as here, that the traces fix no coupling; its Pachner defects and index -12k are not replayed, and the curvature integral is read as modules 8-11's dA",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 08:35-09:28 notes, INFRARED and MOMENTS: the infrared density's 1536 and the heat tails; the edge tick's fixed plane holds 2 of the all-ones vector's square, not 17/10, and 10 in the cyclic orientation; the eight square-free parts have full rank over F2",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "INFRARED: 1536 = 256 x 3 x 2, from (2 pi)^8 = 256 pi^8 and the unit 8-ball pi^4 / 24, and densities c E^3, c E^4, c E^5 have heat tails 6c t^-4, 24c t^-5 and 120c t^-6": true,
+    "INFRARED, corrected: the edge tick's fixed plane is spanned by the oriented pentagon and pentagram, both of square 5, with sums 3 and 1 in the lexicographic orientation, so it holds 9/5 + 1/5 = 2 of the all-ones vector's square (the note has squares 5 and 6 and 17/10); in the cyclic orientation the tick is a plain permutation fixing the all-ones vector, and the value is exactly 10": true,
+    "MOMENTS: the eight square-free parts 14, 3, 62, 10, 251, 161, 51, 7 of the positive critical energies below 256 have full rank 8 over F2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "MEMORY's stated fixed block: means 239 and 241, variances 171 and 371, golden variances above 171 (the block is not stored here)",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "mean [[240, -1], [-1, 240]] has eigenvalues 239 and 241, variance [[271, 100], [100, 271]] has 171 and 371, and the golden variance 1987/10 - (31/10) K exceeds 171 on both helicities because 277^2 = 76729 > 5 x 31^2 = 4805": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 09:02: the sibling's 20 notes of 08:35-09:28 were read (CRITICAL, MOMENTS, DEGREE, CONVOLUTION, SHELLS, UNIFIED, MARKS, LEAK, RANK, SEVENTH, HELICITY, GLUE, CHARGE_WEIGHT, TICK, CHAIN, COXETER, MEMORY, FOURTH, MODEL, INFRARED). CRITICAL adopts the 224 saddle and the 24 + 1 tick momenta, and GLUE and CHARGE_WEIGHT give the glue classes as layer 24 builds them, without a particle assignment",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the separate model's archives were not downloaded or run: completion (1509168 bytes, 105 checks) and its audit, critical port (489177 bytes, 93 checks), connected model (864739 bytes, 52 check groups) and glue-helicity (202251 bytes, 56 check groups), with their receipts; the KD staging workbooks, the reconciled canon workbooks (modified 08:45) and MODEL_UPDATE_CHECKPOINT.json (09:13) were not opened, and the connected-model receipt marks KD as in progress, not admitted as canon head",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed, for want of operands here: the collar witness at 220.635 with least tangent eigenvalue about 6.9856, the reader rank 86, the trace 20416532280 and the stated tail prefactors",
    "status": "REPORTED",
    "passed": true,
    "value": null,

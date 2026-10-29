@@ -7,8 +7,8 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 24 layers in **753 checks**. Of these, 680 hold: THEOREM 525, OBSTRUCTION 51, ARITHMETIC 38, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 73 are REPORTED records.
-- `python -m pytest` runs 64 tests.
+- `python verify.py` replays 24 layers in **763 checks**. Of these, 687 hold: THEOREM 531, OBSTRUCTION 51, ARITHMETIC 39, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 76 are REPORTED records.
+- `python -m pytest` runs 65 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, `data/e8_assignment.json` the 240 roots with their Standard-Model quantum numbers, `docs/LEDGER.md` the unified ledger, and `docs/DOTS.md` draws every checked join.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -41,7 +41,7 @@ The order-24 day element, which the sibling's build reports as not constructed, 
 - Seven moments that the sibling reported as not replayed are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly from the 240 roots, and the eighth is new.
 - The canon's 19:10 continuation asks two things. A commutator should not be called 864 without a map: every map from the day–Coxeter group to the circle kills it. Equal energy totals do not make equal splits: the three splits are the margins of one conserved table.
 
-**It joins all the dots, at every level (layer 23).** Every object of the model is a dot and every checked map a join, and 60 dots with 161 joins form one connected diagram that no two maps hold together. Every layer has a dot, and the dots sit on six levels, from the integers up to physics, each joined inside and to every other level. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits. The carrier's symmetry is the S5 that fixes the cone point of K6, the only S5 in S6 that keeps D; the transitive S5 = PGL(2,5) gives a different module.
+**It joins all the dots, at every level (layer 23).** Every object of the model is a dot and every checked map a join, and 60 dots with 166 joins form one connected diagram that no two maps hold together. Every layer has a dot, and the dots sit on six levels, from the integers up to physics, each joined inside and to every other level. The two K5 incidences are the positive roots of A4 and D5, so the carrier's spectrum {0, 3, 8} is {0, h(D5) − h(A4), h(D5)}. The canon's selected six-port is the oriented triangle 0-1-2 of K5, and its heat coefficient 1/(22394880000000 π⁴) follows from that. The canon's L0 spectrum 0, 250⁴ is the bath at the tick's fixed momenta, and its h81 is the four-cube complex, whose vertices are four qubits. The carrier's symmetry is the S5 that fixes the cone point of K6, the only S5 in S6 that keeps D; the transitive S5 = PGL(2,5) gives a different module.
 
 **It works out the particle assignment on E8's roots (layer 24).** The carrier's A4 is taken as SU(5) and its twin as a family SU(5)′. Then the 240 roots carry the Standard Model's quantum numbers, with charge quantization on every root, and the assignment is unique up to W(E8). One root of every pair ±ρ is always anomalous. Three generations follow from the bracket rule and anomaly freedom, and the top coupling has no root realization.
 
@@ -397,7 +397,7 @@ At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon conti
 
 ## 9. All dots joined (layer 23)
 
-Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 60 dots and 161 joins (156 maps and five obstructions) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
+Every object the model builds is a dot: a space with its operator, a lattice, a group, a circle or a port. A join is a map between two dots, checked against the property that makes it that kind of map. Layer 23 builds 60 dots and 166 joins (161 maps and five obstructions) and checks that the maps connect every dot. They do, so the diagram is one piece; `docs/DOTS.md` draws it. A shared integer is not a join.
 
 **New joins (THEOREM).**
 
@@ -440,11 +440,21 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 
 **No dot on a single join (02:20).** Eight dots hung by one join and nine joins were bridges. Each now has a second checked map, and removing any one map leaves the diagram connected. The 256 half-periods are exactly the census's critical points of types E8, E7 + A1 and D8, so the GKSL decay rates are census data. The spectral measures live on the band between the census's minimum and maximum, and no two of the nine bath frequencies have a rational ratio, so no calibration makes the bath periodic. AIR_801's matrix and PG(2,5) become dots. Mod 5 the matrix lies outside PSL(2,5) and swaps the hemi-icosahedron and its complement. On the Veronese conic of PG(2,5) the six axes, the surface's 15 edges and its 10 faces are the conic, the 15 exterior points and the 10 interior points, a face and its complementary face sharing their perspector.
 
-**The 02:52 items** (the sibling's notes to 02:49, the hub's observer completion and releases K+ADDENDUM2 and K+ADDENDUM3). One dot and nine joins are new. The five-site charges Q = Y + T3 of the removed hypercharge shell become a dot, so that what holds and what fails about them is on the diagram. Their shells are the 4-simplex's even and odd faces, each with Σq² = 16/3, and the even faces carry one generation's charges. On B4's anomaly-free 5 + 10, at opposite chiralities, the cubic hypercharge sums cancel (5/36 each); on the zero modes alone they do not. Through an identification with the zero modes, Y lies in the exact dark U(5), but on the atoms B1 forbids any charge but the global phase. At the tick's 24 fixed momenta of type A4 + A4, minus a fifth of the band's Hessian satisfies X² = X + I, so the Hessian there is −5 times a golden companion, with determinant 5⁸. The port metric is twice the pentagon Laplacian plus 2/5, and on the contrast it is 4I + 2X with X² = X + I. The hub's joint observer joins the source to the readout: the wedge of the source pair has rank 7 with fibre SL(2), and three frame probes make it injective with an explicit inverse. Its sidebands join the atlas back to the circle: the address and the residues mod 32, 27 and 5 rebuild the tick, and three sensors of largest alphabet 32 are optimal. Also replayed: Canon K's W₅ and W₆ (layer 3's returns), the 160 × 27 clock with the tick in 2241, the six-site Smith torsion (its 5 is the 5 in 240), the census's stabilizers as Weyl groups of the extended diagram's subsystems, the rotor firewall, and the Bargmann phase π/4, half the solid angle of the Pauli octant. The sibling's "no clique of nine roots" and this build's 9-clique are about two graphs, and both hold. One correction goes back to the sibling: of the tick's 25 fixed momenta, 24 sit at 250 and the 25th is the minimum. The board's fine-structure digits are not joined: they invert to about 137.036 and are put in by hand.
+**The 02:52 items** (the sibling's notes to 02:49, the hub's observer completion and releases K+ADDENDUM2 and K+ADDENDUM3). One dot and nine joins are new. The five-site charges Q = Y + T3 of the removed hypercharge shell become a dot, so that what holds and what fails about them is on the diagram. Their shells are the 4-simplex's even and odd faces, each with Σq² = 16/3, and the even faces carry one generation's charges. On B4's anomaly-free 5 + 10, at opposite chiralities, the cubic hypercharge sums cancel (5/36 each); on the zero modes alone they do not. Through an identification with the zero modes, Y lies in the exact dark U(5), but on the atoms B1 forbids any charge but the global phase. At the tick's 24 fixed momenta of type A4 + A4, minus a fifth of the band's Hessian satisfies X² = X + I, so the Hessian there is −5 times a golden companion, with determinant 5⁸. The port metric is twice the pentagon Laplacian plus (2/5)J, with the corner 2/5, and on the contrast it is 4I + 2X with X² = X + I. The hub's joint observer joins the source to the readout: the wedge of the source pair has rank 7 with fibre SL(2), and three frame probes make it injective with an explicit inverse. Its sidebands join the atlas back to the circle: the address and the residues mod 32, 27 and 5 rebuild the tick, and three sensors of largest alphabet 32 are optimal. Also replayed: Canon K's W₅ and W₆ (layer 3's returns), the 160 × 27 clock with the tick in 2241, the six-site Smith torsion (its 5 is the 5 in 240), the census's stabilizers as Weyl groups of the extended diagram's subsystems, the rotor firewall, and the Bargmann phase π/4, half the solid angle of the Pauli octant. The sibling's "no clique of nine roots" and this build's 9-clique are about two graphs, and both hold. One correction goes back to the sibling: of the tick's 25 fixed momenta, 24 sit at 250 and the 25th is the minimum. The board's fine-structure digits are not joined: they invert to about 137.036 and are put in by hand.
 
 **The 02:55 items** (HALFPERIOD and TRACES). The half-periods sort by shortest length 0, 2 and 4 on 1, 120 and 135 classes. One correction goes back to the sibling: 224 is a certified critical value. At x = r₀/2 every r·x lies in ℤ/2, so the gradient vanishes, and 128 roots are integral on x and 112 half-integral, so ε = 240 − (128 − 112) = 224, with Hessian 12P′ − 52P of index 1, the E7 + A1 saddle. The collar near 224 stays open. The even-shell traces are 10/3, 2, 0 and 16/3, and with ε = 30|k|² the density of states in eight dimensions is E³/(1536 π⁴ 30⁴).
 
 **Every pair of levels, and no two maps (08:48).** Four pairs of levels had no direct map, twenty dots lay on only two maps, and 23 pairs of maps could cut the diagram. Twenty-seven joins and one dot close all of it: every pair of the six levels is now joined directly, and no two maps hold the diagram together, except that two can cut off the conditional product geometry or FLRW. The time clock does most of the new work. Through the tick g = r r′ it fixes only the zero half-period and turns the other 255 in 51 five-cycles that keep the band, so the GKSL semigroup is tick-equivariant. On light it commutes with d₀ and Curl and fixes one line in each helicity, turning a golden plane by 144° on +√5 and 72° on −√5. On the cuts mod 2 it is a primitive fifth root of unity in F₁₆. Light carries two more symmetries: the golden companion acts by (I + Curl)/2, and x ↦ ax + b multiplies Curl by the Legendre symbol (a/5), so the doubling exchanges the helicities. The outer automorphism of S6, acting on the six synthematic totals, carries the cone's S5 onto PGL(2,5). S5 is W(A4) and the Weyl group of the binding's 5 + 10. The Hodge star is the deck involution of S ↦ e_S mod 2Λ, onto 35 half-periods of type D8. The memory clock of layer 3 becomes a dot, stepped by the circle (a selection, since 90 divides 4320), whose 9- and 10-cycles read the vortex and the time coordinate.
+
+**The 08:35–09:28 items (Drive check 09:02).** The sibling's twenty notes replay from the 240 roots, and five become joins.
+
+- The 240² ordered sums of two roots fill 9361 points in five shells, 240, 56, 14, 2 and 1 deep.
+- The walks of length 0 to 4 between two roots, and the entries of Δ⁴, depend only on the inner product: 3389062320, −40411056, 3317832, 222708 and 228256 at 2 down to −2.
+- The six-port's couplings 241, 183, 235 and 495 are walk moments. Its leakage stays positive at the second step (55487966/183 and 131183830/99), and both sector measures have positive Hankel determinants through size 11. So the six sites' Krylov space grows by exactly 6 at every order through 10.
+- The coordinate five-cycle alone fixes 16 half-periods and makes 48 five-cycles, while the tick g = r r′ is free.
+- The filled 4-simplex has interior Laplacians 5I, and the charge's lift to the edges lies in the cuts.
+
+Two corrections go back. In DEGREE the 4 and the 6 count the clique's other sites and the port's sites, not the cut rank and the cycles. In INFRARED both fixed vectors of the edge tick have square 5, so the fixed plane holds 2 of the all-ones vector's square, not 17/10, and exactly 10 in the cyclic orientation. The port metric is W_p = [2/5] ⊕ (2L_C5 + (2/5)J), as CRITICAL reads it.
 
 **Replay for the hub (OES-C01).** At commit f41b278 the reported state replays exactly: 21 layers, 412 checks (383 hold and 29 reported), 31 tests, and the TypeScript audits at residual 0. The logs and a handover are in `docs/hub/OES-C01/`.
 
@@ -537,12 +547,12 @@ On all 240 roots Q minus each colour coordinate is an integer, which is the ℤ6
 | 801 matrix, PG(2,5) | outside PSL(2,5); the conic, exterior and interior points are the axes, edges and faces | THEOREM |
 | five-site charges | the simplex's even and odd shells, 16/3 each; the hypercharge anomaly cancels on 5 + 10; Y in the dark U(5); not on the atoms (B1) | THEOREM, SELECTED_REFERENCE, OBSTRUCTION |
 | the Hessian at the tick's momenta | −5 times a golden companion at the 24 A4 + A4 momenta; det 5⁸ | THEOREM |
-| port metric | twice the pentagon Laplacian plus 2/5; 4I + 2X on the contrast, X² = X + I | THEOREM |
+| port metric | [2/5] ⊕ (2L_C5 + (2/5)J): twice the pentagon Laplacian plus (2/5)J, with the corner 2/5; 4I + 2X on the contrast, X² = X + I | THEOREM |
 | joint observer, sidebands | the wedge and three frame probes are injective; the address and residues mod 32, 27, 5 rebuild the tick | THEOREM |
 | the tick on light and on the half-periods | one fixed line and a golden plane per helicity; 51 band-keeping five-cycles, so e^−tL is tick-equivariant | THEOREM |
 | the two S5's | the outer automorphism of S6 carries the cone's S5 onto PGL(2,5) | THEOREM |
 | memory clock | stepped by the circle; its cycles read the vortex and the time coordinate | SELECTED_REFERENCE |
-| all dots, every level | 60 dots on six levels, 161 joins; no two maps hold the diagram together; every layer has a dot; every pair of levels joined directly | THEOREM |
+| all dots, every level | 60 dots on six levels, 166 joins; no two maps hold the diagram together; every layer has a dot; every pair of levels joined directly | THEOREM |
 | particle assignment | Standard-Model numbers on all 240 roots, unique up to W(E8); one root of every pair anomalous; three generations given the bracket rule; no root top coupling | THEOREM, SELECTED_REFERENCE, OBSTRUCTION, CONDITIONAL |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters, the board's fine-structure digits | no operand, no dimensionful constant | UNFORMED |
 
@@ -599,15 +609,15 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
 | 22 | counts | 60 | the evening notes: 1843 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
-| 23 | dots | 240 | 60 dots and 161 checked joins in one diagram on six levels, every pair of levels joined, no two maps holding it together (`docs/DOTS.md`); the 22:08–02:55 notes |
+| 23 | dots | 250 | 60 dots and 166 checked joins in one diagram on six levels, every pair of levels joined, no two maps holding it together (`docs/DOTS.md`); the 22:08–02:55 and 08:35–09:28 notes |
 | 24 | assignment | 41 | the particle assignment on E8's roots: both factors, moments, Standard-Model numbers, one W(E8) orbit, chirality, three generations, couplings, the six-site port (`data/e8_assignment.json`) |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 24 layers, 753 checks, about 6 minutes
-python -m pytest -q           # 64 tests
+python verify.py              # 24 layers, 763 checks, about 6 minutes
+python -m pytest -q           # 65 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 

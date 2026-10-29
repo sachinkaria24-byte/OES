@@ -152,7 +152,8 @@ odd faces, each with sum q^2 = 16/3. On B4's 5 + 10 at opposite chiralities the 
 each). Through an identification with the zero modes, Y lies in the dark U(5). On the atoms B1 forbids any such charge,
 an obstruction to the carrier. At the tick's 24 fixed momenta of type A4 + A4, minus a fifth of the band's Hessian
 satisfies the golden equation, so the momenta meet the golden companion there, with det 5^8 (ENERGY_250's (-25)^4). The
-port metric is twice the pentagon Laplacian plus 2/5; on the contrast it is 4I + 2X with X^2 = X + I. The joint
+port metric is twice the pentagon Laplacian plus (2/5)J, with the corner 2/5; on the contrast it is 4I + 2X with
+X^2 = X + I. The joint
 observer joins the source to the readout: the wedge has rank 7 and fibre SL(2), and three frame probes make it
 injective with an explicit inverse. The sideband lift joins the atlas to the circle: the address and the residues mod
 32, 27 and 5 rebuild the tick, and three sensors of largest alphabet 32 are optimal. Also replayed: Canon K's W5/W6
@@ -193,6 +194,19 @@ that swaps the two factors and doubles the grade in E8 / L0, to S5 by the colour
 whose roots are the 5 at the twin duad opposite the generation triangle. The join from the binding is conditional: with
 the orientation and the bracket rule, anomaly freedom forces three generations. An obstruction runs back to the
 binding: taking one root of every pair +-rho is always anomalous.
+
+At 09:02 the Drive check found the sibling's twenty notes of 08:35-09:28. Their integers replay from the 240 roots.
+The 240^2 ordered sums of two roots fill 9361 points in five shells. The walks between two roots depend only on their
+inner product, and so do the fourth moments. The six-port's couplings 241, 183, 235 and 495 are walk moments, its
+leakage stays positive at the second step, and its two sector measures have positive Hankel determinants through size
+11, so the six sites' Krylov space grows by 6 at every order through 10. The coordinate five-cycle alone fixes 16
+half-periods, while the tick g = r r' fixes only the origin. On the edges K = I + 2(T + T^-1) squares to 5 on the
+moving edges, and the filled simplex has interior Laplacians 5I. The hypercharge is 5/6 of the weak duad's 10-weight,
+and the charge's lift to the edges lies in the cuts. Three corrections go back. In DEGREE the 4 and the 6 count the
+clique's other sites and the port's sites, not the cut rank and the cycles. In INFRARED both fixed vectors have square
+5, so the fixed plane holds 2 of the all-ones vector's square, and exactly 10 in the cyclic orientation. In CRITICAL's
+reading the port is 2L + (2/5)J on the five sites, with the corner 2/5, which the code always used and the prose now
+says.
 """
 
 import functools
@@ -2659,7 +2673,7 @@ def seven_pairs_algebra():
 
 
 def golden_port():
-    """GOLDEN_PORT, PORT_FORMULA, CANON_BOARD and CAYLEY: the port is twice the pentagon Laplacian plus 2/5."""
+    """GOLDEN_PORT, PORT_FORMULA, CANON_BOARD and CAYLEY: the port is twice the pentagon Laplacian plus (2/5) J."""
     x, k = sp.symbols("x"), sp.symbols("k", real=True)
     R = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
     L5 = 2 * sp.eye(5) - R - R.T
@@ -2674,7 +2688,7 @@ def golden_port():
     block = np.array(W[1:, 1:].tolist(), float)
     return {
         "the port metric W_p is [2/5] + 4I + (2/5)J - 2(R + R^-1) (PORT_FORMULA), that is twice the pentagon Laplacian "
-        "plus the uniform 2/5": np.allclose(native.port_metric(), np.array(W.tolist(), float))
+        "plus (2/5) J on the five sites, with the corner 2/5": np.allclose(native.port_metric(), np.array(W.tolist(), float))
         and W[1:, 1:] == 2 * L5 + sp.ones(5, 5) * sp.Rational(2, 5),
         "its characteristic polynomial is (x - 2/5)(x - 2)(x^2 - 10x + 20)^2: eigenvalues 2/5, 2 and 5 -+ sqrt5 twice, "
         "trace 112/5, determinant 320, and the golden pair multiplies to 20, the order of the golden step 216":
@@ -3243,6 +3257,263 @@ def no_two_maps():
         "whose only maps are conditional": not cuts,
     }
 
+# ------------------------------------------------------------------- the 08:35-09:28 notes
+
+def _two_root_sums():
+    """The 240^2 ordered sums of two roots in doubled coordinates: points, integer codes and multiplicities."""
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    w = 64 ** np.arange(8, dtype=np.int64)
+    code = lambda P: (np.asarray(P, dtype=np.int64) + 32) @ w
+    pts, mult = np.unique((R2[:, None, :] + R2[None, :, :]).reshape(-1, 8), axis=0, return_counts=True)
+    keys = code(pts)
+    order = np.argsort(keys)
+    return R2, code, 32 * int(w.sum()), pts[order], keys[order], mult[order]
+
+
+def _sector_moments(n):
+    """The six-site port's contrast and corner moments c_k = E_(k+1)/240 and u_k = 6 E_k - 5 E_(k+1)/240."""
+    _, E = _walks()
+    c = [sp.Rational(E[k + 1], 240) for k in range(n)]
+    u = [6 * E[k] - sp.Rational(5 * E[k + 1], 240) for k in range(n)]
+    return c, u
+
+
+def walks_by_angle():
+    """SHELLS, CONVOLUTION, SEVENTH, MEMORY and FOURTH: the walks between two roots depend only on their angle."""
+    R2, code, shift, pts, keys, mult = _two_root_sums()
+
+    def at(c):
+        i = np.minimum(np.searchsorted(keys, c), len(keys) - 1)
+        return np.where(keys[i] == c, mult[i], 0)
+
+    def walks(t):
+        ct = code(t)
+        return (int(not t.any()), int(any(np.array_equal(t, r) for r in R2)), int(at(np.array([ct]))[0]),
+                int(at(ct - code(R2) + shift).sum()), int((mult * at(ct - keys + shift)).sum()))
+    table = {}
+    for s in R2:
+        table.setdefault(int(R2[0] @ s) // 4, set()).add(walks(R2[0] - s))
+    one = {k: next(iter(v)) for k, v in table.items()}
+    fourth = {k: sum(sp.binomial(4, j) * 240 ** (4 - j) * (-1) ** j * n[j] for j in range(5)) for k, n in one.items()}
+    shells = Counter(zip(((pts ** 2).sum(1) // 4).tolist(), mult.tolist()))
+    W, _ = _walks()
+    return {
+        "SHELLS: the 240^2 ordered sums of two roots fill 9361 points in five shells, the origin 240 times, the 240 "
+        "roots 56 times each, 2160 vectors of square 4 fourteen times, 6720 of square 6 twice and the 240 doubles once; "
+        "6720 = 240 x 56 / 2 and 2160 = 240 x 126 / 14": len(pts) == 9361 and shells == Counter(
+            {(0, 240): 1, (2, 56): 240, (4, 14): 2160, (6, 2): 6720, (8, 1): 240})
+        and 6720 == 240 * 56 // 2 and 2160 == 240 * 126 // 14 and 240 - 2 - 2 * 56 == 126,
+        "MEMORY and FOURTH: the walks of length 0 to 4 between two roots depend only on their inner product (checked "
+        "against all 240 partners): (1, 0, 240, 13440, 1260720), (0, 1, 56, 5253, 574224), (0, 0, 14, 1848, 253512), "
+        "(0, 0, 2, 600, 107508) and (0, 0, 1, 168, 43936) at 2, 1, 0, -1 and -2, with fourth moments of 240 - A "
+        "3389062320, -40411056, 3317832, 222708 and 228256": all(len(v) == 1 for v in table.values()) and one == {
+            2: (1, 0, 240, 13440, 1260720), 1: (0, 1, 56, 5253, 574224), 0: (0, 0, 14, 1848, 253512),
+            -1: (0, 0, 2, 600, 107508), -2: (0, 0, 1, 168, 43936)}
+        and fourth == {2: 3389062320, 1: -40411056, 0: 3317832, -1: 222708, -2: 228256},
+        "CONVOLUTION and SEVENTH: a root is a sum of three roots in 5253 = W_4 / 240 ways, of four in 574224 = W_5 / 240 "
+        "and of six in 9734696160 = W_7 / 240, since W(E8) is transitive on the roots": one[1][3] == 5253 == W[4] // 240
+        and one[1][4] == 574224 == W[5] // 240 and W[7] == 240 * 9734696160,
+    }
+
+
+def port_leak():
+    """MOMENTS, DEGREE, LEAK, RANK and SEVENTH: the six-site port is a compression of the walks, at every order tested."""
+    c, u = _sector_moments(22)
+    W, _ = _walks()
+    sites = [np.zeros(8, dtype=int)] + [2 * (np.eye(8, dtype=int)[a] + np.eye(8, dtype=int)[5]) for a in range(5)]
+    roots2 = {tuple(r) for r in np.rint(2 * glue.roots()).astype(int)}
+    nbr = lambda s: {tuple(s + np.array(r)) for r in roots2}
+    V = {tuple(s) for s in sites}
+    inside = {len(nbr(sites[i]) & nbr(sites[j]) & V) for i in range(6) for j in range(6) if i != j}
+    common = {len(nbr(sites[i]) & nbr(sites[j])) for i in range(6) for j in range(6) if i != j}
+
+    def schur(m):
+        G0 = m[2] - m[1] ** 2
+        G1 = m[3] - 2 * m[1] * m[2] + m[1] ** 3
+        H2 = m[4] - 2 * m[1] * m[3] + m[1] ** 2 * m[2]
+        return G0, G1, H2, H2 - G1 ** 2 / G0
+    hankel = lambda m, n, a=0: sp.Matrix(n, n, lambda i, j: m[a + i + j]).det()
+    R = np.rint(2 * glue.roots()).astype(int) / 2
+    x = np.array([0.3, -0.17, 0.41, 0.05, -0.29, 0.13, 0.22, -0.08])
+    trace = lambda y: np.trace((R.T * np.cos(2 * np.pi * R @ y)) @ R)
+    eps = lambda y: 240 - np.cos(2 * np.pi * R @ y).sum()
+    return {
+        "MOMENTS and DEGREE: the six-port's couplings are walk moments, 241 = 240 + 1, 183 = 240 - 56 - 1, 235 = 240 - 5 "
+        "and 495 = 183 + 6(56 - 4), with 56 = W_3 / W_2 the degree. In G0 = X^T X the 4 counts the other four sites of "
+        "the clique next to both of two sites, and the 6 is the number of sites; DEGREE reads them as the cut rank and the "
+        "cycle count, which are the same integers but not the same counts": W[3] // W[2] == 56
+        and (c[1], c[2] - c[1] ** 2, u[1], u[2] - u[1] ** 2) == (241, 183, 235, 495) and inside == {4} and common == {56}
+        and 183 == 240 - 56 - 1 and 495 == 183 + 6 * (56 - 4),
+        "LEAK: every root has square 2, so the band's Hessian sum r r^T cos(2 pi r.x) has trace 480 - 2 eps everywhere; it "
+        "is 60 I at 0, has trace 32 at the 224 saddles and is -4 I at the 256 points": np.isclose(trace(x), 480 - 2 * eps(x))
+        and np.allclose((R.T * np.cos(0 * R[:, 0])) @ R, 60 * np.eye(8))
+        and np.isclose(trace(R[0] / 2), 32) and np.allclose((R.T * np.cos(2 * np.pi * R @ np.eye(8)[0])) @ R, -4 * np.eye(8)),
+        "LEAK: regressing the energy on the innovation leaves X^T Delta^2 X - G1 G0^-1 G1 with eigenvalues 55487966/183 "
+        "and 131183830/99 (X^T Delta^2 X is 7137934 and 15637390 on the contrast and the corner), both positive: the six "
+        "channels are a compression at the second step too": schur(c) == (183, 35366, 7137934, sp.Rational(55487966, 183))
+        and schur(u) == (495, 84170, 15637390, sp.Rational(131183830, 99)),
+        "RANK and SEVENTH: the contrast moments 241, 58264, 14121093, 3429473376, 834329053600, 203278964862240 and the "
+        "corner moments 235, 55720, 13294695, 3187007040, 766796393440 have 3 x 3 Hankel windows 355722345463331 = "
+        "7 x 11 x 47 x 120193 x 817793, 2865679183195625 = 5^4 x 4585086693113 and, on moments 2 to 6, "
+        "2825534000633635065824, none zero": c[1:7] == [241, 58264, 14121093, 3429473376, 834329053600, 203278964862240]
+        and u[1:6] == [235, 55720, 13294695, 3187007040, 766796393440]
+        and hankel(c, 3, 1) == 355722345463331 == 7 * 11 * 47 * 120193 * 817793
+        and hankel(u, 3, 1) == 2865679183195625 == 5 ** 4 * 4585086693113 and hankel(c, 3, 2) == 2825534000633635065824,
+        "and every Hankel determinant of both sector measures through size 11 is positive, so the six sites' Krylov space "
+        "grows by exactly 6 at every order through 10 (MEMORY lists this as not established)":
+            all(hankel(c, n) > 0 and hankel(u, n) > 0 for n in range(1, 12)),
+    }
+
+
+def two_ticks():
+    """TICK and COXETER: the coordinate five-cycle and the tick g = r r' are different order-5 actions on Lambda / 2 Lambda."""
+    _, _, _, _, g, _ = spine.spine_clock()
+    B = np.array(spine.frame()[0], float)
+    P = np.zeros((8, 8))
+    for i in range(5):
+        P[(i + 1) % 5, i] = 1
+    P[5:, 5:] = np.eye(3)
+    r = np.linalg.solve(B, P @ B)
+    D2 = np.rint(2 * glue.roots()).astype(int)
+    classes = list(itertools.product((0, 1), repeat=8))
+    index = {cl: i for i, cl in enumerate(classes)}
+    band = [240 - int(sum((-1) ** ((r2 @ np.rint(2 * B @ np.array(cl)).astype(int) // 4) % 2) for r2 in D2)) for cl in classes]
+
+    def orbits(M):
+        step = [index[tuple(M @ np.array(cl) % 2)] for cl in classes]
+        seen, out = set(), []
+        for i in range(256):
+            if i not in seen:
+                o = [i]
+                while step[o[-1]] != i:
+                    o.append(step[o[-1]])
+                seen |= set(o)
+                out.append(o)
+        return Counter((len(o), band[o[0]]) for o in out), all(len({band[j] for j in o}) == 1 for o in out)
+    ri, gi = np.rint(r).astype(int), np.rint(g).astype(int)
+    return {
+        "TICK and COXETER: the coordinate five-cycle r alone keeps the lattice and fixes 16 half-periods (the origin, 10 at "
+        "224 and 5 at 256), turning the other 240 in 48 band-keeping five-cycles; the tick g = r r' = c'^6 fixes only the "
+        "origin and makes 51 (layer 23). The two order-5 actions differ": np.allclose(r, ri)
+        and orbits(ri) == (Counter({(1, 0): 1, (1, 224): 10, (1, 256): 5, (5, 224): 22, (5, 256): 26}), True)
+        and orbits(gi) == (Counter({(1, 0): 1, (5, 224): 24, (5, 256): 27}), True),
+    }
+
+
+def filled_simplex():
+    """HELICITY: K = I + 2(T + T^-1) on the edges, and the filled 4-simplex."""
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    T = compound2(R5)
+    K = sp.eye(10) + 2 * (T + T.T)
+    Bs = sp.Matrix(carrier.signed_incidence())
+    cyc = sp.Matrix.hstack(*Bs.nullspace())
+    mov = sp.Matrix.hstack(*(T - sp.eye(10)).T.columnspace())
+    Km = (mov.T * mov).inv() * mov.T * K * mov
+    faces = {k: list(itertools.combinations(range(5), k + 1)) for k in range(5)}
+
+    def bd(k):
+        M = sp.zeros(len(faces[k - 1]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            for i in range(len(f)):
+                M[faces[k - 1].index(f[:i] + f[i + 1:]), j] = (-1) ** i
+        return M
+    d = {k: bd(k) for k in range(1, 5)}
+    return {
+        "HELICITY: K = I + 2(T + T^-1) is 5 on the rotor plane and +-sqrt5 four times each elsewhere; on the eight moving "
+        "edges K^2 = 5, trace 0, det 625, and on the cycles 5, sqrt5 and -sqrt5 twice each":
+            K.eigenvals() == {5: 2, sp.sqrt(5): 4, -sp.sqrt(5): 4} and mov.shape[1] == 8
+            and sp.simplify(Km * Km - 5 * sp.eye(8)) == sp.zeros(8) and sp.simplify(Km.trace()) == 0
+            and sp.simplify(Km.det()) == 625
+            and ((cyc.T * cyc).inv() * cyc.T * K * cyc).eigenvals() == {5: 2, sp.sqrt(5): 2, -sp.sqrt(5): 2},
+        "HELICITY: the filled 4-simplex has boundary ranks 4, 6, 4, 1 and its three interior Laplacians are 5I, so its "
+        "first homology is 0: the six cycles of K5 bound triangles": [d[k].rank() for k in range(1, 5)] == [4, 6, 4, 1]
+        and all(d[k].T * d[k] + d[k + 1] * d[k + 1].T == 5 * sp.eye(len(faces[k])) for k in (1, 2, 3))
+        and 10 - d[1].rank() - d[2].rank() == 0,
+    }
+
+
+def charge_marks():
+    """MARKS and CHARGE_WEIGHT: the hypercharge is 5/6 of a duad's 10-weight, and the charge lives on the cuts."""
+    I5 = sp.eye(5)
+    P5 = I5 - sp.ones(5, 5) / 5
+    om = lambda S: sum((I5[:, i] for i in S), sp.zeros(5, 1)) - sp.Rational(len(S), 5) * sp.ones(5, 1)
+    Yf = lambda i, j: sp.Rational(5, 6) * om((i, j))
+    Tf = lambda i, j: (I5[:, i] - I5[:, j]) / 2
+    Qf = lambda i, j: Yf(i, j) + Tf(i, j)
+    pairs = list(itertools.permutations(range(5), 2))
+    avg = lambda f: sum((f(i, j) * f(i, j).T for i, j in pairs), sp.zeros(5)) / 20
+    Y, T3, Q = Yf(3, 4), Tf(3, 4), Qf(3, 4)
+    Bs = sp.Matrix(carrier.signed_incidence())
+    x = Bs.T * Q / 5
+    cyc = sp.Matrix.hstack(*Bs.nullspace())
+    t = sp.symbols("t")
+    L = sp.zeros(5)
+    for i, j in carrier.edges():
+        L[i, j] = L[j, i] = -(2 if (j - i) % 5 in (1, 4) else 3)
+    for i in range(5):
+        L[i, i] = -sum(L[i, k] for k in range(5) if k != i)
+    return {
+        "CHARGE_WEIGHT: Y = (5/6) w_2({3, 4}) is 5/6 of the weak duad's 10-weight, with square 5/6, and it is layer 24's "
+        "hypercharge; T3 is half the A4 root e_3 - e_4, square 1/2, orthogonal to Y; |Q|^2 = 4/3": list(Y) == [
+            sp.Rational(-1, 3)] * 3 + [sp.Rational(1, 2)] * 2 and [sp.Rational(y.numerator, y.denominator) for y in assignment.Y[:5]]
+        == list(Y) and (Y.T * Y)[0] == sp.Rational(5, 6) and (T3.T * T3)[0] == sp.Rational(1, 2) and (Y.T * T3)[0] == 0
+        and (Q.T * Q)[0] == sp.Rational(4, 3),
+        "MARKS: over the 20 ordered weak pairs the outer products of Y, T3 and Q average (5/24) P, (1/8) P and (1/3) P, "
+        "and the 20 charge vectors average 0": avg(Yf) == sp.Rational(5, 24) * P5 and avg(Tf) == P5 / 8
+        and avg(Qf) == P5 / 3 and sum((Qf(i, j) for i, j in pairs), sp.zeros(5, 1)) == sp.zeros(5, 1),
+        "MARKS: the minimum-norm lift B^T Q / 5 of the charge to the edges has square 4/15 and lies in the cuts with zero "
+        "cycle part, so a readout that vanishes on cuts sees no charge": Bs * x == Q and (x.T * x)[0] == sp.Rational(4, 15)
+        and cyc.T * x == sp.zeros(6, 1),
+        "MARKS: with the pentagon edges weighted 2 and the pentagram 3 the Laplacian's polynomial is t (t^2 - 25 t + 155)^2; "
+        "its 155 shares an integer with the 155 block and is not a map to it": sp.expand(L.charpoly(t).as_expr()
+                                                                                   - t * (t ** 2 - 25 * t + 155) ** 2) == 0,
+    }
+
+
+def infrared():
+    """INFRARED: the infrared density, the heat tails and the fixed plane of the edge tick, in both orientations."""
+    E, t, c = sp.symbols("E t c", positive=True)
+    R5 = sp.Matrix(5, 5, lambda r, k: int(r == (k + 1) % 5))
+    T = compound2(R5)
+    one = sp.ones(10, 1)
+    fixed = sp.Matrix.hstack(*(T - sp.eye(10)).nullspace())
+    proj = lambda F: (one.T * F * (F.T * F).inv() * F.T * one)[0]
+    pent, star = (sp.Matrix(counts._oriented_cycle(k)) for k in (1, 2))
+    cyc_or = [(i, j) if (j - i) % 5 in (1, 2) else (j, i) for i, j in carrier.edges()]
+    Tc = sp.zeros(10, 10)
+    for k, (a, b) in enumerate(cyc_or):
+        Tc[cyc_or.index(((a + 1) % 5, (b + 1) % 5)), k] = 1
+    parts = [14, 3, 62, 10, 251, 161, 51, 7]
+    primes = sorted({q for n in parts for q in sp.factorint(n)})
+    from sympy.polys.matrices import DomainMatrix
+    F2 = DomainMatrix.from_Matrix(sp.Matrix([[sp.factorint(n).get(q, 0) % 2 for q in primes] for n in parts]))
+    return {
+        "INFRARED: 1536 = 256 x 3 x 2, from (2 pi)^8 = 256 pi^8 and the unit 8-ball pi^4 / 24, and densities c E^3, c E^4, "
+        "c E^5 have heat tails 6c t^-4, 24c t^-5 and 120c t^-6": 1536 == 256 * 3 * 2 and all(
+            sp.simplify(sp.integrate(c * E ** n * sp.exp(-t * E), (E, 0, sp.oo)) - c * sp.factorial(n) / t ** (n + 1)) == 0
+            for n in (3, 4, 5)),
+        "INFRARED, corrected: the edge tick's fixed plane is spanned by the oriented pentagon and pentagram, both of square "
+        "5, with sums 3 and 1 in the lexicographic orientation, so it holds 9/5 + 1/5 = 2 of the all-ones vector's square "
+        "(the note has squares 5 and 6 and 17/10); in the cyclic orientation the tick is a plain permutation fixing the "
+        "all-ones vector, and the value is exactly 10": fixed.shape[1] == 2 and proj(fixed) == 2
+        and (pent.T * pent)[0] == (star.T * star)[0] == 5 and (sum(pent), sum(star)) == (3, 1) and (pent.T * star)[0] == 0
+        and T * pent == pent and T * star == star and Tc * one == one and proj(sp.Matrix.hstack(*(Tc - sp.eye(10)).nullspace())) == 10,
+        "MOMENTS: the eight square-free parts 14, 3, 62, 10, 251, 161, 51, 7 of the positive critical energies below 256 "
+        "have full rank 8 over F2": F2.convert_to(sp.GF(2)).rank() == 8 and len(primes) == 8,
+    }
+
+
+def stated_block():
+    """MEMORY's stated fixed block, as arithmetic (the block is not stored here)."""
+    return {
+        "mean [[240, -1], [-1, 240]] has eigenvalues 239 and 241, variance [[271, 100], [100, 271]] has 171 and 371, and "
+        "the golden variance 1987/10 - (31/10) K exceeds 171 on both helicities because 277^2 = 76729 > 5 x 31^2 = 4805":
+            sp.Matrix([[240, -1], [-1, 240]]).eigenvals() == {239: 1, 241: 1}
+            and sp.Matrix([[271, 100], [100, 271]]).eigenvals() == {171: 1, 371: 1}
+            and all(sp.Rational(1987, 10) - sp.Rational(31, 10) * k > 171 for k in (sp.sqrt(5), -sp.sqrt(5)))
+            and 277 ** 2 == 76729 > 5 * 31 ** 2 == 4805,
+    }
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -3494,6 +3765,11 @@ JOINS = [
     ("S5", "assignment", "one orbit of choices", "the ten colour triples are one orbit of S5 = W(A4), which keeps every twin weight; with J and -1 the factor, the orientation and the colour triple are all W(E8)-equivalent", T, "assignment.choices"),
     ("sixsite", "assignment", "the port's twin duad", "the six-site port's roots e_a + e_5 are the 5 at -(mu_3 + mu_4), the twin duad disjoint from the generation triangle, and the brackets of its 10's with its 5b's; its memory variance 183 I + 52 J counts bath neighbours", T, "assignment.six_site_port"),
     ("binding", "assignment", "three generations", "with the orientation and the bracket rule (the 5b's are the brackets of the 10's), anomaly freedom |S| = C(|S|, 2) forces a triangle of K5': 45 roots, three generations, every anomaly zero; B6 sharpened, not discharged", gates.CONDITIONAL, "assignment.generations"),
+    ("rootgraph", "bath", "the bath between roots", "Delta^4 = (240 - A)^4 between two roots depends only on their inner product (3389062320, -40411056, 3317832, 222708, 228256 at 2 to -2), as do the walks of length 0 to 4; two roots fill 9361 points in five shells, 240, 56, 14, 2 and 1 deep (SHELLS, MEMORY, FOURTH)", T, "walks_by_angle"),
+    ("walks", "sixsite", "the walks are the port", "the six-port's couplings 241, 183, 235 and 495 are walk moments; its leakage stays positive at the second step (55487966/183, 131183830/99), and its sector measures have positive Hankel determinants through size 11 (LEAK, RANK)", T, "port_leak"),
+    ("clocks", "halfper", "two order-5 actions", "the coordinate five-cycle alone fixes 16 half-periods (1 + 10 + 5) and makes 48 band-keeping five-cycles; the tick g = r r' fixes only the origin (TICK, COXETER)", T, "two_ticks"),
+    ("simplex", "cycles", "the cycles bound", "the filled 4-simplex has boundary ranks 4, 6, 4, 1 and interior Laplacians 5I, so the six cycles of K5 bound triangles; K = I + 2(T + T^-1) squares to 5 on the moving edges (HELICITY)", T, "filled_simplex"),
+    ("charges", "E", "the charge on the edges", "the minimum-norm lift B^T Q / 5 of the charge has square 4/15 and lies in the cuts with zero cycle part; Y is 5/6 of the weak duad's 10-weight (MARKS, CHARGE_WEIGHT)", T, "charge_marks"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
 
@@ -3595,6 +3871,18 @@ LEDGER_ROWS = [
     ("the memory clock (layer 3)", "order-90 quotient of a 125-state operator", "joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate", SR, "3, 23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
     ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-24 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
+    ("SHELLS, CONVOLUTION, SEVENTH (08:43-08:58)", "two roots land on 9361 points in five shells; a root is a sum of three, four and six roots in 5253, 574224 and 9734696160 ways", "replayed: shells 240/56/14/2/1 deep on 1/240/2160/6720/240 points, and W_(k+1)/240 by transitivity", T, "23"),
+    ("MEMORY, FOURTH (09:16, 09:19)", "four-step walks between roots 1260720, 574224, 253512, 107508, 43936 by inner product, with their fourth moments", "replayed against all 240 partners: the walks of length 0 to 4 depend only on the inner product, and the five fourth moments hold", T, "23"),
+    ("MOMENTS, DEGREE (08:37, 08:40)", "241, 183, 235, 495 are walk moments; 183 = 240 - 56 - 1 and 495 = 183 + 6(56 - 4), the 4 the cut rank and the 6 the cycles", "replayed, with a correction: in G0 = X^T X the 4 counts the clique's other sites next to two sites and the 6 the port's sites; the cut rank and the cycle count are the same integers, not the same counts", T, "23, 24"),
+    ("LEAK, RANK (08:50, 08:52)", "Hessian trace 480 - 2E; residual eigenvalues 55487966/183 and 131183830/99; nonzero Hankel windows, at least three frequencies", "replayed; both sector measures have positive Hankel determinants through size 11, so the six sites' Krylov space grows by 6 at every order through 10", T, "23"),
+    ("TICK, COXETER (09:11, 09:15)", "the coordinate five-cycle fixes 16 half-periods and makes 48 five-cycles; Coxeter^6 fixes only zero and makes 51", "replayed: r alone fixes 1 + 10 + 5; g = r r' = c'^6 is free, and it is layer 23's tick", T, "23"),
+    ("HELICITY (09:05)", "K = I + 2(U + U^-1): +-sqrt5 on the moving edges, K^2 = 5, det 625; the filled simplex; a free order-5 action not exhibited", "replayed; the free action is layer 23's tick g = r r', exhibited at 08:48", T, "23"),
+    ("MARKS, CHARGE_WEIGHT (08:47, 09:08)", "Y is 5/6 of a duad's 10-weight; outer-product averages 5/24, 3/24, 1/3; the cut lift 4/15; t(t^2 - 25t + 155)^2", "replayed; Y is layer 24's hypercharge, and the 155 is a shared integer, not a map", T, "23, 24"),
+    ("GLUE (09:07)", "classes (5, 10), (10, 5b), (10b, 5), (5b, 10b); frames (10,10), (10,15), (15,10), (15,10), (10,15); the 30 is in lattice units", "replayed in layer 24: the same classes with the twin's 5 renamed, (10,5) + (5b,10) and their conjugates; frames 10 I, 15 P + 10 P', 10 P + 15 P'", T, "24"),
+    ("INFRARED (09:28)", "C = 1/(1536 pi^4 30^4); heat tails 6c, 24c, 120c; the fixed plane holds 17/10 of the all-ones vector, not 10", "replayed with a correction: both fixed vectors have square 5, so the value is 2 in the lexicographic orientation and exactly 10 in the cyclic one", T, "23"),
+    ("CRITICAL (08:35)", "224 is critical, 24 + 1 tick momenta; the port is 2L + (2/5)J, not plus the scalar 2/5", "adopts layers 22-23; the port is W_p = [2/5] + (2 L_C5 + (2/5)J), which the code always checked and the prose now says", T, "23"),
+    ("MEMORY's stated block (09:16)", "variances 171 and 371, golden variances above 171", "arithmetic replayed; the block is not stored here", gates.ARITHMETIC, "23"),
+    ("the separate model's archives (08:35-09:13)", "completion, completion audit, critical port, connected model, glue-helicity", "recorded, not downloaded or run", RP, "23"),
     ("the mixed root classes (09:00)", "the 200 mixed roots are four classes of 50 with a (5, 10b) or (10, 5) weight structure; K5's five sites and ten duads meet E8's mixed classes at the level of representations", "replayed: (10,5) is the carrier's ten duads times the twin's five sites and (5b,10) its five sites times the twin's ten duads, each pair once; layer 11's (10, 5b') is (10,5) with the twin's 5 renamed", T, "11, 24"),
     ("the second moment (09:00)", "40 + 4 x 50 = 240; the weight-orbit covariances give sum rho rho^T = 60 I8, so the dispersion coefficient is 30", "replayed: 10 I on A4 + A4', 15 P + 10 P' on (10,5) and its conjugate, 10 P + 15 P' on (5b,10) and its conjugate, 60 I in all, and 30 = 60/2; the same moment gives T3 : Q = 3 : 8", T, "24"),
     ("the particle assignment (09:00)", "the construction does not by itself assign particles to E8 roots; work out the mathematics", "worked out (layer 24): Standard-Model quantum numbers on all 240 roots under a stated selection, unique up to W(E8); one root of every pair is always anomalous (OBSTRUCTION); three generations follow from the bracket rule and anomaly freedom (CONDITIONAL); the top coupling has no root realization (OBSTRUCTION); no Yukawa block is formed", SR, "24"),
@@ -3691,6 +3979,8 @@ def _checks():
         "assignment.standard_model": assignment.standard_model, "assignment.choices": assignment.choices,
         "assignment.six_site_port": assignment.six_site_port, "assignment.generations": assignment.generations,
         "assignment.chirality": assignment.chirality,
+        "walks_by_angle": walks_by_angle, "port_leak": port_leak, "two_ticks": two_ticks, "filled_simplex": filled_simplex,
+        "charge_marks": charge_marks,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -3998,6 +4288,24 @@ def run():
             "K+ADDENDUM3 (02:52; the hourly canon run was disabled after it); TRACES reaches the 3/8 ratio of the 02:52 "
             "check and says, as here, that the traces fix no coupling; its Pachner defects and index -12k are not "
             "replayed, and the curvature integral is read as modules 8-11's dA", RP, True)
+    ir = infrared()
+    rep.add("the 08:35-09:28 notes, INFRARED and MOMENTS: the infrared density's 1536 and the heat tails; the edge tick's "
+            "fixed plane holds 2 of the all-ones vector's square, not 17/10, and 10 in the cyclic orientation; the eight "
+            "square-free parts have full rank over F2", T, all(ir.values()), ir)
+    sb = stated_block()
+    rep.add("MEMORY's stated fixed block: means 239 and 241, variances 171 and 371, golden variances above 171 (the block "
+            "is not stored here)", gates.ARITHMETIC, all(sb.values()), sb)
+    rep.add("Drive check 09:02: the sibling's 20 notes of 08:35-09:28 were read (CRITICAL, MOMENTS, DEGREE, CONVOLUTION, "
+            "SHELLS, UNIFIED, MARKS, LEAK, RANK, SEVENTH, HELICITY, GLUE, CHARGE_WEIGHT, TICK, CHAIN, COXETER, MEMORY, "
+            "FOURTH, MODEL, INFRARED). CRITICAL adopts the 224 saddle and the 24 + 1 tick momenta, and GLUE and "
+            "CHARGE_WEIGHT give the glue classes as layer 24 builds them, without a particle assignment", RP, True)
+    rep.add("the separate model's archives were not downloaded or run: completion (1509168 bytes, 105 checks) and its "
+            "audit, critical port (489177 bytes, 93 checks), connected model (864739 bytes, 52 check groups) and "
+            "glue-helicity (202251 bytes, 56 check groups), with their receipts; the KD staging workbooks, the reconciled "
+            "canon workbooks (modified 08:45) and MODEL_UPDATE_CHECKPOINT.json (09:13) were not opened, and the "
+            "connected-model receipt marks KD as in progress, not admitted as canon head", RP, True)
+    rep.add("not replayed, for want of operands here: the collar witness at 220.635 with least tangent eigenvalue about "
+            "6.9856, the reader rank 86, the trace 20416532280 and the stated tail prefactors", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

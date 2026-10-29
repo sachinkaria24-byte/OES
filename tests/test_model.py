@@ -343,6 +343,17 @@ def test_every_pair_of_levels_and_no_two_maps(monkeypatch):
     assert not all(dots.no_two_maps().values())
 
 
+def test_the_0928_notes_replay():
+    for check in (dots.walks_by_angle, dots.port_leak, dots.two_ticks, dots.filled_simplex, dots.charge_marks,
+                  dots.infrared, dots.stated_block):
+        out = check()
+        assert all(out.values()), out
+    # the Hankel test can fail: a measure with two atoms has a vanishing 3 x 3 Hankel determinant
+    import sympy as sp
+    m = [sp.Rational(1 + 2 ** k, 2) for k in range(5)]
+    assert sp.Matrix(3, 3, lambda i, j: m[i + j]).det() == 0
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):

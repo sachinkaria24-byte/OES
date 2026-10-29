@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 24 layers and 753 checks. Of these, 680 hold: THEOREM 525, OBSTRUCTION 51, ARITHMETIC 38, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 73 are REPORTED records.
-- `pytest` runs 64 tests.
-- The newest layers are `oes/dots.py` (layer 23, 240 checks) and `oes/assignment.py` (layer 24, 41 checks).
+- `python verify.py` runs 24 layers and 763 checks. Of these, 687 hold: THEOREM 531, OBSTRUCTION 51, ARITHMETIC 39, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 76 are REPORTED records.
+- `pytest` runs 65 tests.
+- The newest layers are `oes/dots.py` (layer 23, 250 checks) and `oes/assignment.py` (layer 24, 41 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 60 dots and 161 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 60 dots and 166 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -41,7 +41,7 @@ New in layer 24 (the particle assignment on E8's roots, 09:00 on 29 October):
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 60 dots and 161 joins (156 maps, five obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 60 dots and 166 joins (161 maps, five obstructions) form one connected diagram that no two maps hold together, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -95,7 +95,7 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
 - **The 02:52 items** (the sibling's notes of 01:57–02:49 with its spine29 audit, the hub's observer completion and releases K+ADDENDUM2 and K+ADDENDUM3):
   - The five-site charges Q = Y + T3 of the removed hypercharge shell are a dot. Their shells are the 4-simplex's even and odd faces (Σq² = 16/3 each), the hypercharge anomaly cancels on B4's 5 + 10 at opposite chiralities, Y lies in the dark U(5) through an identification (SELECTED_REFERENCE), and B1 forbids an atom-diagonal charge (OBSTRUCTION).
   - At the tick's 24 fixed momenta of type A4 + A4 the band's Hessian is −5 times a golden companion, with determinant 5⁸; the 25th momentum is the minimum, so 24 of the 25, not all, sit at 250 (a correction to CENSUS_CUBE).
-  - The port metric is twice the pentagon Laplacian plus 2/5, and 4I + 2X on the contrast with X² = X + I. The canon's (5 ± √5)/10 are the pentagon Laplacian's pseudo-inverse.
+  - The port metric is [2/5] ⊕ (2L_C5 + (2/5)J), twice the pentagon Laplacian plus (2/5)J with the corner 2/5, and 4I + 2X on the contrast with X² = X + I. The canon's (5 ± √5)/10 are the pentagon Laplacian's pseudo-inverse.
   - The joint observer: the wedge of the source pair has rank 7 with fibre SL(2), and three frame probes make it injective with an explicit inverse. The sideband lift: the address and the residues mod 32, 27 and 5 rebuild the tick; three sensors of largest alphabet 32 are optimal.
   - Replayed: Canon K's W₅ and W₆ (layer 3's returns), the 160 × 27 clock, the six-site Smith torsion (its 5 is the 5 in 240), the census's stabilizers (Weyl groups of the extended diagram's subsystems), the rotor firewall and the Bargmann phase π/4 (half the Pauli octant's solid angle). The sibling's "no clique of nine roots" and the 9-clique here are about two graphs, and both hold.
   - Not joined: the board's fine-structure digits, which invert to about 137.036 and are put in by hand (UNFORMED). The hub's verifiers and evidence zips were not downloaded or run.
@@ -105,6 +105,12 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - The time clock, through the tick g = r r′: it fixes only the zero half-period and turns the other 255 in 51 band-keeping five-cycles, so e^−tL is tick-equivariant; on light it fixes one line per helicity and turns a golden plane (144° on +√5, 72° on −√5); on the cuts mod 2 it is a fifth root of unity in F₁₆.
   - Light: the golden companion acts by (I + Curl)/2, and x ↦ ax + b multiplies Curl by (a/5). The outer automorphism of S6 carries the cone's S5 onto PGL(2,5); S5 is W(A4) and the Weyl group of the binding's 5 + 10. The Hodge star is the deck involution of S ↦ e_S mod 2Λ.
   - The memory clock of layer 3 is a dot, stepped by the circle (a selection); its 9- and 10-cycles read the vortex and the time coordinate.
+- **The 08:35–09:28 items (Drive check 09:02):**
+  - The 240² ordered sums of two roots fill 9361 points in five shells, 240/56/14/2/1 deep. The walks of length 0 to 4 and Δ⁴ between two roots depend only on their inner product (Δ⁴: 3389062320, −40411056, 3317832, 222708, 228256). A root is a sum of three, four and six roots in 5253, 574224 and 9734696160 ways.
+  - The six-port's couplings are walk moments. Its leakage residuals 55487966/183 and 131183830/99 are positive. Both sector measures have positive Hankel determinants through size 11, so the Krylov space grows by 6 at every order through 10.
+  - The coordinate five-cycle fixes 16 half-periods and makes 48 five-cycles; the tick g = r r′ is free. On the edges K = I + 2(T + T⁻¹) squares to 5 on the moving edges, and the filled simplex has interior Laplacians 5I. Y is 5/6 of the weak duad's 10-weight, and the charge's edge lift lies in the cuts.
+  - Corrections: DEGREE's 4 and 6 count the clique's other sites and the port's sites, not the cut rank and the cycles. INFRARED's fixed plane holds 2 of the all-ones vector's square (both fixed vectors have square 5), and 10 in the cyclic orientation. The port reads [2/5] ⊕ (2L + (2/5)J).
+  - Recorded, not run: the separate model's completion, critical-port, connected-model and glue-helicity archives, the KD staging workbooks and MODEL_UPDATE_CHECKPOINT.json.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
