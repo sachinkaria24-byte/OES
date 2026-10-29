@@ -361,6 +361,12 @@ units" first written here). The hub's 21:54 text adds a dark syndrome floor 1/15
 two encoder variants whose moments replay. Its 22:51 text extends the floor to the whole dark erasure court, which
 replays over all 847 erased sets, and adds a cubic phase module of harmonic weights 1 and 3. The sibling's 23:07-23:22
 editions read the dark and Golden simplex Grams and the six Golden vectors' midpoints and triples.
+
+Layer 27 adds eight joins, two of them obstructions, and no dot. It reads the seed at four places: the real place
+(the bath), 2 (the qubits), 3 (the decad) and 5 (the hexad). The bath at the prime clocks' fixed momenta is
+240 - sum_r chi(r): 250, 243, and 224 or 256. The golden ratio is ramified at 5 and inert at 3 and 2. The two primes
+over 2 are two stabilizer groups. The memory clock (order 90) and the circle (4320) need psi > 8, so no lattice clock
+of the seed runs them.
 """
 
 import functools
@@ -375,8 +381,8 @@ from sympy.combinatorics import Permutation
 from sympy.matrices.normalforms import smith_normal_form
 
 from . import (assignment, band, binding, carrier, cosmology, counts, court, cyclotomic, gates, gatework, glue, gravity,
-               handover, ledger, literal, native, observer, primes, recurrence, snapshot, spacetime, spectral, spine,
-               waves)
+               handover, ledger, literal, native, observer, places, primes, recurrence, snapshot, spacetime, spectral,
+               spine, waves)
 from .record import Report
 
 N = spine.N
@@ -8327,11 +8333,11 @@ DOTS = {
     "D5": ("D5", "the 40 roots +-e_i +- e_j", "23"),
     "E8": ("E8", "the lattice and its 240 roots", "3, 11"),
     "L0": ("A4 + A4'", "index 5 in E8", "11, 23"),
-    "bath": ("bath", "Delta = 240 - sum of root translations", "8, 22"),
-    "momenta": ("tick momenta", "the 25 fixed momenta of the tick", "23"),
-    "halfper": ("half-periods", "Lambda / 2 Lambda, 256", "22"),
-    "pauli": ("Pauli algebra", "M16(R) with L", "22"),
-    "gksl": ("GKSL", "the semigroup e^-tL", "22"),
+    "bath": ("bath", "Delta = 240 - sum of root translations", "8, 22, 27"),
+    "momenta": ("tick momenta", "the 25 fixed momenta of the tick", "23, 27"),
+    "halfper": ("half-periods", "Lambda / 2 Lambda, 256", "22, 26, 27"),
+    "pauli": ("Pauli algebra", "M16(R) with L", "22, 27"),
+    "gksl": ("GKSL", "the semigroup e^-tL", "22, 27"),
     "triangle": ("triangle port", "the oriented triangle 0-1-2 on the lattice", "22, 23"),
     "sixsite": ("six-site port", "K5 coned off, an A5 simplex", "4, 22, 23"),
     "moments": ("moments", "the Stieltjes data of the ports", "22"),
@@ -8376,14 +8382,14 @@ DOTS = {
     "assignment": ("root assignment", "Standard-Model quantum numbers on the 240 roots under A4 + A4'", "24"),
     "goldenport": ("Golden port", "the hub's root-site cycle port T_G = F P_cycle on ten roots", "23"),
     "charges": ("five-site charges", "Q = Y + T3 = diag(-1/3, -1/3, -1/3, 1, 0), the removed shell's charges", "12, 23"),
-    "memory": ("memory clock", "the 120-state quotient of layer 3's memory operator, of order 90", "3"),
+    "memory": ("memory clock", "the 120-state quotient of layer 3's memory operator, of order 90", "3, 27"),
     "words": ("fifteen words", "the dihedral closure of 088, 086 and 980 under rotation and reversal, a D3-module of rank 15", "23"),
     "wedgeport": ("root-wedge port", "the hub's unmarked S5 port T_S x(rho) = <x, v ^ w>/sqrt24 on the 240 roots", "23"),
     "synthemes": ("synthemes", "the 15 perfect matchings of the six Sylow labels, 5 + 10 under the exceptional S5", "23"),
     "darkport": ("dark ports", "the hub's norm-four ports of the dark four: A on the 120 sites of the orbit of (-1, 0, 0, 1, 1, 0, 1, 0), and the triple wedge on 1200 sites", "23"),
     "parent": ("360 parent", "Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36", "23, 26"),
     "regular": ("regular clocks", "the thirteen regular classes of W(E8), powers of c', d and v with characteristic polynomials Phi_d^(8/phi(d)) and centralizers of order prod_(d | d_i) d_i", "26"),
-    "sun": ("sun's decad", "E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames", "26"),
+    "sun": ("sun's decad", "E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames", "26, 27"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -8685,6 +8691,14 @@ JOINS = [
     ("sun", "AGL", "the clocks on the decad", "on the ten frames c' and the tick act as one fixed-point-free 5-element and the day as its doubling, of order 4 and outside A6: the day-Coxeter group acts as AGL(1,5), and the isomorphism extends to S6 = PSigmaL(2,9) with the hub's doubling sent to the day (layer 26)", T, "primes.decad"),
     ("circle", "parent", "no homomorphism", "A6's elements have orders 1 to 5, all dividing 4320, so Z/4320 has exactly 360 homomorphisms to A6, each with a cyclic image of at most five elements: the address map's orbits add to 360, but no clock homomorphism covers A6, and the address map is not one (the owner, 20:22)", OB, "primes.parent_cover"),
     ("clocks", "parent", "solvable clocks", "every clock lies in the normalizer of <c'>, which is solvable (240 > 30 > 1), and A6 is perfect, so no clock group maps onto it; on the tick's hexad the seed acts through PGL(2,5), whose even part holds 60 of the 360 (layer 26)", OB, "primes.parent_cover"),
+    ("sun", "bath", "243", "the bath is 240 + 3 = 243 at the sun's 80 nonzero fixed momenta: three roots lie over each nonzero residue point, so every nontrivial character of F81 sums to -3 over the roots (layer 27)", T, "places.band_at_places"),
+    ("residue", "momenta", "Pontryagin duality", "the tick's 25 fixed momenta are the characters of its residue plane, and the bath there is 240 - sum_r chi(r): 0, and 250 on the 24 others, where ten roots lie over each nonzero point (layer 27)", T, "places.band_at_places"),
+    ("halfper", "gksl", "the quadric sums", "the GKSL rates on the 256 Paulis are 240 - sum_r (-1)^<r, y>: 0, then 256 on the 135 singular and 224 on the 120 nonsingular half-periods, where the quadric's character sums are -16 and +16 (layer 27)", T, "places.band_at_places"),
+    ("halfper", "pauli", "two stabilizers", "under the Pauli map the two primes over 2 are complementary stabilizer groups of 16 commuting symmetric real Paulis; Paulis commute exactly when their half-periods have even inner product; c' keeps both groups and the mirror swaps them (layer 27)", T, "places.qubit_primes"),
+    ("sun", "golden", "F9 = F3[phi]", "the golden ratio Phi = 1 + g + g^4 generates the decad's field F9 on the sun's momenta, and B has Pisano period 8 mod 3: the golden field is inert at 3 (layer 27)", T, "places.golden_places"),
+    ("halfper", "golden", "F4 = F2[phi]", "on the half-periods Phi is a cube root of unity keeping both primes over 2, F4 = F2[Phi], and B has Pisano period 3 mod 2: the golden field is inert at 2, while at 5 it is ramified (layer 27)", T, "places.golden_places"),
+    ("memory", "clocks", "no clock of order 90", "an element of order n of GL8(Z) needs psi(n) <= 8, and the memory clock has order 90 with psi(90) = 10, so no lattice clock of the seed runs it (layer 27)", OB, "places.limits"),
+    ("circle", "clocks", "no faithful circle", "psi(4320) = 38 > 8: the circle's images in GL8(Z) have order at most 60, and the element orders of W(E8) stop at 30 (cited), so only its part <144> acts, as the Coxeter clock (layer 27)", OB, "places.limits"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -8786,7 +8800,7 @@ LEDGER_ROWS = [
     ("the Hodge star mod 2", "Lambda^4 R^8 = 35 + 35", "joined: e_S = e_T mod 2 Lambda exactly for Hodge-dual four-sets, onto 35 D8 half-periods", T, "23"),
     ("the memory clock (layer 3)", "order-90 quotient of a 125-state operator", "joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate", SR, "3, 23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
-    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-26 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
+    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-27 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
     ("SHELLS, CONVOLUTION, SEVENTH (08:43-08:58)", "two roots land on 9361 points in five shells; a root is a sum of three, four and six roots in 5253, 574224 and 9734696160 ways", "replayed: shells 240/56/14/2/1 deep on 1/240/2160/6720/240 points, and W_(k+1)/240 by transitivity", T, "23"),
     ("MEMORY, FOURTH (09:16, 09:19)", "four-step walks between roots 1260720, 574224, 253512, 107508, 43936 by inner product, with their fourth moments", "replayed against all 240 partners: the walks of length 0 to 4 depend only on the inner product, and the five fourth moments hold", T, "23"),
     ("MOMENTS, DEGREE (08:37, 08:40)", "241, 183, 235, 495 are walk moments; 183 = 240 - 56 - 1 and 495 = 183 + 6(56 - 4), the 4 the cut rank and the 6 the cycles", "replayed, with a correction: in G0 = X^T X the 4 counts the clique's other sites next to two sites and the 6 the port's sites; the cut rank and the cycle count are the same integers, not the same counts", T, "23, 24"),
@@ -8873,6 +8887,8 @@ LEDGER_ROWS = [
     ("three cyclotomic lines (layer 26)", "Z[zeta30], Z[zeta24], Z[zeta20]; beta of norm 1/disc; |N| = 240, 192, 160; Q(zeta16) carries Z^8", "constructed and joined (regular clocks -> cyclotomic line); no element of order 16 (obstruction)", T, "26"),
     ("the prime clocks (layer 26)", "c' = (-1) s g; SNF 2^8, 1^4 3^4, 1^6 5^2; F16 x F16, F81, F25; roots 2 x 120, 3 x 80, 10 x 24", "constructed and joined (cyclotomic line -> half-periods, sun's decad)", T, "26"),
     ("the sun's decad (layer 26)", "C_W(s) onto Sp(4,3); F9 = F3[phi]; 40 A2, W(3), ten F9-lines = ten 4A2; F9-linear 2160 onto PSL(2,9) = A6, r -> c', doubling -> day", "constructed and joined (sun's decad -> 360 parent, AGL(1,5))", T, "26"),
+    ("the four places (layer 27)", "the real place, 2, 3 and 5 carry the bath, the qubits, the parent and the carrier", "eps = 240 - sum_r chi(r): 250, 243, 224/256; the golden ratio ramified at 5, inert at 3 and 2; two stabilizers at 2", T, "27"),
+    ("what the places cannot give (layer 27)", "the memory clock (order 90), the circle (4320), AIR_801 (det 12402)", "psi(90) = 10 and psi(4320) = 38 exceed 8; AIR_801 is no lattice clock", OB, "27"),
     ("no clock covers A6 (owner, 20:22)", "Hom(Z/4320, A6) = 360, images <= 5; clocks solvable (240 > 30 > 1), A6 perfect; the hexad sees PSL(2,5) only", "obstruction (circle, W(E8) clocks -> 360 parent)", OB, "26"),
     ("the dark code (hub, 20:20)", "range P3 of K = M^T M; [10, 4, 6]; 25 failing four-edge sets", "replayed: K^2 = 3K + 4J, P0 + P3 + P8 = I, P3 = M^T P_A4 M/3, the code and its failures", T, "23"),
     ("the saddle quartic (monograph, 20:13)", "0 |y|^4 at the 224 saddle, from 18 + 18", "corrected: -rho^4/2, from 24 (E7) and 12 (oblique); the collar stays open", T, "23"),
@@ -9011,6 +9027,8 @@ def _checks():
         "primes.no_sixteen": primes.no_sixteen, "primes.prime_clocks": primes.prime_clocks,
         "primes.prime_residues": primes.prime_residues, "primes.half_turn": primes.half_turn, "primes.sun": primes.sun,
         "primes.decad": primes.decad, "primes.parent_cover": primes.parent_cover,
+        "places.band_at_places": places.band_at_places, "places.golden_places": places.golden_places,
+        "places.qubit_primes": places.qubit_primes, "places.limits": places.limits,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -9125,7 +9143,7 @@ def run():
     rep.add(f"the {len(DOTS)} dots and {len(JOINS)} joins form one connected diagram (the obstructions left out)", T,
             len(comps) == 1, [sorted(c) for c in comps])
     lv = levels(passed)
-    rep.add("every layer of the build, 1 to 26, has a dot", T, lv["layers"] == list(range(1, 27)), lv["layers"])
+    rep.add("every layer of the build, 1 to 27, has a dot", T, lv["layers"] == list(range(1, 28)), lv["layers"])
     for k, (name, what, dots) in enumerate(LEVELS):
         rep.add(f"level {k + 1}, {name} ({what}): its {len(dots)} dots are joined among themselves", T,
                 len(lv["inside"][name]) == 1, [sorted(c) for c in lv["inside"][name]])

@@ -4,8 +4,8 @@ from fractions import Fraction
 import pytest
 
 from oes import (assignment, band, binding, canon_sync, carrier, cosmology, counts, court, cyclotomic, dots, frontier,
-                 gates, gatework, glue, gravity, handover, joins, ledger, literal, native, observer, primes,
-                 recurrence, snapshot, spacetime, spectral, spine, unify, waves)
+                 gates, gatework, glue, gravity, handover, joins, ledger, literal, native, observer, places,
+                 primes, recurrence, snapshot, spacetime, spectral, spine, unify, waves)
 
 LAYERS = {
     "carrier": carrier.run,
@@ -314,7 +314,7 @@ def test_all_dots_are_joined():
 def test_every_level_is_joined():
     passed = [True] * len(dots.JOINS)
     lv = dots.levels(passed)
-    assert lv["layers"] == list(range(1, 27))
+    assert lv["layers"] == list(range(1, 28))
     assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
     assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
     # THEOREM joins alone leave out exactly the two conditional dots and the memory clock, joined by selection
@@ -677,6 +677,23 @@ def test_the_three_primes():
     # the parent hangs from the sun's decad in the derivation
     assert unify.DERIVATION["parent"] == ("sun", "primes.decad")
     rep = primes.run()
+    assert all(c.passed for c in rep.checks)
+
+
+def test_the_four_places():
+    for check in (places.band_at_places, places.golden_places, places.qubit_primes, places.limits, places.sectors):
+        out = check()
+        assert all(out.values()), out
+    import numpy as np
+    k = cyclotomic.clocks()
+    # a clock with eigenvalue 1 has no finite set of fixed momenta: the carrier rotation r fixes the twin A4'
+    I8 = np.eye(8, dtype=np.int64)
+    assert round(abs(np.linalg.det((I8 - k["r"]).astype(float)))) == 0
+    # the golden ratio is not a scalar mod 3 and not the identity mod 2, and the circle's psi is far above 8
+    assert places._psi(4320) > 8 and places._psi(30) <= 8 and places._psi(60) == 8 and places._psi(72) > 8
+    # the four sectors hang from their places in the derivation
+    assert unify.DERIVATION["halfper"][0] == "cyclo" and unify.DERIVATION["momenta"][0] == "residue"
+    rep = places.run()
     assert all(c.passed for c in rep.checks)
 
 

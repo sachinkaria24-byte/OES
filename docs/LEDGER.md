@@ -184,7 +184,7 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the Hodge star mod 2 | Lambda^4 R^8 = 35 + 35 | joined: e_S = e_T mod 2 Lambda exactly for Hodge-dual four-sets, onto 35 D8 half-periods | THEOREM | 23 |
 | the memory clock (layer 3) | order-90 quotient of a 125-state operator | joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate | SELECTED_REFERENCE | 3, 23 |
 | no bridge (layer 23) | join all dots | every dot has at least two maps, and no single map holds the diagram together | THEOREM | 23 |
-| every level (layer 23) | join all dots at every level | 70 dots on six levels, number to physics: every layer 1-26 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock | THEOREM | 23 |
+| every level (layer 23) | join all dots at every level | 70 dots on six levels, number to physics: every layer 1-27 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock | THEOREM | 23 |
 | SHELLS, CONVOLUTION, SEVENTH (08:43-08:58) | two roots land on 9361 points in five shells; a root is a sum of three, four and six roots in 5253, 574224 and 9734696160 ways | replayed: shells 240/56/14/2/1 deep on 1/240/2160/6720/240 points, and W_(k+1)/240 by transitivity | THEOREM | 23 |
 | MEMORY, FOURTH (09:16, 09:19) | four-step walks between roots 1260720, 574224, 253512, 107508, 43936 by inner product, with their fourth moments | replayed against all 240 partners: the walks of length 0 to 4 depend only on the inner product, and the five fourth moments hold | THEOREM | 23 |
 | MOMENTS, DEGREE (08:37, 08:40) | 241, 183, 235, 495 are walk moments; 183 = 240 - 56 - 1 and 495 = 183 + 6(56 - 4), the 4 the cut rank and the 6 the cycles | replayed, with a correction: in G0 = X^T X the 4 counts the clique's other sites next to two sites and the 6 the port's sites; the cut rank and the cycle count are the same integers, not the same counts | THEOREM | 23, 24 |
@@ -271,6 +271,8 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | three cyclotomic lines (layer 26) | Z[zeta30], Z[zeta24], Z[zeta20]; beta of norm 1/disc; \|N\| = 240, 192, 160; Q(zeta16) carries Z^8 | constructed and joined (regular clocks -> cyclotomic line); no element of order 16 (obstruction) | THEOREM | 26 |
 | the prime clocks (layer 26) | c' = (-1) s g; SNF 2^8, 1^4 3^4, 1^6 5^2; F16 x F16, F81, F25; roots 2 x 120, 3 x 80, 10 x 24 | constructed and joined (cyclotomic line -> half-periods, sun's decad) | THEOREM | 26 |
 | the sun's decad (layer 26) | C_W(s) onto Sp(4,3); F9 = F3[phi]; 40 A2, W(3), ten F9-lines = ten 4A2; F9-linear 2160 onto PSL(2,9) = A6, r -> c', doubling -> day | constructed and joined (sun's decad -> 360 parent, AGL(1,5)) | THEOREM | 26 |
+| the four places (layer 27) | the real place, 2, 3 and 5 carry the bath, the qubits, the parent and the carrier | eps = 240 - sum_r chi(r): 250, 243, 224/256; the golden ratio ramified at 5, inert at 3 and 2; two stabilizers at 2 | THEOREM | 27 |
+| what the places cannot give (layer 27) | the memory clock (order 90), the circle (4320), AIR_801 (det 12402) | psi(90) = 10 and psi(4320) = 38 exceed 8; AIR_801 is no lattice clock | OBSTRUCTION | 27 |
 | no clock covers A6 (owner, 20:22) | Hom(Z/4320, A6) = 360, images <= 5; clocks solvable (240 > 30 > 1), A6 perfect; the hexad sees PSL(2,5) only | obstruction (circle, W(E8) clocks -> 360 parent) | OBSTRUCTION | 26 |
 | the dark code (hub, 20:20) | range P3 of K = M^T M; [10, 4, 6]; 25 failing four-edge sets | replayed: K^2 = 3K + 4J, P0 + P3 + P8 = I, P3 = M^T P_A4 M/3, the code and its failures | THEOREM | 23 |
 | the saddle quartic (monograph, 20:13) | 0 \|y\|^4 at the 224 saddle, from 18 + 18 | corrected: -rho^4/2, from 24 (E7) and 12 (oblique); the collar stays open | THEOREM | 23 |
@@ -287,7 +289,7 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the clock on the Sylow labels (hub, 14:07) | p = 4j mod 5 onto the five moving labels, 864 each | replayed and joined (time clock -> PGL(2,5)) | THEOREM | 23 |
 | the comparator (MODEL, 13:02-14:18) | moments 1, 242, 58691, 14259954, 3470101592; Hankel 15930273; last diagonal 200 or 210 | replayed: the triangle port's; not unique, and by the all-order theorem no finite comparator is exact | THEOREM | 23 |
 | the THEOREM diagram | - | THEOREM maps alone join 67 of the 70 dots, no one or two of them hold it together, and they join every pair of levels at least twice; the datum's regular S5-orbit and the time clock's actions on the roots (48 extended A4 pentagons), the zero modes (one per character) and the triple close the last cuts | THEOREM | 23 |
-| all dots | - | 70 dots and 275 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| all dots | - | 70 dots and 283 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

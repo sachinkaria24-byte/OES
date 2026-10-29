@@ -1041,7 +1041,7 @@ Three dots (the coil, S5 and PGL(2,5)) and ten joins, nine maps and one obstruct
 - **MPKG's block.** A 6 × 6 block with B⁵ = I and traces 1, 1, 1, 1 has the eigenvalue 1 twice and each primitive fifth root once. So it is similar over ℚ to the C5 rotation of the cone's six sites.
   - Four copies have trace 4 and return at 5 to an identity of trace 24.
   - Doubling sends the levels 0, 6, 12, 18 to 0, 12, 24, 0, and the stored [[−1, 4], [6, 1]] squares to 25I.
-  - The operand MPKG A_M itself stays unformed (§28).
+  - The operand MPKG A_M itself stays unformed (§29).
 
 Also from these items:
 - **Two corrections.** The shift T by 24 on the atlas does not commute with doubling, as MORE_DOTS had said: D T = T² D = T⁻¹ D, and D² T = T D². The hub's own atlas verifier agrees. DEEP_H's "⟨39⟩ has the sun's order, 1440" is also corrected: ⟨39⟩ = ⟨3⟩ has 1440 points, which is the sun's step, and the sun 1440 itself has order 3.
@@ -2009,7 +2009,44 @@ E8's Coxeter number is h = 30 = 2 × 3 × 5. Layer 25 read the seed at the prime
 
 **Cited:** the order of W(E8) as the product of its degrees; the Lehrer–Springer criterion for regular numbers; Springer's theorems that regular elements of one order are conjugate and that their centralizers have the orders of the degrees (replayed here); and W(E8)/⟨−1⟩ = GO₈⁺(2).
 
-## 28. What stays open
+## 28. The four places (`oes/places.py`)
+
+Layers 25 and 26 read the seed at the prime 5 and then at 2, 3 and 5. Layer 27 adds the real place and shows that the four places carry the model's four sectors. It adds eight joins, two of them obstructions, and no dot.
+
+| place | what the seed gives there | the sector | the bath there |
+|---|---|---|---|
+| real | E8 ⊗ ℝ with Δ = 240 − Σ T_r | the bath: walks, moments, spectral measures | the band [0, 256] |
+| 2 | the half-turn's 256 momenta, E8/2E8 = F₁₆ × F₁₆ | four qubits: the real Paulis and GKSL (§23) | 0, 224 (120 times), 256 (135 times) |
+| 3 | the sun's 81 momenta, F₈₁ = F₉² | the decad: the 360 parent, A6 = PSL(2,9) (§27) | 0, 243 (80 times) |
+| 5 | the tick's 25 momenta, F₂₅ = F₅² | the hexad: A4 + A4′, the carrier, K5, D (§26) | 0, 250 (24 times) |
+
+**One formula joins the real place to the primes** (THEOREM). At a fixed momentum of a prime clock the band is ε = 240 − Σ_r χ(r), for the matching character χ of the residue space.
+- At 5 and 3 the roots lie m = 10 and m = 3 over every nonzero residue point. So every nontrivial character sums to −m, and ε = 240 + m: 250 on the tick's 24 and 243 on the sun's 80.
+- At 2 the roots are the 120 nonsingular points of the half-period quadric, two each. The character sums are −16 and +16 as q(y) = 0 or 1. So ε = 256 on the 135 singular and 224 on the 120 nonsingular half-periods: the band's top and its saddle.
+- Every one of these momenta is a critical point of the band, because a clock without eigenvalue 1 fixes the gradient (§20).
+- This is the GKSL spectrum of §23 as well: the rates on the 256 Paulis are the band at the half-periods.
+
+**The golden ratio runs through all three primes** (THEOREM). Φ = 1 + g + g⁴ is integral on E8 with Φ² = Φ + 1, and 2Φ − 1 is the Gauss sum of §26.
+- At 5 it is ramified: on the tick's plane Φ is the scalar 3, and x² − x − 1 = (x − 3)² mod 5.
+- At 3 it is inert: on the sun's momenta F₃[Φ] is the F₉ of the decad.
+- At 2 it is inert: on the half-periods Φ² + Φ + 1 = 0. Φ keeps both primes over 2 and is a cube root of unity in F₄ = F₂[Φ] on each.
+- The Fibonacci companion B has Pisano periods 3, 8 and 20 at 2, 3 and 5.
+
+**The qubits** (THEOREM). Under the Pauli map of §23 the simple roots go to eight real Pauli strings that anticommute exactly when the roots are joined in the Dynkin diagram. So two Paulis commute exactly when their half-periods have even inner product.
+- The two primes over 2 are complementary stabilizer groups of 16 commuting symmetric real Paulis each.
+- c′ keeps both groups, a Singer cycle of order 15 on each, and the mirror exchanges them.
+- W(E8)/⟨−1⟩ = GO₈⁺(2) is the real Clifford group of four qubits modulo the Paulis (cited: Nebe, Rains and Sloane).
+
+**What the places cannot give** (OBSTRUCTION). An element of order n of GL₈(ℤ) needs ψ(n) ≤ 8, where ψ sums φ over the prime powers of n, less 1 when n ≡ 2 mod 4.
+- The memory clock has order 90 and ψ(90) = 10, so no lattice clock of the seed runs it.
+- The circle has ψ(4320) = 38. Its images in GL₈(ℤ) have order at most 60, and the element orders of W(E8) stop at 30 (cited), so only its part ⟨144⟩ acts, as the Coxeter clock.
+- AIR_801 has determinant 12402 = 2 · 3² · 13 · 53, so it is no lattice clock. Only its residue mod 5, minus the day, is the seed's.
+
+**The derivation.** The half-periods now hang from the cyclotomic line (the primes over 2), and the tick's momenta from the residue plane (Pontryagin duality). So each finite place is reached through its residue ring, and the bath through E8 itself. The count stays 49 derived dots, 10 inputs and 10 dots built from them. [`docs/UNIFIED.md`](UNIFIED.md) now gives, for each input, the reason it stays an input.
+
+**Cited:** W(E8)/⟨−1⟩ = GO₈⁺(2), the real Clifford group of four qubits modulo the Paulis (Nebe, Rains and Sloane); the element orders of W(E8) are at most 30.
+
+## 29. What stays open
 
 **Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
 - the six SCR6 operands;
