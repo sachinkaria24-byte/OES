@@ -359,7 +359,8 @@ images, the golden ticks as 1080 (k mod 4) + 3456 (k mod 5) and the digit cycles
 first tick level reached by every unit and by 328 non-units (the sibling's correction at 21:57-22:21 of the "only for
 units" first written here). The hub's 21:54 text adds a dark syndrome floor 1/15 made by one Dirac polynomial, and
 two encoder variants whose moments replay. Its 22:51 text extends the floor to the whole dark erasure court, which
-replays over all 847 erased sets, and adds a cubic phase module of harmonic weights 1 and 3.
+replays over all 847 erased sets, and adds a cubic phase module of harmonic weights 1 and 3. The sibling's 23:07-23:22
+editions read the dark and Golden simplex Grams and the six Golden vectors' midpoints and triples.
 """
 
 import functools
@@ -8265,6 +8266,51 @@ def notes_2253():
     }
 
 
+def notes_2325():
+    """The sibling's MODEL (23:07-23:22): the dark and Golden simplex Grams, the six Golden vectors' midpoints and
+    triples, and the arithmetic."""
+    N = 4320
+    ring = lambda a, b: (a * b) % N
+    h = [6 * sp.eye(6)[:, i] - sp.ones(6, 1) for i in range(6)]
+    ip = lambda a, b: (a.T * b)[0] / 3
+    pairs = list(itertools.combinations(range(6), 2))
+    mids = [(h[i] + h[j]) / 2 for i, j in pairs]
+    tri = [h[i] + h[j] + h[k] for i, j, k in itertools.combinations(range(6), 3) if 0 in (i, j, k)]
+    frame = lambda vs: sum((v * v.T for v in vs), sp.zeros(6, 6)) / 3
+    P = sp.eye(6) - sp.ones(6, 6) / 6
+    dark = lambda n: 15 * sp.eye(n) - 3 * sp.ones(n, n)
+    gold = lambda n: 12 * sp.eye(n) - 2 * sp.ones(n, n)
+    return {
+        "the dark simplex Gram 15I - 3J has eigenvalues 0 and 15^4, and deleting one vector leaves 15^3 and 3, condition 5; "
+        "the Golden simplex Gram 12I - 2J, with one vector deleted, has 12^4 and 2, condition 6; and 10J - 4I on six has "
+        "56 and (-4)^5, sending the alternating vector to -4 times itself":
+            dark(5).eigenvals() == {15: 4, 0: 1} and dark(4).eigenvals() == {15: 3, 3: 1}
+            and gold(5).eigenvals() == {12: 4, 2: 1}
+            and (10 * sp.ones(6, 6) - 4 * sp.eye(6)).eigenvals() == {56: 1, -4: 5}
+            and (10 * sp.ones(6, 6) - 4 * sp.eye(6)) * sp.Matrix([1, -1, 1, -1, 1, -1]) == -4 * sp.Matrix([1, -1, 1, -1, 1, -1]),
+        "six vectors with Gram 12I - 2J (diagonal 10, off-diagonal -2) sum to 0; their fifteen edge midpoints have squared "
+        "norm 4 and the half-differences 6, orthogonal to them; the midpoint frame equals the vertex frame 12; and the ten "
+        "triple sums have squared norm 18, mutual inner products of absolute value 6 and frame 36, with nine of the "
+        "fifteen midpoint readings vanishing on each":
+            all(ip(h[i], h[j]) == (10 if i == j else -2) for i in range(6) for j in range(6))
+            and sum(h, sp.zeros(6, 1)) == sp.zeros(6, 1) and {ip(m, m) for m in mids} == {4}
+            and {ip((h[i] - h[j]) / 2, (h[i] - h[j]) / 2) for i, j in pairs} == {6}
+            and all(ip(h[i] + h[j], h[i] - h[j]) == 0 for i, j in pairs)
+            and frame(h) == 12 * P == frame(mids) and len(tri) == 10 and {ip(t, t) for t in tri} == {18}
+            and {abs(ip(a, b)) for a, b in itertools.combinations(tri, 2)} == {6} and frame(tri) == 36 * P
+            and {sum(1 for m in mids if ip(m, t) == 0) for t in tri} == {9},
+        "arithmetic: the coefficients (-1)^k C(8, k) sum to 0 and their absolute values to 256; 61526 - 248^2 = 22, and "
+        "61526 shares the 32-image 3510 = 26 x 135 with 22; 2160 = 16 x 135 is a pure 32-component and 960 = 6 x 160 a "
+        "pure 27-component, 4/9 of 2160; 22080 = 23 x 960 has 27-image 480; 11! is 9240 circles; and a petal label and "
+        "an address leave fibres of 720 and 120":
+            sum((-1) ** k * sp.binomial(8, k) for k in range(9)) == 0 and sum(sp.binomial(8, k) for k in range(9)) == 256
+            and 61526 - 248 ** 2 == 22 and ring(3105, 61526) == ring(3105, 22) == 3510 == 26 * 135
+            and ring(3105, 2160) == 2160 == 16 * 135 and ring(2080, 960) == 960 == 6 * 160 and ring(3105, 960) == 0
+            and ring(3456, 960) == 0 and sp.Rational(960, 2160) == sp.Rational(4, 9) and 22080 == 23 * 960
+            and ring(2080, 22080) == 480 and factorial(11) == 9240 * N and (N // 6, N // 36) == (720, 120),
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -9554,6 +9600,14 @@ def run():
             "completion, the gain bound 10^28, the continuum of dark E8 embeddings, the feedback inverse and its 5320/6240-"
             "site baths, the 277-entry admission court, the Golden-setting trades, the bright erasure rows, the two "
             "replacement codes and the reacting root-port jets", RP, True)
+    n2325 = notes_2325()
+    rep.add("the 23:07-23:22 model: the dark and Golden simplex Grams and their deletion conditions 5 and 6, the six Golden "
+            "vectors' midpoints, differences and triple sums with their frames 12 and 36, and the arithmetic",
+            gates.ARITHMETIC, all(n2325.values()), n2325)
+    rep.add("Drive check 23:25: the sibling's MODEL editions of 23:07-23:22, the latest (23:22) read as text; the hub's text "
+            "unchanged since 22:51; the spine29.ts editions and the OES-paper PDFs not read; not replayed: the jet-rank "
+            "increments and the degree-five kernel 23, the generating function's eighth derivative, the 4188 rows, the "
+            "120-site bath and the reported 67, 37, 96 and 939 checks", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
