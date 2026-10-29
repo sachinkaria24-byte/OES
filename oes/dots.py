@@ -1,4 +1,4 @@
-"""Layer 23. All dots joined (28-29 Oct 2026, Drive checks 22:08 to 00:15 UTC).
+"""Layer 23. All dots joined (28-29 Oct 2026, Drive checks 22:08 to 00:15 UTC and the 00:35 relay).
 
 A dot is an object the model builds: a space with its operator, a lattice, a group, a circle, a port. A join is a map
 between two dots, built here and checked against the property that makes it that kind of map (an intertwiner, a
@@ -85,6 +85,15 @@ nakshatra clock lie in the miss set; the nakshatra clock maps onto the coil's 27
 cycles 18 + 6 + 2 + 1 (the sun's swap among them). The towers of 3 and 2 freeze on the circle at 27 and 736, and the
 tower of 5 does not. The synthesis's two-tick T12 is not semisimple, as it says. Its "N = 25 annihilator on W0..W50" is
 not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive.
+
+At 00:35 the user relayed the sibling's message on its 29 October paper (ONE_MACHINE_29, 00:20), read with its notes of
+00:16-00:29. One dot and two joins come from them: eight roots with pairwise inner product 1 and the origin are a maximal
+9-clique of the lattice graph, of index 3 (Gram I + J, no ninth root), and each of its six-point faces is a six-port with
+coupling Gram 183I + 52J. Also replayed: the grain is the five ticks times the twelve multiples of 360 (the observer
+times the sun); the bath's symbol splits as D8 plus the half-spin orbit; the root graph has spectrum 56, 28^8, 8^35,
+(-2)^112, (-4)^84; a protected line commutes with X only if X has no coupling to it; and the commutator court's
+anchored Gram determinant is 176173056. Two corrections: the chart labels 95, 98, 101 are one class mod 3, not mod 30;
+and 241 is prime to 4320 (it is 240 that meets the circle in 240).
 """
 
 import functools
@@ -740,7 +749,8 @@ def walks_join():
     """The bath's closed walks W_n and its return moments E_n."""
     W, E = _walks()
     return {
-        "W_n counts closed walks on the root graph: W_0..W_3 = 1, 0, 240, 240 x 56 = 13440": W[:4] == [1, 0, 240, 13440],
+        "W_n counts closed walks on the lattice, each step a root: W_0..W_3 = 1, 0, 240, 240 x 56 = 13440 (the 240-vertex "
+        "root graph has other counts, 1, 0, 56, 1512, 62160)": W[:4] == [1, 0, 240, 13440],
         "the return moments E_n = <delta_0, Delta^n delta_0> are its binomial transform: 1, 240, 57840 = 240^2 + 240":
             E[:3] == [1, 240, 57840],
     }
@@ -1340,6 +1350,155 @@ def hankel_25():
     }
 
 
+# ------------------------------------------- the 00:16-00:29 items and the sibling's 29 October paper
+
+def eight_roots():
+    """ONE_MACHINE_29, sec. 4: eight roots with pairwise products 1 and the origin form a maximal 9-clique of index 3."""
+    e = lambda i: np.eye(8)[i]
+    R = np.array([-e(0) - e(i) for i in range(1, 8)] + [-0.5 * np.ones(8)])
+    G = np.rint(R @ R.T).astype(int)
+    roots = glue.roots()
+    half = {tuple(np.rint(2 * r).astype(int)) for r in roots}
+    key = lambda v: tuple(np.rint(2 * v).astype(int))
+    q = R.sum(axis=0) / 3
+    c = np.linalg.solve(R @ R.T, np.ones(8))
+    duals = np.linalg.inv(R).T
+    face = [np.zeros(8)] + list(R[:5])
+    inside = {key(p) for p in face}
+    nbrs = lambda p: {tuple(a + b for a, b in zip(key(p), r)) for r in half}
+    BB = np.array([[len(nbrs(a) - inside) if i == j else len((nbrs(a) & nbrs(b)) - inside) for j, b in enumerate(face)]
+                   for i, a in enumerate(face)])
+    J8, I8 = np.ones((8, 8), dtype=int), np.eye(8, dtype=int)
+    return {
+        "the roots -e1 - e2, ..., -e1 - e8 and -(1, ..., 1)/2 have Gram I + J, with (I + J)(9I - J) = 9I: det 9, inverse "
+        "I - J/9": all(key(r) in half for r in R) and np.array_equal(G, I8 + J8) and np.array_equal((I8 + J8) @ (9 * I8 - J8), 9 * I8),
+        "their coordinates have det 3 (768 doubled), so they span a sublattice of index 3; the quotient generator, their "
+        "sum over 3, is (-5/2, -1/2, ..., -1/2), a lattice vector of squared length 8": round(np.linalg.det(2 * R)) == 768
+        and round(abs(np.linalg.det(R))) == 3 and np.allclose(q, [-2.5] + [-0.5] * 7) and np.isclose(q @ q, 8)
+        and round(2 * q.sum()) % 4 == 0,
+        "no ninth root meets all eight: the only vector with all eight products 1 is their sum over 9, of squared length "
+        "8/9; with the origin they are a 9-clique of the lattice graph that does not extend": np.allclose(c, 1 / 9)
+        and np.isclose((c @ R) @ (c @ R), 8 / 9) and not any(np.allclose(R @ r, 1) for r in roots)
+        and all(key(a - b) in half for a, b in itertools.combinations([np.zeros(8)] + list(R), 2)),
+        "six times the dual basis is the integer matrix 6R - 2q, and it pairs with the roots to 6I": np.allclose(
+            6 * duals, np.rint(6 * duals)) and np.allclose(6 * duals, 6 * R - 2 * q) and np.allclose(6 * duals @ R.T, 6 * np.eye(8)),
+        "a six-point face (the origin and five roots) has 235 outside neighbours per point and 52 per pair: coupling Gram "
+        "183I + 52J, the six-port of layer 22": np.array_equal(BB, 183 * np.eye(6, dtype=int) + 52 * np.ones((6, 6), dtype=int)),
+        "on five of the roots the Gram is I + J, and the carrier's vertex Gram is H H^T = 3I + J = (I + J) + 2I: equal "
+        "off the diagonal, not the same operator": np.array_equal(G[:5, :5] + 2 * np.eye(5, dtype=int), 3 * np.eye(5, dtype=int)
+                                                                    + np.ones((5, 5), dtype=int)),
+    }
+
+
+def root_symbol():
+    """ONE_MACHINE_29, sec. 5, FRAME_WALKS and DEEP_COURT: the bath's symbol, the root graph and the collar witness."""
+    roots = glue.roots()
+    sym = lambda t: float(np.cos(roots @ t).sum())
+    formula = lambda t: (2 * (np.cos(t).sum() ** 2 - (np.cos(t) ** 2).sum())
+                         + 128 * (np.prod(np.cos(t / 2)) + np.prod(np.sin(t / 2))))
+    rng = np.random.default_rng(29)
+    A = (np.abs(roots @ roots.T - 1) < 1e-9).astype(float)
+    spec = Counter(np.rint(np.linalg.eigvalsh(A)).astype(int).tolist())
+    w = np.array([28, 28, 6, 2, 1, 0, 0, 0]) / 10
+    return {
+        "sum over the 240 roots of cos(a.t) = 2[(sum cos t_k)^2 - sum cos^2 t_k] + 128[prod cos(t_k/2) + prod sin(t_k/2)] "
+        "(the D8 roots and the half-spin orbit); it is 240 at 0 and -16 at pi(1, 1, 1, 1, 0, 0, 0, 0), so the "
+        "dispersion reaches 0 and 256": all(abs(sym(t) - formula(t)) < 1e-9 for t in 3 * rng.standard_normal((6, 8)))
+        and np.isclose(sym(np.zeros(8)), 240) and np.isclose(sym(np.pi * np.array([1, 1, 1, 1, 0, 0, 0, 0])), -16),
+        "the root graph (240 roots, edges at inner product 1) has spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84, trace 0, "
+        "and its closed walks 1, 0, 56, 1512, 62160 follow (the separate script's list, of trace -240, does not)":
+            spec == Counter({56: 1, 28: 8, 8: 35, -2: 112, -4: 84})
+            and [sum(m * v ** n for v, m in spec.items()) // 240 for n in range(5)] == [1, 0, 56, 1512, 62160],
+        "the collar witness (28, 28, 6, 2, 1, 0, 0, 0)/10 has squared length 1609/100 and dispersion 220.635, inside "
+        "(220.2460, 223.25); the endpoints themselves are not re-certified": np.isclose(w @ w, 16.09)
+        and abs((240 - sym(w)) - 220.635) < 5e-4 and 220.2460 < 240 - sym(w) < 223.25,
+        "240 x 56 / 12 = 1120 planes of type A2; 17280 x 3 + 2160 x 128 = 328320 = 76 x 4320, and 328320 + 8 = 328328":
+            240 * 56 // 12 == 1120 and 17280 * 3 + 2160 * 128 == 328320 == 76 * N and 328320 + 8 == 328328,
+    }
+
+
+def protection():
+    """CLOSURE_092 and ONE_MACHINE_29, sec. 2: a protected line has no coupling; the commutator court; the channel law."""
+    a, b, d, z, g0, P = sp.symbols("a b d z g0 P")
+    X = sp.Matrix([[a, b], [b, d]])
+    M = sp.Matrix([[0, 1, 2], [1, 0, 0], [2, 0, 0]])           # one mediator with |v|^2 = 1 + 4 = 5
+    K1, K2 = np.diag([0.0, 1.0, 3.0]), np.ones((3, 3))
+    herm = []
+    for i in range(3):
+        E = np.zeros((3, 3), complex)
+        E[i, i] = 1
+        herm.append(E)
+    for i, j in itertools.combinations(range(3), 2):
+        E, F = np.zeros((3, 3), complex), np.zeros((3, 3), complex)
+        E[i, j] = E[j, i] = 1
+        F[i, j], F[j, i] = 1j, -1j
+        herm += [E, F]
+
+    def court(X, anchor):
+        out = []
+        for K in (K1, K2):
+            C = K @ X - X @ K
+            out += list(C.real.ravel()) + list(C.imag.ravel())
+        return out + ([np.trace(X).real] if anchor else [])
+    L = lambda anchor: np.array([court(X, anchor) for X in herm]).T
+    Gc, Gu = (1 + z * g0) / 240, ((1440 - 5 * z) * g0 - 5) / 240
+    W = native.port_metric()
+    return {
+        "a protected line cannot also be the coupling: X commutes with the line's projector diag(1, 0) exactly when its "
+        "off-diagonal entry is 0": sp.diag(1, 0) * X - X * sp.diag(1, 0) == sp.Matrix([[0, b], [-b, 0]]),
+        "one mediator of squared length 5 squares to eigenvalues 0, 5, 5 and corrects the doublet by a rank-1 block, so a "
+        "full-rank correction needs two": (M ** 2).eigenvals() == {5: 2, 0: 1} and (M ** 2)[1:, 1:].rank() == 1,
+        "for K1 = diag(0, 1, 3) and K2 = J the commutator map on 3 x 3 Hermitian matrices has rank 8 (the scalars), a "
+        "trace anchor raises it to 9, and the anchored Gram determinant is 176173056": np.linalg.matrix_rank(L(False)) == 8
+        and np.linalg.matrix_rank(L(True)) == 9 and round(np.linalg.det(L(True).T @ L(True))) == 176173056,
+        "the written six-port channels satisfy (1440 - 5z) G_c - z G_u = 6 for every z and g0 (g0 cancels); at z = 0, "
+        "G_c = 1/240 and, with g0 = 1/(240(1 - P)), G_u = (1 + 5P)/(240(1 - P)) = 1/sigma": sp.simplify(
+            (1440 - 5 * z) * Gc - z * Gu) == 6 and Gc.subs(z, 0) == sp.Rational(1, 240)
+        and sp.simplify(Gu.subs({z: 0, g0: 1 / (240 * (1 - P))}) - (1 + 5 * P) / (240 * (1 - P))) == 0,
+        "the port metric W_p has eigenvalues 2/5, 2, 5 - sqrt 5 (twice) and 5 + sqrt 5 (twice), as the paper states, and "
+        "the corner 241I - J acts as 235 on the mean and 241 on the contrast": np.allclose(
+            np.linalg.eigvalsh(W), sorted([0.4, 2, 5 - 5 ** 0.5, 5 - 5 ** 0.5, 5 + 5 ** 0.5, 5 + 5 ** 0.5]))
+        and np.allclose(np.linalg.eigvalsh(241 * np.eye(6) - np.ones((6, 6))), [235] + [241] * 5),
+    }
+
+
+def notes_0029():
+    """The 00:16-00:29 notes and the 29 October paper: arithmetic, and three corrections."""
+    part = lambda x: 3456 * x % N
+    a216 = part(216) // TICK
+    b216 = next(b for b in range(TICK) if 5 * b % N == (216 - TICK * a216) % N)
+    return {
+        "the grain splits twice: it is the five ticks times the twelve multiples of 360, and those twelve are the observer "
+        "times the sun, the unique subgroups of orders 4 and 3 in the miss set; all twelve miss; 360 has order 12 and 12 "
+        "has order 360": spine.subgroup(TICK) & spine.subgroup(360) == {0}
+        and {(x + y) % N for x in spine.subgroup(TICK) for y in spine.subgroup(360)} == spine.subgroup(72)
+        and {(x + y) % N for x in spine.subgroup(1080) for y in spine.subgroup(1440)} == spine.subgroup(360)
+        and not any(ledger.contains_tick(x) for x in spine.subgroup(360))
+        and {x for x in spine.subgroup(5) if spine.order(x) == 4} == {1080, 3240}
+        and {x for x in spine.subgroup(5) if spine.order(x) == 3} == {1440, 2880}
+        and (spine.order(360), spine.order(12)) == (12, 360),
+        "DEEP_COURT: 216 has tick-miss coordinates (4, 216) but residues 1 mod 5 and 216 mod 864; the point with residues "
+        "(4, 216) is 1944 = 9 x 216 = 864 + 1080. On the time clock 2 x 3 = 1 and 2 + 3 = 0, one fact since x^2 = -1 mod 5 "
+        "has the roots 2 and 3": (a216, b216) == (4, 216) and (216 % 5, 216 % TICK) == (1, 216)
+        and next(x for x in range(N) if x % 5 == 4 and x % TICK == 216) == 1944 == 9 * 216 == TICK + 1080
+        and (2 * 3 % 5, (2 + 3) % 5) == (1, 0) and [x for x in range(5) if x * x % 5 == 4] == [2, 3],
+        "the paper's chart classes corrected: 95, 98 and 101 are one class mod 3, not mod 30 (where they are 5, 8, 11); "
+        "30 and 66 are another, 44 joins the first, and 51, 52 differ; every pada address 40p is 0 mod 5":
+            [x % 30 for x in (95, 98, 101)] == [5, 8, 11] and [x % 3 for x in (95, 98, 101, 44)] == [2, 2, 2, 2]
+            and [x % 3 for x in (30, 66)] == [0, 0] and 51 % 3 != 52 % 3 and all(40 * p % 5 == 0 for p in counts.CHART_PADAS),
+        "LEVELS corrected: the field prime 241 is prime to 4320; it is 240 = 241 - 1 that meets the circle in 240":
+            gcd(241, N) == 1 and gcd(240, N) == 240,
+        "the paper's arithmetic: 1728 : 1296 : 864 : 432 = 4 : 3 : 2 : 1, summing to 4320; 10 x 1728 = 17280, 864 + 1296 = "
+        "2160; 64 x 6^3 x 5 = 69120; C(8, 2) = 28 = 6 + 16 + 6; 108 = 21 x 5 + 3, so R^108 = R^3 at order 5":
+            [x // 432 for x in (1728, 1296, TICK, 432)] == [4, 3, 2, 1] and 1728 + 1296 + TICK + 432 == N
+            and 10 * 1728 == 17280 and TICK + 1296 == 2160 and 64 * 6 ** 3 * 5 == 69120
+            and sp.binomial(8, 2) == 28 == 6 + 16 + 6 and 108 % 5 == 3,
+        "CLOSURE_092: the unread dimensions 360, 270, 190, 110, 30, 0 step by 90, 80, 80, 80, 30; 90 + 35 = 125; "
+        "36 x 360 = 12960 = 360 + 12600": [a - b for a, b in zip((360, 270, 190, 110, 30), (270, 190, 110, 30, 0))]
+        == [90, 80, 80, 80, 30] and 90 + 35 == 125 and 36 * 360 == 12960 == 360 + 12600,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -1364,7 +1523,7 @@ DOTS = {
     "triangle": ("triangle port", "the oriented triangle 0-1-2 on the lattice", "22, 23"),
     "sixsite": ("six-site port", "K5 coned off, an A5 simplex", "4, 22, 23"),
     "moments": ("moments", "the Stieltjes data of the ports", "22"),
-    "walks": ("closed walks", "W_n on the root graph; one operator of order 16, degree 58 mod primes", "3, 14"),
+    "walks": ("closed walks", "W_n on the lattice, each step a root; one operator of order 16, degree 58 mod primes", "3, 14"),
     "clocks": ("W(E8) clocks", "c', g = r r', d, v, m", "19, 21"),
     "G120": ("day-Coxeter group", "<c', d>, order 120", "21, 22"),
     "AGL": ("AGL(1,5)", "the affine group of the pentagon", "21"),
@@ -1383,6 +1542,7 @@ DOTS = {
     "grain": ("grain", "<72> = <216> x <1440>, the golden orbit times the sun", "23"),
     "vortex": ("vortex", "Z/9, the address mod 9", "23"),
     "miss": ("miss set", "<5>, the 864 points the tick does not see", "23"),
+    "frame": ("eight-root frame", "the origin and eight roots with pairwise products 1: a maximal 9-clique, index 3", "23"),
 }
 
 # (from, to, short label, the map, status, check)
@@ -1462,6 +1622,8 @@ JOINS = [
     ("miss", "circle", "Z/4320 = <864> + <5>", "every point is a tick part plus a miss, uniquely; it misses exactly when its tick part is 0, and 864 copies of it give the pure tick with the opposite coordinate", T, "tick_miss"),
     ("observer", "miss", "inclusion", "the observer clock and the whole nakshatra clock lie in the miss set; in each golden loop the four misses are one observer coset", T, "tick_miss"),
     ("c27", "coil", "onto the golden cosets", "the nakshatra clock meets each of the coil's 27 golden cosets once, and doubling acts on both with cycles 18 + 6 + 2 + 1, the sun's swap among them", T, "doubling_orbits"),
+    ("E8", "frame", "a maximal clique", "eight roots with pairwise inner product 1 and the origin: Gram I + J, index 3, no ninth root", T, "eight_roots"),
+    ("frame", "sixsite", "six-point faces", "every six-point face of the frame is a six-port, with coupling Gram 183I + 52J", T, "eight_roots"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -1506,6 +1668,12 @@ LEDGER_ROWS = [
     ("towers (POWER_TOWER, SALINA_CONG)", "threes freeze at 27, twos at 736, fives do not; mod 12: 3, 4, 5", "replayed, including 3^(3^27) and 2^65536 mod 4320", T, "23"),
     ("modules 8-11 (Locked Memory synthesis, 00:06)", "T12 non-semisimple; dA = 2 dx dy/(1 + r^2)^2; reader 2, 121, 241, 12; 57840", "replayed from the stated formulas; JOIN_MODULES's missing time-rotor map is the join kappa = 4x mod 5 of layer 22", T, "23"),
     ("N = 25 annihilator (Locked Memory synthesis)", "a Stieltjes-Jacobi annihilator of order 25 on W_0..W_50", "not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive; a depth-25 Jacobi fit is not a recurrence", OB, "23"),
+    ("the eight-root frame (ONE_MACHINE_29, FRAME_WALKS, DEEP_COURT)", "Gram I + J, det 9, index 3; quotient generator of squared length 8; no ninth root", "replayed: a maximal 9-clique of the lattice graph; the only vector meeting all eight has squared length 8/9; six times the duals is 6R - 2q; its six-point faces are six-ports", T, "23"),
+    ("the symbol and the root graph (ONE_MACHINE_29, FRAME_WALKS)", "the D8 + half-spin formula; 240 and -16; closed walks 1, 0, 56, 1512, 62160", "replayed; the root graph's spectrum is 56, 28^8, 8^35, (-2)^112, (-4)^84 (the separate script's list, of trace -240, is not it); the collar witness has dispersion 220.635", T, "23"),
+    ("protection (CLOSURE_092, LEVELS)", "a protected line cannot also be the coupling; the commutator court; the channel law", "replayed: [diag(1, 0), X] = 0 iff X has no coupling; rank 8 -> 9 with the anchor and Gram det 176173056; (1440 - 5z) G_c - z G_u = 6 with g0 cancelling", T, "23"),
+    ("the grain, twice (GRAIN_SPLIT 00:19, OBS_SUN)", "the five ticks times the twelve multiples of 360, which are the observer times the sun", "replayed: the observer and the sun are the miss set's unique subgroups of orders 4 and 3", T, "23"),
+    ("chart classes and the field prime (ONE_MACHINE_29, LEVELS)", "95, 98, 101 one class mod 30; the field prime meets the circle in 240", "corrected: one class mod 3 (mod 30 they are 5, 8, 11); 241 is prime to 4320, and 240 = 241 - 1 meets it in 240", T, "23"),
+    ("the sibling's paper ONE_MACHINE_29 (00:20)", "the best closed model of 29 Oct; carrier unchanged; sigma in (231.7438, 231.7439); a rational Gauss-Manin matrix missing", "replayed where stated (carrier, ports, frame, symbol, walks, clocks); the sigma interval, the collar endpoints and the typeset .typ source were not", RP, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -1556,7 +1724,7 @@ def _checks():
         "cone_line_graph": cone_line_graph, "paired_response": paired_response, "band_expansion": band_expansion,
         "walks_join": walks_join, "coil": coil, "nakshatra_map": nakshatra_map, "address_lift": address_lift,
         "golden_family": golden_family, "cone_symmetry": cone_symmetry, "mpkg_block": mpkg_block, "grain": grain,
-        "vortex": vortex, "tick_miss": tick_miss, "doubling_orbits": doubling_orbits,
+        "vortex": vortex, "tick_miss": tick_miss, "doubling_orbits": doubling_orbits, "eight_roots": eight_roots,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -1702,6 +1870,20 @@ def run():
     rep.add("the sibling's LAYER_23 note (23:46) reads this layer's 23:03 joins and agrees: the coil, the Lucas "
             "traces, the sun's order 3 against <39> of size 1440, and characters 7 and 3; it adds that doubling does not "
             "invert the tick on the circle (the tick has order 5), which the shift law says too", RP, True)
+    for fn, text in (
+            (root_symbol, "the bath's symbol splits as D8 plus the half-spin orbit (240 at 0, -16 at pi(1, 1, 1, 1, 0, 0, 0, 0)); "
+             "the root graph has spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84; the collar witness has dispersion 220.635"),
+            (protection, "CLOSURE_092: a protected line cannot also be the coupling; one mediator gives a rank-1 correction; the "
+             "commutator court has rank 8, and 9 with the anchor (Gram det 176173056); the channel law holds with g0 "
+             "cancelling; the port metric's eigenvalues are as the paper states"),
+            (notes_0029, "the 00:16-00:29 arithmetic and the 29 October paper: the grain is the ticks times the twelve "
+             "multiples of 360; 216 has tick-miss coordinates (4, 216) while the residues (4, 216) give 1944; two "
+             "corrections (the chart classes are mod 3, not mod 30; 241 is prime to 4320)")):
+        out = fn()
+        rep.add(text, T, all(out.values()), out)
+    rep.add("the 00:35 relay: the sibling's paper ONE_MACHINE_29 (00:20, with its typeset source one-machine-29.typ, not "
+            "opened) and its notes CLOSURE_092, LAYER23B, LEVELS, OBS_SUN, GRAIN_SPLIT (00:19), FRAME_WALKS and DEEP_COURT "
+            "(00:16-00:29); LAYER23B reads this layer's 23:44 joins and agrees with them", RP, True)
     rep.add("the hub's release J adopts the address correction and the 2-part correction, and lists four open "
             "conflicts: the literal recurrence certificate, the collar near 224, the uniform dispersion proof and the "
             "K5/K6 carrier identification; layers 14 and 23 hold evidence for the first and the last", RP, True)

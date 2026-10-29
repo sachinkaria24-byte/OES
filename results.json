@@ -57,35 +57,35 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.63,
+  "1-carrier": 0.62,
   "2-spectral": 0.01,
-  "3-spacetime": 8.06,
-  "4-native": 89.89,
+  "3-spacetime": 6.42,
+  "4-native": 90.84,
   "5-observer": 0.22,
-  "6-gravity": 4.72,
-  "7-cosmology": 1.65,
-  "8-frontier": 34.21,
-  "9-joins": 9.07,
-  "10-literal": 34.06,
-  "11-glue": 0.16,
+  "6-gravity": 4.45,
+  "7-cosmology": 1.48,
+  "8-frontier": 34.65,
+  "9-joins": 8.67,
+  "10-literal": 34.49,
+  "11-glue": 0.18,
   "12-binding": 0.03,
   "13-gates": 0.1,
-  "14-recurrence": 70.75,
-  "15-court": 1.8,
-  "16-handover": 1.22,
-  "17-waves": 0.52,
-  "18-snapshot": 0.76,
-  "19-spine": 3.96,
-  "20-canon": 5.91,
-  "21-ledger": 43.02,
-  "22-counts": 20.37,
-  "23-dots": 5.61
+  "14-recurrence": 71.03,
+  "15-court": 1.73,
+  "16-handover": 1.11,
+  "17-waves": 0.6,
+  "18-snapshot": 0.88,
+  "19-spine": 3.89,
+  "20-canon": 5.94,
+  "21-ledger": 44.2,
+  "22-counts": 21.87,
+  "23-dots": 5.95
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 382,
-   "total": 382
+   "passed": 387,
+   "total": 387
   },
   "OBSTRUCTION": {
    "passed": 45,
@@ -112,8 +112,8 @@
    "total": 18
   },
   "REPORTED": {
-   "passed": 61,
-   "total": 61
+   "passed": 62,
+   "total": 62
   }
  },
  "checks": [
@@ -4642,13 +4642,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1319 readings from 158 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1402 readings from 166 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 158,
-    "claims": 1319,
+    "notes": 166,
+    "claims": 1402,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -6192,7 +6192,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "W_n counts closed walks on the root graph: W_0..W_3 = 1, 0, 240, 240 x 56 = 13440": true,
+    "W_n counts closed walks on the lattice, each step a root: W_0..W_3 = 1, 0, 240, 240 x 56 = 13440 (the 240-vertex root graph has other counts, 1, 0, 56, 1512, 62160)": true,
     "the return moments E_n = <delta_0, Delta^n delta_0> are its binomial transform: 1, 240, 57840 = 240^2 + 240": true
    },
    "note": ""
@@ -6203,7 +6203,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "W_n counts closed walks on the root graph: W_0..W_3 = 1, 0, 240, 240 x 56 = 13440": true,
+    "W_n counts closed walks on the lattice, each step a root: W_0..W_3 = 1, 0, 240, 240 x 56 = 13440 (the 240-vertex root graph has other counts, 1, 0, 56, 1512, 62160)": true,
     "the return moments E_n = <delta_0, Delta^n delta_0> are its binomial transform: 1, 240, 57840 = 240^2 + 240": true
    },
    "note": ""
@@ -6462,7 +6462,37 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 40 dots and 69 joins form one connected diagram (the obstructions left out)",
+   "name": "E8 -> eight-root frame: eight roots with pairwise inner product 1 and the origin: Gram I + J, index 3, no ninth root",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the roots -e1 - e2, ..., -e1 - e8 and -(1, ..., 1)/2 have Gram I + J, with (I + J)(9I - J) = 9I: det 9, inverse I - J/9": true,
+    "their coordinates have det 3 (768 doubled), so they span a sublattice of index 3; the quotient generator, their sum over 3, is (-5/2, -1/2, ..., -1/2), a lattice vector of squared length 8": true,
+    "no ninth root meets all eight: the only vector with all eight products 1 is their sum over 9, of squared length 8/9; with the origin they are a 9-clique of the lattice graph that does not extend": true,
+    "six times the dual basis is the integer matrix 6R - 2q, and it pairs with the roots to 6I": true,
+    "a six-point face (the origin and five roots) has 235 outside neighbours per point and 52 per pair: coupling Gram 183I + 52J, the six-port of layer 22": true,
+    "on five of the roots the Gram is I + J, and the carrier's vertex Gram is H H^T = 3I + J = (I + J) + 2I: equal off the diagonal, not the same operator": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "eight-root frame -> six-site port: every six-point face of the frame is a six-port, with coupling Gram 183I + 52J",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the roots -e1 - e2, ..., -e1 - e8 and -(1, ..., 1)/2 have Gram I + J, with (I + J)(9I - J) = 9I: det 9, inverse I - J/9": true,
+    "their coordinates have det 3 (768 doubled), so they span a sublattice of index 3; the quotient generator, their sum over 3, is (-5/2, -1/2, ..., -1/2), a lattice vector of squared length 8": true,
+    "no ninth root meets all eight: the only vector with all eight products 1 is their sum over 9, of squared length 8/9; with the origin they are a 9-clique of the lattice graph that does not extend": true,
+    "six times the dual basis is the integer matrix 6R - 2q, and it pairs with the roots to 6I": true,
+    "a six-point face (the origin and five roots) has 235 outside neighbours per point and 52 per pair: coupling Gram 183I + 52J, the six-port of layer 22": true,
+    "on five of the roots the Gram is I + J, and the carrier's vertex Gram is H H^T = 3I + J = (I + J) + 2I: equal off the diagonal, not the same operator": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 41 dots and 71 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6486,6 +6516,7 @@
      "cube",
      "cycles",
      "datum",
+     "frame",
      "gksl",
      "golden",
      "grain",
@@ -6762,6 +6793,56 @@
   {
    "layer": "23-dots",
    "name": "the sibling's LAYER_23 note (23:46) reads this layer's 23:03 joins and agrees: the coil, the Lucas traces, the sun's order 3 against <39> of size 1440, and characters 7 and 3; it adds that doubling does not invert the tick on the circle (the tick has order 5), which the shift law says too",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the bath's symbol splits as D8 plus the half-spin orbit (240 at 0, -16 at pi(1, 1, 1, 1, 0, 0, 0, 0)); the root graph has spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84; the collar witness has dispersion 220.635",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "sum over the 240 roots of cos(a.t) = 2[(sum cos t_k)^2 - sum cos^2 t_k] + 128[prod cos(t_k/2) + prod sin(t_k/2)] (the D8 roots and the half-spin orbit); it is 240 at 0 and -16 at pi(1, 1, 1, 1, 0, 0, 0, 0), so the dispersion reaches 0 and 256": 1.0,
+    "the root graph (240 roots, edges at inner product 1) has spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84, trace 0, and its closed walks 1, 0, 56, 1512, 62160 follow (the separate script's list, of trace -240, does not)": true,
+    "the collar witness (28, 28, 6, 2, 1, 0, 0, 0)/10 has squared length 1609/100 and dispersion 220.635, inside (220.2460, 223.25); the endpoints themselves are not re-certified": true,
+    "240 x 56 / 12 = 1120 planes of type A2; 17280 x 3 + 2160 x 128 = 328320 = 76 x 4320, and 328320 + 8 = 328328": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "CLOSURE_092: a protected line cannot also be the coupling; one mediator gives a rank-1 correction; the commutator court has rank 8, and 9 with the anchor (Gram det 176173056); the channel law holds with g0 cancelling; the port metric's eigenvalues are as the paper states",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a protected line cannot also be the coupling: X commutes with the line's projector diag(1, 0) exactly when its off-diagonal entry is 0": true,
+    "one mediator of squared length 5 squares to eigenvalues 0, 5, 5 and corrects the doublet by a rank-1 block, so a full-rank correction needs two": true,
+    "for K1 = diag(0, 1, 3) and K2 = J the commutator map on 3 x 3 Hermitian matrices has rank 8 (the scalars), a trace anchor raises it to 9, and the anchored Gram determinant is 176173056": true,
+    "the written six-port channels satisfy (1440 - 5z) G_c - z G_u = 6 for every z and g0 (g0 cancels); at z = 0, G_c = 1/240 and, with g0 = 1/(240(1 - P)), G_u = (1 + 5P)/(240(1 - P)) = 1/sigma": true,
+    "the port metric W_p has eigenvalues 2/5, 2, 5 - sqrt 5 (twice) and 5 + sqrt 5 (twice), as the paper states, and the corner 241I - J acts as 235 on the mean and 241 on the contrast": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 00:16-00:29 arithmetic and the 29 October paper: the grain is the ticks times the twelve multiples of 360; 216 has tick-miss coordinates (4, 216) while the residues (4, 216) give 1944; two corrections (the chart classes are mod 3, not mod 30; 241 is prime to 4320)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the grain splits twice: it is the five ticks times the twelve multiples of 360, and those twelve are the observer times the sun, the unique subgroups of orders 4 and 3 in the miss set; all twelve miss; 360 has order 12 and 12 has order 360": true,
+    "DEEP_COURT: 216 has tick-miss coordinates (4, 216) but residues 1 mod 5 and 216 mod 864; the point with residues (4, 216) is 1944 = 9 x 216 = 864 + 1080. On the time clock 2 x 3 = 1 and 2 + 3 = 0, one fact since x^2 = -1 mod 5 has the roots 2 and 3": true,
+    "the paper's chart classes corrected: 95, 98 and 101 are one class mod 3, not mod 30 (where they are 5, 8, 11); 30 and 66 are another, 44 joins the first, and 51, 52 differ; every pada address 40p is 0 mod 5": true,
+    "LEVELS corrected: the field prime 241 is prime to 4320; it is 240 = 241 - 1 that meets the circle in 240": true,
+    "the paper's arithmetic: 1728 : 1296 : 864 : 432 = 4 : 3 : 2 : 1, summing to 4320; 10 x 1728 = 17280, 864 + 1296 = 2160; 64 x 6^3 x 5 = 69120; C(8, 2) = 28 = 6 + 16 + 6; 108 = 21 x 5 + 3, so R^108 = R^3 at order 5": true,
+    "CLOSURE_092: the unread dimensions 360, 270, 190, 110, 30, 0 step by 90, 80, 80, 80, 30; 90 + 35 = 125; 36 x 360 = 12960 = 360 + 12600": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 00:35 relay: the sibling's paper ONE_MACHINE_29 (00:20, with its typeset source one-machine-29.typ, not opened) and its notes CLOSURE_092, LAYER23B, LEVELS, OBS_SUN, GRAIN_SPLIT (00:19), FRAME_WALKS and DEEP_COURT (00:16-00:29); LAYER23B reads this layer's 23:44 joins and agrees with them",
    "status": "REPORTED",
    "passed": true,
    "value": null,

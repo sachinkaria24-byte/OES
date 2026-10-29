@@ -247,6 +247,12 @@ def test_ticks_misses_towers_and_the_hankel_obstruction():
     assert all(ledger.contains_tick(x) == (3456 * x % spine.N != 0) for x in range(spine.N))
 
 
+def test_eight_root_frame_symbol_and_protection():
+    for check in (dots.eight_roots, dots.root_symbol, dots.protection, dots.notes_0029):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

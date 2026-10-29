@@ -1,4 +1,4 @@
-"""Layer 22. Counts, graphs and moments (28-29 Oct 2026; Drive checks 19:21 to 00:15 UTC).
+"""Layer 22. Counts, graphs and moments (28-29 Oct 2026; Drive checks 19:21 to 00:15 UTC and the 00:35 relay).
 
 Sources read before this layer (Google Drive):
 
@@ -28,7 +28,9 @@ Sources read before this layer (Google Drive):
 * at 23:44: the readings of the sibling's 29 notes of 23:05-23:43, from GOLDEN_EVERYWHERE to DOUBLE_SPLIT (the
   golden orbit, the grain, the shift law, the bass fiber, the vortex and the doubling split), joined in layer 23;
 * at 00:15: the readings of the sibling's 21 notes of 23:46-00:14, from LAYER_23 to TWO_AGREE (the tick and miss
-  split, doubling on each clock, the towers, the stage element 12 and modules 8-11), joined in layer 23.
+  split, doubling on each clock, the towers, the stage element 12 and modules 8-11), joined in layer 23;
+* at 00:35, relayed by the user: the sibling's paper ONE_MACHINE_29 and its notes of 00:16-00:29, from
+  CLOSURE_092 to DEEP_COURT (the grain split twice, the eight-root frame, protection), joined in layer 23.
 
 Here "zero modes" and "dark" mean ker M = P5, as in layers 5 and 12. The canon's two-dimensional dark planes
 (the dark-core theorem) are another object, as the separate model's status also notes.
@@ -1451,6 +1453,89 @@ CLAIMS = [
     ("TWO_AGREE", "the agreement step", 216, True, ()),
     ("TWO_AGREE", "the agreeing points", 20, False, ()),
     ("TWO_AGREE", "the disagreeing points", 4300, False, ()),
+    ("CLOSURE_092", "a 360, as a step", 360, False, (("order", 12),)),
+    ("CLOSURE_092", "an unread dimension", 270, False, ()),
+    ("CLOSURE_092", "an unread dimension", 190, False, ()),
+    ("CLOSURE_092", "an increment", 80, False, ()),
+    ("CLOSURE_092", "90 + 35", 125, False, ()),
+    ("CLOSURE_092", "dim SU(6)", 35, False, ()),
+    ("CLOSURE_092", "36 copies of 360", 36 * 360, None, ()),
+    ("CLOSURE_092", "the coordinates with no new state", 12600, False, (("res", 3960),)),
+    ("CLOSURE_092", "the passive rank bound", 361, True, ()),
+    ("CLOSURE_092", "the commutator rank", 8, True, ()),
+    ("CLOSURE_092", "the anchored rank", 9, True, ()),
+    ("CLOSURE_092", "the anchored Gram determinant", 176173056, True, ()),
+    ("CLOSURE_092", "the channel identity's value", 6, True, ()),
+    ("LAYER23B", "the grain", 72, True, (("order", 60),)),
+    ("LAYER23B", "the sun step", 1440, False, (("order", 3),)),
+    ("LAYER23B", "the step 3", 3, True, (("order", 1440),)),
+    ("LAYER23B", "the time part of 216", 3456, True, ()),
+    ("LAYER23B", "the 2-part of 216", 1080, False, ()),
+    ("LAYER23B", "their 2-residue", 24, True, ()),
+    ("LAYER23B", "the commutator factor", 29, True, ()),
+    ("LAYER23B", "the checks not rerun", 567, True, ()),
+    ("LEVELS", "the binding step", 216, True, ()),
+    ("LEVELS", "the coil", 540, False, ()),
+    ("LEVELS", "the tower of twos", 736, True, ()),
+    ("LEVELS", "the gluing count", 10, False, ()),
+    ("LEVELS", "the stage index", 13, True, (("gen",),)),
+    ("LEVELS", "the field prime", 241, True, (("gen",),)),
+    ("LEVELS", "the root count", 240, False, ()),
+    ("LEVELS", "the host", 7, True, ()),
+    ("OBS_SUN", "the observer", 1080, False, (("order", 4),)),
+    ("OBS_SUN", "the sun", 1440, False, (("order", 3),)),
+    ("OBS_SUN", "their product's generator", 360, False, (("order", 12),)),
+    ("OBS_SUN", "the stage element", 12, True, (("order", 360),)),
+    ("GRAIN_SPLIT_0019", "the grain", 72, True, ()),
+    ("GRAIN_SPLIT_0019", "the twelve's generator", 360, False, ()),
+    ("GRAIN_SPLIT_0019", "the ticks", 864, True, ()),
+    ("GRAIN_SPLIT_0019", "the grain's order", 60, False, ()),
+    ("GRAIN_SPLIT_0019", "the tick count", 5, False, ()),
+    ("GRAIN_SPLIT_0019", "the twelve", 12, True, ()),
+    ("FRAME_WALKS", "the frame's determinant", 9, True, ()),
+    ("FRAME_WALKS", "doubled", 768, True, ()),
+    ("FRAME_WALKS", "the index", 3, True, ()),
+    ("FRAME_WALKS", "the generator's squared length", 8, True, ()),
+    ("FRAME_WALKS", "the root graph's degree", 56, True, ()),
+    ("FRAME_WALKS", "closed walks of length 3", 1512, True, ()),
+    ("FRAME_WALKS", "closed walks of length 4", 62160, False, ()),
+    ("FRAME_WALKS", "the script's trace", 240, False, ()),
+    ("FRAME_WALKS", "a yuga segment", 1728, True, ()),
+    ("FRAME_WALKS", "a yuga segment", 1296, True, ()),
+    ("FRAME_WALKS", "a yuga segment", 432, True, ()),
+    ("FRAME_WALKS", "the polytope volume, 76 circles", 328320, None, ()),
+    ("FRAME_WALKS", "76 circles", 76, True, ()),
+    ("DEEP_COURT", "the time idempotent", 3456, True, ()),
+    ("DEEP_COURT", "the 2-part idempotent", 3105, False, ()),
+    ("DEEP_COURT", "the 27-part idempotent", 2080, False, ()),
+    ("DEEP_COURT", "the golden step", 216, True, (("mod5", 1),)),
+    ("DEEP_COURT", "nine golden steps", 1944, True, (("mod5", 4), ("order", 20))),
+    ("DEEP_COURT", "the order bound", 328328, True, ()),
+    ("DEEP_COURT", "the A2 planes", 1120, False, ()),
+    ("DEEP_COURT", "the witness numerator", 1609, True, ()),
+    ("ONE_MACHINE_29", "the constant-mode eigenvalue", 8, True, ()),
+    ("ONE_MACHINE_29", "the corner on the mean", 235, False, ()),
+    ("ONE_MACHINE_29", "the corner on the contrast", 241, True, ()),
+    ("ONE_MACHINE_29", "the coupling contrast", 183, True, ()),
+    ("ONE_MACHINE_29", "the common neighbours outside", 52, True, ()),
+    ("ONE_MACHINE_29", "the coupling mean", 495, False, ()),
+    ("ONE_MACHINE_29", "the clique size", 9, True, ()),
+    ("ONE_MACHINE_29", "W_3", 13440, False, ()),
+    ("ONE_MACHINE_29", "W_4", 1260720, False, ()),
+    ("ONE_MACHINE_29", "the frame constant", 60, False, ()),
+    ("ONE_MACHINE_29", "the critical points", 243600, False, ()),
+    ("ONE_MACHINE_29", "the cycle Gram's determinant", 125, False, ()),
+    ("ONE_MACHINE_29", "the six-port chart's determinant", 155, False, ()),
+    ("ONE_MACHINE_29", "the clock coordinates", 24, True, ()),
+    ("ONE_MACHINE_29", "108 = 21 x 5 + 3", 108, True, ()),
+    ("ONE_MACHINE_29", "the petal words", 720, False, ()),
+    ("ONE_MACHINE_29", "a facet count, four circles", 17280, None, ()),
+    ("ONE_MACHINE_29", "a facet count", 2160, False, ()),
+    ("ONE_MACHINE_29", "a Morse orbit", 8640, None, ()),
+    ("ONE_MACHINE_29", "a Morse orbit", 69120, None, ()),
+    ("ONE_MACHINE_29", "the exterior square", 28, True, ()),
+    ("ONE_MACHINE_29", "the W0 scalar", 360000, False, (("res", 1440),)),
+    ("ONE_MACHINE_29", "its coordinates", 31, True, ()),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -2873,8 +2958,8 @@ def batch7_arithmetic():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (158 notes, 18:32-00:14)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT), the 21:40-22:08 notes (primary split, doubling parts, 801, atlas, closure), the 22:08-23:03 notes (Pauli cycle, corrections, coil, canon join, nakshatra, golden family, release H, MPKG, address tick), the 23:05-23:43 notes (golden orbit, grain, shift law, bass fiber, vortex, doubling split), the 23:46-00:14 notes (ticks and misses, doubling orbits, towers, modules)",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 1319 readings from 158 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (166 notes, 18:32-00:29)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT), the 21:40-22:08 notes (primary split, doubling parts, 801, atlas, closure), the 22:08-23:03 notes (Pauli cycle, corrections, coil, canon join, nakshatra, golden family, release H, MPKG, address tick), the 23:05-23:43 notes (golden orbit, grain, shift law, bass fiber, vortex, doubling split), the 23:46-00:14 notes (ticks and misses, doubling orbits, towers, modules), the 00:16-00:29 notes and the 29 Oct paper (frame, protection, grain twice)",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 1402 readings from 166 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),

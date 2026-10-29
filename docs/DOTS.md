@@ -44,6 +44,7 @@ flowchart LR
     grain["grain"]
     vortex["vortex"]
     miss["miss set"]
+    frame["eight-root frame"]
     E -->|"B"| A4
     E -->|"B and M"| D5
     A4 -->|"inclusion"| D5
@@ -113,9 +114,11 @@ flowchart LR
     miss -->|"Z/4320 = <864> + <5>"| circle
     observer -->|"inclusion"| miss
     c27 -->|"onto the golden cosets"| coil
+    E8 -->|"a maximal clique"| frame
+    frame -->|"six-point faces"| sixsite
 ```
 
-40 dots and 69 joins. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece.
+41 dots and 71 joins. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece.
 
 ## Dots
 
@@ -142,7 +145,7 @@ flowchart LR
 | triangle port | the oriented triangle 0-1-2 on the lattice | 22, 23 |
 | six-site port | K5 coned off, an A5 simplex | 4, 22, 23 |
 | moments | the Stieltjes data of the ports | 22 |
-| closed walks | W_n on the root graph; one operator of order 16, degree 58 mod primes | 3, 14 |
+| closed walks | W_n on the lattice, each step a root; one operator of order 16, degree 58 mod primes | 3, 14 |
 | W(E8) clocks | c', g = r r', d, v, m | 19, 21 |
 | day-Coxeter group | <c', d>, order 120 | 21, 22 |
 | AGL(1,5) | the affine group of the pentagon | 21 |
@@ -161,6 +164,7 @@ flowchart LR
 | grain | <72> = <216> x <1440>, the golden orbit times the sun | 23 |
 | vortex | Z/9, the address mod 9 | 23 |
 | miss set | <5>, the 864 points the tick does not see | 23 |
+| eight-root frame | the origin and eight roots with pairwise products 1: a maximal 9-clique, index 3 | 23 |
 
 ## Joins
 
@@ -235,6 +239,8 @@ flowchart LR
 | miss set | circle | every point is a tick part plus a miss, uniquely; it misses exactly when its tick part is 0, and 864 copies of it give the pure tick with the opposite coordinate | THEOREM | `tick_miss` |
 | observer clock | miss set | the observer clock and the whole nakshatra clock lie in the miss set; in each golden loop the four misses are one observer coset | THEOREM | `tick_miss` |
 | 27-clock | coil | the nakshatra clock meets each of the coil's 27 golden cosets once, and doubling acts on both with cycles 18 + 6 + 2 + 1, the sun's swap among them | THEOREM | `doubling_orbits` |
+| E8 | eight-root frame | eight roots with pairwise inner product 1 and the origin: Gram I + J, index 3, no ninth root | THEOREM | `eight_roots` |
+| eight-root frame | six-site port | every six-point face of the frame is a six-port, with coupling Gram 183I + 52J | THEOREM | `eight_roots` |
 
 ## Not joined
 
