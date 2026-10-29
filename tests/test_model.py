@@ -285,7 +285,7 @@ def test_root_scheme_simplex_and_the_golden_split():
 def test_sidebands_observer_charges_and_the_golden_hessian():
     for check in (dots.walk_convolutions, dots.clock_sidebands, dots.observer_completion, dots.six_site_torsion,
                   dots.seven_pairs_algebra, dots.golden_port, dots.charges, dots.census_stabilizers, dots.frame_faces,
-                  dots.rotor_firewall, dots.notes_0252):
+                  dots.rotor_firewall, dots.notes_0252, dots.notes_0255):
         out = check()
         assert all(out.values()), out
     # the sideband lift needs the address: read the fibre index without subtracting it and most ticks come back wrong

@@ -162,6 +162,13 @@ Bargmann repair, whose phase pi/4 is half the solid angle of the Pauli octant. C
 and this layer's 9-clique are about two graphs, and both hold; all 84 faces of the 9-clique are prisms. One correction
 goes back to the sibling: of the tick's 25 fixed momenta, 24 sit at 250 and the 25th is the minimum. The board's
 fine-structure digits are not joined: they invert to about 137.036 and are put in by hand.
+
+At 02:55 two more notes came. HALFPERIOD sorts the half-periods by shortest length, 0, 2 and 4 on 1, 120 and 135
+classes, and says that 224 is not a certified critical value. It is, exactly: at x = r0/2 every r.x lies in Z/2, so the
+gradient vanishes, 128 roots are integral on x and 112 half-integral, so eps = 240 - (128 - 112) = 224, and the Hessian
+is 12 P' - 52 P, of index 1. That is the E7 + A1 saddle; the collar near 224 is another question and stays open. TRACES
+gives the even-shell traces 10/3, 2, 0 and 16/3 and the density of states E^3 / (1536 pi^4 30^4) of the long-wave band,
+both replayed.
 """
 
 import functools
@@ -2886,6 +2893,64 @@ def notes_0252():
     }
 
 
+
+def notes_0255():
+    """HALFPERIOD and TRACES (02:53-02:55): the half-periods by length, 224 certified exactly, the shell traces."""
+    R = glue.roots()
+    D2 = np.rint(2 * R).astype(int)
+    simple = np.array([0.5 * np.array([1, -1, -1, -1, -1, -1, -1, 1]), np.eye(8)[0] + np.eye(8)[1]]
+                      + [np.eye(8)[k + 1] - np.eye(8)[k] for k in range(6)])
+    to_class = lambda v2: tuple(np.rint(np.linalg.solve(simple.T, v2 / 2)).astype(int) % 2)
+    ip4 = D2 @ D2.T                                            # 4 r.s
+    short = {to_class(np.zeros(8)): 0}
+    for v2 in D2:
+        short.setdefault(to_class(v2), 2)
+    for i, j in zip(*np.nonzero(ip4 == 0)):
+        short.setdefault(to_class(D2[i] + D2[j]), 4)
+    band = {}
+    for c, n in short.items():
+        v2 = np.array(c) @ np.rint(2 * simple).astype(int)
+        band.setdefault(n, set()).add(240 - int(sum((-1) ** ((r2 @ v2 // 4) % 2) for r2 in D2)))
+    r0 = D2[0]
+    integral = (D2 @ r0 // 4) % 2 == 0                         # r.(r0/2) integral iff r.r0 is even
+    H4 = 2 * (D2[integral].T @ D2[integral]) - 240 * np.eye(8, dtype=int)   # 4 x sum r r^T cos(pi r.r0)
+    third, half = Fraction(1, 3), Fraction(1, 2)
+    Y = [-third, -third, -third, half, half]
+    T3 = [Fraction(0)] * 3 + [half, -half]
+    even = [S for n in (0, 2, 4) for S in itertools.combinations(range(5), n)]
+    tr = lambda a, b: sum(sum((a[i] for i in S), Fraction(0)) * sum((b[i] for i in S), Fraction(0)) for S in even)
+    Q = [y + t for y, t in zip(Y, T3)]
+    B = np.array(carrier.signed_incidence(), int)
+    signs = itertools.product((1, -1), repeat=10)
+    E, r, k = sp.symbols("E r k", positive=True)
+    states = sp.pi ** 4 / 24 * (E / 30) ** 4 / (2 * sp.pi) ** 8          # vol{30 |k|^2 < E} / (2 pi)^8 in R^8
+    _, Ew = _walks()
+    return {
+        "HALFPERIOD: the 256 classes of the lattice mod twice itself have shortest lengths 0, 2 and 4 on 1, 120 and 135 "
+        "classes, and at a shortest vector v the band at v/2 is 0, 224 and 256; the stabilizer names E8, E7 + A1 and D8, "
+        "which the note did not recompute, are layer 23's (02:20)": len(short) == 256
+        and Counter(short.values()) == Counter({0: 1, 2: 120, 4: 135}) and band == {0: {0}, 2: {224}, 4: {256}},
+        "and 224 is a certified critical value, against the note: at x = r0/2 every r.x lies in Z/2, so the gradient "
+        "vanishes exactly; 128 roots (E7 + A1) have r.x integral and 112 half-integral, so eps = 240 - (128 - 112) = 224; "
+        "the Hessian sum r r^T cos(2 pi r.x) is 2(36 P' + 4 P) - 60 I = 12 P' - 52 P, of index 1 and nondegenerate. The "
+        "collar near 224 is another question and stays open": integral.sum() == 128 and 240 - (128 - 112) == 224
+        and np.array_equal(H4, 48 * np.eye(8, dtype=int) - 32 * np.outer(r0, r0))
+        and sorted(np.linalg.eigvalsh(H4 / 4).round(9)) == [-52.0] + [12.0] * 7,
+        "TRACES: on the 16 even faces the hypercharge squares sum to 10/3, the weak squares to 2 and the cross term to 0, "
+        "so the charge squares give 16/3; six copies are 20, 12 and 32, and the ratio 2/(16/3) = 3/8 is the same as on "
+        "the 5. The traces fix no coupling": (tr(Y, Y), tr(T3, T3), tr(Y, T3), tr(Q, Q)) == (Fraction(10, 3), 2, 0, Fraction(16, 3))
+        and (6 * tr(Y, Y), 6 * tr(T3, T3), 6 * tr(Q, Q)) == (20, 12, 32) and tr(T3, T3) / tr(Q, Q) == Fraction(3, 8),
+        "B B^T = 5I - J for every one of the 1024 orientations; the moments of 240 - A are 1, 240, 57840, 13983360; with "
+        "eps = 30|k|^2 the density of states in eight dimensions is E^3 / (1536 pi^4 30^4) for dk/(2 pi)^8":
+            all(np.array_equal((B * s) @ (B * s).T, 5 * np.eye(5, dtype=int) - 1) for s in map(np.array, signs))
+            and Ew[:4] == [1, 240, 57840, 13983360]
+            and sp.simplify(sp.diff(states, E) - E ** 3 / (1536 * sp.pi ** 4 * 30 ** 4)) == 0,
+        "the circle has phi(4320) = 1152 generators, 137 among them; and modules 8-11's area form dA = 2 dx dy/(1 + r^2)^2 "
+        "integrates to 2 pi, so (1/2 pi) times it is 1, the qubit's Chern number": sp.totient(N) == 1152
+        and sum(1 for x in range(N) if gcd(x, N) == 1) == 1152 and gcd(137, N) == 1
+        and sp.integrate(2 / (1 + r ** 2) ** 2 * 2 * sp.pi * r, (r, 0, sp.oo)) / (2 * sp.pi) == 1,
+    }
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -3190,6 +3255,7 @@ LEDGER_ROWS = [
     ("the frame's two cliques (CHECK_0154)", "no clique of nine roots; a face has three common neighbours, not a triangle", "both hold, in two graphs: the root graph's maximal 8-clique, and the lattice graph's 9-clique with the origin, all 84 of whose faces are prisms", T, "23"),
     ("the rotor firewall and the Bargmann repair (Canon K)", "C6 against C5 + I1; tr = 1 + i for raw dyads, (1 + i)/4 normalized", "replayed: every intertwiner has rank 1; the phase pi/4 is half the solid angle of the Pauli octant", T, "23"),
     ("releases K+ADDENDUM2 and K+ADDENDUM3 (hub, 02:31 and 02:41)", "W5/W6, the 160/27 clock, Bargmann, the rotor firewall, the joint observer, the sidebands, the sensor optimum, the anti-alias court", "every stated bridge is replayed; the verifiers and evidence zips are recorded, not run", RP, "23"),
+    ("the critical value 224 (HALFPERIOD)", "224 not recomputed, not a certified critical value", "corrected: at x = r0/2 every r.x is in Z/2, so the gradient vanishes; eps = 240 - (128 - 112) = 224 exactly, with Hessian 12 P' - 52 P (index 1, nondegenerate): the E7 + A1 saddle; the collar near 224 stays open", T, "16, 23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
     ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
@@ -3549,7 +3615,10 @@ def run():
              "octant has solid angle pi/2"),
             (notes_0252, "the 01:57-02:52 arithmetic: the moon and the sun in the atlas, the subgroups' tick counts, the "
              "board's written digits (about 137.036, not 137), ALPHA_JOIN's c put in by hand, the rebuilt 176173056 and "
-             "the spine's rows")):
+             "the spine's rows"),
+            (notes_0255, "HALFPERIOD and TRACES (02:53-02:55): the half-periods by shortest length 0, 2, 4; 224 certified "
+             "exactly as the E7 + A1 saddle's critical value (Hessian 12 P' - 52 P), against the note; the even-shell traces "
+             "10/3, 2, 0, 16/3; the density of states E^3 / (1536 pi^4 30^4); phi(4320) = 1152; the Chern number 1")):
         out = fn()
         rep.add(text, T, all(out.values()), out)
     rep.add("Drive check 02:52: the sibling's 29 notes of 01:57-02:49, from SPECTRUM_AND_ATLAS to TRIPLET, with the 02:28 "
@@ -3562,6 +3631,10 @@ def run():
             "agrees with the 9-clique here, which contains the origin. The hub's KB and KC rows replay the W5/W6 walk, the "
             "160/27 clock, the Bargmann repair, the rotor firewall, the joint observer and the sidebands, all replayed "
             "here too", RP, True)
+    rep.add("Drive check 02:55: the sibling's HALFPERIOD (02:53) and TRACES (02:55) and the hub's 00_START_HERE for "
+            "K+ADDENDUM3 (02:52; the hourly canon run was disabled after it); TRACES reaches the 3/8 ratio of the 02:52 "
+            "check and says, as here, that the traces fix no coupling; its Pachner defects and index -12k are not "
+            "replayed, and the curvature integral is read as modules 8-11's dA", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

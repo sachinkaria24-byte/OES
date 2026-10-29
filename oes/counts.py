@@ -1,4 +1,4 @@
-"""Layer 22. Counts, graphs and moments (28-29 Oct 2026; Drive checks 19:21 to 02:52 UTC and the 00:35 relay).
+"""Layer 22. Counts, graphs and moments (28-29 Oct 2026; Drive checks 19:21 to 02:55 UTC and the 00:35 relay).
 
 Sources read before this layer (Google Drive):
 
@@ -39,7 +39,9 @@ Sources read before this layer (Google Drive):
   (Canon K) and of the separate model's unified receipt, joined in layer 23;
 * at 02:52: the readings of the sibling's notes of 01:57-02:49, from SPECTRUM_AND_ATLAS to TRIPLET, and its spine29
   audit (the census stabilizers, the six-site torsion, the golden port, the board, the 160 x 27 clock and the five-site
-  charges), of the hub's observer completion and of release K+ADDENDUM3, joined in layer 23.
+  charges), of the hub's observer completion and of release K+ADDENDUM3, joined in layer 23;
+* at 02:55: the readings of the sibling's HALFPERIOD and TRACES (the half-periods by length, the critical value 224,
+  the shell traces and the density of states), replayed in layer 23.
 
 Here "zero modes" and "dark" mean ker M = P5, as in layers 5 and 12. The canon's two-dimensional dark planes
 (the dark-core theorem) are another object, as the separate model's status also notes.
@@ -1962,6 +1964,30 @@ CLAIMS = [
     ("RELEASE_KC", "source rows", 413, True, ()),
     ("RELEASE_KC", "claim rows", 313, True, ()),
     ("RELEASE_KC", "observer checks", 5, False, ()),
+    ("HALFPERIOD", "the cosets", 256, True, ()),
+    ("HALFPERIOD", "of length 2", 120, False, (('order', 36),)),
+    ("HALFPERIOD", "of length 4", 135, False, ()),
+    ("HALFPERIOD", "the points of PG(2,5)", 31, True, ()),
+    ("HALFPERIOD", "the exterior points", 15, False, ()),
+    ("HALFPERIOD", "the interior points", 10, False, ()),
+    ("HALFPERIOD", "the conic", 6, True, ()),
+    ("HALFPERIOD", "the saddle value", 224, True, ()),
+    ("HALFPERIOD", "the checks not rerun", 652, True, ()),
+    ("HALFPERIOD", "the spine's checks", 30, False, ()),
+    ("TRACES", "the even states", 16, True, ()),
+    ("TRACES", "the hypercharge numerator", 10, False, ()),
+    ("TRACES", "six copies of it", 20, False, ()),
+    ("TRACES", "six copies of the weak squares", 12, True, ()),
+    ("TRACES", "six copies of the charge squares", 32, True, ()),
+    ("TRACES", "the mixing denominator", 8, True, ()),
+    ("TRACES", "a moment", 57840, False, ()),
+    ("TRACES", "a moment", 13983360, False, ()),
+    ("TRACES", "the dispersion", 30, False, ()),
+    ("TRACES", "the density constant", 1536, True, ()),
+    ("TRACES", "the generators", 1152, True, ()),
+    ("TRACES", "137", 137, True, (('gen',),)),
+    ("TRACES", "the index factor", 12, True, ()),
+    ("TRACES", "the spine's checks", 31, True, ()),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -3384,8 +3410,8 @@ def batch7_arithmetic():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (240 notes, 18:32-02:49)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT), the 21:40-22:08 notes (primary split, doubling parts, 801, atlas, closure), the 22:08-23:03 notes (Pauli cycle, corrections, coil, canon join, nakshatra, golden family, release H, MPKG, address tick), the 23:05-23:43 notes (golden orbit, grain, shift law, bass fiber, vortex, doubling split), the 23:46-00:14 notes (ticks and misses, doubling orbits, towers, modules), the 00:16-00:29 notes and the 29 Oct paper (frame, protection, grain twice), the 00:36-00:51 notes (six-port moments, audits, edge tick, frozen towers) and the splits receipt, the 00:53-01:54 notes (root scheme, simplex, tick split, golden spaces, frame faces), Canon K and the unified receipt, the 01:57-02:49 notes (census stabilizers, six-site torsion, golden port, board, 160 x 27 clock, charges), the observer completion and release KC",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 1819 readings from 240 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (242 notes, 18:32-02:55)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT), the 21:40-22:08 notes (primary split, doubling parts, 801, atlas, closure), the 22:08-23:03 notes (Pauli cycle, corrections, coil, canon join, nakshatra, golden family, release H, MPKG, address tick), the 23:05-23:43 notes (golden orbit, grain, shift law, bass fiber, vortex, doubling split), the 23:46-00:14 notes (ticks and misses, doubling orbits, towers, modules), the 00:16-00:29 notes and the 29 Oct paper (frame, protection, grain twice), the 00:36-00:51 notes (six-port moments, audits, edge tick, frozen towers) and the splits receipt, the 00:53-01:54 notes (root scheme, simplex, tick split, golden spaces, frame faces), Canon K and the unified receipt, the 01:57-02:49 notes (census stabilizers, six-site torsion, golden port, board, 160 x 27 clock, charges), the observer completion and release KC, the 02:53-02:55 notes (half-periods, traces)",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 1843 readings from 242 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),

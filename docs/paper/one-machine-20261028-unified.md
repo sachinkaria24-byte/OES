@@ -1,13 +1,13 @@
 # One Machine: the unified edition
 
-**OES end-to-end model, 28–29 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), the sibling's evening notes with the canon's 19:10 continuation (layer 22), and one diagram of checked joins on six levels, which follows the sibling's notes to 02:49 on 29 October and the hub's release K+ADDENDUM3 (layer 23). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
+**OES end-to-end model, 28–29 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), the sibling's evening notes with the canon's 19:10 continuation (layer 22), and one diagram of checked joins on six levels, which follows the sibling's notes to 02:55 on 29 October and the hub's release K+ADDENDUM3 (layer 23). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
 
 **AUTH = NOT_PASS · ScientificGold = FALSE · TIME_BIND = UNBOUND · DYN_BIND = NOT_INSTALLED · SCR6 = NOT_RUN_OPERAND_ABSENT · PredictionFreeze = NOT_TRIGGERED.** No gate moves, and no term is added to the action.
 
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 23 layers in **672 checks**. Of these, 600 hold: THEOREM 456, OBSTRUCTION 47, ARITHMETIC 39, UNFORMED 22, CONDITIONAL 21, SELECTED_REFERENCE 13, REMOVED 2. The other 72 are REPORTED records.
+- `python verify.py` replays 23 layers in **674 checks**. Of these, 601 hold: THEOREM 457, OBSTRUCTION 47, ARITHMETIC 39, UNFORMED 22, CONDITIONAL 21, SELECTED_REFERENCE 13, REMOVED 2. The other 73 are REPORTED records.
 - `python -m pytest` runs 61 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, `docs/LEDGER.md` holds the unified ledger, and `docs/DOTS.md` draws every checked join.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
@@ -309,7 +309,7 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more, at 20:33 one more, at 21:05 fifteen more, at 21:36 nineteen more (21:09–21:38), with the separate model's revised status, and at 22:08 eight more, whose structure is joined in §9. Layer 22 replays all of them in 60 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1819 readings from 240 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1843 readings from 242 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -439,6 +439,8 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 
 **The 02:52 items** (the sibling's notes to 02:49, the hub's observer completion and releases K+ADDENDUM2 and K+ADDENDUM3). One dot and nine joins are new. The five-site charges Q = Y + T3 of the removed hypercharge shell become a dot, so that what holds and what fails about them is on the diagram. Their shells are the 4-simplex's even and odd faces, each with Σq² = 16/3, and the even faces carry one generation's charges. On B4's anomaly-free 5 + 10, at opposite chiralities, the cubic hypercharge sums cancel (5/36 each); on the zero modes alone they do not. Through an identification with the zero modes, Y lies in the exact dark U(5), but on the atoms B1 forbids any charge but the global phase. At the tick's 24 fixed momenta of type A4 + A4, minus a fifth of the band's Hessian satisfies X² = X + I, so the Hessian there is −5 times a golden companion, with determinant 5⁸. The port metric is twice the pentagon Laplacian plus 2/5, and on the contrast it is 4I + 2X with X² = X + I. The hub's joint observer joins the source to the readout: the wedge of the source pair has rank 7 with fibre SL(2), and three frame probes make it injective with an explicit inverse. Its sidebands join the atlas back to the circle: the address and the residues mod 32, 27 and 5 rebuild the tick, and three sensors of largest alphabet 32 are optimal. Also replayed: Canon K's W₅ and W₆ (layer 3's returns), the 160 × 27 clock with the tick in 2241, the six-site Smith torsion (its 5 is the 5 in 240), the census's stabilizers as Weyl groups of the extended diagram's subsystems, the rotor firewall, and the Bargmann phase π/4, half the solid angle of the Pauli octant. The sibling's "no clique of nine roots" and this build's 9-clique are about two graphs, and both hold. One correction goes back to the sibling: of the tick's 25 fixed momenta, 24 sit at 250 and the 25th is the minimum. The board's fine-structure digits are not joined: they invert to about 137.036 and are put in by hand.
 
+**The 02:55 items** (HALFPERIOD and TRACES). The half-periods sort by shortest length 0, 2 and 4 on 1, 120 and 135 classes. One correction goes back to the sibling: 224 is a certified critical value. At x = r₀/2 every r·x lies in ℤ/2, so the gradient vanishes, and 128 roots are integral on x and 112 half-integral, so ε = 240 − (128 − 112) = 224, with Hessian 12P′ − 52P of index 1, the E7 + A1 saddle. The collar near 224 stays open. The even-shell traces are 10/3, 2, 0 and 16/3, and with ε = 30|k|² the density of states in eight dimensions is E³/(1536 π⁴ 30⁴).
+
 **Replay for the hub (OES-C01).** At commit f41b278 the reported state replays exactly: 21 layers, 412 checks (383 hold and 29 reported), 31 tests, and the TypeScript audits at residual 0. The logs and a handover are in `docs/hub/OES-C01/`.
 
 ## 10. The unified ledger
@@ -560,16 +562,16 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 60 | the evening notes: 1819 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
-| 23 | dots | 200 | 58 dots and 125 checked joins in one diagram on six levels, no bridge (`docs/DOTS.md`); the 22:08–02:49 notes |
+| 22 | counts | 60 | the evening notes: 1843 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
+| 23 | dots | 202 | 58 dots and 125 checked joins in one diagram on six levels, no bridge (`docs/DOTS.md`); the 22:08–02:55 notes |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 23 layers, 672 checks, about 6 minutes
+python verify.py              # 23 layers, 674 checks, about 6 minutes
 python -m pytest -q           # 61 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: "One Machine 20261028" on Drive (290 notes and papers, 17:01–02:49 UTC), two canon sheets, the hub (releases I, J, K and its addenda 2 and 3, with the observer completion) and two syntheses.
+Sources: "One Machine 20261028" on Drive (292 notes and papers, 17:01–02:55 UTC), two canon sheets, the hub (releases I, J, K and its addenda 2 and 3, with the observer completion) and two syntheses.

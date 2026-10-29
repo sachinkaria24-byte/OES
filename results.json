@@ -57,35 +57,35 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.69,
+  "1-carrier": 0.82,
   "2-spectral": 0.01,
-  "3-spacetime": 8.32,
-  "4-native": 90.74,
-  "5-observer": 6.76,
-  "6-gravity": 4.18,
-  "7-cosmology": 1.62,
+  "3-spacetime": 8.19,
+  "4-native": 96.51,
+  "5-observer": 1.42,
+  "6-gravity": 4.57,
+  "7-cosmology": 1.68,
   "8-frontier": 34.68,
-  "9-joins": 10.19,
-  "10-literal": 38.06,
+  "9-joins": 7.58,
+  "10-literal": 35.18,
   "11-glue": 0.17,
-  "12-binding": 0.07,
-  "13-gates": 0.25,
-  "14-recurrence": 78.67,
-  "15-court": 1.82,
-  "16-handover": 1.63,
-  "17-waves": 0.77,
-  "18-snapshot": 1.99,
-  "19-spine": 5.71,
-  "20-canon": 5.8,
-  "21-ledger": 44.89,
-  "22-counts": 21.49,
-  "23-dots": 11.9
+  "12-binding": 0.14,
+  "13-gates": 0.16,
+  "14-recurrence": 78.98,
+  "15-court": 1.78,
+  "16-handover": 1.25,
+  "17-waves": 0.56,
+  "18-snapshot": 1.01,
+  "19-spine": 4.9,
+  "20-canon": 6.24,
+  "21-ledger": 47.58,
+  "22-counts": 21.34,
+  "23-dots": 12.75
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 456,
-   "total": 456
+   "passed": 457,
+   "total": 457
   },
   "OBSTRUCTION": {
    "passed": 47,
@@ -112,8 +112,8 @@
    "total": 21
   },
   "REPORTED": {
-   "passed": 72,
-   "total": 72
+   "passed": 73,
+   "total": 73
   }
  },
  "checks": [
@@ -4642,13 +4642,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1819 readings from 240 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1843 readings from 242 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 240,
-    "claims": 1819,
+    "notes": 242,
+    "claims": 1843,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -7939,6 +7939,20 @@
   },
   {
    "layer": "23-dots",
+   "name": "HALFPERIOD and TRACES (02:53-02:55): the half-periods by shortest length 0, 2, 4; 224 certified exactly as the E7 + A1 saddle's critical value (Hessian 12 P' - 52 P), against the note; the even-shell traces 10/3, 2, 0, 16/3; the density of states E^3 / (1536 pi^4 30^4); phi(4320) = 1152; the Chern number 1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "HALFPERIOD: the 256 classes of the lattice mod twice itself have shortest lengths 0, 2 and 4 on 1, 120 and 135 classes, and at a shortest vector v the band at v/2 is 0, 224 and 256; the stabilizer names E8, E7 + A1 and D8, which the note did not recompute, are layer 23's (02:20)": true,
+    "and 224 is a certified critical value, against the note: at x = r0/2 every r.x lies in Z/2, so the gradient vanishes exactly; 128 roots (E7 + A1) have r.x integral and 112 half-integral, so eps = 240 - (128 - 112) = 224; the Hessian sum r r^T cos(2 pi r.x) is 2(36 P' + 4 P) - 60 I = 12 P' - 52 P, of index 1 and nondegenerate. The collar near 224 is another question and stays open": true,
+    "TRACES: on the 16 even faces the hypercharge squares sum to 10/3, the weak squares to 2 and the cross term to 0, so the charge squares give 16/3; six copies are 20, 12 and 32, and the ratio 2/(16/3) = 3/8 is the same as on the 5. The traces fix no coupling": true,
+    "B B^T = 5I - J for every one of the 1024 orientations; the moments of 240 - A are 1, 240, 57840, 13983360; with eps = 30|k|^2 the density of states in eight dimensions is E^3 / (1536 pi^4 30^4) for dk/(2 pi)^8": true,
+    "the circle has phi(4320) = 1152 generators, 137 among them; and modules 8-11's area form dA = 2 dx dy/(1 + r^2)^2 integrates to 2 pi, so (1/2 pi) times it is 1, the qubit's Chern number": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "Drive check 02:52: the sibling's 29 notes of 01:57-02:49, from SPECTRUM_AND_ATLAS to TRIPLET, with the 02:28 spine29.ts (24 audit rows) and Spine29.tsx (its view), read as text and not run (their 02:09 editions are superseded and were not read); the hub's Canon K doc as revised at 02:37, OES_All_Dots_Canon_Completion (02:37), and the releases K+ADDENDUM2 and K+ADDENDUM3 (intake cutoffs 02:31 and 02:41, scientific cutoff still 01:06) with 00_START_HERE, CURRENT_STATUS, CURRENT_RELEASE and three claim files; the evidence and verifier zips were not downloaded or run",
    "status": "REPORTED",
    "passed": true,
@@ -7948,6 +7962,14 @@
   {
    "layer": "23-dots",
    "name": "the sibling's CHECK_0154 (02:23) reviews this layer's 01:54 check: its three corrections hold (the subgroups' ticks, the square-free parts, 36 x 120 not split); its 'no nine-root clique' is about the root graph and agrees with the 9-clique here, which contains the origin. The hub's KB and KC rows replay the W5/W6 walk, the 160/27 clock, the Bargmann repair, the rotor firewall, the joint observer and the sidebands, all replayed here too",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 02:55: the sibling's HALFPERIOD (02:53) and TRACES (02:55) and the hub's 00_START_HERE for K+ADDENDUM3 (02:52; the hourly canon run was disabled after it); TRACES reaches the 3/8 ratio of the 02:52 check and says, as here, that the traces fix no coupling; its Pachner defects and index -12k are not replayed, and the curvature integral is read as modules 8-11's dA",
    "status": "REPORTED",
    "passed": true,
    "value": null,

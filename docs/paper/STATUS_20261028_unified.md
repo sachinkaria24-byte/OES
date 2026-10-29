@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 672 checks. Of these, 600 hold: THEOREM 456, OBSTRUCTION 47, ARITHMETIC 39, UNFORMED 22, CONDITIONAL 21, SELECTED_REFERENCE 13, REMOVED 2. The other 72 are REPORTED records.
+- `python verify.py` runs 23 layers and 674 checks. Of these, 601 hold: THEOREM 457, OBSTRUCTION 47, ARITHMETIC 39, UNFORMED 22, CONDITIONAL 21, SELECTED_REFERENCE 13, REMOVED 2. The other 73 are REPORTED records.
 - `pytest` runs 61 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 200 checks).
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 202 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 58 dots and 125 checked joins as one diagram on six levels, with no bridge.
 
@@ -87,11 +87,12 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - The joint observer: the wedge of the source pair has rank 7 with fibre SL(2), and three frame probes make it injective with an explicit inverse. The sideband lift: the address and the residues mod 32, 27 and 5 rebuild the tick; three sensors of largest alphabet 32 are optimal.
   - Replayed: Canon K's W₅ and W₆ (layer 3's returns), the 160 × 27 clock, the six-site Smith torsion (its 5 is the 5 in 240), the census's stabilizers (Weyl groups of the extended diagram's subsystems), the rotor firewall and the Bargmann phase π/4 (half the Pauli octant's solid angle). The sibling's "no clique of nine roots" and the 9-clique here are about two graphs, and both hold.
   - Not joined: the board's fine-structure digits, which invert to about 137.036 and are put in by hand (UNFORMED). The hub's verifiers and evidence zips were not downloaded or run.
+- **The 02:55 items** (HALFPERIOD, TRACES): the half-periods by shortest length 0, 2, 4 on 1 + 120 + 135 classes; 224 certified exactly as the E7 + A1 saddle's critical value (gradient zero, ε = 240 − (128 − 112), Hessian 12P′ − 52P of index 1), a correction to HALFPERIOD; the even-shell traces 10/3, 2, 0, 16/3; the long-wave density of states E³/(1536 π⁴ 30⁴).
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
-New in layer 22 (the sibling's notes of 18:32–02:49, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
+New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
 
-- **Counts.** 1819 more readings on the tick bit, from 240 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Counts.** 1843 more readings on the tick bit, from 242 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.
