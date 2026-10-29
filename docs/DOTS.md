@@ -27,6 +27,7 @@ flowchart TB
         hodge["Hodge 70"]
         air801["801 matrix"]
         words["fifteen words"]
+        regular["regular clocks"]
     end
     subgraph level3["level 3: combinatorics"]
         V["K5 vertices"]
@@ -53,6 +54,7 @@ flowchart TB
         rootgraph["root graph"]
         cyclo["cyclotomic line"]
         residue["residue plane"]
+        sun["sun's decad"]
     end
     subgraph level5["level 5: operator"]
         carrier["carrier"]
@@ -344,20 +346,33 @@ flowchart TB
     L0 -->|"the shadows"| carrier
     pgl -->|"the hexad"| parent
     circle -->|"the address map"| parent
+    clocks -->|"Springer"| regular
+    regular -->|"three cyclotomic lines"| cyclo
+    regular -->|"the centralizer of 5"| residue
+    regular -->|"the centralizer of 3"| sun
+    regular -->|"the centralizer of 2"| halfper
+    cyclo -->|"the prime over 3"| sun
+    sun -->|"W(3)"| rootgraph
+    regular -.->|"no fourth line"| cyclo
+    cyclo -->|"the primes over 2"| halfper
+    sun -->|"the decad"| parent
+    sun -->|"the clocks on the decad"| AGL
+    circle -.->|"no homomorphism"| parent
+    clocks -.->|"solvable clocks"| parent
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-68 dots and 262 joins: 237 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 11 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+70 dots and 275 joins: 247 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 14 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 7 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words | 11 | 11 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 12 | 11 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 5 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane | 17 | 21 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad | 20 | 22 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 22 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
@@ -368,10 +383,10 @@ The maps that join each pair of levels directly.
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
 | number | - | 7 | 3 | 3 | 3 | 2 |
-| symmetry | 7 | - | 11 | 14 | 12 | 7 |
+| symmetry | 7 | - | 11 | 19 | 12 | 7 |
 | combinatorics | 3 | 11 | - | 5 | 19 | 7 |
-| lattice | 3 | 14 | 5 | - | 21 | 5 |
-| operator | 3 | 12 | 19 | 21 | - | 22 |
+| lattice | 3 | 19 | 5 | - | 22 | 5 |
+| operator | 3 | 12 | 19 | 22 | - | 22 |
 | physics | 2 | 7 | 7 | 5 | 22 | - |
 
 ## Dots
@@ -445,7 +460,9 @@ The maps that join each pair of levels directly.
 | root-wedge port | the hub's unmarked S5 port T_S x(rho) = <x, v ^ w>/sqrt24 on the 240 roots | operator | 23 |
 | synthemes | the 15 perfect matchings of the six Sylow labels, 5 + 10 under the exceptional S5 | combinatorics | 23 |
 | dark ports | the hub's norm-four ports of the dark four: A on the 120 sites of the orbit of (-1, 0, 0, 1, 1, 0, 1, 0), and the triple wedge on 1200 sites | operator | 23 |
-| 360 parent | Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36 | operator | 23 |
+| 360 parent | Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36 | operator | 23, 26 |
+| regular clocks | the thirteen regular classes of W(E8), powers of c', d and v with characteristic polynomials Phi_d^(8/phi(d)) and centralizers of order prod_(d \| d_i) d_i | symmetry | 26 |
+| sun's decad | E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames | lattice | 26 |
 
 ## Joins
 
@@ -711,6 +728,19 @@ The maps that join each pair of levels directly.
 | A4 + A4' | carrier | the mixed roots project onto the carrier's A4 as the five vertex and ten edge weights, and their Gram plus 2/5 is the signless incidence M, so D = [[0, M], [M^T, 0]] is the shadow incidence (layer 25) | THEOREM | `carrier_shadows` |
 | PGL(2,5) | 360 parent | with the six residue lines labelled so that the carrier rotation is (01234) and the carrier line is 5, the hub's t = (23)(45) lies outside the tick's PSL(2,5) and the two generate A6: the 360 parent is the alternating group of the tick's hexad (layer 25) | THEOREM | `parent_hexad` |
 | circle | 360 parent | address(j) = r^p c_q sends the 4320 circle onto the 360 parent's settings twelve to one, with address(j + 864) = r address(j); no address is equivariant for the natural doubling (the settings' F20 orbits are 5^4 10^2 20^16 against the clock's fives), so this is a selected scheduling convention (the hub, 19:39) | SELECTED_REFERENCE | `address_map` |
+| W(E8) clocks | regular clocks | the regular numbers of E8 are the divisors of the clocks' orders 30, 24 and 20; each regular class is a power of c', d or v with every eigenvalue a primitive d-th root, and its centralizer, counted from the images of a Z[w]-basis of roots, has the order the degrees give: 30, 24, 20, 288, 192, 600, 46080 and 155520 (layer 26) | THEOREM | `primes.regular_clocks` |
+| regular clocks | cyclotomic line | the clocks with cyclic centralizers make E8 a line over Z[zeta30], Z[zeta24] and Z[zeta20], each with a trace form of norm 1/disc (3^-4 5^-6, 2^-16 3^-4, 2^-8 5^-6) and a normalizer that realizes its Galois group (240, 192, 160) (layer 26) | THEOREM | `primes.cyclotomic_lines` |
+| regular clocks | residue plane | the regular class 5 is the tick, whose centralizer of order 20 x 30 = 600 acts on its residue plane F25 as SL(2,5) = Sp(2,5), the isometries of the plane's symplectic form (layer 26) | THEOREM | `primes.prime_residues` |
+| regular clocks | sun's decad | the regular class 3 is the sun s = c'^10, whose centralizer of order 12 x 18 x 24 x 30 = 155520 acts on its 81 momenta as Sp(4,3), 155520/3 = 51840 isometries of <x, (s - s^2) y> mod 3, with kernel <s> (layer 26) | THEOREM | `primes.prime_residues` |
+| regular clocks | half-periods | the regular class 2 is -1, the half-turn, whose centralizer is W(E8), of order 2 \|GO8+(2)\|; it keeps the half-period form q(x) = <x, x>/2 mod 2 (cited: W(E8)/<-1> = GO8+(2)) (layer 26) | THEOREM | `primes.prime_residues` |
+| cyclotomic line | sun's decad | c' = (-1) s g, and the sun s = c'^10 fixes E8/(1 - s)E8 = F81 (Smith form 1^4 3^4), the residue field of Q(zeta15) at its prime over 3, on which c' has order 10; with the half-turn's F16 x F16 and the tick's F25 these are the residue rings of Z[zeta30] at 2, 3 and 5, and the roots lie 2, 3 and 10 over their points (layer 26) | THEOREM | `primes.prime_clocks` |
+| sun's decad | root graph | the sun's 40 projective points pull back to 40 A2 that partition the roots, two orthogonal exactly when their points are; the 40 totally isotropic lines are 40 frames 4A2 (the quadrangle W(3)), and the ten F9-lines, F9 = F3[phi] with phi = c' + c'^-1, are a spread of them: the decad (layer 26) | THEOREM | `primes.sun` |
+| regular clocks | cyclotomic line | Q(zeta16), the fourth cyclotomic field of degree 8, carries Z^8 and not E8: W(E8) has no element of order 16, since one would square to a conjugate of d^3 (cited: Springer) and C_W(d^3), 192 elements, has none (layer 26) | OBSTRUCTION | `primes.no_sixteen` |
+| cyclotomic line | half-periods | E8/2E8 = Z[zeta30]/2 = F16 x F16: the two primes over 2 are complementary totally singular subspaces, swapped by the mirror, on each of which c' is a Singer cycle of order 15; the 120 nonsingular half-periods carry the roots, two each (layer 26) | THEOREM | `primes.half_turn` |
+| sun's decad | 360 parent | the 2160 isometries that commute with the sun and with phi act on the ten F9-lines as PSL(2,9) with kernel <c'^5>, and an isomorphism from the hub's <r, t> sends r to the Coxeter clock: the 360 parent is the sun's A6 on its ten 4A2 frames (layer 26) | THEOREM | `primes.decad` |
+| sun's decad | AGL(1,5) | on the ten frames c' and the tick act as one fixed-point-free 5-element and the day as its doubling, of order 4 and outside A6: the day-Coxeter group acts as AGL(1,5), and the isomorphism extends to S6 = PSigmaL(2,9) with the hub's doubling sent to the day (layer 26) | THEOREM | `primes.decad` |
+| circle | 360 parent | A6's elements have orders 1 to 5, all dividing 4320, so Z/4320 has exactly 360 homomorphisms to A6, each with a cyclic image of at most five elements: the address map's orbits add to 360, but no clock homomorphism covers A6, and the address map is not one (the owner, 20:22) | OBSTRUCTION | `primes.parent_cover` |
+| W(E8) clocks | 360 parent | every clock lies in the normalizer of <c'>, which is solvable (240 > 30 > 1), and A6 is perfect, so no clock group maps onto it; on the tick's hexad the seed acts through PGL(2,5), whose even part holds 60 of the 360 (layer 26) | OBSTRUCTION | `primes.parent_cover` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 

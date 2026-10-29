@@ -4,8 +4,8 @@ from fractions import Fraction
 import pytest
 
 from oes import (assignment, band, binding, canon_sync, carrier, cosmology, counts, court, cyclotomic, dots, frontier,
-                 gates, gatework, glue, gravity, handover, joins, ledger, literal, native, observer, recurrence,
-                 snapshot, spacetime, spectral, spine, unify, waves)
+                 gates, gatework, glue, gravity, handover, joins, ledger, literal, native, observer, primes,
+                 recurrence, snapshot, spacetime, spectral, spine, unify, waves)
 
 LAYERS = {
     "carrier": carrier.run,
@@ -314,7 +314,7 @@ def test_all_dots_are_joined():
 def test_every_level_is_joined():
     passed = [True] * len(dots.JOINS)
     lv = dots.levels(passed)
-    assert lv["layers"] == list(range(1, 26))
+    assert lv["layers"] == list(range(1, 27))
     assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
     assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
     # THEOREM joins alone leave out exactly the two conditional dots and the memory clock, joined by selection
@@ -630,7 +630,7 @@ def test_the_one_object():
     for check in (cyclotomic.cyclotomic_line, cyclotomic.galois_clocks, cyclotomic.residue_plane,
                   cyclotomic.tick_normalizer, cyclotomic.clock_residues, cyclotomic.golden_gauss,
                   cyclotomic.carrier_shadows, cyclotomic.parent_hexad, unify.uniqueness, unify.derivation,
-                  dots.notes_1909, dots.address_map, dots.notes_1950):
+                  dots.notes_1909, dots.address_map, dots.notes_1950, dots.notes_2033):
         out = check()
         assert all(out.values()), out
     import numpy as np
@@ -650,6 +650,33 @@ def test_the_one_object():
     from pathlib import Path
     root = Path(__file__).resolve().parent.parent
     assert (root / "docs" / "UNIFIED.md").read_text() == unify.unified_page()
+
+def test_the_three_primes():
+    for check in (primes.regular_clocks, primes.cyclotomic_lines, primes.no_sixteen, primes.prime_clocks,
+                  primes.prime_residues, primes.half_turn, primes.sun, primes.decad, primes.parent_cover):
+        out = check()
+        assert all(out.values()), out
+    import numpy as np
+    k = cyclotomic.clocks()
+    # the clocks alone reach only the affine 20 on the decad, ten of them in A6
+    D = primes._decad_action()
+    affine = primes._closure([D["R"], D["D"]])
+    assert len(affine) == 20 and len(affine & set(D["H"])) == 10
+    # the day is not F9-linear on the sun's momenta, so it is not in the parent's A6, and r cannot go to the day
+    phi = primes.sun_geometry()["phi"]
+    Qd = primes.on_sun(k["day"][None])[0]
+    assert not np.array_equal((Qd @ phi) % 3, (phi @ Qd) % 3)
+    A = dots._a6()
+    assert primes._iso([A["r"], A["t"]], [D["D"], D["R"]]) is None
+    # the golden clock has roots that do not generate E8 over Z[v], and a wrong root misses the day's data
+    RB = spine.frame()[5]
+    P = [spine.mpow(k["golden"], j) for j in range(8)]
+    assert any(abs(round(np.linalg.det(np.array([M @ r for M in P], dtype=float).T))) == 5 for r in RB)
+    # the parent hangs from the sun's decad in the derivation
+    assert unify.DERIVATION["parent"] == ("sun", "primes.decad")
+    rep = primes.run()
+    assert all(c.passed for c in rep.checks)
+
 
 def test_the_free_chain():
     out = dots.free_chain()
