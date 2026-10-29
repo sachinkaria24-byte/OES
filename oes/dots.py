@@ -356,7 +356,9 @@ element 3 - zeta - zeta^4 + 2 zeta^2 has norm 61, and the 60 permutations fixing
 PSL(2,5). The sibling's 21:05-21:17 editions and maps29.ts read the circle as a ring: its CRT idempotents, their
 mirrors and their products on the tick levels replay as arithmetic. The 21:19-21:46 editions add the idempotents'
 images, the golden ticks as 1080 (k mod 4) + 3456 (k mod 5) and the digit cycles; their landing is 864 x, which is the
-first tick level reached only for units.
+first tick level reached by every unit and by 328 non-units (the sibling's correction at 21:57-22:21 of the "only for
+units" first written here). The hub's 21:54 text adds a dark syndrome floor 1/15 made by one Dirac polynomial, and
+two encoder variants whose moments replay.
 """
 
 import functools
@@ -8104,8 +8106,8 @@ def notes_2150():
             and sorted(ring(3456, d) for d in digits) == [864, 864, 2592, 2592, 3456, 3456]
             and (gcd(351, 741), lcm(351, 741), gcd(39, N)) == (39, 6669, 3),
         "the landing 864 x = 864 (x mod 5) depends only on the residue, and it is the first tick level the multiples of x "
-        "reach exactly for units: 7, 13, 29 and 37 first reach 864 times their residues, while 147, 148 and 153 first "
-        "reach 3456, 1728 and 1728 rather than 1728, 2592 and 2592":
+        "reach for every unit (7, 13, 29 and 37 among them) but not always otherwise: 147, 148 and 153 first reach 3456, "
+        "1728 and 1728 rather than 1728, 2592 and 2592, while the non-unit 1332 does reach its 1728":
             all(ring(864, j) == 864 * (j % 5) for j in range(N))
             and all(first(u) == 864 * (u % 5) for u in (7, 13, 29, 37))
             and (first(147), first(148), first(153)) == (3456, 1728, 1728) and first(1332) == 1728,
@@ -8119,6 +8121,78 @@ def notes_2150():
             and cubic(sp.Rational(43, 1000)) < 0 < cubic(sp.Rational(44, 1000))
             and [round(float(sp.sqrt(v)), 3) for v in (sp.Rational(5, 3), 3, 15, sp.Rational(16, 3))]
             == [1.291, 1.732, 3.873, 2.309],
+    }
+
+
+def notes_2222():
+    """The hub's text (21:54) and the sibling's MODEL (21:57-22:21): the Dirac syndrome polynomial, the encoder
+    variants' moments, and the landing count."""
+    N = 4320
+    ring = lambda a, b: (a * b) % N
+    ticks = (864, 1728, 2592, 3456)
+    first = lambda x: next(((k * x) % N for k in range(1, N + 1) if (k * x) % N in ticks), None)
+    units = [x for x in range(N) if gcd(x, N) == 1]
+    others = [x for x in range(1, N) if gcd(x, N) > 1 and x % 5]
+    M = sp.Matrix(carrier.signless_incidence())
+    K = M.T * M
+    I10, J10 = sp.eye(10), sp.ones(10, 10)
+    P0, P3, P8 = (K - 3 * I10) * (K - 8 * I10) / 24, K * (8 * I10 - K) / 15, K * (K - 3 * I10) / 40
+    SD = P0 + P8
+    A = SD - I10 / 15
+    subsets = [S for r in range(1, 5) for S in itertools.combinations(range(10), r)]
+    minors = [A.extract(list(S), list(S)).det() for S in subsets]
+    tight = [S for S in itertools.combinations(range(10), 4) if A.extract(list(S), list(S)).det() == 0]
+    E = carrier.edges()
+    disjoint = lambda S: sum(1 for a, b in itertools.combinations(S, 2) if not set(E[a]) & set(E[b]))
+    T = (K ** 2 - 7 * K - 2 * I10) / 2
+    V = SD * T
+    sizes = [5, 7, 4, 5, 5, 5, 5]
+    w = [sp.Rational(1, 7 * n) for n in sizes for _ in range(n)]
+    t = [sp.Rational(2 * c - 35, 35) for c in range(36)]
+    mu1, mu2 = sum(a * b for a, b in zip(w, t)), sum(a * b * b for a, b in zip(w, t))
+    f1 = [b - mu1 for b in t]
+    gam = sum(a * c * (b * b - mu2) for a, b, c in zip(w, t, f1)) / sum(a * c * c for a, c in zip(w, f1))
+    f2 = [b * b - mu2 - gam * c for b, c in zip(t, f1)]
+    nu = (sum(a * c * c for a, c in zip(w, f1)), sum(a * c * c for a, c in zip(w, f2)))
+    lab = lambda u: [(u * i) % 36 for i in range(36)]
+    vd = lambda L: min(abs((L[i + 1] - L[i]) * (L[i + 2] - L[i]) * (L[i + 2] - L[i + 1])) for i in range(34))
+    best = {u: vd(lab(u)) for u in range(36) if gcd(u, 36) == 1}
+    return {
+        "correction to this repository's 21:50 statement (the sibling, 21:57-22:21): the landing 864 x is the first tick "
+        "level reached by all 1152 units and also by 328 of the 2304 non-units prime to 5, 1332 among them, so being a "
+        "unit is sufficient, not necessary":
+            len(units) == 1152 and all(first(u) == ring(864, u) for u in units)
+            and len(others) == 2304 and sum(first(x) == ring(864, x) for x in others) == 328 and first(1332) == 1728,
+        "the hub's sharp dark syndrome floor: with S_D = P0 + P8, all 385 principal minors of orders 1 to 4 of "
+        "S_D - I/15 are nonnegative, so every error on at most four edges keeps ||S_D e||^2 >= ||e||^2/15, with "
+        "equality on exactly ten supports, an edge with its complementary triangle (the hub, 21:54)":
+            len(subsets) == 385 and all(m >= 0 for m in minors) and len(tight) == 10
+            and all(disjoint(S) == 3 and len({v for k in S for v in E[k]}) == 5 for S in tight),
+        "one polynomial makes those errors: T = (K^2 - 7K - 2I)/2 = 2J - 2K - I = -P0 - 7P3 + 3P8, whose columns are -3 "
+        "on their edge and +2 on the complementary triangle; V = S_D T has V V^T = P0 + 9P8 and (V - (3/10)J)"
+        "(V - (3/10)J)^T = P0, the source projector":
+            T == 2 * J10 - 2 * K - I10 == -P0 - 7 * P3 + 3 * P8 and P8 == J10 / 10
+            and {tuple(sorted(T[:, e])) for e in range(10)} == {(-3, 0, 0, 0, 0, 0, 0, 2, 2, 2)}
+            and V * V.T == P0 + 9 * P8 and (V - 3 * J10 / 10) * (V - 3 * J10 / 10).T == P0,
+        "the hub's orthogonal-feature encoder on t_c = (2c - 35)/35 with the native weights 1/(7 n): mu1 = 6/245, "
+        "mu2 = 2971/8575, gamma = 3048/726635, nu1 = 20761/60025 and nu2 = 22555368816/218081329375, with weighted "
+        "orthogonal, mean-zero features; the mod 13 labels 13 i mod 36 have moments 8401/490 and 39205/98 and raise the "
+        "least consecutive Vandermonde determinant from 2 to 2990, where 13 and 23 tie as the best of the twelve units":
+            (mu1, mu2, gam) == (sp.Rational(6, 245), sp.Rational(2971, 8575), sp.Rational(3048, 726635))
+            and nu == (sp.Rational(20761, 60025), sp.Rational(22555368816, 218081329375))
+            and sum(a * b * c for a, b, c in zip(w, f1, f2)) == 0 == sum(a * c for a, c in zip(w, f2))
+            and (sum(a * b for a, b in zip(w, lab(13))), sum(a * b * b for a, b in zip(w, lab(13))))
+            == (sp.Rational(8401, 490), sp.Rational(39205, 98))
+            and (best[1], best[13], best[23]) == (2, 2990, 2990) and max(best.values()) == 2990,
+        "the majority decoder's counts C(20, 3) = 1140 > C(18, 3) = 816 and 6 x 33 + 35 + 7 = 240 constraints; and the "
+        "sibling's idempotent readings: the distance 241 is a unit, 25 mod 27 and 17 mod 32, with images 160, 945 and "
+        "3456 summing to 241 + 4320; 2080 sends 120 to 3360, 3105 sends 120 and 240 to 1080 and 2160, 36^2 = 1296, and "
+        "990 = 18 x 135 + 18 x 160 - 4320":
+            (sp.binomial(20, 3), sp.binomial(18, 3)) == (1140, 816) and 6 * 33 + 35 + 7 == 240
+            and gcd(241, N) == 1 and (241 % 27, 241 % 32, 241 % 5) == (25, 17, 1)
+            and (ring(2080, 241), ring(3105, 241), ring(3456, 241)) == (160, 945, 3456) and 160 + 945 + 3456 == 241 + N
+            and ring(2080, 120) == 3360 and (ring(3105, 120), ring(3105, 240)) == (1080, 2160) and 36 * 36 == 1296
+            and 18 * 135 + 18 * 160 - N == 990 and 7 * 135 == 945 and ring(3105, 945) == 945,
     }
 
 
@@ -8689,7 +8763,8 @@ LEDGER_ROWS = [
     ("the saddle quartic (monograph, 20:13)", "0 |y|^4 at the 224 saddle, from 18 + 18", "corrected: -rho^4/2, from 24 (E7) and 12 (oblique); the collar stays open", T, "23"),
     ("the norm 31 (monograph, 20:13)", "N(3 - zeta - zeta^4 + 2 zeta^2) = 31 and 5 x 31 = 155", "corrected: that element has norm 61; 2 + zeta - zeta^2 has norm 31", T, "23"),
     ("the line stabilizer (MODEL, 20:08-21:02)", "the 60 fixing the carrier line have the order of PSL(2,5)", "a point-stabilizer A5, not the tick's transitive PSL(2,5); they meet in 10", T, "23"),
-    ("the landings (MODEL, 21:19-21:46)", "147 lands on 1728; 148 and 153 land on 2592", "as 864 x = 864 (x mod 5), yes; as the first tick level the multiples reach, only for units: 147, 148, 153 first reach 3456, 1728, 1728", gates.ARITHMETIC, "23"),
+    ("the landings (MODEL, 21:19-21:46)", "147 lands on 1728; 148 and 153 land on 2592", "as 864 x = 864 (x mod 5), yes; as the first tick level the multiples reach, not for 147, 148, 153 (3456, 1728, 1728); every unit and 328 non-units match", gates.ARITHMETIC, "23"),
+    ("the dark syndrome floor (hub, 21:54)", "||S_D e||^2 >= ||e||^2/15 on four-sparse errors; T = (K^2 - 7K - 2I)/2", "replayed: 385 minors, ten tight supports, T = -P0 - 7P3 + 3P8, V V^T = P0 + 9P8", T, "23"),
     ("the circle as a ring (MODEL, 21:05-21:17; maps29.ts)", "idempotents 3105, 2080, 3456, 2241; mirrors 864, 2240, 1215; 864^2 = 3456; landings 864 r; depths 2592 + 1728", "replayed as arithmetic on Z/4320; the same integers are not the same operators", gates.ARITHMETIC, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
@@ -9387,6 +9462,17 @@ def run():
             "release OES_N30_W3_D3_SELECTED_INTAKE_20261030 (three new N30 tabs in each controlled workbook, 3738 and 3693 "
             "sheets, every prior cell identical, no source check replayed, no gate changed), its release JSON and four-copy "
             "receipt read, the workbooks not opened; the spine29.ts editions and the OES-paper PDFs not read", RP, True)
+    n2222 = notes_2222()
+    rep.add("the 21:54 text and the 21:57-22:21 model: the landing count (units suffice, 328 non-units also match), the "
+            "dark syndrome floor 1/15 with its ten tight supports, the Dirac polynomial T = -P0 - 7P3 + 3P8, the "
+            "encoder variants' moments and Vandermonde minima, and the idempotent readings", T, all(n2222.values()), n2222)
+    rep.add("Drive check 22:22: the hub's OES_Unified_Model_20261029.txt as revised at 21:54 (sources through 21:22), read "
+            "as text (its zip, 10650481 bytes, not downloaded); the sibling's MODEL editions of 21:57-22:21, the latest "
+            "(22:21) read as text; the spine29.ts editions and the OES-paper PDFs not read", RP, True)
+    rep.add("not replayed: the hub's canonical exterior inverse (gain 1/5 against 149/720), the genuine [32, 12, 14] "
+            "code, the bright floor (9 - sqrt37)/20, the source-power gate and the parent bound B >= ||w||/60, the "
+            "feasibility routine, the six Golden references and the causal jets; and the sibling's N30 sheet gap (3724 "
+            "and 3679 against 3735 and 3690 in the release's own previous entry) and its other readings", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
