@@ -345,7 +345,7 @@ def test_every_pair_of_levels_and_no_two_maps(monkeypatch):
 
 def test_the_0928_notes_replay():
     for check in (dots.walks_by_angle, dots.port_leak, dots.two_ticks, dots.filled_simplex, dots.charge_marks,
-                  dots.infrared, dots.stated_block):
+                  dots.infrared, dots.stated_block, dots.notes_1007, dots.notes_1007_arithmetic):
         out = check()
         assert all(out.values()), out
     # the Hankel test can fail: a measure with two atoms has a vanishing 3 x 3 Hankel determinant

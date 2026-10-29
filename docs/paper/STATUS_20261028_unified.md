@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 24 layers and 763 checks. Of these, 687 hold: THEOREM 531, OBSTRUCTION 51, ARITHMETIC 39, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 76 are REPORTED records.
+- `python verify.py` runs 24 layers and 766 checks. Of these, 689 hold: THEOREM 532, OBSTRUCTION 51, ARITHMETIC 40, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 77 are REPORTED records.
 - `pytest` runs 65 tests.
-- The newest layers are `oes/dots.py` (layer 23, 250 checks) and `oes/assignment.py` (layer 24, 41 checks).
+- The newest layers are `oes/dots.py` (layer 23, 253 checks) and `oes/assignment.py` (layer 24, 41 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 60 dots and 166 checked joins as one diagram on six levels, every pair of levels joined and no two maps holding it together.
 
@@ -111,6 +111,7 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - The coordinate five-cycle fixes 16 half-periods and makes 48 five-cycles; the tick g = r r′ is free. On the edges K = I + 2(T + T⁻¹) squares to 5 on the moving edges, and the filled simplex has interior Laplacians 5I. Y is 5/6 of the weak duad's 10-weight, and the charge's edge lift lies in the cuts.
   - Corrections: DEGREE's 4 and 6 count the clique's other sites and the port's sites, not the cut rank and the cycles. INFRARED's fixed plane holds 2 of the all-ones vector's square (both fixed vectors have square 5), and 10 in the cyclic orientation. The port reads [2/5] ⊕ (2L + (2/5)J).
   - Recorded, not run: the separate model's completion, critical-port, connected-model and glue-helicity archives, the KD staging workbooks and MODEL_UPDATE_CHECKPOINT.json.
+- **The 09:43–10:07 items (Drive check 10:07):** the coordinate classes (twice the first-five sum mod 5) are twice the grade in E8/L0, with integer and spinor counts 32/8, 10/40, 30/20, 30/20, 10/40. The collar witness (28, 28, 6, 2, 1, 0, 0, 0)/10 replays at ε = 220.6345317313 with least tangent eigenvalue 6.985582. The notes' own ledger corrections (52 orbits, 171 = 271 − 100) are arithmetic. INFRARED's 17/10 stays corrected.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–02:55, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):

@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.71,
-  "2-spectral": 0.01,
-  "3-spacetime": 9.1,
-  "4-native": 109.36,
-  "5-observer": 0.7,
-  "6-gravity": 6.17,
-  "7-cosmology": 1.8,
-  "8-frontier": 40.02,
-  "9-joins": 10.43,
-  "10-literal": 41.61,
-  "11-glue": 0.3,
-  "12-binding": 0.06,
-  "13-gates": 0.11,
-  "14-recurrence": 96.72,
-  "15-court": 2.02,
-  "16-handover": 1.92,
-  "17-waves": 0.82,
-  "18-snapshot": 2.17,
-  "19-spine": 6.61,
-  "20-canon": 9.64,
-  "21-ledger": 54.23,
-  "22-counts": 25.43,
-  "23-dots": 25.61,
-  "24-assignment": 4.52
+  "1-carrier": 0.78,
+  "2-spectral": 0.02,
+  "3-spacetime": 13.36,
+  "4-native": 107.74,
+  "5-observer": 1.07,
+  "6-gravity": 5.9,
+  "7-cosmology": 2.18,
+  "8-frontier": 42.49,
+  "9-joins": 10.59,
+  "10-literal": 39.85,
+  "11-glue": 0.32,
+  "12-binding": 0.1,
+  "13-gates": 0.25,
+  "14-recurrence": 89.82,
+  "15-court": 1.8,
+  "16-handover": 1.56,
+  "17-waves": 0.89,
+  "18-snapshot": 1.67,
+  "19-spine": 5.33,
+  "20-canon": 7.08,
+  "21-ledger": 50.92,
+  "22-counts": 24.31,
+  "23-dots": 25.04,
+  "24-assignment": 3.49
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 531,
-   "total": 531
+   "passed": 532,
+   "total": 532
   },
   "OBSTRUCTION": {
    "passed": 51,
@@ -97,8 +97,8 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 39,
-   "total": 39
+   "passed": 40,
+   "total": 40
   },
   "SELECTED_REFERENCE": {
    "passed": 17,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 76,
-   "total": 76
+   "passed": 77,
+   "total": 77
   }
  },
  "checks": [
@@ -8581,7 +8581,37 @@
   },
   {
    "layer": "23-dots",
-   "name": "not replayed, for want of operands here: the collar witness at 220.635 with least tangent eigenvalue about 6.9856, the reader rank 86, the trace 20416532280 and the stated tail prefactors",
+   "name": "not replayed, for want of operands here: the reader rank 86, the trace 20416532280 and the stated tail prefactors (the collar witness is replayed at 10:07)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 09:43-10:07 notes: the coordinate classes are twice the grade in E8 / L0, the angle multiplicities are 1, 56, 126, 56, 1, and the collar witness replays (eps 220.6345317313, least tangent eigenvalue 6.985582)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "ATLAS and SCRIPT: twice the sum of the first five coordinates, mod 5, splits the roots 40, 50, 50, 50, 50 with (integer, spinor) counts (32, 8), (10, 40), (30, 20), (30, 20), (10, 40); that class is twice layer 24's grade in E8 / L0, the glue's doubling. The roots with zeros on the last three coordinates are D5's 40, of which A4 is the 20 with opposite signs, and A4' is 12 integer roots on the last three coordinates and 8 spinors": true,
+    "SHELLS (09:43): the inner products with a fixed root are 2, 1, 0, -1, -2 on 1, 56, 126, 56 and 1 roots, the multiplicities of the five walk rows": true,
+    "SYMBOL: at the collar witness x = (28, 28, 6, 2, 1, 0, 0, 0)/10 the integer roots give sum cos = 2[(sum cos x_i)^2 - sum cos^2 x_i] = 15.8548946233 and the spinors 128 (prod cos(x_i/2) + prod sin(x_i/2)) = 3.5105736454, so eps = 220.6345317313; the gradient vanishes on the last three axes, which carry the Hessian eigenvalue 12.54149 three times, and the least eigenvalue on the tangent hyperplane is 6.985582 by the projector and by a Householder basis, positive (computed, not a closed form)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "LEDGER, LEDGER48 and the 10:07 model: 52 orbits, 171 = 271 - 100, 176, and the circle's factorizations, as arithmetic",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": {
+    "1 + 255/5 = 52 orbits (51 five-cycles and the origin); 271 - 100 = 171 and 271 + 100 = 371; 2 x 44 x 2 = 176; 4320 = 36 x 120 = 15 x 36 x 8, 864 = 24 x 36 and 9361 = 260 x 36 + 1, shared integers that join nothing": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 10:07: the sibling's eight notes of 09:43-10:07 were read (SHELLS, SCRIPT, LEDGER, LEDGER48, ATLAS, SYMBOL and two MODEL editions); they correct their own ledger lines and their script's labels, and repeat INFRARED's 17/10, which stays corrected here (2 in the lexicographic orientation, 10 in the cyclic one); the trace 20416532280 stays out",
    "status": "REPORTED",
    "passed": true,
    "value": null,

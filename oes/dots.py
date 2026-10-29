@@ -207,6 +207,12 @@ clique's other sites and the port's sites, not the cut rank and the cycles. In I
 5, so the fixed plane holds 2 of the all-ones vector's square, and exactly 10 in the cyclic orientation. In CRITICAL's
 reading the port is 2L + (2/5)J on the five sites, with the corner 2/5, which the code always used and the prose now
 says.
+
+At 10:07 eight more notes came. They correct their own ledger lines (52 orbits, 171 = 271 - 100) and replay two
+things now checked here. Twice the sum of the first five coordinates, mod 5, is twice the grade in E8 / L0, with
+integer and spinor counts 32/8, 10/40, 30/20, 30/20, 10/40. The collar witness (28, 28, 6, 2, 1, 0, 0, 0)/10 has
+energy 220.6345317313 and least tangent eigenvalue 6.985582, positive. The notes repeat INFRARED's 17/10, which stays
+corrected.
 """
 
 import functools
@@ -3514,6 +3520,60 @@ def stated_block():
             and 277 ** 2 == 76729 > 5 * 31 ** 2 == 4805,
     }
 
+def notes_1007():
+    """ATLAS, SCRIPT, SHELLS (09:43) and SYMBOL: the coordinate classes, the angle multiplicities and the collar witness."""
+    R = glue.roots()
+    integer = np.all(np.isclose(R, np.round(R)), axis=1)
+    cls = [int(round(2 * r[:5].sum())) % 5 for r in R]
+    table = Counter((k, bool(i)) for k, i in zip(cls, integer))
+    grade = Counter((assignment.GRADE[k], int(round(2 * r[:5].sum() / 10)) % 5) for r, k, _, _ in assignment.classify())
+    zero3 = [r for r in R if np.allclose(r[5:], 0)]
+    _, _, Ap = glue.a4_pair()
+    Ap_int = np.all(np.isclose(Ap, np.round(Ap)), axis=1)
+    angles = Counter(int(round(R[0] @ r)) for r in R)
+    x = np.array([28, 28, 6, 2, 1, 0, 0, 0]) / 10
+    c = np.cos(R @ x)
+    grad = (R.T * np.sin(R @ x)).sum(1)
+    H = (R.T * c) @ R
+    g = grad / np.linalg.norm(grad)
+    P = np.eye(8) - np.outer(g, g)
+    v = g + np.sign(g[0]) * np.eye(8)[0]
+    tangent = (np.eye(8) - 2 * np.outer(v, v) / (v @ v))[:, 1:]
+    least = (np.linalg.eigvalsh(P @ H @ P)[1], np.linalg.eigvalsh(tangent.T @ H @ tangent)[0])
+    return {
+        "ATLAS and SCRIPT: twice the sum of the first five coordinates, mod 5, splits the roots 40, 50, 50, 50, 50 with "
+        "(integer, spinor) counts (32, 8), (10, 40), (30, 20), (30, 20), (10, 40); that class is twice layer 24's grade in "
+        "E8 / L0, the glue's doubling. The roots with zeros on the last three coordinates are D5's 40, of which A4 is the "
+        "20 with opposite signs, and A4' is 12 integer roots on the last three coordinates and 8 spinors":
+            {k: (table[(k, True)], table[(k, False)]) for k in range(5)} == {0: (32, 8), 1: (10, 40), 2: (30, 20), 3: (30, 20),
+                                                                           4: (10, 40)}
+            and all(cl == 2 * gr % 5 for gr, cl in grade) and len(zero3) == 40
+            and sum(1 for r in zero3 if np.isclose(r[:5].sum(), 0)) == 20 and (Ap_int.sum(), (~Ap_int).sum()) == (12, 8),
+        "SHELLS (09:43): the inner products with a fixed root are 2, 1, 0, -1, -2 on 1, 56, 126, 56 and 1 roots, the "
+        "multiplicities of the five walk rows": angles == Counter({2: 1, 1: 56, 0: 126, -1: 56, -2: 1}),
+        "SYMBOL: at the collar witness x = (28, 28, 6, 2, 1, 0, 0, 0)/10 the integer roots give sum cos = 2[(sum cos x_i)^2 "
+        "- sum cos^2 x_i] = 15.8548946233 and the spinors 128 (prod cos(x_i/2) + prod sin(x_i/2)) = 3.5105736454, so "
+        "eps = 220.6345317313; the gradient vanishes on the last three axes, which carry the Hessian eigenvalue 12.54149 "
+        "three times, and the least eigenvalue on the tangent hyperplane is 6.985582 by the projector and by a Householder "
+        "basis, positive (computed, not a closed form)": np.isclose(c[integer].sum(), 15.8548946233, atol=1e-9)
+        and np.isclose(c[~integer].sum(), 3.5105736454, atol=1e-9) and np.isclose(240 - c.sum(), 220.6345317313, atol=1e-9)
+        and np.isclose(2 * (np.cos(x).sum() ** 2 - (np.cos(x) ** 2).sum()), c[integer].sum())
+        and np.isclose(128 * (np.prod(np.cos(x / 2)) + np.prod(np.sin(x / 2))), c[~integer].sum())
+        and np.allclose(grad[5:], 0) and np.allclose(H[5:, 5:], 12.54149 * np.eye(3), atol=1e-5) and np.allclose(H[:5, 5:], 0)
+        and all(np.isclose(t, 6.985582, atol=1e-6) for t in least),
+    }
+
+
+def notes_1007_arithmetic():
+    """LEDGER, LEDGER48 and the 10:07 model: their sums, as arithmetic."""
+    return {
+        "1 + 255/5 = 52 orbits (51 five-cycles and the origin); 271 - 100 = 171 and 271 + 100 = 371; 2 x 44 x 2 = 176; "
+        "4320 = 36 x 120 = 15 x 36 x 8, 864 = 24 x 36 and 9361 = 260 x 36 + 1, shared integers that join nothing":
+            1 + 255 // 5 == 52 and 255 % 5 == 0 and (271 - 100, 271 + 100) == (171, 371) and 2 * 44 * 2 == 176
+            and 36 * 120 == 15 * 36 * 8 == 4320 and 24 * 36 == 864 and 260 * 36 + 1 == 9361,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -3882,6 +3942,9 @@ LEDGER_ROWS = [
     ("INFRARED (09:28)", "C = 1/(1536 pi^4 30^4); heat tails 6c, 24c, 120c; the fixed plane holds 17/10 of the all-ones vector, not 10", "replayed with a correction: both fixed vectors have square 5, so the value is 2 in the lexicographic orientation and exactly 10 in the cyclic one", T, "23"),
     ("CRITICAL (08:35)", "224 is critical, 24 + 1 tick momenta; the port is 2L + (2/5)J, not plus the scalar 2/5", "adopts layers 22-23; the port is W_p = [2/5] + (2 L_C5 + (2/5)J), which the code always checked and the prose now says", T, "23"),
     ("MEMORY's stated block (09:16)", "variances 171 and 371, golden variances above 171", "arithmetic replayed; the block is not stored here", gates.ARITHMETIC, "23"),
+    ("ATLAS, SCRIPT (09:44, 10:04)", "twice the first-five sum mod 5 gives 40/50/50/50/50, integer/spinor 32/8, 10/40, 30/20, 30/20, 10/40; the zero filter returns 40, not 20", "replayed: the class is twice the A4*/A4 grade; the zero filter gives D5's 40 roots, of which A4 is the 20 with opposite signs; A4' is 12 integer roots and 8 spinors", T, "23, 24"),
+    ("SYMBOL (10:05)", "the witness (28, 28, 6, 2, 1, 0, 0, 0)/10: 15.8548946233 + 3.5105736454, energy 220.6345317313; 12.54149 on the last three axes; least tangent eigenvalue 6.985582", "replayed, with the closed forms 2[(sum cos)^2 - sum cos^2] and 128(prod cos(x/2) + prod sin(x/2)); the least tangent eigenvalue is positive, computed by the projector and by a Householder basis", T, "23"),
+    ("LEDGER, LEDGER48, MODEL (09:50-10:07)", "52 orbits; 171 = 271 - 100; 2 x 44 x 2 = 176; 4320 = 36 x 120 = 15 x 36 x 8; 9361 = 260 x 36 + 1", "arithmetic; the shared integers join nothing", gates.ARITHMETIC, "23"),
     ("the separate model's archives (08:35-09:13)", "completion, completion audit, critical port, connected model, glue-helicity", "recorded, not downloaded or run", RP, "23"),
     ("the mixed root classes (09:00)", "the 200 mixed roots are four classes of 50 with a (5, 10b) or (10, 5) weight structure; K5's five sites and ten duads meet E8's mixed classes at the level of representations", "replayed: (10,5) is the carrier's ten duads times the twin's five sites and (5b,10) its five sites times the twin's ten duads, each pair once; layer 11's (10, 5b') is (10,5) with the twin's 5 renamed", T, "11, 24"),
     ("the second moment (09:00)", "40 + 4 x 50 = 240; the weight-orbit covariances give sum rho rho^T = 60 I8, so the dispersion coefficient is 30", "replayed: 10 I on A4 + A4', 15 P + 10 P' on (10,5) and its conjugate, 10 P + 15 P' on (5b,10) and its conjugate, 60 I in all, and 30 = 60/2; the same moment gives T3 : Q = 3 : 8", T, "24"),
@@ -4304,8 +4367,19 @@ def run():
             "glue-helicity (202251 bytes, 56 check groups), with their receipts; the KD staging workbooks, the reconciled "
             "canon workbooks (modified 08:45) and MODEL_UPDATE_CHECKPOINT.json (09:13) were not opened, and the "
             "connected-model receipt marks KD as in progress, not admitted as canon head", RP, True)
-    rep.add("not replayed, for want of operands here: the collar witness at 220.635 with least tangent eigenvalue about "
-            "6.9856, the reader rank 86, the trace 20416532280 and the stated tail prefactors", RP, True)
+    rep.add("not replayed, for want of operands here: the reader rank 86, the trace 20416532280 and the stated tail "
+            "prefactors (the collar witness is replayed at 10:07)", RP, True)
+    n10 = notes_1007()
+    rep.add("the 09:43-10:07 notes: the coordinate classes are twice the grade in E8 / L0, the angle multiplicities are "
+            "1, 56, 126, 56, 1, and the collar witness replays (eps 220.6345317313, least tangent eigenvalue 6.985582)",
+            T, all(n10.values()), n10)
+    na = notes_1007_arithmetic()
+    rep.add("LEDGER, LEDGER48 and the 10:07 model: 52 orbits, 171 = 271 - 100, 176, and the circle's factorizations, as "
+            "arithmetic", gates.ARITHMETIC, all(na.values()), na)
+    rep.add("Drive check 10:07: the sibling's eight notes of 09:43-10:07 were read (SHELLS, SCRIPT, LEDGER, LEDGER48, "
+            "ATLAS, SYMBOL and two MODEL editions); they correct their own ledger lines and their script's labels, and "
+            "repeat INFRARED's 17/10, which stays corrected here (2 in the lexicographic orientation, 10 in the cyclic "
+            "one); the trace 20416532280 stays out", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

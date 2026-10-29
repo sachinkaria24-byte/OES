@@ -7,7 +7,7 @@
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 24 layers in **763 checks**. Of these, 687 hold: THEOREM 531, OBSTRUCTION 51, ARITHMETIC 39, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 76 are REPORTED records.
+- `python verify.py` replays 24 layers in **766 checks**. Of these, 689 hold: THEOREM 532, OBSTRUCTION 51, ARITHMETIC 40, UNFORMED 24, CONDITIONAL 23, SELECTED_REFERENCE 17, REMOVED 2. The other 77 are REPORTED records.
 - `python -m pytest` runs 65 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, `data/e8_assignment.json` the 240 roots with their Standard-Model quantum numbers, `docs/LEDGER.md` the unified ledger, and `docs/DOTS.md` draws every checked join.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
@@ -456,6 +456,8 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 
 Two corrections go back. In DEGREE the 4 and the 6 count the clique's other sites and the port's sites, not the cut rank and the cycles. In INFRARED both fixed vectors of the edge tick have square 5, so the fixed plane holds 2 of the all-ones vector's square, not 17/10, and exactly 10 in the cyclic orientation. The port metric is W_p = [2/5] ⊕ (2L_C5 + (2/5)J), as CRITICAL reads it.
 
+**The 09:43–10:07 items (Drive check 10:07).** Eight more notes correct their own ledger lines (52 orbits, 171 = 271 − 100). Twice the first-five coordinate sum, mod 5, is twice the grade in E8/L0, with integer and spinor counts 32/8, 10/40, 30/20, 30/20, 10/40. The collar witness (28, 28, 6, 2, 1, 0, 0, 0)/10 has energy 220.6345317313 and least tangent eigenvalue 6.985582, positive and computed, not a closed form. INFRARED's 17/10 stays corrected.
+
 **Replay for the hub (OES-C01).** At commit f41b278 the reported state replays exactly: 21 layers, 412 checks (383 hold and 29 reported), 31 tests, and the TypeScript audits at residual 0. The logs and a handover are in `docs/hub/OES-C01/`.
 
 ## 10. The particle assignment on E8's roots (layer 24)
@@ -609,14 +611,14 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
 | 22 | counts | 60 | the evening notes: 1843 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
-| 23 | dots | 250 | 60 dots and 166 checked joins in one diagram on six levels, every pair of levels joined, no two maps holding it together (`docs/DOTS.md`); the 22:08–02:55 and 08:35–09:28 notes |
+| 23 | dots | 253 | 60 dots and 166 checked joins in one diagram on six levels, every pair of levels joined, no two maps holding it together (`docs/DOTS.md`); the 22:08–02:55 and 08:35–10:07 notes |
 | 24 | assignment | 41 | the particle assignment on E8's roots: both factors, moments, Standard-Model numbers, one W(E8) orbit, chirality, three generations, couplings, the six-site port (`data/e8_assignment.json`) |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 24 layers, 763 checks, about 6 minutes
+python verify.py              # 24 layers, 766 checks, about 6 minutes
 python -m pytest -q           # 65 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
