@@ -452,6 +452,29 @@ def test_the_band_edge_is_256():
     assert band.lam(np.pi * np.array([1, 1, 1, 1, 0.1, 0, 0, 0])) > -16
 
 
+def test_the_1426_replay():
+    for check in (dots.wedge_port, dots.three_ports, dots.root_shell_krylov, dots.schur_memory, dots.hodge_star,
+                  dots.syntheme_bridge, dots.sylow_frame, dots.word_source, dots.clock_sylow, dots.band_top,
+                  dots.notes_1418):
+        out = check()
+        assert all(out.values()), out
+    import sympy as sp
+    # one root shell is what makes the growth unending: the origin with the all-ones function on the roots closes at
+    # the first step, since Delta delta_0 = 240 delta_0 - 1_R, so its degree-1 block Hankel has rank 3, not 4
+    R10, V, W, Bw, G, h, Hc = dots._wedge()
+    count = {c: int((G == c).sum()) for c in h}
+    M = [sp.Matrix([[h[2][n], 240 * h[1][n]], [240 * h[1][n], sum(count[c] * h[c][n] for c in h)]]) for n in range(3)]
+    assert sp.Matrix(sp.BlockMatrix([[M[0], M[1]], [M[1], M[2]]])).rank() == 3
+    # the Pfaffian of the quartic witness keeps its value under a 3-cycle and flips under a transposition
+    E, N5, sym, F, a, b = dots._source()
+    A, B = sym(N5 * sp.Matrix([2, 1, -1, 0, 1])), sym(N5 * sp.Matrix([0, -1, 1, 1, -2]))
+    R = sp.Matrix.vstack(sp.eye(4), -sp.ones(1, 4))
+    pf = lambda X: (lambda Y: Y[0, 1] * Y[2, 3] - Y[0, 2] * Y[1, 3] + Y[0, 3] * Y[1, 2])(R.T * X * R)
+    for p, sign in (((1, 2, 0, 3, 4), 1), ((1, 0, 2, 3, 4), -1)):
+        P = sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+        assert pf(P * (A * B - B * A) * P.T) == sign * 175
+
+
 def test_the_particle_assignment_on_e8_roots():
     for check in (assignment.factors, assignment.moments, assignment.standard_model, assignment.choices,
                   assignment.chirality, assignment.generations, assignment.couplings, assignment.six_site_port):
