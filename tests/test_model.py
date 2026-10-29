@@ -265,10 +265,23 @@ def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)
     assert len(dots.components([True] * len(dots.JOINS))) == 1
-    # without the source's two joins the source is cut off: the connectivity check can fail
-    cut = [not (j[0] == "kerM" and j[1] == "source") and not (j[0] == "source" and j[1] in ("cycles", "sixsite"))
-           for j in dots.JOINS]
+    # without the calibration's one map it is cut off: the connectivity check can fail
+    cut = [not (j[1] == "calibration" and j[4] != gates.OBSTRUCTION) for j in dots.JOINS]
     assert len(dots.components(cut)) == 2
+
+
+def test_every_level_is_joined():
+    passed = [True] * len(dots.JOINS)
+    lv = dots.levels(passed)
+    assert lv["layers"] == list(range(1, 24))
+    assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
+    assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
+    # THEOREM joins alone leave out exactly the two conditional dots
+    assert sorted(sorted(c) for c in lv["theorem"] if len(c) == 1) == [["cosmology"], ["gravity"]]
+    for check in (dots.surface, dots.cube_cuts, dots.critical_momenta, dots.nine_torus, dots.triple, dots.readout,
+                  dots.sound_light, dots.calibration):
+        out = check()
+        assert all(out.values()), out
 
 
 def test_dots_page_is_current():

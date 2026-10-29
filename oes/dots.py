@@ -1,4 +1,4 @@
-"""Layer 23. All dots joined (28-29 Oct 2026, Drive checks 22:08 to 00:51 UTC and the 00:35 relay).
+"""Layer 23. All dots joined, at every level (28-29 Oct 2026, Drive checks 22:08 to 00:51 UTC, the 00:35 relay and 01:30).
 
 A dot is an object the model builds: a space with its operator, a lattice, a group, a circle, a port. A join is a map
 between two dots, built here and checked against the property that makes it that kind of map (an intertwiner, a
@@ -103,7 +103,22 @@ which give 241I - J and 183I + 52J. The sibling's audits of the paper's scripts 
 determinant over 5, not a minor; the collar fractions 3/65 and 3/80 are two different numbers; the shifted coefficient is
 -69373; the tangent Hessian at the collar witness is positive. One correction is to this layer: the tower of fives
 freezes at 245 from height 3, as TOWERS and the splits receipt say. At 00:15 this layer had repeated POWER_TOWER's "does
-not freeze" after checking one step.
+not freeze" after checking one step. A second correction came later: the paper's 3985/16 and 6784/27 are misprints of the
+critical energies 4025/16 and 6800/27, whose square-free parts 161 and 51 layer 18 uses; DEEP36_LOOP corrected the
+factorizations instead of the energies.
+
+At 01:30 the request was to join all dots at every level. Eleven layers had no dot: the spectral triple (2), the
+readout (5), the product geometry (6), FLRW (7), layer 9's joins, the literal operands (10), the binding (12), the
+calibration (13), the court's measures (15), the critical census (16), sound and light (17) and the nine-torus (18).
+Twelve dots, the surface of layer 3 among them, and 27 joins bring them in, and every dot now sits on one of six
+levels: number (the circle and its clocks), symmetry, combinatorics, lattice, operator and physics. The checks are that
+every layer 1-23 has a dot, that each level is joined inside, that each level is joined to the next, and that the whole
+is one diagram. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the
+conditional heat coefficients (J10) and the Friedmann flow; the circle's time clock has an obstruction to physical time
+(no internal number fixes the calibration). Three of the new joins are new mathematics here: the hemi-icosahedron and its
+complement are the two PSL(2,5)-orbits of triangles on the projective line over F5, swapped by PGL(2,5), with links the
+pentagram and the pentagon at infinity; the four-cube's sixteen vertices are the sixteen cuts of K5 over F2; and the
+tick's 25 fixed momenta are critical points of the band, the minimum and 24 points of the A4 + A4 family at eps 250.
 """
 
 import functools
@@ -115,7 +130,8 @@ from math import gcd
 import numpy as np
 import sympy as sp
 
-from . import carrier, counts, gates, glue, ledger, native, spine
+from . import (binding, carrier, cosmology, counts, court, gates, gatework, glue, gravity, handover, ledger, literal,
+               native, observer, recurrence, snapshot, spacetime, spectral, spine, waves)
 from .record import Report
 
 N = spine.N
@@ -946,16 +962,9 @@ def cone_symmetry():
             P[5 + E.index(tuple(sorted((f[i], f[j])))), 5 + k] = 1
         return P
 
-    def mobius(a, b, c, d):                                    # x -> (a x + b) / (c x + d) on F5 and infinity = 5
-        inv = lambda y: pow(y, 3, 5)
-        image = lambda x: ((a * inv(c) % 5 if c else 5) if x == 5
-                           else 5 if (c * x + d) % 5 == 0 else (a * x + b) * inv(c * x + d) % 5)
-        return tuple(image(x) for x in range(6))
     keeps = lambda s: np.array_equal(bonds(s) @ D @ bonds(s).T, D)
     cone = {s for s in itertools.permutations(range(6)) if keeps(s)}
-    det = lambda m: (m[0] * m[3] - m[1] * m[2]) % 5
-    pgl = {mobius(*m) for m in itertools.product(range(5), repeat=4) if det(m)}
-    psl = {mobius(*m) for m in itertools.product(range(5), repeat=4) if det(m) in (1, 4)}
+    pgl, psl = projective_line()
     involutions = lambda G: [s for s in G if s != tuple(range(6)) and all(s[s[i]] == i for i in range(6))]
     chi = lambda G: Counter(int(np.trace(bonds(s))) for s in involutions(G))
     orbits = lambda G: len({frozenset(int(np.argmax(bonds(s)[:, k])) for s in G) for k in range(15)})
@@ -1630,15 +1639,16 @@ def notes_0051():
         "not put it in the action (MASTER_LEDGER, JOIN_ALL)": sum(k * m for k, m in spec.items()) == 40
         and sum(k * k * m for k, m in spec.items()) == 200,
         "DEEP36_LOOP and PASS2: 4320 = 1 mod 7 (no element of order 7); 48 divisors; C(n, 2) = 2n only at n = 5, and the "
-        "middle binomial exceeds 2n for 6 <= n < 200; 3985/16 is not (5/4)^2 x 161 and 6784/27 is not (20/9)^2 x 51, whose "
-        "squarefree parts are 3985 and 318": N % 7 == 1 and len(sp.divisors(N)) == 48
-        and [k for k in range(1, 300) if k * (k - 1) == 4 * k] == [5] and all(sp.binomial(k, k // 2) > 2 * k for k in range(6, 200))
-        and Fraction(3985, 16) != Fraction(5, 4) ** 2 * 161 and Fraction(6784, 27) != Fraction(20, 9) ** 2 * 51
-        and sp.factorint(3985) == {5: 1, 797: 1} and sp.factorint(6784 * 27) == {2: 7, 3: 3, 53: 1},
-        "the nine corrected squarefree integers 14, 3, 62, 10, 251, 3985, 318, 7, 1 are squarefree and distinct, so their "
-        "square roots are independent over Q; the nine energies are not located here, so the torus is not certified":
-            all(set(sp.factorint(k).values()) <= {1} for k in (14, 3, 62, 10, 251, 3985, 318, 7, 1))
-            and len({14, 3, 62, 10, 251, 3985, 318, 7, 1}) == 9,
+        "middle binomial exceeds 2n for 6 <= n < 200": N % 7 == 1 and len(sp.divisors(N)) == 48
+        and [k for k in range(1, 300) if k * (k - 1) == 4 * k] == [5] and all(sp.binomial(k, k // 2) > 2 * k for k in range(6, 200)),
+        "the paper's 3985/16 and 6784/27 are misprints of the critical energies 240 + 185/16 = 4025/16 = (5/4)^2 x 161 "
+        "and 240 + 320/27 = 6800/27 = (20/9)^2 x 51, so its factorizations are right and two of its energies wrong. "
+        "DEEP36_LOOP keeps the misprints and changes the square-free parts to 3985 and 318; the census's parts stay 161 "
+        "and 51, and layer 18's density on T^9 stands": Fraction(3985, 16) != Fraction(5, 4) ** 2 * 161
+        and Fraction(6784, 27) != Fraction(20, 9) ** 2 * 51 and 240 + Fraction(185, 16) == Fraction(4025, 16) == Fraction(5, 4) ** 2 * 161
+        and 240 + Fraction(320, 27) == Fraction(6800, 27) == Fraction(20, 9) ** 2 * 51
+        and [snapshot.squarefree_part(sp.Rational(a, b)) for a, b in ((3985, 16), (6784, 27), (4025, 16), (6800, 27))]
+        == [3985, 318, 161, 51],
         "JOIN_ALL and DEEP36_LOOP on the circle: 216 = 6 x 36 has order 20, the golden companion's period mod 5; the "
         "address step 36 and seven of them, 252, have order 120, the step 120 order 36 and 720 order 6; the coil is 27 "
         "returns (540 = lcm(20, 27)); a 6-cycle splits the fifteen pairs into orbits 6, 6, 3; 252 - 7 = 245, 252 + 4 = "
@@ -1664,6 +1674,323 @@ def splits_corrections():
         "LEVELS: doubling brings every golden point of index prime to 5 into the tick cycle after two doublings; one "
         "doubling misses the cycle exactly for the odd indices": all(4 * g % N in cycle for g in golden)
         and {n for n in range(20) if n % 5 and 2 * 216 * n % N not in cycle} == {n for n in range(20) if n % 5 and n % 2},
+    }
+
+
+# ------------------------------------------------------------------- every layer, every level
+
+def projective_line():
+    """PGL(2,5) and PSL(2,5) as permutations of the projective line F5 + {infinity}, with infinity = 5."""
+    def mobius(a, b, c, d):                                    # x -> (a x + b) / (c x + d)
+        inv = lambda y: pow(y, 3, 5)
+        image = lambda x: ((a * inv(c) % 5 if c else 5) if x == 5
+                           else 5 if (c * x + d) % 5 == 0 else (a * x + b) * inv(c * x + d) % 5)
+        return tuple(image(x) for x in range(6))
+    det = lambda m: (m[0] * m[3] - m[1] * m[2]) % 5
+    pgl = {mobius(*m) for m in itertools.product(range(5), repeat=4) if det(m)}
+    psl = {mobius(*m) for m in itertools.product(range(5), repeat=4) if det(m) in (1, 4)}
+    return pgl, psl
+
+
+def surface():
+    """Layer 3's RP^2 and J5: its 1-skeleton is K6, and its triangles are an orbit of PSL(2,5)."""
+    tri, comp = spacetime.rp2_triangulations()
+    pgl, psl = projective_line()
+    image = lambda s, F: {tuple(sorted(s[i] for i in f)) for f in F}
+    orbit = lambda t: {tuple(sorted(s[i] for i in t)) for s in psl}
+    phi = next(p for p in itertools.permutations(range(6)) if p[5] == 5 and image(p, tri) == orbit(min(image(p, tri))))
+    A, Ac = image(phi, tri), image(phi, comp)
+    aut = [s for s in itertools.permutations(range(6)) if image(s, tri) == set(tri)]
+    steps = lambda F: {(b - a) % 5 for a, b, c in F if c == 5} | {(a - b) % 5 for a, b, c in F if c == 5}
+    E = carrier.edges()
+    M = np.array(carrier.signless_incidence(), float)
+    D = np.array(carrier.dirac(carrier.signless_incidence()), float)
+    skeleton = {p for f in tri for p in itertools.combinations(f, 2)}
+    atoms = [(i, 5) for i in range(5)] + E
+    LG = np.array([[1.0 if a != b and set(a) & set(b) else 0.0 for b in atoms] for a in atoms])
+    block = np.zeros((15, 15))
+    block[:5, :5], block[5:, 5:] = np.ones((5, 5)) - np.eye(5), M.T @ M - 2 * np.eye(10)
+    return {
+        "the hemi-icosahedron on the six axes has 1-skeleton K6, the ten K5 edges and five spokes to a cone point, and "
+        "D = A(line graph of K6) - diag(J - I, M^T M - 2I) (J5)": len(skeleton) == 15 and np.allclose(D, LG - block),
+        "its 60 symmetries are transitive on the axes; labelled by the projective line over F5 (the cone point at "
+        "infinity), it and its complement are the two PSL(2,5)-orbits of triangles, and the 60 elements of PGL(2,5) "
+        "outside PSL(2,5) swap them": len(aut) == 60 and len({s[0] for s in aut}) == 6 and A == orbit(min(A))
+        and Ac == orbit(min(Ac)) and len(A | Ac) == 20 and all(image(s, A) == Ac for s in pgl - psl),
+        "at infinity the hemi-icosahedron's link is the pentagram (steps +-2) and its complement's is the pentagon "
+        "(steps +-1), the far and near cycles of the rotor plane": steps(A) == {2, 3} and steps(Ac) == {1, 4},
+    }
+
+
+def cube_cuts():
+    """The four-cube's vertices are the cuts of K5 over F2, and a cube edge adds one vertex star."""
+    E = carrier.edges()
+    B2 = np.array(carrier.signed_incidence(), int) % 2
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    add = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+    cube = list(itertools.product((0, 1), repeat=4))
+    f = {x: cut({k + 1 for k in range(4) if x[k]}) for x in cube}
+    cuts = {tuple(np.array(c) @ B2 % 2) for c in itertools.product((0, 1), repeat=5)}
+    stars = [cut({i}) for i in range(5)]
+    return {
+        "x -> the cut of {i : x_i = 1} is linear and maps the sixteen vertices of the four-cube onto the sixteen cuts "
+        "of K5 over F2, the row space of B mod 2": len(set(f.values())) == 16 and set(f.values()) == cuts
+        and all(f[tuple((a + b) % 2 for a, b in zip(x, y))] == add(f[x], f[y]) for x in cube for y in cube),
+        "two vertices are adjacent in the cube exactly when their cuts differ by the star of a vertex 1..4, and the "
+        "antipode 1111 goes to the fifth star: the four qubits are the four independent cuts": all(
+            (sum(a != b for a, b in zip(x, y)) == 1) == (add(f[x], f[y]) in stars[1:]) for x in cube for y in cube)
+        and f[(1, 1, 1, 1)] == stars[0],
+    }
+
+
+def golden_clock():
+    """The golden companion and the golden clock of W(E8) are both cyclic of order 20, with the tick as fourth power."""
+    _, v = ledger.golden_clock()
+    _, _, _, _, g, _ = spine.spine_clock()
+    B = sp.Matrix([[1, 1], [1, 0]])
+    mod5 = lambda X: X.applyfunc(lambda e: e % 5)
+    return {
+        "B mod 5 and the golden clock v both have order 20, and v^4 is the tick g, so B^k -> v^k is an isomorphism "
+        "of the two cyclic groups taking B^4 to g (a selection: any generator could be matched)":
+            next(k for k in range(1, 41) if mod5(B ** k) == sp.eye(2)) == 20 and spine.mat_order(v) == 20
+            and np.array_equal(np.linalg.matrix_power(v, 4), g),
+    }
+
+
+@functools.lru_cache(maxsize=1)
+def _census():
+    return handover.critical_census()
+
+
+def _tick_fixed_momenta():
+    _, _, _, _, g, _ = spine.spine_clock()
+    G = spine.to_standard(g)
+    simple = np.array([0.5 * np.array([1, -1, -1, -1, -1, -1, -1, 1]), np.eye(8)[0] + np.eye(8)[1]]
+                      + [np.eye(8)[k + 1] - np.eye(8)[k] for k in range(6)])
+    Minv = np.linalg.inv(G - np.eye(8))
+    pts = {}
+    for c in itertools.product(range(5), repeat=8):
+        x = Minv @ (np.array(c) @ simple)                      # k / 2 pi, fixed by g mod Lambda
+        key = tuple(np.round((np.linalg.solve(simple.T, x) % 1.0) * 5).astype(int) % 5)
+        pts.setdefault(key, x)
+        if len(pts) == 25:
+            break
+    return simple, list(pts.values())
+
+
+def dual_torus():
+    """E8 is unimodular, so the momenta live on R^8 / 2 pi E8, where the tick has 25 fixed points."""
+    simple, pts = _tick_fixed_momenta()
+    _, _, _, _, g, _ = spine.spine_clock()
+    G = spine.to_standard(g)
+    return {
+        "the Cartan matrix of E8 has determinant 1, so E8* = E8 and the momentum torus is R^8 / 2 pi E8":
+            round(np.linalg.det(simple @ simple.T)) == 1,
+        "on it the tick has |det(g - I)| = 25 fixed points": round(abs(np.linalg.det(G - np.eye(8)))) == 25 and len(pts) == 25,
+    }
+
+
+def census():
+    """Layer 16: the band's critical census on the alcove."""
+    fam = _census()
+    return {
+        "eps = 240 - sum cos(2 pi r.x) has 11 nondegenerate critical families on the alcove's vertices and edges, "
+        "243600 points with Morse sum 0": len(fam) == 11 and sum(f["orbit"] for f in fam.values()) == 243600
+        and sum((-1) ** f["index"] * f["orbit"] for f in fam.values()) == 0 and all(f["nondegenerate"] for f in fam.values()),
+    }
+
+
+def critical_momenta():
+    """The tick's fixed momenta are critical points of the band."""
+    R = glue.roots()
+    _, pts = _tick_fixed_momenta()
+    kinds = Counter()
+    for x in pts:
+        gradient = (np.sin(2 * np.pi * R @ x)[:, None] * R).sum(axis=0)
+        kinds[(handover.stabiliser(R, x)[0], int(round(240 - np.cos(2 * np.pi * R @ x).sum())),
+               bool(np.linalg.norm(gradient) < 1e-9))] += 1
+    a4 = next(f for (_, t), f in _census().items() if t == "A4+A4")
+    return {
+        "the tick's 25 fixed momenta are critical points of the band: the minimum (type E8, eps 0) and 24 points of the "
+        "A4 + A4 family (eps 250, index 4, 48384 points in all)": kinds == Counter({("E8", 0, True): 1, ("A4+A4", 250, True): 24})
+        and a4["orbit"] == 48384 and a4["index"] == 4,
+    }
+
+
+def _critical_values():
+    values = Counter()
+    for f in _census().values():
+        q = Fraction(f["lambda"]).limit_denominator(1000)
+        values[sp.Rational(q.numerator, q.denominator)] += 1
+    return values
+
+
+def census_walks():
+    """The critical values are the in-band characteristic roots of the walk recurrence."""
+    dat, _ = recurrence.load_operator()
+    band = {sp.Rational(r): m for r, m in dat["characteristic_roots"].items() if -16 <= sp.Rational(r) <= 240}
+    return {
+        "the 11 critical values 240 - eps, with their multiplicities, are the in-band characteristic roots of the "
+        "order-16 recurrence of W_n (layer 14)": dict(_critical_values()) == band,
+    }
+
+
+def nine_torus():
+    """Layer 18: the nine positive critical energies give a dense flow on T^9."""
+    eps = sorted({240 - v for v in _critical_values()} - {0})
+    parts = [snapshot.squarefree_part(e) for e in eps]
+    return {
+        "the nine positive critical energies are 224, 243, 248, 250, 251, 4025/16, 6800/27, 252, 256; their square-free "
+        "parts 14, 3, 62, 10, 251, 161, 51, 7, 1 are distinct, so the square roots are independent over Q and the flow "
+        "of the nine frequencies is dense on T^9 (Besicovitch, Kronecker)": eps == sorted(
+            [224, 243, 248, 250, 251, sp.Rational(4025, 16), sp.Rational(6800, 27), 252, 256])
+        and parts == [14, 3, 62, 10, 251, 161, 51, 7, 1] and len(set(parts)) == 9,
+    }
+
+
+def literal_port():
+    """Layer 10: the owner's operands give the reconstructed port up to a commutant element."""
+    d = literal.load()
+    cmp = literal.compare_with_reference(d)
+    Pn = d["P_native_to_boundary_order"]
+    return {
+        "native_matrices_input.json hashes to the canon's 73e07429..., and its W_p in boundary order is the "
+        "reconstruction's exactly": literal.sha256() == literal.SHA256
+        and np.allclose(np.array(Pn * d["Wp_source_HS"] * Pn.T, dtype=float), native.port_metric()),
+        "the literal port is U times the reconstructed one, U a W_p-isometry commuting with the C5 rotation":
+            cmp["fit_residual"] < 1e-9 and cmp["Wp_isometry_residual"] < 1e-9 and cmp["commutes_with_boundary_rotation"] < 1e-9,
+    }
+
+
+def measure():
+    """Layer 15: the six-port's sector moments are moments of measures on the band."""
+    sec = court.sector_moments(court.laplacian_moments(recurrence.load_walks(), 52), 50)
+    hausdorff = {k: court.hausdorff(M) for k, M in sec.items()}
+    nodes = lambda M, x: court.eigen_count_below(*court.chebyshev(M[:50])[:2], Fraction(x))
+    return {
+        "the true sector moments M_0..M_50 pass the Hausdorff test on [0, 256] exactly, so each sector has a spectral "
+        "measure there, and its 25-node Gauss rule lies inside the band": all(
+            v["fails_at"] is None for h in hausdorff.values() for v in h.values())
+        and all(nodes(M, 0) == 0 and nodes(M, 256) == 25 for M in sec.values()),
+        "their first moments are the block eigenvalues 241 (contrast) and 235 (uniform)":
+            sec["V5 contrast"][1] == 241 and sec["V1 uniform"][1] == 235,
+    }
+
+
+def triple():
+    """Layer 2 and J7: the finite spectral triple of the carrier."""
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    M = sp.Matrix(carrier.signless_incidence())
+    mom = spectral.moments(4)
+    w, V = np.linalg.eigh(np.array(D * D, float))
+    ker = V[:, np.abs(w) < 1e-9]
+    gamma = np.diag(np.array(carrier.grading(), float))
+    return {
+        "the triple's D is odd for the grading and D^2 = M M^T + M^T M, the carrier, with moments Tr D^0..D^8 = 15, 40, "
+        "200, 1240, 8840": all(D[i, j] == 0 for i in range(15) for j in range(15) if (i < 5) == (j < 5))
+        and D * D == sp.diag(M * M.T, M.T * M) == sp.Matrix(carrier.D2()) and [mom[k] for k in range(5)] == [15, 40, 200, 1240, 8840],
+        "ker D^2 lies on the edges and is ker M, and the Witten index Tr(gamma on ker D^2) is -5 (J7)":
+            ker.shape[1] == 5 and np.allclose(ker[:5], 0) and np.isclose(((ker ** 2) * gamma[:, None]).sum(), -5)
+            and np.linalg.matrix_rank(np.hstack([ker[5:], native.p5_basis()])) == 5,
+    }
+
+
+def readout():
+    """Layer 5 and J6: the carrier as a control system."""
+    A = observer.system_matrix()
+    K = np.array(carrier.D2(), float)
+    Bedge = np.vstack([np.zeros((15, 10)), np.eye(15)[:, 5:]])
+    reach = observer.kalman_ctrl(A, Bedge)
+    blind = observer.null_space(observer.kalman_obs(A, observer.readouts()["Dirac image D psi"]))
+    Pr, Pb = reach @ reach.T, blind @ blind.T
+    w, V = np.linalg.eigh(Pr @ Pb @ Pr)
+    hidden = V[:, w > 1 - 1e-8]
+    P5 = native.p5_basis()
+    source = np.zeros((30, 10))
+    source[5:15, :5], source[20:30, 5:] = P5, P5
+    return {
+        "the readout's generator A = [[0, I], [-D^2, 0]] is the triple's D^2 in first-order form: A^2 = -(D^2 + D^2)":
+            np.allclose(A @ A, -np.kron(np.eye(2), K)),
+        "the hidden controllable sector of (edge force, D psi) is ker M + ker M in (position, velocity), the native "
+        "source's space (J6)": hidden.shape[1] == 10 and observer.rank(np.hstack([hidden, source])) == 10,
+    }
+
+
+def product_geometry():
+    """Layer 6 and J10: the carrier's traces become the heat coefficients of M4 x F (conditional)."""
+    coeffs, (t, R, m) = gravity.product_heat_coefficients()
+    mom = spectral.moments(2)
+    return {
+        "for any closed spin 4-manifold, (4 - tR/3) Tr exp(-t m^2 D_F^2) has coefficients 4 Tr D^0 = 60, "
+        "-(4 Tr D^2 m^2 + Tr D^0 R/3) = -(160 m^2 + 5R) and 2 Tr D^4 m^4 + Tr D^2 m^2 R/3 = 400 m^4 + 40 m^2 R/3 (J10); G "
+        "and Lambda_cc need the free inputs f, L and m": sp.simplify(coeffs[0] - 4 * mom[0]) == 0
+        and sp.simplify(coeffs[1] + 4 * mom[1] * m ** 2 + mom[0] * R / 3) == 0
+        and sp.simplify(coeffs[2] - 2 * mom[2] * m ** 4 - mom[1] * m ** 2 * R / 3) == 0,
+    }
+
+
+def friedmann():
+    """Layer 7: the carrier field on a flat FLRW background with the conditional G and Lambda_cc."""
+    L, m = 10.0, 1.0
+    G, Lcc = gravity.newton_and_vacuum(1, 1, gravity.tuned_F2(1, 1, L, m, 0.0), L, m)
+    U = cosmology.FLRW(G, Lcc, m)
+    psi0, v0 = carrier.canon_initial_datum()
+    sol = U.evolve(psi0, v0, 40.0, n=400)
+    rho0 = np.array([U.sector_rho(sol.y[:, i])[0] for i in range(sol.y.shape[1])])
+    return {
+        "with G and Lambda_cc from the spectral action the Friedmann constraint holds along the flow": max(
+            abs(U.constraint(sol.y[:, i])) for i in range(sol.y.shape[1])) < 1e-8,
+        "the kernel sector, which holds the datum's 2, is stiff: its energy times a^6 stays 2": np.isclose(rho0[0], 2)
+        and np.allclose(rho0 * np.exp(6 * sol.y[0]), 2, rtol=1e-6),
+    }
+
+
+def binding_joins():
+    """Layer 12: the symmetries a physical binding must respect."""
+    D = np.array(carrier.dirac(carrier.signless_incidence()), float)
+    K, pairs = native.commutator_map()
+    five, ten, _ = binding.su5_weights()
+    h = np.array([1.0, 2.0, 3.0, 4.0, -10.0])
+    return {
+        "the commutant of D is M5 + M4 + M4 + C + C, dimension 59, and its only atom-diagonal element is the phase":
+            binding.commutant_dim(D) == 59 and binding.diagonal_commutant_dim() == 1,
+        "the port lives on Lambda^2 ker D (dimension 10) and breaks the dark O(5) completely; the zero modes' 5 and this "
+        "10, at opposite chirality, have equal SU(5) anomalies, so 5 + 10 = 15 is anomaly-free": K.shape == (6, 10)
+        and len(pairs) == 10 and binding.port_stabiliser_dim() == 0
+        and np.isclose(binding.anomaly(five, h), binding.anomaly(ten, h)) and len(five) + len(ten) == 15,
+    }
+
+
+def calibration():
+    """Layer 13: a calibration t = tau u intertwines the flows, and no internal number fixes tau."""
+    gap, freq = gatework.countermodel_A()
+    return {
+        "S U(u) = U_tau(tau u) S for every calibration tau (the Salina and Prema courts vanish)":
+            gatework.salina_prema(2.7) < 1e-9 and gatework.salina_prema(0.5) < 1e-9,
+        "calibrations tau and 2 tau give identical native records with frequencies in ratio 2 (countermodel A)":
+            gap < 1e-9 and np.isclose(freq[1.0], 2 * freq[2.0]),
+    }
+
+
+def sound_light():
+    """Layer 17: the K5 edge Hodge complex, sound and light."""
+    d0, d1, _, curl = waves.complex_ops()
+    B, M = carrier.signed_incidence(), carrier.signless_incidence()
+    E5 = sp.eye(5)
+    A4 = [E5[:, i] - E5[:, j] for i in range(5) for j in range(5) if i != j]
+    _, _, A = carrier.hodge_block()
+    Cf, _ = carrier.fundamental_cycles()
+    X = (Cf * Cf.T).inv() * Cf * curl * Cf.T
+    cycles = sp.Matrix.hstack(*B.nullspace())
+    return {
+        "the edge complex has d0 = B^T, d1 d0 = 0 and ranks 4 + 6: sound im d0 is the cuts, light ker d0^T the cycles":
+            d0 == B.T and (d1 * d0).is_zero_matrix and d0.rank() == 4 and d1.rank() == 6 and (d0.T * cycles).is_zero_matrix,
+        "Curl = *d1 has spectrum +-sqrt5 (three each) on the cycles and 0 on sound: the two helicities":
+            curl.eigenvals() == {sp.sqrt(5): 3, -sp.sqrt(5): 3, 0: 4} and (curl * cycles).rank() == 6,
+        "in the fundamental-cycle basis Curl is -A, the carrier's Hodge block (6I - G) sigma": curl * Cf.T == Cf.T * X and X == -A,
+        "the sound operator B B^T = 5I - J is half the A4 frame, and with the triple's vertex block it makes 8: "
+        "M M^T + B B^T = 8I": B * B.T == 5 * E5 - sp.ones(5, 5) == sum((a * a.T for a in A4), sp.zeros(5, 5)) / 2
+        and M * M.T + B * B.T == 8 * E5,
     }
 
 
@@ -1711,7 +2038,34 @@ DOTS = {
     "vortex": ("vortex", "Z/9, the address mod 9", "23"),
     "miss": ("miss set", "<5>, the 864 points the tick does not see", "23"),
     "frame": ("eight-root frame", "the origin and eight roots with pairwise products 1: a maximal 9-clique, index 3", "23"),
+    "triple": ("spectral triple", "(A, H, D, gamma) on l2(V u E), dim 15, with D^2 = M M^T + M^T M", "2, 9"),
+    "surface": ("surface", "RP^2: the hemi-icosahedron on the six axes and its complement, 1-skeleton K6", "3, 9"),
+    "readout": ("readout", "the carrier as a control system x' = Ax, A = [[0, I], [-D^2, 0]], with named readouts", "5, 9"),
+    "gravity": ("product geometry", "M4 x F and its spectral action, with M4, f, L and m free (conditional)", "6, 9"),
+    "cosmology": ("FLRW", "the carrier field on a flat FLRW background (conditional)", "7"),
+    "literal": ("literal operands", "the owner's native_source_matrices, SHA-256 73e07429...", "10"),
+    "binding": ("binding", "the commutant of D and the anomaly-free content 5 + Lambda^2 5", "12"),
+    "calibration": ("calibration", "t = tau u and the readout law omega = omega_hat / tau (TIME_BIND)", "13"),
+    "measure": ("spectral measures", "the six-port's sector measures on [0, 256], with Gauss and Lobatto envelopes", "15"),
+    "census": ("critical census", "the band's 11 critical families on the alcove, 243600 points", "16"),
+    "waves": ("sound and light", "the K5 edge Hodge complex: sound im d0, light ker d0^T, Curl = *d1", "17"),
+    "torus": ("nine-torus", "T^9 of the nine positive critical frequencies, with a dense flow", "18"),
 }
+
+# the levels of the model, from the integers up: (name, what lives there, its dots)
+LEVELS = [
+    ("number", "the circle and its clocks",
+     ["circle", "time", "observer", "c27", "atlas", "coil", "grain", "vortex", "miss", "stages"]),
+    ("symmetry", "groups, their actions and modules", ["clocks", "G120", "AGL", "S5", "pgl", "golden", "hodge"]),
+    ("combinatorics", "graphs, complexes and the cube", ["V", "E", "cycles", "rotor", "petersen", "cube", "surface"]),
+    ("lattice", "roots, lattices and tori", ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus"]),
+    ("operator", "spaces with operators, ports and moments",
+     ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
+      "pauli", "gksl"]),
+    ("physics", "geometry, readout, waves, binding and the conditional cosmos",
+     ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology"]),
+]
+LEVEL_OF = {dot: k for k, (_, _, dots) in enumerate(LEVELS) for dot in dots}
 
 # (from, to, short label, the map, status, check)
 JOINS = [
@@ -1792,6 +2146,33 @@ JOINS = [
     ("c27", "coil", "onto the golden cosets", "the nakshatra clock meets each of the coil's 27 golden cosets once, and doubling acts on both with cycles 18 + 6 + 2 + 1, the sun's swap among them", T, "doubling_orbits"),
     ("E8", "frame", "a maximal clique", "eight roots with pairwise inner product 1 and the origin: Gram I + J, index 3, no ninth root", T, "eight_roots"),
     ("frame", "sixsite", "six-point faces", "every six-point face of the frame is a six-port, with coupling Gram 183I + 52J", T, "eight_roots"),
+    ("golden", "clocks", "B^k -> v^k", "B mod 5 and the golden clock v of W(E8) are both cyclic of order 20, and B^4 goes to v^4, the tick g", SR, "golden_clock"),
+    ("cube", "E", "the cuts mod 2", "x -> the cut of {i : x_i = 1}: the sixteen vertices of the four-cube are the sixteen cuts of K5 over F2, a cube edge adds one vertex star, and the antipode is the fifth star", T, "cube_cuts"),
+    ("E", "surface", "K5 inside K6", "the surface's 1-skeleton is K6, the ten K5 edges and five spokes, and D is the spoke-rim block of its line graph (J5)", T, "surface"),
+    ("surface", "pgl", "PSL(2,5)", "on the projective line over F5 the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles; PGL(2,5) swaps them, and their links at infinity are the pentagram and the pentagon", T, "surface"),
+    ("E8", "momenta", "the dual torus", "E8 is unimodular, so momenta live on R^8 / 2 pi E8, where the tick has |det(g - I)| = 25 fixed points", T, "dual_torus"),
+    ("E8", "census", "the band on the alcove", "eps = 240 - sum cos(2 pi r.x) has 11 critical families on the alcove, 243600 points with Morse sum 0", T, "census"),
+    ("momenta", "census", "fixed points are critical", "the tick's 25 fixed momenta are critical points of the band: the minimum and 24 points of the A4 + A4 family (eps 250, index 4)", T, "critical_momenta"),
+    ("census", "torus", "nine frequencies", "the nine positive critical energies have distinct square-free parts, so their square roots are independent over Q and the flow is dense on T^9", T, "nine_torus"),
+    ("census", "walks", "characteristic roots", "the 11 critical values are the in-band characteristic roots of the order-16 recurrence of W_n", T, "census_walks"),
+    ("bath", "pauli", "periodic restriction", "on the 2-Lambda-periodic functions the bath, conjugated by Walsh-Hadamard, is the Pauli generator L", T, "counts.pauli_quotient"),
+    ("literal", "source", "U", "the owner's operands give the same port up to U, a W_p-isometry commuting with the C5 rotation; their W_p is the reconstruction's exactly", T, "literal_port"),
+    ("moments", "measure", "Hausdorff", "the true sector moments M_0..M_50 pass the Hausdorff test on [0, 256]: they are moments of measures, each with 25 Gauss nodes in the band", T, "measure"),
+    ("carrier", "triple", "D", "the triple's Dirac operator is odd, with D^2 = M M^T + M^T M and moments 15, 40, 200, 1240, 8840", T, "triple"),
+    ("kerM", "triple", "index", "ker D^2 lies on the edges and equals ker M; the Witten index is Tr(gamma on ker D^2) = -5 (J7)", T, "triple"),
+    ("source", "readout", "hidden sector", "the hidden controllable sector of (edge force, D psi) is ker M + ker M, the native source's space (J6)", T, "readout"),
+    ("carrier", "waves", "Hodge block", "on the cycle space, in the fundamental-cycle basis, Curl is -A, the carrier's Hodge block (6I - G) sigma", T, "sound_light"),
+    ("E", "waves", "d0 = B^T", "the edge complex has d0 = B^T and d1 d0 = 0, ranks 4 + 6: sound is the cuts and light the cycles", T, "sound_light"),
+    ("cycles", "waves", "helicities", "light = ker d0^T is the cycle space, split by Curl = *d1 into the helicities +-sqrt5, three each", T, "sound_light"),
+    ("A4", "waves", "the sound Hessian", "the sound operator B B^T = 5I - J is half the A4 frame sum alpha alpha^T", T, "sound_light"),
+    ("source", "binding", "Lambda^2 ker D", "the port lives on Lambda^2 ker D (10); with the five zero modes at the other chirality it makes the anomaly-free 5 + 10", T, "binding_joins"),
+    ("triple", "readout", "first-order form", "the readout's generator A = [[0, I], [-D^2, 0]] is the triple's D^2 in first-order form: A^2 = -(D^2 + D^2)", T, "readout"),
+    ("triple", "binding", "commutant", "the commutant of D is M5 + M4 + M4 + C + C (dimension 59), and its only atom-diagonal element is the phase", T, "binding_joins"),
+    ("triple", "waves", "complement", "on the vertices the triple's D^2 and the sound operator add to 8: M M^T + B B^T = 8I", T, "sound_light"),
+    ("readout", "calibration", "Salina-Prema", "a calibration t = tau u intertwines the native flow with the physical one: S U(u) = U_tau(tau u) S", T, "calibration"),
+    ("circle", "calibration", "no internal clock", "calibrations tau and 2 tau give identical native records, so no internal number, the circle's ticks included, binds physical time", OB, "calibration"),
+    ("triple", "gravity", "heat coefficients", "Tr D^0, D^2, D^4 = 15, 40, 200 give the M4 x F heat coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3; G and Lambda_cc need f, L and m (J10)", gates.CONDITIONAL, "product_geometry"),
+    ("gravity", "cosmology", "G and Lambda_cc", "the spectral action's G and Lambda_cc drive a flat FLRW flow; the Friedmann constraint holds, and the kernel sector, the datum's 2, scales exactly as a^-6", gates.CONDITIONAL, "friedmann"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -1846,6 +2227,21 @@ LEDGER_ROWS = [
     ("the six-port moments (FOUR_ITEMS, REPAIR_AUDIT)", "contrast 241 and 183; uniform 235 and 495 once the factor 6 is restored", "replayed: F_k = E_k - E_(k+1)/240 because W(E8) is transitive on the roots; contrast E_(k+1)/240, uniform 6 E_k - 5 E_(k+1)/240; without the 6 the line gives -965", T, "23"),
     ("the script audits (FOUR_ITEMS, REPAIR_AUDIT, PASS2, MASTER_LEDGER, DEEP36_LOOP)", "4805 not a minor; 3/65 against 3/80; 74557/432 and -69373; Hessian 6.986, not 5.0708; two factorizations wrong", "replayed: 4805 = 24025/5 is the Gram over 5; the collar fractions are two different exact numbers; the shifted coefficient is -69373; the tangent Hessian is positive; the corrected squarefree parts are 3985 and 318; the collar stays open", T, "23"),
     ("the splits receipt's corrections (00:49)", "the tower of fives; 215 other loops; 4300 disagreement points; entry after two doublings", "replayed: all five hold", T, "23"),
+    ("the spectral triple (J7)", "Witten index -5; moments 15, 40, 200", "joined: the triple's D squares to the carrier, and ker D^2 is ker M on the edges", T, "2, 9, 23"),
+    ("the readout (J6)", "the hidden controllable sector is P5 + P5", "joined: the readout is the triple's D^2 in first-order form, and its hidden sector is the native source's space", T, "5, 9, 23"),
+    ("the product geometry and FLRW (J10)", "heat coefficients 60, 160 m^2, 400 m^4; sectors a^-6 and a^-3", "joined conditionally: the coefficients are 4 Tr D^0, 4 Tr D^2 and 2 Tr D^4 for any M4, while G and Lambda_cc need f, L and m; the kernel sector, the datum's 2, scales exactly as a^-6", gates.CONDITIONAL, "6, 7, 23"),
+    ("the surface (J5)", "RP^2 on the six icosahedral axes, 1-skeleton K6", "joined: on the projective line over F5 the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5), with links the pentagram and the pentagon", T, "3, 23"),
+    ("the four-cube and the cuts", "four qubits, Laplacian 4 - sum X_i", "joined: the sixteen vertices are the sixteen cuts of K5 over F2, and a cube edge adds one vertex star", T, "23"),
+    ("the critical census and the tick (layer 16)", "11 families, 243600 points, Morse sum 0", "joined: the tick's 25 fixed momenta are critical points, the minimum and 24 of the A4 + A4 family at eps 250; the 11 critical values are the recurrence's in-band roots", T, "16, 23"),
+    ("the nine-torus (layer 18)", "square-free parts 14, 3, 62, 10, 251, 161, 51, 7, 1", "joined to the census: the nine frequencies are independent over Q and their flow is dense on T^9", T, "18, 23"),
+    ("sound and light (layer 17)", "Curl = *d1 with helicities +-sqrt5; sound = cuts, light = cycles", "joined to the edges, the cycles, A4, the carrier's Hodge block and the triple (M M^T + B B^T = 8I)", T, "17, 23"),
+    ("binding (layer 12)", "commutant 59; the anomaly-free 5 + 10", "joined to the triple (the commutant) and to the source (Lambda^2 ker D)", T, "12, 23"),
+    ("calibration (layer 13)", "t = tau u; the Salina and Prema courts vanish", "joined to the readout by the intertwiner S U(u) = U_tau(tau u) S", T, "13, 23"),
+    ("time from the circle (layer 13)", "countermodel A: tau and 2 tau give the same records", "an obstruction: no internal number, the circle's ticks included, binds physical time", OB, "13, 23"),
+    ("the literal operands (layer 10)", "SHA-256 73e07429...; W_p exact; the adapters differ by a commutant element", "joined to the source by U, a W_p-isometry commuting with the C5 rotation", T, "10, 23"),
+    ("the spectral measures (layer 15)", "M_0..M_50; Gauss and Lobatto envelopes", "joined to the moments by the Hausdorff test on [0, 256]", T, "15, 23"),
+    ("the golden clock", "B mod 5 and v in W(E8), both of order 20", "joined by B^k -> v^k with B^4 -> the tick: a selected isomorphism of two cyclic groups", SR, "23"),
+    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -1875,6 +2271,11 @@ NOT_JOINED = [
     ("the separate model's splits update (00:49)", "413793 bytes; 90 new check groups (grain 43, towers 17, module "
                                                    "relations 27, API 3) and 47 review groups; not opened or rerun; its "
                                                    "five source corrections are replayed", RP),
+    ("the memory clock (layer 3)", "a 125-state operator with a Jordan block keeps no positive metric; its 120-state "
+                                   "quotient has order 90. It shares integers with the circle (90 divides 4320) and the "
+                                   "cycle Gram (125 = 5^3), and no map is built", gates.ARITHMETIC),
+    ("the [9, 3, 7] code over F11 (layer 15)", "MDS and 3-error-correcting; nothing identifies it with H90 or with any "
+                                               "dot", gates.UNFORMED),
     ("air", "no air operator is stored, and none is formed", gates.UNFORMED),
 ]
 
@@ -1900,6 +2301,11 @@ def _checks():
         "walks_join": walks_join, "coil": coil, "nakshatra_map": nakshatra_map, "address_lift": address_lift,
         "golden_family": golden_family, "cone_symmetry": cone_symmetry, "mpkg_block": mpkg_block, "grain": grain,
         "vortex": vortex, "tick_miss": tick_miss, "doubling_orbits": doubling_orbits, "eight_roots": eight_roots,
+        "golden_clock": golden_clock, "cube_cuts": cube_cuts, "surface": surface, "dual_torus": dual_torus,
+        "census": census, "critical_momenta": critical_momenta, "nine_torus": nine_torus, "census_walks": census_walks,
+        "literal_port": literal_port, "measure": measure, "triple": triple, "readout": readout,
+        "sound_light": sound_light, "binding_joins": binding_joins, "calibration": calibration,
+        "product_geometry": product_geometry, "friedmann": friedmann,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -1907,9 +2313,13 @@ def _checks():
     }
 
 
-def components(passed):
+MAPS = (T, SR, gates.CONDITIONAL)
+
+
+def components(passed, statuses=MAPS, dots=None):
     """Connected components of the dots under the joins that hold (maps, not obstructions)."""
-    parent = {k: k for k in DOTS}
+    dots = list(DOTS) if dots is None else dots
+    parent = {k: k for k in dots}
 
     def find(k):
         while parent[k] != k:
@@ -1917,32 +2327,62 @@ def components(passed):
             k = parent[k]
         return k
     for (a, b, _, _, status, _), ok in zip(JOINS, passed):
-        if ok and status in (T, SR):
+        if ok and status in statuses and a in parent and b in parent:
             parent[find(a)] = find(b)
     groups = {}
-    for k in DOTS:
+    for k in dots:
         groups.setdefault(find(k), []).append(k)
     return list(groups.values())
 
 
+def levels(passed):
+    """Every layer has a dot; every level is joined inside; each level is joined to the next; THEOREM joins alone."""
+    layers = {int(x) for _, _, tags in DOTS.values() for x in tags.split(",")}
+    inside = {name: components(passed, dots=dots) for name, _, dots in LEVELS}
+    between = []
+    for k in range(len(LEVELS) - 1):
+        lo, hi = set(LEVELS[k][2]), set(LEVELS[k + 1][2])
+        between.append([j for j, ok in zip(JOINS, passed) if ok and j[4] in MAPS
+                        and {j[0], j[1]} & lo and {j[0], j[1]} & hi])
+    theorem = components(passed, statuses=(T,))
+    return {"layers": sorted(layers), "inside": inside, "between": between, "theorem": theorem,
+            "statuses": Counter(j[4] for j in JOINS)}
+
+
 def dots_page():
-    lines = ["# All dots joined", "",
+    lv = levels([True] * len(JOINS))
+    lines = ["# All dots joined, at every level", "",
              "Every object the model builds is a dot, and every map between two dots that layer 23 (`oes/dots.py`) "
              "builds and checks is a join. A dashed arrow is an obstruction: a proof that the map does not exist. Two "
              "dots that share an integer are not joined by it; those integers stay readings (`docs/LEDGER.md`). "
+             "The dots sit on six levels, from the integers up to physics. Every layer of the build has a dot, every "
+             "level is joined inside, and each level is joined to the next. "
              "Generated by `dots_page()`; `tests/test_model.py` checks that this file is current.", "",
-             "```mermaid", "flowchart LR"]
-    for key, (name, _, _) in DOTS.items():
-        lines.append(f'    {key}["{name}"]')
+             "```mermaid", "flowchart TB"]
+    for k, (name, what, dots) in enumerate(LEVELS):
+        lines.append(f'    subgraph level{k + 1}["level {k + 1}: {name}"]')
+        for key in dots:
+            lines.append(f'        {key}["{DOTS[key][0]}"]')
+        lines.append("    end")
     for a, b, short, _, status, _ in JOINS:
         arrow = "-.->" if status == OB else "-->"
         lines.append(f'    {a} {arrow}|"{short}"| {b}')
-    lines += ["```", "", f"{len(DOTS)} dots and {len(JOINS)} joins. With the obstructions left out, the joins that "
-              "hold connect every dot: the diagram is one piece.", "",
-              "## Dots", "", "| dot | what it is | layers |", "|---|---|---|"]
+    count = Counter(status for *_, status, _ in JOINS)
+    lines += ["```", "", f"{len(DOTS)} dots and {len(JOINS)} joins: {count[T]} THEOREM, {count[SR]} SELECTED_REFERENCE, "
+              f"{count[gates.CONDITIONAL]} CONDITIONAL and {count[OB]} OBSTRUCTION. With the obstructions left out, the "
+              "joins that hold connect every dot: the diagram is one piece. THEOREM joins alone connect every dot but "
+              "the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the "
+              "Friedmann flow.", "",
+              "## Levels", "", "| level | what lives there | dots | joins inside | joins to the next level |",
+              "|---|---|---|---|---|"]
     cell = lambda x: x.replace("|", "\\|")
+    for k, (name, what, dots) in enumerate(LEVELS):
+        inside = sum(1 for j in JOINS if j[4] in MAPS and LEVEL_OF[j[0]] == LEVEL_OF[j[1]] == k)
+        up = len(lv["between"][k]) if k < len(LEVELS) - 1 else "-"
+        lines.append(f"| {k + 1}. {name} | {what} | {', '.join(cell(DOTS[d][0]) for d in dots)} | {inside} | {up} |")
+    lines += ["", "## Dots", "", "| dot | what it is | level | layers |", "|---|---|---|---|"]
     for key, (name, what, layers) in DOTS.items():
-        lines.append(f"| {cell(name)} | {cell(what)} | {layers} |")
+        lines.append(f"| {cell(name)} | {cell(what)} | {LEVELS[LEVEL_OF[key]][0]} | {layers} |")
     lines += ["", "## Joins", "", "| from | to | the map | status | check |", "|---|---|---|---|---|"]
     for a, b, _, what, status, check in JOINS:
         lines.append(f"| {cell(DOTS[a][0])} | {cell(DOTS[b][0])} | {cell(what)} | {status} | `{check}` |")
@@ -1964,6 +2404,20 @@ def run():
     comps = components(passed)
     rep.add(f"the {len(DOTS)} dots and {len(JOINS)} joins form one connected diagram (the obstructions left out)", T,
             len(comps) == 1, [sorted(c) for c in comps])
+    lv = levels(passed)
+    rep.add("every layer of the build, 1 to 23, has a dot", T, lv["layers"] == list(range(1, 24)), lv["layers"])
+    for k, (name, what, dots) in enumerate(LEVELS):
+        rep.add(f"level {k + 1}, {name} ({what}): its {len(dots)} dots are joined among themselves", T,
+                len(lv["inside"][name]) == 1, [sorted(c) for c in lv["inside"][name]])
+    rep.add("each level is joined to the next: " + ", ".join(
+        f"{LEVELS[k][0]}-{LEVELS[k + 1][0]} {len(b)}" for k, b in enumerate(lv["between"])) + " joins", T,
+        all(lv["between"]), [[f"{j[0]} -> {j[1]}" for j in b] for b in lv["between"]])
+    rest = sorted(sorted(c) for c in lv["theorem"] if len(c) > 1)
+    rep.add(f"THEOREM joins alone connect {len(DOTS) - 2} of the {len(DOTS)} dots; the product geometry and FLRW "
+            "attach only through the two CONDITIONAL joins (J10 and the Friedmann flow)", T,
+            len(lv["theorem"]) == 3 and ["cosmology"] in [sorted(c) for c in lv["theorem"]]
+            and ["gravity"] in [sorted(c) for c in lv["theorem"]] and len(rest) == 1,
+            dict(lv["statuses"]))
     a8 = air_801()
     rep.add("AIR_801's matrix [[108, 801], [106, 901]]: det 12402; mod 5 a Singer cycle of order 24 in GL(2,5) and 6 in "
             "PGL(2,5); the clock polynomial has degree 27 and a simple root at 1", T, all(a8.values()), a8)

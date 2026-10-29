@@ -57,59 +57,59 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.7,
+  "1-carrier": 0.64,
   "2-spectral": 0.01,
-  "3-spacetime": 7.99,
-  "4-native": 88.86,
-  "5-observer": 0.18,
-  "6-gravity": 4.51,
-  "7-cosmology": 1.7,
-  "8-frontier": 34.61,
-  "9-joins": 8.62,
-  "10-literal": 33.99,
-  "11-glue": 0.22,
+  "3-spacetime": 7.96,
+  "4-native": 91.5,
+  "5-observer": 0.24,
+  "6-gravity": 4.77,
+  "7-cosmology": 1.69,
+  "8-frontier": 35.09,
+  "9-joins": 7.6,
+  "10-literal": 37.69,
+  "11-glue": 0.17,
   "12-binding": 0.03,
-  "13-gates": 0.09,
-  "14-recurrence": 72.83,
-  "15-court": 1.71,
-  "16-handover": 1.21,
-  "17-waves": 0.6,
-  "18-snapshot": 0.87,
-  "19-spine": 4.14,
-  "20-canon": 6.35,
-  "21-ledger": 44.65,
-  "22-counts": 19.94,
-  "23-dots": 6.93
+  "13-gates": 0.11,
+  "14-recurrence": 72.89,
+  "15-court": 1.75,
+  "16-handover": 1.19,
+  "17-waves": 0.58,
+  "18-snapshot": 0.85,
+  "19-spine": 4.21,
+  "20-canon": 6.18,
+  "21-ledger": 45.7,
+  "22-counts": 23.51,
+  "23-dots": 8.59
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 391,
-   "total": 391
+   "passed": 423,
+   "total": 423
   },
   "OBSTRUCTION": {
-   "passed": 45,
-   "total": 45
+   "passed": 46,
+   "total": 46
   },
   "REMOVED": {
    "passed": 2,
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 38,
-   "total": 38
+   "passed": 39,
+   "total": 39
   },
   "SELECTED_REFERENCE": {
-   "passed": 11,
-   "total": 11
+   "passed": 12,
+   "total": 12
   },
   "UNFORMED": {
-   "passed": 20,
-   "total": 20
+   "passed": 21,
+   "total": 21
   },
   "CONDITIONAL": {
-   "passed": 18,
-   "total": 18
+   "passed": 20,
+   "total": 20
   },
   "REPORTED": {
    "passed": 64,
@@ -6492,7 +6492,313 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 41 dots and 71 joins form one connected diagram (the obstructions left out)",
+   "name": "golden companion -> W(E8) clocks: B mod 5 and the golden clock v of W(E8) are both cyclic of order 20, and B^4 goes to v^4, the tick g",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "B mod 5 and the golden clock v both have order 20, and v^4 is the tick g, so B^k -> v^k is an isomorphism of the two cyclic groups taking B^4 to g (a selection: any generator could be matched)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "four-cube -> K5 edges: x -> the cut of {i : x_i = 1}: the sixteen vertices of the four-cube are the sixteen cuts of K5 over F2, a cube edge adds one vertex star, and the antipode is the fifth star",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "x -> the cut of {i : x_i = 1} is linear and maps the sixteen vertices of the four-cube onto the sixteen cuts of K5 over F2, the row space of B mod 2": true,
+    "two vertices are adjacent in the cube exactly when their cuts differ by the star of a vertex 1..4, and the antipode 1111 goes to the fifth star: the four qubits are the four independent cuts": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> surface: the surface's 1-skeleton is K6, the ten K5 edges and five spokes, and D is the spoke-rim block of its line graph (J5)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hemi-icosahedron on the six axes has 1-skeleton K6, the ten K5 edges and five spokes to a cone point, and D = A(line graph of K6) - diag(J - I, M^T M - 2I) (J5)": true,
+    "its 60 symmetries are transitive on the axes; labelled by the projective line over F5 (the cone point at infinity), it and its complement are the two PSL(2,5)-orbits of triangles, and the 60 elements of PGL(2,5) outside PSL(2,5) swap them": true,
+    "at infinity the hemi-icosahedron's link is the pentagram (steps +-2) and its complement's is the pentagon (steps +-1), the far and near cycles of the rotor plane": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "surface -> PGL(2,5): on the projective line over F5 the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles; PGL(2,5) swaps them, and their links at infinity are the pentagram and the pentagon",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hemi-icosahedron on the six axes has 1-skeleton K6, the ten K5 edges and five spokes to a cone point, and D = A(line graph of K6) - diag(J - I, M^T M - 2I) (J5)": true,
+    "its 60 symmetries are transitive on the axes; labelled by the projective line over F5 (the cone point at infinity), it and its complement are the two PSL(2,5)-orbits of triangles, and the 60 elements of PGL(2,5) outside PSL(2,5) swap them": true,
+    "at infinity the hemi-icosahedron's link is the pentagram (steps +-2) and its complement's is the pentagon (steps +-1), the far and near cycles of the rotor plane": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> tick momenta: E8 is unimodular, so momenta live on R^8 / 2 pi E8, where the tick has |det(g - I)| = 25 fixed points",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Cartan matrix of E8 has determinant 1, so E8* = E8 and the momentum torus is R^8 / 2 pi E8": true,
+    "on it the tick has |det(g - I)| = 25 fixed points": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> critical census: eps = 240 - sum cos(2 pi r.x) has 11 critical families on the alcove, 243600 points with Morse sum 0",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "eps = 240 - sum cos(2 pi r.x) has 11 nondegenerate critical families on the alcove's vertices and edges, 243600 points with Morse sum 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "tick momenta -> critical census: the tick's 25 fixed momenta are critical points of the band: the minimum and 24 points of the A4 + A4 family (eps 250, index 4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick's 25 fixed momenta are critical points of the band: the minimum (type E8, eps 0) and 24 points of the A4 + A4 family (eps 250, index 4, 48384 points in all)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "critical census -> nine-torus: the nine positive critical energies have distinct square-free parts, so their square roots are independent over Q and the flow is dense on T^9",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the nine positive critical energies are 224, 243, 248, 250, 251, 4025/16, 6800/27, 252, 256; their square-free parts 14, 3, 62, 10, 251, 161, 51, 7, 1 are distinct, so the square roots are independent over Q and the flow of the nine frequencies is dense on T^9 (Besicovitch, Kronecker)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "critical census -> closed walks: the 11 critical values are the in-band characteristic roots of the order-16 recurrence of W_n",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 11 critical values 240 - eps, with their multiplicities, are the in-band characteristic roots of the order-16 recurrence of W_n (layer 14)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> Pauli algebra: on the 2-Lambda-periodic functions the bath, conjugated by Walsh-Hadamard, is the Pauli generator L",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Delta on the 2 Lambda-periodic functions is a 256 x 256 integer matrix on the cosets of 2 Lambda (each root shifts a coset), with spectrum 0, 224, 256 on 1, 120, 135": true,
+    "the Walsh-Hadamard matrix (-1)^<x, v> squares to 256 I (det Cartan = 1) and conjugates it to diag eps(pi x), which is L in the Pauli basis: an operator identity, not a containment of three numbers": true,
+    "phi(x)^T = (-1)^(x.x/2) phi(x): the transpose sign is the E8 quadratic form mod 2, and the 120 antisymmetric products are the 120 root classes": true,
+    "no half-period mode is square-summable: |chi_x| = 1 at every lattice point, so over the ball of norm <= 4 its squared norm is the point count 1 + 240 + 2160 = 2401, and it grows with the ball": true,
+    "-L is a GKSL generator: sum over the 120 antisymmetric Paulis A of A X A^T = 8 tr(X) I - 8 X^T, so -L(X) = 2 sum_A (A X A^T - X), with L(I) = 0 and tr L(X) = 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "literal operands -> source: the owner's operands give the same port up to U, a W_p-isometry commuting with the C5 rotation; their W_p is the reconstruction's exactly",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "native_matrices_input.json hashes to the canon's 73e07429..., and its W_p in boundary order is the reconstruction's exactly": true,
+    "the literal port is U times the reconstructed one, U a W_p-isometry commuting with the C5 rotation": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "moments -> spectral measures: the true sector moments M_0..M_50 pass the Hausdorff test on [0, 256]: they are moments of measures, each with 25 Gauss nodes in the band",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the true sector moments M_0..M_50 pass the Hausdorff test on [0, 256] exactly, so each sector has a spectral measure there, and its 25-node Gauss rule lies inside the band": true,
+    "their first moments are the block eigenvalues 241 (contrast) and 235 (uniform)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "carrier -> spectral triple: the triple's Dirac operator is odd, with D^2 = M M^T + M^T M and moments 15, 40, 200, 1240, 8840",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the triple's D is odd for the grading and D^2 = M M^T + M^T M, the carrier, with moments Tr D^0..D^8 = 15, 40, 200, 1240, 8840": true,
+    "ker D^2 lies on the edges and is ker M, and the Witten index Tr(gamma on ker D^2) is -5 (J7)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> spectral triple: ker D^2 lies on the edges and equals ker M; the Witten index is Tr(gamma on ker D^2) = -5 (J7)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the triple's D is odd for the grading and D^2 = M M^T + M^T M, the carrier, with moments Tr D^0..D^8 = 15, 40, 200, 1240, 8840": true,
+    "ker D^2 lies on the edges and is ker M, and the Witten index Tr(gamma on ker D^2) is -5 (J7)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> readout: the hidden controllable sector of (edge force, D psi) is ker M + ker M, the native source's space (J6)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the readout's generator A = [[0, I], [-D^2, 0]] is the triple's D^2 in first-order form: A^2 = -(D^2 + D^2)": true,
+    "the hidden controllable sector of (edge force, D psi) is ker M + ker M in (position, velocity), the native source's space (J6)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "carrier -> sound and light: on the cycle space, in the fundamental-cycle basis, Curl is -A, the carrier's Hodge block (6I - G) sigma",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge complex has d0 = B^T, d1 d0 = 0 and ranks 4 + 6: sound im d0 is the cuts, light ker d0^T the cycles": true,
+    "Curl = *d1 has spectrum +-sqrt5 (three each) on the cycles and 0 on sound: the two helicities": true,
+    "in the fundamental-cycle basis Curl is -A, the carrier's Hodge block (6I - G) sigma": true,
+    "the sound operator B B^T = 5I - J is half the A4 frame, and with the triple's vertex block it makes 8: M M^T + B B^T = 8I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> sound and light: the edge complex has d0 = B^T and d1 d0 = 0, ranks 4 + 6: sound is the cuts and light the cycles",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge complex has d0 = B^T, d1 d0 = 0 and ranks 4 + 6: sound im d0 is the cuts, light ker d0^T the cycles": true,
+    "Curl = *d1 has spectrum +-sqrt5 (three each) on the cycles and 0 on sound: the two helicities": true,
+    "in the fundamental-cycle basis Curl is -A, the carrier's Hodge block (6I - G) sigma": true,
+    "the sound operator B B^T = 5I - J is half the A4 frame, and with the triple's vertex block it makes 8: M M^T + B B^T = 8I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cycles -> sound and light: light = ker d0^T is the cycle space, split by Curl = *d1 into the helicities +-sqrt5, three each",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge complex has d0 = B^T, d1 d0 = 0 and ranks 4 + 6: sound im d0 is the cuts, light ker d0^T the cycles": true,
+    "Curl = *d1 has spectrum +-sqrt5 (three each) on the cycles and 0 on sound: the two helicities": true,
+    "in the fundamental-cycle basis Curl is -A, the carrier's Hodge block (6I - G) sigma": true,
+    "the sound operator B B^T = 5I - J is half the A4 frame, and with the triple's vertex block it makes 8: M M^T + B B^T = 8I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> sound and light: the sound operator B B^T = 5I - J is half the A4 frame sum alpha alpha^T",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge complex has d0 = B^T, d1 d0 = 0 and ranks 4 + 6: sound im d0 is the cuts, light ker d0^T the cycles": true,
+    "Curl = *d1 has spectrum +-sqrt5 (three each) on the cycles and 0 on sound: the two helicities": true,
+    "in the fundamental-cycle basis Curl is -A, the carrier's Hodge block (6I - G) sigma": true,
+    "the sound operator B B^T = 5I - J is half the A4 frame, and with the triple's vertex block it makes 8: M M^T + B B^T = 8I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> binding: the port lives on Lambda^2 ker D (10); with the five zero modes at the other chirality it makes the anomaly-free 5 + 10",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the commutant of D is M5 + M4 + M4 + C + C, dimension 59, and its only atom-diagonal element is the phase": 1.0,
+    "the port lives on Lambda^2 ker D (dimension 10) and breaks the dark O(5) completely; the zero modes' 5 and this 10, at opposite chirality, have equal SU(5) anomalies, so 5 + 10 = 15 is anomaly-free": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral triple -> readout: the readout's generator A = [[0, I], [-D^2, 0]] is the triple's D^2 in first-order form: A^2 = -(D^2 + D^2)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the readout's generator A = [[0, I], [-D^2, 0]] is the triple's D^2 in first-order form: A^2 = -(D^2 + D^2)": true,
+    "the hidden controllable sector of (edge force, D psi) is ker M + ker M in (position, velocity), the native source's space (J6)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral triple -> binding: the commutant of D is M5 + M4 + M4 + C + C (dimension 59), and its only atom-diagonal element is the phase",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the commutant of D is M5 + M4 + M4 + C + C, dimension 59, and its only atom-diagonal element is the phase": 1.0,
+    "the port lives on Lambda^2 ker D (dimension 10) and breaks the dark O(5) completely; the zero modes' 5 and this 10, at opposite chirality, have equal SU(5) anomalies, so 5 + 10 = 15 is anomaly-free": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral triple -> sound and light: on the vertices the triple's D^2 and the sound operator add to 8: M M^T + B B^T = 8I",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge complex has d0 = B^T, d1 d0 = 0 and ranks 4 + 6: sound im d0 is the cuts, light ker d0^T the cycles": true,
+    "Curl = *d1 has spectrum +-sqrt5 (three each) on the cycles and 0 on sound: the two helicities": true,
+    "in the fundamental-cycle basis Curl is -A, the carrier's Hodge block (6I - G) sigma": true,
+    "the sound operator B B^T = 5I - J is half the A4 frame, and with the triple's vertex block it makes 8: M M^T + B B^T = 8I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "readout -> calibration: a calibration t = tau u intertwines the native flow with the physical one: S U(u) = U_tau(tau u) S",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "S U(u) = U_tau(tau u) S for every calibration tau (the Salina and Prema courts vanish)": true,
+    "calibrations tau and 2 tau give identical native records with frequencies in ratio 2 (countermodel A)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> calibration: calibrations tau and 2 tau give identical native records, so no internal number, the circle's ticks included, binds physical time",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "S U(u) = U_tau(tau u) S for every calibration tau (the Salina and Prema courts vanish)": true,
+    "calibrations tau and 2 tau give identical native records with frequencies in ratio 2 (countermodel A)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral triple -> product geometry: Tr D^0, D^2, D^4 = 15, 40, 200 give the M4 x F heat coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3; G and Lambda_cc need f, L and m (J10)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "for any closed spin 4-manifold, (4 - tR/3) Tr exp(-t m^2 D_F^2) has coefficients 4 Tr D^0 = 60, -(4 Tr D^2 m^2 + Tr D^0 R/3) = -(160 m^2 + 5R) and 2 Tr D^4 m^4 + Tr D^2 m^2 R/3 = 400 m^4 + 40 m^2 R/3 (J10); G and Lambda_cc need the free inputs f, L and m": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "product geometry -> FLRW: the spectral action's G and Lambda_cc drive a flat FLRW flow; the Friedmann constraint holds, and the kernel sector, the datum's 2, scales exactly as a^-6",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "with G and Lambda_cc from the spectral action the Friedmann constraint holds along the flow": 1.0,
+    "the kernel sector, which holds the datum's 2, is stiff: its energy times a^6 stays 2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 53 dots and 98 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6508,11 +6814,15 @@
      "V",
      "atlas",
      "bath",
+     "binding",
      "c27",
+     "calibration",
      "carrier",
+     "census",
      "circle",
      "clocks",
      "coil",
+     "cosmology",
      "cube",
      "cycles",
      "datum",
@@ -6520,9 +6830,12 @@
      "gksl",
      "golden",
      "grain",
+     "gravity",
      "halfper",
      "hodge",
      "kerM",
+     "literal",
+     "measure",
      "miss",
      "momenta",
      "moments",
@@ -6530,16 +6843,227 @@
      "pauli",
      "petersen",
      "pgl",
+     "readout",
      "rotor",
      "sixsite",
      "source",
      "stages",
+     "surface",
      "time",
+     "torus",
      "triangle",
+     "triple",
      "vortex",
+     "walks",
+     "waves"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "every layer of the build, 1 to 23, has a dot",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "level 1, number (the circle and its clocks): its 10 dots are joined among themselves",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "atlas",
+     "c27",
+     "circle",
+     "coil",
+     "grain",
+     "miss",
+     "observer",
+     "stages",
+     "time",
+     "vortex"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "level 2, symmetry (groups, their actions and modules): its 7 dots are joined among themselves",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "AGL",
+     "G120",
+     "S5",
+     "clocks",
+     "golden",
+     "hodge",
+     "pgl"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "level 3, combinatorics (graphs, complexes and the cube): its 7 dots are joined among themselves",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "E",
+     "V",
+     "cube",
+     "cycles",
+     "petersen",
+     "rotor",
+     "surface"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "level 4, lattice (roots, lattices and tori): its 9 dots are joined among themselves",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "A4",
+     "D5",
+     "E8",
+     "L0",
+     "census",
+     "frame",
+     "halfper",
+     "momenta",
+     "torus"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "level 5, operator (spaces with operators, ports and moments): its 13 dots are joined among themselves",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "bath",
+     "carrier",
+     "datum",
+     "gksl",
+     "kerM",
+     "literal",
+     "measure",
+     "moments",
+     "pauli",
+     "sixsite",
+     "source",
+     "triangle",
      "walks"
     ]
    ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "level 6, physics (geometry, readout, waves, binding and the conditional cosmos): its 7 dots are joined among themselves",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "binding",
+     "calibration",
+     "cosmology",
+     "gravity",
+     "readout",
+     "triple",
+     "waves"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 2, combinatorics-lattice 3, lattice-operator 8, operator-physics 5 joins",
+   "status": "THEOREM",
+   "passed": true,
+   "value": [
+    [
+     "circle -> clocks",
+     "G120 -> circle",
+     "golden -> circle",
+     "golden -> atlas",
+     "golden -> time"
+    ],
+    [
+     "V -> clocks",
+     "surface -> pgl"
+    ],
+    [
+     "E -> A4",
+     "E -> D5",
+     "rotor -> E8"
+    ],
+    [
+     "D5 -> carrier",
+     "L0 -> bath",
+     "momenta -> bath",
+     "E8 -> bath",
+     "halfper -> pauli",
+     "E8 -> bath",
+     "frame -> sixsite",
+     "census -> walks"
+    ],
+    [
+     "carrier -> triple",
+     "kerM -> triple",
+     "source -> readout",
+     "carrier -> waves",
+     "source -> binding"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "THEOREM joins alone connect 51 of the 53 dots; the product geometry and FLRW attach only through the two CONDITIONAL joins (J10 and the Friedmann flow)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "THEOREM": 89,
+    "OBSTRUCTION": 3,
+    "SELECTED_REFERENCE": 4,
+    "CONDITIONAL": 2
+   },
    "note": ""
   },
   {
@@ -6896,8 +7420,8 @@
     "the port metric's eigenvalues sum to 112/5 and multiply to 320; (-5/2, -1/2, ..., -1/2) meets exactly 8 roots, at 3, and (2, 0, ..., 0) exactly 14, at 2; |W(E8)| / 8! = 17280 and |W(E8)| / |W(D7)| = 2160": true,
     "the fourteen are e_1 +- e_j; the roots are 112 integer and 128 half-integer, so 240 - (112 - 128) = 256, the dispersion's top (PASS2, REPAIR_AUDIT)": true,
     "the carrier D^2 has trace 40 and its square trace 200, so 9/40 is 9 over the carrier trace; the identity does not put it in the action (MASTER_LEDGER, JOIN_ALL)": true,
-    "DEEP36_LOOP and PASS2: 4320 = 1 mod 7 (no element of order 7); 48 divisors; C(n, 2) = 2n only at n = 5, and the middle binomial exceeds 2n for 6 <= n < 200; 3985/16 is not (5/4)^2 x 161 and 6784/27 is not (20/9)^2 x 51, whose squarefree parts are 3985 and 318": true,
-    "the nine corrected squarefree integers 14, 3, 62, 10, 251, 3985, 318, 7, 1 are squarefree and distinct, so their square roots are independent over Q; the nine energies are not located here, so the torus is not certified": true,
+    "DEEP36_LOOP and PASS2: 4320 = 1 mod 7 (no element of order 7); 48 divisors; C(n, 2) = 2n only at n = 5, and the middle binomial exceeds 2n for 6 <= n < 200": true,
+    "the paper's 3985/16 and 6784/27 are misprints of the critical energies 240 + 185/16 = 4025/16 = (5/4)^2 x 161 and 240 + 320/27 = 6800/27 = (20/9)^2 x 51, so its factorizations are right and two of its energies wrong. DEEP36_LOOP keeps the misprints and changes the square-free parts to 3985 and 318; the census's parts stay 161 and 51, and layer 18's density on T^9 stands": true,
     "JOIN_ALL and DEEP36_LOOP on the circle: 216 = 6 x 36 has order 20, the golden companion's period mod 5; the address step 36 and seven of them, 252, have order 120, the step 120 order 36 and 720 order 6; the coil is 27 returns (540 = lcm(20, 27)); a 6-cycle splits the fifteen pairs into orbits 6, 6, 3; 252 - 7 = 245, 252 + 4 = 256, 2^5 - 1 = 31 nonempty faces of the 4-simplex, 16 x 4320 = 69120": true
    },
    "note": ""
@@ -7015,6 +7539,22 @@
    "layer": "23-dots",
    "name": "not joined: the separate model's splits update (00:49): 413793 bytes; 90 new check groups (grain 43, towers 17, module relations 27, API 3) and 47 review groups; not opened or rerun; its five source corrections are replayed",
    "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the memory clock (layer 3): a 125-state operator with a Jordan block keeps no positive metric; its 120-state quotient has order 90. It shares integers with the circle (90 divides 4320) and the cycle Gram (125 = 5^3), and no map is built",
+   "status": "ARITHMETIC",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the [9, 3, 7] code over F11 (layer 15): MDS and 3-error-correcting; nothing identifies it with H90 or with any dot",
+   "status": "UNFORMED",
    "passed": true,
    "value": null,
    "note": ""

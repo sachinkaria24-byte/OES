@@ -139,7 +139,22 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the six-port moments (FOUR_ITEMS, REPAIR_AUDIT) | contrast 241 and 183; uniform 235 and 495 once the factor 6 is restored | replayed: F_k = E_k - E_(k+1)/240 because W(E8) is transitive on the roots; contrast E_(k+1)/240, uniform 6 E_k - 5 E_(k+1)/240; without the 6 the line gives -965 | THEOREM | 23 |
 | the script audits (FOUR_ITEMS, REPAIR_AUDIT, PASS2, MASTER_LEDGER, DEEP36_LOOP) | 4805 not a minor; 3/65 against 3/80; 74557/432 and -69373; Hessian 6.986, not 5.0708; two factorizations wrong | replayed: 4805 = 24025/5 is the Gram over 5; the collar fractions are two different exact numbers; the shifted coefficient is -69373; the tangent Hessian is positive; the corrected squarefree parts are 3985 and 318; the collar stays open | THEOREM | 23 |
 | the splits receipt's corrections (00:49) | the tower of fives; 215 other loops; 4300 disagreement points; entry after two doublings | replayed: all five hold | THEOREM | 23 |
-| all dots | - | 41 dots and 71 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| the spectral triple (J7) | Witten index -5; moments 15, 40, 200 | joined: the triple's D squares to the carrier, and ker D^2 is ker M on the edges | THEOREM | 2, 9, 23 |
+| the readout (J6) | the hidden controllable sector is P5 + P5 | joined: the readout is the triple's D^2 in first-order form, and its hidden sector is the native source's space | THEOREM | 5, 9, 23 |
+| the product geometry and FLRW (J10) | heat coefficients 60, 160 m^2, 400 m^4; sectors a^-6 and a^-3 | joined conditionally: the coefficients are 4 Tr D^0, 4 Tr D^2 and 2 Tr D^4 for any M4, while G and Lambda_cc need f, L and m; the kernel sector, the datum's 2, scales exactly as a^-6 | CONDITIONAL | 6, 7, 23 |
+| the surface (J5) | RP^2 on the six icosahedral axes, 1-skeleton K6 | joined: on the projective line over F5 the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5), with links the pentagram and the pentagon | THEOREM | 3, 23 |
+| the four-cube and the cuts | four qubits, Laplacian 4 - sum X_i | joined: the sixteen vertices are the sixteen cuts of K5 over F2, and a cube edge adds one vertex star | THEOREM | 23 |
+| the critical census and the tick (layer 16) | 11 families, 243600 points, Morse sum 0 | joined: the tick's 25 fixed momenta are critical points, the minimum and 24 of the A4 + A4 family at eps 250; the 11 critical values are the recurrence's in-band roots | THEOREM | 16, 23 |
+| the nine-torus (layer 18) | square-free parts 14, 3, 62, 10, 251, 161, 51, 7, 1 | joined to the census: the nine frequencies are independent over Q and their flow is dense on T^9 | THEOREM | 18, 23 |
+| sound and light (layer 17) | Curl = *d1 with helicities +-sqrt5; sound = cuts, light = cycles | joined to the edges, the cycles, A4, the carrier's Hodge block and the triple (M M^T + B B^T = 8I) | THEOREM | 17, 23 |
+| binding (layer 12) | commutant 59; the anomaly-free 5 + 10 | joined to the triple (the commutant) and to the source (Lambda^2 ker D) | THEOREM | 12, 23 |
+| calibration (layer 13) | t = tau u; the Salina and Prema courts vanish | joined to the readout by the intertwiner S U(u) = U_tau(tau u) S | THEOREM | 13, 23 |
+| time from the circle (layer 13) | countermodel A: tau and 2 tau give the same records | an obstruction: no internal number, the circle's ticks included, binds physical time | OBSTRUCTION | 13, 23 |
+| the literal operands (layer 10) | SHA-256 73e07429...; W_p exact; the adapters differ by a commutant element | joined to the source by U, a W_p-isometry commuting with the C5 rotation | THEOREM | 10, 23 |
+| the spectral measures (layer 15) | M_0..M_50; Gauss and Lobatto envelopes | joined to the moments by the Hausdorff test on [0, 256] | THEOREM | 15, 23 |
+| the golden clock | B mod 5 and v in W(E8), both of order 20 | joined by B^k -> v^k with B^4 -> the tick: a selected isomorphism of two cyclic groups | SELECTED_REFERENCE | 23 |
+| every level (layer 23) | join all dots at every level | 53 dots on six levels, number to physics: every layer 1-23 has a dot, each level is joined inside and to the next, and THEOREM joins alone reach all but the product geometry and FLRW | THEOREM | 23 |
+| all dots | - | 53 dots and 98 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

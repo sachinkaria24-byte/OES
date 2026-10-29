@@ -938,7 +938,7 @@ At 22:08 UTC the request was to join all the dots. Layer 23 does it in one diagr
 - **An obstruction** is a proof that a claimed map does not exist.
 - **A shared integer** joins nothing. Integers that two dots share stay readings (§22–23).
 
-The diagram has 41 dots and 71 joins: 69 maps and two obstructions. It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without the source's two joins, the source is cut off.
+The diagram has 53 dots and 98 joins: 95 maps (89 THEOREM, 4 SELECTED_REFERENCE, 2 CONDITIONAL) and three obstructions. Every dot sits on one of six levels, from the integers up to physics (see *Every level* below). It is drawn in [`docs/DOTS.md`](DOTS.md), and a test keeps the drawing current. Leave out the obstructions and the joins that hold connect every dot, so the diagram is one piece. The check can fail: without its one map, the calibration is cut off.
 
 **New joins (THEOREM).**
 
@@ -1133,7 +1133,7 @@ Also from these items:
   - At the collar witness the gradient has length 24.927, and the tangent Hessian of the level set is positive, with least eigenvalue 6.986. The script's 5.0708 is not reproduced. The endpoints stay uncertified, and the collar stays open.
   - The port metric's eigenvalues sum to 112/5 and multiply to 320. The roots are 112 integer and 128 half-integer, and (2, 0, …, 0) meets exactly the fourteen roots e₁ ± e_j.
   - The carrier D² has trace 40 and square trace 200, so the paper's 9/40 is 9 over the carrier trace. The sum-of-squares identity does not put it in the action.
-  - Two written factorizations are wrong: 3985/16 is not (5/4)² × 161, and 6784/27 is not (20/9)² × 51. The nine corrected squarefree integers 14, 3, 62, 10, 251, 3985, 318, 7, 1 are distinct, so their square roots are independent over ℚ. The nine energies are not located, so the torus is not certified.
+  - The paper's energies 3985/16 and 6784/27 are misprints. The critical census gives 240 + 185/16 = 4025/16 = (5/4)² × 161 and 240 + 320/27 = 6800/27 = (20/9)² × 51, so the paper's factorizations are right and two of its energies are wrong. DEEP36_LOOP kept the misprints and changed the square-free parts to 3985 and 318. This text first repeated that, and said the torus was not certified. It is: layer 18 locates the nine energies, and their square-free parts 14, 3, 62, 10, 251, 161, 51, 7, 1 are distinct, so the flow is dense on T⁹.
   - On the circle, 216 = 6 × 36 has order 20, the golden companion's period mod 5. The address step 36 and seven of them, 252, have order 120; the step 120 has order 36, and 720 has order 6. Since 4320 ≡ 1 mod 7, there is no element of order 7.
 - **The towers, corrected.** The tower of fives freezes at 245 from height 3.
   - POWER_TOWER said it does not. At 00:15 this repository repeated that after checking only 5⁵ = 3125 and 5³¹²⁵ = 245. TOWERS and the separate model's splits receipt caught it.
@@ -1143,6 +1143,50 @@ Also from these items:
   - Two doublings and 864 copies agree on the 20 points of the golden orbit, so 4300 points disagree in all, the point 1 among them (TWO_AGREE).
   - Doubling brings a golden point of index prime to 5 into the tick cycle after two doublings. One doubling misses the cycle exactly for the odd indices (LEVELS).
 - **Recorded, not rerun (REPORTED).** The splits update archive (413793 bytes; 90 new check groups and 47 review groups) was not opened or run.
+
+**Every level (01:30).** The request was to join all dots at every level. Eleven layers had no dot. Twelve dots and 27 joins bring them in, and every dot now sits on one of six levels.
+
+| level | what lives there | dots |
+|---|---|---|
+| 1. number | the circle and its clocks | 10 |
+| 2. symmetry | groups, their actions and modules | 7 |
+| 3. combinatorics | graphs, complexes and the cube | 7 |
+| 4. lattice | roots, lattices and tori | 9 |
+| 5. operator | spaces with operators, ports and moments | 13 |
+| 6. physics | geometry, readout, waves, binding and the conditional cosmos | 7 |
+
+- **The checks.**
+  - Every layer, 1 to 23, has a dot.
+  - Each level is joined inside: its dots form one component.
+  - Each level is joined to the next, by 5, 2, 3, 8 and 5 joins going up.
+  - The whole is one diagram.
+- **What holds unconditionally.** THEOREM joins alone connect 51 of the 53 dots. The product geometry and FLRW attach only through the two CONDITIONAL joins, the heat coefficients of M4 × F (J10) and the Friedmann flow. That is the canon's position: gravity and cosmology need inputs from outside.
+- **The new dots and joins.**
+  - **The spectral triple** (layer 2). Its D is odd for the grading and squares to the carrier. ker D² = ker M on the edges, with Witten index −5 (J7).
+  - **The readout** (layer 5) is the triple's D² in first-order form: A² = −(D² ⊕ D²). Its hidden controllable sector is ker M ⊕ ker M, the native source's space (J6).
+  - **The product geometry and FLRW** (layers 6 and 7, CONDITIONAL).
+    - For any closed spin 4-manifold the heat coefficients are 4 Tr D⁰ = 60, −(4 Tr D² m² + Tr D⁰ R/3) and 2 Tr D⁴ m⁴ + Tr D² m² R/3.
+    - With G and Λ_cc from them, the Friedmann constraint holds along the flow.
+    - The kernel sector, which holds the datum's 2, scales exactly as a⁻⁶.
+  - **The literal operands** (layer 10) give the reconstructed port up to U, a W_p-isometry commuting with the C5 rotation.
+  - **The binding** (layer 12): the commutant of D (dimension 59) and the anomaly-free 5 + 10, whose 10 is Λ² ker D, where the port lives.
+  - **The calibration** (layer 13). t = τu intertwines the native and physical flows (the Salina and Prema courts vanish). From the circle it carries an obstruction: τ and 2τ give identical records, so no internal number, the circle's ticks included, binds physical time.
+  - **The spectral measures** (layer 15). The sector moments M₀..M₅₀ pass the Hausdorff test on [0, 256], so they are moments of measures, each with 25 Gauss nodes in the band.
+  - **The critical census** (layer 16): 11 families, 243600 points, Morse sum 0, whose values are the in-band roots of the W_n recurrence. New here: the tick's 25 fixed momenta are critical points, the minimum and 24 points of the A4 + A4 family at ε = 250 (index 4).
+  - **Sound and light** (layer 17).
+    - d0 = Bᵀ makes sound the cuts and light the cycles, and Curl = *d1 splits light into the helicities ±√5.
+    - On the cycles Curl is −A, the carrier's Hodge block.
+    - B Bᵀ is half the A4 frame, and M Mᵀ + B Bᵀ = 8I.
+  - **The nine-torus** (layer 18). The nine positive critical energies have distinct square-free parts, so the flow of their square roots is dense on T⁹.
+  - **The surface** (layer 3, J5). Its 1-skeleton is K6, as before. New here:
+    - On the projective line over F5, the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles, and PGL(2,5) swaps them.
+    - At infinity their links are the pentagram and the pentagon, the rotor plane's far and near cycles.
+    - So the surface's symmetry is the transitive A5 inside PGL(2,5), not the cone point's S5 that the carrier carries.
+  - **The four-cube and the cuts.** New here: the sixteen vertices of the four-cube are the sixteen cuts of K5 over F2. A cube edge adds one vertex star, and the antipode is the fifth star. The four qubits are the four independent cuts.
+  - **The golden clock** (SELECTED_REFERENCE). B mod 5 and the clock v of W(E8) are both cyclic of order 20, and B⁴ ↦ v⁴ = the tick.
+- **Not joined.**
+  - The memory clock of layer 3: its 120-state quotient has order 90, and it shares only integers with the circle and the cycle Gram.
+  - The [9, 3, 7] code over F₁₁ of layer 15: nothing identifies it with H90.
 
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….

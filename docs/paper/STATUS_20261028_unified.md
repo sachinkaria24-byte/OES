@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 589 checks. Of these, 525 hold: THEOREM 391, OBSTRUCTION 45, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 64 are REPORTED records.
-- `pytest` runs 57 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 117 checks).
+- `python verify.py` runs 23 layers and 627 checks. Of these, 563 hold: THEOREM 423, OBSTRUCTION 46, ARITHMETIC 39, CONDITIONAL 20, UNFORMED 21, SELECTED_REFERENCE 12, REMOVED 2. The other 64 are REPORTED records.
+- `pytest` runs 58 tests.
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 155 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 41 dots and 71 checked joins as one diagram.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 53 dots and 98 checked joins as one diagram on six levels.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -29,7 +29,7 @@ New in this edition:
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 41 dots and 71 joins (69 maps, two obstructions) form one connected diagram, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 53 dots and 98 joins (95 maps, three obstructions) form one connected diagram, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -64,6 +64,12 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - The sibling's audits of its paper's scripts are replayed: 4805 is the Gram determinant over 5, not a minor; the collar fractions 3/65 and 3/80 differ; the shifted coefficient is −69373; the witness's tangent Hessian is positive.
   - A correction to this build: the tower of 5 freezes at 245 from height 3. The 00:15 text repeated POWER_TOWER's "does not freeze" after one step; the separate model's splits receipt and the sibling's TOWERS caught it. Each frozen value (736, 27, 245) generates the points that are 0 on its own clock.
   - The receipt's other corrections hold: 215 other golden loops, 4300 disagreement points in all, and entry into the tick cycle after two doublings.
+  - A correction back to the sibling: its paper's energies 3985/16 and 6784/27 are misprints of 4025/16 and 6800/27. DEEP36_LOOP changed the square-free parts to 3985 and 318 instead; they are 161 and 51, and the density on T⁹ (layer 18) stands.
+- **Every level (01:30):**
+  - Twelve dots and 27 joins bring in the eleven layers that had none: the spectral triple, the readout, the product geometry, FLRW, layer 9's joins, the literal operands, the binding, the calibration, the court's measures, the critical census, sound and light and the nine-torus.
+  - The 53 dots sit on six levels: number, symmetry, combinatorics, lattice, operator and physics. Every layer has a dot, each level is joined inside, and each is joined to the next.
+  - THEOREM joins alone reach every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10) and the Friedmann flow. From the circle to physical time there is an obstruction: no internal number fixes the calibration.
+  - New here: on the projective line over F5 the hemi-icosahedron and its complement are the two PSL(2,5)-orbits of triangles, swapped by PGL(2,5); the four-cube's sixteen vertices are the sixteen cuts of K5 over F2; and the tick's 25 fixed momenta are critical points of the band (the minimum and 24 of the A4 + A4 family).
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–00:51, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
