@@ -57,35 +57,35 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.82,
+  "1-carrier": 0.73,
   "2-spectral": 0.01,
-  "3-spacetime": 8.19,
-  "4-native": 96.51,
-  "5-observer": 1.42,
-  "6-gravity": 4.57,
-  "7-cosmology": 1.68,
-  "8-frontier": 34.68,
-  "9-joins": 7.58,
-  "10-literal": 35.18,
-  "11-glue": 0.17,
-  "12-binding": 0.14,
-  "13-gates": 0.16,
-  "14-recurrence": 78.98,
-  "15-court": 1.78,
-  "16-handover": 1.25,
-  "17-waves": 0.56,
-  "18-snapshot": 1.01,
-  "19-spine": 4.9,
-  "20-canon": 6.24,
-  "21-ledger": 47.58,
-  "22-counts": 21.34,
-  "23-dots": 12.75
+  "3-spacetime": 13.62,
+  "4-native": 103.75,
+  "5-observer": 0.81,
+  "6-gravity": 5.99,
+  "7-cosmology": 1.55,
+  "8-frontier": 38.4,
+  "9-joins": 13.28,
+  "10-literal": 41.29,
+  "11-glue": 0.22,
+  "12-binding": 0.06,
+  "13-gates": 0.11,
+  "14-recurrence": 85.86,
+  "15-court": 2.01,
+  "16-handover": 1.65,
+  "17-waves": 0.79,
+  "18-snapshot": 1.78,
+  "19-spine": 4.87,
+  "20-canon": 6.61,
+  "21-ledger": 47.27,
+  "22-counts": 21.71,
+  "23-dots": 16.46
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 457,
-   "total": 457
+   "passed": 483,
+   "total": 483
   },
   "OBSTRUCTION": {
    "passed": 47,
@@ -96,12 +96,12 @@
    "total": 2
   },
   "ARITHMETIC": {
-   "passed": 39,
-   "total": 39
+   "passed": 38,
+   "total": 38
   },
   "SELECTED_REFERENCE": {
-   "passed": 13,
-   "total": 13
+   "passed": 16,
+   "total": 16
   },
   "UNFORMED": {
    "passed": 22,
@@ -7140,7 +7140,340 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 58 dots and 125 joins form one connected diagram (the obstructions left out)",
+   "name": "time clock -> half-periods: the time clock acts on the half-periods through the tick g = r r' (864 -> r by kappa): it fixes only the zero half-period and turns the other 255 in 51 five-cycles, 24 of type E7 + A1 and 27 of type D8, keeping the band",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick g = r r' (the time clock's 864 through kappa and the carrier rotations) is integral of order 5, and det(g - I) = 25 is odd, so mod 2 it fixes only the zero half-period": true,
+    "it turns the other 255 half-periods in 51 five-cycles and keeps the band on each: 24 cycles of type E7 + A1 (eps 224) and 27 of type D8 (eps 256)": true,
+    "in the Pauli basis L is diagonal with the band values, so the tick's permutation of the 256 Paulis commutes with L and e^-tL is tick-equivariant": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> GKSL: L is diagonal on the 256 Pauli labels with the band values, constant on each tick orbit, so e^-tL commutes with the tick's permutation of the Paulis",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick g = r r' (the time clock's 864 through kappa and the carrier rotations) is integral of order 5, and det(g - I) = 25 is odd, so mod 2 it fixes only the zero half-period": true,
+    "it turns the other 255 half-periods in 51 five-cycles and keeps the band on each: 24 cycles of type E7 + A1 (eps 224) and 27 of type D8 (eps 256)": true,
+    "in the Pauli basis L is diagonal with the band values, so the tick's permutation of the 256 Paulis commutes with L and e^-tL is tick-equivariant": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> sound and light: the edge tick commutes with d0 and Curl; on each helicity it fixes one line and turns a golden plane, by 144 degrees on +sqrt5 and 72 on -sqrt5, with traces 1 - phi and phi",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge tick T = Lambda^2 of the vertex rotation commutes with d0 and with Curl, so the time clock acts on sound and light and keeps each helicity": true,
+    "on each helicity it fixes one line (the rotor plane splits one line to each) and turns a golden plane, by 144 degrees on +sqrt5 and 72 on -sqrt5: its traces there are 1 - phi and phi": 1.0,
+    "Curl^2 = 5 on light, so X = (I + Curl)/2 satisfies the golden equation X^2 = X + I there: the golden companion acts on light by B -> X, as phi on helicity +sqrt5 and 1 - phi on -sqrt5": true,
+    "x -> a x + b multiplies Curl by the Legendre symbol (a/5): the rotations and the reflection keep the helicities, the doubling and its inverse exchange them": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> sound and light: Curl^2 = 5 on light, so X = (I + Curl)/2 satisfies X^2 = X + I there: the golden companion acts on light, as phi on helicity +sqrt5 and 1 - phi on -sqrt5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge tick T = Lambda^2 of the vertex rotation commutes with d0 and with Curl, so the time clock acts on sound and light and keeps each helicity": true,
+    "on each helicity it fixes one line (the rotor plane splits one line to each) and turns a golden plane, by 144 degrees on +sqrt5 and 72 on -sqrt5: its traces there are 1 - phi and phi": 1.0,
+    "Curl^2 = 5 on light, so X = (I + Curl)/2 satisfies the golden equation X^2 = X + I there: the golden companion acts on light by B -> X, as phi on helicity +sqrt5 and 1 - phi on -sqrt5": true,
+    "x -> a x + b multiplies Curl by the Legendre symbol (a/5): the rotations and the reflection keep the helicities, the doubling and its inverse exchange them": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> sound and light: x -> a x + b multiplies Curl by the Legendre symbol (a/5): the rotations and the reflection keep the helicities, the doubling exchanges them",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge tick T = Lambda^2 of the vertex rotation commutes with d0 and with Curl, so the time clock acts on sound and light and keeps each helicity": true,
+    "on each helicity it fixes one line (the rotor plane splits one line to each) and turns a golden plane, by 144 degrees on +sqrt5 and 72 on -sqrt5: its traces there are 1 - phi and phi": 1.0,
+    "Curl^2 = 5 on light, so X = (I + Curl)/2 satisfies the golden equation X^2 = X + I there: the golden companion acts on light by B -> X, as phi on helicity +sqrt5 and 1 - phi on -sqrt5": true,
+    "x -> a x + b multiplies Curl by the Legendre symbol (a/5): the rotations and the reflection keep the helicities, the doubling and its inverse exchange them": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> S5: S6 acting on its six synthematic totals is an outer automorphism, and it carries the cone's S5 onto a transitive S5 conjugate to PGL(2,5)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "S6 permutes the 15 synthemes and the 6 synthematic totals; on the totals it acts by an automorphism that sends a transposition to a product of three, so it is outer": true,
+    "it carries the cone's S5, the stabilizer of the cone point, onto a transitive S5 conjugate to PGL(2,5) on the projective line: the two S5's in S6 are exchanged by the outer automorphism, which is why they act on the carrier by different modules": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "S5 -> A4: the reflections in the roots e_i - e_j are the transpositions, and they generate the 120 vertex permutations: S5 = W(A4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the reflection in e_i - e_j is the transposition (i j), and the ten reflections generate the 120 permutation matrices: S5 = W(A4)": true,
+    "each reflection moves the weights e_i of the 5 and e_i + e_j of Lambda^2 5 as it moves the carrier's atoms, and commutes with D: S5 is the Weyl group of the binding's 5 + 10 (B5)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "S5 -> binding: each reflection moves the weights e_i of the 5 and e_i + e_j of Lambda^2 5 as it moves the carrier's atoms, commuting with D (B5)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the reflection in e_i - e_j is the transposition (i j), and the ten reflections generate the 120 permutation matrices: S5 = W(A4)": true,
+    "each reflection moves the weights e_i of the 5 and e_i + e_j of Lambda^2 5 as it moves the carrier's atoms, and commutes with D: S5 is the Weyl group of the binding's 5 + 10 (B5)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "801 matrix -> surface: x -> (3x + 1)/(x + 1) turns the six axes in one 6-cycle and maps the hemi-icosahedron's ten faces onto its complement's, and back",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "x -> (3x + 1)/(x + 1), the 801 matrix mod 5, turns the six axes in one 6-cycle and maps the ten faces of the hemi-icosahedron onto the ten of its complement, and back": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> four-cube: the vertex rotation moves the cuts mod 2 linearly, with Phi_5 irreducible over F2: the tick is a primitive fifth root of unity on F16, fixing the origin and turning the other fifteen vertices in three 5-cycles",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the vertex rotation (the time clock's 864 through kappa) moves the cuts linearly over F2, and on the cube's coordinates its matrix satisfies M^4 + M^3 + M^2 + M + I = 0 mod 2": true,
+    "Phi_5 is irreducible over F2, so the cuts are F16 and the tick is a primitive fifth root of unity: it fixes the origin and turns the fifteen other vertices in three 5-cycles": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "grain -> time clock: x -> 3456 x maps the grain onto the time clock with kernel <360>: it reads the golden index of x = 216 a + 1440 b",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time coordinate x -> 3456 x maps the grain <72> onto the time clock with kernel <360> (12 points): it reads the golden index a of x = 216 a + 1440 b, since 216 = 1 and 1440 = 0 mod 5": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x": true,
+    "the stages that never land, 0, 5 and 10, are exactly the stages in the miss set <5>": true,
+    "x -> x mod 9 maps the circle onto the vortex Z/9 with kernel <9>, through the atlas and through the 27-clock": true,
+    "the doubling i -> 2i of AGL(1,5) turns the rotor plane by a quarter: the pentagon goes to the pentagram and the pentagram to minus the pentagon": true,
+    "the oriented triangle 0-1-2 of the triangle port is the boundary of the simplex's face 012, a cycle in ker B": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "miss set -> time clock: the miss set <5> is the kernel of the time coordinate x -> 3456 x",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time coordinate x -> 3456 x maps the grain <72> onto the time clock with kernel <360> (12 points): it reads the golden index a of x = 216 a + 1440 b, since 216 = 1 and 1440 = 0 mod 5": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x": true,
+    "the stages that never land, 0, 5 and 10, are exactly the stages in the miss set <5>": true,
+    "x -> x mod 9 maps the circle onto the vortex Z/9 with kernel <9>, through the atlas and through the 27-clock": true,
+    "the doubling i -> 2i of AGL(1,5) turns the rotor plane by a quarter: the pentagon goes to the pentagram and the pentagram to minus the pentagon": true,
+    "the oriented triangle 0-1-2 of the triangle port is the boundary of the simplex's face 012, a cycle in ker B": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "stages -> miss set: the stages 0, 5 and 10, which never land, are exactly the stages in the miss set",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time coordinate x -> 3456 x maps the grain <72> onto the time clock with kernel <360> (12 points): it reads the golden index a of x = 216 a + 1440 b, since 216 = 1 and 1440 = 0 mod 5": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x": true,
+    "the stages that never land, 0, 5 and 10, are exactly the stages in the miss set <5>": true,
+    "x -> x mod 9 maps the circle onto the vortex Z/9 with kernel <9>, through the atlas and through the 27-clock": true,
+    "the doubling i -> 2i of AGL(1,5) turns the rotor plane by a quarter: the pentagon goes to the pentagram and the pentagram to minus the pentagon": true,
+    "the oriented triangle 0-1-2 of the triangle port is the boundary of the simplex's face 012, a cycle in ker B": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> vortex: x -> x mod 9 maps the circle onto the vortex with kernel <9>, through the atlas and through the 27-clock",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time coordinate x -> 3456 x maps the grain <72> onto the time clock with kernel <360> (12 points): it reads the golden index a of x = 216 a + 1440 b, since 216 = 1 and 1440 = 0 mod 5": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x": true,
+    "the stages that never land, 0, 5 and 10, are exactly the stages in the miss set <5>": true,
+    "x -> x mod 9 maps the circle onto the vortex Z/9 with kernel <9>, through the atlas and through the 27-clock": true,
+    "the doubling i -> 2i of AGL(1,5) turns the rotor plane by a quarter: the pentagon goes to the pentagram and the pentagram to minus the pentagon": true,
+    "the oriented triangle 0-1-2 of the triangle port is the boundary of the simplex's face 012, a cycle in ker B": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "rotor plane -> AGL(1,5): the doubling i -> 2i turns the rotor plane by a quarter: pentagon to pentagram, pentagram to minus the pentagon",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time coordinate x -> 3456 x maps the grain <72> onto the time clock with kernel <360> (12 points): it reads the golden index a of x = 216 a + 1440 b, since 216 = 1 and 1440 = 0 mod 5": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x": true,
+    "the stages that never land, 0, 5 and 10, are exactly the stages in the miss set <5>": true,
+    "x -> x mod 9 maps the circle onto the vortex Z/9 with kernel <9>, through the atlas and through the 27-clock": true,
+    "the doubling i -> 2i of AGL(1,5) turns the rotor plane by a quarter: the pentagon goes to the pentagram and the pentagram to minus the pentagon": true,
+    "the oriented triangle 0-1-2 of the triangle port is the boundary of the simplex's face 012, a cycle in ker B": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "triangle port -> 4-simplex: the triangle port's oriented triangle 0-1-2 is the boundary of the simplex's face 012",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the time coordinate x -> 3456 x maps the grain <72> onto the time clock with kernel <360> (12 points): it reads the golden index a of x = 216 a + 1440 b, since 216 = 1 and 1440 = 0 mod 5": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x": true,
+    "the stages that never land, 0, 5 and 10, are exactly the stages in the miss set <5>": true,
+    "x -> x mod 9 maps the circle onto the vortex Z/9 with kernel <9>, through the atlas and through the 27-clock": true,
+    "the doubling i -> 2i of AGL(1,5) turns the rotor plane by a quarter: the pentagon goes to the pentagram and the pentagram to minus the pentagon": true,
+    "the oriented triangle 0-1-2 of the triangle port is the boundary of the simplex's face 012, a cycle in ker B": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Hodge 70 -> half-periods: e_S = e_T mod 2 Lambda for four-sets S, T exactly when T = S or its complement: the Hodge star is the deck involution of S -> [e_S], onto 35 half-periods of type D8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "e_S and e_T (S, T four of the eight coordinates) are congruent mod twice the lattice exactly when T = S or T is its complement, the Hodge dual: the Hodge star is the deck involution of S -> [e_S]": true,
+    "the 35 classes are half-periods of type D8 (band 256), none containing 0 or a root: Hodge 70 = 35 + 35 sits on 35 of the 135 D8 half-periods": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> critical census: the 256 half-periods are critical points of the band, of types E8 (1), E7 + A1 (120) and D8 (135), whole census orbits",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 256 half-periods are critical points of the band: one of type E8 (eps 0), 120 of type E7 + A1 (eps 224) and 135 of type D8 (eps 256), the census's whole orbits of those types": true,
+    "so the GKSL semigroup e^-tL decays the identity, the 120 antisymmetric and the 135 symmetric Paulis at those critical values, 0, 224 and 256 (layer 22's Pauli generator)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 + A4' -> tick momenta: the tick momenta that are integral on A4 + A4' are the five characters of E8 / L0, with the folded values 0, 250^4",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "|det(g - I)| = 25 fixed momenta of the tick, each fixed mod 2 pi Lambda": true,
+    "the bath is 0 at one of them and 250 at the other 24": true,
+    "five of them are the characters of E8 / L0, with the folded values 0, 250^4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "literal operands -> six-site port: the owner's port metric in boundary order is the six-site port's W_p exactly",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "native_matrices_input.json hashes to the canon's 73e07429..., and its W_p in boundary order is the reconstruction's exactly": true,
+    "the literal port is U times the reconstructed one, U a W_p-isometry commuting with the C5 rotation": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral measures -> six-site port: the measures are the six-port's contrast and uniform sector measures, with first moments 241 and 235, the six-site blocks' eigenvalues",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the true sector moments M_0..M_50 pass the Hausdorff test on [0, 256] exactly, so each sector has a spectral measure there, and its 25-node Gauss rule lies inside the band": true,
+    "their first moments are the block eigenvalues 241 (contrast) and 235 (uniform)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Petersen -> D5: the Petersen graph is the orthogonality graph of the ten positive roots e_i + e_j of D5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "M^T M is the Gram matrix of the roots e_i + e_j: 2 on the diagonal, 1 for edges that share a vertex, 0 for disjoint edges": true,
+    "the Petersen graph is their orthogonality graph, and that of the A4 roots in B: A = J + I - M^T M": true,
+    "the line graph is |<alpha_e, alpha_f>| = 1, and M^T M - 2I": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "observer clock -> coil: the observer clock <1080> lies in the coil <8> (1080 = 8 x 135), and with the tick and the nakshatra generates it",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick 864, the observer 1080 and the nakshatra 160 generate <8> (gcd 8): 540 points, index 8; the sun 1440, the half-turn 2160 and the mass step 216 lie in it": true,
+    "the smear step 184 = 23 x 8 generates the same subgroup (23 is prime to 540); the step 540 is not in it and has order 8": true,
+    "inside the coil the tick misses exactly the pada subgroup <40> (108 points) and meets the other 432": true,
+    "the five cosets of <40> carry the time coordinates 0, 3, 1, 4, 2, each once": true,
+    "multiplication by 23 permutes the coil, with order 36": true,
+    "540 = 20 x 27 = 30 x 18 = 15 x 36, and 2 has order 18 mod 27": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "nine-torus -> bath: the torus's nine squared frequencies are the bath symbol's nine positive critical values, with distinct square-free parts",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the nine positive critical energies are 224, 243, 248, 250, 251, 4025/16, 6800/27, 252, 256; their square-free parts 14, 3, 62, 10, 251, 161, 51, 7, 1 are distinct, so the square roots are independent over Q and the flow of the nine frequencies is dense on T^9 (Besicovitch, Kronecker)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> memory clock: k -> A^k is a homomorphism onto the memory clock's order-90 quotient (90 divides 4320), with kernel <90>: one circle step is one memory step, a selection",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the memory clock's 120-state quotient A has order 90, and 90 divides 4320, so k -> A^k is a homomorphism from the circle with kernel <90> (48 points), one circle step to one memory step (a selection)": true,
+    "on its 9-cycle A^k moves by k mod 9 and on each 10-cycle by k mod 10, so the circle's composite to the 9-cycle is the vortex x mod 9, and to a 10-cycle reads the time coordinate x mod 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "memory clock -> vortex: on the memory clock's 9-cycle A^k moves by k mod 9, so its composite with the circle is the vortex x mod 9",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the memory clock's 120-state quotient A has order 90, and 90 divides 4320, so k -> A^k is a homomorphism from the circle with kernel <90> (48 points), one circle step to one memory step (a selection)": true,
+    "on its 9-cycle A^k moves by k mod 9 and on each 10-cycle by k mod 10, so the circle's composite to the 9-cycle is the vortex x mod 9, and to a 10-cycle reads the time coordinate x mod 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "memory clock -> time clock: on each 10-cycle A^k moves by k mod 10, which carries the time coordinate k mod 5",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the memory clock's 120-state quotient A has order 90, and 90 divides 4320, so k -> A^k is a homomorphism from the circle with kernel <90> (48 points), one circle step to one memory step (a selection)": true,
+    "on its 9-cycle A^k moves by k mod 9 and on each 10-cycle by k mod 10, so the circle's composite to the 9-cycle is the vortex x mod 9, and to a 10-cycle reads the time coordinate x mod 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 59 dots and 152 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7180,6 +7513,7 @@
      "kerM",
      "literal",
      "measure",
+     "memory",
      "miss",
      "momenta",
      "moments",
@@ -7241,7 +7575,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 1, number (the circle and its clocks): its 10 dots are joined among themselves",
+   "name": "level 1, number (the circle and its clocks): its 11 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7251,6 +7585,7 @@
      "circle",
      "coil",
      "grain",
+     "memory",
      "miss",
      "observer",
      "stages",
@@ -7365,7 +7700,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 5, combinatorics-lattice 3, lattice-operator 11, operator-physics 8 joins",
+   "name": "each level is joined to the next: number-symmetry 5, symmetry-combinatorics 7, combinatorics-lattice 4, lattice-operator 12, operator-physics 8 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -7381,12 +7716,15 @@
      "surface -> pgl",
      "golden -> E",
      "pgl -> pg25",
-     "air801 -> pg25"
+     "air801 -> pg25",
+     "air801 -> surface",
+     "rotor -> AGL"
     ],
     [
      "E -> A4",
      "E -> D5",
-     "rotor -> E8"
+     "rotor -> E8",
+     "petersen -> D5"
     ],
     [
      "D5 -> carrier",
@@ -7399,7 +7737,8 @@
      "census -> walks",
      "rootgraph -> walks",
      "census -> gksl",
-     "measure -> census"
+     "measure -> census",
+     "torus -> bath"
     ],
     [
      "carrier -> triple",
@@ -7416,13 +7755,13 @@
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 56 of the 58 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector)",
+   "name": "THEOREM joins alone connect 56 of the 59 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 113,
+    "THEOREM": 137,
     "OBSTRUCTION": 4,
-    "SELECTED_REFERENCE": 5,
+    "SELECTED_REFERENCE": 8,
     "CONDITIONAL": 3
    },
    "note": ""
@@ -7435,6 +7774,41 @@
    "value": {
     "every dot has at least two maps": true,
     "removing any one map leaves the diagram connected: it has no bridge": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 5, number-combinatorics 3, number-lattice 1, number-operator 1, number-physics 1, symmetry-combinatorics 7, symmetry-lattice 5, symmetry-operator 4, symmetry-physics 3, combinatorics-lattice 4, combinatorics-operator 9, combinatorics-physics 4, lattice-operator 12, lattice-physics 2, operator-physics 8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "(2, 3)": 4,
+    "(3, 4)": 12,
+    "(2, 4)": 9,
+    "(1, 3)": 5,
+    "(1, 2)": 7,
+    "(0, 1)": 5,
+    "(0, 2)": 3,
+    "(1, 4)": 4,
+    "(4, 5)": 8,
+    "(2, 5)": 4,
+    "(3, 5)": 2,
+    "(0, 3)": 1,
+    "(0, 4)": 1,
+    "(0, 5)": 1,
+    "(1, 5)": 3
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "no two maps hold the diagram together: every dot but the product geometry and FLRW lies on three maps, and removing any two leaves it connected, except that it can cut off those two conditional dots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "every dot but the product geometry and FLRW lies on at least three maps": true,
+    "removing any two maps leaves the diagram connected, except that it can cut off the product geometry or FLRW, whose only maps are conditional": true
    },
    "note": ""
   },
@@ -8067,14 +8441,6 @@
    "layer": "23-dots",
    "name": "not joined: the separate model's splits update (00:49): 413793 bytes; 90 new check groups (grain 43, towers 17, module relations 27, API 3) and 47 review groups; not opened or rerun; its five source corrections are replayed",
    "status": "REPORTED",
-   "passed": true,
-   "value": null,
-   "note": ""
-  },
-  {
-   "layer": "23-dots",
-   "name": "not joined: the memory clock (layer 3): a 125-state operator with a Jordan block keeps no positive metric; its 120-state quotient has order 90. It shares integers with the circle (90 divides 4320) and the cycle Gram (125 = 5^3), and no map is built",
-   "status": "ARITHMETIC",
    "passed": true,
    "value": null,
    "note": ""
