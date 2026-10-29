@@ -253,6 +253,14 @@ def test_eight_root_frame_symbol_and_protection():
         assert all(out.values()), out
 
 
+def test_edge_tick_port_moments_and_the_frozen_towers():
+    for check in (dots.edge_tick, dots.port_moments, dots.notes_0051, dots.splits_corrections):
+        out = check()
+        assert all(out.values()), out
+    # the tower of fives freezes: heights 3 and 4 agree on the circle
+    assert pow(5, 5 ** 5, spine.N) == pow(5, 5 ** 5 ** 5, spine.N) == 245
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

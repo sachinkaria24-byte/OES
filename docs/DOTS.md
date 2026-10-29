@@ -257,6 +257,7 @@ flowchart LR
 | the source shape's witness (SHAPE_091) | the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, which is not stored here | REPORTED |
 | the separate model's relations overlay (23:50) | 197642 bytes, 73 check groups, 32 matrix outputs; not opened or rerun; its five source corrections are replayed | REPORTED |
 | modules 8-11, unreplayed parts | the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel realization and the [9, 3, 7] code over F11 need operands not stored here | REPORTED |
+| the separate model's splits update (00:49) | 413793 bytes; 90 new check groups (grain 43, towers 17, module relations 27, API 3) and 47 review groups; not opened or rerun; its five source corrections are replayed | REPORTED |
 | air | no air operator is stored, and none is formed | UNFORMED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

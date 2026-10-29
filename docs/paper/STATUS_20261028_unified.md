@@ -6,9 +6,9 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 583 checks. Of these, 521 hold: THEOREM 387, OBSTRUCTION 45, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 62 are REPORTED records.
-- `pytest` runs 56 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 111 checks).
+- `python verify.py` runs 23 layers and 589 checks. Of these, 525 hold: THEOREM 391, OBSTRUCTION 45, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 64 are REPORTED records.
+- `pytest` runs 57 tests.
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 117 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
 - `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 41 dots and 71 checked joins as one diagram.
 
@@ -50,7 +50,7 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
 - **The 00:15 items** (the sibling's 21 notes of 23:46–00:14, the separate model's relations receipt and a new Locked Memory synthesis, read only):
   - The circle is the ticks ⟨864⟩ times the misses ⟨5⟩. A point misses exactly when its tick part is 0, and in each golden loop the four misses are one observer coset.
   - Doubling cycles the ticks, kills the observer, and splits the nakshatra clock 18 + 6 + 2 + 1. The same cycles appear on the coil's 27 golden cosets.
-  - The towers of 3 and 2 freeze at 27 and 736; the tower of 5 does not.
+  - The towers of 3 and 2 freeze at 27 and 736. This note first said the tower of 5 does not; it freezes at 245 (the 00:51 items).
   - The receipt's three further corrections are replayed: vortex points move, the odd-part orbit lengths run 1 to 36, and [K, B⁵] is divisible by 25 only in its determinant.
   - The synthesis's two-tick T12 is not semisimple. Its "N = 25 annihilator" is excluded: the 26 × 26 Hankel determinant of W₀..W₅₀ is positive.
 - **The 00:35 relay** (the sibling's 29 October paper ONE_MACHINE_29 and its notes of 00:16–00:29):
@@ -58,11 +58,17 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - Eight roots with pairwise inner product 1 and the origin are a maximal 9-clique of index 3, and its six-point faces are six-ports.
   - The root graph has spectrum 56, 28⁸, 8³⁵, (−2)¹¹², (−4)⁸⁴. A protected line cannot also be the coupling. The commutator court's anchored Gram determinant is 176173056.
   - Corrections: the chart labels 95, 98, 101 are one class mod 3, not mod 30; 241 is prime to 4320.
+- **The 00:51 items** (the sibling's ten notes of 00:36–00:51 and the separate model's splits receipt):
+  - The edge tick, the second compound of the vertex 5-cycle, is (x − 1)²Φ₅ on the cycles, fixing the rotor plane, and Φ₅, the time clock's polynomial, on the cuts.
+  - The six-port's moments come from the bath's: contrast E_{k+1}/240 = 1, 241, 58264 and uniform 6E_k − 5E_{k+1}/240 = 1, 235, 55720. They give 241I − J and 183I + 52J.
+  - The sibling's audits of its paper's scripts are replayed: 4805 is the Gram determinant over 5, not a minor; the collar fractions 3/65 and 3/80 differ; the shifted coefficient is −69373; the witness's tangent Hessian is positive.
+  - A correction to this build: the tower of 5 freezes at 245 from height 3. The 00:15 text repeated POWER_TOWER's "does not freeze" after one step; the separate model's splits receipt and the sibling's TOWERS caught it. Each frozen value (736, 27, 245) generates the points that are 0 on its own clock.
+  - The receipt's other corrections hold: 215 other golden loops, 4300 disagreement points in all, and entry into the tick cycle after two doublings.
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
-New in layer 22 (the sibling's notes of 18:32–23:03, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
+New in layer 22 (the sibling's notes of 18:32–00:51, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
 
-- **Counts.** 1402 more readings on the tick bit, from 166 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Counts.** 1487 more readings on the tick bit, from 177 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.

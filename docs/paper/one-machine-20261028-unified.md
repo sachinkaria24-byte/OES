@@ -1,14 +1,14 @@
 # One Machine: the unified edition
 
-**OES end-to-end model, 28–29 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), the sibling's evening notes with the canon's 19:10 continuation (layer 22), and one diagram of checked joins that follows the sibling's notes to 00:29 on 29 October (layer 23). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
+**OES end-to-end model, 28–29 October 2026.** This edition puts the whole model in one text with one ledger. It brings together the verified build (layers 1–18), the integrated spine (layer 19), the canon synchronization (layer 20), the sibling's 28 October ledger of joins (layer 21), the sibling's evening notes with the canon's 19:10 continuation (layer 22), and one diagram of checked joins that follows the sibling's notes to 00:51 on 29 October (layer 23). It is a selected mathematical build replayed from matrices. It is not a source admission and not a change to the canon matrices.
 
 **AUTH = NOT_PASS · ScientificGold = FALSE · TIME_BIND = UNBOUND · DYN_BIND = NOT_INSTALLED · SCR6 = NOT_RUN_OPERAND_ABSENT · PredictionFreeze = NOT_TRIGGERED.** No gate moves, and no term is added to the action.
 
 **Custody.**
 
 - Repository `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
-- `python verify.py` replays 23 layers in **583 checks**. Of these, 521 hold: THEOREM 387, OBSTRUCTION 45, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 62 are REPORTED records.
-- `python -m pytest` runs 56 tests.
+- `python verify.py` replays 23 layers in **589 checks**. Of these, 525 hold: THEOREM 391, OBSTRUCTION 45, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 64 are REPORTED records.
+- `python -m pytest` runs 57 tests.
 - `ports/ts/` holds three drop-in audits for the sibling's app (43 rows, residual 0). `data/clocks.json` holds the explicit clock matrices, `docs/LEDGER.md` holds the unified ledger, and `docs/DOTS.md` draws every checked join.
 - This text supersedes `one-machine-20261028-verified.pdf` (layers 1–18) and `one-machine-20261028-spine.pdf` (layers 19–20) as the current paper. Both stay in `docs/paper/` as history.
 
@@ -309,7 +309,7 @@ Its 18:17 full edition keeps these, and twice notes that "the order-24 element w
 
 At 19:21 UTC Drive held 28 new sibling notes (18:32–19:21) and the canon continuation of 19:10. At 19:57 it held thirteen more notes (19:22–19:54) and the separate model's status, at 20:12 three more, at 20:25 four more, at 20:33 one more, at 21:05 fifteen more, at 21:36 nineteen more (21:09–21:38), with the separate model's revised status, and at 22:08 eight more, whose structure is joined in §9. Layer 22 replays all of them in 60 checks.
 
-**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1402 readings from 166 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
+**Counts on the bit (THEOREM).** Most of the notes read one more stored integer on the bit of §5. There are 1487 readings from 177 notes, and each is checked together with what its note states: an order, a subgroup, a step count, a residue, or a first landing. The first landing is the least k for which kx is a nonzero tick. None fails.
 
 - Twelve of the fifteen stages meet the tick, and Mātṛkā 0, Nyāsa 5 and Japa 10 do not.
 - Buddhi and Pratyabhijñā generate one subgroup and take 432 steps each, but land on 864 and 1728.
@@ -417,6 +417,7 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 - **The grain and the vortex.** The multiples of 72 are the golden orbit ⟨216⟩ times the sun ⟨1440⟩. Time and the 2-clock read the golden index, the 27-clock reads the sun, and doubling doubles the one and inverts the other. Doubling inverts a shift exactly when the shift has order 3. The vortex ℤ/9 is read off the address and is the 27-clock without the sun.
 - **Ticks and misses.** The circle is the ticks ⟨864⟩ times the misses ⟨5⟩, and a point misses exactly when its tick part is 0. The observer and the nakshatra clock lie in the miss set. The nakshatra clock meets each of the coil's 27 golden cosets once, with the same doubling cycles 18 + 6 + 2 + 1.
 - **The eight-root frame.** Eight roots with pairwise inner product 1 and the origin form a maximal 9-clique of the lattice graph: Gram I + J, index 3, no ninth root. Each of its six-point faces is a six-port, with coupling Gram 183I + 52J.
+- **The edge tick and the six-port moments.** The vertex 5-cycle acts on the edges by its second compound. Its characteristic polynomial is (x − 1)²Φ₅ on the cycles, whose fixed plane is the rotor plane, and Φ₅, the time clock's polynomial, on the cuts. The six-port's blocks come from the bath's return moments: contrast E_{k+1}/240 and uniform 6E_k − 5E_{k+1}/240, which give 241I − J and 183I + 52J.
 
 **Corrections (the 22:08 notes).** An atlas address does not carry the tick bit: 1 and 145 share an address, and only 1 meets. Address 18 reaches the seam in one contraction, not two. Address 16 moves around the 6-cycle. Thirty-six atlas steps, 36 × 36 = 1296, meet the tick.
 
@@ -427,6 +428,8 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 **The 00:15 items.** The separate model's relations receipt adds three corrections, all replayed. Doubling keeps the vortex coordinate of the seam, not its points. The odd part's doubling orbits have lengths 1 to 36, so it is not one 36-cycle. [K, B⁵] has its determinant divisible by 25 but its entries only by 5. A new synthesis lists an "N = 25 annihilator on W₀..W₅₀". The 26 × 26 Hankel determinant of W₀..W₅₀ is positive, so no such annihilator exists (OBSTRUCTION).
 
 **The 00:35 relay** (the sibling's paper ONE_MACHINE_29). Its carrier equation is unchanged, and so is this one's. The root graph has spectrum 56, 28⁸, 8³⁵, (−2)¹¹², (−4)⁸⁴, and a protected line commutes with X only when X has no coupling to it. Two corrections: the chart labels 95, 98, 101 are one class mod 3, not mod 30, and 241 is prime to 4320.
+
+**The 00:51 items.** The sibling's audits of its paper's scripts are replayed. 4805 is the Gram determinant over 5, not a minor. The two collar fractions 3/65 and 3/80 are different numbers. The shifted coefficient is −69373, and at the collar witness the tangent Hessian is positive. One correction is to this build: the tower of fives freezes at 245 from height 3, as the sibling's TOWERS and the separate model's splits receipt say. This build's 00:15 text had repeated POWER_TOWER's "does not freeze" after checking one step. The receipt's other corrections hold: 215 other golden loops, 4300 disagreement points in all, and entry into the tick cycle after two doublings.
 
 **Replay for the hub (OES-C01).** At commit f41b278 the reported state replays exactly: 21 layers, 412 checks (383 hold and 29 reported), 31 tests, and the TypeScript audits at residual 0. The logs and a handover are in `docs/hub/OES-C01/`.
 
@@ -478,6 +481,8 @@ Every object the model builds is a dot: a space with its operator, a lattice, a 
 | ticks and misses | Z/4320 = ⟨864⟩ ⊕ ⟨5⟩; a point misses iff its tick part is 0 | THEOREM |
 | N = 25 annihilator (synthesis) | the Hankel determinant of W₀..W₅₀ is positive | OBSTRUCTION |
 | eight-root frame | a maximal 9-clique of index 3; its six-point faces are six-ports | THEOREM |
+| edge tick | (x − 1)²Φ₅ on the cycles, fixing the rotor plane; Φ₅ on the cuts | THEOREM |
+| towers | 3, 2 and 5 freeze at 27, 736 and 245 (corrected: the fives freeze too) | THEOREM |
 | all dots | 41 dots, 71 joins, one connected diagram | THEOREM |
 | source infinity, foam, double slit, photoelectric, electron, photon, proton, Compton, Bohr, Bell count, 19 SM parameters | no operand, no dimensionful constant | UNFORMED |
 
@@ -533,16 +538,16 @@ The carrier action is constant-free, so it can predict only ratios such as √(8
 | 19 | spine | 50 | the circle lemma, the Coxeter clock, two carriers, the 7, what can act |
 | 20 | canon | 22 | the canon read at 16:30 and 16:49; √30; the separate model replayed |
 | 21 | ledger | 19 | the tick bit; the clock group; the five day clocks; golden; mirrors; carrier exchange; energy; spin; the clock file |
-| 22 | counts | 60 | the evening notes: 1402 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
-| 23 | dots | 111 | 41 dots and 71 checked joins in one diagram (`docs/DOTS.md`); the 22:08–00:29 notes |
+| 22 | counts | 60 | the evening notes: 1487 readings on the bit; graphs, root walks and ports; the 120-clock and its circle maps; the energy table; the Pauli generator as the bath, with its GKSL form; the rotor plane; Spanda; the two clocks as one splitting |
+| 23 | dots | 117 | 41 dots and 71 checked joins in one diagram (`docs/DOTS.md`); the 22:08–00:51 notes |
 
 ## Appendix B. Replay
 
 ```
 pip install -r requirements.txt
-python verify.py              # 23 layers, 583 checks, about 4 minutes
-python -m pytest -q           # 56 tests
+python verify.py              # 23 layers, 589 checks, about 6 minutes
+python -m pytest -q           # 57 tests
 node --experimental-strip-types --no-warnings ports/ts/run.mjs   # the three TypeScript audits
 ```
 
-Sources: "One Machine 20261028" on Drive (212 notes and papers, 17:01–00:29 UTC), two canon sheets, the hub (releases I and J) and two syntheses.
+Sources: "One Machine 20261028" on Drive (222 notes and papers, 17:01–00:51 UTC), two canon sheets, the hub (releases I and J) and two syntheses.

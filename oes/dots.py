@@ -1,4 +1,4 @@
-"""Layer 23. All dots joined (28-29 Oct 2026, Drive checks 22:08 to 00:15 UTC and the 00:35 relay).
+"""Layer 23. All dots joined (28-29 Oct 2026, Drive checks 22:08 to 00:51 UTC and the 00:35 relay).
 
 A dot is an object the model builds: a space with its operator, a lattice, a group, a circle, a port. A join is a map
 between two dots, built here and checked against the property that makes it that kind of map (an intertwiner, a
@@ -82,9 +82,9 @@ At 00:15 the sibling's notes of 23:46-00:14 were read, with the separate model's
 Memory synthesis (cross-parent compatibility, modules 8-11), read only. One dot and three joins come from them: the
 circle is the ticks <864> times the misses <5>, a point misses exactly when its tick part is 0, and the observer and the
 nakshatra clock lie in the miss set; the nakshatra clock maps onto the coil's 27 golden cosets, where doubling has
-cycles 18 + 6 + 2 + 1 (the sun's swap among them). The towers of 3 and 2 freeze on the circle at 27 and 736, and the
-tower of 5 does not. The synthesis's two-tick T12 is not semisimple, as it says. Its "N = 25 annihilator on W0..W50" is
-not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive.
+cycles 18 + 6 + 2 + 1 (the sun's swap among them). The towers of 3, 2 and 5 freeze on the circle at 27, 736 and 245
+(this paragraph first said the fives do not; see 00:51). The synthesis's two-tick T12 is not semisimple, as it says.
+Its "N = 25 annihilator on W0..W50" is not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive.
 
 At 00:35 the user relayed the sibling's message on its 29 October paper (ONE_MACHINE_29, 00:20), read with its notes of
 00:16-00:29. One dot and two joins come from them: eight roots with pairwise inner product 1 and the origin are a maximal
@@ -94,6 +94,16 @@ times the sun); the bath's symbol splits as D8 plus the half-spin orbit; the roo
 (-2)^112, (-4)^84; a protected line commutes with X only if X has no coupling to it; and the commutator court's
 anchored Gram determinant is 176173056. Two corrections: the chart labels 95, 98, 101 are one class mod 3, not mod 30;
 and 241 is prime to 4320 (it is 240 that meets the circle in 240).
+
+At 00:51 the sibling's ten notes of 00:36-00:51 (FOUR_ITEMS to FROZEN_CLOCKS) and the separate model's splits receipt
+were read. No dot or join is new. The edge tick, the second compound of the vertex 5-cycle, has characteristic
+polynomial (x - 1)^2 Phi_5 on the cycles, where its fixed plane is the rotor plane, and Phi_5, the time clock's
+polynomial, on the cuts. The six-port block has contrast moments E_(k+1)/240 and uniform moments 6 E_k - 5 E_(k+1)/240,
+which give 241I - J and 183I + 52J. The sibling's audits of the paper's scripts are replayed: 4805 is the Gram
+determinant over 5, not a minor; the collar fractions 3/65 and 3/80 are two different numbers; the shifted coefficient is
+-69373; the tangent Hessian at the collar witness is positive. One correction is to this layer: the tower of fives
+freezes at 245 from height 3, as TOWERS and the splits receipt say. At 00:15 this layer had repeated POWER_TOWER's "does
+not freeze" after checking one step.
 """
 
 import functools
@@ -1284,14 +1294,21 @@ def doubling_orbits():
 
 
 def towers():
-    """POWER_TOWER and SALINA_CONG: the towers of 3, 2 and 5 reduced on the circle and mod 12."""
+    """POWER_TOWER, SALINA_CONG, TOWERS and FROZEN_CLOCKS: the towers of 3, 2 and 5 on the circle and mod 12."""
     return {
         "the tower of threes freezes at 27: 3^3 = 27, 3^27 = 27 and 3^(3^27) = 27 mod 4320 (an exponent = 3 mod 8 returns "
         "27 mod 32, and mod 5 and 27 as well)": (27 % N, pow(3, 27, N), pow(3, 3 ** 27, N)) == (27, 27, 27),
         "the tower of twos freezes one floor later: 2^16 = 736 = 32 x 23 and 2^65536 = 736 mod 4320":
             pow(2, 16, N) == pow(2, 2 ** 16, N) == 736 == 32 * 23,
-        "the tower of fives does not freeze there: 5^5 = 3125 but 5^3125 = 245 mod 4320": pow(5, 5, N) == 3125
-        and pow(5, 3125, N) == 245,
+        "the tower of fives freezes too, at 245 from height 3: 5^5 = 3125, 5^3125 = 245 and 5^(5^3125) = 245 mod 4320. "
+        "POWER_TOWER said it does not freeze, and at 00:15 this layer repeated that from one step; the separate model's "
+        "splits receipt and the sibling's TOWERS correct it": pow(5, 5, N) == 3125 and pow(5, 3125, N) == 245
+        and pow(5, 5 ** 3125, N) == 245,
+        "each frozen value is 0 on its own clock and a unit on the other two: 736 generates the 135 points that are 0 on "
+        "the 2-clock, 27 the 160 that are 0 on the 27-clock, and 245 the 864 misses (FROZEN_CLOCKS)": all(
+            v % p == 0 and spine.subgroup(v) == {y for y in range(N) if y % p == 0} and spine.order(v) == o
+            for v, p, o in ((736, 32, 135), (27, 27, 160), (245, 5, 864)))
+        and (736 % 27, 736 % 5, 27 % 32, 27 % 5, 245 % 32, 245 % 27) == (7, 1, 27, 2, 21, 2),
         "mod 12 all three freeze at once, at 3, 4 and 5, which sum to 12 (3125 and 245 are both 5 mod 12); the step 12 "
         "has order 360 and index 12, and 72 x 12 = 864": (pow(3, 27, 12), pow(2, 16, 12), pow(5, 3125, 12), 245 % 12)
         == (3, 4, 5, 5) and 3 + 4 + 5 == 12 and spine.order(12) == 360 and N // len(spine.subgroup(12)) == 12
@@ -1499,6 +1516,157 @@ def notes_0029():
     }
 
 
+# ------------------------------------------------------------------- the 00:36-00:51 notes
+
+def edge_tick():
+    """CYCLE_TICK and CUT_TICK: the signed edge tick (the second compound of the vertex 5-cycle) on cycles and cuts."""
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    T = compound2(R5)
+    x = sp.symbols("x")
+    phi5 = x ** 4 + x ** 3 + x ** 2 + x + 1
+    cycles = sp.Matrix.hstack(*B.nullspace())
+    cuts = sp.Matrix.hstack(*[B.T[:, k] for k in range(4)])
+    restrict = lambda V: (V.T * V).inv() * V.T * T * V
+    G = B.T * B
+
+    def fundamental(k):                                        # the star tree at vertex 0: the triangle 0-i-j
+        i, j = E[k]
+        v = sp.zeros(10, 1)
+        v[k], v[E.index((0, j))], v[E.index((0, i))] = 1, -1, 1
+        return v
+    F = sp.Matrix.hstack(*[fundamental(k) for k in range(10) if E[k][0] != 0])
+    rotor = sp.Matrix.hstack(*[sp.Matrix(counts._oriented_cycle(k)) for k in (1, 2)])
+    return {
+        "the edge tick has characteristic polynomial (x - 1)^2 Phi_5 on the six cycles (trace 1), Phi_5 on the four cuts "
+        "(trace -1) and (x - 1)^2 Phi_5^2 on all ten edges (trace 0); Phi_5(2) = 31 and Phi_5(1) = 5":
+            sp.expand(restrict(cycles).charpoly(x).as_expr() - (x - 1) ** 2 * phi5) == 0 and restrict(cycles).trace() == 1
+            and sp.expand(restrict(cuts).charpoly(x).as_expr() - phi5) == 0 and restrict(cuts).trace() == -1
+            and sp.expand(T.charpoly(x).as_expr() - (x - 1) ** 2 * phi5 ** 2) == 0 and T.trace() == 0
+            and (phi5.subs(x, 2), phi5.subs(x, 1)) == (31, 5),
+        "the factor (x - 1)^2 is the rotor plane: the edge tick fixes exactly a plane of cycles, the C5-fixed plane "
+        "spanned by the near and far pentagons": len((T - sp.eye(10)).nullspace()) == 2
+        and rotor.rank() == 2 and sp.Matrix.hstack(rotor, *(T - sp.eye(10)).nullspace()).rank() == 2
+        and (B * rotor).is_zero_matrix,
+        "the signed edge Gram B^T B squares to 5 B^T B, has trace 20 and spectrum 5^4 0^6, and commutes with the tick; "
+        "its complement I - B^T B / 5 is the rank-6 cycle projector": G ** 2 == 5 * G and G.trace() == 20
+        and G.eigenvals() == {5: 4, 0: 6} and T * G == G * T and (sp.eye(10) - G / 5).rank() == 6,
+        "the star tree's six fundamental triangles have cycle Gram spectrum 1^3 5^3 and determinant 125":
+            (B * F).is_zero_matrix and (F.T * F).eigenvals() == {1: 3, 5: 3} and (F.T * F).det() == 125,
+        "the cut tick has the time clock's polynomial Phi_5, and the map is the layer-22 join kappa(x) = 4x mod 5, as "
+        "the sibling's TOWERS note now says too": 4 * TICK % 5 == 1,
+    }
+
+
+def port_moments():
+    """FOUR_ITEMS and REPAIR_AUDIT: the six-port's moment blocks from the bath's return moments."""
+    _, E = _walks()
+    contrast = [E[k + 1] // 240 for k in range(3)]
+    uniform = [6 * E[k] - 5 * E[k + 1] // 240 for k in range(3)]
+    return {
+        "every root alpha gives the same <delta_0, Delta^k delta_alpha> = F_k (W(E8) is transitive on roots), and summing "
+        "over the 240 roots gives F_k = E_k - E_(k+1)/240": all(E[k + 1] % 240 == 0 for k in range(6)),
+        "so the six-port block E_k I + F_k (J - I) has contrast moments E_(k+1)/240 = 1, 241, 58264 (variance 183) and "
+        "uniform moments 6 E_k - 5 E_(k+1)/240 = 1, 235, 55720 (variance 495): the blocks 241I - J and 183I + 52J of the "
+        "cone, and REPAIR_AUDIT's factor 6": contrast == [1, 241, 58264] and contrast[2] - contrast[1] ** 2 == 183
+        and uniform == [1, 235, 55720] and uniform[2] - uniform[1] ** 2 == 495,
+        "without the factor 6 the uniform line gives E_1 - 5 E_2/240 = -965 (FOUR_ITEMS), and both blocks use only W_0..W_3 "
+        "= 1, 0, 240, 13440; W_4 = 1260720": E[1] - 5 * E[2] // 240 == -965 and _walks()[0][:5] == [1, 0, 240, 13440, 1260720],
+    }
+
+
+def notes_0051():
+    """The 00:36-00:51 notes: the sibling's audits of the paper's scripts, replayed, and their corrections."""
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    S = sp.Matrix(5, 4, lambda r, c: int(r == c) - int(r == c + 1))
+    C = (S.T * S).inv() * S.T * R5 * S
+    T6 = sp.diag(2 * sp.eye(4) - C, sp.Matrix([[5]]))
+
+    def minors(M):
+        return {abs(M.extract(list(r), list(c)).det()) for k in range(1, M.rows + 1)
+                for r in itertools.combinations(range(M.rows), k) for c in itertools.combinations(range(M.rows), k)}
+    x = sp.symbols("x")
+    crit = [240, 16, -3, -8, -10, -11, Fraction(-185, 16), Fraction(-320, 27), -12, -16]
+    R = sp.Poly(sp.prod([x - 240, x - 16, x + 3, x + 8, x + 10, x + 11, 16 * x + 185, 27 * x + 320, x + 12, x + 16]), x)
+    roots = glue.roots()
+    w = np.array([28, 28, 6, 2, 1, 0, 0, 0]) / 10
+    grad = (roots * np.sin(roots @ w)[:, None]).sum(axis=0)
+    H = (roots.T * np.cos(roots @ w)) @ roots
+    n = grad / np.linalg.norm(grad)
+    tangent = sorted(np.linalg.eigvalsh((np.eye(8) - np.outer(n, n)) @ H @ (np.eye(8) - np.outer(n, n))))[1:]
+    port = np.linalg.eigvalsh(native.port_metric())
+    spec = carrier.spectrum_multiplicities()
+    pair_orbits = {frozenset(tuple(sorted(((a + k) % 6, (b + k) % 6))) for k in range(6))
+                   for a, b in itertools.combinations(range(6), 2)}
+    return {
+        "the companion C of Phi_5 (the vertex rotation on the sum-zero hyperplane, in the basis e_i - e_(i+1)) has "
+        "det(2I - C) = 31 and det(I - C) = 5; T6 = (2I - C) + [5] has det 155 and Gram det 24025, and 4805 = 24025 / 5 = "
+        "31 x 155 is not a minor of T6 nor of its Gram (MASTER_LEDGER)":
+            C == sp.Matrix([[0, 0, 0, -1], [1, 0, 0, -1], [0, 1, 0, -1], [0, 0, 1, -1]])
+            and ((2 * sp.eye(4) - C).det(), (sp.eye(4) - C).det(), T6.det(), (T6.T * T6).det()) == (31, 5, 155, 24025)
+            and 4805 not in minors(T6) and 4805 not in minors(T6.T * T6) and 4805 == 31 * 155,
+        "the two collar fractions differ (PASS2): (15/13)(1/25) = 3/65, while on the cone d^2 = (3/13) r^2 a Euclidean "
+        "square 1/25 gives r^2 = 13/400 and (15/13)(13/400) = 3/80": Fraction(15, 13) * Fraction(1, 25) == Fraction(3, 65)
+        and Fraction(1, 25) / (1 + Fraction(3, 13)) == Fraction(13, 400) and Fraction(15, 13) * Fraction(13, 400) == Fraction(3, 80),
+        "the ten critical values sum to 74557/432 (185/16 + 320/27 = 10115/432), so 432 R(x) has x^9 coefficient -74557 "
+        "and R(x)(x + 12) has -69373, as FOUR_ITEMS and REPAIR_AUDIT say": sum(Fraction(v) for v in crit) == Fraction(74557, 432)
+        and Fraction(185, 16) + Fraction(320, 27) == Fraction(10115, 432) and R.all_coeffs()[:2] == [432, -74557]
+        and sp.Poly(R.as_expr() * (x + 12), x).all_coeffs()[:2] == [432, -69373],
+        "at the collar witness the gradient has length 24.927 and the tangent Hessian of the level set is positive, least "
+        "eigenvalue 6.986 (not 5.0708); the endpoints stay uncertified": abs(np.linalg.norm(grad) - 24.927) < 1e-3
+        and abs(tangent[0] - 6.986) < 1e-3 and min(tangent) > 0,
+        "the port metric's eigenvalues sum to 112/5 and multiply to 320; (-5/2, -1/2, ..., -1/2) meets exactly 8 roots, "
+        "at 3, and (2, 0, ..., 0) exactly 14, at 2; |W(E8)| / 8! = 17280 and |W(E8)| / |W(D7)| = 2160":
+            np.isclose(port.sum(), 112 / 5) and np.isclose(np.prod(port), 320)
+            and sum(np.isclose(r @ np.array([-2.5] + [-0.5] * 7), 3) for r in roots) == 8
+            and sum(np.isclose(r @ np.array([2.0] + [0.0] * 7), 2) for r in roots) == 14
+            and 696729600 // sp.factorial(8) == 17280 and 696729600 // (2 ** 6 * sp.factorial(7)) == 2160,
+        "the fourteen are e_1 +- e_j; the roots are 112 integer and 128 half-integer, so 240 - (112 - 128) = 256, the "
+        "dispersion's top (PASS2, REPAIR_AUDIT)": all(np.isclose(r[0], 1) and np.isclose(np.abs(r[1:]).sum(), 1)
+                                                     for r in roots if np.isclose(2 * r[0], 2))
+        and sum(np.allclose(r, np.round(r)) for r in roots) == 112 and 240 - (112 - 128) == 256,
+        "the carrier D^2 has trace 40 and its square trace 200, so 9/40 is 9 over the carrier trace; the identity does "
+        "not put it in the action (MASTER_LEDGER, JOIN_ALL)": sum(k * m for k, m in spec.items()) == 40
+        and sum(k * k * m for k, m in spec.items()) == 200,
+        "DEEP36_LOOP and PASS2: 4320 = 1 mod 7 (no element of order 7); 48 divisors; C(n, 2) = 2n only at n = 5, and the "
+        "middle binomial exceeds 2n for 6 <= n < 200; 3985/16 is not (5/4)^2 x 161 and 6784/27 is not (20/9)^2 x 51, whose "
+        "squarefree parts are 3985 and 318": N % 7 == 1 and len(sp.divisors(N)) == 48
+        and [k for k in range(1, 300) if k * (k - 1) == 4 * k] == [5] and all(sp.binomial(k, k // 2) > 2 * k for k in range(6, 200))
+        and Fraction(3985, 16) != Fraction(5, 4) ** 2 * 161 and Fraction(6784, 27) != Fraction(20, 9) ** 2 * 51
+        and sp.factorint(3985) == {5: 1, 797: 1} and sp.factorint(6784 * 27) == {2: 7, 3: 3, 53: 1},
+        "the nine corrected squarefree integers 14, 3, 62, 10, 251, 3985, 318, 7, 1 are squarefree and distinct, so their "
+        "square roots are independent over Q; the nine energies are not located here, so the torus is not certified":
+            all(set(sp.factorint(k).values()) <= {1} for k in (14, 3, 62, 10, 251, 3985, 318, 7, 1))
+            and len({14, 3, 62, 10, 251, 3985, 318, 7, 1}) == 9,
+        "JOIN_ALL and DEEP36_LOOP on the circle: 216 = 6 x 36 has order 20, the golden companion's period mod 5; the "
+        "address step 36 and seven of them, 252, have order 120, the step 120 order 36 and 720 order 6; the coil is 27 "
+        "returns (540 = lcm(20, 27)); a 6-cycle splits the fifteen pairs into orbits 6, 6, 3; 252 - 7 = 245, 252 + 4 = "
+        "256, 2^5 - 1 = 31 nonempty faces of the 4-simplex, 16 x 4320 = 69120": 216 == 6 * 36 and spine.order(216) == 20
+        and [spine.order(s) for s in (36, 252, 120, 720)] == [120, 120, 36, 6] and 540 == sp.ilcm(20, 27) == 27 * 20
+        and sorted(len(o) for o in pair_orbits) == [3, 6, 6] and (252 - 7, 252 + 4, 2 ** 5 - 1, 16 * N) == (245, 256, 31, 69120),
+    }
+
+
+def splits_corrections():
+    """The separate model's splits receipt (00:49): its five source corrections, replayed."""
+    loops = {frozenset((c + 216 * k) % N for k in range(20)) for c in range(N)}
+    agree = {x for x in range(N) if 4 * x % N == TICK * x % N}
+    cycle = {216 * n % N for n in (4, 8, 12, 16)}                          # the tick cycle of doubling, in the golden orbit
+    golden = [216 * n % N for n in range(20) if n % 5]
+    return {
+        "POWER_TOWER and LEVELS: the tower of fives freezes, at 245 from height 3; an early 3125 does not stop it":
+            pow(5, 5, N) == 3125 and pow(5, 3125, N) == pow(5, 5 ** 3125, N) == 245,
+        "SPINE_29: there are 216 golden loops in all, the golden orbit among them, so 215 others": len(loops) == 216
+        and frozenset(spine.subgroup(216)) in loops and len(loops) - 1 == 215,
+        "TWO_AGREE: two doublings and 864 copies agree on the 20 points of the golden orbit, so 4300 points disagree in "
+        "all, the point 1 among them": agree == spine.subgroup(216) and N - len(agree) == 4300 and 1 not in agree,
+        "LEVELS: doubling brings every golden point of index prime to 5 into the tick cycle after two doublings; one "
+        "doubling misses the cycle exactly for the odd indices": all(4 * g % N in cycle for g in golden)
+        and {n for n in range(20) if n % 5 and 2 * 216 * n % N not in cycle} == {n for n in range(20) if n % 5 and n % 2},
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -1665,7 +1833,7 @@ LEDGER_ROWS = [
     ("ticks and misses (TICK_MISS, COORD_LAW, FOUR_MISS, MISS_COSET, TWO_AGREE)", "the circle is the tick subgroup times the miss subgroup; four misses per loop", "replayed: Z/4320 = <864> + <5>; a point misses iff its tick part is 0; the four misses of a golden loop are an observer coset; two doublings and 864 copies agree exactly on <216>", T, "23"),
     ("doubling on the clocks (TICK_CYCLE, OBS_FALLS, NAKSHATRA_SPLIT, THREE_DOUBLES, GOLDEN_FATE)", "ticks cycle, the observer falls, the nakshatra splits 18 + 6 + 2 + 1", "replayed; the nakshatra clock maps onto the coil's 27 golden cosets with the same cycles, and doubling sorts the golden orbit by the tick bit", T, "23"),
     ("the relations receipt's corrections (23:50)", "the clock chain; the vortex points; the 36-cycle; p1; the fifth commutator", "agreed: two match the 23:44 corrections, and the other three are replayed (216 -> 432 moves; orbit lengths 1, 2, 4, 6, 12, 18, 36; [K, B^5] has entries divisible by 5, det by 25); the sibling adopted all five", T, "23"),
-    ("towers (POWER_TOWER, SALINA_CONG)", "threes freeze at 27, twos at 736, fives do not; mod 12: 3, 4, 5", "replayed, including 3^(3^27) and 2^65536 mod 4320", T, "23"),
+    ("towers (POWER_TOWER, SALINA_CONG, TOWERS, FROZEN_CLOCKS)", "threes freeze at 27, twos at 736, fives do not; mod 12: 3, 4, 5", "corrected: the fives freeze too, at 245 from height 3 (this layer had repeated 'do not' at 00:15 after checking one step); 736, 27 and 245 generate the points that are 0 on the 2-, 27- and time clocks", T, "23"),
     ("modules 8-11 (Locked Memory synthesis, 00:06)", "T12 non-semisimple; dA = 2 dx dy/(1 + r^2)^2; reader 2, 121, 241, 12; 57840", "replayed from the stated formulas; JOIN_MODULES's missing time-rotor map is the join kappa = 4x mod 5 of layer 22", T, "23"),
     ("N = 25 annihilator (Locked Memory synthesis)", "a Stieltjes-Jacobi annihilator of order 25 on W_0..W_50", "not an annihilator: the 26 x 26 Hankel determinant of W_0..W_50 is positive; a depth-25 Jacobi fit is not a recurrence", OB, "23"),
     ("the eight-root frame (ONE_MACHINE_29, FRAME_WALKS, DEEP_COURT)", "Gram I + J, det 9, index 3; quotient generator of squared length 8; no ninth root", "replayed: a maximal 9-clique of the lattice graph; the only vector meeting all eight has squared length 8/9; six times the duals is 6R - 2q; its six-point faces are six-ports", T, "23"),
@@ -1674,6 +1842,10 @@ LEDGER_ROWS = [
     ("the grain, twice (GRAIN_SPLIT 00:19, OBS_SUN)", "the five ticks times the twelve multiples of 360, which are the observer times the sun", "replayed: the observer and the sun are the miss set's unique subgroups of orders 4 and 3", T, "23"),
     ("chart classes and the field prime (ONE_MACHINE_29, LEVELS)", "95, 98, 101 one class mod 30; the field prime meets the circle in 240", "corrected: one class mod 3 (mod 30 they are 5, 8, 11); 241 is prime to 4320, and 240 = 241 - 1 meets it in 240", T, "23"),
     ("the sibling's paper ONE_MACHINE_29 (00:20)", "the best closed model of 29 Oct; carrier unchanged; sigma in (231.7438, 231.7439); a rational Gauss-Manin matrix missing", "replayed where stated (carrier, ports, frame, symbol, walks, clocks); the sigma interval, the collar endpoints and the typeset .typ source were not", RP, "23"),
+    ("the edge tick (CYCLE_TICK, CUT_TICK, DEEP36_LOOP)", "(x - 1)^2 Phi_5 on the cycles, Phi_5 on the cuts; the signed edge Gram squares to 5 times itself", "replayed: the second compound of the vertex 5-cycle; its fixed plane is the rotor plane, and on the cuts it has the time clock's polynomial (the join kappa = 4x mod 5)", T, "23"),
+    ("the six-port moments (FOUR_ITEMS, REPAIR_AUDIT)", "contrast 241 and 183; uniform 235 and 495 once the factor 6 is restored", "replayed: F_k = E_k - E_(k+1)/240 because W(E8) is transitive on the roots; contrast E_(k+1)/240, uniform 6 E_k - 5 E_(k+1)/240; without the 6 the line gives -965", T, "23"),
+    ("the script audits (FOUR_ITEMS, REPAIR_AUDIT, PASS2, MASTER_LEDGER, DEEP36_LOOP)", "4805 not a minor; 3/65 against 3/80; 74557/432 and -69373; Hessian 6.986, not 5.0708; two factorizations wrong", "replayed: 4805 = 24025/5 is the Gram over 5; the collar fractions are two different exact numbers; the shifted coefficient is -69373; the tangent Hessian is positive; the corrected squarefree parts are 3985 and 318; the collar stays open", T, "23"),
+    ("the splits receipt's corrections (00:49)", "the tower of fives; 215 other loops; 4300 disagreement points; entry after two doublings", "replayed: all five hold", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -1700,6 +1872,9 @@ NOT_JOINED = [
                                                        "rerun; its five source corrections are replayed", RP),
     ("modules 8-11, unreplayed parts", "the two-channel C and W, the Bargmann projectors (trace 1 + i), the Hankel "
                                        "realization and the [9, 3, 7] code over F11 need operands not stored here", RP),
+    ("the separate model's splits update (00:49)", "413793 bytes; 90 new check groups (grain 43, towers 17, module "
+                                                   "relations 27, API 3) and 47 review groups; not opened or rerun; its "
+                                                   "five source corrections are replayed", RP),
     ("air", "no air operator is stored, and none is formed", gates.UNFORMED),
 ]
 
@@ -1854,8 +2029,9 @@ def run():
             "separate model's IJ update and its receipt (23:30, not opened or rerun); the hub's release J (cutoff 23:08) "
             "with CURRENT_STATUS, CURRENT_RELEASE and the integrator's claim file", RP, True)
     for name, fn, text, status in (
-            ("towers", towers, "POWER_TOWER and SALINA_CONG, replayed: the towers of 3 and 2 freeze at 27 and 736 on the "
-             "circle, the tower of 5 goes 3125 -> 245, and mod 12 all three freeze at 3, 4, 5", T),
+            ("towers", towers, "POWER_TOWER, SALINA_CONG, TOWERS and FROZEN_CLOCKS: the towers of 3, 2 and 5 freeze on "
+             "the circle at 27, 736 and 245, each 0 on its own clock (POWER_TOWER's 'the fives do not freeze', repeated "
+             "here at 00:15, is corrected), and mod 12 all three freeze at 3, 4, 5", T),
             ("modules", modules_8_11, "the synthesis's modules 8-11 where the formulas are stated: T12 = (B6 + B6) U is "
              "not semisimple, dA = 2 dx dy/(1 + r^2)^2, the stride reader 2, 121, 241, 12 and 57840 = 240 x 241; the "
              "missing time-rotor map of JOIN_MODULES is kappa; KARMA_COMM's fifth commutator corrected", T),
@@ -1887,6 +2063,25 @@ def run():
     rep.add("the hub's release J adopts the address correction and the 2-part correction, and lists four open "
             "conflicts: the literal recurrence certificate, the collar near 224, the uniform dispersion proof and the "
             "K5/K6 carrier identification; layers 14 and 23 hold evidence for the first and the last", RP, True)
+    for fn, text in (
+            (edge_tick, "CYCLE_TICK and CUT_TICK, replayed: the edge tick, the second compound of the vertex 5-cycle, has "
+             "characteristic polynomial (x - 1)^2 Phi_5 on the six cycles, fixing the rotor plane, and Phi_5, the time "
+             "clock's polynomial, on the four cuts; the signed edge Gram is 5 times the cut projector"),
+            (port_moments, "FOUR_ITEMS and REPAIR_AUDIT, replayed: F_k = E_k - E_(k+1)/240, so the six-port block has "
+             "contrast moments 1, 241, 58264 (variance 183) and uniform moments 1, 235, 55720 (variance 495), with the "
+             "factor 6 restored"),
+            (notes_0051, "the 00:36-00:51 audits of the paper's scripts: 4805 is the Gram determinant over 5, not a "
+             "minor; the collar fractions 3/65 and 3/80 differ; the critical values sum to 74557/432, so the shifted "
+             "coefficient is -69373; the witness's tangent Hessian is positive (least eigenvalue 6.986); the carrier "
+             "trace 40; JOIN_ALL's and DEEP36_LOOP's orders on the circle"),
+            (splits_corrections, "the separate model's splits receipt (00:49): its five source corrections, replayed: "
+             "the tower of fives freezes at 245 (POWER_TOWER, LEVELS); 215 other golden loops (SPINE_29); 4300 "
+             "disagreement points in all (TWO_AGREE); entry into the tick cycle after two doublings (LEVELS)")):
+        out = fn()
+        rep.add(text, T, all(out.values()), out)
+    rep.add("Drive check 00:51: the sibling's notes FOUR_ITEMS, REPAIR_AUDIT, PASS2, MASTER_LEDGER, DEEP36_LOOP, JOIN_ALL, "
+            "CYCLE_TICK, CUT_TICK, TOWERS and FROZEN_CLOCKS (00:36-00:51); the separate model's splits update and its "
+            "verification receipt (00:49; only the receipt was read); its checkpoint (00:51) was not read", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

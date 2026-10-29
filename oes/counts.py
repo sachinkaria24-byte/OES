@@ -1,4 +1,4 @@
-"""Layer 22. Counts, graphs and moments (28-29 Oct 2026; Drive checks 19:21 to 00:15 UTC and the 00:35 relay).
+"""Layer 22. Counts, graphs and moments (28-29 Oct 2026; Drive checks 19:21 to 00:51 UTC and the 00:35 relay).
 
 Sources read before this layer (Google Drive):
 
@@ -31,6 +31,9 @@ Sources read before this layer (Google Drive):
   split, doubling on each clock, the towers, the stage element 12 and modules 8-11), joined in layer 23;
 * at 00:35, relayed by the user: the sibling's paper ONE_MACHINE_29 and its notes of 00:16-00:29, from
   CLOSURE_092 to DEEP_COURT (the grain split twice, the eight-root frame, protection), joined in layer 23.
+* at 00:51: the readings of the sibling's ten notes of 00:36-00:51, from FOUR_ITEMS to FROZEN_CLOCKS (the
+  six-port moments, its audits of the paper's scripts, the edge tick and the frozen towers), and of the
+  separate model's splits receipt (00:49), joined in layer 23.
 
 Here "zero modes" and "dark" mean ker M = P5, as in layers 5 and 12. The canon's two-dimensional dark planes
 (the dark-core theorem) are another object, as the separate model's status also notes.
@@ -1536,6 +1539,91 @@ CLAIMS = [
     ("ONE_MACHINE_29", "the exterior square", 28, True, ()),
     ("ONE_MACHINE_29", "the W0 scalar", 360000, False, (("res", 1440),)),
     ("ONE_MACHINE_29", "its coordinates", 31, True, ()),
+    ("FOUR_ITEMS", "the roots met by (-5/2, -1/2, ..., -1/2)", 8, True, ()),
+    ("FOUR_ITEMS", "their inner product", 3, True, ()),
+    ("FOUR_ITEMS", "the roots met by (2, 0, ..., 0)", 14, True, ()),
+    ("FOUR_ITEMS", "the simplex cone's determinant", 3, True, ()),
+    ("FOUR_ITEMS", "the Weyl order over 8!, four circles", 17280, None, ()),
+    ("FOUR_ITEMS", "the Weyl order over |W(D7)|", 2160, False, (("order", 2),)),
+    ("FOUR_ITEMS", "the polytope volume, 76 circles", 328320, None, ()),
+    ("FOUR_ITEMS", "W_3", 13440, False, ()),
+    ("FOUR_ITEMS", "W_4", 1260720, False, ()),
+    ("FOUR_ITEMS", "the contrast moment", 241, True, (("gen",),)),
+    ("FOUR_ITEMS", "the contrast variance", 183, True, ()),
+    ("FOUR_ITEMS", "the unrepaired uniform line", -965, False, ()),
+    ("FOUR_ITEMS", "the critical values' numerator", 74557, True, ()),
+    ("FOUR_ITEMS", "their denominator", 432, True, ()),
+    ("FOUR_ITEMS", "the difference's numerator", 10115, False, ()),
+    ("REPAIR_AUDIT", "the uniform moment", 235, False, ()),
+    ("REPAIR_AUDIT", "the uniform second moment", 55720, False, ()),
+    ("REPAIR_AUDIT", "the uniform variance", 495, False, ()),
+    ("REPAIR_AUDIT", "the missing factor", 6, True, ()),
+    ("REPAIR_AUDIT", "the shifted coefficient", -69373, True, ()),
+    ("REPAIR_AUDIT", "the shift 12 x 432", 5184, True, (("res", 864),)),
+    ("REPAIR_AUDIT", "the port eigenvalues' product", 320, False, ()),
+    ("REPAIR_AUDIT", "the integer roots", 112, True, ()),
+    ("REPAIR_AUDIT", "the power that is the third", 108, True, ()),
+    ("REPAIR_AUDIT", "216's 2-residue", 24, True, ()),
+    ("PASS2", "the printed path's determinant", 25, False, ()),
+    ("PASS2", "its largest minor", 30, False, ()),
+    ("PASS2", "the Gram determinant", 24025, False, ()),
+    ("PASS2", "the Gram quotient", 4805, False, ()),
+    ("PASS2", "the balance", 5, False, ()),
+    ("PASS2", "the band count", 256, True, ()),
+    ("PASS2", "five to the ninth", 1953125, False, ()),
+    ("PASS2", "a collar denominator", 65, False, ()),
+    ("PASS2", "a collar denominator", 80, False, ()),
+    ("MASTER_LEDGER", "Phi_5(2)", 31, True, (("gen",),)),
+    ("MASTER_LEDGER", "Phi_5(1)", 5, False, ()),
+    ("MASTER_LEDGER", "the block determinant", 155, False, ()),
+    ("MASTER_LEDGER", "the carrier trace", 40, False, ()),
+    ("MASTER_LEDGER", "the trace of its square", 200, False, ()),
+    ("MASTER_LEDGER", "the Pluecker minors", 84, True, ()),
+    ("MASTER_LEDGER", "the coil", 540, False, (("order", 8),)),
+    ("DEEP36_LOOP", "the families", 36, True, (("order", 120),)),
+    ("DEEP36_LOOP", "36 live sixes", 216, True, (("order", 20),)),
+    ("DEEP36_LOOP", "36 stored sevens", 252, True, (("order", 120),)),
+    ("DEEP36_LOOP", "less one seven", 245, False, (("order", 864),)),
+    ("DEEP36_LOOP", "plus four", 256, True, ()),
+    ("DEEP36_LOOP", "the simplex's nonempty faces", 31, True, ()),
+    ("DEEP36_LOOP", "sixteen circles", 69120, None, ()),
+    ("DEEP36_LOOP", "the divisors", 48, True, ()),
+    ("DEEP36_LOOP", "the step 720", 720, False, (("order", 6),)),
+    ("DEEP36_LOOP", "the step 120", 120, False, (("order", 36),)),
+    ("DEEP36_LOOP", "the listed trace", 96, True, ()),
+    ("DEEP36_LOOP", "a squarefree part", 3985, False, ()),
+    ("DEEP36_LOOP", "a squarefree part", 318, True, ()),
+    ("DEEP36_LOOP", "a squarefree part", 251, True, (("gen",),)),
+    ("JOIN_ALL", "the golden step", 216, True, (("order", 20),)),
+    ("JOIN_ALL", "the address step", 36, True, (("order", 120),)),
+    ("JOIN_ALL", "seven address steps", 252, True, (("order", 120), ("same", 36))),
+    ("JOIN_ALL", "four golden steps", 864, True, (("order", 5),)),
+    ("JOIN_ALL", "the raw residue 4", 1944, True, (("mod5", 4),)),
+    ("JOIN_ALL", "the coil", 540, False, ()),
+    ("JOIN_ALL", "the carrier trace", 40, False, ()),
+    ("JOIN_ALL", "the walks of length 3", 1512, True, ()),
+    ("JOIN_ALL", "the walks of length 4", 62160, False, ()),
+    ("CYCLE_TICK", "the cycle space", 6, True, ()),
+    ("CYCLE_TICK", "Phi_5(2)", 31, True, ()),
+    ("CYCLE_TICK", "the golden order", 20, False, ()),
+    ("CYCLE_TICK", "the index", 4, True, ()),
+    ("CUT_TICK", "the cut space", 4, True, ()),
+    ("CUT_TICK", "the edges", 10, False, ()),
+    ("CUT_TICK", "Phi_5(1)", 5, False, ()),
+    ("TOWERS", "the frozen two", 736, True, (("order", 135),)),
+    ("TOWERS", "the frozen three", 27, True, (("order", 160),)),
+    ("TOWERS", "the frozen five", 245, False, (("order", 864),)),
+    ("TOWERS", "the coil", 540, False, ()),
+    ("TOWERS", "the nakshatra cycle", 18, True, ()),
+    ("TOWERS", "the Hankel size", 26, True, ()),
+    ("FROZEN_CLOCKS", "736 on the 27-clock", 7, True, ()),
+    ("FROZEN_CLOCKS", "27 on the 2-clock", 27, True, ()),
+    ("FROZEN_CLOCKS", "245 on the 2-clock", 21, True, ()),
+    ("FROZEN_CLOCKS", "the frozen values mod 12, summed", 12, True, (("order", 360),)),
+    ("SPLITS_RECEIPT", "the golden loops", 216, True, ()),
+    ("SPLITS_RECEIPT", "the other loops", 215, False, ()),
+    ("SPLITS_RECEIPT", "the disagreement points", 4300, False, ()),
+    ("SPLITS_RECEIPT", "the agreement points", 20, False, ()),
 ]
 
 # SANSKRIT_DEEP and EVERY_WORD: stage -> (first-landing steps, level); None for no landing.
@@ -2958,8 +3046,8 @@ def batch7_arithmetic():
 # ----------------------------------------------------------------------------- ledger rows
 
 JOINS = [
-    ("counts on the bit (166 notes, 18:32-00:29)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT), the 21:40-22:08 notes (primary split, doubling parts, 801, atlas, closure), the 22:08-23:03 notes (Pauli cycle, corrections, coil, canon join, nakshatra, golden family, release H, MPKG, address tick), the 23:05-23:43 notes (golden orbit, grain, shift law, bass fiber, vortex, doubling split), the 23:46-00:14 notes (ticks and misses, doubling orbits, towers, modules), the 00:16-00:29 notes and the 29 Oct paper (frame, protection, grain twice)",
-     "the bit of layer 21 with orders, subgroups, steps and first landings: 1402 readings from 166 notes, none fails", "THEOREM", "22: claims"),
+    ("counts on the bit (177 notes, 18:32-00:51)", "levels, deep factor, saksin, J7 rows, stereo, rank 19, stages, ranks, dynamics, K5 edge, Petersen-Hodge, families, senses, four names, every word, hinge, throats, one bit, ledger bit, pentagon, figures, icosa, root walks, moments, moment chain, motion, observer, roles, curvature, horizon, golden family, seven-one-seven, AllMaps, atlas subgroups, Cabibbo, NCG, H60, breath, Petersen Gram and projectors, Pauli, tick depth, chain energy, mass kernel, the 20:34-21:03 notes, the 21:09-21:38 notes (tick-tock, AC/DC, Spanda, calendar, charts, observer, two clocks, ranks, five names, matrika, six ways, CRT), the 21:40-22:08 notes (primary split, doubling parts, 801, atlas, closure), the 22:08-23:03 notes (Pauli cycle, corrections, coil, canon join, nakshatra, golden family, release H, MPKG, address tick), the 23:05-23:43 notes (golden orbit, grain, shift law, bass fiber, vortex, doubling split), the 23:46-00:14 notes (ticks and misses, doubling orbits, towers, modules), the 00:16-00:29 notes and the 29 Oct paper (frame, protection, grain twice), the 00:36-00:51 notes (six-port moments, audits, edge tick, frozen towers) and the splits receipt",
+     "the bit of layer 21 with orders, subgroups, steps and first landings: 1487 readings from 177 notes, none fails", "THEOREM", "22: claims"),
     ("Sanskrit steps to a tick", "first steps landing on a nonzero tick, stage by stage", "least k with k x a nonzero tick; Buddhi and Pratyabhijna share subgroup and steps, not the landing", "THEOREM", "22: claims"),
     ("K5 edge", "cut 4, cycles 6, signless kernel 5", "the signless kernel is the zero-mode space of D^2; the star-tree cycles have Gram determinant 125 = the spanning trees", "THEOREM", "22: graphs"),
     ("Petersen", "spectrum 3, 1, -2 with ranks 1, 5, 4", "(A - 3)(A - 1)(A + 2) = 0; exact orthogonal projectors", "THEOREM", "22: graphs"),
