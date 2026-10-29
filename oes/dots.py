@@ -320,6 +320,10 @@ them exactly when the complementary five edges form a connected nonbipartite gra
 all unimodular. Matched intensities name the dark planes from any four sensors, and seven full-spark detectors recover
 any real dark vector up to sign. The transposition-odd planes are cubic-null, and their ten commutators span the cycles
 with T T^T = 20 P_cycle. E - 2 sigma Q is a sum of squares. The marked Golden operator on A4 is two Fibonacci blocks.
+
+At 18:04 the sibling's MODEL (18:00) added one paragraph. The five dark planes are a measurement with probabilities
+4/5 and 1/20, which carries exactly 6/5 bits. Every bivector of the source is tangent to its oriented planes, so a
+linear reading of them needs all ten channels. Since Gr+(2, 5) = Q3 has p1 = h^2, no smooth reading fits in eight.
 """
 
 import functools
@@ -7026,6 +7030,79 @@ def notes_1731():
     }
 
 
+def dark_measurement():
+    """The sibling's MODEL (18:00): the five dark planes as a measurement."""
+    D = 15 * sp.eye(4) - 3 * sp.ones(4, 4)
+    P = [sp.eye(4)[:, k] for k in range(4)] + [-sp.ones(4, 1)]
+    ip = lambda x, y: (x.T * D * y)[0]
+    M = [p * p.T * D / 15 for p in P]
+    prob = [[ip(p, m * p) / ip(p, p) for m in M] for p in P]
+    info = sp.log(5, 2) + sum(q * sp.log(q, 2) for q in prob[0])
+    return {
+        "the five dark planes p0..p3, p4 = -sum (metric D = 15 I - 3 J) have frame operator sum p p^T D = 15 I, so the "
+        "rank-one, D-positive M_r = p_r p_r^T D/15 sum to the identity: they are a measurement on the dark four":
+            sum(M, sp.zeros(4)) == sp.eye(4)
+            and all(D * m == (D * p) * (D * p).T / 15 and m.rank() == 1 for p, m in zip(P, M)),
+        "on the plane p_s it reads p_s with probability 4/5 and each other plane with 1/20; with a uniform prior the "
+        "outcome is uniform, so the information is log2 5 - H(4/5, 1/20, 1/20, 1/20, 1/20) = 6/5 bits exactly":
+            all(prob[s][r] == (sp.Rational(4, 5) if r == s else sp.Rational(1, 20)) for s in range(5) for r in range(5))
+            and all(sum(row[r] for row in prob) == 1 for r in range(5))
+            and sp.simplify(sp.expand_log(info, force=True)) == sp.Rational(6, 5),
+        "any two planes have Bhattacharyya coefficient 2 sqrt(4/5 x 1/20) + 3 x 1/20 = 11/20":
+            {sum(sp.sqrt(x * y) for x, y in zip(prob[s], prob[t])) for s, t in itertools.combinations(range(5), 2)}
+            == {sp.Rational(11, 20)},
+    }
+
+
+def plane_tomography():
+    """The sibling's MODEL (18:00): how many channels read the source's oriented planes everywhere, in orthonormal
+    coordinates. Cited: the skew normal form; Gr+(2, 5) = Q3 in CP^4 with T Q3 + O(2) = O(1)^5, H^2 = Z h and h^2 = 2 l
+    in H^4 = Z l; the normal bundle of an immersion; and the Lefschetz fixed-point theorem."""
+    e = [sp.eye(5)[:, k] for k in range(5)]
+    pairs = list(itertools.combinations(range(5), 2))
+    up = lambda x, y: sp.Matrix([(x * y.T - y * x.T)[i, j] for i, j in pairs])
+    tan = lambda i, j: sp.Matrix.hstack(*[up(e[i], e[k]) for k in range(5) if k not in (i, j)],
+                                         *[up(e[k], e[j]) for k in range(5) if k not in (i, j)])
+    al, be = sp.symbols("alpha beta", real=True)
+    E, N5, sym, F, a0, b0 = _source()
+    W = sp.Matrix.hstack(*[F(N5[:, i], N5[:, j]) for i, j in pairs])
+    R = sp.diag(sp.Matrix([[3, -4], [4, 3]]) / 5, sp.Matrix([[5, -12], [12, 5]]) / 13, 1)
+    fixed = sp.Matrix.hstack(*(sp.Matrix.hstack(*[up(R[:, i], R[:, j]) for i, j in pairs]) - sp.eye(10)).nullspace())
+    S = al * (e[0] * e[1].T - e[1] * e[0].T) + be * (e[2] * e[3].T - e[3] * e[2].T)
+    planes = sp.solve([S.extract([0, 1, 2, 3], [0, 1, 2, 3]).det(), al ** 2 + be ** 2 - 1], [al, be], dict=True)
+    h, m = sp.symbols("h m")
+    trunc = lambda f: sp.expand(sp.series(f, h, 0, 4).removeO())
+    c, p = trunc((1 + h) ** 5 / (1 + 2 * h)), trunc((1 + h ** 2) ** 5 / (1 + 4 * h ** 2))
+    return {
+        "every bivector lies in a tangent space of the oriented planes: alpha e0 ^ e1 + beta e2 ^ e3 = e0 ^ (alpha e1) + "
+        "(-beta e3) ^ e2 at the plane e0 ^ e2, whose tangent space {u ^ a + b ^ v : a, b perpendicular to u, v} has "
+        "dimension 6, and every bivector is a rotation of one of these; so a linear reading immerses the planes only if it "
+        "is injective, and ten channels are necessary and sufficient: the commutator's bright six (rank 6 on the source's "
+        "bivectors) and its dark four (the kernel)":
+            (al * up(e[0], e[1]) + be * up(e[2], e[3]) - up(e[0], al * e[1]) - up(-be * e[3], e[2])).is_zero_matrix
+            and tan(0, 2).rank() == 6 and W.rank() == 6 and len(W.nullspace()) == 4,
+        "Gr+(2, 5) = Q3 has c(T) = (1 + h)^5/(1 + 2h) = 1 + 3h + 4h^2 + 2h^3 and p(T) = (1 + h^2)^5/(1 + 4h^2) = 1 + h^2; "
+        "c3 = 2h^3 = 4 is its Euler number, the count of oriented planes fixed by a rotation with Pythagorean angles "
+        "(+-e0 ^ e1 and +-e2 ^ e3, each nondegenerate)":
+            c == 1 + 3 * h + 4 * h ** 2 + 2 * h ** 3 and p == 1 + h ** 2 and 2 * c.coeff(h, 3) == len(planes) == 4
+            and sp.Matrix.hstack(fixed, up(e[0], e[1]), up(e[2], e[3])).rank() == fixed.shape[1] == 2
+            and all(sp.Matrix.hstack(tan(i, j), fixed).rank() == 8 for i, j in ((0, 1), (2, 3))),
+        "an immersion in R^8 would have an oriented normal plane bundle with e^2 = p1 = -h^2 (p(nu) = 1/p(T) = 1 - h^2), "
+        "so m^2 = -1 for e = m h: eight outputs cannot immerse the planes, and a smooth reading needs at least nine; the "
+        "host's 7 channels are 9 - 2 and 10 - 3":
+            trunc(1 / p) == 1 - h ** 2 and not any(r.is_real for r in sp.solve(m ** 2 + 1, m)) and (9 - 7, 10 - 7) == (2, 3),
+    }
+
+
+def notes_1804():
+    """The sibling's MODEL (18:00): the rest."""
+    return {
+        "6/5 = 1/(5/6), the reciprocal of the hypercharge's square (CHARGE_WEIGHT), a shared number and not a map; the "
+        "atlas's 49 records are 7^2; the stated mixed-history rank 234 = 13 x 18 is 126 below the parent 360":
+            1 / sp.Rational(5, 6) == sp.Rational(6, 5) and 49 == 7 ** 2 and 234 == 13 * 18 and 360 - 234 == 126,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -7358,6 +7435,8 @@ JOINS = [
     ("darkport", "readout", "dark intensities", "matched intensities 1 and 1/16 name the five dark planes from any four sensors; intensities do not fix a dark vector (two of norm 40 share 225, 225, 100, 25, 25), but seven full-spark detectors recover any real dark vector up to sign, and eight survive one erasure (the hub, 17:26)", T, "dark_readout"),
     ("source", "cycles", "cubic-null triangles", "the transposition-odd planes are cubic-null and their ten commutators, twice the complementary triangles, give T T^T = 20 P_cycle; the equilateral K4 pair 2X - Y - Z, sqrt3 (Y - Z) is commutator-dark and cubic-null (energy 96, charge 48); E - 2 sigma Q is a sum of squares, and |W_AS| = sqrt10/3 (the hub, 17:26)", T, "cubic_null"),
     ("A4", "golden", "the Fibonacci bridge", "the marked K = A(h0) has K^2 = 5 on A4, so Phi = (1 + K)/2 has Phi^2 = Phi + 1, and a rational S carries Phi to two blocks B = [[1, 1], [1, 0]]; B^6 = [[13, 8], [8, 5]], entry sum 34 (the hub, 17:26)", T, "golden_bridge"),
+    ("darkport", "readout", "the dark measurement", "the five dark planes have frame operator 15 I, so M_r = p_r p_r^T D/15 is a measurement: it reads a plane as itself with probability 4/5 and as each other plane with 1/20, carries exactly 6/5 bits under a uniform prior, and gives any two planes Bhattacharyya coefficient 11/20 (the sibling's MODEL, 18:00)", T, "dark_measurement"),
+    ("source", "readout", "plane tomography", "every bivector of the source is tangent to its oriented planes, so a linear reading immerses them only with all ten channels, the bright six and the dark four; Gr+(2, 5) = Q3 has c = 1 + 3h + 4h^2 + 2h^3 and p = 1 + h^2, so a normal plane bundle in R^8 would need e^2 = -h^2, and a smooth reading needs at least nine (the sibling's MODEL, 18:00)", T, "plane_tomography"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -7523,6 +7602,8 @@ LEDGER_ROWS = [
     ("the dark readout (hub, 17:26)", "matched 1 and 1/16, four of five sensors; 225, 225, 100, 25, 25 at norm 40; full spark 35 and 70 minors, least 1", "replayed and joined (dark ports -> readout); the complement-property theorem is cited", T, "23"),
     ("cubic-null triangles and the double-dark pair (hub, 17:26)", "T T^T = 20 P_cycle; A0^2 + B0^2 = 16 P3; E = 96, Q = 48; ranks 6, 2, 8; E - 2 sigma Q a sum of squares; |W_AS| = sqrt10/3", "replayed and joined (source -> cycles)", T, "23"),
     ("the Fibonacci bridge (hub, 17:26)", "K^2 = 5, Phi^2 = Phi + 1, K S = S(2B - 1 + 2B - 1); B^6 sum 34", "replayed and joined (A4 -> golden companion)", T, "23"),
+    ("the dark measurement (MODEL, 18:00)", "frame operator 15 I; 4/5 and 1/20; 6/5 bits; Bhattacharyya 11/20", "replayed and joined (dark ports -> readout)", T, "23"),
+    ("plane tomography (MODEL, 18:00)", "every bivector tangent; 10 = 6 + 4; c = 1 + 3h + 4h^2 + 2h^3, p = 1 + h^2; Euler number 4 from four fixed planes; e^2 = -h^2 impossible", "replayed and joined (source -> readout); the skew normal form, Gr+(2, 5) = Q3 with its bundle formulas, and the Lefschetz theorem are cited", T, "23"),
     ("quartic chirality (hub, 14:07)", "Pf(R^T C R) = 175, ||f||^2 = 258, f^T eps f = 350, 70 sqrt5", "replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4", T, "23"),
     ("the syntheme bridge (hub, 14:07)", "sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10", "replayed and joined (PGL(2,5) -> synthemes -> carrier)", T, "23"),
     ("the six-line frame (hub, 14:07)", "Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle", "replayed; the twenty-term cubic formulas hold as polynomial identities", T, "23"),
@@ -7639,7 +7720,8 @@ def _checks():
         "two_dark": two_dark, "fusion_frame": fusion_frame, "source_coding": source_coding, "k4_planes": k4_planes,
         "free_chain": free_chain, "k4_complete": k4_complete, "dark_branches": dark_branches,
         "tomography": tomography, "quadratic_frames": quadratic_frames, "dark_readout": dark_readout,
-        "cubic_null": cubic_null, "golden_bridge": golden_bridge,
+        "cubic_null": cubic_null, "golden_bridge": golden_bridge, "dark_measurement": dark_measurement,
+        "plane_tomography": plane_tomography,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -8129,6 +8211,14 @@ def run():
             "codes and the 30-record atlas code, the global degree's sign split, the Haar fourth moments and probabilities "
             "beyond their stated values, the leakage bounds, the covariance-sign chart, and the sibling's readings",
             RP, True)
+    n04 = notes_1804()
+    rep.add("the 18:00 model's other numbers: 6/5 the reciprocal of the hypercharge's square 5/6, 49 = 7^2, and the "
+            "stated rank 234 = 13 x 18, 126 below the parent 360", T, all(n04.values()), n04)
+    rep.add("Drive check 18:04: the sibling's MODEL edition of 18:00, whose one new paragraph (its Observation) was read "
+            "as text; the OES-paper PDF uploaded with it was skipped", RP, True)
+    rep.add("not replayed: the exterior code of 25 readings in 10 coordinates at distance 5, the 49-record atlas, the "
+            "mixed-history rank 234, the 6/5 bits read as a stored charge norm's reciprocal, the six fibre means and the "
+            "Golden16 injection, and the sibling's readings", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

@@ -248,6 +248,8 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the dark readout (hub, 17:26) | matched 1 and 1/16, four of five sensors; 225, 225, 100, 25, 25 at norm 40; full spark 35 and 70 minors, least 1 | replayed and joined (dark ports -> readout); the complement-property theorem is cited | THEOREM | 23 |
 | cubic-null triangles and the double-dark pair (hub, 17:26) | T T^T = 20 P_cycle; A0^2 + B0^2 = 16 P3; E = 96, Q = 48; ranks 6, 2, 8; E - 2 sigma Q a sum of squares; \|W_AS\| = sqrt10/3 | replayed and joined (source -> cycles) | THEOREM | 23 |
 | the Fibonacci bridge (hub, 17:26) | K^2 = 5, Phi^2 = Phi + 1, K S = S(2B - 1 + 2B - 1); B^6 sum 34 | replayed and joined (A4 -> golden companion) | THEOREM | 23 |
+| the dark measurement (MODEL, 18:00) | frame operator 15 I; 4/5 and 1/20; 6/5 bits; Bhattacharyya 11/20 | replayed and joined (dark ports -> readout) | THEOREM | 23 |
+| plane tomography (MODEL, 18:00) | every bivector tangent; 10 = 6 + 4; c = 1 + 3h + 4h^2 + 2h^3, p = 1 + h^2; Euler number 4 from four fixed planes; e^2 = -h^2 impossible | replayed and joined (source -> readout); the skew normal form, Gr+(2, 5) = Q3 with its bundle formulas, and the Lefschetz theorem are cited | THEOREM | 23 |
 | quartic chirality (hub, 14:07) | Pf(R^T C R) = 175, \|\|f\|\|^2 = 258, f^T eps f = 350, 70 sqrt5 | replayed; f^T Curl f = 2 Pf identically, so J_H is the Hodge star of Lambda^2 A4 | THEOREM | 23 |
 | the syntheme bridge (hub, 14:07) | sharply 3-transitive six-label action; synthemes 5 + 10; D_syn = Pi D Pi^T; traces 7 against 3; 36 = 6 + 15 + 15 with orbits 6, 15, 5, 10 | replayed and joined (PGL(2,5) -> synthemes -> carrier) | THEOREM | 23 |
 | the six-line frame (hub, 14:07) | Gram 41472; two erasures blind; H R H^T/144; [A, B] from frame bilinears; cubics -1200 + 144i and 848 + 1200i; blind pair of edge-square 4; Hom dimensions 0, 1, 1; W W^+ = (10/9) P_cycle | replayed; the twenty-term cubic formulas hold as polynomial identities | THEOREM | 23 |
@@ -255,7 +257,7 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the clock on the Sylow labels (hub, 14:07) | p = 4j mod 5 onto the five moving labels, 864 each | replayed and joined (time clock -> PGL(2,5)) | THEOREM | 23 |
 | the comparator (MODEL, 13:02-14:18) | moments 1, 242, 58691, 14259954, 3470101592; Hankel 15930273; last diagonal 200 or 210 | replayed: the triangle port's; not unique, and by the all-order theorem no finite comparator is exact | THEOREM | 23 |
 | the THEOREM diagram | - | THEOREM maps alone join 62 of the 65 dots, no one or two of them hold it together, and they join every pair of levels at least twice; the datum's regular S5-orbit and the time clock's actions on the roots (48 extended A4 pentagons), the zero modes (one per character) and the triple close the last cuts | THEOREM | 23 |
-| all dots | - | 65 dots and 238 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| all dots | - | 65 dots and 240 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

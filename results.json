@@ -57,36 +57,36 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.65,
+  "1-carrier": 0.73,
   "2-spectral": 0.01,
-  "3-spacetime": 12.36,
-  "4-native": 99.8,
-  "5-observer": 6.62,
-  "6-gravity": 6.49,
-  "7-cosmology": 1.76,
-  "8-frontier": 40.26,
-  "9-joins": 8.32,
-  "10-literal": 38.62,
+  "3-spacetime": 10.32,
+  "4-native": 95.09,
+  "5-observer": 6.31,
+  "6-gravity": 6.11,
+  "7-cosmology": 1.59,
+  "8-frontier": 40.92,
+  "9-joins": 9.24,
+  "10-literal": 36.74,
   "11-glue": 0.17,
-  "12-binding": 0.05,
-  "13-gates": 0.27,
-  "14-recurrence": 83.24,
-  "15-court": 2.08,
-  "16-handover": 1.79,
-  "17-waves": 0.91,
-  "18-snapshot": 1.86,
-  "19-spine": 5.79,
-  "20-canon": 6.35,
-  "21-ledger": 48.0,
-  "22-counts": 23.62,
-  "23-dots": 155.88,
-  "24-assignment": 3.76
+  "12-binding": 0.08,
+  "13-gates": 0.45,
+  "14-recurrence": 77.19,
+  "15-court": 1.75,
+  "16-handover": 1.67,
+  "17-waves": 0.92,
+  "18-snapshot": 1.9,
+  "19-spine": 5.27,
+  "20-canon": 6.02,
+  "21-ledger": 45.28,
+  "22-counts": 22.21,
+  "23-dots": 154.55,
+  "24-assignment": 3.53
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 609,
-   "total": 609
+   "passed": 612,
+   "total": 612
   },
   "OBSTRUCTION": {
    "passed": 56,
@@ -113,8 +113,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 97,
-   "total": 97
+   "passed": 99,
+   "total": 99
   }
  },
  "checks": [
@@ -8614,6 +8614,30 @@
   },
   {
    "layer": "23-dots",
+   "name": "dark ports -> readout: the five dark planes have frame operator 15 I, so M_r = p_r p_r^T D/15 is a measurement: it reads a plane as itself with probability 4/5 and as each other plane with 1/20, carries exactly 6/5 bits under a uniform prior, and gives any two planes Bhattacharyya coefficient 11/20 (the sibling's MODEL, 18:00)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the five dark planes p0..p3, p4 = -sum (metric D = 15 I - 3 J) have frame operator sum p p^T D = 15 I, so the rank-one, D-positive M_r = p_r p_r^T D/15 sum to the identity: they are a measurement on the dark four": true,
+    "on the plane p_s it reads p_s with probability 4/5 and each other plane with 1/20; with a uniform prior the outcome is uniform, so the information is log2 5 - H(4/5, 1/20, 1/20, 1/20, 1/20) = 6/5 bits exactly": true,
+    "any two planes have Bhattacharyya coefficient 2 sqrt(4/5 x 1/20) + 3 x 1/20 = 11/20": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> readout: every bivector of the source is tangent to its oriented planes, so a linear reading immerses them only with all ten channels, the bright six and the dark four; Gr+(2, 5) = Q3 has c = 1 + 3h + 4h^2 + 2h^3 and p = 1 + h^2, so a normal plane bundle in R^8 would need e^2 = -h^2, and a smooth reading needs at least nine (the sibling's MODEL, 18:00)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "every bivector lies in a tangent space of the oriented planes: alpha e0 ^ e1 + beta e2 ^ e3 = e0 ^ (alpha e1) + (-beta e3) ^ e2 at the plane e0 ^ e2, whose tangent space {u ^ a + b ^ v : a, b perpendicular to u, v} has dimension 6, and every bivector is a rotation of one of these; so a linear reading immerses the planes only if it is injective, and ten channels are necessary and sufficient: the commutator's bright six (rank 6 on the source's bivectors) and its dark four (the kernel)": true,
+    "Gr+(2, 5) = Q3 has c(T) = (1 + h)^5/(1 + 2h) = 1 + 3h + 4h^2 + 2h^3 and p(T) = (1 + h^2)^5/(1 + 4h^2) = 1 + h^2; c3 = 2h^3 = 4 is its Euler number, the count of oriented planes fixed by a rotation with Pythagorean angles (+-e0 ^ e1 and +-e2 ^ e3, each nondegenerate)": true,
+    "an immersion in R^8 would have an oriented normal plane bundle with e^2 = p1 = -h^2 (p(nu) = 1/p(T) = 1 - h^2), so m^2 = -1 for e = m h: eight outputs cannot immerse the planes, and a smooth reading needs at least nine; the host's 7 channels are 9 - 2 and 10 - 3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -8638,7 +8662,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 65 dots and 238 joins form one connected diagram (the obstructions left out)",
+   "name": "the 65 dots and 240 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8878,7 +8902,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 18 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 4, lattice-operator 19, operator-physics 20 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -8949,7 +8973,9 @@
      "source -> charges",
      "source -> readout",
      "source -> readout",
-     "darkport -> readout"
+     "darkport -> readout",
+     "darkport -> readout",
+     "source -> readout"
     ]
    ],
    "note": ""
@@ -8960,7 +8986,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 215,
+    "THEOREM": 217,
     "OBSTRUCTION": 10,
     "SELECTED_REFERENCE": 9,
     "CONDITIONAL": 4
@@ -8980,7 +9006,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 9, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 18, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 18",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 2, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 9, symmetry-operator 10, symmetry-physics 7, combinatorics-lattice 4, combinatorics-operator 18, combinatorics-physics 7, lattice-operator 19, lattice-physics 5, operator-physics 20",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -8992,7 +9018,7 @@
     "(0, 1)": 7,
     "(0, 2)": 3,
     "(1, 4)": 10,
-    "(4, 5)": 18,
+    "(4, 5)": 20,
     "(2, 5)": 7,
     "(3, 5)": 5,
     "(0, 3)": 3,
@@ -9934,6 +9960,32 @@
   {
    "layer": "23-dots",
    "name": "not replayed: the 360 parent and its A6 coset readers (ranks 125, 165, 230; 90 to 360 in five settings; the Golden adapter of rank 5), the reflection characters 10 + 8 + 18 and 18 + 18, the [27, 15, 4] and [30, 16, 3] codes and the 30-record atlas code, the global degree's sign split, the Haar fourth moments and probabilities beyond their stated values, the leakage bounds, the covariance-sign chart, and the sibling's readings",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 18:00 model's other numbers: 6/5 the reciprocal of the hypercharge's square 5/6, 49 = 7^2, and the stated rank 234 = 13 x 18, 126 below the parent 360",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "6/5 = 1/(5/6), the reciprocal of the hypercharge's square (CHARGE_WEIGHT), a shared number and not a map; the atlas's 49 records are 7^2; the stated mixed-history rank 234 = 13 x 18 is 126 below the parent 360": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 18:04: the sibling's MODEL edition of 18:00, whose one new paragraph (its Observation) was read as text; the OES-paper PDF uploaded with it was skipped",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the exterior code of 25 readings in 10 coordinates at distance 5, the 49-record atlas, the mixed-history rank 234, the 6/5 bits read as a stored charge norm's reciprocal, the six fibre means and the Golden16 injection, and the sibling's readings",
    "status": "REPORTED",
    "passed": true,
    "value": null,

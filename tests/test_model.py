@@ -580,6 +580,23 @@ def test_the_1731_replay():
     assert sp.expand(phi1.subs(dict(zip(list(av) + list(bv), list(a) + [0] * 5)))) != 0
 
 
+def test_the_1804_replay():
+    for check in (dots.dark_measurement, dots.plane_tomography, dots.notes_1804):
+        out = check()
+        assert all(out.values()), out
+    import itertools
+    import sympy as sp
+    # without the dark metric the five planes are no tight frame, and four of the five planes are no measurement
+    D = 15 * sp.eye(4) - 3 * sp.ones(4, 4)
+    P = [sp.eye(4)[:, k] for k in range(4)] + [-sp.ones(4, 1)]
+    assert sum((p * p.T for p in P), sp.zeros(4)) == sp.eye(4) + sp.ones(4, 4)
+    assert sum((p * p.T * D / 15 for p in P[:4]), sp.zeros(4)) != sp.eye(4)
+    # the bright six alone leave the dark four unread, so the commutator by itself cannot immerse the planes
+    E, N5, sym, F, a0, b0 = dots._source()
+    W = sp.Matrix.hstack(*[F(N5[:, i], N5[:, j]) for i, j in itertools.combinations(range(5), 2)])
+    assert len(W.nullspace()) == 4
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out
