@@ -230,6 +230,15 @@ def test_the_carrier_s5_is_the_cone_point_stabilizer():
     assert len(obstruction) == 1 and obstruction[0][4] == gates.OBSTRUCTION
 
 
+def test_grain_vortex_and_the_shift_law():
+    for check in (dots.grain, dots.vortex, dots.shift_law, dots.golden_identities, dots.doubling_split,
+                  dots.notes_2343):
+        out = check()
+        assert all(out.values()), out
+    # doubling inverts a shift exactly when the shift has order dividing 3
+    assert [s for s in range(spine.N) if 2 * s % spine.N == -s % spine.N] == [0, 1440, 2880]
+
+
 def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)

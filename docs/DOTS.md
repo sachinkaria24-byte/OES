@@ -41,6 +41,8 @@ flowchart LR
     coil["coil"]
     S5["S5"]
     pgl["PGL(2,5)"]
+    grain["grain"]
+    vortex["vortex"]
     E -->|"B"| A4
     E -->|"B and M"| D5
     A4 -->|"inclusion"| D5
@@ -103,9 +105,13 @@ flowchart LR
     AGL -->|"x -> a x + b"| pgl
     pgl -.->|"not the carrier's S5"| carrier
     AGL -->|"the cone's rotation"| sixsite
+    grain -->|"index 9"| coil
+    grain -->|"j -> 9 j"| c27
+    atlas -->|"x mod 9"| vortex
+    c27 -->|"kernel the sun"| vortex
 ```
 
-37 dots and 62 joins. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece.
+39 dots and 66 joins. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece.
 
 ## Dots
 
@@ -148,6 +154,8 @@ flowchart LR
 | coil | <8>, the 540 multiples of 8 | 23 |
 | S5 | the 120 vertex permutations, the cone point's stabilizer in S6 | 1, 23 |
 | PGL(2,5) | the transitive S5 in S6, on the projective line over F5 | 23 |
+| grain | <72> = <216> x <1440>, the golden orbit times the sun | 23 |
+| vortex | Z/9, the address mod 9 | 23 |
 
 ## Joins
 
@@ -215,6 +223,10 @@ flowchart LR
 | AGL(1,5) | PGL(2,5) | the stabilizer of infinity in PGL(2,5), and its only elements that keep D | THEOREM | `cone_symmetry` |
 | PGL(2,5) | carrier | on the 15 bonds PGL(2,5) has one orbit and involution character 3, the carrier's S5 two orbits and transposition character 7: equal on F20 and C5, not as S5-modules | OBSTRUCTION | `cone_symmetry` |
 | AGL(1,5) | six-site port | the 5-cycle with the cone point fixed, traces 1, 1, 1, 1, 6; a 6 x 6 block of order 5 with traces 1 (MPKG) is similar to it over Q | THEOREM | `mpkg_block` |
+| grain | coil | the multiples of 72 are the golden orbit <216> times the sun <1440>, a direct product of 60 points of index 9 in the coil; doubling doubles the golden index and inverts the sun | THEOREM | `grain` |
+| grain | 27-clock | the 27-clock reads only the sun coordinate of a grain point, and time and the 2-clock read only its golden index | THEOREM | `grain` |
+| atlas | vortex | 9 \| 36, so the vortex coordinate is read off the address; doubling runs through its six units 2, 4, 8, 7, 5, 1 | THEOREM | `vortex` |
+| 27-clock | vortex | Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates: the vortex is the 27-clock without the sun | THEOREM | `vortex` |
 
 ## Not joined
 
@@ -226,6 +238,9 @@ flowchart LR
 | the hub's Z31 clock (I_STATUS) | order 30 on 31 states, maximal rank 29 into the 45-point product; it rests on a supplied characteristic that is not stored here | CONDITIONAL |
 | the hub's R15 and F20 rows (I_STATUS) | R15 with (t - 1)^3 (t^2 - 7t + 11)^6 and its F20 average 1^3, (7/2)^12; the operators are not stored here | REPORTED |
 | the separate model's release H (22:41) | 5247252 bytes, 168 check groups, 77 presentations, a finite Hilbert space of dimension 174108; not opened or rerun | REPORTED |
+| the separate model's IJ update (23:30) | 637057 bytes (matching Drive), 176 check groups, 60 presentations, a finite Hilbert space of dimension 176368; not opened or rerun | REPORTED |
+| BassForge (GB-018) | the view and the retraction are absent in the canon and unformable; the 38-fiber's 117 checks are not stored here | UNFORMED |
+| the source shape's witness (SHAPE_091) | the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, which is not stored here | REPORTED |
 | air | no air operator is stored, and none is formed | UNFORMED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

@@ -1,4 +1,4 @@
-"""Layer 23. All dots joined (28 Oct 2026, Drive checks 22:08 to 23:03 UTC).
+"""Layer 23. All dots joined (28 Oct 2026, Drive checks 22:08 to 23:44 UTC).
 
 A dot is an object the model builds: a space with its operator, a lattice, a group, a circle, a port. A join is a map
 between two dots, built here and checked against the property that makes it that kind of map (an intertwiner, a
@@ -69,6 +69,14 @@ At 23:03 the sibling's notes of 22:08-23:03 were read, with the hub's release I.
 Two corrections: the atlas shift by 24 does not commute with doubling (D T = T^-1 D; D^2 T = T D^2), and <39> has 1440
 points while the sun 1440 has order 3. The 31-point clock's characteristic polynomial, which MORE_DOTS left open, is
 (x - 1)(x^3 - 1)^2 (x^6 - 1)^4, and the four-cube's Hodge multiplicities are its face counts read backwards.
+
+At 23:44 the sibling's 29 notes of 23:05-23:43 were read, with the hub's release J. Two dots and four joins come from
+them. The grain <72> is the golden orbit <216> times the sun <1440>, and the clocks read it factor by factor: time and
+the 2-clock read the golden index, the 27-clock reads the sun, and doubling doubles the one and inverts the other. The
+vortex Z/9 is read off the address (9 | 36) and is the 27-clock without the sun. SHIFT_LAW's D T_s = T_s^2 D settles
+the 23:03 correction: doubling inverts exactly the shifts with 3s = 0. Three corrections: 3456 is the time part of 216,
+not its 2-part; the clock tower is a chain only down to the golden orbit; and order and step are dual (3 has order 1440,
+while the sun 1440 has order 3).
 """
 
 import functools
@@ -1020,6 +1028,178 @@ def notes_2303():
     }
 
 
+# ------------------------------------------------------------ the 23:05-23:43 items
+
+def grain():
+    """The grain <72> is the golden orbit <216> times the sun <1440>, and each clock reads one factor."""
+    G = spine.subgroup(72)
+    coord = {(216 * k + 1440 * j) % N: (k, j) for k in range(20) for j in range(3)}
+    other = spine.subgroup(36) - G
+    return {
+        "every multiple of 72 is one golden point 216 k plus one sun point 1440 j: a direct product of 20 x 3 = 60, "
+        "with 72 = 1512 + 2880 (golden index 7, two sun steps)": set(coord) == G and len(coord) == 60
+        and spine.subgroup(216) & spine.subgroup(1440) == {0} and coord[72] == (7, 2),
+        "time reads k mod 5 and the 2-clock 24 k mod 32, the 27-clock reads 9 j mod 27, and the atlas reads 0":
+            all((x % 5, x % 32, x % 27, x % 36) == (k % 5, 24 * k % 32, 9 * j % 27, 0) for x, (k, j) in coord.items()),
+        "doubling doubles the golden index and inverts the sun coordinate": all(
+            coord[2 * x % N] == (2 * k % 20, -j % 3) for x, (k, j) in coord.items()),
+        "the grain lies in the coil with index 9; the other half of the seam, 36 + grain, has 2-coordinates 4, 12, 20, "
+        "28 and falls into the grain in one doubling": G <= spine.subgroup(8) and len(spine.subgroup(8)) == 9 * len(G)
+        and sorted({x % 32 for x in other}) == [4, 12, 20, 28] and all(2 * x % N in G for x in other),
+        "the golden orbit is the ticks plus the observer, index 4a + 5b (a mod 5, b mod 4); its twelve mixed positions "
+        "all meet the tick, and negation fixes only 0 and 10 (the half-turn 2160)": sorted(
+            (4 * a + 5 * b) % 20 for a in range(5) for b in range(4)) == list(range(20))
+        and [n for n in range(20) if n % 4 and n % 5 and ledger.contains_tick(216 * n % N)] == [n for n in range(20)
+                                                                                                if n % 4 and n % 5]
+        and sum(1 for n in range(20) if n % 4 and n % 5) == 12 and [n for n in range(20) if -n % 20 == n] == [0, 10],
+        "on the 2-clock the golden step and the observer step add the same 24 (5 = 1 mod 4); the inverse step 4104 adds 8":
+            216 % 32 == 1080 % 32 == 24 and 4104 == 216 * 19 and 4104 % 32 == 8 and (4104 + 216) % N == 0,
+    }
+
+
+def shift_law():
+    """SHIFT_LAW: doubling turns a shift by s into a shift by 2s, so it inverts exactly the shifts of order 3."""
+    dbl = lambda x, m: 2 * x % m
+    inverted = lambda m: [s for s in range(m) if dbl(s, m) == -s % m]   # D is additive: D T_s = T_s^-1 D iff 2s = -s
+    return {
+        "D T_s = T_s^2 D for every shift s: doubling a shifted point is the doubled point shifted twice": all(
+            dbl((x + s) % N, N) == (dbl(x, N) + 2 * s) % N for s in (1, 216, TICK, 1440) for x in range(0, N, 37)),
+        "it is T_s^-1 D exactly when 3s = 0: the sun's shifts 0, 1440, 2880 on the circle, 0, 9, 18 on the 27-clock and "
+        "0, 12, 24 on the atlas (the shift by 24 of the 23:03 correction)": inverted(N) == [0, 1440, 2880]
+        and inverted(27) == [0, 9, 18] and inverted(36) == [0, 12, 24],
+        "doubling keeps the tick bit, because 2 is prime to 5": all(
+            ledger.contains_tick(x) == ledger.contains_tick(2 * x % N) for x in range(N)),
+    }
+
+
+def golden_identities():
+    """DOUBLE_CHILD, KARMA_COMM, BASS_STOP and GOLDEN_REST: identities of the golden family for every n."""
+    B, I2 = sp.Matrix([[1, 1], [1, 0]]), sp.eye(2)
+    F = lambda n: sp.fibonacci(n) if n >= 0 else (-1) ** (1 - n) * sp.fibonacci(-n)
+    power = lambda n: B ** n if n >= 0 else (B - I2) ** -n
+    K = sp.Matrix([[0, 1], [-4, 0]])
+    C = K * B - B * K
+    t = sp.symbols("t")
+
+    def ret(M, m):
+        P, k = M.applyfunc(lambda x: x % m), 1
+        while P != I2:
+            P, k = (P * M).applyfunc(lambda x: x % m), k + 1
+        return k
+    ratios, x = [], sp.Integer(1)
+    for _ in range(6):
+        x = 1 + 1 / x
+        ratios.append(x)
+    return {
+        "F(2n) = F(n) L(n) for n = -20..40: B^2n = (F_n B + F_(n-1) I)^2": all(
+            F(2 * n) == F(n) * (F(n - 1) + F(n + 1)) for n in range(-20, 41)),
+        "B^2 has determinant 1 and returns after 3, 10, 6, 36, 24 and 12 mod 4, 5, 8, 27, 32 and 36": (B ** 2).det() == 1
+        and {m: ret(B ** 2, m) for m in (4, 5, 8, 27, 32, 36)} == {4: 3, 5: 10, 8: 6, 27: 36, 32: 24, 36: 12},
+        "karma's K = [[0, 1], [-4, 0]] has det 4 and K^2 = -4I (the source's q'' + 4q = 0); [K, B^n] = F_n [K, B] for "
+        "n = -15..30, with trace 0 and det -29 F_n^2, and 29 = 4^2 + 3 x 4 + 1": K.det() == 4 and K ** 2 == -4 * I2
+        and C.trace() == 0 and C.det() == -29 and 4 ** 2 + 3 * 4 + 1 == 29
+        and all(K * power(n) - power(n) * K == F(n) * C for n in range(-15, 31)),
+        "x -> 1 + 1/x from 1 gives 2, 3/2, 5/3, 8/5, 13/8, 21/13, the first rows of the golden children, and 21 x 8 - 13^2 "
+        "= -1; it shares the fixed-point equation t^2 - t - 1 = 0 with z -> z^2 - 1, which sends 2 to 3, not 3/2":
+            ratios == [F(n + 1) / F(n) for n in range(2, 8)] and 21 * 8 - 13 ** 2 == -1
+            and sp.expand(sp.numer(sp.together(t - 1 - 1 / t))) == sp.expand(t ** 2 - 1 - t) == t ** 2 - t - 1
+            and (1 + sp.Rational(1, 2), 2 ** 2 - 1) == (sp.Rational(3, 2), 3),
+        "GOLDEN_REST corrected: over Z, B^10 = [[89, 55], [55, 34]] has infinite order, but mod 5, where B has order 20 "
+        "like 216, B^10 = -I has order 2, like 2160": B ** 10 == sp.Matrix([[89, 55], [55, 34]])
+        and (B ** 10).applyfunc(lambda v: v % 5) == 4 * I2 and spine.order(2160) == 2,
+    }
+
+
+def vortex():
+    """The vortex Z/9: doubling runs through its six units, it reads the atlas, and it is the 27-clock without the sun."""
+    nak = [160 * k % N for k in range(27)]
+    loops = {frozenset((c + 216 * k) % N for k in range(20)) for c in range(N)}
+    units = [u for u in range(1, 27) if u % 3]
+    return {
+        "doubling mod 9 runs through the six units 2, 4, 8, 7, 5, 1; the pass sums to 27 and the axis 3 + 6 + 9 to 18 "
+        "(4320 / 18 = 240); the units multiply to 2240, which shares 160 with the circle":
+            [pow(2, k, 9) for k in range(1, 7)] == [2, 4, 8, 7, 5, 1] and 2 + 4 + 8 + 7 + 5 + 1 == 27
+            and N // (3 + 6 + 9) == 240 and 2 * 4 * 8 * 7 * 5 == 2240 and gcd(2240, N) == 160,
+        "9 | 36, so the whole seam (the grain, the golden step, the tick, the observer and the sun) sits at vortex "
+        "coordinate 0, and the multiples of 9 are four copies of the seam": all(x % 9 == 0 for x in spine.subgroup(36))
+        and len(spine.subgroup(9)) == 4 * len(spine.subgroup(36)),
+        "the nakshatra 160 sits at 7, and along <160> each coordinate appears three times; the three at 0 are the sun":
+            160 % 9 == 7 and Counter(x % 9 for x in nak) == Counter({r: 3 for r in range(9)})
+            and sorted(x for x in nak if x % 9 == 0) == [0, 1440, 2880],
+        "Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates; doubling has order 18 on the 18 units mod 27, with "
+        "2^9 = -1; the units sum to 243 = 3^5 = 9 x 27, and four of them (5, 10, 20, 25) are multiples of 5":
+            [s for s in range(27) if s % 9 == 0] == [0, 9, 18] == sorted({1440 * j % 27 for j in range(3)})
+            and sorted(pow(2, k, 27) for k in range(18)) == units and pow(2, 9, 27) == 26
+            and sum(units) == 243 == 3 ** 5 == 9 * 27 and [u for u in units if u % 5 == 0] == [5, 10, 20, 25],
+        "adding 216 keeps the vortex coordinate: the 216 loops of 20 (the cosets of <216>) fall into 9 layers of 24":
+            len(loops) == 216 and all(len({x % 9 for x in c}) == 1 for c in loops)
+            and Counter(min(c) % 9 for c in loops) == Counter({r: 24 for r in range(9)}),
+    }
+
+
+def doubling_split():
+    """DOUBLE_SPLIT and TWO_DOUBLES: doubling is nilpotent on the 2-part and has order 36 on the odd part."""
+    period = lambda m, start: next(p for p in range(1, 100) if all(pow(2, k + p, m) == pow(2, k, m)
+                                                                  for k in range(start, start + 60)))
+    return {
+        "on the 2-clock five doublings kill every coordinate (1 needs all five), and two kill the golden ones 8, 16, 24":
+            all(32 * c % 32 == 0 for c in range(32)) and 16 % 32 != 0 and all(4 * c % 32 == 0 for c in (8, 16, 24)),
+        "on the odd part Z/135 doubling has order 36 = lcm(4, 18), its orders on the time pentagon and the 27-clock":
+            next(k for k in range(1, 100) if pow(2, k, 135) == 1) == 36 == sp.ilcm(4, 18),
+        "so the powers of 2 settle into period 36 on the circle but period 6 on the atlas: the atlas modulus and the "
+        "circle's doubling period are the same integer, not the same cycle": period(N, 5) == 36 and period(36, 2) == 6,
+        "TWO_DOUBLES: a doubled odd golden index has 2-coordinate 16, the half-turn's; doubled twice it is a golden tick; "
+        "the observer points doubled twice give 0": all(2 * 216 * k % 32 == 16 for k in range(1, 20, 2))
+        and all(4 * 216 * k % N in spine.subgroup(TICK) for k in range(20)) and all(4 * x % N == 0 for x in (1080, 2160, 3240)),
+    }
+
+
+def notes_2343():
+    """The 23:05-23:43 notes: arithmetic, and three corrections (the 2-part of 216, the clock tower, order and step)."""
+    duads = list(itertools.combinations(range(6), 2))
+    synthemes = [s for s in itertools.combinations(duads, 3) if len(set(itertools.chain(*s))) == 6]
+    totals = [s for s in itertools.combinations(synthemes, 5) if len(set(itertools.chain(*s))) == 15]
+    lam = [Fraction(1, 9), Fraction(-1, 3), Fraction(2, 3), Fraction(0)]
+    v = [Fraction(0)] + [Fraction(1, 4)] * 4
+    t = sp.symbols("t")
+    sub = spine.subgroup
+    return {
+        "GOLDEN_EVERYWHERE corrected: 216 = 1080 + 3456 with 1080 the 2-part and 3456 the time part, not the 2-part (the "
+        "hub's release J agrees); 216 = 6 x 36 = 8 x 27 = 9 x 24 = 3 x 72": (216 * 3105 % N, 216 * 3456 % N) == (1080, 3456)
+        and 216 == 6 * 36 == 8 * 27 == 9 * 24 == 3 * 72,
+        "ALL_RANKS corrected: circle, seam, grain, golden orbit is a chain (indices 36, 2, 3), but below it the ticks "
+        "(index 4) and the observer (index 5) are two subgroups of the golden orbit meeting in 0, and the sun lies in the "
+        "grain (index 20), not in the observer clock": sub(36) >= sub(72) >= sub(216) >= sub(TICK) | sub(1080)
+        and sub(TICK) & sub(1080) == {0} and not sub(1080) <= sub(TICK) and not sub(1440) <= sub(1080)
+        and sub(1440) <= sub(72) and len(sub(72)) // len(sub(1440)) == 20,
+        "order and step are dual: a divisor d of 4320 has order 4320 / d. So 3 has order 1440 while the sun 1440 has order "
+        "3, and 27 has order 160 while the nakshatra 160 has order 27 (VORTEX_JOIN, VORTEX_LIFT and SOUND_LIGHT name the "
+        "dual step)": all(spine.order(d) == N // d for d in sp.divisors(N))
+        and (spine.order(3), spine.order(1440), spine.order(27), spine.order(160)) == (1440, 3, 160, 27),
+        "the syntheme catalogue of six points is 6 + 15 + 15 = 36 (totals, synthemes, duads), the 6 x 6 matrices are "
+        "21 + 15 (symmetric, skew), and 36 x 6 = 216": (len(totals), len(synthemes), len(duads)) == (6, 15, 15)
+        and 21 + 15 == 36 and 36 * 6 == 216,
+        "the bass fiber: 7 x 4 + 4 x 2 + 2 = 38, 18 + 6 = 24; the losses 1 - lambda^2 at 1/9, -1/3, 2/3, 0 are 80/81, 8/9, "
+        "5/9, 1 and the coefficients lambda - 1/9 are 0, -4/9, 5/9, -1/9, equal only at 2/3 (the other root of "
+        "lambda^2 + lambda = 10/9 is -5/3); 37 generates the circle and 38 the evens; 38 x 2160 / 4320 = 19; 117 = 9 x F_7":
+            7 * 4 + 4 * 2 + 2 == 38 and 18 + 6 == 24
+            and [1 - x * x for x in lam] == [Fraction(80, 81), Fraction(8, 9), Fraction(5, 9), 1]
+            and [x - Fraction(1, 9) for x in lam] == [0, Fraction(-4, 9), Fraction(5, 9), Fraction(-1, 9)]
+            and set(sp.solve(t ** 2 + t - sp.Rational(10, 9), t)) == {sp.Rational(2, 3), sp.Rational(-5, 3)}
+            and gcd(37, N) == 1 and spine.order(38) == 2160 and 38 * 2160 // N == 19 and 117 == 9 * sp.fibonacci(7),
+        "the source shape: p1(CP^4) = c1^2 - 2 c2 = 25 - 20 = 5 (times u^2); a 5 x 5 matrix has 15 symmetric and 10 skew "
+        "entries; the contact point (0, 1/4, 1/4, 1/4, 1/4) has centered square 1/20 = 4/80; 1728 = 8 x 216":
+            sp.binomial(5, 1) ** 2 - 2 * sp.binomial(5, 2) == 5 and 15 + 10 == 25
+            and sum((a - sum(v) / 5) ** 2 for a in v) == Fraction(4, 80) and 1728 == 8 * 216,
+        "SOUND_LIGHT and SYNTHESIS_I: 432 x 2 = 864 with 432 of order 10; 24 x 180 = 4320; 4 x 180 + 144 = 864; "
+        "100 + 19 + 50 = 169 and 169 - 50 = 119": 432 * 2 == TICK and spine.order(432) == 10 and 24 * 180 == N
+        and 4 * 180 + 144 == TICK and 100 + 19 + 50 == 169 and 169 - 50 == 119,
+        "GOLDEN_INVERSE: 216 x 19 = 4104 sits at address 0, 27-coordinate 0, time 4 and 2-coordinate 8, and B^19 = B - I "
+        "mod 5": (4104 % 36, 4104 % 27, 4104 % 5, 4104 % 32) == (0, 0, 4, 8)
+        and (sp.Matrix([[1, 1], [1, 0]]) ** 19).applyfunc(lambda x: x % 5) == sp.Matrix([[0, 1], [1, 4]]),
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -1060,6 +1240,8 @@ DOTS = {
     "coil": ("coil", "<8>, the 540 multiples of 8", "23"),
     "S5": ("S5", "the 120 vertex permutations, the cone point's stabilizer in S6", "1, 23"),
     "pgl": ("PGL(2,5)", "the transitive S5 in S6, on the projective line over F5", "23"),
+    "grain": ("grain", "<72> = <216> x <1440>, the golden orbit times the sun", "23"),
+    "vortex": ("vortex", "Z/9, the address mod 9", "23"),
 }
 
 # (from, to, short label, the map, status, check)
@@ -1132,6 +1314,10 @@ JOINS = [
     ("AGL", "pgl", "x -> a x + b", "the stabilizer of infinity in PGL(2,5), and its only elements that keep D", T, "cone_symmetry"),
     ("pgl", "carrier", "not the carrier's S5", "on the 15 bonds PGL(2,5) has one orbit and involution character 3, the carrier's S5 two orbits and transposition character 7: equal on F20 and C5, not as S5-modules", OB, "cone_symmetry"),
     ("AGL", "sixsite", "the cone's rotation", "the 5-cycle with the cone point fixed, traces 1, 1, 1, 1, 6; a 6 x 6 block of order 5 with traces 1 (MPKG) is similar to it over Q", T, "mpkg_block"),
+    ("grain", "coil", "index 9", "the multiples of 72 are the golden orbit <216> times the sun <1440>, a direct product of 60 points of index 9 in the coil; doubling doubles the golden index and inverts the sun", T, "grain"),
+    ("grain", "c27", "j -> 9 j", "the 27-clock reads only the sun coordinate of a grain point, and time and the 2-clock read only its golden index", T, "grain"),
+    ("atlas", "vortex", "x mod 9", "9 | 36, so the vortex coordinate is read off the address; doubling runs through its six units 2, 4, 8, 7, 5, 1", T, "vortex"),
+    ("c27", "vortex", "kernel the sun", "Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates: the vortex is the 27-clock without the sun", T, "vortex"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -1162,6 +1348,14 @@ LEDGER_ROWS = [
     ("the 31-point clock (MORE_DOTS; hub I_STATUS)", "its characteristic polynomial was not recomputed; a rank bound 29 stays conditional", "for P31, the symmetric square's permutation: (x - 1)(x^3 - 1)^2 (x^6 - 1)^4, order 6, rank(P31 - I) = 24; the rank 29 belongs to the hub's order-30 clock on Z/31 and stays conditional", T, "23"),
     ("the four-cube faces (ADDRESS_TICK, BUILT_DOTS)", "16 + 32 + 24 + 8 + 1 = 81 words in {0, 1, *}", "replayed; the Hodge multiplicities 1, 8, 24, 32, 16 are the face counts read backwards (2k has C(4, k) 2^k = the number of (4 - k)-cells)", T, "23"),
     ("release H (RELEASE_H_RECEIPT, DEEP_H, CANON_JOIN)", "certificate integers; det T6 = 155, det Gram = 24025", "readings in layer 22; 155^2 = 24025 holds for any T with det 155, one being (2I - C) + [5]; the canon's T6 is not opened, and the archive's 5247252 bytes match Drive (SHA-256 not recomputed)", RP, "22, 23"),
+    ("the grain (SUN_GRAIN, GRAIN_SPLIT, CLOCK_SPLIT, SEAM_HALF)", "<72> = golden orbit x sun; time reads the golden index, the 27-clock the sun", "replayed: a direct product of 60 points, index 9 in the coil; doubling doubles the golden index and inverts the sun; the other half of the seam falls in after one doubling", T, "23"),
+    ("the shift law (SHIFT_LAW)", "D T = T^2 D for every shift; inversion only for the sun", "replayed: doubling inverts exactly the shifts with 3s = 0 (0, 1440, 2880 on the circle; 0, 12, 24 on the atlas, the 23:03 case)", T, "23"),
+    ("the golden family, continued (DOUBLE_CHILD, KARMA_COMM, BASS_STOP, GOLDEN_REST)", "F(2n) = F(n) L(n) to n = 16; det [K, B^n] = -29 F(n)^2 to n = 10; B^10 is not an involution", "for every n, from the parent rule; mod 5, where B has order 20 like 216, B^10 = -I has order 2 like 2160", T, "23"),
+    ("the vortex (VORTEX_JOIN, VORTEX_OFF, VORTEX_LIFT, LOOP_ALL)", "doubling mod 9 runs 2, 4, 8, 7, 5, 1; the 216 loops in 9 layers of 24", "replayed; the vortex reads the atlas (9 | 36) and is the 27-clock without the sun; 'order 1440, the sun' names the dual step: 3 has order 1440, the sun has order 3", T, "23"),
+    ("the clock tower (ALL_RANKS)", "circle > seam > grain > golden orbit > ticks > observer > sun", "corrected: a chain down to the golden orbit; then the ticks and the observer are two subgroups meeting in 0, and the sun lies in the grain", T, "23"),
+    ("doubling (DOUBLE_SPLIT, TWO_DOUBLES)", "nilpotent on the 2-part, a 36-cycle on the odd part; the atlas is that length", "replayed; the circle's doubling period 36 and the atlas modulus 36 are the same integer, not the same cycle (on the atlas the period is 6)", T, "23"),
+    ("the 2-part of 216 (GOLDEN_EVERYWHERE)", "3456, the fourth tick, is the 2-part of one step", "corrected: 216 = 1080 (2-part) + 3456 (time part); the hub's release J agrees", T, "23"),
+    ("BassForge and the 38-fiber (BASS_STOP, BASS_38, BASS_DEEP)", "GB-018 unformable; 38 = 7 x 4 + 4 x 2 + 2; rates 1/9, -1/3, 2/3, 0", "the arithmetic holds; the 117 checks, the view and the retraction are not stored here", RP, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
@@ -1178,6 +1372,12 @@ NOT_JOINED = [
                                               "operators are not stored here", RP),
     ("the separate model's release H (22:41)", "5247252 bytes, 168 check groups, 77 presentations, a finite Hilbert space "
                                                "of dimension 174108; not opened or rerun", RP),
+    ("the separate model's IJ update (23:30)", "637057 bytes (matching Drive), 176 check groups, 60 presentations, a finite "
+                                              "Hilbert space of dimension 176368; not opened or rerun", RP),
+    ("BassForge (GB-018)", "the view and the retraction are absent in the canon and unformable; the 38-fiber's 117 "
+                           "checks are not stored here", gates.UNFORMED),
+    ("the source shape's witness (SHAPE_091)", "the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, "
+                                               "which is not stored here", RP),
     ("air", "no air operator is stored, and none is formed", gates.UNFORMED),
 ]
 
@@ -1201,7 +1401,8 @@ def _checks():
         "four_cube": four_cube, "hodge70": hodge70, "field": field, "embed": embed, "native_port": native_port,
         "cone_line_graph": cone_line_graph, "paired_response": paired_response, "band_expansion": band_expansion,
         "walks_join": walks_join, "coil": coil, "nakshatra_map": nakshatra_map, "address_lift": address_lift,
-        "golden_family": golden_family, "cone_symmetry": cone_symmetry, "mpkg_block": mpkg_block,
+        "golden_family": golden_family, "cone_symmetry": cone_symmetry, "mpkg_block": mpkg_block, "grain": grain,
+        "vortex": vortex,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -1313,6 +1514,26 @@ def run():
     rep.add("adopted by the sibling: CORRECTIONS_47 (22:12) takes the 21:36 corrections, and ADDRESS_TICK (22:58) proves "
             "the 22:08 one (36 = 1 mod 5, so every address carries all five time coordinates); the hub's I_STATUS confirms "
             "the shift-doubling correction and keeps the synthesis's recurrence and collar open", RP, True)
+    for name, fn, text in (
+            ("shift law", shift_law, "SHIFT_LAW, replayed: D T_s = T_s^2 D for every shift, so doubling inverts exactly "
+             "the shifts with 3s = 0 (the sun on the circle, 0, 12, 24 on the atlas) and keeps the tick bit"),
+            ("golden identities", golden_identities, "the golden family for every n: F(2n) = F(n) L(n), the returns of "
+             "B^2, [K, B^n] = F_n [K, B] with det -29 F_n^2, the convergents 21/13 and 13/8; GOLDEN_REST corrected: "
+             "mod 5, B^10 = -I has order 2 like 2160"),
+            ("doubling split", doubling_split, "DOUBLE_SPLIT and TWO_DOUBLES: doubling dies on the 2-part and has order "
+             "36 = lcm(4, 18) on the odd part; the period is 6 on the atlas, so the two 36s are one integer, not one "
+             "cycle"),
+            ("notes 23:43", notes_2343, "the 23:05-23:43 arithmetic, with three corrections: 3456 is the time part of "
+             "216, not its 2-part; the clock tower is a chain only down to the golden orbit; order and step are dual "
+             "(3 has order 1440, the sun 1440 has order 3)")):
+        out = fn()
+        rep.add(text, T, all(out.values()), out)
+    rep.add("Drive check 23:44: the sibling's 29 notes of 23:05-23:43, from GOLDEN_EVERYWHERE to DOUBLE_SPLIT; the "
+            "separate model's IJ update and its receipt (23:30, not opened or rerun); the hub's release J (cutoff 23:08) "
+            "with CURRENT_STATUS, CURRENT_RELEASE and the integrator's claim file", RP, True)
+    rep.add("the hub's release J adopts the address correction and the 2-part correction, and lists four open "
+            "conflicts: the literal recurrence certificate, the collar near 224, the uniform dispersion proof and the "
+            "K5/K6 carrier identification; layers 14 and 23 hold evidence for the first and the last", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

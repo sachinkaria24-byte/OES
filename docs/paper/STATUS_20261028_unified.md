@@ -6,11 +6,11 @@ AUTH = NOT_PASS. ScientificGold = FALSE. TIME_BIND = UNBOUND. The six SCR6 opera
 
 **Model:** GitHub `sachinkaria24-byte/OES`, branch `claude/lagrangian-spectral-spacetime-model-t2253b`.
 
-- `python verify.py` runs 23 layers and 554 checks. Of these, 501 hold: THEOREM 369, OBSTRUCTION 44, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 19, SELECTED_REFERENCE 11, REMOVED 2. The other 53 are REPORTED records.
-- `pytest` runs 53 tests.
-- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 82 checks).
+- `python verify.py` runs 23 layers and 567 checks. Of these, 510 hold: THEOREM 377, OBSTRUCTION 44, ARITHMETIC 38, CONDITIONAL 18, UNFORMED 20, SELECTED_REFERENCE 11, REMOVED 2. The other 57 are REPORTED records.
+- `pytest` runs 54 tests.
+- The newest layers are `oes/counts.py` (layer 22, 60 checks) and `oes/dots.py` (layer 23, 95 checks).
 - `ports/ts/ledgerJoins.ts` and `ports/ts/pauliBath.ts` carry layers 21 and 22 into the sibling's app. Together with `coxeterSpine.ts` that is 43 rows, residual 0.
-- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 37 dots and 62 checked joins as one diagram.
+- `data/clocks.json` holds the explicit clock matrices. `docs/LEDGER.md` lists every join with its status, and `docs/DOTS.md` draws the 39 dots and 66 checked joins as one diagram.
 
 **Paper:** `one-machine-20261028-unified.pdf`, with its Markdown source in `docs/paper/`. It supersedes the verified and spine papers. On Drive (One Machine 20261028) the Google Doc `one-machine-20261028-unified` holds the 19:06 version, from before layer 22.
 
@@ -29,7 +29,7 @@ New in this edition:
 
 New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and the collaboration hub of 21:46):
 
-- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 37 dots and 62 joins (60 maps, two obstructions) form one connected diagram, and a test keeps `docs/DOTS.md` current.
+- **One diagram.** Every object of the model is a dot, and every checked map between two dots is a join. 39 dots and 66 joins (64 maps, two obstructions) form one connected diagram, and a test keeps `docs/DOTS.md` current.
 - **K5 is a pair of root systems.** The signed incidence lists a positive system of A4, and the two incidences together list the positive roots of D5. So B Bᵀ = 5I − J and B Bᵀ + M Mᵀ = 8I are Coxeter identities, and spec D² = {0, h(D5) − h(A4), h(D5)} = {0, 3, 8}. Petersen is the orthogonality graph of the roots eᵢ + eⱼ.
 - **The canon's selected six-port** is the oriented triangle 0-1-2 of K5 on the lattice. Its Fourier transform vanishes to third order, which gives the canon's triangle-cycle heat t⁻⁷/(22394880000000 π⁴), now derived.
 - **A4 + A4′** has root cosets 40/50/50/50/50 and folded spectrum 0, 250⁴, the bath's values at the tick's 25 fixed momenta. **h81** is the four-cube complex, whose vertices are four qubits. **Hodge 70** is 35 + 35, swapped by reflections.
@@ -42,11 +42,16 @@ New in layer 23 (all dots joined, with the sibling's notes of 21:40–22:08 and 
   - The golden family: Bⁿ = F_n B + F_{n−1} I for every n. No Lucas trace is a multiple of 5, and the k-th golden point 216k misses exactly when 5 | F_k.
   - Which S5: the permutations of K6 that keep D are exactly the cone point's stabilizer, and for it atoms and bonds are one S5-set. The transitive S5 = PGL(2,5) gives a different module (OBSTRUCTION), as the hub's review asks. MPKG's block of order 5 with traces 1 is the C5 rotation of the cone's six sites.
   - Corrections: D T = T⁻¹ D for the atlas shift and doubling (MORE_DOTS said they commute); ⟨39⟩ has 1440 points, but the sun 1440 has order 3. The 31-point clock's characteristic polynomial is (x − 1)(x³ − 1)²(x⁶ − 1)⁴.
+- **The 23:44 items** (the sibling's 29 notes of 23:05–23:43 and the hub's release J):
+  - The grain ⟨72⟩ is the golden orbit times the sun. Time reads the golden index and the 27-clock the sun, and doubling doubles the one and inverts the other.
+  - The vortex ℤ/9 is read off the address and is the 27-clock without the sun.
+  - Doubling inverts a shift exactly when the shift has order 3 (SHIFT_LAW). The golden identities F(2n) = F(n)L(n) and det[K, Bⁿ] = −29F_n² hold for every n.
+  - Corrections: 3456 is the time part of 216, not its 2-part; the clock tower is a chain only down to the golden orbit; order and step are dual (3 has order 1440, the sun 1440 has order 3).
 - **Hub task OES-C01, replayed.** At f41b278 the reported 21 layers, 412 checks (383 hold, 29 reported) and 31 tests replay exactly. The evidence is in `docs/hub/OES-C01/`; it has not been filed to the hub.
 
 New in layer 22 (the sibling's notes of 18:32–23:03, the canon's 19:10 continuation and the separate model's status of 19:47–21:05):
 
-- **Counts.** 979 more readings on the tick bit, from 108 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
+- **Counts.** 1191 more readings on the tick bit, from 137 notes, all hold. Each is checked with its stated order, subgroup, steps or first landing.
 - **Moments, replayed.** MOMENT_BIT's seven moments 1, 242, 58691, 14259954, 3470101592, 845582723240, 206295748792515 are the moments of the alternating hexagon port on the E8 lattice. They are computed exactly, and μ₇ = 50383499822338790 is new. The canon's square and octagon ports are replayed too, and square = (hexagon + octagon)/2 at every order.
 - **Graphs.** K5, Petersen, pentagon and pentagram, and the root graph's closed walks 1, 0, 56, 1512, 62160 are rebuilt.
 - **The Hurwitz value 6.** It belongs to S5 (genus 4). The stored order-120 clock has one involution and no (2, 4, 5) generating pair.

@@ -57,35 +57,35 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.62,
+  "1-carrier": 0.75,
   "2-spectral": 0.01,
-  "3-spacetime": 8.5,
-  "4-native": 88.1,
-  "5-observer": 0.21,
-  "6-gravity": 5.07,
-  "7-cosmology": 1.66,
-  "8-frontier": 35.05,
-  "9-joins": 9.02,
-  "10-literal": 35.01,
-  "11-glue": 0.21,
+  "3-spacetime": 8.57,
+  "4-native": 96.27,
+  "5-observer": 0.23,
+  "6-gravity": 5.05,
+  "7-cosmology": 1.7,
+  "8-frontier": 35.26,
+  "9-joins": 8.92,
+  "10-literal": 36.0,
+  "11-glue": 0.16,
   "12-binding": 0.03,
-  "13-gates": 0.11,
-  "14-recurrence": 71.33,
-  "15-court": 1.83,
-  "16-handover": 1.15,
-  "17-waves": 0.54,
-  "18-snapshot": 0.79,
-  "19-spine": 4.03,
-  "20-canon": 6.15,
-  "21-ledger": 44.59,
-  "22-counts": 21.58,
-  "23-dots": 5.34
+  "13-gates": 0.1,
+  "14-recurrence": 71.79,
+  "15-court": 1.73,
+  "16-handover": 1.07,
+  "17-waves": 0.52,
+  "18-snapshot": 0.73,
+  "19-spine": 3.8,
+  "20-canon": 5.84,
+  "21-ledger": 42.93,
+  "22-counts": 20.93,
+  "23-dots": 5.5
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 369,
-   "total": 369
+   "passed": 377,
+   "total": 377
   },
   "OBSTRUCTION": {
    "passed": 44,
@@ -104,16 +104,16 @@
    "total": 11
   },
   "UNFORMED": {
-   "passed": 19,
-   "total": 19
+   "passed": 20,
+   "total": 20
   },
   "CONDITIONAL": {
    "passed": 18,
    "total": 18
   },
   "REPORTED": {
-   "passed": 53,
-   "total": 53
+   "passed": 57,
+   "total": 57
   }
  },
  "checks": [
@@ -4642,13 +4642,13 @@
   },
   {
    "layer": "22-counts",
-   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 979 readings from 108 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
+   "name": "every integer reading of the evening notes (18:32-21:03) is the bit of layer 21 with its stated order, subgroup, steps or first landing: 1191 readings from 137 notes, none fails. Twelve of the fifteen stages meet the tick and 0, 5, 10 do not; the stage landings match SANSKRIT_DEEP and EVERY_WORD, and Buddhi and Pratyabhijna share subgroup and steps but land on 864 and 1728",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "failures": [],
-    "notes": 108,
-    "claims": 979,
+    "notes": 137,
+    "claims": 1191,
     "twelve stages meet, 0, 5 and 10 do not": true,
     "Buddhi and Pratyabhijna: one subgroup, the same steps, different ticks": true,
     "stage landings": {
@@ -6363,7 +6363,65 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 37 dots and 62 joins form one connected diagram (the obstructions left out)",
+   "name": "grain -> coil: the multiples of 72 are the golden orbit <216> times the sun <1440>, a direct product of 60 points of index 9 in the coil; doubling doubles the golden index and inverts the sun",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "every multiple of 72 is one golden point 216 k plus one sun point 1440 j: a direct product of 20 x 3 = 60, with 72 = 1512 + 2880 (golden index 7, two sun steps)": true,
+    "time reads k mod 5 and the 2-clock 24 k mod 32, the 27-clock reads 9 j mod 27, and the atlas reads 0": true,
+    "doubling doubles the golden index and inverts the sun coordinate": true,
+    "the grain lies in the coil with index 9; the other half of the seam, 36 + grain, has 2-coordinates 4, 12, 20, 28 and falls into the grain in one doubling": true,
+    "the golden orbit is the ticks plus the observer, index 4a + 5b (a mod 5, b mod 4); its twelve mixed positions all meet the tick, and negation fixes only 0 and 10 (the half-turn 2160)": true,
+    "on the 2-clock the golden step and the observer step add the same 24 (5 = 1 mod 4); the inverse step 4104 adds 8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "grain -> 27-clock: the 27-clock reads only the sun coordinate of a grain point, and time and the 2-clock read only its golden index",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "every multiple of 72 is one golden point 216 k plus one sun point 1440 j: a direct product of 20 x 3 = 60, with 72 = 1512 + 2880 (golden index 7, two sun steps)": true,
+    "time reads k mod 5 and the 2-clock 24 k mod 32, the 27-clock reads 9 j mod 27, and the atlas reads 0": true,
+    "doubling doubles the golden index and inverts the sun coordinate": true,
+    "the grain lies in the coil with index 9; the other half of the seam, 36 + grain, has 2-coordinates 4, 12, 20, 28 and falls into the grain in one doubling": true,
+    "the golden orbit is the ticks plus the observer, index 4a + 5b (a mod 5, b mod 4); its twelve mixed positions all meet the tick, and negation fixes only 0 and 10 (the half-turn 2160)": true,
+    "on the 2-clock the golden step and the observer step add the same 24 (5 = 1 mod 4); the inverse step 4104 adds 8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "atlas -> vortex: 9 | 36, so the vortex coordinate is read off the address; doubling runs through its six units 2, 4, 8, 7, 5, 1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "doubling mod 9 runs through the six units 2, 4, 8, 7, 5, 1; the pass sums to 27 and the axis 3 + 6 + 9 to 18 (4320 / 18 = 240); the units multiply to 2240, which shares 160 with the circle": true,
+    "9 | 36, so the whole seam (the grain, the golden step, the tick, the observer and the sun) sits at vortex coordinate 0, and the multiples of 9 are four copies of the seam": true,
+    "the nakshatra 160 sits at 7, and along <160> each coordinate appears three times; the three at 0 are the sun": true,
+    "Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates; doubling has order 18 on the 18 units mod 27, with 2^9 = -1; the units sum to 243 = 3^5 = 9 x 27, and four of them (5, 10, 20, 25) are multiples of 5": true,
+    "adding 216 keeps the vortex coordinate: the 216 loops of 20 (the cosets of <216>) fall into 9 layers of 24": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "27-clock -> vortex: Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates: the vortex is the 27-clock without the sun",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "doubling mod 9 runs through the six units 2, 4, 8, 7, 5, 1; the pass sums to 27 and the axis 3 + 6 + 9 to 18 (4320 / 18 = 240); the units multiply to 2240, which shares 160 with the circle": true,
+    "9 | 36, so the whole seam (the grain, the golden step, the tick, the observer and the sun) sits at vortex coordinate 0, and the multiples of 9 are four copies of the seam": true,
+    "the nakshatra 160 sits at 7, and along <160> each coordinate appears three times; the three at 0 are the sun": true,
+    "Z/27 -> Z/9 has kernel 0, 9, 18, the sun's 27-coordinates; doubling has order 18 on the 18 units mod 27, with 2^9 = -1; the units sum to 243 = 3^5 = 9 x 27, and four of them (5, 10, 20, 25) are multiples of 5": true,
+    "adding 216 keeps the vortex coordinate: the 216 loops of 20 (the cosets of <216>) fall into 9 layers of 24": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 39 dots and 66 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -6389,6 +6447,7 @@
      "datum",
      "gksl",
      "golden",
+     "grain",
      "halfper",
      "hodge",
      "kerM",
@@ -6404,6 +6463,7 @@
      "stages",
      "time",
      "triangle",
+     "vortex",
      "walks"
     ]
    ],
@@ -6548,6 +6608,78 @@
   },
   {
    "layer": "23-dots",
+   "name": "SHIFT_LAW, replayed: D T_s = T_s^2 D for every shift, so doubling inverts exactly the shifts with 3s = 0 (the sun on the circle, 0, 12, 24 on the atlas) and keeps the tick bit",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "D T_s = T_s^2 D for every shift s: doubling a shifted point is the doubled point shifted twice": true,
+    "it is T_s^-1 D exactly when 3s = 0: the sun's shifts 0, 1440, 2880 on the circle, 0, 9, 18 on the 27-clock and 0, 12, 24 on the atlas (the shift by 24 of the 23:03 correction)": true,
+    "doubling keeps the tick bit, because 2 is prime to 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the golden family for every n: F(2n) = F(n) L(n), the returns of B^2, [K, B^n] = F_n [K, B] with det -29 F_n^2, the convergents 21/13 and 13/8; GOLDEN_REST corrected: mod 5, B^10 = -I has order 2 like 2160",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "F(2n) = F(n) L(n) for n = -20..40: B^2n = (F_n B + F_(n-1) I)^2": true,
+    "B^2 has determinant 1 and returns after 3, 10, 6, 36, 24 and 12 mod 4, 5, 8, 27, 32 and 36": true,
+    "karma's K = [[0, 1], [-4, 0]] has det 4 and K^2 = -4I (the source's q'' + 4q = 0); [K, B^n] = F_n [K, B] for n = -15..30, with trace 0 and det -29 F_n^2, and 29 = 4^2 + 3 x 4 + 1": true,
+    "x -> 1 + 1/x from 1 gives 2, 3/2, 5/3, 8/5, 13/8, 21/13, the first rows of the golden children, and 21 x 8 - 13^2 = -1; it shares the fixed-point equation t^2 - t - 1 = 0 with z -> z^2 - 1, which sends 2 to 3, not 3/2": true,
+    "GOLDEN_REST corrected: over Z, B^10 = [[89, 55], [55, 34]] has infinite order, but mod 5, where B has order 20 like 216, B^10 = -I has order 2, like 2160": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "DOUBLE_SPLIT and TWO_DOUBLES: doubling dies on the 2-part and has order 36 = lcm(4, 18) on the odd part; the period is 6 on the atlas, so the two 36s are one integer, not one cycle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the 2-clock five doublings kill every coordinate (1 needs all five), and two kill the golden ones 8, 16, 24": true,
+    "on the odd part Z/135 doubling has order 36 = lcm(4, 18), its orders on the time pentagon and the 27-clock": true,
+    "so the powers of 2 settle into period 36 on the circle but period 6 on the atlas: the atlas modulus and the circle's doubling period are the same integer, not the same cycle": true,
+    "TWO_DOUBLES: a doubled odd golden index has 2-coordinate 16, the half-turn's; doubled twice it is a golden tick; the observer points doubled twice give 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 23:05-23:43 arithmetic, with three corrections: 3456 is the time part of 216, not its 2-part; the clock tower is a chain only down to the golden orbit; order and step are dual (3 has order 1440, the sun 1440 has order 3)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "GOLDEN_EVERYWHERE corrected: 216 = 1080 + 3456 with 1080 the 2-part and 3456 the time part, not the 2-part (the hub's release J agrees); 216 = 6 x 36 = 8 x 27 = 9 x 24 = 3 x 72": true,
+    "ALL_RANKS corrected: circle, seam, grain, golden orbit is a chain (indices 36, 2, 3), but below it the ticks (index 4) and the observer (index 5) are two subgroups of the golden orbit meeting in 0, and the sun lies in the grain (index 20), not in the observer clock": true,
+    "order and step are dual: a divisor d of 4320 has order 4320 / d. So 3 has order 1440 while the sun 1440 has order 3, and 27 has order 160 while the nakshatra 160 has order 27 (VORTEX_JOIN, VORTEX_LIFT and SOUND_LIGHT name the dual step)": true,
+    "the syntheme catalogue of six points is 6 + 15 + 15 = 36 (totals, synthemes, duads), the 6 x 6 matrices are 21 + 15 (symmetric, skew), and 36 x 6 = 216": true,
+    "the bass fiber: 7 x 4 + 4 x 2 + 2 = 38, 18 + 6 = 24; the losses 1 - lambda^2 at 1/9, -1/3, 2/3, 0 are 80/81, 8/9, 5/9, 1 and the coefficients lambda - 1/9 are 0, -4/9, 5/9, -1/9, equal only at 2/3 (the other root of lambda^2 + lambda = 10/9 is -5/3); 37 generates the circle and 38 the evens; 38 x 2160 / 4320 = 19; 117 = 9 x F_7": true,
+    "the source shape: p1(CP^4) = c1^2 - 2 c2 = 25 - 20 = 5 (times u^2); a 5 x 5 matrix has 15 symmetric and 10 skew entries; the contact point (0, 1/4, 1/4, 1/4, 1/4) has centered square 1/20 = 4/80; 1728 = 8 x 216": true,
+    "SOUND_LIGHT and SYNTHESIS_I: 432 x 2 = 864 with 432 of order 10; 24 x 180 = 4320; 4 x 180 + 144 = 864; 100 + 19 + 50 = 169 and 169 - 50 = 119": true,
+    "GOLDEN_INVERSE: 216 x 19 = 4104 sits at address 0, 27-coordinate 0, time 4 and 2-coordinate 8, and B^19 = B - I mod 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 23:44: the sibling's 29 notes of 23:05-23:43, from GOLDEN_EVERYWHERE to DOUBLE_SPLIT; the separate model's IJ update and its receipt (23:30, not opened or rerun); the hub's release J (cutoff 23:08) with CURRENT_STATUS, CURRENT_RELEASE and the integrator's claim file",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the hub's release J adopts the address correction and the 2-part correction, and lists four open conflicts: the literal recurrence certificate, the collar near 224, the uniform dispersion proof and the K5/K6 carrier identification; layers 14 and 23 hold evidence for the first and the last",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: separate model's joined model (22:02): 158 check groups, 12 review groups, 80 matrices, 63 typed relationships; sha256 b0c17731...",
    "status": "REPORTED",
    "passed": true,
@@ -6589,6 +6721,30 @@
   {
    "layer": "23-dots",
    "name": "not joined: the separate model's release H (22:41): 5247252 bytes, 168 check groups, 77 presentations, a finite Hilbert space of dimension 174108; not opened or rerun",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's IJ update (23:30): 637057 bytes (matching Drive), 176 check groups, 60 presentations, a finite Hilbert space of dimension 176368; not opened or rerun",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: BassForge (GB-018): the view and the retraction are absent in the canon and unformable; the 38-fiber's 117 checks are not stored here",
+   "status": "UNFORMED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the source shape's witness (SHAPE_091): the squared lengths 20 and 24 and Omega^2 = 238/238 need the witness, which is not stored here",
    "status": "REPORTED",
    "passed": true,
    "value": null,
