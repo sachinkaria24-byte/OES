@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.98,
+  "1-carrier": 0.72,
   "2-spectral": 0.01,
-  "3-spacetime": 10.06,
-  "4-native": 99.94,
-  "5-observer": 0.24,
-  "6-gravity": 7.46,
-  "7-cosmology": 1.86,
-  "8-frontier": 41.25,
-  "9-joins": 12.05,
-  "10-literal": 39.78,
-  "11-glue": 0.25,
-  "12-binding": 0.05,
-  "13-gates": 0.4,
-  "14-recurrence": 88.83,
-  "15-court": 2.35,
-  "16-handover": 1.37,
-  "17-waves": 0.79,
-  "18-snapshot": 1.24,
-  "19-spine": 4.79,
-  "20-canon": 6.49,
-  "21-ledger": 48.4,
-  "22-counts": 25.13,
-  "23-dots": 419.03,
-  "24-assignment": 3.75,
-  "25-unify": 5.19,
-  "26-primes": 5.66,
-  "27-places": 2.23,
-  "28-principal": 2.64
+  "3-spacetime": 9.37,
+  "4-native": 95.4,
+  "5-observer": 0.26,
+  "6-gravity": 6.27,
+  "7-cosmology": 1.87,
+  "8-frontier": 43.44,
+  "9-joins": 11.25,
+  "10-literal": 38.53,
+  "11-glue": 0.2,
+  "12-binding": 0.04,
+  "13-gates": 0.1,
+  "14-recurrence": 76.84,
+  "15-court": 1.68,
+  "16-handover": 1.23,
+  "17-waves": 0.7,
+  "18-snapshot": 0.99,
+  "19-spine": 4.6,
+  "20-canon": 6.62,
+  "21-ledger": 46.21,
+  "22-counts": 24.68,
+  "23-dots": 369.46,
+  "24-assignment": 4.05,
+  "25-unify": 4.95,
+  "26-primes": 5.65,
+  "27-places": 2.66,
+  "28-principal": 2.53
  },
  "fast": false,
  "summary": {
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 143,
-   "total": 143
+   "passed": 145,
+   "total": 145
   }
  },
  "checks": [
@@ -9660,13 +9660,13 @@
   },
   {
    "layer": "23-dots",
-   "name": "golden companion -> day-Coxeter group: the day conjugates the tick to its square and so carries X = -(g + g^-1) to I - X: it acts on Z[phi] as phi -> 1 - phi, the Galois conjugation of Q(sqrt5); c' commutes with X, so G120 acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2, 60 elements fixing X and 60 conjugating it, with kernel <g, d^2>; the embedding of the golden companion is unique up to the day (30 Oct)",
+   "name": "golden companion -> day-Coxeter group: the day conjugates the tick to its square and so carries X = -(g + g^-1) to I - X: it acts on Z[phi] as phi -> 1 - phi, the Galois conjugation of Q(sqrt5); c' commutes with X, so G120 acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2, 60 elements fixing X and 60 conjugating it, with kernel <g, d^2>; the embedding of Z[phi] into Z[X] is unique up to the day (30 Oct)",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "the day conjugates the tick to its square, d g d^-1 = g^2, so it carries the cosine g + g^-1 to g^2 + g^-2 = -(g + g^-1) - I and X = -(g + g^-1) to I - X: the day acts on Z[phi] = Z[X] as the Galois conjugation phi -> 1 - phi = -1/phi": true,
     "c' commutes with X, so G120 = <c', d> acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2: 60 elements fix X and 60 carry it to I - X, and the kernel is <g, d^2>, the day's square conjugating the tick to its inverse": true,
-    "the two roots of x^2 - x - 1 on E8, X and I - X = Phi, are the two embeddings of the golden companion, and the quarter turn J = [[0, 1], [-1, 0]] conjugates B to I - B in GL(2,Z): the embedding is unique up to the day": true
+    "the two roots of x^2 - x - 1 in the ring Z[X], X and I - X = Phi = I + g + g^4, are the two embeddings of Z[phi] into Z[X] (End(E8) has further roots, the conjugates s_i X s_i), and the quarter turn J = [[0, 1], [-1, 0]] in SL(2,Z) conjugates B to I - B: the embedding into Z[X] is unique up to the day": true
    },
    "note": ""
   },
@@ -9692,7 +9692,7 @@
     "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
     "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
     "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
-    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through six of the eleven census families (D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1), with E8 the seventh type present, at the band's minimum 0; the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
    },
    "note": ""
   },
@@ -9706,7 +9706,7 @@
     "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
     "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
     "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
-    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through six of the eleven census families (D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1), with E8 the seventh type present, at the band's minimum 0; the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
    },
    "note": ""
   },
@@ -9720,13 +9720,13 @@
     "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
     "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
     "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
-    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through six of the eleven census families (D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1), with E8 the seventh type present, at the band's minimum 0; the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
    },
    "note": ""
   },
   {
    "layer": "23-dots",
-   "name": "nine-torus -> tick momenta: 250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through seven of the eleven census families, and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct)",
+   "name": "nine-torus -> tick momenta: 250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through six of the eleven census families (E8 is the seventh type present, at the band's minimum 0), and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct)",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -9734,7 +9734,7 @@
     "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
     "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
     "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
-    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through six of the eleven census families (D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1), with E8 the seventh type present, at the band's minimum 0; the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
    },
    "note": ""
   },
@@ -11860,6 +11860,22 @@
   {
    "layer": "23-dots",
    "name": "not joined: the sibling's 14:31 and 14:41 editions: new Intake, Copies and Provenance sections: the N34 copies' byte identity and receipts, the observer archive's 57 files with 56 hashed; read as data, their arithmetic replayed in notes_1441",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's Matched History model (15:00): a 951539-byte archive with 36 payload files and 35 hashes, 19 layers, 24 exact groups, 9 regressions, 4 new typed joins (620 -> 624), 0 new matrices; its receipt read as data, the archive not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the sibling's 14:49 and 15:04 editions: 342 exact checks (339 before); the twenty-five name auditors, the sign census matrix and the observer's line on the fixed plane are not stored here; the arithmetic is replayed in notes_1504",
    "status": "REPORTED",
    "passed": true,
    "value": null,
