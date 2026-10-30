@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.75,
+  "1-carrier": 0.65,
   "2-spectral": 0.01,
-  "3-spacetime": 9.41,
-  "4-native": 99.44,
-  "5-observer": 0.55,
-  "6-gravity": 5.54,
-  "7-cosmology": 1.9,
-  "8-frontier": 40.4,
-  "9-joins": 8.04,
-  "10-literal": 37.13,
-  "11-glue": 0.19,
-  "12-binding": 0.12,
-  "13-gates": 0.27,
-  "14-recurrence": 77.45,
-  "15-court": 1.75,
-  "16-handover": 1.36,
-  "17-waves": 0.73,
-  "18-snapshot": 1.51,
-  "19-spine": 4.89,
-  "20-canon": 6.08,
-  "21-ledger": 45.18,
-  "22-counts": 22.47,
-  "23-dots": 318.56,
-  "24-assignment": 3.68,
-  "25-unify": 3.68,
-  "26-primes": 5.17,
-  "27-places": 1.94,
-  "28-principal": 1.76
+  "3-spacetime": 7.77,
+  "4-native": 95.76,
+  "5-observer": 0.6,
+  "6-gravity": 5.96,
+  "7-cosmology": 1.81,
+  "8-frontier": 39.77,
+  "9-joins": 7.64,
+  "10-literal": 34.91,
+  "11-glue": 0.17,
+  "12-binding": 0.09,
+  "13-gates": 0.1,
+  "14-recurrence": 76.51,
+  "15-court": 1.92,
+  "16-handover": 1.29,
+  "17-waves": 0.78,
+  "18-snapshot": 1.6,
+  "19-spine": 5.07,
+  "20-canon": 6.37,
+  "21-ledger": 45.06,
+  "22-counts": 20.96,
+  "23-dots": 313.02,
+  "24-assignment": 3.26,
+  "25-unify": 3.91,
+  "26-primes": 4.93,
+  "27-places": 1.84,
+  "28-principal": 2.03
  },
  "fast": false,
  "summary": {
@@ -117,8 +117,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 125,
-   "total": 125
+   "passed": 126,
+   "total": 126
   }
  },
  "checks": [
@@ -11174,6 +11174,14 @@
   {
    "layer": "23-dots",
    "name": "not joined: the separate model's reconciled capsule (00:30): 5032710 bytes, 189 new check groups and 887 matrix references, with a source patch of 8240856 bytes; certificate read, nothing decoded or run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's connected capsule (01:21): 8200616 bytes, 393 independent exact groups and 56 new typed relationships (556 combined) over the N33 sources; its coverage counts 53130 = C(25, 5), 1496250 = C(21, 4) x 250 and 63 = 2^6 - 1 replay as arithmetic (notes_0117); certificate read, nothing decoded or run",
    "status": "REPORTED",
    "passed": true,
    "value": null,
