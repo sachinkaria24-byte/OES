@@ -55,6 +55,7 @@ flowchart TB
         cyclo["cyclotomic line"]
         residue["residue plane"]
         sun["sun's decad"]
+        principal["principal circle"]
     end
     subgraph level5["level 5: operator"]
         carrier["carrier"]
@@ -367,12 +368,21 @@ flowchart TB
     halfper -->|"F4 = F2[phi]"| golden
     memory -.->|"no clock of order 90"| clocks
     circle -.->|"no faithful circle"| clocks
+    E8 -->|"the Weyl vector"| principal
+    circle -->|"k -> k rho / 4320"| principal
+    principal -->|"Kostant"| clocks
+    principal -->|"the regular steps"| regular
+    principal -->|"248 - chi"| bath
+    principal -->|"the critical steps"| census
+    time -->|"the A4 + A4 vertex"| principal
+    observer -->|"the D5 + A3 vertex"| principal
+    c27 -->|"the A8 vertex"| principal
     residue -->|"the six-line quotient"| rootgraph
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-70 dots and 284 joins: 254 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+71 dots and 293 joins: 263 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
@@ -381,7 +391,7 @@ flowchart TB
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 7 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 12 | 11 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 5 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad | 22 | 25 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle | 24 | 26 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 22 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
@@ -391,11 +401,11 @@ The maps that join each pair of levels directly.
 
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
-| number | - | 7 | 3 | 3 | 3 | 2 |
-| symmetry | 7 | - | 11 | 21 | 12 | 7 |
+| number | - | 7 | 3 | 7 | 3 | 2 |
+| symmetry | 7 | - | 11 | 23 | 12 | 7 |
 | combinatorics | 3 | 11 | - | 5 | 19 | 7 |
-| lattice | 3 | 21 | 5 | - | 25 | 5 |
-| operator | 3 | 12 | 19 | 25 | - | 22 |
+| lattice | 7 | 23 | 5 | - | 26 | 5 |
+| operator | 3 | 12 | 19 | 26 | - | 22 |
 | physics | 2 | 7 | 7 | 5 | 22 | - |
 
 ## Dots
@@ -427,10 +437,10 @@ The maps that join each pair of levels directly.
 | W(E8) clocks | c', g = r r', d, v, m | symmetry | 19, 21 |
 | day-Coxeter group | <c', d>, order 120 | symmetry | 21, 22 |
 | AGL(1,5) | the affine group of the pentagon | symmetry | 21 |
-| circle | Z/4320 | number | 19 |
-| time clock | <864> = Z/5 | number | 21, 22 |
-| observer clock | <1080>, inside the 2-clock <135> | number | 22, 23 |
-| 27-clock | <160>, the nakshatra | number | 20, 23 |
+| circle | Z/4320 | number | 19, 28 |
+| time clock | <864> = Z/5 | number | 21, 22, 28 |
+| observer clock | <1080>, inside the 2-clock <135> | number | 22, 23, 28 |
+| 27-clock | <160>, the nakshatra | number | 20, 23, 28 |
 | atlas | Z/36 = circle / <36> | number | 23 |
 | golden companion | B = [[1, 1], [1, 0]] | symmetry | 21, 22 |
 | stages | the fifteen indices | number | 22 |
@@ -452,7 +462,7 @@ The maps that join each pair of levels directly.
 | binding | the commutant of D and the anomaly-free content 5 + Lambda^2 5 | physics | 12 |
 | calibration | t = tau u and the readout law omega = omega_hat / tau (TIME_BIND) | physics | 13 |
 | spectral measures | the six-port's sector measures on [0, 256], with Gauss and Lobatto envelopes | operator | 15 |
-| critical census | the band's 11 critical families on the alcove, 243600 points | lattice | 16 |
+| critical census | the band's 11 critical families on the alcove, 243600 points | lattice | 16, 28 |
 | sound and light | the K5 edge Hodge complex: sound im d0, light ker d0^T, Curl = *d1 | physics | 17 |
 | nine-torus | T^9 of the nine positive critical frequencies, with a dense flow | lattice | 18 |
 | root graph | the 240 roots, adjacent at inner product 1: a four-class association scheme | lattice | 3, 22, 23 |
@@ -472,6 +482,7 @@ The maps that join each pair of levels directly.
 | 360 parent | Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36 | operator | 23, 26 |
 | regular clocks | the thirteen regular classes of W(E8), powers of c', d and v with characteristic polynomials Phi_d^(8/phi(d)) and centralizers of order prod_(d \| d_i) d_i | symmetry | 26 |
 | sun's decad | E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames | lattice | 26, 27 |
+| principal circle | k -> k rho / 4320 in the momentum torus R^8 / E8, rho the Weyl vector | lattice | 28 |
 
 ## Joins
 
@@ -758,6 +769,15 @@ The maps that join each pair of levels directly.
 | half-periods | golden companion | on the half-periods Phi is a cube root of unity keeping both primes over 2, F4 = F2[Phi], and B has Pisano period 3 mod 2: the golden field is inert at 2, while at 5 it is ramified (layer 27) | THEOREM | `places.golden_places` |
 | memory clock | W(E8) clocks | an element of order n of GL8(Z) needs psi(n) <= 8, and the memory clock has order 90 with psi(90) = 10, so no lattice clock of the seed runs it (layer 27) | OBSTRUCTION | `places.limits` |
 | circle | W(E8) clocks | psi(4320) = 38 > 8: the circle's images in GL8(Z) have order at most 60, and the element orders of W(E8) stop at 30 (cited), so only its part <144> acts, as the Coxeter clock (layer 27) | OBSTRUCTION | `places.limits` |
+| E8 | principal circle | rho = (46, 68, 91, 135, 110, 84, 57, 29) in the root basis is primitive, with <r, rho> = ht(r) on the roots, so t -> t rho is a circle of momenta in R^8 / E8 on which every step keeps its order (layer 28) | THEOREM | `principal.circle` |
+| circle | principal circle | the canon's circle embeds in the momentum torus as the principal circle: no lattice clock runs it, but this circle of momenta does, and its step 144 is Kostant's principal element (layer 28) | THEOREM | `principal.circle` |
+| principal circle | W(E8) clocks | rho/30 acts on the adjoint representation with the spectrum of a lift of c': the clock's eigenvalues on the Cartan and eight copies of every 30th root from its free orbits on the roots; Kostant makes it conjugate to that lift (cited), so the step 144 is the Coxeter clock (layer 28) | THEOREM | `principal.regular_steps` |
+| principal circle | regular clocks | for each of the thirteen regular numbers d the step 4320/d, rho/d, has the adjoint spectrum of a lift of the regular clock of order d, which turns the roots in 240/d free orbits; the steps 180 and 216 carry the day and the golden clock (layer 28) | THEOREM | `principal.regular_steps` |
+| principal circle | bath | on the principal circle the band is 248 minus the adjoint character, and at the regular step 4320/d the Ramanujan sum makes it 248 - 8 mu(d)/phi(d): 256 at the half-turn, the circle's top, down to 249 at the Coxeter step (layer 28) | THEOREM | `principal.band_on_circle` |
+| principal circle | critical census | the band is critical on the principal circle exactly at its nine elements of order 2 to 5, where the centralizer has full rank: the census's D8 (256), A8 (252), D5 + A3 (248) and A4 + A4 (250), the alcove's vertices of marks 2, 3, 4 and 5 (layer 28) | THEOREM | `principal.critical_steps` |
+| time clock | principal circle | the time clock's steps 864k are the principal points of order 5, whose centralizer has the carrier's root system A4 + A4: the family of the tick's 24 fixed momenta, at eps 250 (layer 28) | THEOREM | `principal.critical_steps` |
+| observer clock | principal circle | the observer clock's generators 1080 and 3240 are the principal points of order 4, of type D5 + A3 at eps 248, and its square 2160 is the D8 half-turn at the band's top 256 (layer 28) | THEOREM | `principal.critical_steps` |
+| 27-clock | principal circle | the 27-clock meets the critical steps exactly in its order-3 steps 1440 and 2880, the principal points of type A8 at eps 252 (layer 28) | THEOREM | `principal.critical_steps` |
 | residue plane | root graph | A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38) | THEOREM | `six_lines` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |

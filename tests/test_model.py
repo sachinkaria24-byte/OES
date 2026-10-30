@@ -5,7 +5,7 @@ import pytest
 
 from oes import (assignment, band, binding, canon_sync, carrier, cosmology, counts, court, cyclotomic, dots, frontier,
                  gates, gatework, glue, gravity, handover, joins, ledger, literal, native, observer, places,
-                 primes, recurrence, snapshot, spacetime, spectral, spine, unify, waves)
+                 primes, principal, recurrence, snapshot, spacetime, spectral, spine, unify, waves)
 
 LAYERS = {
     "carrier": carrier.run,
@@ -314,7 +314,7 @@ def test_all_dots_are_joined():
 def test_every_level_is_joined():
     passed = [True] * len(dots.JOINS)
     lv = dots.levels(passed)
-    assert lv["layers"] == list(range(1, 28))
+    assert lv["layers"] == list(range(1, 29))
     assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
     assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
     # THEOREM joins alone leave out exactly the two conditional dots and the memory clock, joined by selection
@@ -695,6 +695,26 @@ def test_the_four_places():
     assert unify.DERIVATION["halfper"][0] == "cyclo" and unify.DERIVATION["momenta"][0] == "residue"
     rep = places.run()
     assert all(c.passed for c in rep.checks)
+
+
+def test_the_principal_circle():
+    for check in (principal.circle, principal.regular_steps, principal.band_on_circle, principal.critical_steps):
+        out = check()
+        assert all(out.values()), out
+    import numpy as np
+    from math import gcd
+    rho, rs, ht = principal.weyl_vector()
+    # rho is no fixed momentum of the seed's own tick or Coxeter clock: the principal points live in another torus
+    k = cyclotomic.clocks()
+    I8 = np.eye(8, dtype=np.int64)
+    assert not any(np.allclose(((I8 - k[n]) @ rho) / d, np.round(((I8 - k[n]) @ rho) / d)) for n in ("g", "c") for d in (5, 30))
+    # the step of order 6 is not critical, and its centralizer A4 + A3 has rank 7
+    from oes import handover, spine
+    R = spine.frame()[4]
+    assert handover.stabiliser(R, rs * 720 / 4320)[0] == "A4+A3"
+    # the circle and the derivation: the circle stays an input, its interface the selection 144 -> c'
+    assert unify.DERIVATION["principal"] == ("E8", "principal.circle") and "circle" in unify.INPUTS
+    assert 4320 // gcd(144, 4320) == 30 and 4320 // gcd(864, 4320) == 5
 
 
 def test_the_free_chain():

@@ -367,6 +367,12 @@ Layer 27 adds eight joins, two of them obstructions, and no dot. It reads the se
 240 - sum_r chi(r): 250, 243, and 224 or 256. The golden ratio is ramified at 5 and inert at 3 and 2. The two primes
 over 2 are two stabilizer groups. The memory clock (order 90) and the circle (4320) need psi > 8, so no lattice clock
 of the seed runs them.
+
+Layer 28 adds one dot, the principal circle, and nine joins. A circle of the seed's momenta runs the canon's circle:
+k -> k rho / 4320 in R^8 / E8, with rho the Weyl vector. Its step 144 is Kostant's principal element, conjugate to the
+Coxeter clock's lift. Its steps of the thirteen regular orders carry the spectra of the regular clocks' lifts, with
+the band 248 - 8 mu(d)/phi(d) there. And the band is critical on it exactly at its steps of order 2 to 5: the
+half-turn (D8), the 27-clock's 1440 (A8), the observer clock (D5 + A3) and the time clock (A4 + A4).
 """
 
 import functools
@@ -381,7 +387,7 @@ from sympy.combinatorics import Permutation
 from sympy.matrices.normalforms import smith_normal_form
 
 from . import (assignment, band, binding, carrier, cosmology, counts, court, cyclotomic, gates, gatework, glue, gravity,
-               handover, ledger, literal, native, observer, places, primes, recurrence, snapshot, spacetime, spectral,
+               handover, ledger, literal, native, observer, places, primes, principal, recurrence, snapshot, spacetime, spectral,
                spine, waves)
 from .record import Report
 
@@ -8528,10 +8534,10 @@ DOTS = {
     "clocks": ("W(E8) clocks", "c', g = r r', d, v, m", "19, 21"),
     "G120": ("day-Coxeter group", "<c', d>, order 120", "21, 22"),
     "AGL": ("AGL(1,5)", "the affine group of the pentagon", "21"),
-    "circle": ("circle", "Z/4320", "19"),
-    "time": ("time clock", "<864> = Z/5", "21, 22"),
-    "observer": ("observer clock", "<1080>, inside the 2-clock <135>", "22, 23"),
-    "c27": ("27-clock", "<160>, the nakshatra", "20, 23"),
+    "circle": ("circle", "Z/4320", "19, 28"),
+    "time": ("time clock", "<864> = Z/5", "21, 22, 28"),
+    "observer": ("observer clock", "<1080>, inside the 2-clock <135>", "22, 23, 28"),
+    "c27": ("27-clock", "<160>, the nakshatra", "20, 23, 28"),
     "atlas": ("atlas", "Z/36 = circle / <36>", "23"),
     "golden": ("golden companion", "B = [[1, 1], [1, 0]]", "21, 22"),
     "stages": ("stages", "the fifteen indices", "22"),
@@ -8553,7 +8559,7 @@ DOTS = {
     "binding": ("binding", "the commutant of D and the anomaly-free content 5 + Lambda^2 5", "12"),
     "calibration": ("calibration", "t = tau u and the readout law omega = omega_hat / tau (TIME_BIND)", "13"),
     "measure": ("spectral measures", "the six-port's sector measures on [0, 256], with Gauss and Lobatto envelopes", "15"),
-    "census": ("critical census", "the band's 11 critical families on the alcove, 243600 points", "16"),
+    "census": ("critical census", "the band's 11 critical families on the alcove, 243600 points", "16, 28"),
     "waves": ("sound and light", "the K5 edge Hodge complex: sound im d0, light ker d0^T, Curl = *d1", "17"),
     "torus": ("nine-torus", "T^9 of the nine positive critical frequencies, with a dense flow", "18"),
     "rootgraph": ("root graph", "the 240 roots, adjacent at inner product 1: a four-class association scheme", "3, 22, 23"),
@@ -8573,6 +8579,7 @@ DOTS = {
     "parent": ("360 parent", "Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36", "23, 26"),
     "regular": ("regular clocks", "the thirteen regular classes of W(E8), powers of c', d and v with characteristic polynomials Phi_d^(8/phi(d)) and centralizers of order prod_(d | d_i) d_i", "26"),
     "sun": ("sun's decad", "E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames", "26, 27"),
+    "principal": ("principal circle", "k -> k rho / 4320 in the momentum torus R^8 / E8, rho the Weyl vector", "28"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -8584,7 +8591,8 @@ LEVELS = [
     ("combinatorics", "graphs, complexes and the cube",
      ["V", "E", "cycles", "rotor", "petersen", "cube", "surface", "simplex", "pg25", "synthemes"]),
     ("lattice", "roots, lattices and tori",
-     ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph", "cyclo", "residue", "sun"]),
+     ["A4", "D5", "E8", "L0", "frame", "momenta", "halfper", "census", "torus", "rootgraph", "cyclo", "residue", "sun",
+      "principal"]),
     ("operator", "spaces with operators, ports and moments",
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
       "pauli", "gksl", "goldenport", "wedgeport", "darkport", "parent"]),
@@ -8882,6 +8890,15 @@ JOINS = [
     ("halfper", "golden", "F4 = F2[phi]", "on the half-periods Phi is a cube root of unity keeping both primes over 2, F4 = F2[Phi], and B has Pisano period 3 mod 2: the golden field is inert at 2, while at 5 it is ramified (layer 27)", T, "places.golden_places"),
     ("memory", "clocks", "no clock of order 90", "an element of order n of GL8(Z) needs psi(n) <= 8, and the memory clock has order 90 with psi(90) = 10, so no lattice clock of the seed runs it (layer 27)", OB, "places.limits"),
     ("circle", "clocks", "no faithful circle", "psi(4320) = 38 > 8: the circle's images in GL8(Z) have order at most 60, and the element orders of W(E8) stop at 30 (cited), so only its part <144> acts, as the Coxeter clock (layer 27)", OB, "places.limits"),
+    ("E8", "principal", "the Weyl vector", "rho = (46, 68, 91, 135, 110, 84, 57, 29) in the root basis is primitive, with <r, rho> = ht(r) on the roots, so t -> t rho is a circle of momenta in R^8 / E8 on which every step keeps its order (layer 28)", T, "principal.circle"),
+    ("circle", "principal", "k -> k rho / 4320", "the canon's circle embeds in the momentum torus as the principal circle: no lattice clock runs it, but this circle of momenta does, and its step 144 is Kostant's principal element (layer 28)", T, "principal.circle"),
+    ("principal", "clocks", "Kostant", "rho/30 acts on the adjoint representation with the spectrum of a lift of c': the clock's eigenvalues on the Cartan and eight copies of every 30th root from its free orbits on the roots; Kostant makes it conjugate to that lift (cited), so the step 144 is the Coxeter clock (layer 28)", T, "principal.regular_steps"),
+    ("principal", "regular", "the regular steps", "for each of the thirteen regular numbers d the step 4320/d, rho/d, has the adjoint spectrum of a lift of the regular clock of order d, which turns the roots in 240/d free orbits; the steps 180 and 216 carry the day and the golden clock (layer 28)", T, "principal.regular_steps"),
+    ("principal", "bath", "248 - chi", "on the principal circle the band is 248 minus the adjoint character, and at the regular step 4320/d the Ramanujan sum makes it 248 - 8 mu(d)/phi(d): 256 at the half-turn, the circle's top, down to 249 at the Coxeter step (layer 28)", T, "principal.band_on_circle"),
+    ("principal", "census", "the critical steps", "the band is critical on the principal circle exactly at its nine elements of order 2 to 5, where the centralizer has full rank: the census's D8 (256), A8 (252), D5 + A3 (248) and A4 + A4 (250), the alcove's vertices of marks 2, 3, 4 and 5 (layer 28)", T, "principal.critical_steps"),
+    ("time", "principal", "the A4 + A4 vertex", "the time clock's steps 864k are the principal points of order 5, whose centralizer has the carrier's root system A4 + A4: the family of the tick's 24 fixed momenta, at eps 250 (layer 28)", T, "principal.critical_steps"),
+    ("observer", "principal", "the D5 + A3 vertex", "the observer clock's generators 1080 and 3240 are the principal points of order 4, of type D5 + A3 at eps 248, and its square 2160 is the D8 half-turn at the band's top 256 (layer 28)", T, "principal.critical_steps"),
+    ("c27", "principal", "the A8 vertex", "the 27-clock meets the critical steps exactly in its order-3 steps 1440 and 2880, the principal points of type A8 at eps 252 (layer 28)", T, "principal.critical_steps"),
     ("residue", "rootgraph", "the six-line quotient", "A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38)", T, "six_lines"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
@@ -8984,7 +9001,7 @@ LEDGER_ROWS = [
     ("the Hodge star mod 2", "Lambda^4 R^8 = 35 + 35", "joined: e_S = e_T mod 2 Lambda exactly for Hodge-dual four-sets, onto 35 D8 half-periods", T, "23"),
     ("the memory clock (layer 3)", "order-90 quotient of a 125-state operator", "joined by selection: one circle step is one memory step; its 9- and 10-cycles read the vortex and the time coordinate", SR, "3, 23"),
     ("no bridge (layer 23)", "join all dots", "every dot has at least two maps, and no single map holds the diagram together", T, "23"),
-    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-27 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
+    ("every level (layer 23)", "join all dots at every level", f"{len(DOTS)} dots on six levels, number to physics: every layer 1-28 has a dot, each level is joined inside and to every other level, and THEOREM joins alone reach all but the product geometry, FLRW and the memory clock", T, "23"),
     ("SHELLS, CONVOLUTION, SEVENTH (08:43-08:58)", "two roots land on 9361 points in five shells; a root is a sum of three, four and six roots in 5253, 574224 and 9734696160 ways", "replayed: shells 240/56/14/2/1 deep on 1/240/2160/6720/240 points, and W_(k+1)/240 by transitivity", T, "23"),
     ("MEMORY, FOURTH (09:16, 09:19)", "four-step walks between roots 1260720, 574224, 253512, 107508, 43936 by inner product, with their fourth moments", "replayed against all 240 partners: the walks of length 0 to 4 depend only on the inner product, and the five fourth moments hold", T, "23"),
     ("MOMENTS, DEGREE (08:37, 08:40)", "241, 183, 235, 495 are walk moments; 183 = 240 - 56 - 1 and 495 = 183 + 6(56 - 4), the 4 the cut rank and the 6 the cycles", "replayed, with a correction: in G0 = X^T X the 4 counts the clique's other sites next to two sites and the 6 the port's sites; the cut rank and the cycle count are the same integers, not the same counts", T, "23, 24"),
@@ -9073,6 +9090,9 @@ LEDGER_ROWS = [
     ("the sun's decad (layer 26)", "C_W(s) onto Sp(4,3); F9 = F3[phi]; 40 A2, W(3), ten F9-lines = ten 4A2; F9-linear 2160 onto PSL(2,9) = A6, r -> c', doubling -> day", "constructed and joined (sun's decad -> 360 parent, AGL(1,5))", T, "26"),
     ("the four places (layer 27)", "the real place, 2, 3 and 5 carry the bath, the qubits, the parent and the carrier", "eps = 240 - sum_r chi(r): 250, 243, 224/256; the golden ratio ramified at 5, inert at 3 and 2; two stabilizers at 2", T, "27"),
     ("what the places cannot give (layer 27)", "the memory clock (order 90), the circle (4320), AIR_801 (det 12402)", "psi(90) = 10 and psi(4320) = 38 exceed 8; AIR_801 is no lattice clock", OB, "27"),
+    ("the principal circle (layer 28)", "k -> k rho / 4320 in R^8 / E8; rho primitive with <r, rho> = ht(r)", "constructed and joined (E8 -> principal circle <- circle)", T, "28"),
+    ("the regular steps (layer 28)", "rho/d has the adjoint spectrum of a lift of w_d; eps = 248 - 8 mu(d)/phi(d)", "constructed and joined (principal circle -> W(E8) clocks, regular clocks, bath); Kostant cited at d = 30", T, "28"),
+    ("the critical steps (layer 28)", "the band on the circle is critical exactly at the steps of order 2 to 5: D8, A8, D5 + A3, A4 + A4", "constructed and joined (time, observer and 27-clocks -> principal circle -> critical census)", T, "28"),
     ("no clock covers A6 (owner, 20:22)", "Hom(Z/4320, A6) = 360, images <= 5; clocks solvable (240 > 30 > 1), A6 perfect; the hexad sees PSL(2,5) only", "obstruction (circle, W(E8) clocks -> 360 parent)", OB, "26"),
     ("the dark code (hub, 20:20)", "range P3 of K = M^T M; [10, 4, 6]; 25 failing four-edge sets", "replayed: K^2 = 3K + 4J, P0 + P3 + P8 = I, P3 = M^T P_A4 M/3, the code and its failures", T, "23"),
     ("the saddle quartic (monograph, 20:13)", "0 |y|^4 at the 224 saddle, from 18 + 18", "corrected: -rho^4/2, from 24 (E7) and 12 (oblique); the collar stays open", T, "23"),
@@ -9222,6 +9242,8 @@ def _checks():
         "primes.decad": primes.decad, "primes.parent_cover": primes.parent_cover,
         "places.band_at_places": places.band_at_places, "places.golden_places": places.golden_places,
         "places.qubit_primes": places.qubit_primes, "places.limits": places.limits,
+        "principal.circle": principal.circle, "principal.regular_steps": principal.regular_steps,
+        "principal.band_on_circle": principal.band_on_circle, "principal.critical_steps": principal.critical_steps,
         "six_lines": six_lines,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
@@ -9337,7 +9359,7 @@ def run():
     rep.add(f"the {len(DOTS)} dots and {len(JOINS)} joins form one connected diagram (the obstructions left out)", T,
             len(comps) == 1, [sorted(c) for c in comps])
     lv = levels(passed)
-    rep.add("every layer of the build, 1 to 27, has a dot", T, lv["layers"] == list(range(1, 28)), lv["layers"])
+    rep.add("every layer of the build, 1 to 28, has a dot", T, lv["layers"] == list(range(1, 29)), lv["layers"])
     for k, (name, what, dots) in enumerate(LEVELS):
         rep.add(f"level {k + 1}, {name} ({what}): its {len(dots)} dots are joined among themselves", T,
                 len(lv["inside"][name]) == 1, [sorted(c) for c in lv["inside"][name]])

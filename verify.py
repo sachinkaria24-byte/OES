@@ -12,7 +12,7 @@ import sys
 import time
 
 from oes import (assignment, binding, canon_sync, carrier, cosmology, counts, court, dots, frontier, gates,
-                 gatework, glue, gravity, handover, joins, ledger, literal, native, observer, places, primes,
+                 gatework, glue, gravity, handover, joins, ledger, literal, native, observer, places, primes, principal,
                  recurrence, snapshot, spacetime, spectral, spine, unify, waves)
 
 
@@ -46,6 +46,7 @@ def main(argv):
         ("25-unify", unify.run),
         ("26-primes", primes.run),
         ("27-places", places.run),
+        ("28-principal", principal.run),
     ]
     checks, timing = [], {}
     for name, fn in layers:

@@ -1041,7 +1041,7 @@ Three dots (the coil, S5 and PGL(2,5)) and ten joins, nine maps and one obstruct
 - **MPKG's block.** A 6 × 6 block with B⁵ = I and traces 1, 1, 1, 1 has the eigenvalue 1 twice and each primitive fifth root once. So it is similar over ℚ to the C5 rotation of the cone's six sites.
   - Four copies have trace 4 and return at 5 to an identity of trace 24.
   - Doubling sends the levels 0, 6, 12, 18 to 0, 12, 24, 0, and the stored [[−1, 4], [6, 1]] squares to 25I.
-  - The operand MPKG A_M itself stays unformed (§29).
+  - The operand MPKG A_M itself stays unformed (§30).
 
 Also from these items:
 - **Two corrections.** The shift T by 24 on the atlas does not commute with doubling, as MORE_DOTS had said: D T = T² D = T⁻¹ D, and D² T = T D². The hub's own atlas verifier agrees. DEEP_H's "⟨39⟩ has the sun's order, 1440" is also corrected: ⟨39⟩ = ⟨3⟩ has 1440 points, which is the sun's step, and the sun 1440 itself has order 3.
@@ -2064,7 +2064,47 @@ Layers 25 and 26 read the seed at the prime 5 and then at 2, 3 and 5. Layer 27 a
 
 **Cited:** W(E8)/⟨−1⟩ = GO₈⁺(2), the real Clifford group of four qubits modulo the Paulis (Nebe, Rains and Sloane); the element orders of W(E8) are at most 30.
 
-## 29. What stays open
+## 29. The principal circle (`oes/principal.py`)
+
+Layer 27 showed that no lattice clock runs the canon's circle ℤ/4320, since ψ(4320) = 38 > 8. Layer 28 shows that a circle of momenta does. E8 is unimodular, so the bath's momenta live on the torus ℝ⁸/E8. That torus is the maximal torus of the compact group E8, and on it the band is ε = 248 − χ, where χ is the adjoint character. The circle is t ↦ tρ. Here ρ, the sum of the fundamental weights, is a lattice vector with ⟨r, ρ⟩ = ht(r) for every root r. The layer adds one dot and nine joins.
+
+**The principal circle** (THEOREM). In the root basis ρ = (46, 68, 91, 135, 110, 84, 57, 29), with ‖ρ‖² = 620 and coprime coordinates. So k ↦ kρ/4320 embeds ℤ/4320 in the momentum torus, and every step keeps its order. The positive roots of height j number #{i : m_i ≥ j}, the partition dual to the exponents 1, 7, 11, 13, 17, 19, 23, 29 (Kostant). The highest root has height 29 = h − 1.
+
+**The steps of the regular orders** (THEOREM; Kostant cited). On the adjoint representation, ρ/d acts on the root space g_r by ζ_d^{ht r}.
+- For each of the thirteen regular numbers d (§27), the spectrum of ρ/d is that of a lift of the regular clock w_d. Each primitive d-th root appears 8/φ(d) times, from the clock on the Cartan. Every d-th root appears 240/d times more, from the clock's 240/d free orbits on the roots.
+- At d = 30, Kostant's theorem makes exp(2πiρ/30) conjugate to a lift of c′ (cited). So the canon's step 144 is the Coxeter clock's lift, and the selection 144 → c′ is this identification.
+- The steps 180 and 216 carry the spectra of the day (order 24) and of the golden clock (order 20). 216 is the canon's golden step, B^k ↦ 216k.
+
+**The band on the circle** (THEOREM). At the step 4320/d of a regular order, the Ramanujan sum gives ε = 248 − 8μ(d)/φ(d):
+
+| d | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 15 | 20 | 24 | 30 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| step | 2160 | 1440 | 1080 | 864 | 720 | 540 | 432 | 360 | 288 | 216 | 180 | 144 |
+| ε | 256 | 252 | 248 | 250 | 244 | 248 | 246 | 248 | 247 | 248 | 248 | 249 |
+
+The circle's highest point is the band's top, 256. It is reached only at the half-turn 2160.
+
+**The critical steps are the canon's small clocks** (THEOREM). The band is critical on the circle at exactly nine steps, its nonzero elements of order 2 to 5. At each of them the centralizer has full rank 8 and dimension 240/d.
+
+| steps | order | centralizer | ε | the canon's clock |
+|---|---|---|---|---|
+| 2160 | 2 | D8 | 256 | the half-turn, the 2-clock's involution |
+| 1440, 2880 | 3 | A8 | 252 | the 27-clock's order-3 steps |
+| 1080, 3240 | 4 | D5 + A3 | 248 | the observer clock's generators |
+| 864, 1728, 2592, 3456 | 5 | A4 + A4 | 250 | the time clock |
+
+- These are the alcove's vertices of marks 2, 3, 4 and 5. They are four of the eleven critical families of §17.
+- The time clock's centralizer has the carrier's root system A4 + A4. It lies in the family of the tick's 24 fixed momenta (§24).
+- Every step of order above 29 is regular, with trivial stabilizer: 4234 of the 4319 nonzero steps.
+
+**What changes in the inputs.** The circle stays an input, but only for the number 4320 and its stage indices. Its Coxeter step, its golden step, its time and observer clocks and its half-turn are the seed's.
+- The circle's own interface stays the selection 144 → c′ (SELECTED_REFERENCE), now read through Kostant's theorem.
+- No lattice clock runs the circle (§28). But it is a circle of the bath's momenta, so each step k labels a Bloch wave of the bath, with energy ε(kρ/4320).
+- The count becomes 50 derived dots, 10 inputs and 10 dots built from them.
+
+**Cited:** Kostant (1959): the principal element exp(2πiρ/h) is conjugate in the compact group to a lift of the Coxeter element. The lifts of an element without eigenvalue 1 are conjugate under the torus.
+
+## 30. What stays open
 
 **Unformed operands** (`oes/gates.py`; physical or historical, not derivable):
 - the six SCR6 operands;
@@ -2081,7 +2121,7 @@ Layers 25 and 26 read the seed at the prime 5 and then at 2, 3 and 5. Layer 27 a
 
 **Recovered in this build:** the native source matrices, the 155/4805 adapter, the E8 glue map, W₉₀ exactly, W₆₀₀ modulo primes, and the W_n recurrence modulo four primes (order 16, degree 58).
 
-**Formed in this build (SELECTED_REFERENCE, with THEOREM properties):** an action of the circle's Coxeter subgroup ⟨144⟩ on the bath through the E8 Coxeter element, whose tick is two K5 carrier rotations and whose fixed momenta are Morse points (§20). It is the largest part of the circle that can act on the bath; the atlas, moon, nakshatra and pada cannot. Its normalizer (order 240) carries the day, the golden clock and the mirror, and the tick is the commutator of the day and the Coxeter clock (§22). Also formed: the Standard-Model table of the 240 roots under A4 + A4′ (§25), unique up to W(E8), with three generations conditional on the bracket rule.
+**Formed in this build (SELECTED_REFERENCE, with THEOREM properties):** an action of the circle's Coxeter subgroup ⟨144⟩ on the bath through the E8 Coxeter element, whose tick is two K5 carrier rotations and whose fixed momenta are Morse points (§20). It is the largest part of the circle that can act on the bath; the atlas, moon, nakshatra and pada cannot. The whole circle is instead a circle of the bath's momenta (§29). Its normalizer (order 240) carries the day, the golden clock and the mirror, and the tick is the commutator of the day and the Coxeter clock (§22). Also formed: the Standard-Model table of the 240 roots under A4 + A4′ (§25), unique up to W(E8), with three generations conditional on the bracket rule.
 
 **Open mathematics:**
 - the convexity collar inside (223.58, 224), now reduced to a certified bound away from the 224 saddle (with margin law 15/16·d²);
