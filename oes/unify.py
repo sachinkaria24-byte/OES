@@ -393,9 +393,9 @@ def unified_page():
              "nine elements of order 2 to 5: the half-turn 2160 (D8, 256), the 27-clock's 1440 and 2880 (A8, 252), the "
              "observer clock's 1080 and 3240 (D5 + A3, 248) and the time clock 864k (A4 + A4, 250, the carrier's root "
              "system). They are the alcove's vertices of marks 2, 3, 4 and 5. Every step of order above 29 is regular.",
-             "- **The clocks are its subgroups (30 Oct).** The nine critical steps are the union of ⟨2160⟩, ⟨1440⟩, ⟨1080⟩ and "
+             "- **The clocks are its subgroups (30 Oct).** The nine nonzero critical steps are the union of ⟨2160⟩, ⟨1440⟩, ⟨1080⟩ and "
              "⟨864⟩ and generate the grain ⟨72⟩, of order lcm(2, 3, 4, 5) = 60; the time and observer clocks meet in 0 and add "
-             "to the golden step's ⟨216⟩ = ℤ/20. The thirteen regular steps are the multiples of 36 and generate the seam ⟨36⟩, "
+             "to the golden step's ⟨216⟩ = ℤ/20. The thirteen regular steps are multiples of 36 and generate the seam ⟨36⟩, "
              "of order lcm(30, 24, 20) = 120, so the atlas ℤ/36 is the circle modulo the regular steps. The 27-clock ⟨160⟩ is "
              "the Sylow 3-subgroup, holding the sun's step ρ/3; the coil ⟨8⟩ is the grain plus the 27-clock; the miss set ⟨5⟩ "
              "is the kernel of the time coordinate; the vortex ℤ/9 is the 27-clock modulo the sun. The seed names the orders "

@@ -28,9 +28,9 @@ group E8, the band is eps = 248 - chi with chi its adjoint character, and the ci
     time clock's centralizer has the carrier's root system A4 + A4, in the family of the tick's 24 fixed momenta.
     Every step of order above 29 is regular: 4234 of the 4319 nonzero steps.
 (e) The clock lattice (30 Oct). The clocks of the number level are subgroups and quotients of the principal circle, read
-    in the seed's terms. The nine critical steps are the union of <2160>, <1440>, <1080> and <864> and generate the
+    in the seed's terms. The nine nonzero critical steps are the union of <2160>, <1440>, <1080> and <864> and generate the
     grain <72> (60 = lcm(2, 3, 4, 5) points); the time clock and the observer clock meet in 0 and add to the golden
-    step's subgroup <216> = Z/20, and with the sun's <1440> to the grain. The thirteen regular steps are the multiples
+    step's subgroup <216> = Z/20, and with the sun's <1440> to the grain. The thirteen regular steps are multiples
     of 36 and generate the seam <36> (120 = lcm(30, 24, 20) points; the Coxeter and day steps already do), so the
     atlas Z/36 is the circle modulo its regular steps. The 27-clock <160> is the Sylow 3-subgroup, holding the sun's
     step rho/3; the coil <8> is the grain plus the 27-clock; the miss set <5> is the kernel of the time coordinate, the
@@ -44,7 +44,8 @@ group E8, the band is eps = 248 - chi with chi its adjoint character, and the ci
 (f) Uniqueness. The Weyl vector is the half-sum of the positive roots and is regular, so it determines its positive
     system; W(E8) permutes the positive systems transitively (cited) and keeps the band, so every conjugate circle
     k -> k w rho / 4320 has the same band values and the same critical steps and types: the principal circle is
-    unique up to W(E8).
+    unique up to W(E8). A positive system and its opposite give the same circle (w = -1 sends k -> -k); otherwise
+    the conjugate circles are different subsets of the torus.
 What stays the canon's: the sampling of the circle at 4320 points, that is the cofactor 36 over the seam Z/120 that the
 regular steps generate, and the stage indices. The circle's Coxeter step, its critical steps and the grain are the seed's.
 """
@@ -215,19 +216,21 @@ def clock_lattice():
     stab = {j: handover.stabiliser(R, rs * j / N)[0] for j in (72, 36, 160, 8, 5, 144, 180, 216)}
     heights = Counter(int(h) for h in ht if h > 0)
     return {
-        "the band's nine critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they "
+        "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they "
         "generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the "
         "sun's step 1440 = rho/3":
             crit == [864, 1080, 1440, 1728, 2160, 2592, 2880, 3240, 3456]
             and frozenset(crit) | {0} == S(2160) | S(1440) | S(1080) | S(864) and gen(crit) == S(72)
             and len(S(72)) == 60 == lcm(2, 3, 4, 5) and add(S(216), S(1440)) == S(72) and (N // 20, N // 3) == (216, 1440),
-        "the steps 4320/d of the thirteen regular orders are the multiples of 36 = 4320/120, 120 = lcm(30, 24, 20), and "
+        "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), "
+        "120 = lcm(30, 24, 20), and "
         "they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step "
         "216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps "
-        "generate, the largest quotient in which every regular and every critical step vanishes":
+        "generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes":
             all(s % 36 == 0 for s in steps) and gen(steps) == S(36) == gen([144, 180]) and 216 == 6 * 36
             and len(S(36)) == 120 == lcm(30, 24, 20) and all(j % 36 == 0 for j in crit)
-            and (N // 30, N // 24, N // 20) == (144, 180, 216) and {x % 36 for x in range(N)} == set(range(36)),
+            and (N // 30, N // 24, N // 20) == (144, 180, 216) and {x % 36 for x in range(N)} == set(range(36))
+            and sum(1 for x in range(N) if order(x) in reg) == 56 and all(x % 36 == 0 for x in range(N) if order(x) in reg),
         "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), "
         "the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class "
         "3, the sun s = c'^10, and the two A8 critical steps":
@@ -251,7 +254,7 @@ def clock_lattice():
             and {j for j in crit if j in S(5)} == {1080, 1440, 2160, 2880, 3240},
         "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, "
         "and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas "
-        "and the vortex see no regular or critical step, all being 0 mod 36":
+        "and the vortex see no step of regular order and no critical step, all being 0 mod 36":
             {x % 9 for x in S(160)} == set(range(9)) and frozenset(x for x in S(160) if x % 9 == 0) == S(1440)
             and frozenset(x for x in range(N) if x % 9 == 0) == S(9) == add(S(36), S(135)) and len(S(9)) == 480,
         "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: "
@@ -347,9 +350,12 @@ def principal_uniqueness():
         "W(E8) keeps E8 and its roots, so it acts on the momentum torus and keeps the band: along the conjugate circle "
         "k -> k w rho / 4320 (w = s1, w = layer 19's w) the band agrees with the principal circle's at all 4320 steps, "
         "and the critical steps and their types D8, A8, D5 + A3 and A4 + A4 are the same; so the principal circle is "
-        "unique up to W(E8), and the conjugate circles are different subsets of the torus (no unit u mod 4320 has "
-        "s_i rho = u rho mod 4320 E8)":
-            all(conj.values()) and not any(not ((u * rho - s @ rho) % N).any() for s in simple for u in units),
+        "unique up to W(E8); a positive system and its opposite give the same circle (w = -1 sends k -> -k), and otherwise "
+        "the conjugate circles are different subsets of the torus (no unit u mod 4320 has w rho = u rho mod 4320 E8 for "
+        "w = s_i, layer 19's w, c or c'); the finite check covers the band's W-invariance and these positive systems, "
+        "the transitivity is cited":
+            all(conj.values()) and not ((-rho - (N - 1) * rho) % N).any()
+            and not any(not ((u * rho - w @ rho) % N).any() for w in simple + [w19, c, cp] for u in units),
     }
 
 
