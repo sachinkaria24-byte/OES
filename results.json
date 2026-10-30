@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.77,
+  "1-carrier": 0.78,
   "2-spectral": 0.01,
-  "3-spacetime": 11.27,
-  "4-native": 105.15,
-  "5-observer": 0.23,
-  "6-gravity": 6.49,
-  "7-cosmology": 1.88,
-  "8-frontier": 46.93,
-  "9-joins": 12.22,
-  "10-literal": 44.93,
+  "3-spacetime": 9.59,
+  "4-native": 97.64,
+  "5-observer": 0.26,
+  "6-gravity": 6.77,
+  "7-cosmology": 1.9,
+  "8-frontier": 40.67,
+  "9-joins": 10.86,
+  "10-literal": 35.8,
   "11-glue": 0.2,
   "12-binding": 0.03,
-  "13-gates": 0.09,
-  "14-recurrence": 83.16,
-  "15-court": 1.83,
-  "16-handover": 1.3,
-  "17-waves": 0.61,
-  "18-snapshot": 0.98,
-  "19-spine": 5.38,
-  "20-canon": 6.87,
-  "21-ledger": 51.62,
-  "22-counts": 24.78,
-  "23-dots": 346.45,
-  "24-assignment": 3.94,
-  "25-unify": 3.9,
-  "26-primes": 5.65,
-  "27-places": 2.06,
-  "28-principal": 1.78
+  "13-gates": 0.11,
+  "14-recurrence": 73.66,
+  "15-court": 1.8,
+  "16-handover": 1.17,
+  "17-waves": 0.64,
+  "18-snapshot": 0.85,
+  "19-spine": 3.82,
+  "20-canon": 6.06,
+  "21-ledger": 46.94,
+  "22-counts": 24.25,
+  "23-dots": 347.59,
+  "24-assignment": 3.77,
+  "25-unify": 4.29,
+  "26-primes": 5.71,
+  "27-places": 2.14,
+  "28-principal": 1.83
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 760,
-   "total": 760
+   "passed": 761,
+   "total": 761
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 135,
-   "total": 135
+   "passed": 138,
+   "total": 138
   }
  },
  "checks": [
@@ -11241,6 +11241,28 @@
   },
   {
    "layer": "23-dots",
+   "name": "the hub's N33 reconciliation and the 09:54 connections: the finite and infinite walk counts, the six-line transition's missing logarithm and its two-step embedding, the MDS context code and the Gauss operator's AGL(1,5) sign rule",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the finite root graph's closed walks are 1, 0, 56, 1512, 62160, 2872800, 144606784 per root, from its spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84, while the infinite lattice's are W_2, W_3, W_4 = 240, 13440, 1260720: the two walk counts are different operators' (J04, J05)": true,
+    "the six-line transition P = (10J - 4I)/56 = E - (I - E)/14 has det (-1/14)^5 < 0, so it is e^B for no real B, while P^2 = E + (I - E)/196 = e^(log 196 (E - I)), a two-step Markov embedding (J06)": true,
+    "the 36 contexts t_c = (2c - 35)/35 are distinct, so all C(36, 3) = 7140 Vandermonde minors of the quadratic evaluator are nonzero: an MDS [36, 3, 34] code over Q, correcting 33 erasures or 16 errors (J08)": true,
+    "the Golden Gauss operator G5 = R + R^-1 - R^2 - R^-2 has G5^2 = 5I - J, G5^3 = 5 G5 and M M^T + G5^2 = 8I with the signless incidence (J19); the permutations of the five vertices fix it for D10 (10 of them) and reverse it for the other 10 of AGL(1,5): x -> ax + b multiplies it by the Legendre symbol (a/5)": true,
+    "the 09:54 connections certificate: 40 + 12 + 61 + 21 = 134 new exact groups, 6 + 2 + 5 = 13 API regressions, 4105 + 61 = 4166 artifacts, 587 + 20 + 3 = 610 relationships and 191 files with 190 hashes": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 10:26: the hub's OES_All_Dots_N33_Reconciliation_20261030.txt (09:54) read as text, its handover zip not opened; the separate model's unified connections (09:54) recorded from its certificate (10:02), with its checkpoint recovery (10:04)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11482,6 +11504,22 @@
   {
    "layer": "23-dots",
    "name": "not joined: the hub's 09:23 text, unreplayed parts: the literal 49-tuple and the bounded-gap route, the PTP13 and R15 certificates, the marked contrast port's Green bounds, the J7 host, the Woodbury Green formula, the information cut and the time-order test need operands or analytic inputs not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's unified connections (09:54): 1701713 bytes; 134 new exact groups (arithmetic 40, tangent 12, static return 61, vertex join 21), 20 new typed joins (610 relationships); certificate read, capsule not decoded or run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the N33 six-view frame (hub, 09:54: J09): six rank-four K_i on Lambda^2 P5 with sum (12/5) I10 and four-view spectrum (12/5)^3 (8/5)^3 (6/5)^3 (2/5): source-reported, the projectors are not stored here",
    "status": "REPORTED",
    "passed": true,
    "value": null,
