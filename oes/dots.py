@@ -9452,6 +9452,11 @@ NOT_JOINED = [
     ("the separate model's reconciled capsule (00:30)", "5032710 bytes, 189 new check groups and 887 matrix references, with "
                                                         "a source patch of 8240856 bytes; certificate read, nothing decoded "
                                                         "or run", RP),
+    ("the separate model's connected capsule (01:21)", "8200616 bytes, 393 independent exact groups and 56 new typed "
+                                                        "relationships (556 combined) over the N33 sources; its coverage "
+                                                        "counts 53130 = C(25, 5), 1496250 = C(21, 4) x 250 and 63 = 2^6 - 1 "
+                                                        "replay as arithmetic (notes_0117); certificate read, nothing decoded "
+                                                        "or run", RP),
     ("the canon's N33 release (00:59-01:06)", "29 selected-reference source-graded claims from seven families in four new "
                                              "tabs (3750 and 3705 sheets), no new matrix ids and no gate changes; read "
                                              "from its receipt", RP),
