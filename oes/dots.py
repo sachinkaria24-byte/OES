@@ -9137,6 +9137,54 @@ def notes_1004():
     }
 
 
+def notes_1411():
+    """The canon's N34 release (14:04-14:11) and the sibling's MODEL of 14:06, replayed as arithmetic."""
+    order = lambda s: N // gcd(s, N)
+    tuple49 = [0, 2, 6, 8, 12, 20, 26, 30, 32, 36, 42, 48, 50, 56, 60, 68, 72, 78, 86, 92, 98, 102, 110, 116, 120, 126, 132,
+               138, 140, 146, 152, 156, 158, 162, 168, 170, 176, 180, 182, 186, 188, 210, 212, 218, 222, 228, 230, 236, 240]
+    omitted = {2: 1, 3: 1, 5: 4, 7: 3, 11: 7, 13: 5, 17: 11, 19: 14, 23: 16, 29: 18, 31: 4, 37: 7, 41: 11, 43: 1, 47: 7}
+    m1, m2, d1 = 232, 54213, sp.Rational(975, 4)
+    jets = lambda f1, f3, f5, a, b: (f1, f3 - a * f1, f5 - a * f3 + b * f1)         # y3, y5, y7 of y'' + Delta y = v f from rest
+    roots = glue.roots()
+    A = np.isclose(roots @ roots.T, 1).astype(np.int64)
+    W, _ = _walks()
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    Q = 10 * J6 - 4 * I6
+    return {
+        "the hub's 49-tuple: 49 distinct offsets with 0 and 2, diameter 240, and for every prime p <= 47 a residue it omits "
+        "(the hub's listed residue among them), so it is admissible; for p > 49 the 49 offsets cannot fill p classes (N34-021)":
+            len(set(tuple49)) == 49 and {0, 2} <= set(tuple49) and max(tuple49) - min(tuple49) == 240
+            and all(a not in {h % p for h in tuple49} and len({h % p for h in tuple49}) < p for p, a in omitted.items())
+            and sorted(omitted) == [p for p in range(2, 48) if all(p % q for q in range(2, p))],
+        "the N34 jets: with the bright moments 232, 54213 and the dark first moment 975/4 held here, 248 = 232 + 16, "
+        "58181 = 54213 + 16 x 232 + 16^2, 1039/4 = 975/4 + 16 and 47/4 = 975/4 - 232; these are the odd jets of "
+        "y'' + Delta y = v f(t) from rest for a forcing with f' , f''', f^(5) = 1, -16, 256 (a harmonic forcing of frequency "
+        "4): y3 = f1, y5 = f3 - m1 f1, y7 = f5 - m1 f3 + m2 f1; the canon's source q'' + 4q = 0 (frequency 2) would give "
+        "y5 + 236 y3 = 0 and y7 - 55157 y3 = 0 (N34-012, N34-013)":
+            248 == m1 + 16 and 58181 == m2 + 16 * m1 + 16 ** 2 and sp.Rational(1039, 4) == d1 + 16
+            and d1 - m1 == sp.Rational(47, 4) and jets(1, -16, 256, m1, m2) == (1, -248, 58181)
+            and jets(1, -16, 256, d1, sp.Rational(237985, 4))[1] == -sp.Rational(1039, 4)
+            and jets(1, -4, 16, m1, m2) == (1, -236, 55157),
+        "the N34 receipt: both workbooks grew by five tabs (3755 - 3750 = 3710 - 3705 = 5); 32 claims from 12 families; "
+        "12 + 29 + 25 + 29 + 32 = 127 claims across N30-N34; no new matrix id and no gate change":
+            3755 - 3750 == 5 == 3710 - 3705 and 12 + 29 + 25 + 29 + 32 == 127,
+        "the sibling's 14:06 edition: the six-line quotient Q = 10J - 4I has Q^2 = 52 Q + 224 I ((x - 56)(x + 4) = x^2 - 52x "
+        "- 224), with 224 the collar integer by coincidence; the root graph's minimal polynomial is (x - 56)(x - 28)(x - 8)"
+        "(x + 2)(x + 4) and tr A^2 = 240 x 56 = 13440 = W_3, for a reason: both count the 240 x 56 ordered root pairs at "
+        "inner product +-1, matched by r' -> -r'":
+            Q * Q == 52 * Q + 224 * I6 and sp.expand((sp.Symbol("x") - 56) * (sp.Symbol("x") + 4)) == sp.expand(
+                sp.Symbol("x") ** 2 - 52 * sp.Symbol("x") - 224)
+            and not np.any(functools.reduce(np.matmul, [A - e * np.eye(240, dtype=np.int64) for e in (56, 28, 8, -2, -4)]))
+            and int(np.trace(A @ A)) == 240 * 56 == int(W[3])
+            and int(np.sum(np.isclose(roots @ roots.T, -1))) == 240 * 56,
+        "the certificate's own counts, as the sibling reads them: 42 coordinate matrices + 16 aliases = 58, not the stated "
+        "61 artifacts, and the listed typed relations 7 + 2 + 3 = 12, not the stated 20 joins; 587 + 20 + 3 = 610 holds; "
+        "144606784 has order 135 on the circle, as 224 does":
+            42 + 16 == 58 != 61 and 7 + 2 + 3 == 12 != 20 and 587 + 20 + 3 == 610
+            and order(144606784) == order(224) == 135,
+    }
+
+
 # ------------------------------------------------------------------- joins of 30 Oct: every dot on THEOREM maps but two
 
 def _cycles(perm):
@@ -10070,6 +10118,9 @@ LEDGER_ROWS = [
     ("two walk counts (hub, 09:54: J04, J05)", "the finite root graph closes 1, 0, 56, 1512, 62160, 2872800, 144606784 walks per root; the lattice has W_2..W_4 = 240, 13440, 1260720", "replayed: different operators, the finite graph from its spectrum and the lattice from its walks", T, "23"),
     ("the six-line transition (hub, 09:54: J06)", "det P = (-1/14)^5 < 0, so P is no e^B; P^2 = e^(log 196 (E - I))", "replayed", T, "23"),
     ("the Golden Gauss operator's symmetry (hub, 09:54: J19; separate model, 09:54)", "M M^T + G5^2 = 8I; stabilizer of order 10 and ten sign-reversing permutations", "replayed: x -> ax + b multiplies G5 by (a/5), so D10 fixes it and the rest of AGL(1,5) reverses it, and no other permutation sends it to +-G5", T, "23"),
+    ("the N34 boundary jets (hub; canon N34-012, N34-013)", "y5 + 248 y3 = 0, y7 - 58181 y3 = 0 (bright, m1 = 232, m2 = 54213); y5 + (1039/4) y3 = 0 (dark, m1 = 975/4); separation 47/4", "replayed as arithmetic of the held moments: the odd jets of y'' + Delta y = v f from rest for a forcing with jets 1, -16, 256 (frequency 4); the canon's source q'' + 4q = 0 (frequency 2) would give 236 and 55157", T, "23"),
+    ("the 49-tuple (hub, 09:23; canon N34-021)", "49 offsets of diameter 240 with 0 and 2, admissible for every prime", "replayed: a residue is omitted mod every prime p <= 47 and p > 49 is trivial; arithmetic about a tuple, nothing about primes", T, "23"),
+    ("tr A^2 = W_3 (MODEL, 14:06)", "the root graph's tr A^2 = 13440 is the same integer as the lattice's W_3", "a reason, not a coincidence: both count the 240 x 56 ordered root pairs at inner product +-1, matched by r' -> -r'", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -10167,6 +10218,10 @@ NOT_JOINED = [
     ("the N33 six-view frame (hub, 09:54: J09)", "six rank-four K_i on Lambda^2 P5 with sum (12/5) I10 and "
                                                "four-view spectrum (12/5)^3 (8/5)^3 (6/5)^3 (2/5): source-reported, "
                                                "the projectors are not stored here", RP),
+    ("the canon's N34 release (14:04-14:11)", "32 source-graded claims from 12 families in five new tabs (3755 and "
+                                           "3710 sheets), no new matrix ids and no gate changes; two integrator "
+                                           "replays (the G5 complement and the 49-tuple), both held here; read from "
+                                           "its receipts and claims CSV, the workbooks not opened", RP),
 ]
 
 
@@ -10921,6 +10976,13 @@ def run():
     rep.add("Drive check 10:26: the hub's OES_All_Dots_N33_Reconciliation_20261030.txt (09:54) read as text, its "
             "handover zip not opened; the separate model's unified connections (09:54) recorded from its "
             "certificate (10:02), with its checkpoint recovery (10:04)", RP, True)
+    n1411 = notes_1411()
+    rep.add("the canon's N34 release and the 14:06 model: the hub's 49-tuple is admissible, the N34 boundary jets are "
+            "the odd jets of the held moments under a frequency-4 forcing, the receipt's counts add up, Q^2 = 52Q + 224I, "
+            "and tr A^2 = 13440 = W_3 for a reason", T, all(n1411.values()), n1411)
+    rep.add("Drive check 14:11: the canon's N34 release (the four-copy receipt, the claims CSV, the current-release "
+            "manifests and the Locked Memory handover note read as data, the workbooks not opened); the sibling's MODEL "
+            "edition of 14:06 read as text with its spine29.ts read as data, not run; the OES-paper PDF not read", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

@@ -315,6 +315,9 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | two walk counts (hub, 09:54: J04, J05) | the finite root graph closes 1, 0, 56, 1512, 62160, 2872800, 144606784 walks per root; the lattice has W_2..W_4 = 240, 13440, 1260720 | replayed: different operators, the finite graph from its spectrum and the lattice from its walks | THEOREM | 23 |
 | the six-line transition (hub, 09:54: J06) | det P = (-1/14)^5 < 0, so P is no e^B; P^2 = e^(log 196 (E - I)) | replayed | THEOREM | 23 |
 | the Golden Gauss operator's symmetry (hub, 09:54: J19; separate model, 09:54) | M M^T + G5^2 = 8I; stabilizer of order 10 and ten sign-reversing permutations | replayed: x -> ax + b multiplies G5 by (a/5), so D10 fixes it and the rest of AGL(1,5) reverses it, and no other permutation sends it to +-G5 | THEOREM | 23 |
+| the N34 boundary jets (hub; canon N34-012, N34-013) | y5 + 248 y3 = 0, y7 - 58181 y3 = 0 (bright, m1 = 232, m2 = 54213); y5 + (1039/4) y3 = 0 (dark, m1 = 975/4); separation 47/4 | replayed as arithmetic of the held moments: the odd jets of y'' + Delta y = v f from rest for a forcing with jets 1, -16, 256 (frequency 4); the canon's source q'' + 4q = 0 (frequency 2) would give 236 and 55157 | THEOREM | 23 |
+| the 49-tuple (hub, 09:23; canon N34-021) | 49 offsets of diameter 240 with 0 and 2, admissible for every prime | replayed: a residue is omitted mod every prime p <= 47 and p > 49 is trivial; arithmetic about a tuple, nothing about primes | THEOREM | 23 |
+| tr A^2 = W_3 (MODEL, 14:06) | the root graph's tr A^2 = 13440 is the same integer as the lattice's W_3 | a reason, not a coincidence: both count the 240 x 56 ordered root pairs at inner product +-1, matched by r' -> -r' | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

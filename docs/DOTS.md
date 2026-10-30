@@ -843,5 +843,6 @@ The maps that join each pair of levels directly.
 | the hub's 09:23 text, unreplayed parts | the literal 49-tuple and the bounded-gap route, the PTP13 and R15 certificates, the marked contrast port's Green bounds, the J7 host, the Woodbury Green formula, the information cut and the time-order test need operands or analytic inputs not stored here | REPORTED |
 | the separate model's unified connections (09:54) | 1701713 bytes; 134 new exact groups (arithmetic 40, tangent 12, static return 61, vertex join 21), 20 new typed joins (610 relationships); certificate read, capsule not decoded or run | REPORTED |
 | the N33 six-view frame (hub, 09:54: J09) | six rank-four K_i on Lambda^2 P5 with sum (12/5) I10 and four-view spectrum (12/5)^3 (8/5)^3 (6/5)^3 (2/5): source-reported, the projectors are not stored here | REPORTED |
+| the canon's N34 release (14:04-14:11) | 32 source-graded claims from 12 families in five new tabs (3755 and 3710 sheets), no new matrix ids and no gate changes; two integrator replays (the G5 complement and the 49-tuple), both held here; read from its receipts and claims CSV, the workbooks not opened | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.
