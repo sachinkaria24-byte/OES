@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.59,
+  "1-carrier": 0.75,
   "2-spectral": 0.01,
-  "3-spacetime": 9.33,
-  "4-native": 95.57,
-  "5-observer": 0.31,
-  "6-gravity": 4.87,
-  "7-cosmology": 1.94,
-  "8-frontier": 39.69,
-  "9-joins": 8.67,
-  "10-literal": 36.53,
-  "11-glue": 0.21,
-  "12-binding": 0.08,
-  "13-gates": 0.13,
-  "14-recurrence": 78.44,
-  "15-court": 1.77,
-  "16-handover": 1.37,
-  "17-waves": 0.8,
-  "18-snapshot": 1.45,
-  "19-spine": 4.88,
-  "20-canon": 6.13,
-  "21-ledger": 46.5,
-  "22-counts": 22.17,
-  "23-dots": 231.61,
-  "24-assignment": 3.35,
-  "25-unify": 4.1,
-  "26-primes": 4.5,
-  "27-places": 2.02,
-  "28-principal": 1.83
+  "3-spacetime": 9.41,
+  "4-native": 99.44,
+  "5-observer": 0.55,
+  "6-gravity": 5.54,
+  "7-cosmology": 1.9,
+  "8-frontier": 40.4,
+  "9-joins": 8.04,
+  "10-literal": 37.13,
+  "11-glue": 0.19,
+  "12-binding": 0.12,
+  "13-gates": 0.27,
+  "14-recurrence": 77.45,
+  "15-court": 1.75,
+  "16-handover": 1.36,
+  "17-waves": 0.73,
+  "18-snapshot": 1.51,
+  "19-spine": 4.89,
+  "20-canon": 6.08,
+  "21-ledger": 45.18,
+  "22-counts": 22.47,
+  "23-dots": 318.56,
+  "24-assignment": 3.68,
+  "25-unify": 3.68,
+  "26-primes": 5.17,
+  "27-places": 1.94,
+  "28-principal": 1.76
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 746,
-   "total": 746
+   "passed": 747,
+   "total": 747
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 122,
-   "total": 122
+   "passed": 125,
+   "total": 125
   }
  },
  "checks": [
@@ -10989,6 +10989,38 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 00:52 text and the 00:46-01:16 model: the native moments m7 and m8 on the lattice with the 5 x 5 Hankel and the next Jacobi entries, the five-site port's sectors, the identity step's band 0 (a correction), the pentagon metric, the golden convergents and the arithmetic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the root-wedge port's moments through order 8 on the lattice (H^4 on 4770696 sites from the column e01): m7 = 40427488329573760 and m8 = 9664268760217668816, the hub's values, and all nine are the binomial transform of its adjacency moments 1, 8, 453, ..., 341474102417616": true,
+    "the 5 x 5 Hankel determinant is 925993405224288478170979103007 > 0, the monic norms are 1, 389, 219823907/389, 275042684645559311/219823907 and 925993405224288478170979103007/275042684645559311, and the next Jacobi entries are a3 = 9170078120306091261578543712/60460957530555757944248077 and b4^2 = 203555488192637304566628840438354188349/75648478377036587574008272018794721": true,
+    "five roots with pairwise products 1 carry the uniform moments 1, 236, 56144 (variance 448) and the contrast moments 1, 241, 58264, 14121093 (variance 183), the contrast being E_(k+1)/240; the next Lanczos coefficient is 35366/183, and 58702 - 242^2 = 138": true,
+    "correction: at the identity step the band is 0, the minimum, not 240; the formula 248 - 8 mu(d)/phi(d) of layer 28 holds for d > 1, since at d = 1 the 240 roots add 240 to the character": true,
+    "the pentagon metric [4, 1, -2, -2, 1] has characteristic polynomial (t - 2)(t^2 - 9t + 9)^2 and determinant 162; det(I + J) = 6 and 162/6 = 27 is no square, so the two forms are not rationally isometric; mod 241, (183I + 58J)(54I + 182J) = I for the six-site J": true,
+    "the golden convergents 2/1, 3/2, 5/3, 8/5, 13/8, 21/13 end 1/104 apart with phi between the last two; x -> 1 + 1/x and z -> z^2 - 1 share the fixed-point equation and differ at 2 (3/2 against 3); the quadratic's multipliers 1 +- sqrt5 multiply to -4 and both exceed 1 in size, and 0 <-> -1 is its superattracting 2-cycle": true,
+    "arithmetic: K5 has 125 spanning trees (Cayley) among C(10, 4) = 210 four-edge sets; 1 + 5 x 7 = 36; the compound of I4 + J4 has determinant 125 and det(12I5 - 2J5) = 41472 = 16^2 x 162; Lambda^2 diag(2, 1, 1, 1, 1) has eigenvalues 2^4 1^6; the Singleton bounds 21 - 17 + 1 = 5 and 25 - 12 + 1 = 14; C(21, 4) x 250 = 1496250; N33's sheets 3750 and 3705 follow 14 = 2 + 3 + 4 + 5 and three steps of 4, with claims 12 + 29 + 25 + 29 = 95; E4 < 7/4; the coordinates of rho have plain square sum 56492 against |rho|^2 = 620; and the clock orders hold": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 01:17: the sibling's MODEL editions of 00:46-01:16, the latest (01:16) read as text, with its spine29.ts (01:16) read as data, not run; the hub's OES_Unified_Model_20261029.txt as revised at 00:52 (a new opening chapter over the preserved v23 paper, the 360/093 paper v14 and three source appendices) read as text; the canon's N33 release read from its receipt; the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's F20 bridge and positive operator family, the source pullback action, the two causal input contracts and their five-time codes, the electrical-flow Green certificates and the sibling's rounded lower Green values, source determinants and noise constant",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11142,6 +11174,14 @@
   {
    "layer": "23-dots",
    "name": "not joined: the separate model's reconciled capsule (00:30): 5032710 bytes, 189 new check groups and 887 matrix references, with a source patch of 8240856 bytes; certificate read, nothing decoded or run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the canon's N33 release (00:59-01:06): 29 selected-reference source-graded claims from seven families in four new tabs (3750 and 3705 sheets), no new matrix ids and no gate changes; read from its receipt",
    "status": "REPORTED",
    "passed": true,
    "value": null,
