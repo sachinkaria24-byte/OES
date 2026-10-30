@@ -302,6 +302,7 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the Petersen sequence (hub, 00:25) | B B^T = 3I + A_Petersen = 4I + J - K, rank 10; P_source and (B B^T)^-1 as polynomials | replayed and joined (synthemes -> Petersen) | THEOREM | 23 |
 | the Weyl vector's order (MODEL, 00:04-00:38) | 46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's | corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2 | THEOREM | 23 |
 | the memory clock's stepping (layer 3) | one circle step is one memory step: k -> A^k onto the order-90 clock, a selection | unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct) | THEOREM | 23 |
+| the pentagon operator (MODEL, 08:22-08:44) | +1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four | replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

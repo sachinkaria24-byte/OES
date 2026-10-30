@@ -836,5 +836,6 @@ The maps that join each pair of levels directly.
 | the separate model's reviewed and extended capsules (21:46, 23:40) | 1692628 and 6462293 bytes; 72 and 271 new check groups, 26 and 1572 matrix references; certificates read, capsules not decoded or run | REPORTED |
 | the canon's N31 release (23:36-23:40) | 29 source-reported claims in four new tabs (3742 and 3697 sheets), no new matrix ids and no gate changes; read from its two receipts | REPORTED |
 | the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51) | Python verifiers, JSON receipts and SHA256SUMS: not downloaded and not run; their stated results are replayed | REPORTED |
+| the N33 sector sheet's moments (MODEL, 08:22-08:44) | 1, 242, 58702, 14267058 with a characteristic polynomial of degree 18 and a minimal one of degree 9; the sheet's operator is not opened here; the list is neither the contrast list nor the triangle port's (notes_0844) | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

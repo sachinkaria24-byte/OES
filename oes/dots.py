@@ -388,7 +388,7 @@ import functools
 import itertools
 from collections import Counter
 from fractions import Fraction
-from math import ceil, factorial, gcd, lcm, log2
+from math import ceil, comb, factorial, gcd, lcm, log2
 
 import numpy as np
 import sympy as sp
@@ -8813,6 +8813,64 @@ def _petersen_traces():
     return tr, cycles(5), cycles(6)
 
 
+def notes_0844():
+    """The sibling's MODEL of 08:22-08:44: the 01:21 certificate, the pentagon operator, the overlays, the N33
+    workbooks and the sector sheet."""
+    order = lambda s: N // gcd(s, N)
+    I5, J5, s5 = sp.eye(5), sp.ones(5, 5), sp.sqrt(5)
+    R = sp.Matrix(5, 5, lambda i, j: int(j == (i + 1) % 5))
+    P = sp.Matrix(5, 5, lambda i, j: 0 if i == j else 1 if (j - i) % 5 in (1, 4) else -1)
+    B = sp.Matrix(carrier.signed_incidence())
+    Q = sp.Matrix.hstack(*[I5[:, i] - I5[:, 4] for i in range(4)])     # a basis of the sum-zero four
+    on_four = lambda X: (Q.T * Q).inv() * Q.T * X * Q
+    half = (I5 + P / s5) / 2
+    roots = glue.roots()
+    graph = sorted(Counter(np.rint(np.linalg.eigvalsh(np.isclose(roots @ roots.T, 1).astype(float))).astype(int)).items())
+    m = [1, 242, 58702, 14267058]
+    b1 = m[2] - m[1] ** 2
+    left = m[3] - m[1] ** 3 - 2 * m[1] * b1
+    return {
+        "the 01:21 certificate: its ten exact-check counts sum to 393 and its regressions to 14 and 8; 500 + 56 = 556, "
+        "135 - 115 = 20, 53130 = C(25, 5), 1496250 = C(21, 4) x 250, 63 = 2^6 - 1 and 15 = C(6, 2); on the circle 393, "
+        "556, 56, 115, 506 and 67 have orders 1440, 1080, 540, 864, 2160 and 4320":
+            sum([54, 80, 15, 24, 14, 27, 98, 67, 9, 5]) == 393 and 3 + 2 + 9 == 14 and 4 + 2 + 2 == 8
+            and 500 + 56 == 556 and 135 - 115 == 20 and comb(25, 5) == 53130 and comb(21, 4) * 250 == 1496250
+            and 2 ** 6 - 1 == 63 and comb(6, 2) == 15
+            and [order(x) for x in (393, 556, 56, 115, 506, 67)] == [1440, 1080, 540, 864, 2160, 4320],
+        "the pentagon operator, +1 on the pentagon steps and -1 on the pentagram steps, is the tick's Gauss sum "
+        "R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices: P^2 = 5I - J = B B^T, the K5 Laplacian, P kills "
+        "the constants and (sqrt5 I + P)(sqrt5 I - P) = J; so (I +- P/sqrt5)/2 are complementary projectors on the "
+        "sum-zero four, where P has eigenvalues +-sqrt5 twice each, and not on R^5":
+            P == R + R ** 4 - R ** 2 - R ** 3 == 2 * (I5 + R + R ** 4) - I5 - J5 and P * P == 5 * I5 - J5 == B * B.T
+            and P * sp.ones(5, 1) == sp.zeros(5, 1)
+            and sp.simplify((s5 * I5 + P) * (s5 * I5 - P) - J5) == sp.zeros(5)
+            and sp.simplify(on_four(half) ** 2 - on_four(half)) == sp.zeros(4)
+            and sp.simplify(half * half - half) != sp.zeros(5) and P.eigenvals() == {s5: 2, -s5: 2, 0: 1},
+        "the 01:21 checkpoint's overlays: 52 + 56 + 70 + 142 = 320 new exact checks, 4 + 4 + 10 + 8 + 8 = 34 "
+        "regressions and 24 + 108 + 103 + 132 + 125 + 528 = 1020 payloads; the step 6 has order 720 = 4320/6, 320 has "
+        "order 27 and 1020 order 72":
+            sum([52, 56, 70, 142]) == 320 and sum([4, 4, 10, 8, 8]) == 34
+            and sum([24, 108, 103, 132, 125, 528]) == 1020 and order(6) == 720 == N // 6
+            and order(320) == 27 and order(1020) == 72,
+        "the N33 workbooks: 3750 - 3705 = 45 sheets; 6 + 6 + 18 + 210 = 240 with 6 + 6 + 18 = 30, six classes of 40; "
+        "183 + 6 x 52 = 495; 241I - J has trace 1440 = 6 x 240 on six sites; 21 - 17 + 1 = 5 meets the Singleton "
+        "bound; 125 = 5^3 and 5985 = C(21, 4)":
+            3750 - 3705 == 45 and 6 + 6 + 18 + 210 == 240 and 6 + 6 + 18 == 30 and 240 // 6 == 40
+            and 183 + 6 * 52 == 495 and (241 * sp.eye(6) - sp.ones(6, 6)).trace() == 1440 == 6 * 240
+            and 21 - 17 + 1 == 5 and 5 ** 3 == 125 and comb(21, 4) == 5985,
+        "the sector sheet: the root graph's eigenvalues besides its degree 56 are 28, 8, -2 and -4, which add to 30 and "
+        "whose absolute values multiply to 1792 = 8 x 224; the sheet's moments 1, 242, 58702, 14267058 have variance "
+        "138 and the next Jacobi coefficient 27778/138 = 13889/69, and differ from the contrast list 1, 241, 58264, "
+        "14121093 by 1, 438 and 145965 and from the triangle port's 1, 242, 58691, 14259954 by 0, 11 and 7104; 30 and "
+        "210 have order 144, 40 order 108, 125 order 864 and 29 order 4320":
+            [e for e, _ in graph] == [-4, -2, 8, 28, 56] and 28 + 8 - 2 - 4 == 30 and 28 * 8 * 2 * 4 == 1792 == 8 * 224
+            and b1 == 138 and left == 27778 and Fraction(left, b1) == Fraction(13889, 69) and left % b1
+            and (242 - 241, 58702 - 58264, 14267058 - 14121093) == (1, 438, 145965)
+            and (58702 - 58691, 14267058 - 14259954) == (11, 7104)
+            and [order(x) for x in (30, 210, 40, 125, 29)] == [144, 144, 108, 864, 4320],
+    }
+
+
 # ------------------------------------------------------------------- joins of 30 Oct: every dot on THEOREM maps but two
 
 def _cycles(perm):
@@ -9733,6 +9791,7 @@ LEDGER_ROWS = [
     ("the Petersen sequence (hub, 00:25)", "B B^T = 3I + A_Petersen = 4I + J - K, rank 10; P_source and (B B^T)^-1 as polynomials", "replayed and joined (synthemes -> Petersen)", T, "23"),
     ("the Weyl vector's order (MODEL, 00:04-00:38)", "46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's", "corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
+    ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -9802,6 +9861,11 @@ NOT_JOINED = [
                                                                                               "downloaded and not run; their "
                                                                                               "stated results are replayed",
      RP),
+    ("the N33 sector sheet's moments (MODEL, 08:22-08:44)", "1, 242, 58702, 14267058 with a characteristic "
+                                                          "polynomial of degree 18 and a minimal one of degree "
+                                                          "9; the sheet's operator is not opened here; the list "
+                                                          "is neither the contrast list nor the triangle port's "
+                                                          "(notes_0844)", RP),
 ]
 
 
@@ -10523,6 +10587,15 @@ def run():
     rep.add("not replayed: the hub's F20 bridge and positive operator family, the source pullback action, the two causal "
             "input contracts and their five-time codes, the electrical-flow Green certificates and the sibling's "
             "rounded lower Green values, source determinants and noise constant", RP, True)
+    n0844 = notes_0844()
+    rep.add("the 08:22-08:44 model: the 01:21 certificate's counts and circle orders, the pentagon operator as the "
+            "tick's Gauss sum (a symmetric square root of the K5 Laplacian), the overlays, the N33 workbooks and the "
+            "sector sheet", T, all(n0844.values()), n0844)
+    rep.add("Drive check 08:51: the sibling's MODEL editions of 08:22-08:44, the latest (08:44) read as text, with its "
+            "spine29.ts (08:44) read as data, not run; nothing else on Drive is newer than 01:29; the OES-paper PDFs "
+            "not read", RP, True)
+    rep.add("not replayed: the N33 sector sheet's moments 58702 and 14267058 and its polynomials of degrees 18 and "
+            "9 (the sheet's operator is not opened here), and the overlays' 33083 base instances", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

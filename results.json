@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.65,
+  "1-carrier": 0.69,
   "2-spectral": 0.01,
-  "3-spacetime": 7.77,
-  "4-native": 95.76,
-  "5-observer": 0.6,
-  "6-gravity": 5.96,
-  "7-cosmology": 1.81,
-  "8-frontier": 39.77,
-  "9-joins": 7.64,
-  "10-literal": 34.91,
-  "11-glue": 0.17,
-  "12-binding": 0.09,
-  "13-gates": 0.1,
-  "14-recurrence": 76.51,
-  "15-court": 1.92,
-  "16-handover": 1.29,
+  "3-spacetime": 11.64,
+  "4-native": 112.05,
+  "5-observer": 0.26,
+  "6-gravity": 7.24,
+  "7-cosmology": 2.22,
+  "8-frontier": 47.6,
+  "9-joins": 11.44,
+  "10-literal": 39.31,
+  "11-glue": 0.25,
+  "12-binding": 0.06,
+  "13-gates": 0.09,
+  "14-recurrence": 81.05,
+  "15-court": 1.85,
+  "16-handover": 1.33,
   "17-waves": 0.78,
-  "18-snapshot": 1.6,
-  "19-spine": 5.07,
-  "20-canon": 6.37,
-  "21-ledger": 45.06,
-  "22-counts": 20.96,
-  "23-dots": 313.02,
-  "24-assignment": 3.26,
-  "25-unify": 3.91,
-  "26-primes": 4.93,
-  "27-places": 1.84,
-  "28-principal": 2.03
+  "18-snapshot": 0.98,
+  "19-spine": 4.56,
+  "20-canon": 6.89,
+  "21-ledger": 49.42,
+  "22-counts": 26.8,
+  "23-dots": 373.14,
+  "24-assignment": 3.6,
+  "25-unify": 4.32,
+  "26-primes": 5.5,
+  "27-places": 2.18,
+  "28-principal": 1.69
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 747,
-   "total": 747
+   "passed": 757,
+   "total": 757
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -113,8 +113,8 @@
    "total": 24
   },
   "CONDITIONAL": {
-   "passed": 23,
-   "total": 23
+   "passed": 26,
+   "total": 26
   },
   "REPORTED": {
    "passed": 126,
@@ -9325,7 +9325,137 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 71 dots and 294 joins form one connected diagram (the obstructions left out)",
+   "name": "circle -> memory clock: the circle maps onto the memory clock's group <A> = Z/90 in 24 ways, k -> A^(uk) for the units u, each with kernel <90>; A^u has A's cycle type 10^11 9 1, so the memory's normalizer in S_120 makes the 24 conjugate: the stepping is unique up to the memory's symmetry, without the selection (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the memory clock A permutes its 120 states with cycle type 10^11 9 1, so it has order 90": true,
+    "every map of the circle onto <A> = Z/90 is k -> A^(uk) for one of the 24 units u mod 90, and each has kernel <90>, 48 points": true,
+    "A^u has A's cycle type for every unit u, and a permutation of the 120 states conjugates it to A: the memory's normalizer in S_120 makes the 24 maps one orbit, so the canon's stepping k -> A^k is unique up to the memory's symmetry": true,
+    "for every one of them the 9-cycle reads x -> u x mod 9 and each 10-cycle x -> u x mod 10, and u is a power of 2 mod 9 and mod 5 (2 is a primitive root of both): the vortex x mod 9 and the time coordinate x mod 5, up to the doubling": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "memory clock -> vortex: for every map of the circle onto the memory clock the 9-cycle reads x -> u x mod 9, and u mod 9 is a power of 2, a primitive root mod 9: the vortex up to its doubling (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the memory clock A permutes its 120 states with cycle type 10^11 9 1, so it has order 90": true,
+    "every map of the circle onto <A> = Z/90 is k -> A^(uk) for one of the 24 units u mod 90, and each has kernel <90>, 48 points": true,
+    "A^u has A's cycle type for every unit u, and a permutation of the 120 states conjugates it to A: the memory's normalizer in S_120 makes the 24 maps one orbit, so the canon's stepping k -> A^k is unique up to the memory's symmetry": true,
+    "for every one of them the 9-cycle reads x -> u x mod 9 and each 10-cycle x -> u x mod 10, and u is a power of 2 mod 9 and mod 5 (2 is a primitive root of both): the vortex x mod 9 and the time coordinate x mod 5, up to the doubling": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "memory clock -> time clock: for every map of the circle onto the memory clock the 10-cycles read x -> u x mod 10, and u mod 5 is a power of 2, a primitive root mod 5: the time coordinate x mod 5 up to its doubling (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the memory clock A permutes its 120 states with cycle type 10^11 9 1, so it has order 90": true,
+    "every map of the circle onto <A> = Z/90 is k -> A^(uk) for one of the 24 units u mod 90, and each has kernel <90>, 48 points": true,
+    "A^u has A's cycle type for every unit u, and a permutation of the 120 states conjugates it to A: the memory's normalizer in S_120 makes the 24 maps one orbit, so the canon's stepping k -> A^k is unique up to the memory's symmetry": true,
+    "for every one of them the 9-cycle reads x -> u x mod 9 and each 10-cycle x -> u x mod 10, and u is a power of 2 mod 9 and mod 5 (2 is a primitive root of both): the vortex x mod 9 and the time coordinate x mod 5, up to the doubling": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> product geometry: on M4 x F the cross terms cancel, D^2 = D_M^2 (x) 1 + m^2 (1 (x) D_F^2): over every level of M4 sits the tower 0, 3m^2, 8m^2 (multiplicities 5, 8, 2), whose bottom is the five dark modes ker M, and the heat trace factorizes; M4 and m stay free (30 Oct)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "for D = D_M (x) 1 + gamma (x) m D_F, with gamma^2 = 1 anticommuting with D_M, the cross terms cancel: D^2 = D_M^2 (x) 1 + m^2 (1 (x) D_F^2), checked exactly on an even stand-in for M4's Dirac operator": true,
+    "so spec D^2 = spec D_M^2 + m^2 {0, 3, 8}: over every level of M4 sits the tower 0, 3m^2, 8m^2 with multiplicities 5, 8 and 2, and the heat trace factorizes as Tr e^(-t D_M^2) (5 + 8 e^(-3 m^2 t) + 2 e^(-8 m^2 t))": true,
+    "the bottom of every tower is the five dark modes: ker D_F = 0 + ker M, so the massless sector of M4 x F is M4's levels times ker M, with the gap 3 m^2 = (h(D5) - h(A4)) m^2; M4 and m stay free": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> FLRW: the stiff sector is the five dark modes: the kernel projector 0 + P_kerM commutes with D^2, so a^3 P0 psi' is conserved on every flat FLRW background and the dark modes' energy falls as a^-6 (30 Oct)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "the kernel projector of D^2 is 0 + the projector onto ker M: the stiff sector is the five dark modes": true,
+    "P0 commutes with D^2, so psi'' + 3 H psi' + m^2 D^2 psi = 0 gives (a^3 P0 psi')' = 0: the dark modes' momentum a^3 P0 psi' is conserved whatever a(t) does, and their energy falls as a^-6 (checked along the flow, over which a grows 26-fold)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "FLRW -> calibration: a calibration t -> tau t acts on the cosmos's free inputs, m -> m/tau and Lambda_cc -> Lambda_cc/tau^2, with the same a and psi, so the cosmos has no internal time unit either; in the decoupling limit its flow is the native flow in u = m t, a calibration with tau = 1/m (30 Oct)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "t -> tau t with m -> m/tau and Lambda_cc -> Lambda_cc/tau^2 carries the flow psi'' + 3 H psi' + m^2 D^2 psi = 0, H^2 = (8 pi G/3) rho + Lambda_cc/3 to a flow with the same a and psi, H and psi' divided by tau (checked at tau = 2 for Lambda_cc = 0 and 0.3): the conditional cosmos has no internal time unit either": 1.0,
+    "in the decoupling limit G -> 0 with Lambda_cc tuned to 0, H stays 0 and the flow is the carrier's native flow in u = m t: the free mass scale is a calibration with tau = 1/m (checked at m = 1/2)": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "day-Coxeter group -> residue plane: G120 acts on the tick's residue field F25 by multiplication, with kernel the tick <g> and image all of F25^x, the day's 24 powers: G120 / <g> = F25^x and G120 = <g> x| <d>, the day doubling the tick (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "G120 = <c', d> has 120 elements, and each acts on the tick's residue plane E8/(1 - g)E8 as a multiplication a + b omega of the field F25 = F5[omega], omega the image of c'": true,
+    "its image is all of F25^x, the 24 powers of the day, and its kernel is the tick <g>: G120 / <g> = F25^x, so G120 = <g> x| <d>, the day doubling the tick (d g d^-1 = g^2)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "eight-root frame -> critical census: the frame's 72 roots are an A8, and each dual vector w_j is a point of order 3 whose stabilizer is exactly that A8: the band is critical there at 252, the census's A8 family of 1920 points, the alcove's vertex of mark 3 and the principal steps 1440 and 2880 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the frame's 72 roots, +-v_i and v_i - v_j, are the roots of its span, an A8: Gram I + J is the A8 form in the basis e0 - e_i": true,
+    "each dual vector w_j is a point of order 3 of the momentum torus (3 w_j lies in E8, w_j does not) whose stabilizer is exactly the frame's A8": true,
+    "the band is critical there with eps = 252: the census's A8 family of 1920 = |W(E8)| / |W(A8)| points, the alcove's vertex of mark 3 and the principal steps 1440 and 2880": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> four-cube: on the four-cube's vertices, the sixteen cuts of K5 mod 2 = F16 by delta({k}) -> zeta^k, the tick multiplies by a primitive fifth root of unity and the doubling is the Frobenius y -> y^2: AGL(1,5) acts as <zeta5> x| Gal(F16/F2) inside GammaL(1,16) (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "delta({k}) -> zeta^k is a bijection from the sixteen cuts of K5 mod 2, the four-cube's vertices, onto F16 = F2[zeta5], well defined since the five vertex stars sum to 0 as the fifth roots of unity do": true,
+    "the tick k -> k + 1 multiplies by zeta and the doubling k -> 2k is the Frobenius y -> y^2: AGL(1,5) acts on the cube's vertices as <zeta5> x| Gal(F16/F2) inside GammaL(1,16)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "grain -> principal circle: on the principal circle the grain is the 60 points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3, with the spectra of the golden clock and the sun; it holds the steps of the eleven regular orders dividing 60, all but the day's 8 and 24 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the principal circle the grain <72> is the 60 points k rho/60, generated by the golden step 216 = rho/20 and the sun's step 1440 = rho/3, which carry the spectra of the golden clock and of the sun s = c'^10, the regular classes 20 and 3": true,
+    "it holds the step 4320/d of a regular order d exactly when d divides 60: the eleven regular orders 1, 2, 3, 4, 5, 6, 10, 12, 15, 20 and 30, all but the day's 8 and 24": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PG(2,5) -> synthemes: the three secants through an interior point of PG(2,5) meet the conic in a syntheme: the ten interior points are the ten nonspecial synthemes, and the fifteen exterior points, in five self-polar triangles, give the special five, a one-factorization; a labelling that carries the exceptional sigma onto PGL(2,5) matches them with the Sylow labels' 10 + 5 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the three secants through an interior point of PG(2,5) meet the conic in a syntheme of its six points, and the ten interior points give ten different synthemes": true,
+    "through an exterior point pass two secants, and with the duad of its two tangents they make a syntheme too: the fifteen exterior points give five synthemes, three times each, at the vertices of a self-polar triangle, and the five are a one-factorization, the other five of the fifteen": true,
+    "a labelling of the conic by the six Sylow labels carries the hub's exceptional sigma onto PGL(2,5), and with it the five are the synthemes dot's special five, invariant under the exceptional S5, and the interior points its ten": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 71 dots and 305 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9581,7 +9711,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 26, operator-physics 22 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 12, combinatorics-lattice 5, lattice-operator 26, operator-physics 24 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9605,7 +9735,8 @@
      "S5 -> cycles",
      "words -> surface",
      "pgl -> synthemes",
-     "pgl -> rotor"
+     "pgl -> rotor",
+     "AGL -> cube"
     ],
     [
      "E -> A4",
@@ -9664,21 +9795,23 @@
      "darkport -> readout",
      "source -> readout",
      "darkport -> readout",
-     "parent -> readout"
+     "parent -> readout",
+     "kerM -> gravity",
+     "kerM -> cosmology"
     ]
    ],
    "note": ""
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 68 of the 71 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 69 of the 71 dots: all but the product geometry and FLRW, which need an external 4-manifold, cutoff and mass scale and attach only through CONDITIONAL joins (J10, the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration); the memory clock is reached by the circle's 24 maps onto it, without the selection",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 264,
+    "THEOREM": 272,
     "OBSTRUCTION": 16,
     "SELECTED_REFERENCE": 10,
-    "CONDITIONAL": 4
+    "CONDITIONAL": 7
    },
    "note": ""
   },
@@ -9695,22 +9828,22 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 7, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 23, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 26, lattice-physics 5, operator-physics 22",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 8, number-operator 3, number-physics 2, symmetry-combinatorics 12, symmetry-lattice 24, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 26, lattice-physics 5, operator-physics 24",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 5,
     "(3, 4)": 26,
     "(2, 4)": 19,
-    "(1, 3)": 23,
-    "(1, 2)": 11,
+    "(1, 3)": 24,
+    "(1, 2)": 12,
     "(0, 1)": 7,
     "(0, 2)": 3,
     "(1, 4)": 12,
-    "(4, 5)": 22,
+    "(4, 5)": 24,
     "(2, 5)": 7,
     "(3, 5)": 5,
-    "(0, 3)": 7,
+    "(0, 3)": 8,
     "(0, 4)": 3,
     "(0, 5)": 2,
     "(1, 5)": 7
@@ -9719,25 +9852,36 @@
   },
   {
    "layer": "23-dots",
-   "name": "no two maps hold the diagram together: every dot but the product geometry and FLRW lies on three maps, and removing any two leaves it connected, except that it can cut off those two conditional dots",
+   "name": "no two maps hold the diagram together: every dot lies on at least three maps, and removing any two maps leaves it connected",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "every dot but the product geometry and FLRW lies on at least three maps": true,
-    "removing any two maps leaves the diagram connected, except that it can cut off the product geometry or FLRW, whose only maps are conditional": true
+    "every dot lies on at least three maps": true,
+    "removing any two maps leaves the diagram connected": true
    },
    "note": ""
   },
   {
    "layer": "23-dots",
-   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 68 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
+   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 69 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM maps alone reach every dot but the product geometry, FLRW and the memory clock": true,
+    "THEOREM maps alone reach every dot but the product geometry and FLRW, which need an external 4-manifold, cutoff and mass scale": true,
     "every one of those dots lies on at least three THEOREM maps": true,
     "no one THEOREM map and no two THEOREM maps hold that diagram together": true,
     "every pair of the six levels is joined directly by at least two THEOREM maps": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "no one and no two dots hold the diagram together: removing any two of the 71 dots, with their maps, leaves the rest joined, and removing any two of the 69 THEOREM dots leaves the rest joined by THEOREM maps",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "removing any one or any two dots, with their maps, leaves the other dots joined": true,
+    "and the THEOREM maps alone: removing any one or two of the 69 dots they reach leaves the rest joined by THEOREM maps": true
    },
    "note": ""
   },
@@ -11798,6 +11942,14 @@
   {
    "layer": "25-unify",
    "name": "the circle's selection 144 -> c'^k is one of eight, and the normalizer of <c'> realizes every unit k, so all eight are conjugate",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the memory clock's stepping k -> A^k is one of the circle's 24 maps onto it, and its normalizer in S_120 realizes every unit mod 90, so all 24 are conjugate",
    "status": "THEOREM",
    "passed": true,
    "value": null,
