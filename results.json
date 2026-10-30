@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.62,
+  "1-carrier": 0.59,
   "2-spectral": 0.01,
-  "3-spacetime": 7.16,
-  "4-native": 92.3,
-  "5-observer": 0.33,
-  "6-gravity": 4.97,
-  "7-cosmology": 1.88,
-  "8-frontier": 38.71,
-  "9-joins": 7.76,
-  "10-literal": 36.71,
-  "11-glue": 0.25,
-  "12-binding": 0.05,
-  "13-gates": 0.08,
-  "14-recurrence": 75.57,
-  "15-court": 1.85,
-  "16-handover": 1.34,
-  "17-waves": 0.75,
-  "18-snapshot": 1.47,
-  "19-spine": 4.66,
-  "20-canon": 6.06,
-  "21-ledger": 44.67,
-  "22-counts": 21.22,
-  "23-dots": 192.12,
-  "24-assignment": 3.19,
-  "25-unify": 3.64,
-  "26-primes": 4.95,
-  "27-places": 1.89,
-  "28-principal": 1.87
+  "3-spacetime": 9.33,
+  "4-native": 95.57,
+  "5-observer": 0.31,
+  "6-gravity": 4.87,
+  "7-cosmology": 1.94,
+  "8-frontier": 39.69,
+  "9-joins": 8.67,
+  "10-literal": 36.53,
+  "11-glue": 0.21,
+  "12-binding": 0.08,
+  "13-gates": 0.13,
+  "14-recurrence": 78.44,
+  "15-court": 1.77,
+  "16-handover": 1.37,
+  "17-waves": 0.8,
+  "18-snapshot": 1.45,
+  "19-spine": 4.88,
+  "20-canon": 6.13,
+  "21-ledger": 46.5,
+  "22-counts": 22.17,
+  "23-dots": 231.61,
+  "24-assignment": 3.35,
+  "25-unify": 4.1,
+  "26-primes": 4.5,
+  "27-places": 2.02,
+  "28-principal": 1.83
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 744,
-   "total": 744
+   "passed": 746,
+   "total": 746
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 118,
-   "total": 118
+   "passed": 122,
+   "total": 122
   }
  },
  "checks": [
@@ -9277,6 +9277,18 @@
   },
   {
    "layer": "23-dots",
+   "name": "synthemes -> Petersen: the ten nonspecial synthemes meet the fifteen duads in B with B B^T = 4I + J - K = 3I + A_Petersen: two synthemes share a duad exactly when their K5 edges are disjoint, so B is the signless Petersen incidence, of rank 10, and P_source = (B B^T - I)(6I - B B^T)/6 (the hub, 00:25)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B, the incidence of the ten nonspecial synthemes (in K5-edge order) with the fifteen duads, has three ones in each row and two in each column, and B B^T = 3I + A_Petersen = 4I + J - K for K = M^T M: two synthemes share a duad exactly when their K5 edges are disjoint, so B is the signless incidence of the Petersen graph, of rank 10": true,
+    "the Petersen Gram has eigenvalues 4 on the source ker M, 1 on the charge part and 6 on the constant, so P_source = (BB^T - I)(6I - BB^T)/6 and (BB^T)^-1 = (I + K)/4 - (5/24) J": true,
+    "the full duad-syntheme incidence N has N N^T = 3I + A of the Kneser graph K(6,2), spectrum 9, 4^9, 0^5 and rank 10; K(6,2) has exactly 90 induced four-cycles, while the Levi graph of N (30 vertices, 45 edges) has none": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "residue plane -> root graph: A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38)",
    "status": "THEOREM",
    "passed": true,
@@ -9313,7 +9325,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 71 dots and 293 joins form one connected diagram (the obstructions left out)",
+   "name": "the 71 dots and 294 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9663,7 +9675,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 263,
+    "THEOREM": 264,
     "OBSTRUCTION": 16,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 4
@@ -10945,6 +10957,38 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 00:25 text and the 00:04-00:38 model: the native moments through 6 recomputed on the lattice, their Hankel and Jacobi chain and the Galerkin bound on the static Green scalar, the reflection Casimir 48, the critical steps against the canon's subgroups, the Weyl vector's Bourbaki order (a correction) and the arithmetic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the root-wedge port's moments through order 6 recomputed on the lattice (H^3 on 897672 sites from the column e01) are 1, 232, 54213, 12740592, 3008062816, 712951229280 and 169533368834085: the hub's native m5 and m6 replay, and they are the binomial transform of its adjacency moments 1, 8, 453, ..., 22553934885": true,
+    "their 4 x 4 Hankel determinant is 275042684645559311, the new Jacobi coefficients are a2 = 14038040210424/85511499823 and b3^2 = 106991604327122571979/48322550088744649, and the Galerkin value of [m_(i+j+1)] c = [m_i] at n = 3 is l3 = 6446188211663/1481477624895392 <= s = <T, H^-1 T>; with the hub's congestion bound (n + 1)(n + 2)/48 (stated, not replayed) the upper end 114900908004970886996873523137/26337311436788301626627314003968 follows, so 0.00435118836 <= s <= 0.00436266657": "True",
+    "the 120 root reflections give L_ref T = 48 T on all ten columns of the port (28800 root-reflection pairs), L_ref = sum (I - U_s)": true,
+    "the nine critical steps of layer 28 lie five in the address subgroup <120> (order 36), seven in the principal subgroup <144> (order 30) and three in both (1440, 2880, 2160); <120> and <144> meet in <720>, sit in the subgroup <20> of order 216 and the whole circle respectively, and generate <24> of order 180; <20> holds the five address-critical steps, none of the tick stations, and meets <144> in <720> (the sibling)": true,
+    "correction: the Weyl vector's coordinates 46, 68, 91, 135, 110, 84, 57, 29 are in the Bourbaki order, the order in which the highest root is 2, 3, 4, 6, 5, 4, 3, 2 (Bourbaki's tables); their sum, 620, is |rho|^2": true,
+    "mod 241: 241 = -1 mod 121, so Phi_121 splits into 55 quadratics, one of them t^2 - 133t + 1; (183I + 52J)(54I + 25J) = I and 241I - J = -J for the six-site J; the steps 168, 55 and 133 generate the subgroups of order 180, 864 and 4320": true,
+    "arithmetic: the Petersen graph's power traces are 0, 30, 0, 150, 120, 990, with 12 pentagons and 10 hexagons; 2420 = 121 x 20 generates <20> (order 216) and 132 the subgroup of order 360, meeting in order 72; 4(64 - 6) = 232 and 4(64 + 6) = 280 add to 512; 27 x 47^2/400 = 59643/400; the energy enclosure [5.00015251952, 5.00074396355] holds the older [5.00061970298, 5.00067938080], with 5.0001 below, 5.001 above and 5.0005 inside; the clock orders of 12, 15, 105, 95, 60, 30, 232, 64, 512, 17, 99, 1435, 54, 162 and the landings hold": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 00:32: the sibling's MODEL editions of 00:04-00:38, the latest (00:38) read as text, with its spine29.ts (00:38) read as data, not run; the hub's OES_Unified_Model_20261029.txt as revised at 00:25 (sources through 23:54; 1435 groups in 53 receipts) read as text, its zip (26691563 bytes) not downloaded; the canon's N32 release read from its receipt; the separate model's reconciled capsule recorded from its certificate; the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the hub's operator tomography on 36 Hermitian directions, the active13 and three-exposure erasure costs, the 119 five-cell erasure orbits, the attained energy minimum and its 106040-site interval, the J7 clock quotients and the delayed-Return cutset, the congestion bound itself, and the sibling's minimum-energy caps, defect formulas and rank ladders (their arithmetic replays)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11090,6 +11134,22 @@
   {
    "layer": "23-dots",
    "name": "not joined: SEVEN_PAIRS's decoder: D4 C4 = I3 and the reading ladder need operands not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's reconciled capsule (00:30): 5032710 bytes, 189 new check groups and 887 matrix references, with a source patch of 8240856 bytes; certificate read, nothing decoded or run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the canon's N32 release (00:04-00:13): 25 source-graded claims from nine sources in four new tabs (3746 and 3701 sheets), no new matrix ids and no gate changes; read from its receipt",
    "status": "REPORTED",
    "passed": true,
    "value": null,
