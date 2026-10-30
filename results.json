@@ -57,39 +57,39 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.63,
+  "1-carrier": 0.7,
   "2-spectral": 0.01,
-  "3-spacetime": 9.5,
-  "4-native": 99.5,
-  "5-observer": 0.33,
-  "6-gravity": 4.97,
-  "7-cosmology": 1.92,
-  "8-frontier": 40.22,
-  "9-joins": 7.66,
-  "10-literal": 35.95,
-  "11-glue": 0.21,
-  "12-binding": 0.08,
-  "13-gates": 0.1,
-  "14-recurrence": 76.49,
-  "15-court": 1.89,
-  "16-handover": 1.4,
-  "17-waves": 0.9,
-  "18-snapshot": 1.58,
-  "19-spine": 4.7,
-  "20-canon": 6.16,
-  "21-ledger": 45.4,
-  "22-counts": 21.31,
-  "23-dots": 186.75,
-  "24-assignment": 3.43,
-  "25-unify": 3.71,
-  "26-primes": 4.93,
-  "27-places": 1.85
+  "3-spacetime": 8.08,
+  "4-native": 94.19,
+  "5-observer": 0.7,
+  "6-gravity": 4.98,
+  "7-cosmology": 1.96,
+  "8-frontier": 38.52,
+  "9-joins": 8.15,
+  "10-literal": 34.37,
+  "11-glue": 0.17,
+  "12-binding": 0.04,
+  "13-gates": 0.12,
+  "14-recurrence": 74.03,
+  "15-court": 1.77,
+  "16-handover": 1.52,
+  "17-waves": 0.71,
+  "18-snapshot": 1.46,
+  "19-spine": 4.32,
+  "20-canon": 5.94,
+  "21-ledger": 43.26,
+  "22-counts": 21.66,
+  "23-dots": 193.27,
+  "24-assignment": 3.28,
+  "25-unify": 3.78,
+  "26-primes": 4.96,
+  "27-places": 2.0
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 720,
-   "total": 720
+   "passed": 722,
+   "total": 722
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -116,8 +116,8 @@
    "total": 23
   },
   "REPORTED": {
-   "passed": 114,
-   "total": 114
+   "passed": 118,
+   "total": 118
   }
  },
  "checks": [
@@ -9161,6 +9161,18 @@
   },
   {
    "layer": "23-dots",
+   "name": "residue plane -> root graph: A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "with S the root-line incidence of the six lines (40 roots each), A S = S Q and S^T S = 40 I for Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, with quotient spectrum 56 and (-4)^5 inside 56, 28^8, 8^35, (-2)^112, (-4)^84": true,
+    "the split is reducing: A commutes with S S^T, so the finite graph's cross block between the six-dimensional line part and its 234-dimensional complement, and with it the Schur memory, is zero; the walks per root are 1, 0, 56, 1512, 62160 against the lattice's 1, 0, 240, 13440, 1260720, so the finite graph is not the bath": true,
+    "the line chain Q/56 has diagonal 3/28 and off-diagonal 5/28 and eigenvalues 1 and (-1/14)^5, so one step is no real exponential while two steps are exp(log 196 (J/6 - I))": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -9185,7 +9197,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 70 dots and 283 joins form one connected diagram (the obstructions left out)",
+   "name": "the 70 dots and 284 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9531,7 +9543,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 253,
+    "THEOREM": 254,
     "OBSTRUCTION": 16,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 4
@@ -10779,6 +10791,40 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 23:38 text and the 23:26-00:00 model: the [15, 5, 6] midpoint code and its ten failing nine-sets, the Dirac polynomial, the selected matrix over F5 (conjugate to the inverse day), the Klein fours, the printed moments' Hankel and Jacobi chain, the closure field F_241^2, the cubic over Q(sqrt5), the fixture and the arithmetic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the fifteen midpoint readings of the six Golden vectors (Gram 12I - 2J) are a [15, 5, 6] code: all 3003 ten-reading sets span, and exactly 10 of the 5005 nine-reading sets fail, the zero sets of the ten 3 + 3 splits (the hub)": true,
+    "with K = M^T M, T = (K^2 - 7K - 2I)/2 = -P0 - 7P3 + 3P8 and (P0 + P8) T - (3/10) J = -P0 (the hub)": true,
+    "the selected matrix D = [[1, 4], [1, 2]] over F5 squares to 3C with C of characteristic polynomial x^2 - x + 1, the Coxeter clock's on the residue plane; D^6 = 3I, D^12 = -I, D^24 = I and no power below 6 is scalar; on the six lines D, D^2 and D^3 have cycle types 6, 3 + 3 and 2 + 2 + 2; and D has the characteristic polynomial of the inverse day d^-1 = d^23 (and its Frobenius twin d^19), so it is conjugate to d^-1 in GL(2,5)": true,
+    "the five even Klein fours, one for each omitted vertex, have fifteen non-identity elements, exactly the fifteen disjoint edge pairs; a four-cycle squares to one of them; the quarter-turn squares to -I": true,
+    "if the printed moments 1, 248, 61526, ... are exact, their Hankel determinants are 22, 128724 and 540658207776, so no two atoms match five of them and no three all seven; the Jacobi diagonals are 248, 2556/11 and 24755888/117997 and the off-diagonal squares 22, 32181/121 and 247801678564/345205587; the static resolvent bound 520089621/128932714232 lies between 124/30763 and 1/240, and the stated native enclosure above it": "True",
+    "mod 241, 94/75 = 133, and a root of t^2 - 133t + 1 (whose discriminant is a non-residue) has order 121 in F_241^2, its eleventh power not 1; the cleared Hankel has determinant 81; 1/(3 + 8w + 3w^2) begins 1/3, -8/9, 55/27, which misses the carrier recurrence x^2 + 11x + 24 = (x + 3)(x + 8) by 7/27; the squared frequencies (4 +- sqrt7)/3 are positive": true,
+    "the cubic X^3 - (8/5 + 4 sqrt5/25) X^2 + (39/50 + 47 sqrt5/250) X - (78/625 + 6 sqrt5/125) is negative at 19/20 and positive at 957/1000 and its larger turning point is below 19/20, so its largest root leaves more than 43/1000; sqrt(80/129) lies between 787/1000 and 788/1000, and 75/2 turns 43/1000 into 129/80": true,
+    "the fixture y'' + 64y = -cos 4t, -1 and -sin 4t from rest has the responses (cos 8t - cos 4t)/48, (cos 8t - 1)/64 and sin 8t/96 - sin 4t/48; the bands 4 and 8 on five samples both have squared norm 5/2; Phi_5(2) = 31 = 25 + 6": true,
+    "arithmetic: (1440 + 5s) G_c + s G_u = 6 for every s gives G_c = 1/240 and G_u = -1/48; |W(E8)| = 2^14 3^5 5^2 7 is prime to 11; on the circle 3, 8, 24, 11, 48, 90, 242 and 20 have orders 1440, 540, 180, 4320, 90, 48, 2160 and 216; the enclosure has width 1147821 and reciprocals in (229, 230); C(12, 5..7) = 792, 924, 792, C(12, 8..12) add to 794 and C(25, 5) = 53130; (25 - 1)/(5 - 1) = 6 and (81 - 1)/(9 - 1) = 10 count the lines of the hexad and the decad; 7! - 6! = 4320 = 12 x 360; the three exposures use 13 marks on 9 edges, missing 12 and sharing 02, with 80 one-erasure patterns; and the stated landings x -> 3456x hold": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 23:56: the sibling's MODEL editions of 23:26-00:00, the latest (00:00) read as text, with its spine29.ts (00:01) read as data, not run; the hub's OES_Unified_Model_20261029.txt as revised at 23:38 (sources through 23:15; 1336 groups in 48 receipts) read as text, its zip (20969993 bytes) not downloaded; the canon's N31 release read from its receipts; the separate model's capsules recorded from their certificates; the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the static Schur completion energies 13/27 and 16/27 (the operator is not given), the six petals' POVM, the minimum-energy bath and its Green scalar, the encoder value; the hub's marked and quadratic rosebud bridges (det B = 4/125, Jacobian -256), the [22, 10, 6] exterior code, the 36 norm-four dark copies' jet ranks, the 24 Cauchy moments, the invisible sector and the energy caps",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -10924,6 +10970,22 @@
   {
    "layer": "23-dots",
    "name": "not joined: SEVEN_PAIRS's decoder: D4 C4 = I3 and the reading ladder need operands not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's reviewed and extended capsules (21:46, 23:40): 1692628 and 6462293 bytes; 72 and 271 new check groups, 26 and 1572 matrix references; certificates read, capsules not decoded or run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the canon's N31 release (23:36-23:40): 29 source-reported claims in four new tabs (3742 and 3697 sheets), no new matrix ids and no gate changes; read from its two receipts",
    "status": "REPORTED",
    "passed": true,
    "value": null,
