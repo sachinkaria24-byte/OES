@@ -655,7 +655,7 @@ def test_the_one_object():
                   dots.notes_2150, dots.notes_2222, dots.notes_2253,
                   dots.notes_2325, dots.notes_2356, dots.six_lines, dots.notes_0032,
                   dots.petersen_sequence, dots.notes_0117, dots.notes_0844,
-                  dots.notes_0912, dots.notes_0951):
+                  dots.notes_0912, dots.notes_0951, dots.notes_1004):
         out = check()
         assert all(out.values()), out
     import numpy as np

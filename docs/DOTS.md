@@ -841,5 +841,7 @@ The maps that join each pair of levels directly.
 | the separate model's note corrections (09:07) | 16 exact note-review groups and 3 typed corrections (577 relationships), no new matrix; the corrections are replayed (notes_0912); the capsule's code not run | REPORTED |
 | the separate model's source-history completion (09:24) | 326410 bytes; 32 exact groups, 25 new matrices, 13 new typed joins (587 relationships) and 5 observation contracts; certificate read, zip not opened or run; its Plucker counterfeit is replayed (notes_0951) | REPORTED |
 | the hub's 09:23 text, unreplayed parts | the literal 49-tuple and the bounded-gap route, the PTP13 and R15 certificates, the marked contrast port's Green bounds, the J7 host, the Woodbury Green formula, the information cut and the time-order test need operands or analytic inputs not stored here | REPORTED |
+| the separate model's unified connections (09:54) | 1701713 bytes; 134 new exact groups (arithmetic 40, tangent 12, static return 61, vertex join 21), 20 new typed joins (610 relationships); certificate read, capsule not decoded or run | REPORTED |
+| the N33 six-view frame (hub, 09:54: J09) | six rank-four K_i on Lambda^2 P5 with sum (12/5) I10 and four-view spectrum (12/5)^3 (8/5)^3 (6/5)^3 (2/5): source-reported, the projectors are not stored here | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

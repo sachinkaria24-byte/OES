@@ -2037,6 +2037,30 @@ The replay is `notes_0951`.
 
   The separate model's capsule (32 exact groups, 25 matrices, 13 joins) was not opened or run.
 
+**The 10:26 check.** Three items are new:
+- the hub's `OES_All_Dots_N33_Reconciliation_20261030.txt` (09:54), read as text, with its handover zip (not opened);
+- the separate model's unified-connections capsule (09:54/10:01), recorded from its certificate (10:02);
+- a checkpoint recovery (10:04).
+
+The replay is `notes_1004`. The reconciliation's joins J01–J20 mostly restate what this model already holds:
+- J01: M Mᵀ = 3I + J and spec D² = 0⁵3⁸8²;
+- J02: Petersen as J + I − MᵀM, with B Bᵀ = 4I + J − MᵀM;
+- J04: the root graph's spectrum;
+- J10: the 7-dimensional decomposable cone;
+- J12: no ℓ² point spectrum on the lattice;
+- J19: the 09:12 Gauss operator.
+
+New here:
+- **Two walk counts, two operators** (J04, J05). The finite root graph's closed walks per root are 1, 0, 56, 1512, 62160, 2872800 and 144606784, from its spectrum. The infinite lattice's are W₂, W₃, W₄ = 240, 13440, 1260720.
+- **No real logarithm** (J06). det P = (−1/14)⁵ < 0, so the six-line transition is e^B for no real B. But P² = E + (I − E)/196 = e^(log 196 (E − I)), so it has a two-step Markov embedding.
+- **An MDS code** (J08). The 36 contexts t_c = (2c − 35)/35 are distinct. So all C(36, 3) = 7140 Vandermonde minors are nonzero, giving an MDS [36, 3, 34] code over ℚ that corrects 33 erasures or 16 errors.
+- **The Gauss operator's symmetry** (J19 and the separate model's vertex join).
+  - M Mᵀ + G5² = 8I.
+  - x ↦ ax + b multiplies G5 by the Legendre symbol (a/5). So D10 fixes it and the other ten elements of AGL(1,5) reverse it.
+  - No other permutation of the vertices sends G5 to ±G5.
+- **The connections certificate.** 40 + 12 + 61 + 21 = 134 new exact groups, 6 + 2 + 5 = 13 API regressions, 4105 + 61 = 4166 artifacts, 587 + 20 + 3 = 610 relationships, and 191 files with 190 hashes.
+- **Not replayed.** These are source-reported, and their operands are not stored here: the N33 six-view frame K_i (sum (12/5) I₁₀, four-view spectrum (12/5)³(8/5)³(6/5)³(2/5)) and the reconciliation's Matrix-versus-Repository sheet comparison.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -2348,6 +2372,7 @@ The circle's highest point is the band's top, 256. It is reached only at the hal
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
 - the sibling's MODEL_20261029.md editions of 19:37–20:02 (the latest, 1_TfETkjO8Ra6ofUhZi0PTrIXc9ODtzfU, read as text) and the hub's `OES_Unified_Model_20261029.txt` as revised at 19:39, read as text (its zip, 6685879 bytes, not downloaded); the spine29.ts editions and the OES-paper PDFs of 19:37–20:02, not read: §24, the 19:50 check
 - the separate model's `oes-connected-verification-20261030-0121.txt` (1PGudk-xUzz4ZDN_uqLNPNT8ns5sksj4B), read, with its capsule `oes-connected-model-20261030-0121.txt` (16cGvNIpGEhr-vB_C3085jcRhKLQ20HjD) and `MODEL_UPDATE_CHECKPOINT_RECOVERY_20261030_0121.txt` (1ZCE1H5ZEzCSfX421MfFP2IiRpLv5jiyt) not downloaded: §24, the 01:48 check
+- the hub's `OES_All_Dots_N33_Reconciliation_20261030.txt` (1FwR2Co91n_D0cjAJbQvvpU3pelhtypqK, read as text) and `OES_N33_All_Dots_Verified_Handover_20261030.zip` (138unAtA-xov4o7EJShNphYKpaQ9kN5oX, not opened); the separate model's `OES_Unified_Connections_20261030_0954.txt` (10ZZ2E49rySIkkvKVnKDuRYV3if9zqHzo, not decoded) with its certificate (1QIwzcFRYZOJH7ag15zvRNg5hcemSE_up) and checkpoint recovery (16SIla4PYFT3QE5EpSoFIPCiBP13BaVMI): §24, the 10:26 check
 - the hub's `OES_Unified_Model_20261029.txt` as revised at 09:23 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text); the separate model's `OES_Source_History_Completion_20261030.zip` (1OuPydqts7WuJBPI7ILwi4n0bMjz-33wc, not opened) with its certificate (1WV3j6uGhtblKD1qMVisuuXWTBOmq838B); the sibling's MODEL_20261029.md editions of 09:38–09:51 (the latest, 1D-2FqxMr8_JbYTlpdjR-yvTGB2twod_G, read as text) and its spine29.ts of 09:51 (1t4oFUrG7_P1elsRcSljoLlfFcTz87H5D, read as data, not run): §24, the 09:51 check
 - the sibling's MODEL_20261029.md editions of 09:02–09:12 (the latest, 1JPEt6fYCqoYSjfZPO9HAp7ZVkR1bT672, read as text) and its spine29.ts of 09:12 (1IsZ7fzQgm27gC9eV7z7lk-1Ta1dYZjCP, read as data, not run); the separate model's `OES_Unified_Model_Continuation_20261030.zip` (1t-NaUhNF2PiwS1Ilds9CCc_ahxIEtQM_, not opened) with its certificate (1Ew6Eck8VEgg68O0zkNB3LPtE9JUQF4UM) and checkpoint (1RyMS54i0arKrruWQRXjPi3505tTrpvz4); its `OES_Model_Note_Corrections_20261030_0907.txt` (16KrLSDMsJ65AwWXOHh0wTRzfHQoVnV2m, decoded in memory and read as data, not run), certificate (1ngDG-Ccq-9ox4yUe1prqeH79gnPGsG5d) and checkpoint recovery (1-7o6T3sPB9yYpNuNnoEBEbDmbIeV-JxN): §24, the 09:22 check
 - the sibling's MODEL_20261029.md editions of 08:22–08:44 (the latest, 1a5unQeGcP7S4JdvLXtOrPpj6TEfqvH0k, read as text) and its spine29.ts of 08:44 (18FtZuQ0uimnlBLoj6MxLuNd1rSppRLS5, read as data, not run): §24, the 08:51 check

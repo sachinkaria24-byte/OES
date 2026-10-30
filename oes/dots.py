@@ -9091,6 +9091,52 @@ def notes_0951():
     }
 
 
+def notes_1004():
+    """The hub's N33 reconciliation (09:54) and the separate model's unified connections (09:54)."""
+    roots = glue.roots()
+    A = np.isclose(roots @ roots.T, 1).astype(np.int64)
+    closed = [int(np.trace(np.linalg.matrix_power(A, n))) // 240 for n in range(7)]
+    W, _ = _walks()
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    E = J6 / 6
+    P = (10 * J6 - 4 * I6) / 56
+    t = sp.log(196)
+    nodes = [Fraction(2 * c - 35, 35) for c in range(36)]
+    R = sp.Matrix(5, 5, lambda i, j: int(j == (i + 1) % 5))
+    G5 = R + R ** 4 - R ** 2 - R ** 3
+    M = sp.Matrix(carrier.signless_incidence())
+    perm = lambda p: sp.Matrix(5, 5, lambda i, j: int(i == p[j]))
+    fixed = [p for p in itertools.permutations(range(5)) if perm(p) * G5 * perm(p).T == G5]
+    reversed_ = [p for p in itertools.permutations(range(5)) if perm(p) * G5 * perm(p).T == -G5]
+    affine = {tuple((a * x + b) % 5 for x in range(5)) for a in range(1, 5) for b in range(5)}
+    return {
+        "the finite root graph's closed walks are 1, 0, 56, 1512, 62160, 2872800, 144606784 per root, from its spectrum "
+        "56, 28^8, 8^35, (-2)^112, (-4)^84, while the infinite lattice's are W_2, W_3, W_4 = 240, 13440, 1260720: the "
+        "two walk counts are different operators' (J04, J05)":
+            closed == [1, 0, 56, 1512, 62160, 2872800, 144606784]
+            and closed[6] * 240 == 56 ** 6 + 8 * 28 ** 6 + 35 * 8 ** 6 + 112 * 2 ** 6 + 84 * 4 ** 6
+            and [int(x) for x in W[2:5]] == [240, 13440, 1260720],
+        "the six-line transition P = (10J - 4I)/56 = E - (I - E)/14 has det (-1/14)^5 < 0, so it is e^B for no real B, "
+        "while P^2 = E + (I - E)/196 = e^(log 196 (E - I)), a two-step Markov embedding (J06)":
+            P == E - (I6 - E) / 14 and P.det() == sp.Rational(-1, 14) ** 5
+            and P * P == E + (I6 - E) / 196 == E + sp.exp(-t) * (I6 - E),
+        "the 36 contexts t_c = (2c - 35)/35 are distinct, so all C(36, 3) = 7140 Vandermonde minors of the quadratic "
+        "evaluator are nonzero: an MDS [36, 3, 34] code over Q, correcting 33 erasures or 16 errors (J08)":
+            len(set(nodes)) == 36 and comb(36, 3) == 7140 and 36 - 3 + 1 == 34 and (34 - 1, (34 - 1) // 2) == (33, 16),
+        "the Golden Gauss operator G5 = R + R^-1 - R^2 - R^-2 has G5^2 = 5I - J, G5^3 = 5 G5 and M M^T + G5^2 = 8I with "
+        "the signless incidence (J19); the permutations of the five vertices fix it for D10 (10 of them) and reverse it "
+        "for the other 10 of AGL(1,5): x -> ax + b multiplies it by the Legendre symbol (a/5)":
+            G5 * G5 == 5 * sp.eye(5) - sp.ones(5, 5) and G5 ** 3 == 5 * G5 and M * M.T + G5 * G5 == 8 * sp.eye(5)
+            and len(fixed) == len(reversed_) == 10 and set(fixed) | set(reversed_) == affine
+            and all(perm(tuple((a * x + b) % 5 for x in range(5))) * G5 * perm(tuple((a * x + b) % 5 for x in range(5))).T
+                    == sp.jacobi_symbol(a, 5) * G5 for a in range(1, 5) for b in range(5)),
+        "the 09:54 connections certificate: 40 + 12 + 61 + 21 = 134 new exact groups, 6 + 2 + 5 = 13 API regressions, "
+        "4105 + 61 = 4166 artifacts, 587 + 20 + 3 = 610 relationships and 191 files with 190 hashes":
+            40 + 12 + 61 + 21 == 134 and 6 + 2 + 5 == 13 and 4105 + 61 == 4166 and 587 + 20 + 3 == 610
+            and 191 - 190 == 1,
+    }
+
+
 # ------------------------------------------------------------------- joins of 30 Oct: every dot on THEOREM maps but two
 
 def _cycles(perm):
@@ -10021,6 +10067,9 @@ LEDGER_ROWS = [
     ("the Golden channel (hub, 09:23)", "Phi(X) = sum tr(F_i X/2)(11I - 5F_i)/56: spectrum 1, (-1/14)^5, 0^30; Phi^n = D + (-1/14)^(n-1)(Phi - D); Choi (3/28)^2, (1/7)^10, (9/56)^10, (11/56)^14; no closed finite unreset dilation", "replayed through the six Sylow-five averages on Lambda^2 A4 (sum 2I, tr F_i F_j = 2/5); the no-go's witness F0 - F1 has Tr X^2 = 16/5 and Phi(X) = -X/14, and the proof is the hub's", T, "23"),
     ("the contrast Green identity (hub, 09:23)", "nu_J(dE) = E nu_origin(dE)/240, static return 1/240", "the measure form of the contrast moments E_(k+1)/240 already held: W(E8) is transitive on the roots, so (Delta^k)_(0r) = E_k - E_(k+1)/240 for every root r", T, "23"),
     ("the twin lanes and the A4 local factor (hub, 09:23)", "432 lanes mod 4320 onto 36 mod 360, 12 to 1; omega = (4, -1, -1, -1, -1)/5; 15/16", "replayed as arithmetic; the twin-prime programme itself is outside this model", T, "23"),
+    ("two walk counts (hub, 09:54: J04, J05)", "the finite root graph closes 1, 0, 56, 1512, 62160, 2872800, 144606784 walks per root; the lattice has W_2..W_4 = 240, 13440, 1260720", "replayed: different operators, the finite graph from its spectrum and the lattice from its walks", T, "23"),
+    ("the six-line transition (hub, 09:54: J06)", "det P = (-1/14)^5 < 0, so P is no e^B; P^2 = e^(log 196 (E - I))", "replayed", T, "23"),
+    ("the Golden Gauss operator's symmetry (hub, 09:54: J19; separate model, 09:54)", "M M^T + G5^2 = 8I; stabilizer of order 10 and ten sign-reversing permutations", "replayed: x -> ax + b multiplies G5 by (a/5), so D10 fixes it and the rest of AGL(1,5) reverses it, and no other permutation sends it to +-G5", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -10111,6 +10160,13 @@ NOT_JOINED = [
                                               "certificates, the marked contrast port's Green bounds, the J7 host, "
                                               "the Woodbury Green formula, the information cut and the time-order "
                                               "test need operands or analytic inputs not stored here", RP),
+    ("the separate model's unified connections (09:54)", "1701713 bytes; 134 new exact groups (arithmetic 40, "
+                                                       "tangent 12, static return 61, vertex join 21), 20 new "
+                                                       "typed joins (610 relationships); certificate read, "
+                                                       "capsule not decoded or run", RP),
+    ("the N33 six-view frame (hub, 09:54: J09)", "six rank-four K_i on Lambda^2 P5 with sum (12/5) I10 and "
+                                               "four-view spectrum (12/5)^3 (8/5)^3 (6/5)^3 (2/5): source-reported, "
+                                               "the projectors are not stored here", RP),
 ]
 
 
@@ -10858,6 +10914,13 @@ def run():
             "separate model's source-history completion (09:24) recorded from its certificate (09:25) and "
             "checkpoint (09:27); the sibling's MODEL editions of 09:38-09:51, the latest read as text, with its "
             "spine29.ts read as data, not run; the OES-paper PDFs not read", RP, True)
+    n1004 = notes_1004()
+    rep.add("the hub's N33 reconciliation and the 09:54 connections: the finite and infinite walk counts, the "
+            "six-line transition's missing logarithm and its two-step embedding, the MDS context code and the Gauss "
+            "operator's AGL(1,5) sign rule", T, all(n1004.values()), n1004)
+    rep.add("Drive check 10:26: the hub's OES_All_Dots_N33_Reconciliation_20261030.txt (09:54) read as text, its "
+            "handover zip not opened; the separate model's unified connections (09:54) recorded from its "
+            "certificate (10:02), with its checkpoint recovery (10:04)", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
