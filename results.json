@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.65,
+  "1-carrier": 0.98,
   "2-spectral": 0.01,
-  "3-spacetime": 9.92,
-  "4-native": 94.83,
-  "5-observer": 1.43,
-  "6-gravity": 6.28,
-  "7-cosmology": 1.87,
-  "8-frontier": 42.35,
-  "9-joins": 9.38,
-  "10-literal": 39.62,
-  "11-glue": 0.27,
-  "12-binding": 0.06,
-  "13-gates": 0.08,
-  "14-recurrence": 76.96,
-  "15-court": 1.71,
-  "16-handover": 1.2,
-  "17-waves": 0.64,
-  "18-snapshot": 0.94,
-  "19-spine": 5.8,
-  "20-canon": 6.73,
-  "21-ledger": 51.6,
-  "22-counts": 28.64,
-  "23-dots": 418.56,
-  "24-assignment": 5.07,
-  "25-unify": 4.37,
-  "26-primes": 6.48,
-  "27-places": 2.85,
-  "28-principal": 1.81
+  "3-spacetime": 10.06,
+  "4-native": 99.94,
+  "5-observer": 0.24,
+  "6-gravity": 7.46,
+  "7-cosmology": 1.86,
+  "8-frontier": 41.25,
+  "9-joins": 12.05,
+  "10-literal": 39.78,
+  "11-glue": 0.25,
+  "12-binding": 0.05,
+  "13-gates": 0.4,
+  "14-recurrence": 88.83,
+  "15-court": 2.35,
+  "16-handover": 1.37,
+  "17-waves": 0.79,
+  "18-snapshot": 1.24,
+  "19-spine": 4.79,
+  "20-canon": 6.49,
+  "21-ledger": 48.4,
+  "22-counts": 25.13,
+  "23-dots": 419.03,
+  "24-assignment": 3.75,
+  "25-unify": 5.19,
+  "26-primes": 5.66,
+  "27-places": 2.23,
+  "28-principal": 2.64
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 762,
-   "total": 762
+   "passed": 803,
+   "total": 803
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 140,
-   "total": 140
+   "passed": 143,
+   "total": 143
   }
  },
  "checks": [
@@ -9455,7 +9455,292 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 71 dots and 305 joins form one connected diagram (the obstructions left out)",
+   "name": "E8 -> principal circle: the Weyl vector is the half-sum of the positive roots and is regular, so it determines its positive system, and W(E8) permutes the positive systems transitively (cited) and keeps the band: the conjugate circles k -> k w rho / 4320 have the same band values, critical steps and types, so the principal circle is unique up to W(E8) (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Weyl vector is the half-sum of the 120 positive roots, and it is regular: <r, rho> = ht(r) is never 0, so rho determines its positive system {r : <r, rho> > 0} and no Weyl element but 1 fixes it (cited: the stabilizer of a regular vector in W is trivial)": true,
+    "for each simple reflection s_i the positive system s_i Phi+ differs from Phi+ in the one root alpha_i, and its Weyl vector is s_i rho = rho - alpha_i, again of norm 620": true,
+    "for layer 19's conjugator w, for c' and for c the positive system w Phi+ has the Weyl vector w rho, and a regular vector x straightened into the fundamental chamber by simple reflections has the positive system {r : <r, x> > 0} = w^-1 Phi+ with Weyl vector w^-1 rho (five random regular vectors); cited: W(E8) permutes the positive systems transitively, so these are all of them": true,
+    "W(E8) keeps E8 and its roots, so it acts on the momentum torus and keeps the band: along the conjugate circle k -> k w rho / 4320 (w = s1, w = layer 19's w) the band agrees with the principal circle's at all 4320 steps, and the critical steps and their types D8, A8, D5 + A3 and A4 + A4 are the same; so the principal circle is unique up to W(E8); a positive system and its opposite give the same circle (w = -1 sends k -> -k), and otherwise the conjugate circles are different subsets of the torus (no unit u mod 4320 has w rho = u rho mod 4320 E8 for w = s_i, layer 19's w, c or c'); the finite check covers the band's W-invariance and these positive systems, the transitivity is cited": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> grain: the band's nine nonzero critical steps are the union of <2160>, <1440>, <1080> and <864>, so they generate <72>, the grain, of order lcm(2, 3, 4, 5) = 60: the grain is the subgroup the band's critical points generate, and it is the seed's (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> observer clock: the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "observer clock -> grain: the grain is the sum <864> + <1080> + <1440> of the time clock, the observer clock and the sun's subgroup, lcm(5, 4, 3) = 60 points: the two small clocks and the sun generate the grain (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "observer clock -> regular clocks: the observer clock's step 1080 = rho/4 has the adjoint spectrum of the regular clock of order 4, which is d^6, the day's sixth power, with d^12 = -1 the half-turn at the observer clock's square 2160 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> atlas: the thirteen regular steps 4320/d are multiples of 36 and generate the seam <36> (as 144 and 180 already do; 216 = 6 x 36 adds nothing), of order lcm(30, 24, 20) = 120: the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order and every critical step vanishes; the quotient size 36 = 4320/120 is the canon's cofactor (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> 27-clock: <160> is the unique subgroup of order 27 of the circle (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, and the two A8 critical steps; the order 27 = 3^3 comes from the canon's 4320, not from the seed, whose regular orders carry one 3 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "grain -> coil: the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x; it is also generated by the time, observer and 27-clocks (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> miss set: the miss set <5> is the kernel of the time coordinate, the points of order prime to 5, <135> + <160>; it holds every critical step but the time clock's four, and the atlas and the vortex hold none, every step of regular order and every critical step being 0 mod 36 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> vortex: x -> x mod 9 maps the 27-clock <160> onto Z/9 with kernel the sun's subgroup <1440>, and the whole principal circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part, 480 points; the quotient size 9 = 27/3 is the canon's (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3": true,
+    "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes": true,
+    "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps": true,
+    "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>": true,
+    "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock": true,
+    "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four": true,
+    "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36": true,
+    "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)": true,
+    "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order": true,
+    "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical": true,
+    "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> W(E8) clocks: the tick's cosine g + g^-1 has minimal polynomial x^2 + x - 1, so X = -(g + g^-1) satisfies X^2 = X + I with characteristic polynomial (x^2 - x - 1)^4, and E8 has a Z-basis of four roots x_i and their images X x_i, ordered (X x_i, x_i), in which X is four blocks B: E8 = Z[phi]^4, the golden companion acting on the whole lattice through the tick; X = I - Phi for layer 27's Phi = 1 + g + g^4, and Z[g] = Z[zeta5] makes E8 a free module of rank 2 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the tick's cosine g + g^-1 has minimal polynomial x^2 + x - 1 (the polynomial of 2 cos 72 degrees), so its negative X = -(g + g^-1) satisfies X^2 = X + I with characteristic polynomial (x^2 - x - 1)^4: the golden companion's polynomial, each of phi and 1 - phi with multiplicity 4; X = I - Phi for layer 27's Phi = 1 + g + g^4": true,
+    "E8 has a Z-basis of four roots x_i and their images X x_i, ordered (X x_i, x_i), in which X is four blocks B = [[1, 1], [1, 0]]: E8 is a free module of rank 4 over Z[phi] = Z[X], the golden companion acting on all of the lattice": true,
+    "Z[g] = Z[zeta5] makes E8 a free module of rank 2: the Z-span of g^j x0 for one root x0 has rank 4, and {g^j x0, g^j y} is a Z-basis for 200 of the roots y, exactly those off the A4 + A4 of x0's residue line": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> day-Coxeter group: the day conjugates the tick to its square and so carries X = -(g + g^-1) to I - X: it acts on Z[phi] as phi -> 1 - phi, the Galois conjugation of Q(sqrt5); c' commutes with X, so G120 acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2, 60 elements fixing X and 60 conjugating it, with kernel <g, d^2>; the embedding of the golden companion is unique up to the day (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the day conjugates the tick to its square, d g d^-1 = g^2, so it carries the cosine g + g^-1 to g^2 + g^-2 = -(g + g^-1) - I and X = -(g + g^-1) to I - X: the day acts on Z[phi] = Z[X] as the Galois conjugation phi -> 1 - phi = -1/phi": true,
+    "c' commutes with X, so G120 = <c', d> acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2: 60 elements fix X and 60 carry it to I - X, and the kernel is <g, d^2>, the day's square conjugating the tick to its inverse": true,
+    "the two roots of x^2 - x - 1 on E8, X and I - X = Phi, are the two embeddings of the golden companion, and the quarter turn J = [[0, 1], [-1, 0]] conjugates B to I - B in GL(2,Z): the embedding is unique up to the day": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> regular clocks: the cosine w + w^-1 of the regular clock of order d has characteristic polynomial Psi_d^(8/deg Psi_d), Psi_d the minimal polynomial of 2 cos(2 pi/d); the golden polynomial x^2 - x - 1 is Psi_10 = Psi_5(-x), the cosine of c'^3 = -g^3 is Phi, and the golden clock's cosine squares to Phi + 2; X lies in the cosine ring Z[w + w^-1] exactly for the five regular orders divisible by 5 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the cosine w + w^-1 of the regular clock of order d has characteristic polynomial Psi_d^(8/deg Psi_d), Psi_d the minimal polynomial of 2 cos(2 pi/d): degree phi(d)/2 for d >= 3, so (x -+ 2)^8, (x + 1)^8, x^8, (x^2 + x - 1)^4, (x - 1)^8, (x^2 - 2)^4, (x^2 - x - 1)^4, (x^2 - 3)^4 and four quartics squared for d = 15, 20, 24, 30": true,
+    "the golden companion's polynomial x^2 - x - 1 is Psi_10 = Psi_5(-x): the regular clock of order 10, c'^3 = -g^3, has cosine Phi = 1 + g + g^4 and the tick has negative cosine X = 1 - Phi; the golden clock's cosine squares to Phi + 2, (v + v^-1)^2 - 2 = v^2 + v^-2 = Phi, as 2 cos 18 degrees squared is (5 + sqrt5)/2": true,
+    "X lies in the cosine ring Z[w + w^-1] exactly for the five regular orders divisible by 5, with integer coefficients: -eta (5), 1 - eta (10), 3 eta - eta^3 (15), 3 - eta^2 (20) and 1 + 3 eta - eta^3 (30); for the eight others it is not even in Q[w + w^-1], since Q(sqrt5) lies in Q(zeta_d) only when 5 | d": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "nine-torus -> principal circle: the nine-torus's frequencies are exact: 240 - sum_k m_k cos(2 pi k/m_i) at the alcove's vertices, and 6800/27 and 4025/16 at the two Niven points on the lines R omega_2 and R omega_3; four of the nine, 256, 252, 248 and 250, are the band at the principal circle's critical steps of order 2, 3, 4 and 5 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the nine squared frequencies are exact: at the vertex omega_i / m_i the band is 240 - sum_k m_k cos(2 pi k / m_i) for the root counts m_k on node i, giving 256, 252, 252, 251, 250, 248, 243 and 224 at D8, A8, A7 + A1, A5 + A2 + A1, A4 + A4, D5 + A3, E6 + A2 and E7 + A1; on the lines R omega_2 and R omega_3 it is 240 - (64c^3 + 112c^2 + 64c) and 240 - (112c^4 + 112c^3 + 28c^2 - 12) in c = cos 2 pi s, critical off the torsion points at c = -2/3 and c = -1/4 (Niven), where it is 6800/27 (type A7) and 4025/16 (type A6 + A1), the only such points on the eight lines; the census's floats agree to 1e-9, and the nine square-free parts are distinct (nine_torus)": true,
+    "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
+    "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
+    "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "nine-torus -> half-periods: two of the nine frequencies are the band at the 256 half-periods: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1; the half-turn 2160 is the half-period rho/2, of type D8 (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the nine squared frequencies are exact: at the vertex omega_i / m_i the band is 240 - sum_k m_k cos(2 pi k / m_i) for the root counts m_k on node i, giving 256, 252, 252, 251, 250, 248, 243 and 224 at D8, A8, A7 + A1, A5 + A2 + A1, A4 + A4, D5 + A3, E6 + A2 and E7 + A1; on the lines R omega_2 and R omega_3 it is 240 - (64c^3 + 112c^2 + 64c) and 240 - (112c^4 + 112c^3 + 28c^2 - 12) in c = cos 2 pi s, critical off the torsion points at c = -2/3 and c = -1/4 (Niven), where it is 6800/27 (type A7) and 4025/16 (type A6 + A1), the only such points on the eight lines; the census's floats agree to 1e-9, and the nine square-free parts are distinct (nine_torus)": true,
+    "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
+    "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
+    "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "nine-torus -> sun's decad: 243 is the band at the sun's 80 nonzero fixed momenta, of type E6 + A2, every one a critical point of the band (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the nine squared frequencies are exact: at the vertex omega_i / m_i the band is 240 - sum_k m_k cos(2 pi k / m_i) for the root counts m_k on node i, giving 256, 252, 252, 251, 250, 248, 243 and 224 at D8, A8, A7 + A1, A5 + A2 + A1, A4 + A4, D5 + A3, E6 + A2 and E7 + A1; on the lines R omega_2 and R omega_3 it is 240 - (64c^3 + 112c^2 + 64c) and 240 - (112c^4 + 112c^3 + 28c^2 - 12) in c = cos 2 pi s, critical off the torsion points at c = -2/3 and c = -1/4 (Niven), where it is 6800/27 (type A7) and 4025/16 (type A6 + A1), the only such points on the eight lines; the census's floats agree to 1e-9, and the nine square-free parts are distinct (nine_torus)": true,
+    "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
+    "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
+    "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "nine-torus -> tick momenta: 250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through seven of the eleven census families, and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the nine squared frequencies are exact: at the vertex omega_i / m_i the band is 240 - sum_k m_k cos(2 pi k / m_i) for the root counts m_k on node i, giving 256, 252, 252, 251, 250, 248, 243 and 224 at D8, A8, A7 + A1, A5 + A2 + A1, A4 + A4, D5 + A3, E6 + A2 and E7 + A1; on the lines R omega_2 and R omega_3 it is 240 - (64c^3 + 112c^2 + 64c) and 240 - (112c^4 + 112c^3 + 28c^2 - 12) in c = cos 2 pi s, critical off the torsion points at c = -2/3 and c = -1/4 (Niven), where it is 6800/27 (type A7) and 4025/16 (type A6 + A1), the only such points on the eight lines; the census's floats agree to 1e-9, and the nine square-free parts are distinct (nine_torus)": true,
+    "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 (A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at no other nonzero step": 1.0,
+    "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8": true,
+    "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry 250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band": true,
+    "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical step of the principal circle, and the A7 + A1 family's 252 is placed only through A8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the 71 dots and 322 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9711,7 +9996,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 12, combinatorics-lattice 5, lattice-operator 26, operator-physics 24 joins",
+   "name": "each level is joined to the next: number-symmetry 8, symmetry-combinatorics 12, combinatorics-lattice 5, lattice-operator 26, operator-physics 24 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9722,7 +10007,8 @@
      "golden -> atlas",
      "golden -> time",
      "AGL -> circle",
-     "time -> pgl"
+     "time -> pgl",
+     "observer -> regular"
     ],
     [
      "V -> clocks",
@@ -9808,7 +10094,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 272,
+    "THEOREM": 289,
     "OBSTRUCTION": 16,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 7
@@ -9828,7 +10114,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 8, number-operator 3, number-physics 2, symmetry-combinatorics 12, symmetry-lattice 24, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 26, lattice-physics 5, operator-physics 24",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 8, number-combinatorics 3, number-lattice 13, number-operator 3, number-physics 2, symmetry-combinatorics 12, symmetry-lattice 24, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 26, lattice-physics 5, operator-physics 24",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -9837,13 +10123,13 @@
     "(2, 4)": 19,
     "(1, 3)": 24,
     "(1, 2)": 12,
-    "(0, 1)": 7,
+    "(0, 1)": 8,
     "(0, 2)": 3,
     "(1, 4)": 12,
     "(4, 5)": 24,
     "(2, 5)": 7,
     "(3, 5)": 5,
-    "(0, 3)": 8,
+    "(0, 3)": 13,
     "(0, 4)": 3,
     "(0, 5)": 2,
     "(1, 5)": 7
@@ -11556,6 +11842,30 @@
    "note": ""
   },
   {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's provenance verification (14:25): 16 payload hashes recomputed, 24 exact groups and 13 regressions replayed, 12 review checks, 0 new matrices or joins; a source record read as data, its archive not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the hub's Canon_Position (14:20): a read-only position: the publication manifest at N33 (3750 and 3705 sheets) while both workbooks are N34 (3755 and 3710); the observer reconciliation 4166 + 4 = 4170 artifacts and 610 + 10 = 620 relationships in 18 layers; read as data",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the sibling's 14:31 and 14:41 editions: new Intake, Copies and Provenance sections: the N34 copies' byte identity and receipts, the observer archive's 57 files with 56 hashed; read as data, their arithmetic replayed in notes_1441",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
    "layer": "24-assignment",
    "name": "the twin sites mu_i sum to 0 with |mu_i|^2 = 4/5 and mu_i.mu_j = -1/5, and their differences are the 20 roots of A4', the orthogonal complement of the carrier's A4",
    "status": "THEOREM",
@@ -12069,7 +12379,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the 71 dots split into the seed, 50 derived dots, 10 canon inputs and 10 dots built from the inputs, with no dot left over or counted twice",
+   "name": "the 71 dots split into the seed, 53 derived dots, 10 canon inputs and 7 dots built from the inputs, with no dot left over or counted twice",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -12093,7 +12403,15 @@
   },
   {
    "layer": "25-unify",
-   "name": "every input meets the derived part or another input at a held interface join, and two meet the seed exactly: the circle's selection 144 -> c' and the 801 matrix mod 5",
+   "name": "every input meets the derived part or another input at a held interface join, and two meet the seed exactly: the circle is the principal circle sampled at 4320 points, and the 801 matrix mod 5 is minus the day",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the time clock, the observer clock and the grain are the seed's, at depth 2: the principal circle's points of order 5, of order 4, and the subgroup its critical steps generate, inside the seam <36> = Z/120 that the thirteen regular steps generate (their gcd is 36); the five dots still built from the circle need its cofactor 36 = 4320/120, since their orders 27, 540 and 864 and quotient sizes 36 and 9 do not divide 120",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -12102,6 +12420,54 @@
   {
    "layer": "25-unify",
    "name": "the trunk E8 -> cyclotomic line -> clocks -> residue plane -> A4 + A4' -> A4 -> K5 edges -> zero modes -> source has depth 8, and no dot is deeper than 8",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "every level holds derived dots: 3 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 14 on the lattice level, 15 on the operator level, 4 on the physics level",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "inside every level the derived dots are joined among themselves by THEOREM maps with both ends in the level",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the derived part stands without the inputs: the 54 derived dots are connected by the 220 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "every derived dot lies on at least three THEOREM maps to derived dots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "every pair of the six levels is joined directly by at least two THEOREM maps between derived dots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the derivation tree has depth 8, at most 8, and every derived dot's derivation join is a THEOREM join of layer 23 whose check holds",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -12134,6 +12500,22 @@
   {
    "layer": "25-unify",
    "name": "the memory clock's stepping k -> A^k is one of the circle's 24 maps onto it, and its normalizer in S_120 realizes every unit mod 90, so all 24 are conjugate",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the principal circle is unique up to W(E8): the Weyl vector determines its positive system, W permutes the positive systems transitively (cited) and keeps the band, so the conjugate circles have the same band values, critical steps and types",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "25-unify",
+   "name": "the day and the golden clock are recorded selections: over sigma_7 the normalizer <c', d, v> (240 elements) has 20 elements of order 24 in two conjugacy classes of 10, and over sigma_11 24 elements of order 20 in two classes of 12; each pair of classes shares one characteristic polynomial (conjugate in W(E8), not relative to c'), the day's defining condition d^4 = c'^5 holds on 10 elements and does not pick a class, and the mirror's 30 involutions over sigma_29 are one class",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -12606,6 +12988,126 @@
   {
    "layer": "28-principal",
    "name": "a step is regular, with trivial stabilizer, exactly when its order exceeds 29, the highest root's height: 4234 of the 4319 nonzero steps",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the band's nine nonzero critical steps are the union of the four subgroups <2160>, <1440>, <1080> and <864>, so they generate <gcd> = <72>, the grain: 60 = lcm(2, 3, 4, 5) points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the steps 4320/d of the thirteen regular orders are multiples of 36 = 4320/120 (thirteen of its 120 multiples), 120 = lcm(30, 24, 20), and they generate the seam <36>, as the Coxeter step 144 and the day's step 180 already do (gcd 36; the golden step 216 = 6 x 36 adds nothing): the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every step of regular order (56 steps) and every critical step vanishes",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the 27-clock <160> is the Sylow 3-subgroup of the circle, its unique subgroup of order 27 (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, the sun s = c'^10, and the two A8 critical steps",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the time clock <864> is 0 with the four critical steps of order 5 (A4 + A4), the circle's 5-part; the observer clock <1080> is 0, the two critical steps of order 4 (D5 + A3) and their square, the half-turn 2160 (D8), the order-4 subgroup of the 2-part <135>",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x with 540 = lcm(4, 27, 5); it is also generated by the time clock, the observer clock and the 27-clock",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the miss set <5> is the kernel of the time coordinate x -> 3456 x, the points of order prime to 5, the sum <135> + <160> of the 2-part and the 3-part (32 x 27 = 864 points), with Z/4320 = <864> + <5>; it holds every critical step but the time clock's four",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the vortex Z/9 is the 27-clock modulo the sun's subgroup: x -> x mod 9 maps <160> onto Z/9 with kernel <1440>, and the whole circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part (480 points); the atlas and the vortex see no step of regular order and no critical step, all being 0 mod 36",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks; with the sun's subgroup <1440> they add to the grain, <864> + <1080> + <1440> = <72>; and the observer clock's step 1080 = rho/4 carries the spectrum of the regular class 4, the day's sixth power d^6 (d^12 = -1 is the half-turn at the observer clock's square 2160)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the seed names four of these orders: 5 and 4 (the critical types A4 + A4 and D5 + A3), 60 (the lcm of the critical orders) and 120 (the lcm of the regular orders), so the time clock, the observer clock and the grain are the seed's; 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from the factorization of the canon's 4320 = 2^5 3^3 5 and do not divide 120, so the 27-clock, the coil, the miss set, the atlas and the vortex need the circle's cofactor 36 = 4320/120 = 2^2 3^2; the stages (0 to 14, not a subgroup) and the memory clock (order 90, with the same 3^2, reached through 24 maps) are fixed by no order",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "none of the generators 72, 36, 160, 8 and 5 is a critical step (the band's gradient there is at least 4.8, the band 146.28, 46.86, 249.63, 2.51 and 0.98); 72, 36, 8 and 5 have orders above 29 and trivial stabilizers, 160 has order 27 and the stabilizer A1 of the one root pair of height 27; of the clocks' steps 144 has a trivial stabilizer, 180 the stabilizer A1 and 216 the stabilizer A1 + A1, and none is critical",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "|<36>| = 120 = |G120| only numerically: <36> is cyclic while G120 = <g> x| <d> has element orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30 and no element of order 20 or 120; the golden clock v is not in it (only its even powers), and <c', d, v> is the 240-element normalizer of <c'>",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the Weyl vector is the half-sum of the 120 positive roots, and it is regular: <r, rho> = ht(r) is never 0, so rho determines its positive system {r : <r, rho> > 0} and no Weyl element but 1 fixes it (cited: the stabilizer of a regular vector in W is trivial)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "for each simple reflection s_i the positive system s_i Phi+ differs from Phi+ in the one root alpha_i, and its Weyl vector is s_i rho = rho - alpha_i, again of norm 620",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "for layer 19's conjugator w, for c' and for c the positive system w Phi+ has the Weyl vector w rho, and a regular vector x straightened into the fundamental chamber by simple reflections has the positive system {r : <r, x> > 0} = w^-1 Phi+ with Weyl vector w^-1 rho (five random regular vectors); cited: W(E8) permutes the positive systems transitively, so these are all of them",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "W(E8) keeps E8 and its roots, so it acts on the momentum torus and keeps the band: along the conjugate circle k -> k w rho / 4320 (w = s1, w = layer 19's w) the band agrees with the principal circle's at all 4320 steps, and the critical steps and their types D8, A8, D5 + A3 and A4 + A4 are the same; so the principal circle is unique up to W(E8); a positive system and its opposite give the same circle (w = -1 sends k -> -k), and otherwise the conjugate circles are different subsets of the torus (no unit u mod 4320 has w rho = u rho mod 4320 E8 for w = s_i, layer 19's w, c or c'); the finite check covers the band's W-invariance and these positive systems, the transitivity is cited",
    "status": "THEOREM",
    "passed": true,
    "value": null,
