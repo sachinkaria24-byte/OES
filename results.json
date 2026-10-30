@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.78,
+  "1-carrier": 0.65,
   "2-spectral": 0.01,
-  "3-spacetime": 9.59,
-  "4-native": 97.64,
-  "5-observer": 0.26,
-  "6-gravity": 6.77,
-  "7-cosmology": 1.9,
-  "8-frontier": 40.67,
-  "9-joins": 10.86,
-  "10-literal": 35.8,
-  "11-glue": 0.2,
-  "12-binding": 0.03,
-  "13-gates": 0.11,
-  "14-recurrence": 73.66,
-  "15-court": 1.8,
-  "16-handover": 1.17,
+  "3-spacetime": 9.92,
+  "4-native": 94.83,
+  "5-observer": 1.43,
+  "6-gravity": 6.28,
+  "7-cosmology": 1.87,
+  "8-frontier": 42.35,
+  "9-joins": 9.38,
+  "10-literal": 39.62,
+  "11-glue": 0.27,
+  "12-binding": 0.06,
+  "13-gates": 0.08,
+  "14-recurrence": 76.96,
+  "15-court": 1.71,
+  "16-handover": 1.2,
   "17-waves": 0.64,
-  "18-snapshot": 0.85,
-  "19-spine": 3.82,
-  "20-canon": 6.06,
-  "21-ledger": 46.94,
-  "22-counts": 24.25,
-  "23-dots": 347.59,
-  "24-assignment": 3.77,
-  "25-unify": 4.29,
-  "26-primes": 5.71,
-  "27-places": 2.14,
-  "28-principal": 1.83
+  "18-snapshot": 0.94,
+  "19-spine": 5.8,
+  "20-canon": 6.73,
+  "21-ledger": 51.6,
+  "22-counts": 28.64,
+  "23-dots": 418.56,
+  "24-assignment": 5.07,
+  "25-unify": 4.37,
+  "26-primes": 6.48,
+  "27-places": 2.85,
+  "28-principal": 1.81
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 761,
-   "total": 761
+   "passed": 762,
+   "total": 762
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 138,
-   "total": 138
+   "passed": 140,
+   "total": 140
   }
  },
  "checks": [
@@ -11263,6 +11263,28 @@
   },
   {
    "layer": "23-dots",
+   "name": "the canon's N34 release and the 14:06 model: the hub's 49-tuple is admissible, the N34 boundary jets are the odd jets of the held moments under a frequency-4 forcing, the receipt's counts add up, Q^2 = 52Q + 224I, and tr A^2 = 13440 = W_3 for a reason",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the hub's 49-tuple: 49 distinct offsets with 0 and 2, diameter 240, and for every prime p <= 47 a residue it omits (the hub's listed residue among them), so it is admissible; for p > 49 the 49 offsets cannot fill p classes (N34-021)": true,
+    "the N34 jets: with the bright moments 232, 54213 and the dark first moment 975/4 held here, 248 = 232 + 16, 58181 = 54213 + 16 x 232 + 16^2, 1039/4 = 975/4 + 16 and 47/4 = 975/4 - 232; these are the odd jets of y'' + Delta y = v f(t) from rest for a forcing with f' , f''', f^(5) = 1, -16, 256 (a harmonic forcing of frequency 4): y3 = f1, y5 = f3 - m1 f1, y7 = f5 - m1 f3 + m2 f1; the canon's source q'' + 4q = 0 (frequency 2) would give y5 + 236 y3 = 0 and y7 - 55157 y3 = 0 (N34-012, N34-013)": true,
+    "the N34 receipt: both workbooks grew by five tabs (3755 - 3750 = 3710 - 3705 = 5); 32 claims from 12 families; 12 + 29 + 25 + 29 + 32 = 127 claims across N30-N34; no new matrix id and no gate change": true,
+    "the sibling's 14:06 edition: the six-line quotient Q = 10J - 4I has Q^2 = 52 Q + 224 I ((x - 56)(x + 4) = x^2 - 52x - 224), with 224 the collar integer by coincidence; the root graph's minimal polynomial is (x - 56)(x - 28)(x - 8)(x + 2)(x + 4) and tr A^2 = 240 x 56 = 13440 = W_3, for a reason: both count the 240 x 56 ordered root pairs at inner product +-1, matched by r' -> -r'": true,
+    "the certificate's own counts, as the sibling reads them: 42 coordinate matrices + 16 aliases = 58, not the stated 61 artifacts, and the listed typed relations 7 + 2 + 3 = 12, not the stated 20 joins; 587 + 20 + 3 = 610 holds; 144606784 has order 135 on the circle, as 224 does": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 14:11: the canon's N34 release (the four-copy receipt, the claims CSV, the current-release manifests and the Locked Memory handover note read as data, the workbooks not opened); the sibling's MODEL edition of 14:06 read as text with its spine29.ts read as data, not run; the OES-paper PDF not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11520,6 +11542,14 @@
   {
    "layer": "23-dots",
    "name": "not joined: the N33 six-view frame (hub, 09:54: J09): six rank-four K_i on Lambda^2 P5 with sum (12/5) I10 and four-view spectrum (12/5)^3 (8/5)^3 (6/5)^3 (2/5): source-reported, the projectors are not stored here",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the canon's N34 release (14:04-14:11): 32 source-graded claims from 12 families in five new tabs (3755 and 3710 sheets), no new matrix ids and no gate changes; two integrator replays (the G5 complement and the 49-tuple), both held here; read from its receipts and claims CSV, the workbooks not opened",
    "status": "REPORTED",
    "passed": true,
    "value": null,
