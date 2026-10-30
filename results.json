@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.72,
+  "1-carrier": 0.85,
   "2-spectral": 0.01,
-  "3-spacetime": 9.37,
-  "4-native": 95.4,
+  "3-spacetime": 9.29,
+  "4-native": 95.86,
   "5-observer": 0.26,
-  "6-gravity": 6.27,
-  "7-cosmology": 1.87,
-  "8-frontier": 43.44,
-  "9-joins": 11.25,
-  "10-literal": 38.53,
-  "11-glue": 0.2,
-  "12-binding": 0.04,
+  "6-gravity": 7.32,
+  "7-cosmology": 1.95,
+  "8-frontier": 44.27,
+  "9-joins": 11.14,
+  "10-literal": 40.94,
+  "11-glue": 0.19,
+  "12-binding": 0.03,
   "13-gates": 0.1,
-  "14-recurrence": 76.84,
-  "15-court": 1.68,
-  "16-handover": 1.23,
-  "17-waves": 0.7,
-  "18-snapshot": 0.99,
-  "19-spine": 4.6,
-  "20-canon": 6.62,
-  "21-ledger": 46.21,
-  "22-counts": 24.68,
-  "23-dots": 369.46,
-  "24-assignment": 4.05,
-  "25-unify": 4.95,
-  "26-primes": 5.65,
-  "27-places": 2.66,
-  "28-principal": 2.53
+  "14-recurrence": 82.61,
+  "15-court": 2.27,
+  "16-handover": 1.42,
+  "17-waves": 0.68,
+  "18-snapshot": 0.95,
+  "19-spine": 4.54,
+  "20-canon": 7.65,
+  "21-ledger": 49.97,
+  "22-counts": 25.83,
+  "23-dots": 376.94,
+  "24-assignment": 3.69,
+  "25-unify": 4.66,
+  "26-primes": 5.42,
+  "27-places": 1.89,
+  "28-principal": 2.91
  },
  "fast": false,
  "summary": {
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 145,
-   "total": 145
+   "passed": 148,
+   "total": 148
   }
  },
  "checks": [
@@ -11876,6 +11876,30 @@
   {
    "layer": "23-dots",
    "name": "not joined: the sibling's 14:49 and 15:04 editions: 342 exact checks (339 before); the twenty-five name auditors, the sign census matrix and the observer's line on the fixed plane are not stored here; the arithmetic is replayed in notes_1504",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's Rotor Golden Source model (15:32): an 84338-byte archive with 22 payload files and 21 hashes, 20 layers, 30 exact groups, 9 regressions, 6 typed joins (624 -> 630), 6 coordinate presentations (4170 -> 4176 artifacts); its receipt, README, registry and generated matrices read as data, its code not run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's Cyclic Maps model (15:43): a 367815-byte capsule (zip + base64) with 26 payload files and 25 hashes, the 21st layer: 37 exact groups, 3 typed joins (630 -> 633), 43200 endomorphism values enumerated; decoded in memory, its registry and README read as data, its code not run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the sibling's 15:30 edition: 343 exact checks (342 before); the Match section reads the Matched History archive's generator, whose blocks are not stored here; its arithmetic is replayed in notes_1611",
    "status": "REPORTED",
    "passed": true,
    "value": null,
