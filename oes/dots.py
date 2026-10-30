@@ -382,6 +382,18 @@ psi' is conserved on every background, and a calibration acts on the cosmos's fr
 two maps hold the diagram together. Five more THEOREM maps strengthen thin dots: the day-Coxeter group mod the tick is
 F25^x, the frame is the A8 of a census point of order 3, the doubling is the Frobenius on the cube's F16, the grain
 holds the regular steps of the orders dividing 60, and the secants through a point of PG(2,5) are the synthemes.
+
+The unification at all levels (30 Oct) adds seventeen THEOREM maps and no dot. The number level is rooted in the
+principal circle: the time clock and the observer clock are its critical steps of order 5 and 4, the grain is the
+subgroup the critical steps generate, so these three are the seed's, and the 27-clock, the coil, the miss set, the
+atlas and the vortex are its subgroup lattice over the canon's cofactor 36 (the Sylow 3-subgroup, the grain plus the
+27-clock, the kernel of the time coordinate, the circle modulo the regular steps, the 27-clock modulo the sun). The
+golden companion is joined inside the symmetry level: it is the tick's negative cosine X = -(g + g^-1), which makes
+E8 a free Z[phi]-module of rank 4, the day is its Galois conjugation, and it lies in the cosine ring of a regular clock
+exactly for the orders divisible by 5. The nine-torus is placed: six of its nine frequencies are the band at the
+principal circle's critical steps and at the prime clocks' fixed momenta. The principal circle is unique up to W(E8).
+With these, every level holds derived dots, each level's derived dots are joined inside it by THEOREM maps, the
+derived part stands without the inputs, and every pair of levels is joined twice between derived dots (oes/unify.py).
 """
 
 import functools
@@ -9509,20 +9521,20 @@ DOTS = {
     "G120": ("day-Coxeter group", "<c', d>, order 120", "21, 22"),
     "AGL": ("AGL(1,5)", "the affine group of the pentagon", "21"),
     "circle": ("circle", "Z/4320", "19, 28"),
-    "time": ("time clock", "<864> = Z/5", "21, 22, 28"),
-    "observer": ("observer clock", "<1080>, inside the 2-clock <135>", "22, 23, 28"),
+    "time": ("time clock", "<864> = Z/5, the principal points of order 5 (rho/5)", "21, 22, 28"),
+    "observer": ("observer clock", "<1080>, the principal points of order 4 (rho/4), the regular class 4 = d^6; inside the 2-clock <135>", "22, 23, 28"),
     "c27": ("27-clock", "<160>, the nakshatra", "20, 23, 28"),
-    "atlas": ("atlas", "Z/36 = circle / <36>", "23"),
+    "atlas": ("atlas", "Z/36 = circle / <36>, the circle modulo its regular steps", "23, 28"),
     "golden": ("golden companion", "B = [[1, 1], [1, 0]]", "21, 22"),
     "stages": ("stages", "the fifteen indices", "22"),
     "cube": ("four-cube", "the 81-cell complex of [0, 1]^4", "21, 23"),
     "hodge": ("Hodge 70", "Lambda^4 R^8 = 35 + 35", "23"),
-    "coil": ("coil", "<8>, the 540 multiples of 8", "23"),
+    "coil": ("coil", "<8>, the 540 multiples of 8: the grain plus the 27-clock", "23, 28"),
     "S5": ("S5", "the 120 vertex permutations, the cone point's stabilizer in S6", "1, 23"),
     "pgl": ("PGL(2,5)", "the transitive S5 in S6, on the projective line over F5", "23"),
-    "grain": ("grain", "<72> = <216> x <1440>, the golden orbit times the sun", "23"),
-    "vortex": ("vortex", "Z/9, the address mod 9", "23"),
-    "miss": ("miss set", "<5>, the 864 points the tick does not see", "23"),
+    "grain": ("grain", "<72> = <216> x <1440>, the golden orbit times the sun: the 60 points k rho/60 the critical steps generate", "23, 28"),
+    "vortex": ("vortex", "Z/9, the address mod 9: the 27-clock modulo the sun", "23, 28"),
+    "miss": ("miss set", "<5>, the 864 points the tick does not see: the kernel of the time coordinate", "23, 28"),
     "frame": ("eight-root frame", "the origin and eight roots with pairwise products 1: a maximal 9-clique, index 3", "23"),
     "triple": ("spectral triple", "(A, H, D, gamma) on l2(V u E), dim 15, with D^2 = M M^T + M^T M", "2, 9"),
     "surface": ("surface", "RP^2: the hemi-icosahedron on the six axes and its complement, 1-skeleton K6", "3, 9"),
@@ -9553,7 +9565,7 @@ DOTS = {
     "parent": ("360 parent", "Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36", "23, 26"),
     "regular": ("regular clocks", "the thirteen regular classes of W(E8), powers of c', d and v with characteristic polynomials Phi_d^(8/phi(d)) and centralizers of order prod_(d | d_i) d_i", "26"),
     "sun": ("sun's decad", "E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames", "26, 27"),
-    "principal": ("principal circle", "k -> k rho / 4320 in the momentum torus R^8 / E8, rho the Weyl vector", "28"),
+    "principal": ("principal circle", "k -> k rho / 4320 in the momentum torus R^8 / E8, rho the Weyl vector; unique up to W(E8)", "28"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -9888,7 +9900,265 @@ JOINS = [
     ("AGL", "cube", "the Frobenius", "on the four-cube's vertices, the sixteen cuts of K5 mod 2 = F16 by delta({k}) -> zeta^k, the tick multiplies by a primitive fifth root of unity and the doubling is the Frobenius y -> y^2: AGL(1,5) acts as <zeta5> x| Gal(F16/F2) inside GammaL(1,16) (30 Oct)", T, "cube_frobenius"),
     ("grain", "principal", "the regular steps", "on the principal circle the grain is the 60 points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3, with the spectra of the golden clock and the sun; it holds the steps of the eleven regular orders dividing 60, all but the day's 8 and 24 (30 Oct)", T, "grain_steps"),
     ("pg25", "synthemes", "secants through a point", "the three secants through an interior point of PG(2,5) meet the conic in a syntheme: the ten interior points are the ten nonspecial synthemes, and the fifteen exterior points, in five self-polar triangles, give the special five, a one-factorization; a labelling that carries the exceptional sigma onto PGL(2,5) matches them with the Sylow labels' 10 + 5 (30 Oct)", T, "plane_synthemes"),
+    ("E8", "principal", "unique up to W(E8)", "the Weyl vector is the half-sum of the positive roots and is regular, so it determines its positive system, and W(E8) permutes the positive systems transitively (cited) and keeps the band: the conjugate circles k -> k w rho / 4320 have the same band values, critical steps and types, so the principal circle is unique up to W(E8) (30 Oct)", T, "principal.principal_uniqueness"),
+    ("principal", "grain", "the critical steps", "the band's nine critical steps are the union of <2160>, <1440>, <1080> and <864>, so they generate <72>, the grain, of order lcm(2, 3, 4, 5) = 60: the grain is the subgroup the band's critical points generate, and it is the seed's (30 Oct)", T, "principal.clock_lattice"),
+    ("time", "observer", "the golden step", "the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks (30 Oct)", T, "principal.clock_lattice"),
+    ("observer", "grain", "the three small clocks", "the grain is the sum <864> + <1080> + <1440> of the time clock, the observer clock and the sun's subgroup, lcm(5, 4, 3) = 60 points: the two small clocks and the sun generate the grain (30 Oct)", T, "principal.clock_lattice"),
+    ("observer", "regular", "the regular class 4", "the observer clock's step 1080 = rho/4 has the adjoint spectrum of the regular clock of order 4, which is d^6, the day's sixth power, with d^12 = -1 the half-turn at the observer clock's square 2160 (30 Oct)", T, "principal.clock_lattice"),
+    ("principal", "atlas", "modulo the regular steps", "the thirteen regular steps 4320/d are the multiples of 36 and generate the seam <36> (as 144 and 180 already do; 216 = 6 x 36 adds nothing), of order lcm(30, 24, 20) = 120: the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every regular and critical step vanishes; the quotient size 36 = 4320/120 is the canon's cofactor (30 Oct)", T, "principal.clock_lattice"),
+    ("principal", "c27", "the Sylow 3-subgroup", "<160> is the unique subgroup of order 27 of the circle (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, and the two A8 critical steps; the order 27 = 3^3 comes from the canon's 4320, not from the seed, whose regular orders carry one 3 (30 Oct)", T, "principal.clock_lattice"),
+    ("grain", "coil", "plus the 27-clock", "the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x; it is also generated by the time, observer and 27-clocks (30 Oct)", T, "principal.clock_lattice"),
+    ("principal", "miss", "the steps the tick does not see", "the miss set <5> is the kernel of the time coordinate, the points of order prime to 5, <135> + <160>; it holds every critical step but the time clock's four, and the atlas and the vortex hold none, every regular and critical step being 0 mod 36 (30 Oct)", T, "principal.clock_lattice"),
+    ("principal", "vortex", "the 27-clock modulo the sun", "x -> x mod 9 maps the 27-clock <160> onto Z/9 with kernel the sun's subgroup <1440>, and the whole principal circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part, 480 points; the quotient size 9 = 27/3 is the canon's (30 Oct)", T, "principal.clock_lattice"),
+    ("golden", "clocks", "the tick's cosine", "the tick's cosine g + g^-1 has minimal polynomial x^2 + x - 1, so X = -(g + g^-1) satisfies X^2 = X + I with characteristic polynomial (x^2 - x - 1)^4, and E8 has a Z-basis of four roots and their images under X in which X is four blocks B: E8 = Z[phi]^4, the golden companion acting on the whole lattice through the tick; X = I - Phi for layer 27's Phi = 1 + g + g^4, and Z[g] = Z[zeta5] makes E8 a free module of rank 2 (30 Oct)", T, "golden_cosine"),
+    ("golden", "G120", "the Galois conjugation", "the day conjugates the tick to its square and so carries X = -(g + g^-1) to I - X: it acts on Z[phi] as phi -> 1 - phi, the Galois conjugation of Q(sqrt5); c' commutes with X, so G120 acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2, 60 elements fixing X and 60 conjugating it, with kernel <g, d^2>; the embedding of the golden companion is unique up to the day (30 Oct)", T, "golden_galois"),
+    ("golden", "regular", "the cosine rings", "the cosine w + w^-1 of the regular clock of order d has characteristic polynomial Psi_d^(8/deg Psi_d), Psi_d the minimal polynomial of 2 cos(2 pi/d); the golden polynomial x^2 - x - 1 is Psi_10 = Psi_5(-x), the cosine of c'^3 = -g^3 is Phi, and the golden clock's cosine squares to Phi + 2; X lies in the cosine ring Z[w + w^-1] exactly for the five regular orders divisible by 5 (30 Oct)", T, "regular_cosines"),
+    ("torus", "principal", "the critical steps", "the nine-torus's frequencies are exact: 240 - sum_k m_k cos(2 pi k/m_i) at the alcove's vertices, and 6800/27 and 4025/16 at the two Niven points on the lines R omega_2 and R omega_3; four of the nine, 256, 252, 248 and 250, are the band at the principal circle's critical steps of order 2, 3, 4 and 5 (30 Oct)", T, "torus_places"),
+    ("torus", "halfper", "the half-periods", "two of the nine frequencies are the band at the 256 half-periods: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1; the half-turn 2160 is the half-period rho/2, of type D8 (30 Oct)", T, "torus_places"),
+    ("torus", "sun", "the sun's momenta", "243 is the band at the sun's 80 nonzero fixed momenta, of type E6 + A2, every one a critical point of the band (30 Oct)", T, "torus_places"),
+    ("torus", "momenta", "the tick's momenta", "250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through seven of the eleven census families, and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct)", T, "torus_places"),
 ]
+
+# ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
+
+def golden_cosine():
+    """The golden companion is the tick's negative cosine: E8 is Z[phi]^4 with phi = -(g + g^-1)."""
+    x = sp.Symbol("x")
+    I8 = np.eye(8, dtype=np.int64)
+    B2 = np.array([[1, 1], [1, 0]], dtype=np.int64)
+    g = cyclotomic.clocks()["g"]
+    RB = spine.frame()[5]
+    eta = g + spine.inverse(g)
+    X = -eta
+    Phi = I8 + g + spine.mpow(g, 4)
+    char = lambda M: sp.Poly(sp.Matrix(M.tolist()).charpoly(x).as_expr(), x)
+    cols = lambda idx: np.array([v for i in idx for v in (X @ RB[i], RB[i])], dtype=np.int64).T
+    unimodular = lambda M: abs(round(np.linalg.det(M.astype(float)))) == 1
+    rank = lambda M: np.linalg.matrix_rank(M.astype(float))
+    idx = next(((a, b, c, d) for a in range(240) for b in range(a + 1, 240) if rank(cols((a, b))) == 4
+                for c in range(b + 1, 240) if rank(cols((a, b, c))) == 6
+                for d in range(c + 1, 240) if unimodular(cols((a, b, c, d)))), None)
+    basis = cols(idx)
+    binv = np.rint(np.linalg.inv(basis.astype(float))).astype(np.int64)
+    Pg = [spine.mpow(g, j) for j in range(4)]
+    x0 = RB[0]
+    span = lambda y: np.array([Pg[j] @ x0 for j in range(4)] + [Pg[j] @ y for j in range(4)], dtype=np.int64).T
+    pairs = [i for i, y in enumerate(RB) if unimodular(span(y))]
+    _, lines = cyclotomic.residue()
+    line0 = next(L for L in lines if cyclotomic.point(x0) in L)
+    on_line = [i for i, y in enumerate(RB) if cyclotomic.point(y) in line0]
+    return {
+        "the tick's cosine g + g^-1 has minimal polynomial x^2 + x - 1 (the polynomial of 2 cos 72 degrees), so its "
+        "negative X = -(g + g^-1) satisfies X^2 = X + I with characteristic polynomial (x^2 - x - 1)^4: the golden "
+        "companion's polynomial, each of phi and 1 - phi with multiplicity 4; X = I - Phi for layer 27's "
+        "Phi = 1 + g + g^4":
+            not (eta @ eta + eta - I8).any() and (eta - eta[0, 0] * I8).any()
+            and char(X) == sp.Poly((x ** 2 - x - 1) ** 4, x) and not (X @ X - X - I8).any()
+            and np.array_equal(X, I8 - Phi),
+        "E8 has a Z-basis of four roots x_i and their images X x_i in which X is four blocks B = [[1, 1], [1, 0]]: "
+        "E8 is a free module of rank 4 over Z[phi] = Z[X], the golden companion acting on all of the lattice":
+            idx is not None and np.array_equal(basis @ binv, I8)
+            and np.array_equal(binv @ X @ basis, np.kron(np.eye(4, dtype=np.int64), B2)),
+        "Z[g] = Z[zeta5] makes E8 a free module of rank 2: the Z-span of g^j x0 for one root x0 has rank 4, and "
+        "{g^j x0, g^j y} is a Z-basis for 200 of the roots y, exactly those off the A4 + A4 of x0's residue line":
+            rank(span(x0)[:, :4]) == 4 and len(pairs) == 200
+            and sorted(set(range(240)) - set(pairs)) == on_line and len(on_line) == 40,
+    }
+
+
+def golden_galois():
+    """The day conjugates the golden companion: G120 realizes Gal(Q(sqrt5)/Q) on the tick's cosine."""
+    I8 = np.eye(8, dtype=np.int64)
+    B2 = np.array([[1, 1], [1, 0]], dtype=np.int64)
+    k = cyclotomic.clocks()
+    g, d, c = k["g"], k["day"], k["c"]
+    inv = spine.inverse
+    X = -(g + inv(g))
+    G = primes._matrix_group([c, d])
+    conj = lambda W: W @ X @ inv(W)
+    fix = [W for W in G if np.array_equal(conj(W), X)]
+    flip = [W for W in G if np.array_equal(conj(W), I8 - X)]
+    H = primes._matrix_group([g, d @ d])
+    key = lambda M: tuple(M.flatten().tolist())
+    J = np.array([[0, 1], [-1, 0]], dtype=np.int64)
+    return {
+        "the day conjugates the tick to its square, d g d^-1 = g^2, so it carries the cosine g + g^-1 to "
+        "g^2 + g^-2 = -(g + g^-1) - I and X = -(g + g^-1) to I - X: the day acts on Z[phi] = Z[X] as the Galois "
+        "conjugation phi -> 1 - phi = -1/phi":
+            np.array_equal(d @ g @ inv(d), spine.mpow(g, 2))
+            and np.array_equal(d @ (g + inv(g)) @ inv(d), -(g + inv(g)) - I8)
+            and np.array_equal(d @ X @ inv(d), I8 - X),
+        "c' commutes with X, so G120 = <c', d> acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2: 60 elements fix X and 60 "
+        "carry it to I - X, and the kernel is <g, d^2>, the day's square conjugating the tick to its inverse":
+            np.array_equal(c @ X @ inv(c), X) and len(G) == 120 and len(fix) == 60 and len(flip) == 60
+            and {key(W) for W in fix} == {key(W) for W in H} and len(H) == 60
+            and np.array_equal(d @ d @ g @ inv(d @ d), inv(g)),
+        "the two roots of x^2 - x - 1 on E8, X and I - X = Phi, are the two embeddings of the golden companion, and "
+        "the quarter turn J = [[0, 1], [-1, 0]] conjugates B to I - B in GL(2,Z): the embedding is unique up to the day":
+            np.array_equal(J @ B2 @ np.rint(np.linalg.inv(J)).astype(np.int64), np.eye(2, dtype=np.int64) - B2)
+            and abs(round(np.linalg.det(J.astype(float)))) == 1 and not ((I8 - X) @ (I8 - X) - (I8 - X) - I8).any(),
+    }
+
+
+def regular_cosines():
+    """The cosines of the thirteen regular clocks, and which of them carry the golden companion."""
+    x = sp.Symbol("x")
+    I8 = np.eye(8, dtype=np.int64)
+    g = cyclotomic.clocks()["g"]
+    X = -(g + spine.inverse(g))
+    Xv = sp.Matrix(X.flatten().tolist())
+    reg = primes.regular()
+    psi, charpolys, inside = {}, {}, {}
+    for n, w in reg.items():
+        eta = w + spine.inverse(w)
+        psi[n] = sp.Poly(sp.minimal_polynomial(2 * sp.cos(2 * sp.pi / n), x), x)
+        charpolys[n] = sp.Poly(sp.Matrix(eta.tolist()).charpoly(x).as_expr(), x) == psi[n] ** (8 // psi[n].degree())
+        powers = [I8]
+        for _ in range(psi[n].degree() - 1):
+            powers.append(powers[-1] @ eta)
+        sol = sp.linsolve((sp.Matrix([p.flatten().tolist() for p in powers]).T, Xv))
+        inside[n] = None if sol == sp.EmptySet else tuple(next(iter(sol)))
+    found = {n: s for n, s in inside.items() if s is not None}
+    v, w10 = reg[20], reg[10]
+    return {
+        "the cosine w + w^-1 of the regular clock of order d has characteristic polynomial Psi_d^(8/deg Psi_d), Psi_d "
+        "the minimal polynomial of 2 cos(2 pi/d): degree phi(d)/2 for d >= 3, so (x -+ 2)^8, (x + 1)^8, x^8, "
+        "(x^2 + x - 1)^4, (x - 1)^8, (x^2 - 2)^4, (x^2 - x - 1)^4, (x^2 - 3)^4 and four quartics squared for "
+        "d = 15, 20, 24, 30":
+            all(charpolys.values()) and all(psi[n].degree() == primes._phi(n) // 2 for n in psi if n >= 3)
+            and psi[5].as_expr() == x ** 2 + x - 1 and psi[10].as_expr() == x ** 2 - x - 1
+            and psi[20].as_expr() == x ** 4 - 5 * x ** 2 + 5 and psi[24].as_expr() == x ** 4 - 4 * x ** 2 + 1,
+        "the golden companion's polynomial x^2 - x - 1 is Psi_10 = Psi_5(-x): the regular clock of order 10, "
+        "c'^3 = -g^3, has cosine Phi = 1 + g + g^4 and the tick has negative cosine X = 1 - Phi; the golden clock's "
+        "cosine squares to Phi + 2, (v + v^-1)^2 - 2 = v^2 + v^-2 = Phi, as 2 cos 18 degrees squared is "
+        "(5 + sqrt5)/2":
+            np.array_equal(w10, -spine.mpow(g, 3)) and np.array_equal(w10 + spine.inverse(w10), I8 - X)
+            and np.array_equal(spine.mpow(v, 2), w10)
+            and np.array_equal(np.linalg.matrix_power(v + spine.inverse(v), 2) - 2 * I8, I8 - X),
+        "X lies in the cosine ring Z[w + w^-1] exactly for the five regular orders divisible by 5, with integer "
+        "coefficients: -eta (5), 1 - eta (10), 3 eta - eta^3 (15), 3 - eta^2 (20) and 1 + 3 eta - eta^3 (30); for "
+        "the eight others it is not even in Q[w + w^-1], since Q(sqrt5) lies in Q(zeta_d) only when 5 | d":
+            sorted(found) == [5, 10, 15, 20, 30]
+            and found == {5: (0, -1), 10: (1, -1), 15: (0, 3, 0, -1), 20: (3, 0, -1, 0), 30: (1, 3, 0, -1)}
+            and all(inside[n] is None for n in inside if n % 5),
+    }
+
+
+def torus_places():
+    """The nine-torus at the four places: six of its nine squared frequencies are the band at the fixed momenta of the
+    three prime clocks and at the principal circle's critical steps; the other three are at none of them."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    k = cyclotomic.clocks()
+    band = lambda x: 240 - np.cos(2 * np.pi * (R @ x)).sum()
+    grad = lambda x: np.linalg.norm((np.sin(2 * np.pi * (R @ x))[:, None] * R).sum(axis=0))
+    read = lambda xs: Counter((handover.stabiliser(R, x)[0], int(round(band(x)))) for x in xs if grad(x) < 1e-9)
+    fam = {t: f for (_, t), f in _census().items()}
+    eps = sorted({240 - v for v in _critical_values()} - {0})
+    # on the line x = s omega_i the band is 240 - P_i(cos 2 pi s), P_i from the root counts on node i; the line's
+    # stabilizer has rank 7, so the gradient lies along omega_i and the line's critical points are the band's
+    c = sp.symbols("c")
+    marks = [2, 3, 4, 6, 5, 4, 3, 2]
+    P = [sum(m * sp.chebyshevt(abs(j), c) for j, m in Counter(int(v) for v in RB[:, i]).items()) for i in range(8)]
+    vertex = {handover.stabiliser(R, B @ Cinv[:, i] / marks[i])[0]: 240 - sp.expand(P[i].subs(c, sp.cos(2 * sp.pi / marks[i])))
+              for i in range(8)}
+    turn = lambda i, r: float(sp.acos(r) / (2 * sp.pi)) * (B @ Cinv[:, i])
+    off = {(i, r): (handover.stabiliser(R, turn(i, r))[0], 240 - P[i].subs(c, r), grad(turn(i, r)) < 1e-9)
+           for i in (1, 2) for r in sp.roots(sp.Poly(sp.diff(P[i], c), c)) if r not in (0, sp.Rational(-1, 2))}
+    torsion = {0, sp.Rational(1, 2), sp.Rational(-1, 2), sp.cos(2 * sp.pi / 5), sp.cos(4 * sp.pi / 5)}
+    others = {(i, r) for i in range(8) for r in sp.roots(sp.Poly(sp.diff(P[i], c), c)) if abs(r) < 1 and r not in torsion}
+    exact = {**vertex, **{t: e for t, e, _ in off.values()}, "E8": 0}
+    close = all(abs(float(exact[t]) - (240 - f["lambda"])) < 1e-9 for t, f in fam.items())
+    # the four places: the principal circle's critical steps and the fixed momenta of the half-turn, the sun and the tick
+    rho, rs, _ = principal.weyl_vector()
+    crit = [j for j in range(1, N) if grad(rs * j / N) < 1e-8]
+    circle = {j: (handover.stabiliser(R, rs * j / N)[0], int(round(band(rs * j / N)))) for j in crit}
+    half = read(np.array(y) @ B.T / 2 for y in itertools.product((0, 1), repeat=8))
+    sun = read(places._fixed_momenta(spine.mpow(k["c"], 10), 81))
+    tick = read(_tick_fixed_momenta()[1])
+    at = list(circle.values()) + list(half) + list(sun) + list(tick)
+    placed, types = {v for _, v in at} - {0}, {t for t, _ in at}
+    return {
+        "the nine squared frequencies are exact: at the vertex omega_i / m_i the band is 240 - sum_k m_k cos(2 pi k / m_i) "
+        "for the root counts m_k on node i, giving 256, 252, 252, 251, 250, 248, 243 and 224 at D8, A8, A7 + A1, "
+        "A5 + A2 + A1, A4 + A4, D5 + A3, E6 + A2 and E7 + A1; on the lines R omega_2 and R omega_3 it is "
+        "240 - (64c^3 + 112c^2 + 64c) and 240 - (112c^4 + 112c^3 + 28c^2 - 12) in c = cos 2 pi s, critical off the "
+        "torsion points at c = -2/3 and c = -1/4 (Niven), where it is 6800/27 (type A7) and 4025/16 (type A6 + A1), the "
+        "only such points on the eight lines; the census's floats agree to 1e-9, and the nine square-free parts are distinct "
+        "(nine_torus)":
+            sp.expand(P[1]) == 64 * c ** 3 + 112 * c ** 2 + 64 * c and sp.expand(P[2]) == 112 * c ** 4 + 112 * c ** 3 + 28 * c ** 2 - 12
+            and all(v.is_Rational for v in vertex.values())
+            and vertex == {"D8": 256, "A8": 252, "A7+A1": 252, "A5+A2+A1": 251, "A4+A4": 250, "D5+A3": 248, "E6+A2": 243, "E7+A1": 224}
+            and off == {(1, sp.Rational(-2, 3)): ("A7", sp.Rational(6800, 27), True), (2, sp.Rational(-1, 4)): ("A6+A1", sp.Rational(4025, 16), True)}
+            and others == set(off) and close and sorted(set(exact.values()) - {0}) == eps and all(nine_torus().values()),
+        "the principal circle's critical steps carry four of the nine: 256 at the half-turn 2160 (D8), 252 at 1440 and 2880 "
+        "(A8), 248 at 1080 and 3240 (D5 + A3) and 250 at 864, 1728, 2592 and 3456 (A4 + A4), and the band is critical at "
+        "no other nonzero step":
+            circle == {2160: ("D8", 256), 1440: ("A8", 252), 2880: ("A8", 252), 1080: ("D5+A3", 248), 3240: ("D5+A3", 248),
+                       864: ("A4+A4", 250), 1728: ("A4+A4", 250), 2592: ("A4+A4", 250), 3456: ("A4+A4", 250)}
+            and min(grad(rs * j / N) for j in range(1, N) if j not in circle) > 1e-3,
+        "the 256 half-periods carry two of the nine: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1, the whole "
+        "census orbits of those types, and 0 at the origin; the half-turn 2160 is the half-period rho / 2, of type D8":
+            half == Counter({("E8", 0): 1, ("D8", 256): 135, ("E7+A1", 224): 120})
+            and (fam["D8"]["orbit"], fam["E7+A1"]["orbit"]) == (135, 120)
+            and (rho % 2).tolist() == [0, 0, 1, 1, 0, 0, 1, 1] and handover.stabiliser(R, rs / 2)[0] == "D8",
+        "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry "
+        "250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band":
+            sun == Counter({("E8", 0): 1, ("E6+A2", 243): 80}) and tick == Counter({("E8", 0): 1, ("A4+A4", 250): 24}),
+        "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census "
+        "families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and "
+        "sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical "
+        "step of the principal circle, and the A7 + A1 family's 252 is placed only through A8":
+            placed == {224, 243, 248, 250, 252, 256}
+            and [e for e in eps if e not in placed] == [251, sp.Rational(4025, 16), sp.Rational(6800, 27)]
+            and types == {"E8", "D8", "A8", "D5+A3", "A4+A4", "E6+A2", "E7+A1"} and len(types) == 7 == len(fam) - 4
+            and set(fam) - types == {"A7+A1", "A5+A2+A1", "A6+A1", "A7"},
+    }
+
+
+def notes_1441():
+    """The sibling's MODEL editions of 14:31 and 14:41, the separate model's provenance verification (14:25) and the hub's
+    Canon_Position (14:20), replayed as arithmetic."""
+    S = spine.subgroup
+    order = lambda s: N // gcd(s, N)
+    crit = [864, 1080, 1440, 1728, 2160, 2592, 2880, 3240, 3456]
+    M = np.array(carrier.signless_incidence(), dtype=np.int64)
+    R5 = np.roll(np.eye(5, dtype=np.int64), 1, axis=0)
+    P = R5 + np.linalg.matrix_power(R5, 4) - np.linalg.matrix_power(R5, 2) - np.linalg.matrix_power(R5, 3)
+    I5, J5, u = np.eye(5, dtype=np.int64), np.ones((5, 5), dtype=np.int64), np.ones(5, dtype=np.int64)
+    zero_sum = [I5[i] - I5[0] for i in range(1, 5)]                      # a basis of the sum-zero four
+    return {
+        "the sibling's two readings of 120: lcm(30, 24, 20) = 120 is the order of the seam <36>, while the step 120 has "
+        "order 36 (it generates the address subgroup); and the kernel of x -> 9x is <480>, of order 9, while the multiples "
+        "of 9 are <9>, of order 480, the kernel of x -> x mod 9":
+            lcm(30, 24, 20) == 120 == len(S(36)) and order(120) == 36 == len(S(120))
+            and {x for x in range(N) if 9 * x % N == 0} == S(480) and len(S(480)) == 9
+            and {x for x in range(N) if x % 9 == 0} == S(9) and len(S(9)) == 480,
+        "the address subgroup <120> has order 36 and the principal subgroup <144> order 30; they meet in <720>, the unique "
+        "subgroup of order 6; of the nine critical steps five lie in the address subgroup, seven in the principal subgroup "
+        "and three in both (1440, 2160, 2880)":
+            (len(S(120)), len(S(144))) == (36, 30) and S(120) & S(144) == S(720) and len(S(720)) == 6
+            and [d for d in spine.divisors() if len(S(d)) == 6] == [720]
+            and ([c for c in crit if c % 120 == 0], [c for c in crit if c % 144 == 0], [c for c in crit if c % 720 == 0])
+            == ([1080, 1440, 2160, 2880, 3240], [864, 1440, 1728, 2160, 2592, 2880, 3456], [1440, 2160, 2880]),
+        "the bridge's two splits: the signless Gram M M^T = 3I + J acts by 3 on the sum-zero four and by 8 on the all-ones "
+        "line, and the Gauss square G5^2 = 5I - J by 5 and 0; both pairs add to 8, as M M^T + G5^2 = 8I":
+            np.array_equal(M @ M.T, 3 * I5 + J5) and np.array_equal(P @ P, 5 * I5 - J5)
+            and all(np.array_equal(M @ M.T @ v, 3 * v) and np.array_equal(P @ P @ v, 5 * v) for v in zero_sum)
+            and np.array_equal(M @ M.T @ u, 8 * u) and not (P @ P @ u).any() and 3 + 5 == 8 + 0 == 8
+            and np.array_equal(M @ M.T + P @ P, 8 * I5),
+        "the receipts: 3755 - 5 = 3750 and 3710 - 5 = 3705 (the five tabs START, CLAIMS, SOURCES, OPEN, STATUS), so each N34 "
+        "workbook is five sheets ahead of the publication pointer, which still names N33; the observer reconciliation takes "
+        "4166 + 4 = 4170 artifacts and 610 + 10 = 620 relationships; the archive's 57 files have 56 hashes and the zip's 17 "
+        "files 16, one manifest unhashed each; the workbooks' 31613408 + 30890062 = 62503470 bytes":
+            3755 - 5 == 3750 and 3710 - 5 == 3705 and 4166 + 4 == 4170 and 610 + 10 == 620 and 57 - 56 == 1 == 17 - 16
+            and 31613408 + 30890062 == 62503470,
+        "readings, not joins: on the circle 4170 has order 144 and 620 order 216 (the Coxeter and golden orders), and "
+        "144606784 and 224 have order 135; the 49-tuple's offsets 0, 2, 6 translated to 23 give 23, 25, 29, and 25 is "
+        "composite: admissibility of the tuple says nothing about which translates are prime":
+            (order(4170), order(620), order(144606784), order(224)) == (144, 216, 135, 135)
+            and [23 + t for t in (0, 2, 6)] == [23, 25, 29] and 25 == 5 ** 2,
+    }
+
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
 LEDGER_ROWS = [
@@ -10104,6 +10374,14 @@ LEDGER_ROWS = [
     ("the identity step (MODEL, 00:46-01:16)", "the band at the identity step is 240 = 248 - 8 mu(1)/phi(1)", "corrected: it is 0, the minimum; the formula holds for d > 1", T, "23"),
     ("the Petersen sequence (hub, 00:25)", "B B^T = 3I + A_Petersen = 4I + J - K, rank 10; P_source and (B B^T)^-1 as polynomials", "replayed and joined (synthemes -> Petersen)", T, "23"),
     ("the Weyl vector's order (MODEL, 00:04-00:38)", "46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's", "corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2", T, "23"),
+    ("the clock tower, rooted (30 Oct)", "circle > seam > grain > golden orbit > ticks > observer > sun (the 23:27 chain)", "the chain is the principal circle's subgroup lattice: the seam <36> is generated by the regular steps, the grain <72> by the critical steps, the time and observer clocks are the critical steps of order 5 and 4 and add to the golden step's <216>, the sun's <1440> is the steps of order 3; the 27-clock is the Sylow 3-subgroup, the coil the grain plus the 27-clock, the miss set the kernel of the time coordinate, the vortex the 27-clock modulo the sun; the seed names the orders 5, 4, 60 and 120, so the time clock, the observer clock and the grain are derived, and the canon's cofactor 36 = 4320/120 names the rest", T, "23, 28"),
+    ("the golden companion in the symmetry level (30 Oct)", "B = [[1, 1], [1, 0]] acts on E8 through the golden clock (a selection, B^k -> v^k)", "the golden companion is the tick's negative cosine X = -(g + g^-1): E8 = Z[phi]^4, the day is the Galois conjugation phi -> 1 - phi, and X lies in a regular clock's cosine ring exactly when 5 divides its order", T, "23"),
+    ("the nine-torus placed (30 Oct)", "T^9 of the nine positive critical frequencies, joined to the census and the bath", "six of the nine are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256, 224), at the sun's momenta (243) and at the tick's (250); 251, 4025/16 and 6800/27 are at none of them", T, "23, 28"),
+    ("the principal circle's uniqueness (30 Oct)", "k -> k rho / 4320 for the Weyl vector rho", "unique up to W(E8): rho determines its positive system, W permutes the positive systems transitively (cited) and keeps the band, so every conjugate circle has the same band values, critical steps and types", T, "28"),
+    ("the day and the golden clock (30 Oct)", "the stored day d (order 24, sigma_7) and golden clock v (order 20, sigma_11) in data/clocks.json", "each is one of two conjugacy classes of its normalizer <c', d, v> over its Galois automorphism (10 + 10, 12 + 12), with one characteristic polynomial, so conjugate in W(E8) but not relative to c'; the mirror's class is unique: a recorded selection", T, "25"),
+    ("the sibling's clock corrections (MODEL, 14:41)", "lcm(30, 24, 20) = 120; the step 120 has order 36; the kernel of x -> 9x is <480>, of order 9, not the multiples of 9", "replayed: <36> has order 120 and the step 120 order 36; the multiples of 9 are <9>, of order 480, the kernel of x -> x mod 9", T, "23"),
+    ("the address and principal subgroups (MODEL, 14:41)", "<120> (order 36) and <144> (order 30) meet in the subgroup of order 6; five, seven and three critical steps lie in them and in both", "replayed", T, "23"),
+    ("the bridge's two splits (MODEL, 14:41)", "on the sum-zero four the signless Gram acts by 3 and the Gauss square by 5; on the all-ones line by 8 and 0", "replayed: M M^T = 3I + J and G5^2 = 5I - J, both pairs add to 8 (M M^T + G5^2 = 8I)", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -10222,6 +10500,16 @@ NOT_JOINED = [
                                            "3710 sheets), no new matrix ids and no gate changes; two integrator "
                                            "replays (the G5 complement and the 49-tuple), both held here; read from "
                                            "its receipts and claims CSV, the workbooks not opened", RP),
+    ("the separate model's provenance verification (14:25)", "16 payload hashes recomputed, 24 exact groups and 13 "
+                                                            "regressions replayed, 12 review checks, 0 new matrices or "
+                                                            "joins; a source record read as data, its archive not opened", RP),
+    ("the hub's Canon_Position (14:20)", "a read-only position: the publication manifest at N33 (3750 and 3705 sheets) "
+                                       "while both workbooks are N34 (3755 and 3710); the observer reconciliation "
+                                       "4166 + 4 = 4170 artifacts and 610 + 10 = 620 relationships in 18 layers; read "
+                                       "as data", RP),
+    ("the sibling's 14:31 and 14:41 editions", "new Intake, Copies and Provenance sections: the N34 copies' byte identity "
+                                              "and receipts, the observer archive's 57 files with 56 hashed; read as data, "
+                                              "their arithmetic replayed in notes_1441", RP),
 ]
 
 
@@ -10297,11 +10585,14 @@ def _checks():
         "places.qubit_primes": places.qubit_primes, "places.limits": places.limits,
         "principal.circle": principal.circle, "principal.regular_steps": principal.regular_steps,
         "principal.band_on_circle": principal.band_on_circle, "principal.critical_steps": principal.critical_steps,
+        "principal.clock_lattice": principal.clock_lattice, "principal.principal_uniqueness": principal.principal_uniqueness,
         "six_lines": six_lines,
         "petersen_sequence": petersen_sequence,
         "memory_quotients": memory_quotients, "massless_tower": massless_tower, "stiff_kernel": stiff_kernel,
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
+        "golden_cosine": golden_cosine, "golden_galois": golden_galois, "regular_cosines": regular_cosines,
+        "torus_places": torus_places,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,

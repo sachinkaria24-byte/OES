@@ -7,7 +7,7 @@ at a named interface.
 
 The seed. E8 with c' is the cyclotomic line Z[zeta30] with the trace form Tr(alpha x ybar) (oes/cyclotomic.py (a)).
 
-The derivation (DERIVATION) builds 50 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
+The derivation (DERIVATION) builds 53 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
   - the trunk: E8 -> the cyclotomic line -> the clocks (the Galois group) -> the tick's residue plane F25 -> one
     residue line, the carrier's A4 + A4' -> either factor, A4 -> K5 (its positive roots) -> the vertices, the zero
     modes, the cycles and the source;
@@ -16,23 +16,48 @@ The derivation (DERIVATION) builds 50 dots from the seed, each by one THEOREM jo
   - the other primes (layer 26): the regular clocks from the clocks, and the sun's decad F81 = F9^2 from the
     cyclotomic line, from which the 360 parent is the sun's A6 on its ten 4A2 frames;
   - the arithmetic: the golden companion is the tick's Gauss sum;
-  - the principal circle (layer 28): the Weyl vector's circle of momenta, into which the canon's circle embeds;
+  - the principal circle (layer 28): the Weyl vector's circle of momenta, into which the canon's circle embeds; it is
+    unique up to W(E8), which keeps the band;
+  - the number level (30 Oct): the time clock and the observer clock are the principal circle's critical steps of
+    order 5 and 4, and the grain is the subgroup the critical steps generate (order 60), inside the seam Z/120 that
+    the regular steps generate; the 27-clock, the coil, the miss set, the atlas and the vortex are the circle's
+    subgroup lattice over the canon's cofactor 36 and stay built from the circle;
   - the lattice's harmonic analysis: the bath, the walks, the moments and measures, the half-periods with the Pauli
     algebra and GKSL, the Hodge 70, the momenta, the census and its torus, the root graph and its frame;
   - the carrier: the shadows of the mixed roots, then the triple, the readout, the binding, sound and light, the
     simplex, the cube, the ports and the six-site cone.
-Each choice on the trunk is unique up to the symmetry already built. The six lines are one orbit of the tick's
-normalizer, the line's stabilizer exchanges its two factors, and the circle's selection 144 -> c' is one of eight
-choices that the Galois clocks permute.
+Each choice on the trunk is unique up to the symmetry already built, with one recorded selection. The six lines are
+one orbit of the tick's normalizer, the line's stabilizer exchanges its two factors, and the circle's selection
+144 -> c' is one of eight choices that the Galois clocks permute. But the stored day and golden clock are each one
+of two conjugacy classes of the normalizer <c', d, v> over their Galois automorphisms (10 + 10 of order 24, 12 + 12
+of order 20), with one characteristic polynomial, so conjugate in W(E8) but not relative to c'; the mirror's class
+is unique (30 Oct).
 
 The inputs (INPUTS) are ten: the circle Z/4320 with its stages and memory clock, the datum, the literal operands, the
 words, the integers of the 801 matrix, the Standard-Model split of the five sites, the time unit and the product
-geometry. Ten more dots are built from them (FROM_INPUTS). Two of the inputs meet the seed exactly: mod 5 the 801
-matrix is minus the day, and the circle's order-30 subgroup is <c'>. The memory clock meets the circle through the
-circle's 24 maps onto it, all conjugate under its symmetry, so its stepping is unique up to that symmetry.
+geometry. Seven more dots are built from them (FROM_INPUTS): the 27-clock, the coil, the miss set, the atlas and the
+vortex from the circle's cofactor 36 (their orders 27, 540, 864 and quotient sizes 36, 9 do not divide 120), the root
+assignment from the split and FLRW from the product geometry. Two of the inputs meet the seed exactly: the circle is
+the principal circle k -> k rho/4320, sampled at 4320 = 36 x 120 points, and mod 5 the 801 matrix is minus the day.
+The memory clock meets the circle through the circle's 24 maps onto it, all conjugate under its symmetry, so its
+stepping is unique up to that symmetry.
+
+Unification at all levels (levels_unified, 30 Oct): every level holds derived dots, and inside every level they are
+joined by THEOREM maps with both ends in the level; the derived part stands without the inputs, since the THEOREM
+maps between derived dots connect it, no one such map and no one derived dot holds it together, and every derived
+dot lies on at least three of them; every pair of levels is joined by at least two of them; and the derivation tree
+is THEOREM to depth 8.
 """
 
-from . import cyclotomic, dots, gates, principal
+import functools
+import itertools
+from collections import Counter
+from math import gcd
+
+import numpy as np
+import sympy as sp
+
+from . import cyclotomic, dots, gates, primes, principal, spine
 from .record import Report
 
 T, SR, OB, CN = gates.THEOREM, gates.SELECTED_REFERENCE, gates.OBSTRUCTION, gates.CONDITIONAL
@@ -58,16 +83,21 @@ DERIVATION = {
     "regular": ("clocks", "primes.regular_clocks"), "sun": ("cyclo", "primes.prime_clocks"),
     "goldenport": ("cycles", "golden_root_port"), "wedgeport": ("cycles", "wedge_port"), "darkport": ("L0", "dark_port"),
     "principal": ("E8", "principal.circle"),
+    "time": ("principal", "principal.critical_steps"), "observer": ("principal", "principal.critical_steps"),
+    "grain": ("principal", "grain_steps"),
 }
 
 # input: (what the canon supplies, the derived dot it meets, the check of that interface join)
 INPUTS = {
-    "circle": ("the canon's circle Z/4320; its step 144 goes to c', one of eight choices, all conjugate under the "
-               "Galois clocks", "clocks", "clock_joins"),
+    "circle": ("the canon's circle Z/4320: the principal circle k -> k rho/4320 sampled at 4320 = 36 x 120 points, the seam "
+               "Z/120 its regular steps generate refined by the cofactor 36 = 2^2 3^2; its step 144 goes to c', one of "
+               "eight choices, all conjugate under the Galois clocks", "principal", "principal.circle"),
     "stages": ("the canon's fifteen stage indices on the circle", "circle", "counts.check_claims"),
     "memory": ("the 120-state memory clock; the circle maps onto it in 24 ways, all conjugate under its symmetry, and the "
                "canon's stepping is one of them (a selection)", "circle", "memory_quotients"),
-    "datum": ("the canon's datum (psi0, v0), a vector on the zero modes of energy 34", "kerM", "counts.tick_tock"),
+    "datum": ("the canon's datum (psi0, v0) of energy 34: psi0 = (r + u, M^T r) for the A4 root r = e0 - e1 and the all-ones "
+              "u (psi0 D^2 psi0 = 64, not a zero mode), and v0 the alternating 4-cycle 0-1-2-3, a zero mode of norm 4",
+              "kerM", "counts.tick_tock"),
     "literal": ("the owner's native source matrices", "source", "literal_port"),
     "words": ("the canon's words 088, 086 and 980", "A4", "words_c5"),
     "air801": ("the integers of AIR_801; mod 5 it is minus the day on the residue plane", "residue", "clock_residues"),
@@ -79,11 +109,14 @@ INPUTS = {
 # input: why it stays an input
 WHY = {
     "circle": "psi(4320) = 38 > 8, so no lattice clock runs Z/4320 (layer 27); but it is the principal circle k -> k rho/4320 "
-              "of the seed's momenta, whose step 144 is the Coxeter clock's lift and whose steps of order 2 to 5 are the "
-              "band's critical vertices; only the number 4320 is the canon's (layer 28)",
+              "of the seed's momenta, whose step 144 is the Coxeter clock's lift, whose steps of order 2 to 5 are the "
+              "band's critical vertices (the time and observer clocks) and whose regular steps generate the seam Z/120; "
+              "only the cofactor 36 = 4320/120 (the 27-clock, the coil, the miss set, the atlas and the vortex) and the "
+              "stage indices are the canon's (layer 28, 30 Oct)",
     "stages": "the canon's fifteen indices on the circle",
-    "memory": "order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27)",
-    "datum": "a vector the canon chooses on the zero modes; its S5-orbit is regular (layer 23)",
+    "memory": "order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27); 90 = 2 x 3^2 x 5 does not "
+              "divide 120, so like the 27-clock it needs the canon's 3^2",
+    "datum": "the relative position of an A4 root and a 4-cycle of K5, chosen by the canon; its S5-orbit is regular (layer 23)",
     "literal": "the owner's matrices; they match the derived source up to an explicit isometry (layer 10)",
     "words": "the canon's words; isometric to the oriented duads of K6 only over Q(sqrt2) (layer 23)",
     "air801": "determinant 12402, so no lattice clock; only its residue mod 5 is the seed's (layer 27)",
@@ -94,9 +127,8 @@ WHY = {
 
 # dot built from an input: (the dot it is built from, the check of the join that builds it)
 FROM_INPUTS = {
-    "time": ("circle", "primary_split"), "observer": ("circle", "primary_split"), "c27": ("circle", "primary_split"),
-    "atlas": ("circle", "atlas"), "coil": ("circle", "coil"), "grain": ("coil", "grain"), "vortex": ("atlas", "vortex"),
-    "miss": ("circle", "tick_miss"), "assignment": ("charges", "assignment.standard_model"),
+    "c27": ("circle", "primary_split"), "atlas": ("circle", "atlas"), "coil": ("circle", "coil"),
+    "vortex": ("atlas", "vortex"), "miss": ("circle", "tick_miss"), "assignment": ("charges", "assignment.standard_model"),
     "cosmology": ("gravity", "friedmann"),
 }
 
@@ -115,10 +147,14 @@ def _root(dot, parents):
     return seen[-1], seen
 
 
-def derivation():
+def _held():
+    return {k: all(bool(v) for v in res.values()) for k, res in dots.check_results().items()}
+
+
+def derivation(held=None):
     """The partition of the dots and the derivation tree, with every edge a held join."""
-    results = dots.check_results()
-    held = {k: all(bool(v) for v in res.values()) for k, res in results.items()}
+    held = _held() if held is None else held
+    S = spine.subgroup
     names = [set(DERIVATION), set(INPUTS), set(FROM_INPUTS), {SEED}]
     edges = {d: _join(d, p, ck) for d, (p, ck) in DERIVATION.items()}
     built = {d: _join(d, p, ck) for d, (p, ck) in FROM_INPUTS.items()}
@@ -130,7 +166,7 @@ def derivation():
         f"the {len(dots.DOTS)} dots split into the seed, {len(DERIVATION)} derived dots, {len(INPUTS)} canon inputs and "
         f"{len(FROM_INPUTS)} dots built from the inputs, with no dot left over or counted twice":
             set.union(*names) == set(dots.DOTS) and sum(len(n) for n in names) == len(dots.DOTS)
-            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (50, 10, 10),
+            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (53, 10, 7),
         "every derived dot is built by a THEOREM join of layer 23 whose check holds, and its parents lead back to E8 "
         "without a cycle":
             all(j is not None and j[4] == T and held[j[5]] for j in edges.values())
@@ -139,13 +175,99 @@ def derivation():
             all(j is not None and j[4] in (T, CN) and held[j[5]] for j in built.values())
             and all(r in INPUTS for r, _ in roots_in.values()),
         "every input meets the derived part or another input at a held interface join, and two meet the seed exactly: "
-        "the circle's selection 144 -> c' and the 801 matrix mod 5":
+        "the circle is the principal circle sampled at 4320 points, and the 801 matrix mod 5 is minus the day":
             all(j is not None and j[4] != OB and held[j[5]] for j in faces.values())
-            and faces["circle"][4] == SR and faces["air801"][4] == T,
+            and faces["circle"][4] == T and faces["air801"][4] == T,
+        "the time clock, the observer clock and the grain are the seed's, at depth 2: the principal circle's points of order "
+        "5, of order 4, and the subgroup its critical steps generate, inside the seam <36> = Z/120 that the thirteen regular "
+        "steps generate (their gcd is 36); the five dots still built from the circle need its cofactor 36 = 4320/120, since "
+        "their orders 27, 540 and 864 and quotient sizes 36 and 9 do not divide 120":
+            functools.reduce(gcd, [4320 // d for d in primes.regular()]) == 36 and len(S(36)) == 120
+            and all(120 % len(S(x)) == 0 for x in (864, 1080, 72)) and all(120 % n for n in (27, 540, 864, 36, 9))
+            and {d: depth[d] for d in ("time", "observer", "grain")} == {"time": 2, "observer": 2, "grain": 2}
+            and set(FROM_INPUTS) == {"c27", "coil", "miss", "atlas", "vortex", "assignment", "cosmology"},
         f"the trunk E8 -> cyclotomic line -> clocks -> residue plane -> A4 + A4' -> A4 -> K5 edges -> zero modes -> "
         f"source has depth {depth['source']}, and no dot is deeper than {max(depth.values())}":
             roots["source"][1] == ["source", "kerM", "E", "A4", "L0", "residue", "clocks", "cyclo", "E8"]
             and max(depth.values()) == 8,
+    }
+
+
+def _clock_classes():
+    """For each stored clock, the elements of its order over its Galois automorphism and their conjugacy classes under
+    the normalizer <c', d, v> of <c'>: how many elements, how many classes and their sizes, whether the two classes share
+    a characteristic polynomial, and whether the day's defining condition d^4 = c'^5 picks one class."""
+    k = cyclotomic.clocks()
+    c, d, v, m = (np.rint(k[n]).astype(np.int64) for n in ("c", "day", "golden", "mirror"))
+    P = [spine.mpow(c, j) for j in range(30)]
+    key = lambda M: M.tobytes()
+    normalizer = {}
+    for j in range(30):
+        for a in range(4):
+            for b in range(2):
+                x = P[j] @ spine.mpow(d, a) @ spine.mpow(v, b)
+                normalizer[key(x)] = x
+    inverses = {key(y): spine.inverse(y) for y in normalizer.values()}
+    charpoly = lambda M: sp.Matrix(M.tolist()).charpoly().as_expr()
+    out = {"normalizer": len(normalizer)}
+    for name, n in (("day", d), ("golden", v), ("mirror", m)):
+        o = spine.mat_order(n)
+        same = [n @ P[j] for j in range(30) if spine.mat_order(n @ P[j]) == o]          # the same sigma, the same order
+        keys = {key(z) for z in same}
+        classes, reps, seen = [], [], set()
+        for x in same:
+            if key(x) in seen:
+                continue
+            cls = {key(y @ x @ inverses[key(y)]) for y in normalizer.values()}
+            seen |= cls
+            classes.append(len(cls & keys))
+            reps.append(x)
+        picked = [x for x in same if np.array_equal(spine.mpow(x, 4), P[5])] if name == "day" else []
+        stored = {key(y @ n @ inverses[key(y)]) for y in normalizer.values()}
+        out[name] = {"order": o, "elements": len(same), "classes": sorted(classes),
+                     "one charpoly": len({charpoly(x) for x in reps}) == 1,
+                     "picked": len(picked), "picked in one class": all(key(x) in stored for x in picked)}
+    return out
+
+
+def levels_unified(held=None):
+    """Unification at all levels (30 Oct): every level holds derived dots, each level's derived dots are joined inside it
+    by THEOREM maps, the derived part stands without the inputs, every pair of levels is joined twice between derived
+    dots, and the derivation tree is THEOREM to depth 8. held: check name -> bool, from dots.check_results() when None."""
+    if held is None:
+        held = {k: all(bool(v) for v in res.values()) for k, res in dots.check_results().items()}
+    derived = sorted(set(DERIVATION) | {SEED})
+    inside_derived = [j[4] == T and held[j[5]] and j[0] in derived and j[1] in derived for j in dots.JOINS]
+    maps = [k for k, ok in enumerate(inside_derived) if ok]
+    one = lambda mask, ds=derived: len(dots.components(mask, statuses=(T,), dots=ds)) == 1
+    per_level = {name: [d for d in ds if d in derived] for name, _, ds in dots.LEVELS}
+    inside = {name: dots.components([ok and dots.JOINS[k][0] in ds and dots.JOINS[k][1] in ds
+                                     for k, ok in enumerate(inside_derived)], statuses=(T,), dots=ds)
+              for name, ds in per_level.items()}
+    degree = Counter(x for k in maps for x in dots.JOINS[k][:2])
+    bridges = [k for k in maps if not one([ok and i != k for i, ok in enumerate(inside_derived)])]
+    cut_dots = [d for d in derived if not one([ok and d not in dots.JOINS[k][:2] for k, ok in enumerate(inside_derived)],
+                                              [x for x in derived if x != d])]
+    pairs = Counter(tuple(sorted((dots.LEVEL_OF[dots.JOINS[k][0]], dots.LEVEL_OF[dots.JOINS[k][1]]))) for k in maps
+                    if dots.LEVEL_OF[dots.JOINS[k][0]] != dots.LEVEL_OF[dots.JOINS[k][1]])
+    level_pairs = list(itertools.combinations(range(len(dots.LEVELS)), 2))
+    depth = {d: len(_root(d, DERIVATION)[1]) - 1 for d in DERIVATION}
+    tree = {d: _join(d, p, ck) for d, (p, ck) in DERIVATION.items()}
+    counts = ", ".join(f"{len(per_level[name])} on the {name} level" for name, _, _ in dots.LEVELS)
+    return {
+        f"every level holds derived dots: {counts}": all(per_level[name] for name, _, _ in dots.LEVELS),
+        "inside every level the derived dots are joined among themselves by THEOREM maps with both ends in the level":
+            all(len(c) == 1 for c in inside.values()),
+        f"the derived part stands without the inputs: the {len(derived)} derived dots are connected by the "
+        f"{len(maps)} THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, "
+        "leaves the rest connected":
+            one(inside_derived) and not bridges and not cut_dots,
+        "every derived dot lies on at least three THEOREM maps to derived dots": all(degree[d] >= 3 for d in derived),
+        "every pair of the six levels is joined directly by at least two THEOREM maps between derived dots":
+            all(pairs[p] >= 2 for p in level_pairs),
+        f"the derivation tree has depth {max(depth.values())}, at most 8, and every derived dot's derivation join is a "
+        "THEOREM join of layer 23 whose check holds":
+            max(depth.values()) <= 8 and all(j is not None and j[4] == T and held[j[5]] for j in tree.values()),
     }
 
 
@@ -154,7 +276,8 @@ def uniqueness():
     lines = cyclotomic.tick_normalizer()
     galois = cyclotomic.galois_clocks()
     memory = dots.memory_quotients()
-    from . import spine
+    circle = principal.principal_uniqueness()
+    classes = _clock_classes()
     c, cp, r, rp, g, w = spine.spine_clock()
     return {
         "the seed has no parameters: E8 is the only even unimodular lattice of rank 8 (cited), and the Coxeter element "
@@ -169,6 +292,22 @@ def uniqueness():
         "the memory clock's stepping k -> A^k is one of the circle's 24 maps onto it, and its normalizer in S_120 "
         "realizes every unit mod 90, so all 24 are conjugate":
             all(memory.values()),
+        "the principal circle is unique up to W(E8): the Weyl vector determines its positive system, W permutes the "
+        "positive systems transitively (cited) and keeps the band, so the conjugate circles have the same band values, "
+        "critical steps and types":
+            all(circle.values()),
+        "the day and the golden clock are recorded selections: over sigma_7 the normalizer <c', d, v> (240 elements) has "
+        "20 elements of order 24 in two conjugacy classes of 10, and over sigma_11 24 elements of order 20 in two classes "
+        "of 12; each pair of classes shares one characteristic polynomial (conjugate in W(E8), not relative to c'), the "
+        "day's defining condition d^4 = c'^5 holds on 10 elements and does not pick a class, and the mirror's 30 "
+        "involutions over sigma_29 are one class":
+            classes["normalizer"] == 240
+            and classes["day"] == {"order": 24, "elements": 20, "classes": [10, 10], "one charpoly": True, "picked": 10,
+                                   "picked in one class": False}
+            and classes["golden"] == {"order": 20, "elements": 24, "classes": [12, 12], "one charpoly": True, "picked": 0,
+                                      "picked in one class": True}
+            and classes["mirror"] == {"order": 2, "elements": 30, "classes": [30], "one charpoly": True, "picked": 0,
+                                      "picked in one class": True},
     }
 
 
@@ -176,6 +315,9 @@ def unified_page():
     """docs/UNIFIED.md: the derivation as one page."""
     D = dots.DOTS
     name = lambda d: D[d][0]
+    derived = set(DERIVATION) | {SEED}
+    maps = sum(1 for j in dots.JOINS if j[4] == T and j[0] in derived and j[1] in derived)
+    levels = ", ".join(f"{sum(d in derived for d in ds)} on the {n} level" for n, _, ds in dots.LEVELS)
     lines = ["# One object", "",
              "Layers 25 to 28 (`oes/unify.py`, `oes/cyclotomic.py`, `oes/primes.py`, `oes/places.py`, `oes/principal.py`). "
              "Generated by "
@@ -247,10 +389,40 @@ def unified_page():
              "The steps 180 and 216 carry the day and the golden clock.",
              "- **The band at the regular steps** is 248 − 8μ(d)/φ(d): 256 at the half-turn, 252, 248, 250, 244, 248, "
              "246, 248, 247, 248, 248 and 249 at the Coxeter step.",
-             "- **The critical steps are the canon's small clocks.** The band is critical on the circle exactly at its "
+             "- **The canon's small clocks are the seed's critical steps.** The band is critical on the circle exactly at its "
              "nine elements of order 2 to 5: the half-turn 2160 (D8, 256), the 27-clock's 1440 and 2880 (A8, 252), the "
              "observer clock's 1080 and 3240 (D5 + A3, 248) and the time clock 864k (A4 + A4, 250, the carrier's root "
-             "system). They are the alcove's vertices of marks 2, 3, 4 and 5. Every step of order above 29 is regular.", "",
+             "system). They are the alcove's vertices of marks 2, 3, 4 and 5. Every step of order above 29 is regular.",
+             "- **The clocks are its subgroups (30 Oct).** The nine critical steps are the union of ⟨2160⟩, ⟨1440⟩, ⟨1080⟩ and "
+             "⟨864⟩ and generate the grain ⟨72⟩, of order lcm(2, 3, 4, 5) = 60; the time and observer clocks meet in 0 and add "
+             "to the golden step's ⟨216⟩ = ℤ/20. The thirteen regular steps are the multiples of 36 and generate the seam ⟨36⟩, "
+             "of order lcm(30, 24, 20) = 120, so the atlas ℤ/36 is the circle modulo the regular steps. The 27-clock ⟨160⟩ is "
+             "the Sylow 3-subgroup, holding the sun's step ρ/3; the coil ⟨8⟩ is the grain plus the 27-clock; the miss set ⟨5⟩ "
+             "is the kernel of the time coordinate; the vortex ℤ/9 is the 27-clock modulo the sun. The seed names the orders "
+             "5, 4, 60 and 120, so the time clock, the observer clock and the grain are derived; 27, 32, 540, 864 and the "
+             "quotient sizes 36 and 9 come from the canon's 4320 = 2⁵3³5 and do not divide 120, so the other five clocks "
+             "stay built from the circle's cofactor 36. |⟨36⟩| = 120 = |G120| only numerically: G120 has no element of "
+             "order 20 or 120.",
+             "- **Unique up to W(E8).** The Weyl vector is the half-sum of the positive roots and is regular, so it determines its "
+             "positive system. W(E8) permutes the positive systems transitively (cited) and keeps the band, so every conjugate "
+             "circle k ↦ kwρ/4320 has the same band values, critical steps and types.", "",
+             "## Unified at all levels (30 Oct)", "",
+             "- **The number level is rooted in the principal circle.** Its derived dots are the time clock, the observer clock "
+             "and the grain, joined inside the level by the golden step (⟨864⟩ + ⟨1080⟩ = ⟨216⟩) and the sum of the three small "
+             "clocks (⟨864⟩ + ⟨1080⟩ + ⟨1440⟩ = ⟨72⟩); the observer clock is the regular class 4, the day's sixth power.",
+             "- **The golden companion is joined inside the symmetry level.** It is the tick's negative cosine X = −(g + g⁻¹), "
+             "with X² = X + I and characteristic polynomial (x² − x − 1)⁴; E8 has a basis of four roots and their images in "
+             "which X is four Fibonacci blocks, so E8 = ℤ[φ]⁴. The day conjugates X to I − X (the Galois conjugation of "
+             "Q(√5)), G120 acts on ℤ[X] through Gal(Q(√5)/Q) with kernel ⟨g, d²⟩, and X lies in a regular clock's cosine ring "
+             "ℤ[w + w⁻¹] exactly for the orders divisible by 5.",
+             "- **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps "
+             "(256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the "
+             "sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them.",
+             f"- **The structure** (`levels_unified`). Every level holds derived dots ({levels}); inside every level they are "
+             "joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the "
+             f"{len(DERIVATION) + 1} derived dots are connected by the {maps} THEOREM maps between them, no one such map and "
+             "no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of "
+             "the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.", "",
              "## The derivation", "", "```mermaid", "flowchart TB"]
     for d in list(DERIVATION) + [SEED]:
         lines.append(f'    {d}["{name(d)}"]')
@@ -277,7 +449,10 @@ def run():
                cyclotomic.carrier_shadows, cyclotomic.parent_hexad):
         for name, ok in fn().items():
             rep.add(name, T, ok)
-    for name, ok in derivation().items():
+    held = _held()
+    for name, ok in derivation(held).items():
+        rep.add(name, T, ok)
+    for name, ok in levels_unified(held).items():
         rep.add(name, T, ok)
     for name, ok in uniqueness().items():
         rep.add(name, T, ok)

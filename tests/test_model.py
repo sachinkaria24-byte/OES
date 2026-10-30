@@ -655,7 +655,8 @@ def test_the_one_object():
                   dots.notes_2150, dots.notes_2222, dots.notes_2253,
                   dots.notes_2325, dots.notes_2356, dots.six_lines, dots.notes_0032,
                   dots.petersen_sequence, dots.notes_0117, dots.notes_0844,
-                  dots.notes_0912, dots.notes_0951, dots.notes_1004, dots.notes_1411):
+                  dots.notes_0912, dots.notes_0951, dots.notes_1004, dots.notes_1411, dots.notes_1441,
+                  dots.golden_cosine, dots.golden_galois, dots.regular_cosines, dots.torus_places, unify.levels_unified):
         out = check()
         assert all(out.values()), out
     import numpy as np
@@ -721,7 +722,8 @@ def test_the_four_places():
 
 
 def test_the_principal_circle():
-    for check in (principal.circle, principal.regular_steps, principal.band_on_circle, principal.critical_steps):
+    for check in (principal.circle, principal.regular_steps, principal.band_on_circle, principal.critical_steps,
+                  principal.clock_lattice, principal.principal_uniqueness):
         out = check()
         assert all(out.values()), out
     import numpy as np
@@ -735,8 +737,12 @@ def test_the_principal_circle():
     from oes import handover, spine
     R = spine.frame()[4]
     assert handover.stabiliser(R, rs * 720 / 4320)[0] == "A4+A3"
-    # the circle and the derivation: the circle stays an input, its interface the selection 144 -> c'
+    # the circle and the derivation: the circle stays an input (for its cofactor 36 and its stages), its interface the
+    # embedding k -> k rho/4320; the time clock, the observer clock and the grain hang from the principal circle
     assert unify.DERIVATION["principal"] == ("E8", "principal.circle") and "circle" in unify.INPUTS
+    assert unify.INPUTS["circle"][1:] == ("principal", "principal.circle")
+    assert all(unify._root(d, unify.DERIVATION)[0] == "E8" for d in ("time", "observer", "grain"))
+    assert set(unify.FROM_INPUTS) == {"c27", "coil", "miss", "atlas", "vortex", "assignment", "cosmology"}
     assert 4320 // gcd(144, 4320) == 30 and 4320 // gcd(864, 4320) == 5
 
 

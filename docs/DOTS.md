@@ -392,18 +392,35 @@ flowchart TB
     AGL -->|"the Frobenius"| cube
     grain -->|"the regular steps"| principal
     pg25 -->|"secants through a point"| synthemes
+    E8 -->|"unique up to W(E8)"| principal
+    principal -->|"the critical steps"| grain
+    time -->|"the golden step"| observer
+    observer -->|"the three small clocks"| grain
+    observer -->|"the regular class 4"| regular
+    principal -->|"modulo the regular steps"| atlas
+    principal -->|"the Sylow 3-subgroup"| c27
+    grain -->|"plus the 27-clock"| coil
+    principal -->|"the steps the tick does not see"| miss
+    principal -->|"the 27-clock modulo the sun"| vortex
+    golden -->|"the tick's cosine"| clocks
+    golden -->|"the Galois conjugation"| G120
+    golden -->|"the cosine rings"| regular
+    torus -->|"the critical steps"| principal
+    torus -->|"the half-periods"| halfper
+    torus -->|"the sun's momenta"| sun
+    torus -->|"the tick's momenta"| momenta
 ```
 
-71 dots and 305 joins: 272 THEOREM, 10 SELECTED_REFERENCE, 7 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
+71 dots and 322 joins: 289 THEOREM, 10 SELECTED_REFERENCE, 7 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
-| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 29 | 7 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 12 | 12 |
+| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 32 | 8 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 15 | 12 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 13 | 5 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle | 25 | 26 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle | 30 | 26 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 24 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 11 | - |
 
@@ -413,10 +430,10 @@ The maps that join each pair of levels directly.
 
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
-| number | - | 7 | 3 | 8 | 3 | 2 |
-| symmetry | 7 | - | 12 | 24 | 12 | 7 |
+| number | - | 8 | 3 | 13 | 3 | 2 |
+| symmetry | 8 | - | 12 | 24 | 12 | 7 |
 | combinatorics | 3 | 12 | - | 5 | 19 | 7 |
-| lattice | 8 | 24 | 5 | - | 26 | 5 |
+| lattice | 13 | 24 | 5 | - | 26 | 5 |
 | operator | 3 | 12 | 19 | 26 | - | 24 |
 | physics | 2 | 7 | 7 | 5 | 24 | - |
 
@@ -450,20 +467,20 @@ The maps that join each pair of levels directly.
 | day-Coxeter group | <c', d>, order 120 | symmetry | 21, 22 |
 | AGL(1,5) | the affine group of the pentagon | symmetry | 21 |
 | circle | Z/4320 | number | 19, 28 |
-| time clock | <864> = Z/5 | number | 21, 22, 28 |
-| observer clock | <1080>, inside the 2-clock <135> | number | 22, 23, 28 |
+| time clock | <864> = Z/5, the principal points of order 5 (rho/5) | number | 21, 22, 28 |
+| observer clock | <1080>, the principal points of order 4 (rho/4), the regular class 4 = d^6; inside the 2-clock <135> | number | 22, 23, 28 |
 | 27-clock | <160>, the nakshatra | number | 20, 23, 28 |
-| atlas | Z/36 = circle / <36> | number | 23 |
+| atlas | Z/36 = circle / <36>, the circle modulo its regular steps | number | 23, 28 |
 | golden companion | B = [[1, 1], [1, 0]] | symmetry | 21, 22 |
 | stages | the fifteen indices | number | 22 |
 | four-cube | the 81-cell complex of [0, 1]^4 | combinatorics | 21, 23 |
 | Hodge 70 | Lambda^4 R^8 = 35 + 35 | symmetry | 23 |
-| coil | <8>, the 540 multiples of 8 | number | 23 |
+| coil | <8>, the 540 multiples of 8: the grain plus the 27-clock | number | 23, 28 |
 | S5 | the 120 vertex permutations, the cone point's stabilizer in S6 | symmetry | 1, 23 |
 | PGL(2,5) | the transitive S5 in S6, on the projective line over F5 | symmetry | 23 |
-| grain | <72> = <216> x <1440>, the golden orbit times the sun | number | 23 |
-| vortex | Z/9, the address mod 9 | number | 23 |
-| miss set | <5>, the 864 points the tick does not see | number | 23 |
+| grain | <72> = <216> x <1440>, the golden orbit times the sun: the 60 points k rho/60 the critical steps generate | number | 23, 28 |
+| vortex | Z/9, the address mod 9: the 27-clock modulo the sun | number | 23, 28 |
+| miss set | <5>, the 864 points the tick does not see: the kernel of the time coordinate | number | 23, 28 |
 | eight-root frame | the origin and eight roots with pairwise products 1: a maximal 9-clique, index 3 | lattice | 23 |
 | spectral triple | (A, H, D, gamma) on l2(V u E), dim 15, with D^2 = M M^T + M^T M | physics | 2, 9 |
 | surface | RP^2: the hemi-icosahedron on the six axes and its complement, 1-skeleton K6 | combinatorics | 3, 9 |
@@ -494,7 +511,7 @@ The maps that join each pair of levels directly.
 | 360 parent | Q[A6] with the right action of r = (01234) and t = (23)(45), and the coset readers O90 and O36 | operator | 23, 26 |
 | regular clocks | the thirteen regular classes of W(E8), powers of c', d and v with characteristic polynomials Phi_d^(8/phi(d)) and centralizers of order prod_(d \| d_i) d_i | symmetry | 26 |
 | sun's decad | E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames | lattice | 26, 27 |
-| principal circle | k -> k rho / 4320 in the momentum torus R^8 / E8, rho the Weyl vector | lattice | 28 |
+| principal circle | k -> k rho / 4320 in the momentum torus R^8 / E8, rho the Weyl vector; unique up to W(E8) | lattice | 28 |
 
 ## Joins
 
@@ -805,6 +822,23 @@ The maps that join each pair of levels directly.
 | AGL(1,5) | four-cube | on the four-cube's vertices, the sixteen cuts of K5 mod 2 = F16 by delta({k}) -> zeta^k, the tick multiplies by a primitive fifth root of unity and the doubling is the Frobenius y -> y^2: AGL(1,5) acts as <zeta5> x\| Gal(F16/F2) inside GammaL(1,16) (30 Oct) | THEOREM | `cube_frobenius` |
 | grain | principal circle | on the principal circle the grain is the 60 points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3, with the spectra of the golden clock and the sun; it holds the steps of the eleven regular orders dividing 60, all but the day's 8 and 24 (30 Oct) | THEOREM | `grain_steps` |
 | PG(2,5) | synthemes | the three secants through an interior point of PG(2,5) meet the conic in a syntheme: the ten interior points are the ten nonspecial synthemes, and the fifteen exterior points, in five self-polar triangles, give the special five, a one-factorization; a labelling that carries the exceptional sigma onto PGL(2,5) matches them with the Sylow labels' 10 + 5 (30 Oct) | THEOREM | `plane_synthemes` |
+| E8 | principal circle | the Weyl vector is the half-sum of the positive roots and is regular, so it determines its positive system, and W(E8) permutes the positive systems transitively (cited) and keeps the band: the conjugate circles k -> k w rho / 4320 have the same band values, critical steps and types, so the principal circle is unique up to W(E8) (30 Oct) | THEOREM | `principal.principal_uniqueness` |
+| principal circle | grain | the band's nine critical steps are the union of <2160>, <1440>, <1080> and <864>, so they generate <72>, the grain, of order lcm(2, 3, 4, 5) = 60: the grain is the subgroup the band's critical points generate, and it is the seed's (30 Oct) | THEOREM | `principal.clock_lattice` |
+| time clock | observer clock | the time clock and the observer clock meet in 0 and add to <216> = Z/20, the golden step's subgroup, Z/5 x Z/4: the golden step rho/20 is the sum of the two small clocks (30 Oct) | THEOREM | `principal.clock_lattice` |
+| observer clock | grain | the grain is the sum <864> + <1080> + <1440> of the time clock, the observer clock and the sun's subgroup, lcm(5, 4, 3) = 60 points: the two small clocks and the sun generate the grain (30 Oct) | THEOREM | `principal.clock_lattice` |
+| observer clock | regular clocks | the observer clock's step 1080 = rho/4 has the adjoint spectrum of the regular clock of order 4, which is d^6, the day's sixth power, with d^12 = -1 the half-turn at the observer clock's square 2160 (30 Oct) | THEOREM | `principal.clock_lattice` |
+| principal circle | atlas | the thirteen regular steps 4320/d are the multiples of 36 and generate the seam <36> (as 144 and 180 already do; 216 = 6 x 36 adds nothing), of order lcm(30, 24, 20) = 120: the atlas Z/36 is the principal circle modulo the subgroup its regular steps generate, the largest quotient in which every regular and critical step vanishes; the quotient size 36 = 4320/120 is the canon's cofactor (30 Oct) | THEOREM | `principal.clock_lattice` |
+| principal circle | 27-clock | <160> is the unique subgroup of order 27 of the circle (4320 = 2^5 3^3 5), the points of order a power of 3; it holds the sun's step 1440 = rho/3, whose spectrum is the regular class 3, and the two A8 critical steps; the order 27 = 3^3 comes from the canon's 4320, not from the seed, whose regular orders carry one 3 (30 Oct) | THEOREM | `principal.clock_lattice` |
+| grain | coil | the coil <8> is the sum <72> + <160> of the grain and the 27-clock, which meet in the sun's subgroup <1440>: 60 x 27 / 3 = 540 points, the kernel of x -> 540 x; it is also generated by the time, observer and 27-clocks (30 Oct) | THEOREM | `principal.clock_lattice` |
+| principal circle | miss set | the miss set <5> is the kernel of the time coordinate, the points of order prime to 5, <135> + <160>; it holds every critical step but the time clock's four, and the atlas and the vortex hold none, every regular and critical step being 0 mod 36 (30 Oct) | THEOREM | `principal.clock_lattice` |
+| principal circle | vortex | x -> x mod 9 maps the 27-clock <160> onto Z/9 with kernel the sun's subgroup <1440>, and the whole principal circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part, 480 points; the quotient size 9 = 27/3 is the canon's (30 Oct) | THEOREM | `principal.clock_lattice` |
+| golden companion | W(E8) clocks | the tick's cosine g + g^-1 has minimal polynomial x^2 + x - 1, so X = -(g + g^-1) satisfies X^2 = X + I with characteristic polynomial (x^2 - x - 1)^4, and E8 has a Z-basis of four roots and their images under X in which X is four blocks B: E8 = Z[phi]^4, the golden companion acting on the whole lattice through the tick; X = I - Phi for layer 27's Phi = 1 + g + g^4, and Z[g] = Z[zeta5] makes E8 a free module of rank 2 (30 Oct) | THEOREM | `golden_cosine` |
+| golden companion | day-Coxeter group | the day conjugates the tick to its square and so carries X = -(g + g^-1) to I - X: it acts on Z[phi] as phi -> 1 - phi, the Galois conjugation of Q(sqrt5); c' commutes with X, so G120 acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2, 60 elements fixing X and 60 conjugating it, with kernel <g, d^2>; the embedding of the golden companion is unique up to the day (30 Oct) | THEOREM | `golden_galois` |
+| golden companion | regular clocks | the cosine w + w^-1 of the regular clock of order d has characteristic polynomial Psi_d^(8/deg Psi_d), Psi_d the minimal polynomial of 2 cos(2 pi/d); the golden polynomial x^2 - x - 1 is Psi_10 = Psi_5(-x), the cosine of c'^3 = -g^3 is Phi, and the golden clock's cosine squares to Phi + 2; X lies in the cosine ring Z[w + w^-1] exactly for the five regular orders divisible by 5 (30 Oct) | THEOREM | `regular_cosines` |
+| nine-torus | principal circle | the nine-torus's frequencies are exact: 240 - sum_k m_k cos(2 pi k/m_i) at the alcove's vertices, and 6800/27 and 4025/16 at the two Niven points on the lines R omega_2 and R omega_3; four of the nine, 256, 252, 248 and 250, are the band at the principal circle's critical steps of order 2, 3, 4 and 5 (30 Oct) | THEOREM | `torus_places` |
+| nine-torus | half-periods | two of the nine frequencies are the band at the 256 half-periods: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1; the half-turn 2160 is the half-period rho/2, of type D8 (30 Oct) | THEOREM | `torus_places` |
+| nine-torus | sun's decad | 243 is the band at the sun's 80 nonzero fixed momenta, of type E6 + A2, every one a critical point of the band (30 Oct) | THEOREM | `torus_places` |
+| nine-torus | tick momenta | 250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through seven of the eleven census families, and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct) | THEOREM | `torus_places` |
 
 ## Not joined
 
@@ -844,5 +878,8 @@ The maps that join each pair of levels directly.
 | the separate model's unified connections (09:54) | 1701713 bytes; 134 new exact groups (arithmetic 40, tangent 12, static return 61, vertex join 21), 20 new typed joins (610 relationships); certificate read, capsule not decoded or run | REPORTED |
 | the N33 six-view frame (hub, 09:54: J09) | six rank-four K_i on Lambda^2 P5 with sum (12/5) I10 and four-view spectrum (12/5)^3 (8/5)^3 (6/5)^3 (2/5): source-reported, the projectors are not stored here | REPORTED |
 | the canon's N34 release (14:04-14:11) | 32 source-graded claims from 12 families in five new tabs (3755 and 3710 sheets), no new matrix ids and no gate changes; two integrator replays (the G5 complement and the 49-tuple), both held here; read from its receipts and claims CSV, the workbooks not opened | REPORTED |
+| the separate model's provenance verification (14:25) | 16 payload hashes recomputed, 24 exact groups and 13 regressions replayed, 12 review checks, 0 new matrices or joins; a source record read as data, its archive not opened | REPORTED |
+| the hub's Canon_Position (14:20) | a read-only position: the publication manifest at N33 (3750 and 3705 sheets) while both workbooks are N34 (3755 and 3710); the observer reconciliation 4166 + 4 = 4170 artifacts and 610 + 10 = 620 relationships in 18 layers; read as data | REPORTED |
+| the sibling's 14:31 and 14:41 editions | new Intake, Copies and Provenance sections: the N34 copies' byte identity and receipts, the observer archive's 57 files with 56 hashed; read as data, their arithmetic replayed in notes_1441 | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

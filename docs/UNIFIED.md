@@ -41,7 +41,16 @@ No lattice clock runs the canon's circle, but a circle of the seed's momenta doe
 
 - **The Coxeter step is Kostant's.** For each of the thirteen regular numbers d, ρ/d acts on the adjoint representation with the spectrum of a lift of the regular clock of order d. At d = 30 Kostant's theorem makes it conjugate to the lift of c′ (cited), so the canon's selection 144 → c′ is that identification. The steps 180 and 216 carry the day and the golden clock.
 - **The band at the regular steps** is 248 − 8μ(d)/φ(d): 256 at the half-turn, 252, 248, 250, 244, 248, 246, 248, 247, 248, 248 and 249 at the Coxeter step.
-- **The critical steps are the canon's small clocks.** The band is critical on the circle exactly at its nine elements of order 2 to 5: the half-turn 2160 (D8, 256), the 27-clock's 1440 and 2880 (A8, 252), the observer clock's 1080 and 3240 (D5 + A3, 248) and the time clock 864k (A4 + A4, 250, the carrier's root system). They are the alcove's vertices of marks 2, 3, 4 and 5. Every step of order above 29 is regular.
+- **The canon's small clocks are the seed's critical steps.** The band is critical on the circle exactly at its nine elements of order 2 to 5: the half-turn 2160 (D8, 256), the 27-clock's 1440 and 2880 (A8, 252), the observer clock's 1080 and 3240 (D5 + A3, 248) and the time clock 864k (A4 + A4, 250, the carrier's root system). They are the alcove's vertices of marks 2, 3, 4 and 5. Every step of order above 29 is regular.
+- **The clocks are its subgroups (30 Oct).** The nine critical steps are the union of ⟨2160⟩, ⟨1440⟩, ⟨1080⟩ and ⟨864⟩ and generate the grain ⟨72⟩, of order lcm(2, 3, 4, 5) = 60; the time and observer clocks meet in 0 and add to the golden step's ⟨216⟩ = ℤ/20. The thirteen regular steps are the multiples of 36 and generate the seam ⟨36⟩, of order lcm(30, 24, 20) = 120, so the atlas ℤ/36 is the circle modulo the regular steps. The 27-clock ⟨160⟩ is the Sylow 3-subgroup, holding the sun's step ρ/3; the coil ⟨8⟩ is the grain plus the 27-clock; the miss set ⟨5⟩ is the kernel of the time coordinate; the vortex ℤ/9 is the 27-clock modulo the sun. The seed names the orders 5, 4, 60 and 120, so the time clock, the observer clock and the grain are derived; 27, 32, 540, 864 and the quotient sizes 36 and 9 come from the canon's 4320 = 2⁵3³5 and do not divide 120, so the other five clocks stay built from the circle's cofactor 36. |⟨36⟩| = 120 = |G120| only numerically: G120 has no element of order 20 or 120.
+- **Unique up to W(E8).** The Weyl vector is the half-sum of the positive roots and is regular, so it determines its positive system. W(E8) permutes the positive systems transitively (cited) and keeps the band, so every conjugate circle k ↦ kwρ/4320 has the same band values, critical steps and types.
+
+## Unified at all levels (30 Oct)
+
+- **The number level is rooted in the principal circle.** Its derived dots are the time clock, the observer clock and the grain, joined inside the level by the golden step (⟨864⟩ + ⟨1080⟩ = ⟨216⟩) and the sum of the three small clocks (⟨864⟩ + ⟨1080⟩ + ⟨1440⟩ = ⟨72⟩); the observer clock is the regular class 4, the day's sixth power.
+- **The golden companion is joined inside the symmetry level.** It is the tick's negative cosine X = −(g + g⁻¹), with X² = X + I and characteristic polynomial (x² − x − 1)⁴; E8 has a basis of four roots and their images in which X is four Fibonacci blocks, so E8 = ℤ[φ]⁴. The day conjugates X to I − X (the Galois conjugation of Q(√5)), G120 acts on ℤ[X] through Gal(Q(√5)/Q) with kernel ⟨g, d²⟩, and X lies in a regular clock's cosine ring ℤ[w + w⁻¹] exactly for the orders divisible by 5.
+- **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them.
+- **The structure** (`levels_unified`). Every level holds derived dots (3 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 14 on the lattice level, 15 on the operator level, 4 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 54 derived dots are connected by the 220 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
 
 ## The derivation
 
@@ -97,6 +106,9 @@ flowchart TB
     wedgeport["root-wedge port"]
     darkport["dark ports"]
     principal["principal circle"]
+    time["time clock"]
+    observer["observer clock"]
+    grain["grain"]
     E8["E8"]
     E8 --> cyclo
     cyclo --> clocks
@@ -148,6 +160,9 @@ flowchart TB
     cycles --> wedgeport
     L0 --> darkport
     E8 --> principal
+    principal --> time
+    principal --> observer
+    principal --> grain
 ```
 
 | dot | built from | by the join | check | depth |
@@ -161,8 +176,11 @@ flowchart TB
 | root graph | E8 | inner product 1 | `root_scheme` | 1 |
 | W(E8) clocks | cyclotomic line | the clocks are Galois | `galois_clocks` | 2 |
 | golden companion | cyclotomic line | the Gauss sum | `golden_gauss` | 2 |
+| grain | principal circle | the regular steps | `grain_steps` | 2 |
 | half-periods | cyclotomic line | the primes over 2 | `primes.half_turn` | 2 |
+| observer clock | principal circle | the D5 + A3 vertex | `principal.critical_steps` | 2 |
 | sun's decad | cyclotomic line | the prime over 3 | `primes.prime_clocks` | 2 |
+| time clock | principal circle | the A4 + A4 vertex | `principal.critical_steps` | 2 |
 | nine-torus | critical census | nine frequencies | `nine_torus` | 2 |
 | closed walks | bath | return counts | `walks_join` | 2 |
 | day-Coxeter group | W(E8) clocks | c' and d | `clock_joins` | 3 |
@@ -207,10 +225,10 @@ flowchart TB
 
 | input | what the canon supplies | it meets | status | why it stays an input |
 |---|---|---|---|---|
-| circle | the canon's circle Z/4320; its step 144 goes to c', one of eight choices, all conjugate under the Galois clocks | W(E8) clocks (k 144 -> c'^k) | SELECTED_REFERENCE | psi(4320) = 38 > 8, so no lattice clock runs Z/4320 (layer 27); but it is the principal circle k -> k rho/4320 of the seed's momenta, whose step 144 is the Coxeter clock's lift and whose steps of order 2 to 5 are the band's critical vertices; only the number 4320 is the canon's (layer 28) |
+| circle | the canon's circle Z/4320: the principal circle k -> k rho/4320 sampled at 4320 = 36 x 120 points, the seam Z/120 its regular steps generate refined by the cofactor 36 = 2^2 3^2; its step 144 goes to c', one of eight choices, all conjugate under the Galois clocks | principal circle (k -> k rho / 4320) | THEOREM | psi(4320) = 38 > 8, so no lattice clock runs Z/4320 (layer 27); but it is the principal circle k -> k rho/4320 of the seed's momenta, whose step 144 is the Coxeter clock's lift, whose steps of order 2 to 5 are the band's critical vertices (the time and observer clocks) and whose regular steps generate the seam Z/120; only the cofactor 36 = 4320/120 (the 27-clock, the coil, the miss set, the atlas and the vortex) and the stage indices are the canon's (layer 28, 30 Oct) |
 | stages | the canon's fifteen stage indices on the circle | circle (k -> k) | THEOREM | the canon's fifteen indices on the circle |
-| memory clock | the 120-state memory clock; the circle maps onto it in 24 ways, all conjugate under its symmetry, and the canon's stepping is one of them (a selection) | circle (24 maps, one orbit) | THEOREM | order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27) |
-| datum | the canon's datum (psi0, v0), a vector on the zero modes of energy 34 | zero modes (v0) | THEOREM | a vector the canon chooses on the zero modes; its S5-orbit is regular (layer 23) |
+| memory clock | the 120-state memory clock; the circle maps onto it in 24 ways, all conjugate under its symmetry, and the canon's stepping is one of them (a selection) | circle (24 maps, one orbit) | THEOREM | order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27); 90 = 2 x 3^2 x 5 does not divide 120, so like the 27-clock it needs the canon's 3^2 |
+| datum | the canon's datum (psi0, v0) of energy 34: psi0 = (r + u, M^T r) for the A4 root r = e0 - e1 and the all-ones u (psi0 D^2 psi0 = 64, not a zero mode), and v0 the alternating 4-cycle 0-1-2-3, a zero mode of norm 4 | zero modes (v0) | THEOREM | the relative position of an A4 root and a 4-cycle of K5, chosen by the canon; its S5-orbit is regular (layer 23) |
 | literal operands | the owner's native source matrices | source (U) | THEOREM | the owner's matrices; they match the derived source up to an explicit isometry (layer 10) |
 | fifteen words | the canon's words 088, 086 and 980 | A4 (the Coxeter five-cycle) | THEOREM | the canon's words; isometric to the oriented duads of K6 only over Q(sqrt2) (layer 23) |
 | 801 matrix | the integers of AIR_801; mod 5 it is minus the day on the residue plane | residue plane (the Singer cycle) | THEOREM | determinant 12402, so no lattice clock; only its residue mod 5 is the seed's (layer 27) |
@@ -218,4 +236,4 @@ flowchart TB
 | calibration | the time unit tau of t = tau u (TIME_BIND unbound) | readout (Salina-Prema) | THEOREM | no internal number binds physical time (an obstruction, layer 23) |
 | product geometry | the product geometry M4 x F with M4, f, L and m free (conditional) | spectral triple (heat coefficients) | CONDITIONAL | M4, f, L and m are free parameters; conditional (layer 6) |
 
-Built from the inputs: time clock (from circle), observer clock (from circle), 27-clock (from circle), atlas (from circle), coil (from circle), grain (from coil), vortex (from atlas), miss set (from circle), root assignment (from five-site charges), FLRW (from product geometry).
+Built from the inputs: 27-clock (from circle), atlas (from circle), coil (from circle), vortex (from atlas), miss set (from circle), root assignment (from five-site charges), FLRW (from product geometry).
