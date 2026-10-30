@@ -10003,6 +10003,59 @@ def notes_1504():
     }
 
 
+def notes_1611():
+    """The hub's CURRENT_RELEASE pointer (15:21), the sibling's MODEL edition of 15:30 (Match) and the separate model's Rotor
+    Golden Source (15:32) and Cyclic Maps (15:43) receipts, replayed as arithmetic."""
+    order = lambda s: N // gcd(s, N)
+    R = sp.Matrix(np.rint(np.array(native.boundary_rotation(), dtype=float)).astype(int).tolist())
+    I6 = sp.eye(6)
+    S = R - R.T
+    quartic = S ** 4 + 5 * S ** 2 + 5 * I6
+    Pfix = sum((R ** k for k in range(5)), sp.zeros(6, 6)) / 5
+    G = R + R ** 4 - R ** 2 - R ** 3
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    I5, J5 = sp.eye(5), sp.ones(5, 5)
+    S5, G5 = R5 - R5.T, R5 + R5 ** 4 - R5 ** 2 - R5 ** 3
+    kernel = lambda m: {x for x in range(N) if m * x % N == 0}
+    image = lambda m: {m * x % N for x in range(N)}
+    g1, g2 = sp.symbols("g1 g2")
+    M2 = sp.Matrix([[g1, 1], [g2, 1]])
+    return {
+        "the separate model's rotor identities, on the six-site rotor R (order 5, fixing x0) with S = R - R^T and the Gauss "
+        "operator G = R + R^-1 - R^2 - R^-2: S^4 + 5S^2 + 5I = sum_k R^k = 5 P_fix, G = -2 S^2 - 5 P_moving and G^2 = 5 P_moving; "
+        "on the five sites the same read S^4 + 5S^2 + 5I = J, G5 = -2 S^2 - 5I + J and G5^2 = 5I - J, so the pentagon "
+        "operator is a polynomial in the skew part and the moving projector":
+            quartic == sum((R ** k for k in range(5)), sp.zeros(6, 6)) == 5 * Pfix and Pfix ** 2 == Pfix and Pfix.rank() == 2
+            and G == -2 * S ** 2 - 5 * (I6 - Pfix) and G ** 2 == 5 * (I6 - Pfix)
+            and S5 ** 4 + 5 * S5 ** 2 + 5 * I5 == J5 and G5 == -2 * S5 ** 2 - 5 * I5 + J5 and G5 ** 2 == 5 * I5 - J5,
+        "the cyclic maps (the separate model's 21st layer, 15:43): for every multiplier m on Z/4320 with g = gcd(m, 4320) the "
+        "kernel of x -> m x is <4320/g> (g points) and the image is <g> (4320/g points); so the kernel of x9 is <480>, the "
+        "image of x9 is <9>, which is the kernel of x -> x mod 9, and the kernel of x3 = {0, 1440, 2880} is their meet":
+            all(kernel(m) == {(N // gcd(m, N)) * t for t in range(gcd(m, N))} and image(m) == {gcd(m, N) * t for t in range(N // gcd(m, N))}
+                for m in range(1, N + 1))
+            and kernel(9) == set(spine.subgroup(480)) and image(9) == set(spine.subgroup(9)) == {x for x in range(N) if x % 9 == 0}
+            and kernel(3) == kernel(9) & image(9) == {0, 1440, 2880},
+        "the hub's publication pointer (15:21) now names N34: 3755 and 3710 sheets, five new tabs each, 76 + 2 + 2 + 3 = 83 Drive "
+        "artifacts and 4 + 6 + 3 + 3 = 16 Library artifacts scanned, 71 inherited assertions + 7 fresh bridges + 5 observer "
+        "completion checks = 83 replayed; the N33 lag the sibling and the separate model noted is closed":
+            3755 - 3750 == 5 == 3710 - 3705 and 76 + 2 + 2 + 3 == 83 and 4 + 6 + 3 + 3 == 16 and 71 + 7 + 5 == 83,
+        "the receipts: Rotor Golden Source, 22 payload files with 21 hashes, 20 layers, 624 + 6 typed joins = 630 relationships, "
+        "4170 + 6 coordinate presentations = 4176 artifacts (not independent discoveries, as its own note says); Cyclic Maps, 26 "
+        "files with 25 hashes, 36 + 1 = 37 exact groups, 630 + 3 = 633 relationships, 43200 = 10 x 4320 endomorphism values "
+        "enumerated":
+            22 - 21 == 1 == 26 - 25 and 624 + 6 == 630 and 4170 + 6 == 4176 and 36 + 1 == 37 and 630 + 3 == 633 and 43200 == 10 * N,
+        "the sibling's Match (15:30): 19 generates the circle and 18 has order 240; 16 + 3 + 10 = 29 is not 24 and 9 + 5 = 14 is "
+        "neither count; two readings with gains g1, g2 invert when the gains differ, [[g1, 1], [g2, 1]]^-1 = [[1, -1], [-g2, g1]] / "
+        "(g1 - g2), and the gains 2 and -3 give determinant 5; the matched generator's source diagonal 2367/10 is 232 + 47/10, its "
+        "off-diagonal scale 47/20 is half of that, and 188 = 4 x 47, 47 the moment-gap integer (975/4 - 232 = 47/4); the "
+        "generator itself is not stored here":
+            gcd(19, N) == 1 and order(18) == 240 and 16 + 3 + 10 == 29 != 24 and 9 + 5 == 14
+            and sp.simplify(M2.inv() - sp.Matrix([[1, -1], [-g2, g1]]) / (g1 - g2)) == sp.zeros(2, 2) and M2.det().subs({g1: 2, g2: -3}) == 5
+            and sp.Rational(2367, 10) - 232 == sp.Rational(47, 10) == 2 * sp.Rational(47, 20) and 188 == 4 * 47
+            and sp.Rational(975, 4) - 232 == sp.Rational(47, 4),
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -10474,6 +10527,10 @@ LEDGER_ROWS = [
     ("Karma's commutators (MODEL, 15:04)", "K^2 = -4I, and [K, B^n] has trace 0 and determinant -29 F_n^2 through the tenth", "replayed with a witness K = [[1, 1], [-5, -1]]: [K, B^n] = F_n [K, B] for every n; 29 = h - 1 is the highest root's marks without the leading 1; the sibling's operand is not stored here", T, "23"),
     ("the Names' clock readings (MODEL, 14:49)", "540 of order 8; 11 and 29 generate; 108 = 3 mod 5; the yugas add to 4320; x3 kills the nakshatra seam; 736 of order 135; 3600 of order 6; the golden landings 0, 216, 864, 1080, 0", "replayed; readings, not joins", T, "23"),
     ("doubling after a triple translation (MODEL, 15:04)", "on <864>, doubling after a triple translation equals two translations", "corrected: 2(x + 3) = 2x + 1 mod 5, one translation after doubling; two translations after doubling is doubling after one", T, "23"),
+    ("the Gauss operator as a polynomial in the skew (separate model, 15:32)", "S^4 + 5S^2 + 5I = 5 P_fix, G = -2S^2 - 5 P_moving, G^2 = 5 P_moving on the source rotor", "replayed on the six-site rotor and on the five sites, where G5 = -2S^2 - 5I + J: the pentagon operator is a polynomial in the rotor's skew part and the moving projector; the separate model's stored source and frame matrices satisfy the same identities (its source skew is metric-skew, not skew as a matrix)", T, "23"),
+    ("the cyclic maps (separate model, 15:43)", "on Z/n multiplication by m has kernel <n/g> and image <g>, g = gcd(n, m); on Z/4320 the kernel of x9 is <480>, its image <9> the kernel of x mod 9, and the kernel of x3 their meet {0, 1440, 2880}", "replayed for every multiplier m on Z/4320", T, "23"),
+    ("the publication pointer at N34 (hub, 15:21)", "CURRENT_RELEASE names N34: 3755 and 3710 sheets, four copies verified; the lag at N33 that the sibling and the separate model noted is closed", "recorded; the intake arithmetic 76 + 2 + 2 + 3 = 83 and 4 + 6 + 3 + 3 = 16 holds", T, "23"),
+    ("the matched generator's readings (MODEL, 15:30)", "source diagonal 2367/10, off-diagonal scale 47/20, innovation ratio -4909/188, gains 2 and -3 differing by 5", "replayed as arithmetic: 2367/10 = 232 + 47/10, 47/20 is half of 47/10, 188 = 4 x 47 with 47 the moment-gap integer; the two-reading inverse [[g1, 1], [g2, 1]]^-1 needs g1 != g2; the generator is not stored here", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -10609,6 +10666,17 @@ NOT_JOINED = [
     ("the sibling's 14:49 and 15:04 editions", "342 exact checks (339 before); the twenty-five name auditors, the sign "
                                               "census matrix and the observer's line on the fixed plane are not stored "
                                               "here; the arithmetic is replayed in notes_1504", RP),
+    ("the separate model's Rotor Golden Source model (15:32)", "an 84338-byte archive with 22 payload files and 21 hashes, 20 "
+                                                              "layers, 30 exact groups, 9 regressions, 6 typed joins (624 -> "
+                                                              "630), 6 coordinate presentations (4170 -> 4176 artifacts); its "
+                                                              "receipt, README, registry and generated matrices read as data, "
+                                                              "its code not run", RP),
+    ("the separate model's Cyclic Maps model (15:43)", "a 367815-byte capsule (zip + base64) with 26 payload files and 25 "
+                                                       "hashes, the 21st layer: 37 exact groups, 3 typed joins (630 -> 633), "
+                                                       "43200 endomorphism values enumerated; decoded in memory, its registry "
+                                                       "and README read as data, its code not run", RP),
+    ("the sibling's 15:30 edition", "343 exact checks (342 before); the Match section reads the Matched History archive's "
+                                   "generator, whose blocks are not stored here; its arithmetic is replayed in notes_1611", RP),
 ]
 
 

@@ -883,5 +883,8 @@ The maps that join each pair of levels directly.
 | the sibling's 14:31 and 14:41 editions | new Intake, Copies and Provenance sections: the N34 copies' byte identity and receipts, the observer archive's 57 files with 56 hashed; read as data, their arithmetic replayed in notes_1441 | REPORTED |
 | the separate model's Matched History model (15:00) | a 951539-byte archive with 36 payload files and 35 hashes, 19 layers, 24 exact groups, 9 regressions, 4 new typed joins (620 -> 624), 0 new matrices; its receipt read as data, the archive not opened | REPORTED |
 | the sibling's 14:49 and 15:04 editions | 342 exact checks (339 before); the twenty-five name auditors, the sign census matrix and the observer's line on the fixed plane are not stored here; the arithmetic is replayed in notes_1504 | REPORTED |
+| the separate model's Rotor Golden Source model (15:32) | an 84338-byte archive with 22 payload files and 21 hashes, 20 layers, 30 exact groups, 9 regressions, 6 typed joins (624 -> 630), 6 coordinate presentations (4170 -> 4176 artifacts); its receipt, README, registry and generated matrices read as data, its code not run | REPORTED |
+| the separate model's Cyclic Maps model (15:43) | a 367815-byte capsule (zip + base64) with 26 payload files and 25 hashes, the 21st layer: 37 exact groups, 3 typed joins (630 -> 633), 43200 endomorphism values enumerated; decoded in memory, its registry and README read as data, its code not run | REPORTED |
+| the sibling's 15:30 edition | 343 exact checks (342 before); the Match section reads the Matched History archive's generator, whose blocks are not stored here; its arithmetic is replayed in notes_1611 | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.
