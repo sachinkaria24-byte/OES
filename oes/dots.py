@@ -8912,6 +8912,185 @@ def notes_0912():
     }
 
 
+def _histories():
+    """The sibling's two bivector histories on R^5 (09:38-09:51): the false e0 ^ (e1 + u e2 + u^2 e3) and the genuine
+    (e0 + u e1) ^ (e2 + u e3), with the 25 Plucker equations on the 30 coefficients of a degree-two history."""
+    u = sp.symbols("u")
+    pairs, quads = list(itertools.combinations(range(5), 2)), list(itertools.combinations(range(5), 4))
+    e = [sp.Matrix([int(i == k) for i in range(5)]) for k in range(5)]
+    wedge = lambda a, b: [a[i] * b[j] - a[j] * b[i] for i, j in pairs]
+
+    def square(X):                                                # X ^ X on the five four-sets
+        out = []
+        for q in quads:
+            s = 0
+            for i, j in itertools.combinations(q, 2):
+                k, l = [x for x in q if x not in (i, j)]
+                s += Permutation([q.index(x) for x in (i, j, k, l)]).signature() * X[pairs.index((i, j))] * X[pairs.index((k, l))]
+            out.append(s)
+        return out
+    c = sp.symbols("c0:30")
+    history = [c[k] + u * c[10 + k] + u ** 2 * c[20 + k] for k in range(10)]
+    eqs = [sp.Poly(sp.expand(w), u).coeff_monomial(u ** d) for w in square(history) for d in range(5)]
+    jac = sp.Matrix([[sp.diff(q, x) for x in c] for q in eqs])
+    coeffs = lambda B: [sp.Poly(sp.expand(B[k]), u).coeff_monomial(u ** d) for d in range(3) for k in range(10)]
+    false = wedge(e[0], e[1] + u * e[2] + u ** 2 * e[3])
+    genuine = wedge(e[0] + u * e[1], e[2] + u * e[3])
+    return u, pairs, e, wedge, square, c, eqs, jac, coeffs, false, genuine
+
+
+def _syzygies(B, u, pairs):
+    """The degree <= 1 vector polynomials v with v ^ B = 0: the rank of the map and its kernel."""
+    a = sp.symbols("a0:10")
+    v = [a[k] + u * a[5 + k] for k in range(5)]
+    rows = []
+    for i, j, k in itertools.combinations(range(5), 3):
+        w = sp.Poly(sp.expand(v[i] * B[pairs.index((j, k))] - v[j] * B[pairs.index((i, k))] + v[k] * B[pairs.index((i, j))]), u)
+        rows += [[sp.diff(w.coeff_monomial(u ** d), x) for x in a] for d in range(4)]
+    M = sp.Matrix(rows)
+    return M.rank(), [sp.Matrix([x[k] + u * x[5 + k] for k in range(5)]) for x in M.nullspace()]
+
+
+def _rosebud():
+    """The hub's Golden reference (09:23): the sum-zero four with an orthonormal basis, Lambda^2 of it, the six
+    Sylow-five averages F_i and the selected channel Phi(X) = sum tr(F_i X / 2) (11 I - 5 F_i)/56."""
+    Hb = np.linalg.qr(np.vstack([np.ones(5), np.eye(5)[:4]]).T)[0][:, 1:5]
+    pm = lambda p: np.array([[float(p[j] == i) for j in range(5)] for i in range(5)])   # e_j -> e_p(j)
+    rho4 = lambda p: Hb.T @ pm(p) @ Hb
+    pairs = list(itertools.combinations(range(4), 2))
+    wedge2 = lambda M: np.array([[M[i, k] * M[j, l] - M[i, l] * M[j, k] for k, l in pairs] for i, j in pairs])
+    sign = lambda p: round(np.linalg.det(pm(p)))
+    groups = []
+    for p in itertools.permutations(range(5)):
+        if [len(c) for c in _cycles(list(p))] == [5]:
+            g, q = {tuple(range(5))}, p
+            while q != tuple(range(5)):
+                g.add(q)
+                q = tuple(p[x] for x in q)
+            if g not in groups:
+                groups.append(g)
+    F = [sum(wedge2(rho4(g)) for g in grp) / 5 for grp in groups]
+    E, sig = [f / 2 for f in F], [(11 * np.eye(6) - 5 * f) / 56 for f in F]
+    Phi = lambda X: sum(np.trace(E[i] @ X) * sig[i] for i in range(6))
+    return rho4, wedge2, sign, F, E, sig, Phi
+
+
+def notes_0951():
+    """The sibling's MODEL of 09:38-09:51 (the source histories), the separate model's source-history completion
+    (09:24) and the hub's text as revised at 09:23 (the Rosebud reference and the local arithmetic)."""
+    u, pairs, e, wedge, square, c, eqs, jac, coeffs, false, genuine = _histories()
+    at = lambda B: dict(zip(c, coeffs(B)))
+    Jf, Jg = jac.subs(at(false)), jac.subs(at(genuine))
+    rf, rg, rs = Jf.rank(), Jg.rank(), Jf.col_join(Jg).rank()
+    sf, kf = _syzygies(false, u, pairs)
+    sg, kg = _syzygies(genuine, u, pairs)
+
+    def meet(B):                                                  # the line common to the planes B(0), ..., B(3)
+        planes = []
+        for x in range(4):
+            M = sp.zeros(5, 5)
+            for (i, j), val in zip(pairs, B):
+                M[i, j], M[j, i] = sp.sympify(val).subs(u, x), -sp.sympify(val).subs(u, x)
+            planes.append(sp.Matrix.hstack(*M.columnspace()))
+        normals = sp.Matrix.vstack(*[sp.Matrix.hstack(*P.T.nullspace()).T for P in planes])
+        return len(normals.nullspace())
+    a0, b0 = e[0] + u * e[1], e[2] + u * e[3]
+    scale = lambda M: {sp.simplify(x / y) for x, y in zip(wedge(M[0, 0] * a0 + M[0, 1] * b0, M[1, 0] * a0 + M[1, 1] * b0),
+                                                          genuine) if y != 0}
+    w4 = u * (u - 1) * (u - 2) * (u - 3)
+    # the hub's Rosebud reference: six probes, the three-sector algebra, the Hom lines and the Golden channel
+    B8, Binv, C, Cinv, R, RB = spine.frame()
+    _, lines = cyclotomic.residue()
+    line = [next(i for i, L in enumerate(lines) if cyclotomic.point(x) in L) for x in RB]
+    Gr = RB @ C @ RB.T
+    A2 = (Gr == 1).astype(int) @ (Gr == 1).astype(int)
+    on = lambda l: [i for i in range(240) if line[i] == l]
+    probes = next((a, c1, e1, b, d, f) for a in on(0) for b in on(3) if Gr[a, b] == -1
+                  for c1 in on(1) if not Gr[a, c1] and not Gr[b, c1] for d in on(4) if Gr[c1, d] == -1 and not Gr[a, d]
+                  and not Gr[b, d] for e1 in on(2) if not any(Gr[x, e1] for x in (a, b, c1, d)) for f in on(5)
+                  if Gr[e1, f] == -1 and not any(Gr[x, f] for x in (a, b, c1, d)))
+    V = A2[np.ix_(probes, probes)]
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    H = sp.Matrix(6, 6, lambda i, j: int(abs(i - j) == 3))
+    E0, Ep, Em = J6 / 6, (I6 + H) / 2 - J6 / 6, (I6 - H) / 2
+    P, Vs = (10 * J6 - 4 * I6) / 56, 44 * I6 + 12 * J6 - 11 * H
+    rho4, wedge2, sign, F, E, sig, Phi = _rosebud()
+
+    def hom(gens):                                                # dim Hom_G(Lambda^2 A4, sign (x) A4)
+        M = np.vstack([np.kron(wedge2(rho4(g)).T, np.eye(4)) - np.kron(np.eye(6), sign(g) * rho4(g)) for g in gens])
+        return 24 - np.linalg.matrix_rank(M, tol=1e-9)
+    c5, flip, dbl, swap = (1, 2, 3, 4, 0), (0, 4, 3, 2, 1), (0, 2, 4, 1, 3), (1, 0, 2, 3, 4)
+    basis = [np.outer(np.eye(6)[i], np.eye(6)[j]) for i in range(6) for j in range(6)]
+    S = np.array([Phi(X).ravel() for X in basis]).T
+    spec = sorted(Counter(np.round(np.linalg.eigvals(S).real, 9) + 0).items())
+    D = lambda X: np.trace(X) * np.eye(6) / 6
+    X0 = np.arange(36.0).reshape(6, 6) % 7 - 3
+    power = lambda X, n: X if n == 0 else power(Phi(X), n - 1)
+    choi = lambda n: sum(np.kron(b, power(b, n)) for b in basis)
+    lam1, lam2 = np.linalg.eigvalsh(choi(1)), np.linalg.eigvalsh(choi(2))
+    Xw = F[0] - F[1]
+    lanes = lambda W: [a for a in range(W) if gcd(a * (a + 2), W) == 1]
+    omega = sp.Matrix([4, -1, -1, -1, -1]) / 5
+    in_a4 = lambda x: all(t.is_integer for t in x) and sum(x) == 0
+    shift = sp.Matrix(5, 5, lambda i, j: int(i == (j + 1) % 5))
+    mask = sp.diag(*[int(a in lanes(5)) for a in range(5)])
+    affine = [(a, b) for a in range(1, 5) for b in range(5)]
+    return {
+        "the source histories: the false e0 ^ (e1 + u e2 + u^2 e3) and the genuine (e0 + u e1) ^ (e2 + u e3) both pass "
+        "all 25 Plucker equations on the 30 coefficients, which linearize to rank 13 at both (kernels of 17 meeting in "
+        "8, row spaces in 4)": all(q.subs(at(false)) == 0 and q.subs(at(genuine)) == 0 for q in eqs) and len(eqs) == 25
+        and (rf, rg, 30 - rs, rf + rg - rs) == (13, 13, 8, 4),
+        "the syzygies separate them: both have rank 8 and nullity 2, the false kernel e0, u e0 wedges to 0, so no "
+        "two-packet factorization exists, and the genuine kernel e0 + u e1, e2 + u e3 wedges back to the history; the "
+        "false planes share the line e0, the genuine planes meet in 0; a determinant-1 change of the packets fixes the "
+        "wedge and a determinant-2 one doubles it; u(u - 1)(u - 2)(u - 3) is 0 at four phases and 24 at the fifth":
+            (sf, len(kf), sg, len(kg)) == (8, 2, 8, 2) and not any(sp.expand(x) for x in wedge(kf[0], kf[1]))
+            and [sp.expand(x) for x in wedge(kg[0], kg[1])] == [sp.expand(x) for x in genuine]
+            and (meet(false), meet(genuine)) == (1, 0) and scale(sp.Matrix([[2, 1], [3, 2]])) == {1}
+            and scale(sp.Matrix([[2, 0], [0, 1]])) == {2} and [w4.subs(u, k) for k in range(5)] == [0, 0, 0, 0, 24],
+        "the 09:24 certificate's counts: 4080 + 25 = 4105 artifacts, 574 + 13 = 587 relationships, 3 + 12 = 15 "
+        "regressions, 68 files with 67 hashes; the 09:07 correction's 577 = 574 + 3 was not absorbed by its parent":
+            4080 + 25 == 4105 and 574 + 13 == 587 and 3 + 12 == 15 and 68 - 67 == 1 and 574 + 3 == 577 != 587,
+        "the hub's six root probes (09:23): one root on each of the six residue lines, in three orthogonal A2 pairs, "
+        "have two-step return Gram A^2 = 44I + 12J - 11H on the root graph (56 on the diagonal, 1 in a pair, 12 "
+        "between pairs), and with the six-line quotient's P = (10J - 4I)/56 = E0 - (E+ + E-)/14 and V = 105 E0 + "
+        "33 E+ + 55 E- they give H = (244I + 336P - 5V)/55, E0 = (I + 14P)/15 and E- = (5V - 189I - 336P)/110":
+            np.array_equal(V, 44 * np.eye(6, dtype=int) + 12 * np.ones((6, 6), dtype=int) - 11 * np.array(H, dtype=int))
+            and len({line[i] for i in probes}) == 6 and P == E0 - (Ep + Em) / 14 and Vs == 105 * E0 + 33 * Ep + 55 * Em
+            and H == (244 * I6 + 336 * P - 5 * Vs) / 55 and E0 == (I6 + 14 * P) / 15
+            and Em == (5 * Vs - 189 * I6 - 336 * P) / 110 and all(X * X == X for X in (E0, Ep, Em)),
+        "the bright six Lambda^2 A4 and the dark four sign (x) A4 have intertwiners of dimension 4, 2, 1 and 0 under "
+        "C5, D10, F20 and S5: one F20 line, and none under S5":
+            [hom(g) for g in ([c5], [c5, flip], [c5, dbl], [c5, swap])] == [4, 2, 1, 0],
+        "the six Sylow-five averages on Lambda^2 A4 are rank-two projectors with sum 2I and tr F_i F_j = 2/5, and the "
+        "selected channel Phi(X) = sum tr(F_i X / 2)(11I - 5F_i)/56 measures the six-line transition (10J - 4I)/56, "
+        "has spectrum 1, (-1/14)^5, 0^30 and Phi^n = D + (-1/14)^(n-1)(Phi - D)":
+            len(F) == 6 and all(round(np.trace(f)) == 2 and np.allclose(f @ f, f) for f in F)
+            and np.allclose(sum(F), 2 * np.eye(6))
+            and all(np.isclose(np.trace(F[i] @ F[j]), 0.4) for i in range(6) for j in range(6) if i != j)
+            and np.allclose([[np.trace(E[i] @ sig[j]) for j in range(6)] for i in range(6)],
+                            (10 * np.ones((6, 6)) - 4 * np.eye(6)) / 56)
+            and spec == [(-0.071428571, 5), (0.0, 30), (1.0, 1)]
+            and all(np.allclose(power(X0, n), D(X0) + (-1 / 14) ** (n - 1) * (Phi(X0) - D(X0))) for n in range(1, 6)),
+        "its Choi spectrum is (3/28)^2, (1/7)^10, (9/56)^10, (11/56)^14 with trace 6, the second channel's is "
+        "1/6 + (-1/14)(lambda - 1/6), and X = F0 - F1 has Tr X^2 = 16/5 and Phi(X) = -X/14, the witness of the hub's "
+        "no-go for a closed finite unreset bath":
+            sorted(Counter(np.round(lam1 * 56, 6) + 0).items()) == [(6.0, 2), (8.0, 10), (9.0, 10), (11.0, 14)]
+            and np.isclose(lam1.sum(), 6) and np.allclose(np.sort(lam2), np.sort(1 / 6 - (lam1 - 1 / 6) / 14))
+            and np.isclose(np.trace(Xw @ Xw), 16 / 5) and np.allclose(Phi(Xw), -Xw / 14),
+        "the hub's local arithmetic: the twin lanes gcd(a(a + 2), W) = 1 are 1, 2, 4 mod 5, 36 mod 360 and 432 mod "
+        "4320, and reduction mod 360 is 12 to 1 onto the 36; omega = (4, -1, -1, -1, -1)/5 generates A4*/A4 = Z/5 and "
+        "every coordinate permutation fixes its class; (1 - 2/5)/(1 - 1/5)^2 = 15/16; the lane mask does not commute "
+        "with the shift (commutator rank 4), and {0, 2} has a stabilizer of order 2 in AGL(1,5)":
+            lanes(5) == [1, 2, 4] and len(lanes(360)) == 36 and len(lanes(4320)) == 432
+            and Counter(a % 360 for a in lanes(4320)) == Counter({a: 12 for a in lanes(360)})
+            and all(not in_a4(k * omega) for k in range(1, 5)) and in_a4(5 * omega)
+            and all(in_a4(sp.Matrix([omega[p[i]] for i in range(5)]) - omega) for p in itertools.permutations(range(5)))
+            and Fraction(3, 5) / Fraction(4, 5) ** 2 == Fraction(15, 16) and (mask * shift - shift * mask).rank() == 4
+            and len([m for m in affine if {(m[0] * x + m[1]) % 5 for x in (0, 2)} == {0, 2}]) == 2,
+    }
+
+
 # ------------------------------------------------------------------- joins of 30 Oct: every dot on THEOREM maps but two
 
 def _cycles(perm):
@@ -9836,6 +10015,12 @@ LEDGER_ROWS = [
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
     ("the tick and the schedules (MODEL, 08:22-09:12; separate model, 09:07)", "the 125 schedules generate the order-864 tick", "corrected (the separate model, replayed): <125> = <5> is the miss set, of order 864; the tick <864> has order 5; they meet in 0 and make the circle", T, "23"),
     ("the golden subgroup (MODEL, 09:12)", "1060 generates the golden subgroup of order 216", "corrected: <1060> = <20> has order 216, while the golden orbit <216> has order 20; the two meet in the observer clock <1080>", T, "23"),
+    ("the source histories (MODEL, 09:38-09:51; separate model, 09:24)", "the 25 Plucker equations are necessary and not sufficient: the false e0 ^ (e1 + u e2 + u^2 e3) passes them with no two-packet factorization", "replayed: both histories pass all 25, which linearize to rank 13 at both; the syzygies (rank 8, nullity 2) separate them: the false kernel e0, u e0 wedges to 0 and its planes share the line e0, the genuine kernel wedges back and its planes meet in 0", T, "23"),
+    ("the six root probes (hub, 09:23)", "V = 44I + 12J - 11H on six root sites; H = (244I + 336P - 5V)/55", "replayed: one root on each residue line, in three orthogonal A2 pairs, has two-step return Gram V on the root graph; with the six-line quotient P = (10J - 4I)/56 it rebuilds the mirror and the three sectors", T, "23"),
+    ("the F20 bright-dark line (hub, 09:23)", "Hom(Lambda^2 A4, sign (x) A4) has dimension 4, 2, 1, 0 under C5, D10, F20, S5", "replayed", T, "23"),
+    ("the Golden channel (hub, 09:23)", "Phi(X) = sum tr(F_i X/2)(11I - 5F_i)/56: spectrum 1, (-1/14)^5, 0^30; Phi^n = D + (-1/14)^(n-1)(Phi - D); Choi (3/28)^2, (1/7)^10, (9/56)^10, (11/56)^14; no closed finite unreset dilation", "replayed through the six Sylow-five averages on Lambda^2 A4 (sum 2I, tr F_i F_j = 2/5); the no-go's witness F0 - F1 has Tr X^2 = 16/5 and Phi(X) = -X/14, and the proof is the hub's", T, "23"),
+    ("the contrast Green identity (hub, 09:23)", "nu_J(dE) = E nu_origin(dE)/240, static return 1/240", "the measure form of the contrast moments E_(k+1)/240 already held: W(E8) is transitive on the roots, so (Delta^k)_(0r) = E_k - E_(k+1)/240 for every root r", T, "23"),
+    ("the twin lanes and the A4 local factor (hub, 09:23)", "432 lanes mod 4320 onto 36 mod 360, 12 to 1; omega = (4, -1, -1, -1, -1)/5; 15/16", "replayed as arithmetic; the twin-prime programme itself is outside this model", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -9917,6 +10102,15 @@ NOT_JOINED = [
     ("the separate model's note corrections (09:07)", "16 exact note-review groups and 3 typed corrections (577 "
                                                      "relationships), no new matrix; the corrections are replayed "
                                                      "(notes_0912); the capsule's code not run", RP),
+    ("the separate model's source-history completion (09:24)", "326410 bytes; 32 exact groups, 25 new matrices, "
+                                                              "13 new typed joins (587 relationships) and 5 "
+                                                              "observation contracts; certificate read, zip not "
+                                                              "opened or run; its Plucker counterfeit is "
+                                                              "replayed (notes_0951)", RP),
+    ("the hub's 09:23 text, unreplayed parts", "the literal 49-tuple and the bounded-gap route, the PTP13 and R15 "
+                                              "certificates, the marked contrast port's Green bounds, the J7 host, "
+                                              "the Woodbury Green formula, the information cut and the time-order "
+                                              "test need operands or analytic inputs not stored here", RP),
 ]
 
 
@@ -10656,6 +10850,14 @@ def run():
             "certificate (08:54) and its checkpoint (08:57); its note-correction capsule (09:07) read in memory as "
             "data, its code not run, with its certificate and checkpoint recovery (09:15); the OES-paper PDFs not "
             "read", RP, True)
+    n0951 = notes_0951()
+    rep.add("the 09:23 text and the 09:38-09:51 model: the source histories (the Plucker counterfeit and its "
+            "syzygies), the six root probes and the three-sector algebra, the F20 bright-dark line, the Golden "
+            "projectors and channel, and the hub's local arithmetic", T, all(n0951.values()), n0951)
+    rep.add("Drive check 09:51: the hub's OES_Unified_Model_20261029.txt as revised at 09:23 read as text; the "
+            "separate model's source-history completion (09:24) recorded from its certificate (09:25) and "
+            "checkpoint (09:27); the sibling's MODEL editions of 09:38-09:51, the latest read as text, with its "
+            "spine29.ts read as data, not run; the OES-paper PDFs not read", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

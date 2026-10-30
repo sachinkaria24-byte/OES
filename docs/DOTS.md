@@ -839,5 +839,7 @@ The maps that join each pair of levels directly.
 | the N33 sector sheet's moments (MODEL, 08:22-08:44) | 1, 242, 58702, 14267058 with a characteristic polynomial of degree 18 and a minimal one of degree 9; the sheet's operator is not opened here; the list is neither the contrast list nor the triangle port's (notes_0844) | REPORTED |
 | the separate model's continuation (08:53) | 1045843 bytes; 41 integration groups over six source packets (66 payloads), 28 new matrices, 18 new typed joins (574 relationships) and 10 observation contracts; certificate read, zip not opened or run | REPORTED |
 | the separate model's note corrections (09:07) | 16 exact note-review groups and 3 typed corrections (577 relationships), no new matrix; the corrections are replayed (notes_0912); the capsule's code not run | REPORTED |
+| the separate model's source-history completion (09:24) | 326410 bytes; 32 exact groups, 25 new matrices, 13 new typed joins (587 relationships) and 5 observation contracts; certificate read, zip not opened or run; its Plucker counterfeit is replayed (notes_0951) | REPORTED |
+| the hub's 09:23 text, unreplayed parts | the literal 49-tuple and the bounded-gap route, the PTP13 and R15 certificates, the marked contrast port's Green bounds, the J7 host, the Woodbury Green formula, the information cut and the time-order test need operands or analytic inputs not stored here | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

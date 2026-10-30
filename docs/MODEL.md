@@ -1996,6 +1996,47 @@ Eleven joins close these spots and add no dot.
   - The continuation reports 41 integration groups over six source packets, 28 new matrices, 18 new typed joins (574 relationships) and 10 observation contracts. The certificate was read; the zip was not opened or run.
   - The note corrections report 16 exact note-review groups and 3 typed corrections (577 relationships). They change no matrix or gate.
 
+**The 09:51 check.** New on Drive:
+- the hub's `OES_Unified_Model_20261029.txt` as revised at 09:23, read as text (4316 new lines);
+- the separate model's source-history completion (09:24), recorded from its certificate (09:25) and checkpoint (09:27);
+- the sibling's MODEL editions of 09:38–09:51, the latest read as text and its spine29.ts read as data.
+
+The replay is `notes_0951`.
+
+- **The source histories** (the sibling, from the 09:25 certificate). Take the false history e0 ∧ (e1 + u e2 + u² e3) and the genuine one (e0 + u e1) ∧ (e2 + u e3).
+  - Both pass all 25 Plücker equations on the 30 coefficients of a degree-two history.
+  - Those equations linearize to rank 13 at both. The kernels have dimension 17 and meet in 8, and the row spaces meet in 4.
+  - The syzygies separate the two histories. Both have rank 8 and nullity 2. The false kernel e0, u e0 wedges to 0, so no two-packet factorization exists. The genuine kernel e0 + u e1, e2 + u e3 wedges back to the history.
+  - The false planes share the line e0, and the genuine planes meet in 0.
+  - A determinant-1 change of the packets fixes the wedge, and a determinant-2 change doubles it.
+  - u(u − 1)(u − 2)(u − 3) vanishes at four phases and is 24 at the fifth, so five phases are necessary. These histories are the source pair's a ∧ b of §4 moving in time.
+- **The certificate's counts.**
+  - 4080 + 25 = 4105 artifacts, 574 + 13 = 587 relationships, 3 + 12 = 15 regressions, and 68 files with 67 hashes.
+  - The 09:07 correction's 577 = 574 + 3 was not absorbed by its parent, as the sibling notes.
+- **The hub's Rosebud reference** (09:23).
+  - *Six probes.* One root on each of the six residue lines, chosen in three orthogonal A2 pairs, has two-step return Gram A² = 44I + 12J − 11H on the root graph. That is 56 on the diagonal, 1 within a pair and 12 between pairs.
+  - *Three sectors.* With the six-line quotient's P = (10J − 4I)/56, these give the mirror H = (244I + 336P − 5V)/55 and the three sectors E0 = (I + 14P)/15 and E− = (5V − 189I − 336P)/110.
+  - *Intertwiners.* The bright six Λ²A4 and the dark four sign ⊗ A4 have intertwiners of dimension 4, 2, 1 and 0 under C5, D10, F20 and S5.
+  - *Golden projectors.* The six Sylow-five averages on Λ²A4 are rank-two projectors with sum 2I and tr FᵢFⱼ = 2/5.
+  - *The Golden channel.* Φ(X) = Σ tr(Fᵢ X/2)(11I − 5Fᵢ)/56 measures the six-line transition. Its spectrum is 1, (−1/14)⁵, 0³⁰, and Φⁿ = D + (−1/14)ⁿ⁻¹(Φ − D).
+  - *Choi spectrum.* It is (3/28)², (1/7)¹⁰, (9/56)¹⁰, (11/56)¹⁴ with trace 6, and the n-th step's eigenvalues follow the hub's rule.
+  - *The no-go.* The witness X = F0 − F1 has Tr X² = 16/5 and Φ(X) = −X/14. The no-go for a closed finite unreset bath is the hub's proof, and its witness replays.
+- **The hub's local arithmetic.**
+  - The twin lanes gcd(a(a + 2), W) = 1 are 1, 2, 4 mod 5, 36 mod 360 and 432 mod 4320, and reduction mod 360 is 12 to 1.
+  - ω = (4, −1, −1, −1, −1)/5 generates A4*/A4 = ℤ/5, and every coordinate permutation fixes its class.
+  - (1 − 2/5)/(1 − 1/5)² = 15/16.
+  - The lane mask does not commute with the shift (the commutator has rank 4), and {0, 2} has a stabilizer of order 2 in AGL(1,5).
+  - The twin-prime programme itself is outside this model.
+- **The contrast Green identity.** The hub's ν_J(dE) = E ν_origin(dE)/240 is the measure form of the contrast moments E_(k+1)/240 already held. W(E8) is transitive on the roots, so (Δᵏ)_(0r) = E_k − E_(k+1)/240 for every root r, and the static return is 1/240.
+- **Not replayed.** These need operands or analytic inputs that are not stored here:
+  - the literal 49-tuple and the bounded-gap route;
+  - the PTP13 and R15 certificates;
+  - the marked contrast port's Green bounds;
+  - the J7 host;
+  - the Woodbury Green formula, the information cut and the time-order test.
+
+  The separate model's capsule (32 exact groups, 25 matrices, 13 joins) was not opened or run.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -2307,6 +2348,7 @@ The circle's highest point is the band's top, 256. It is reached only at the hal
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
 - the sibling's MODEL_20261029.md editions of 19:37–20:02 (the latest, 1_TfETkjO8Ra6ofUhZi0PTrIXc9ODtzfU, read as text) and the hub's `OES_Unified_Model_20261029.txt` as revised at 19:39, read as text (its zip, 6685879 bytes, not downloaded); the spine29.ts editions and the OES-paper PDFs of 19:37–20:02, not read: §24, the 19:50 check
 - the separate model's `oes-connected-verification-20261030-0121.txt` (1PGudk-xUzz4ZDN_uqLNPNT8ns5sksj4B), read, with its capsule `oes-connected-model-20261030-0121.txt` (16cGvNIpGEhr-vB_C3085jcRhKLQ20HjD) and `MODEL_UPDATE_CHECKPOINT_RECOVERY_20261030_0121.txt` (1ZCE1H5ZEzCSfX421MfFP2IiRpLv5jiyt) not downloaded: §24, the 01:48 check
+- the hub's `OES_Unified_Model_20261029.txt` as revised at 09:23 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text); the separate model's `OES_Source_History_Completion_20261030.zip` (1OuPydqts7WuJBPI7ILwi4n0bMjz-33wc, not opened) with its certificate (1WV3j6uGhtblKD1qMVisuuXWTBOmq838B); the sibling's MODEL_20261029.md editions of 09:38–09:51 (the latest, 1D-2FqxMr8_JbYTlpdjR-yvTGB2twod_G, read as text) and its spine29.ts of 09:51 (1t4oFUrG7_P1elsRcSljoLlfFcTz87H5D, read as data, not run): §24, the 09:51 check
 - the sibling's MODEL_20261029.md editions of 09:02–09:12 (the latest, 1JPEt6fYCqoYSjfZPO9HAp7ZVkR1bT672, read as text) and its spine29.ts of 09:12 (1IsZ7fzQgm27gC9eV7z7lk-1Ta1dYZjCP, read as data, not run); the separate model's `OES_Unified_Model_Continuation_20261030.zip` (1t-NaUhNF2PiwS1Ilds9CCc_ahxIEtQM_, not opened) with its certificate (1Ew6Eck8VEgg68O0zkNB3LPtE9JUQF4UM) and checkpoint (1RyMS54i0arKrruWQRXjPi3505tTrpvz4); its `OES_Model_Note_Corrections_20261030_0907.txt` (16KrLSDMsJ65AwWXOHh0wTRzfHQoVnV2m, decoded in memory and read as data, not run), certificate (1ngDG-Ccq-9ox4yUe1prqeH79gnPGsG5d) and checkpoint recovery (1-7o6T3sPB9yYpNuNnoEBEbDmbIeV-JxN): §24, the 09:22 check
 - the sibling's MODEL_20261029.md editions of 08:22–08:44 (the latest, 1a5unQeGcP7S4JdvLXtOrPpj6TEfqvH0k, read as text) and its spine29.ts of 08:44 (18FtZuQ0uimnlBLoj6MxLuNd1rSppRLS5, read as data, not run): §24, the 08:51 check
 - the sibling's MODEL_20261029.md editions of 00:46–01:16 (the latest, 1I-mWXqMR3vlPgN6uvVNkWMj3aBXeebit, read as text) and its spine29.ts of 01:16 (1I-VU62ATUyA3ymtjMfLfQlmjW3L81qo4, read as data, not run); the hub's `OES_Unified_Model_20261029.txt` as revised at 00:52 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text); and the canon's N33 receipt `OES_N33_CURRENT_RELEASE_20261030.json` (1kGoapJLSn4iNFUYAIs7UIabIe3RhNk6U), read, with the N33 workbooks not opened: §24, the 01:17 check
