@@ -57,39 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.7,
+  "1-carrier": 0.62,
   "2-spectral": 0.01,
-  "3-spacetime": 8.08,
-  "4-native": 94.19,
-  "5-observer": 0.7,
-  "6-gravity": 4.98,
-  "7-cosmology": 1.96,
-  "8-frontier": 38.52,
-  "9-joins": 8.15,
-  "10-literal": 34.37,
-  "11-glue": 0.17,
-  "12-binding": 0.04,
-  "13-gates": 0.12,
-  "14-recurrence": 74.03,
-  "15-court": 1.77,
-  "16-handover": 1.52,
-  "17-waves": 0.71,
-  "18-snapshot": 1.46,
-  "19-spine": 4.32,
-  "20-canon": 5.94,
-  "21-ledger": 43.26,
-  "22-counts": 21.66,
-  "23-dots": 193.27,
-  "24-assignment": 3.28,
-  "25-unify": 3.78,
-  "26-primes": 4.96,
-  "27-places": 2.0
+  "3-spacetime": 7.16,
+  "4-native": 92.3,
+  "5-observer": 0.33,
+  "6-gravity": 4.97,
+  "7-cosmology": 1.88,
+  "8-frontier": 38.71,
+  "9-joins": 7.76,
+  "10-literal": 36.71,
+  "11-glue": 0.25,
+  "12-binding": 0.05,
+  "13-gates": 0.08,
+  "14-recurrence": 75.57,
+  "15-court": 1.85,
+  "16-handover": 1.34,
+  "17-waves": 0.75,
+  "18-snapshot": 1.47,
+  "19-spine": 4.66,
+  "20-canon": 6.06,
+  "21-ledger": 44.67,
+  "22-counts": 21.22,
+  "23-dots": 192.12,
+  "24-assignment": 3.19,
+  "25-unify": 3.64,
+  "26-primes": 4.95,
+  "27-places": 1.89,
+  "28-principal": 1.87
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 722,
-   "total": 722
+   "passed": 744,
+   "total": 744
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -104,8 +105,8 @@
    "total": 45
   },
   "SELECTED_REFERENCE": {
-   "passed": 22,
-   "total": 22
+   "passed": 23,
+   "total": 23
   },
   "UNFORMED": {
    "passed": 24,
@@ -9161,6 +9162,121 @@
   },
   {
    "layer": "23-dots",
+   "name": "E8 -> principal circle: rho = (46, 68, 91, 135, 110, 84, 57, 29) in the root basis is primitive, with <r, rho> = ht(r) on the roots, so t -> t rho is a circle of momenta in R^8 / E8 on which every step keeps its order (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Weyl vector rho has <alpha_i, rho> = 1 for every simple root, root coordinates (46, 68, 91, 135, 110, 84, 57, 29), |rho|^2 = 620 and coprime coordinates, and <r, rho> is the height of every root r": true,
+    "so k -> k rho / 4320 embeds the circle Z/4320 in the momentum torus R^8 / E8: every step k has order 4320 / gcd(k, 4320) there, as on the circle": true,
+    "the positive roots of height j number #{i : m_i >= j} for the exponents 1, 7, 11, 13, 17, 19, 23, 29 (Kostant's dual partition), and the highest root has height 29 = h - 1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> principal circle: the canon's circle embeds in the momentum torus as the principal circle: no lattice clock runs it, but this circle of momenta does, and its step 144 is Kostant's principal element (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Weyl vector rho has <alpha_i, rho> = 1 for every simple root, root coordinates (46, 68, 91, 135, 110, 84, 57, 29), |rho|^2 = 620 and coprime coordinates, and <r, rho> is the height of every root r": true,
+    "so k -> k rho / 4320 embeds the circle Z/4320 in the momentum torus R^8 / E8: every step k has order 4320 / gcd(k, 4320) there, as on the circle": true,
+    "the positive roots of height j number #{i : m_i >= j} for the exponents 1, 7, 11, 13, 17, 19, 23, 29 (Kostant's dual partition), and the highest root has height 29 = h - 1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> W(E8) clocks: rho/30 acts on the adjoint representation with the spectrum of a lift of c': the clock's eigenvalues on the Cartan and eight copies of every 30th root from its free orbits on the roots; Kostant makes it conjugate to that lift (cited), so the step 144 is the Coxeter clock (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "for each of the thirteen regular numbers d, rho/d acts on the adjoint representation with the spectrum of a lift of the regular clock w_d: each primitive d-th root 8/phi(d) times from w_d on the Cartan, and 240/d copies of every d-th root from the roots": true,
+    "w_d turns the 240 roots in 240/d free orbits of length d: 8 for c' (30), 10 for the day (24) and 12 for the golden clock (20)": true,
+    "so the canon's steps 144, 180 and 216 = 4320/30, 4320/24 and 4320/20 carry the spectra of c', the day and the golden clock, and 216 is the canon's golden step B^k -> 216k": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> regular clocks: for each of the thirteen regular numbers d the step 4320/d, rho/d, has the adjoint spectrum of a lift of the regular clock of order d, which turns the roots in 240/d free orbits; the steps 180 and 216 carry the day and the golden clock (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "for each of the thirteen regular numbers d, rho/d acts on the adjoint representation with the spectrum of a lift of the regular clock w_d: each primitive d-th root 8/phi(d) times from w_d on the Cartan, and 240/d copies of every d-th root from the roots": true,
+    "w_d turns the 240 roots in 240/d free orbits of length d: 8 for c' (30), 10 for the day (24) and 12 for the golden clock (20)": true,
+    "so the canon's steps 144, 180 and 216 = 4320/30, 4320/24 and 4320/20 carry the spectra of c', the day and the golden clock, and 216 is the canon's golden step B^k -> 216k": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> bath: on the principal circle the band is 248 minus the adjoint character, and at the regular step 4320/d the Ramanujan sum makes it 248 - 8 mu(d)/phi(d): 256 at the half-turn, the circle's top, down to 249 at the Coxeter step (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "at the step 4320/d of a regular order the band is 248 - chi = 248 - 8 mu(d)/phi(d) (the Ramanujan sum of the primitive d-th roots is mu(d)): 256, 252, 248, 250, 244, 248, 246, 248, 247, 248, 248 and 249 for d = 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24 and 30": true,
+    "the circle's highest point is the band's top 256, at the half-turn 2160 alone": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "principal circle -> critical census: the band is critical on the principal circle exactly at its nine elements of order 2 to 5, where the centralizer has full rank: the census's D8 (256), A8 (252), D5 + A3 (248) and A4 + A4 (250), the alcove's vertices of marks 2, 3, 4 and 5 (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band is critical on the circle exactly at its nine nonzero elements of order 2 to 5: 2160 (D8), 1440 and 2880 (A8), 1080 and 3240 (D5 + A3) and 864, 1728, 2592, 3456 (A4 + A4)": 1.0,
+    "there the centralizer has full rank 8 and dimension 8 + #roots = 240/d (120, 80, 60, 48), and the four types are the critical families D8 (eps 256, 135 points, index 8), A8 (252, 1920, 8), D5 + A3 (248, 15120, 3) and A4 + A4 (250, 48384, 4) of layer 16": true,
+    "they are the alcove's vertices of marks 2, 3, 4 and 5: the vertex omega_i / a_i (a the highest root's coefficients 2, 3, 4, 6, 5, 4, 3, 2) has the type D8, A8, D5 + A3 and A4 + A4 at a node of mark 2, 3, 4 and 5": true,
+    "the time clock <864> is the A4 + A4 vertex, the carrier's root system and the family of the tick's 24 fixed momenta; the observer clock <1080> is D5 + A3 with its square the D8 half-turn; the 27-clock <160> meets the critical set in its order-3 steps 1440 and 2880": true,
+    "a step is regular, with trivial stabilizer, exactly when its order exceeds 29, the highest root's height: 4234 of the 4319 nonzero steps": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> principal circle: the time clock's steps 864k are the principal points of order 5, whose centralizer has the carrier's root system A4 + A4: the family of the tick's 24 fixed momenta, at eps 250 (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band is critical on the circle exactly at its nine nonzero elements of order 2 to 5: 2160 (D8), 1440 and 2880 (A8), 1080 and 3240 (D5 + A3) and 864, 1728, 2592, 3456 (A4 + A4)": 1.0,
+    "there the centralizer has full rank 8 and dimension 8 + #roots = 240/d (120, 80, 60, 48), and the four types are the critical families D8 (eps 256, 135 points, index 8), A8 (252, 1920, 8), D5 + A3 (248, 15120, 3) and A4 + A4 (250, 48384, 4) of layer 16": true,
+    "they are the alcove's vertices of marks 2, 3, 4 and 5: the vertex omega_i / a_i (a the highest root's coefficients 2, 3, 4, 6, 5, 4, 3, 2) has the type D8, A8, D5 + A3 and A4 + A4 at a node of mark 2, 3, 4 and 5": true,
+    "the time clock <864> is the A4 + A4 vertex, the carrier's root system and the family of the tick's 24 fixed momenta; the observer clock <1080> is D5 + A3 with its square the D8 half-turn; the 27-clock <160> meets the critical set in its order-3 steps 1440 and 2880": true,
+    "a step is regular, with trivial stabilizer, exactly when its order exceeds 29, the highest root's height: 4234 of the 4319 nonzero steps": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "observer clock -> principal circle: the observer clock's generators 1080 and 3240 are the principal points of order 4, of type D5 + A3 at eps 248, and its square 2160 is the D8 half-turn at the band's top 256 (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band is critical on the circle exactly at its nine nonzero elements of order 2 to 5: 2160 (D8), 1440 and 2880 (A8), 1080 and 3240 (D5 + A3) and 864, 1728, 2592, 3456 (A4 + A4)": 1.0,
+    "there the centralizer has full rank 8 and dimension 8 + #roots = 240/d (120, 80, 60, 48), and the four types are the critical families D8 (eps 256, 135 points, index 8), A8 (252, 1920, 8), D5 + A3 (248, 15120, 3) and A4 + A4 (250, 48384, 4) of layer 16": true,
+    "they are the alcove's vertices of marks 2, 3, 4 and 5: the vertex omega_i / a_i (a the highest root's coefficients 2, 3, 4, 6, 5, 4, 3, 2) has the type D8, A8, D5 + A3 and A4 + A4 at a node of mark 2, 3, 4 and 5": true,
+    "the time clock <864> is the A4 + A4 vertex, the carrier's root system and the family of the tick's 24 fixed momenta; the observer clock <1080> is D5 + A3 with its square the D8 half-turn; the 27-clock <160> meets the critical set in its order-3 steps 1440 and 2880": true,
+    "a step is regular, with trivial stabilizer, exactly when its order exceeds 29, the highest root's height: 4234 of the 4319 nonzero steps": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "27-clock -> principal circle: the 27-clock meets the critical steps exactly in its order-3 steps 1440 and 2880, the principal points of type A8 at eps 252 (layer 28)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the band is critical on the circle exactly at its nine nonzero elements of order 2 to 5: 2160 (D8), 1440 and 2880 (A8), 1080 and 3240 (D5 + A3) and 864, 1728, 2592, 3456 (A4 + A4)": 1.0,
+    "there the centralizer has full rank 8 and dimension 8 + #roots = 240/d (120, 80, 60, 48), and the four types are the critical families D8 (eps 256, 135 points, index 8), A8 (252, 1920, 8), D5 + A3 (248, 15120, 3) and A4 + A4 (250, 48384, 4) of layer 16": true,
+    "they are the alcove's vertices of marks 2, 3, 4 and 5: the vertex omega_i / a_i (a the highest root's coefficients 2, 3, 4, 6, 5, 4, 3, 2) has the type D8, A8, D5 + A3 and A4 + A4 at a node of mark 2, 3, 4 and 5": true,
+    "the time clock <864> is the A4 + A4 vertex, the carrier's root system and the family of the tick's 24 fixed momenta; the observer clock <1080> is D5 + A3 with its square the D8 half-turn; the 27-clock <160> meets the critical set in its order-3 steps 1440 and 2880": true,
+    "a step is regular, with trivial stabilizer, exactly when its order exceeds 29, the highest root's height: 4234 of the 4319 nonzero steps": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "residue plane -> root graph: A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38)",
    "status": "THEOREM",
    "passed": true,
@@ -9197,7 +9313,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 70 dots and 284 joins form one connected diagram (the obstructions left out)",
+   "name": "the 71 dots and 293 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9251,6 +9367,7 @@
      "petersen",
      "pg25",
      "pgl",
+     "principal",
      "readout",
      "regular",
      "residue",
@@ -9278,7 +9395,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every layer of the build, 1 to 27, has a dot",
+   "name": "every layer of the build, 1 to 28, has a dot",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9308,7 +9425,8 @@
     24,
     25,
     26,
-    27
+    27,
+    28
    ],
    "note": ""
   },
@@ -9378,7 +9496,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "level 4, lattice (roots, lattices and tori): its 13 dots are joined among themselves",
+   "name": "level 4, lattice (roots, lattices and tori): its 14 dots are joined among themselves",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9392,6 +9510,7 @@
      "frame",
      "halfper",
      "momenta",
+     "principal",
      "residue",
      "rootgraph",
      "sun",
@@ -9450,7 +9569,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 25, operator-physics 22 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 26, operator-physics 22 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9508,7 +9627,8 @@
      "sun -> parent",
      "sun -> bath",
      "halfper -> gksl",
-     "halfper -> pauli"
+     "halfper -> pauli",
+     "principal -> bath"
     ],
     [
      "carrier -> triple",
@@ -9539,11 +9659,11 @@
   },
   {
    "layer": "23-dots",
-   "name": "THEOREM joins alone connect 67 of the 70 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
+   "name": "THEOREM joins alone connect 68 of the 71 dots; the product geometry and FLRW attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock only through selections (one circle step is one memory step)",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 254,
+    "THEOREM": 263,
     "OBSTRUCTION": 16,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 4
@@ -9563,14 +9683,14 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 21, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 25, lattice-physics 5, operator-physics 22",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 7, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 23, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 26, lattice-physics 5, operator-physics 22",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 5,
-    "(3, 4)": 25,
+    "(3, 4)": 26,
     "(2, 4)": 19,
-    "(1, 3)": 21,
+    "(1, 3)": 23,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
@@ -9578,7 +9698,7 @@
     "(4, 5)": 22,
     "(2, 5)": 7,
     "(3, 5)": 5,
-    "(0, 3)": 3,
+    "(0, 3)": 7,
     "(0, 4)": 3,
     "(0, 5)": 2,
     "(1, 5)": 7
@@ -9598,7 +9718,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 67 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
+   "name": "no one and no two THEOREM maps hold the THEOREM diagram together: its 68 dots each lie on at least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six levels is joined directly by at least two THEOREM maps",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -11513,7 +11633,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the 70 dots split into the seed, 49 derived dots, 10 canon inputs and 10 dots built from the inputs, with no dot left over or counted twice",
+   "name": "the 71 dots split into the seed, 50 derived dots, 10 canon inputs and 10 dots built from the inputs, with no dot left over or counted twice",
    "status": "THEOREM",
    "passed": true,
    "value": null,
@@ -11938,6 +12058,118 @@
   {
    "layer": "27-places",
    "name": "cited: W(E8)/<-1> = GO8+(2), the real Clifford group of four qubits modulo the Paulis (Nebe, Rains and Sloane); the element orders of W(E8) are at most 30",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the Weyl vector rho has <alpha_i, rho> = 1 for every simple root, root coordinates (46, 68, 91, 135, 110, 84, 57, 29), |rho|^2 = 620 and coprime coordinates, and <r, rho> is the height of every root r",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "so k -> k rho / 4320 embeds the circle Z/4320 in the momentum torus R^8 / E8: every step k has order 4320 / gcd(k, 4320) there, as on the circle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the positive roots of height j number #{i : m_i >= j} for the exponents 1, 7, 11, 13, 17, 19, 23, 29 (Kostant's dual partition), and the highest root has height 29 = h - 1",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "for each of the thirteen regular numbers d, rho/d acts on the adjoint representation with the spectrum of a lift of the regular clock w_d: each primitive d-th root 8/phi(d) times from w_d on the Cartan, and 240/d copies of every d-th root from the roots",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "w_d turns the 240 roots in 240/d free orbits of length d: 8 for c' (30), 10 for the day (24) and 12 for the golden clock (20)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "so the canon's steps 144, 180 and 216 = 4320/30, 4320/24 and 4320/20 carry the spectra of c', the day and the golden clock, and 216 is the canon's golden step B^k -> 216k",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "at the step 4320/d of a regular order the band is 248 - chi = 248 - 8 mu(d)/phi(d) (the Ramanujan sum of the primitive d-th roots is mu(d)): 256, 252, 248, 250, 244, 248, 246, 248, 247, 248, 248 and 249 for d = 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24 and 30",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the circle's highest point is the band's top 256, at the half-turn 2160 alone",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the band is critical on the circle exactly at its nine nonzero elements of order 2 to 5: 2160 (D8), 1440 and 2880 (A8), 1080 and 3240 (D5 + A3) and 864, 1728, 2592, 3456 (A4 + A4)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "there the centralizer has full rank 8 and dimension 8 + #roots = 240/d (120, 80, 60, 48), and the four types are the critical families D8 (eps 256, 135 points, index 8), A8 (252, 1920, 8), D5 + A3 (248, 15120, 3) and A4 + A4 (250, 48384, 4) of layer 16",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "they are the alcove's vertices of marks 2, 3, 4 and 5: the vertex omega_i / a_i (a the highest root's coefficients 2, 3, 4, 6, 5, 4, 3, 2) has the type D8, A8, D5 + A3 and A4 + A4 at a node of mark 2, 3, 4 and 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "the time clock <864> is the A4 + A4 vertex, the carrier's root system and the family of the tick's 24 fixed momenta; the observer clock <1080> is D5 + A3 with its square the D8 half-turn; the 27-clock <160> meets the critical set in its order-3 steps 1440 and 2880",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "a step is regular, with trivial stabilizer, exactly when its order exceeds 29, the highest root's height: 4234 of the 4319 nonzero steps",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "28-principal",
+   "name": "cited: the principal element exp(2 pi i rho/h) is conjugate in the compact group to a lift of the Coxeter element (Kostant 1959); the lifts of an element without eigenvalue 1 are conjugate under the torus",
    "status": "SELECTED_REFERENCE",
    "passed": true,
    "value": null,
