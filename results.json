@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.69,
+  "1-carrier": 0.66,
   "2-spectral": 0.01,
-  "3-spacetime": 11.64,
-  "4-native": 112.05,
-  "5-observer": 0.26,
-  "6-gravity": 7.24,
-  "7-cosmology": 2.22,
-  "8-frontier": 47.6,
-  "9-joins": 11.44,
-  "10-literal": 39.31,
-  "11-glue": 0.25,
-  "12-binding": 0.06,
+  "3-spacetime": 10.66,
+  "4-native": 97.3,
+  "5-observer": 0.28,
+  "6-gravity": 7.79,
+  "7-cosmology": 1.88,
+  "8-frontier": 44.48,
+  "9-joins": 11.93,
+  "10-literal": 38.58,
+  "11-glue": 0.28,
+  "12-binding": 0.05,
   "13-gates": 0.09,
-  "14-recurrence": 81.05,
-  "15-court": 1.85,
-  "16-handover": 1.33,
-  "17-waves": 0.78,
-  "18-snapshot": 0.98,
-  "19-spine": 4.56,
-  "20-canon": 6.89,
-  "21-ledger": 49.42,
-  "22-counts": 26.8,
-  "23-dots": 373.14,
-  "24-assignment": 3.6,
-  "25-unify": 4.32,
-  "26-primes": 5.5,
-  "27-places": 2.18,
-  "28-principal": 1.69
+  "14-recurrence": 81.53,
+  "15-court": 2.17,
+  "16-handover": 1.4,
+  "17-waves": 0.84,
+  "18-snapshot": 0.96,
+  "19-spine": 4.63,
+  "20-canon": 6.48,
+  "21-ledger": 50.35,
+  "22-counts": 25.28,
+  "23-dots": 402.37,
+  "24-assignment": 4.43,
+  "25-unify": 4.55,
+  "26-primes": 6.62,
+  "27-places": 2.33,
+  "28-principal": 1.81
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 757,
-   "total": 757
+   "passed": 758,
+   "total": 758
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 126,
-   "total": 126
+   "passed": 129,
+   "total": 129
   }
  },
  "checks": [
@@ -11165,6 +11165,36 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 08:22-08:44 model: the 01:21 certificate's counts and circle orders, the pentagon operator as the tick's Gauss sum (a symmetric square root of the K5 Laplacian), the overlays, the N33 workbooks and the sector sheet",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 01:21 certificate: its ten exact-check counts sum to 393 and its regressions to 14 and 8; 500 + 56 = 556, 135 - 115 = 20, 53130 = C(25, 5), 1496250 = C(21, 4) x 250, 63 = 2^6 - 1 and 15 = C(6, 2); on the circle 393, 556, 56, 115, 506 and 67 have orders 1440, 1080, 540, 864, 2160 and 4320": true,
+    "the pentagon operator, +1 on the pentagon steps and -1 on the pentagram steps, is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices: P^2 = 5I - J = B B^T, the K5 Laplacian, P kills the constants and (sqrt5 I + P)(sqrt5 I - P) = J; so (I +- P/sqrt5)/2 are complementary projectors on the sum-zero four, where P has eigenvalues +-sqrt5 twice each, and not on R^5": true,
+    "the 01:21 checkpoint's overlays: 52 + 56 + 70 + 142 = 320 new exact checks, 4 + 4 + 10 + 8 + 8 = 34 regressions and 24 + 108 + 103 + 132 + 125 + 528 = 1020 payloads; the step 6 has order 720 = 4320/6, 320 has order 27 and 1020 order 72": true,
+    "the N33 workbooks: 3750 - 3705 = 45 sheets; 6 + 6 + 18 + 210 = 240 with 6 + 6 + 18 = 30, six classes of 40; 183 + 6 x 52 = 495; 241I - J has trace 1440 = 6 x 240 on six sites; 21 - 17 + 1 = 5 meets the Singleton bound; 125 = 5^3 and 5985 = C(21, 4)": true,
+    "the sector sheet: the root graph's eigenvalues besides its degree 56 are 28, 8, -2 and -4, which add to 30 and whose absolute values multiply to 1792 = 8 x 224; the sheet's moments 1, 242, 58702, 14267058 have variance 138 and the next Jacobi coefficient 27778/138 = 13889/69, and differ from the contrast list 1, 241, 58264, 14121093 by 1, 438 and 145965 and from the triangle port's 1, 242, 58691, 14259954 by 0, 11 and 7104; 30 and 210 have order 144, 40 order 108, 125 order 864 and 29 order 4320": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 08:51: the sibling's MODEL editions of 08:22-08:44, the latest (08:44) read as text, with its spine29.ts (08:44) read as data, not run; nothing else on Drive is newer than 01:29; the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not replayed: the N33 sector sheet's moments 58702 and 14267058 and its polynomials of degrees 18 and 9 (the sheet's operator is not opened here), and the overlays' 33083 base instances",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11366,6 +11396,14 @@
   {
    "layer": "23-dots",
    "name": "not joined: the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51): Python verifiers, JSON receipts and SHA256SUMS: not downloaded and not run; their stated results are replayed",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the N33 sector sheet's moments (MODEL, 08:22-08:44): 1, 242, 58702, 14267058 with a characteristic polynomial of degree 18 and a minimal one of degree 9; the sheet's operator is not opened here; the list is neither the contrast list nor the triangle port's (notes_0844)",
    "status": "REPORTED",
    "passed": true,
    "value": null,
