@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.66,
+  "1-carrier": 0.62,
   "2-spectral": 0.01,
-  "3-spacetime": 10.66,
-  "4-native": 97.3,
-  "5-observer": 0.28,
-  "6-gravity": 7.79,
-  "7-cosmology": 1.88,
-  "8-frontier": 44.48,
-  "9-joins": 11.93,
-  "10-literal": 38.58,
-  "11-glue": 0.28,
-  "12-binding": 0.05,
-  "13-gates": 0.09,
-  "14-recurrence": 81.53,
-  "15-court": 2.17,
-  "16-handover": 1.4,
-  "17-waves": 0.84,
-  "18-snapshot": 0.96,
-  "19-spine": 4.63,
-  "20-canon": 6.48,
-  "21-ledger": 50.35,
-  "22-counts": 25.28,
-  "23-dots": 402.37,
-  "24-assignment": 4.43,
-  "25-unify": 4.55,
-  "26-primes": 6.62,
-  "27-places": 2.33,
-  "28-principal": 1.81
+  "3-spacetime": 11.15,
+  "4-native": 103.06,
+  "5-observer": 0.26,
+  "6-gravity": 10.34,
+  "7-cosmology": 2.17,
+  "8-frontier": 45.91,
+  "9-joins": 11.09,
+  "10-literal": 41.96,
+  "11-glue": 0.29,
+  "12-binding": 0.04,
+  "13-gates": 0.1,
+  "14-recurrence": 81.33,
+  "15-court": 1.92,
+  "16-handover": 1.36,
+  "17-waves": 0.56,
+  "18-snapshot": 1.03,
+  "19-spine": 4.89,
+  "20-canon": 7.81,
+  "21-ledger": 53.92,
+  "22-counts": 26.7,
+  "23-dots": 383.52,
+  "24-assignment": 4.51,
+  "25-unify": 5.12,
+  "26-primes": 6.22,
+  "27-places": 2.31,
+  "28-principal": 1.87
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 758,
-   "total": 758
+   "passed": 759,
+   "total": 759
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 129,
-   "total": 129
+   "passed": 132,
+   "total": 132
   }
  },
  "checks": [
@@ -11195,6 +11195,27 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 09:02-09:12 model and the separate model's 09:07 corrections: the sibling's arithmetic and its replay of the pentagon operator (P^3 = 5P, t (t^2 - 5)^2), the rational Jacobi reference, the miss set <125> = <5> against the tick, and <1060> = <20> against the golden orbit",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the sibling's arithmetic: 138 and 438 have order 720; 3 x 12 + 3 x 8 + 3 x 6 + 2 = 80 = 5 x 16; 943507 = 433 x 2179; 35366 = 183 x 193 + 47; the 08:54 certificate's packets 12 + 10 + 5 + 11 + 17 + 11 = 66 with 60 hashes, 151 - 150 = 1, 4052 + 28 = 4080, 556 + 18 = 574 and 288/625 in lowest terms; 1073 = 29 x 37": true,
+    "the pentagon operator as the sibling replays it: P^3 = 5P, characteristic polynomial t (t^2 - 5)^2, rank 4, the four nonzero eigenvalues' squares multiply to 625, and tr P^0 = 5, tr P^(2m+1) = 0, tr P^(2m) = 4 x 5^m": true,
+    "the separate model's three corrections, replayed: the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives the sheet's moments 1, 242, 58702, 14267058 exactly, so non-divisibility excludes only an integer diagonal; <125> = <5> is the miss set, of order 864, not the tick <864> of order 5, and the two meet in 0 and make the circle; the pentagon factors multiply to J on R^5 and to 0 on the sum-zero four": true,
+    "a correction of the same kind: 1060 generates <20>, of order 216, while the golden orbit <216> has order 20; the two meet in the observer clock <1080>": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 09:22: the sibling's MODEL editions of 09:02-09:12, the latest (09:12) read as text, with its spine29.ts (09:12) read as data, not run; the separate model's continuation (08:53) recorded from its certificate (08:54) and its checkpoint (08:57); its note-correction capsule (09:07) read in memory as data, its code not run, with its certificate and checkpoint recovery (09:15); the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11404,6 +11425,22 @@
   {
    "layer": "23-dots",
    "name": "not joined: the N33 sector sheet's moments (MODEL, 08:22-08:44): 1, 242, 58702, 14267058 with a characteristic polynomial of degree 18 and a minimal one of degree 9; the sheet's operator is not opened here; the list is neither the contrast list nor the triangle port's (notes_0844)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's continuation (08:53): 1045843 bytes; 41 integration groups over six source packets (66 payloads), 28 new matrices, 18 new typed joins (574 relationships) and 10 observation contracts; certificate read, zip not opened or run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's note corrections (09:07): 16 exact note-review groups and 3 typed corrections (577 relationships), no new matrix; the corrections are replayed (notes_0912); the capsule's code not run",
    "status": "REPORTED",
    "passed": true,
    "value": null,
