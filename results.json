@@ -57,42 +57,43 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.82,
-  "2-spectral": 0.02,
-  "3-spacetime": 10.59,
-  "4-native": 97.72,
-  "5-observer": 0.6,
-  "6-gravity": 5.52,
-  "7-cosmology": 1.82,
-  "8-frontier": 39.08,
-  "9-joins": 9.67,
-  "10-literal": 36.36,
-  "11-glue": 0.18,
-  "12-binding": 0.04,
-  "13-gates": 0.12,
-  "14-recurrence": 78.31,
-  "15-court": 1.76,
-  "16-handover": 1.35,
-  "17-waves": 0.82,
-  "18-snapshot": 1.4,
-  "19-spine": 4.64,
+  "1-carrier": 0.63,
+  "2-spectral": 0.01,
+  "3-spacetime": 9.5,
+  "4-native": 99.5,
+  "5-observer": 0.33,
+  "6-gravity": 4.97,
+  "7-cosmology": 1.92,
+  "8-frontier": 40.22,
+  "9-joins": 7.66,
+  "10-literal": 35.95,
+  "11-glue": 0.21,
+  "12-binding": 0.08,
+  "13-gates": 0.1,
+  "14-recurrence": 76.49,
+  "15-court": 1.89,
+  "16-handover": 1.4,
+  "17-waves": 0.9,
+  "18-snapshot": 1.58,
+  "19-spine": 4.7,
   "20-canon": 6.16,
-  "21-ledger": 43.78,
-  "22-counts": 21.83,
-  "23-dots": 185.46,
-  "24-assignment": 3.62,
-  "25-unify": 3.57,
-  "26-primes": 5.25
+  "21-ledger": 45.4,
+  "22-counts": 21.31,
+  "23-dots": 186.75,
+  "24-assignment": 3.43,
+  "25-unify": 3.71,
+  "26-primes": 4.93,
+  "27-places": 1.85
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 704,
-   "total": 704
+   "passed": 720,
+   "total": 720
   },
   "OBSTRUCTION": {
-   "passed": 65,
-   "total": 65
+   "passed": 70,
+   "total": 70
   },
   "REMOVED": {
    "passed": 2,
@@ -103,8 +104,8 @@
    "total": 45
   },
   "SELECTED_REFERENCE": {
-   "passed": 21,
-   "total": 21
+   "passed": 22,
+   "total": 22
   },
   "UNFORMED": {
    "passed": 24,
@@ -9064,6 +9065,102 @@
   },
   {
    "layer": "23-dots",
+   "name": "sun's decad -> bath: the bath is 240 + 3 = 243 at the sun's 80 nonzero fixed momenta: three roots lie over each nonzero residue point, so every nontrivial character of F81 sums to -3 over the roots (layer 27)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the dual torus the band at the prime clocks' fixed momenta is 0 and 250 (24 times) at the tick, 0 and 243 (80 times) at the sun, and 0, 224 (120 times) and 256 (135 times) at the half-turn, and every one of these momenta is a critical point (a clock without eigenvalue 1 fixes the gradient)": true,
+    "those values are character sums on the residue spaces, eps = 240 - sum_r chi(r): with ten roots over each of the tick's 24 nonzero residue points and three over each of the sun's 80, every nontrivial character sums to -10 and -3, so eps = 240 + 10 = 250 and 240 + 3 = 243": true,
+    "at the prime 2 the roots are the nonsingular points of the half-period quadric, two each, and a character sums to -16 when q(y) = 0 and +16 when q(y) = 1: eps = 256 on the 135 singular and 224 on the 120 nonsingular half-periods, the band's top and its saddle": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "residue plane -> tick momenta: the tick's 25 fixed momenta are the characters of its residue plane, and the bath there is 240 - sum_r chi(r): 0, and 250 on the 24 others, where ten roots lie over each nonzero point (layer 27)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the dual torus the band at the prime clocks' fixed momenta is 0 and 250 (24 times) at the tick, 0 and 243 (80 times) at the sun, and 0, 224 (120 times) and 256 (135 times) at the half-turn, and every one of these momenta is a critical point (a clock without eigenvalue 1 fixes the gradient)": true,
+    "those values are character sums on the residue spaces, eps = 240 - sum_r chi(r): with ten roots over each of the tick's 24 nonzero residue points and three over each of the sun's 80, every nontrivial character sums to -10 and -3, so eps = 240 + 10 = 250 and 240 + 3 = 243": true,
+    "at the prime 2 the roots are the nonsingular points of the half-period quadric, two each, and a character sums to -16 when q(y) = 0 and +16 when q(y) = 1: eps = 256 on the 135 singular and 224 on the 120 nonsingular half-periods, the band's top and its saddle": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> GKSL: the GKSL rates on the 256 Paulis are 240 - sum_r (-1)^<r, y>: 0, then 256 on the 135 singular and 224 on the 120 nonsingular half-periods, where the quadric's character sums are -16 and +16 (layer 27)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the dual torus the band at the prime clocks' fixed momenta is 0 and 250 (24 times) at the tick, 0 and 243 (80 times) at the sun, and 0, 224 (120 times) and 256 (135 times) at the half-turn, and every one of these momenta is a critical point (a clock without eigenvalue 1 fixes the gradient)": true,
+    "those values are character sums on the residue spaces, eps = 240 - sum_r chi(r): with ten roots over each of the tick's 24 nonzero residue points and three over each of the sun's 80, every nontrivial character sums to -10 and -3, so eps = 240 + 10 = 250 and 240 + 3 = 243": true,
+    "at the prime 2 the roots are the nonsingular points of the half-period quadric, two each, and a character sums to -16 when q(y) = 0 and +16 when q(y) = 1: eps = 256 on the 135 singular and 224 on the 120 nonsingular half-periods, the band's top and its saddle": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> Pauli algebra: under the Pauli map the two primes over 2 are complementary stabilizer groups of 16 commuting symmetric real Paulis; Paulis commute exactly when their half-periods have even inner product; c' keeps both groups and the mirror swaps them (layer 27)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "layer 22's Pauli map sends the simple roots to eight real Pauli strings that anticommute exactly when the roots are joined in the Dynkin diagram, so two products phi(x), phi(y) commute exactly when <x, y> is even, and the transpose sign of phi(x) is (-1)^q(x)": true,
+    "the two primes over 2 go to two stabilizer groups: 16 commuting symmetric real Paulis each, meeting only in the identity, and every half-period is uniquely a sum of one from each, so every real Pauli is plus or minus a product of an element of each group": true,
+    "the Coxeter clock keeps both stabilizer groups, a Singer cycle of order 15 on each, and the mirror exchanges them; W(E8)/<-1> = GO8+(2) is the real Clifford group of four qubits modulo the Paulis (cited: Nebe, Rains and Sloane)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "sun's decad -> golden companion: the golden ratio Phi = 1 + g + g^4 generates the decad's field F9 on the sun's momenta, and B has Pisano period 8 mod 3: the golden field is inert at 3 (layer 27)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the golden ratio Phi = 1 + g + g^4 is integral on E8 with Phi^2 = Phi + 1, and 2 Phi - 1 = g + g^4 - g^2 - g^3 is the Gauss sum, of square 5": true,
+    "at 5 it is ramified: on the tick's plane Phi is the scalar 3, and x^2 - x - 1 = (x - 3)^2 mod 5; at 3 it is inert: on the sun's momenta Phi is not in F3, and F3[Phi] is the F9 of the decad; at 2 it is inert: on the half-periods Phi^2 + Phi + 1 = 0, and Phi keeps both primes over 2, a cube root of unity in F4 = F2[Phi]": true,
+    "the Fibonacci companion B = [[1, 1], [1, 0]] has Pisano periods 3, 8 and 20 at 2, 3 and 5: the orders of a generator of F4^x and F9^x, and at 5 a scalar 3 times a unipotent, (B - 3)^2 = 0 mod 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> golden companion: on the half-periods Phi is a cube root of unity keeping both primes over 2, F4 = F2[Phi], and B has Pisano period 3 mod 2: the golden field is inert at 2, while at 5 it is ramified (layer 27)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the golden ratio Phi = 1 + g + g^4 is integral on E8 with Phi^2 = Phi + 1, and 2 Phi - 1 = g + g^4 - g^2 - g^3 is the Gauss sum, of square 5": true,
+    "at 5 it is ramified: on the tick's plane Phi is the scalar 3, and x^2 - x - 1 = (x - 3)^2 mod 5; at 3 it is inert: on the sun's momenta Phi is not in F3, and F3[Phi] is the F9 of the decad; at 2 it is inert: on the half-periods Phi^2 + Phi + 1 = 0, and Phi keeps both primes over 2, a cube root of unity in F4 = F2[Phi]": true,
+    "the Fibonacci companion B = [[1, 1], [1, 0]] has Pisano periods 3, 8 and 20 at 2, 3 and 5: the orders of a generator of F4^x and F9^x, and at 5 a scalar 3 times a unipotent, (B - 3)^2 = 0 mod 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "memory clock -> W(E8) clocks: an element of order n of GL8(Z) needs psi(n) <= 8, and the memory clock has order 90 with psi(90) = 10, so no lattice clock of the seed runs it (layer 27)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "an element of order n of GL8(Z) needs psi(n) <= 8 (psi sums phi over the prime powers of n, less 1 when n = 2 mod 4): psi(30) = 6 for the Coxeter clock, psi(24) = psi(20) = 6 for the day and the golden clock, but psi(90) = 10, so the memory clock of order 90 is run by no lattice clock of the seed": true,
+    "the circle has psi(4320) = 38: its images in GL8(Z) have orders among the divisors with psi <= 8, the largest 60, 40 and 36, and the element orders of W(E8) stop at 30 (cited), the Coxeter clock's <144>; the circle stays an input": true,
+    "AIR_801 = [[108, 801], [106, 901]] has determinant 12402 = 2 x 3^2 x 13 x 53, so it is no lattice clock; only its residue mod 5, minus the day, is the seed's": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> W(E8) clocks: psi(4320) = 38 > 8: the circle's images in GL8(Z) have order at most 60, and the element orders of W(E8) stop at 30 (cited), so only its part <144> acts, as the Coxeter clock (layer 27)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "an element of order n of GL8(Z) needs psi(n) <= 8 (psi sums phi over the prime powers of n, less 1 when n = 2 mod 4): psi(30) = 6 for the Coxeter clock, psi(24) = psi(20) = 6 for the day and the golden clock, but psi(90) = 10, so the memory clock of order 90 is run by no lattice clock of the seed": true,
+    "the circle has psi(4320) = 38: its images in GL8(Z) have orders among the divisors with psi <= 8, the largest 60, 40 and 36, and the element orders of W(E8) stop at 30 (cited), the Coxeter clock's <144>; the circle stays an input": true,
+    "AIR_801 = [[108, 801], [106, 901]] has determinant 12402 = 2 x 3^2 x 13 x 53, so it is no lattice clock; only its residue mod 5, minus the day, is the seed's": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "time clock -> PGL(2,5): sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)",
    "status": "THEOREM",
    "passed": true,
@@ -9088,7 +9185,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 70 dots and 275 joins form one connected diagram (the obstructions left out)",
+   "name": "the 70 dots and 283 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9169,7 +9266,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every layer of the build, 1 to 26, has a dot",
+   "name": "every layer of the build, 1 to 27, has a dot",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9198,7 +9295,8 @@
     23,
     24,
     25,
-    26
+    26,
+    27
    ],
    "note": ""
   },
@@ -9340,7 +9438,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 22, operator-physics 22 joins",
+   "name": "each level is joined to the next: number-symmetry 7, symmetry-combinatorics 11, combinatorics-lattice 5, lattice-operator 25, operator-physics 22 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -9395,7 +9493,10 @@
      "L0 -> darkport",
      "A4 -> parent",
      "L0 -> carrier",
-     "sun -> parent"
+     "sun -> parent",
+     "sun -> bath",
+     "halfper -> gksl",
+     "halfper -> pauli"
     ],
     [
      "carrier -> triple",
@@ -9430,8 +9531,8 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 247,
-    "OBSTRUCTION": 14,
+    "THEOREM": 253,
+    "OBSTRUCTION": 16,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 4
    },
@@ -9450,14 +9551,14 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 19, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 22, lattice-physics 5, operator-physics 22",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 7, number-combinatorics 3, number-lattice 3, number-operator 3, number-physics 2, symmetry-combinatorics 11, symmetry-lattice 21, symmetry-operator 12, symmetry-physics 7, combinatorics-lattice 5, combinatorics-operator 19, combinatorics-physics 7, lattice-operator 25, lattice-physics 5, operator-physics 22",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 5,
-    "(3, 4)": 22,
+    "(3, 4)": 25,
     "(2, 4)": 19,
-    "(1, 3)": 19,
+    "(1, 3)": 21,
     "(1, 2)": 11,
     "(0, 1)": 7,
     "(0, 2)": 3,
@@ -11663,6 +11764,118 @@
   {
    "layer": "26-primes",
    "name": "cited: the order of W(E8) is the product of its degrees; Lehrer-Springer's criterion for regular numbers and Springer's theorems (regular elements of one order are conjugate, and their centralizers have the orders of the degrees, replayed here); W(E8)/<-1> = GO8+(2)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "on the dual torus the band at the prime clocks' fixed momenta is 0 and 250 (24 times) at the tick, 0 and 243 (80 times) at the sun, and 0, 224 (120 times) and 256 (135 times) at the half-turn, and every one of these momenta is a critical point (a clock without eigenvalue 1 fixes the gradient)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "those values are character sums on the residue spaces, eps = 240 - sum_r chi(r): with ten roots over each of the tick's 24 nonzero residue points and three over each of the sun's 80, every nontrivial character sums to -10 and -3, so eps = 240 + 10 = 250 and 240 + 3 = 243",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "at the prime 2 the roots are the nonsingular points of the half-period quadric, two each, and a character sums to -16 when q(y) = 0 and +16 when q(y) = 1: eps = 256 on the 135 singular and 224 on the 120 nonsingular half-periods, the band's top and its saddle",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "the golden ratio Phi = 1 + g + g^4 is integral on E8 with Phi^2 = Phi + 1, and 2 Phi - 1 = g + g^4 - g^2 - g^3 is the Gauss sum, of square 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "at 5 it is ramified: on the tick's plane Phi is the scalar 3, and x^2 - x - 1 = (x - 3)^2 mod 5; at 3 it is inert: on the sun's momenta Phi is not in F3, and F3[Phi] is the F9 of the decad; at 2 it is inert: on the half-periods Phi^2 + Phi + 1 = 0, and Phi keeps both primes over 2, a cube root of unity in F4 = F2[Phi]",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "the Fibonacci companion B = [[1, 1], [1, 0]] has Pisano periods 3, 8 and 20 at 2, 3 and 5: the orders of a generator of F4^x and F9^x, and at 5 a scalar 3 times a unipotent, (B - 3)^2 = 0 mod 5",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "layer 22's Pauli map sends the simple roots to eight real Pauli strings that anticommute exactly when the roots are joined in the Dynkin diagram, so two products phi(x), phi(y) commute exactly when <x, y> is even, and the transpose sign of phi(x) is (-1)^q(x)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "the two primes over 2 go to two stabilizer groups: 16 commuting symmetric real Paulis each, meeting only in the identity, and every half-period is uniquely a sum of one from each, so every real Pauli is plus or minus a product of an element of each group",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "the Coxeter clock keeps both stabilizer groups, a Singer cycle of order 15 on each, and the mirror exchanges them; W(E8)/<-1> = GO8+(2) is the real Clifford group of four qubits modulo the Paulis (cited: Nebe, Rains and Sloane)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "an element of order n of GL8(Z) needs psi(n) <= 8 (psi sums phi over the prime powers of n, less 1 when n = 2 mod 4): psi(30) = 6 for the Coxeter clock, psi(24) = psi(20) = 6 for the day and the golden clock, but psi(90) = 10, so the memory clock of order 90 is run by no lattice clock of the seed",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "the circle has psi(4320) = 38: its images in GL8(Z) have orders among the divisors with psi <= 8, the largest 60, 40 and 36, and the element orders of W(E8) stop at 30 (cited), the Coxeter clock's <144>; the circle stays an input",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "AIR_801 = [[108, 801], [106, 901]] has determinant 12402 = 2 x 3^2 x 13 x 53, so it is no lattice clock; only its residue mod 5, minus the day, is the seed's",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "the derivation reaches each sector through its place: the bath from E8 itself (the real place), the Pauli algebra and GKSL through the half-periods (2), the 360 parent through the sun's decad (3), and the carrier through the tick's residue plane (5)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "27-places",
+   "name": "cited: W(E8)/<-1> = GO8+(2), the real Clifford group of four qubits modulo the Paulis (Nebe, Rains and Sloane); the element orders of W(E8) are at most 30",
    "status": "SELECTED_REFERENCE",
    "passed": true,
    "value": null,

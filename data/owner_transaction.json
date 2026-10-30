@@ -22,7 +22,7 @@
   "time": "native parameter u; TIME_BIND needs one clock datum"
  },
  "G_role": {
-  "verifier": "70a0c462ceead2e19a1527a32d6e545f776b90dc1e09f530efcfdebde5cc1760",
+  "verifier": "69e0eecde0ea950f96e70d3070f42734c453aa01e466566fc427e054a85f5612",
   "walks": "0f9b34004390f698224e8c4a55cb3b046976747d192d7cabf4f55def20760ef6",
   "prediction_register": "7b59e592347f1db16e3f88909d6ef625a3f4651dbaaa60ed4cbccac549ec4ca0"
  },
