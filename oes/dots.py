@@ -9911,13 +9911,97 @@ JOINS = [
     ("principal", "miss", "the steps the tick does not see", "the miss set <5> is the kernel of the time coordinate, the points of order prime to 5, <135> + <160>; it holds every critical step but the time clock's four, and the atlas and the vortex hold none, every step of regular order and every critical step being 0 mod 36 (30 Oct)", T, "principal.clock_lattice"),
     ("principal", "vortex", "the 27-clock modulo the sun", "x -> x mod 9 maps the 27-clock <160> onto Z/9 with kernel the sun's subgroup <1440>, and the whole principal circle onto it with kernel <9> = <36> + <135>, the seam plus the 2-part, 480 points; the quotient size 9 = 27/3 is the canon's (30 Oct)", T, "principal.clock_lattice"),
     ("golden", "clocks", "the tick's cosine", "the tick's cosine g + g^-1 has minimal polynomial x^2 + x - 1, so X = -(g + g^-1) satisfies X^2 = X + I with characteristic polynomial (x^2 - x - 1)^4, and E8 has a Z-basis of four roots x_i and their images X x_i, ordered (X x_i, x_i), in which X is four blocks B: E8 = Z[phi]^4, the golden companion acting on the whole lattice through the tick; X = I - Phi for layer 27's Phi = 1 + g + g^4, and Z[g] = Z[zeta5] makes E8 a free module of rank 2 (30 Oct)", T, "golden_cosine"),
-    ("golden", "G120", "the Galois conjugation", "the day conjugates the tick to its square and so carries X = -(g + g^-1) to I - X: it acts on Z[phi] as phi -> 1 - phi, the Galois conjugation of Q(sqrt5); c' commutes with X, so G120 acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2, 60 elements fixing X and 60 conjugating it, with kernel <g, d^2>; the embedding of the golden companion is unique up to the day (30 Oct)", T, "golden_galois"),
+    ("golden", "G120", "the Galois conjugation", "the day conjugates the tick to its square and so carries X = -(g + g^-1) to I - X: it acts on Z[phi] as phi -> 1 - phi, the Galois conjugation of Q(sqrt5); c' commutes with X, so G120 acts on Z[X] through Gal(Q(sqrt5)/Q) = Z/2, 60 elements fixing X and 60 conjugating it, with kernel <g, d^2>; the embedding of Z[phi] into Z[X] is unique up to the day (30 Oct)", T, "golden_galois"),
     ("golden", "regular", "the cosine rings", "the cosine w + w^-1 of the regular clock of order d has characteristic polynomial Psi_d^(8/deg Psi_d), Psi_d the minimal polynomial of 2 cos(2 pi/d); the golden polynomial x^2 - x - 1 is Psi_10 = Psi_5(-x), the cosine of c'^3 = -g^3 is Phi, and the golden clock's cosine squares to Phi + 2; X lies in the cosine ring Z[w + w^-1] exactly for the five regular orders divisible by 5 (30 Oct)", T, "regular_cosines"),
     ("torus", "principal", "the critical steps", "the nine-torus's frequencies are exact: 240 - sum_k m_k cos(2 pi k/m_i) at the alcove's vertices, and 6800/27 and 4025/16 at the two Niven points on the lines R omega_2 and R omega_3; four of the nine, 256, 252, 248 and 250, are the band at the principal circle's critical steps of order 2, 3, 4 and 5 (30 Oct)", T, "torus_places"),
     ("torus", "halfper", "the half-periods", "two of the nine frequencies are the band at the 256 half-periods: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1; the half-turn 2160 is the half-period rho/2, of type D8 (30 Oct)", T, "torus_places"),
     ("torus", "sun", "the sun's momenta", "243 is the band at the sun's 80 nonzero fixed momenta, of type E6 + A2, every one a critical point of the band (30 Oct)", T, "torus_places"),
-    ("torus", "momenta", "the tick's momenta", "250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through seven of the eleven census families, and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct)", T, "torus_places"),
+    ("torus", "momenta", "the tick's momenta", "250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through six of the eleven census families (E8 is the seventh type present, at the band's minimum 0), and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct)", T, "torus_places"),
 ]
+
+def notes_1504():
+    """The sibling's MODEL editions of 14:49 and 15:04 (Names, Skew, Pulse) and the separate model's Matched History
+    receipt (15:01), replayed as arithmetic."""
+    order = lambda s: N // gcd(s, N)
+    S = spine.subgroup
+    R = np.rint(np.array(native.boundary_rotation(), dtype=float)).astype(np.int64)
+    I6 = np.eye(6, dtype=np.int64)
+    P = np.linalg.matrix_power
+    Sk = R - R.T
+    poly = P(Sk, 4) + 5 * P(Sk, 2) + 5 * I6
+    rank = lambda M: np.linalg.matrix_rank(M.astype(float))
+    W1, W2 = R - P(R, 4), P(R, 2) - P(R, 3)
+    Jr = np.fliplr(I6)
+    psi0, v0 = carrier.canon_initial_datum()
+    E = carrier.edges()
+    cyc = {E[i]: int(v0[5 + i]) for i in range(10) if v0[5 + i]}
+    sw = {0: 3, 3: 0, 1: 2, 2: 1, 4: 4}
+    img = {tuple(sorted((sw[a], sw[b]))): s for (a, b), s in cyc.items()}
+    R5 = np.roll(np.eye(5, dtype=np.int64), 1, axis=0)
+    L2 = np.zeros((10, 10), dtype=np.int64)
+    for k, (i, j) in enumerate(E):
+        a, b = int(np.argmax(R5[:, i])), int(np.argmax(R5[:, j]))
+        L2[E.index(tuple(sorted((a, b)))), k] = 1 if a < b else -1
+    B2 = np.array([[1, 1], [1, 0]], dtype=np.int64)
+    K = np.array([[1, 1], [-5, -1]], dtype=np.int64)
+    F = [0, 1]
+    for _ in range(12):
+        F.append(F[-1] + F[-2])
+    comm = lambda A, Bm: A @ Bm - Bm @ A
+    phi = (1 + sp.sqrt(5)) / 2
+    cycles27 = sorted(len(c) for c in _cycles([2 * x % 27 for x in range(27)]))
+    D5, T5 = (lambda x: 2 * x % 5), (lambda k: (lambda x: (x + k) % 5))
+    return {
+        "the six-site rotor R (order 5, fixing x0) has skew part S = R - R^T of rank 4, killed by S^4 + 5S^2 + 5I, which has "
+        "rank 2: the polynomial is t^2 - 5t + 5 in t = -S^2, the relation of the golden pairs 2 + phi and 3 - phi (sum 5, "
+        "product 5), and the five powers of R add to it, S^4 + 5S^2 + 5I = sum_k R^k = 5 P_fix, since ker S is the fixed "
+        "space of R; the two windings R - R^4 and R^2 - R^3 have Frobenius Gram 10I":
+            np.array_equal(P(R, 5), I6) and R[:, 0].tolist() == [1, 0, 0, 0, 0, 0] and rank(Sk) == 4 and not (Sk @ poly).any()
+            and rank(poly) == 2 and np.array_equal(sum(P(R, k) for k in range(5)), poly)
+            and all(sp.simplify(v ** 2 - 5 * v + 5) == 0 for v in (2 + phi, 3 - phi)) and sp.simplify((2 + phi) * (3 - phi)) == 5
+            and [[int((A * Bm).sum()) for Bm in (W1, W2)] for A in (W1, W2)] == [[10, 0], [0, 10]],
+        "the anti-diagonal reversal J squares to I but conjugates R neither to R^4 nor S to -S; the site swap (0 3)(1 2) "
+        "exchanges the two positive edges of the datum's 4-cycle v0 and fixes its two negative ones; on Lambda^2 R^5, the "
+        "exterior six of the sum-zero four plus u ^ (sum-zero), the five-cycle fixes a plane, inside the six":
+            np.array_equal(Jr @ Jr, I6) and not np.array_equal(Jr @ R @ Jr, P(R, 4)) and not np.array_equal(Jr @ Sk @ Jr, -Sk)
+            and cyc == {(0, 1): 1, (0, 3): -1, (1, 2): -1, (2, 3): 1}
+            and {e for e, s in cyc.items() if s > 0} == {e for e, s in img.items() if s > 0}
+            and all(img[e] == s for e, s in cyc.items() if s < 0) and 10 - rank(L2 - np.eye(10, dtype=np.int64)) == 2,
+        "a Karma matrix: a traceless integer 2 x 2 K with K^2 = -4I (determinant 4) and det [K, B] = -29 exists, "
+        "K = [[1, 1], [-5, -1]]; since B^n = F_n B + F_(n-1) I, [K, B^n] = F_n [K, B] has trace 0 and determinant -29 F_n^2 "
+        "for every n (through the tenth, as the sibling reads); 29 = 2 + 3 + 4 + 6 + 5 + 4 + 3 + 2 is the highest root's "
+        "marks without the leading 1, its height h - 1, and generates the circle; the sibling's own Karma operand is not "
+        "stored here":
+            np.array_equal(K @ K, -4 * np.eye(2, dtype=np.int64)) and round(np.linalg.det(K)) == 4 and np.trace(K) == 0
+            and all(np.array_equal(comm(K, P(B2, n)), F[n] * comm(K, B2)) and np.trace(comm(K, P(B2, n))) == 0
+                    and round(np.linalg.det(comm(K, P(B2, n)))) == -29 * F[n] ** 2 for n in range(1, 11))
+            and sum([2, 3, 4, 6, 5, 4, 3, 2]) == 29 == int(principal.weyl_vector()[2].max()) and gcd(29, N) == 1,
+        "the Names' clock readings: 36 x 120 = 4320 and 15 x 36 = 540, of order 8; 11 and 29 generate the circle; 108 = 3 "
+        "mod 5, so 108 steps of the five-cycle are its third power; the yugas 1728 + 1296 + 864 + 432 = 4320; multiplication "
+        "by 3 kills exactly 0, 1440, 2880, the nakshatra seam; doubling mod 27 has cycles 18, 6, 2, 1; the cut 736 has order "
+        "135, the walk residues 480 and 3600 orders 9 and 6; 16 x 270 = 4320 with 16 meeting the tick and 270 not, and "
+        "54 x 16 = 864 with both factors meeting it; the golden powers 0, 1, 4, 5, 20 land on 0, 216, 864, 1080, 0, and 1080 "
+        "has order 4; the step 27 has order 160 and 160 order 27":
+            36 * 120 == N and 15 * 36 == 540 and order(540) == 8 and gcd(11, N) == gcd(29, N) == 1 and 108 % 5 == 3
+            and 1728 + 1296 + 864 + 432 == N and [x for x in range(N) if 3 * x % N == 0] == [0, 1440, 2880]
+            and cycles27 == [1, 2, 6, 18] and (order(736), order(480), order(3600)) == (135, 9, 6) and 16 * 270 == N
+            and (order(16), order(270)) == (270, 16) and 16 % 5 != 0 and 270 % 5 == 0 and 54 * 16 == 864 and 54 % 5 != 0
+            and [216 * k % N for k in (0, 1, 4, 5, 20)] == [0, 216, 864, 1080, 0] and order(1080) == 4
+            and (order(27), order(160)) == (160, 27),
+        "the Skew's readings: 240 - 56 - 1 = 183 generates <3> and 4 x 183 + 2 x 127 = 986 generates <2>; 127 = 58691 - 242^2 "
+        "and 131 = 3 x 64 + 8 x (-8) + 3 = 127 + 4; 16 + 20 = 36 and 16 - 20 = -4 (the sign census; its matrix is not stored "
+        "here); and a correction: on the five points of <864>, doubling after a triple translation is one translation after "
+        "doubling, 2(x + 3) = 2x + 1 mod 5, not two; two translations after doubling is doubling after one, 2(x + 1) = 2x + 2":
+            240 - 56 - 1 == 183 and S(183) == S(3) and 4 * 183 + 2 * 127 == 986 and S(986) == S(2) and 58691 - 242 ** 2 == 127
+            and 3 * 64 + 8 * (-8) + 3 == 131 == 127 + 4 and 16 + 20 == 36 and 16 - 20 == -4
+            and all(D5(T5(3)(x)) == T5(1)(D5(x)) for x in range(5)) and not all(D5(T5(3)(x)) == T5(2)(D5(x)) for x in range(5))
+            and all(D5(T5(1)(x)) == T5(2)(D5(x)) for x in range(5)),
+        "the separate model's Matched History receipt (15:01): 36 payload files with 35 hashes (the manifest unhashed, as "
+        "in the 14:25 record), 4170 artifacts preserved and combined, 620 + 4 typed joins = 624 relationships, 24 exact "
+        "groups and 9 regressions, no new matrix; the Library pointer at N34, the Drive pointer at N33":
+            36 - 35 == 1 and 620 + 4 == 624,
+    }
+
 
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
@@ -9994,10 +10078,12 @@ def golden_galois():
             np.array_equal(c @ X @ inv(c), X) and len(G) == 120 and len(fix) == 60 and len(flip) == 60
             and {key(W) for W in fix} == {key(W) for W in H} and len(H) == 60
             and np.array_equal(d @ d @ g @ inv(d @ d), inv(g)),
-        "the two roots of x^2 - x - 1 on E8, X and I - X = Phi, are the two embeddings of the golden companion, and "
-        "the quarter turn J = [[0, 1], [-1, 0]] conjugates B to I - B in GL(2,Z): the embedding is unique up to the day":
+        "the two roots of x^2 - x - 1 in the ring Z[X], X and I - X = Phi = I + g + g^4, are the two embeddings of Z[phi] "
+        "into Z[X] (End(E8) has further roots, the conjugates s_i X s_i), and the quarter turn J = [[0, 1], [-1, 0]] in "
+        "SL(2,Z) conjugates B to I - B: the embedding into Z[X] is unique up to the day":
             np.array_equal(J @ B2 @ np.rint(np.linalg.inv(J)).astype(np.int64), np.eye(2, dtype=np.int64) - B2)
-            and abs(round(np.linalg.det(J.astype(float)))) == 1 and not ((I8 - X) @ (I8 - X) - (I8 - X) - I8).any(),
+            and round(np.linalg.det(J.astype(float))) == 1 and not ((I8 - X) @ (I8 - X) - (I8 - X) - I8).any()
+            and np.array_equal(I8 - X, I8 + g + spine.mpow(g, 4)),
     }
 
 
@@ -10105,8 +10191,9 @@ def torus_places():
         "the sun's 81 fixed momenta carry one of the nine, 243, at the 80 nonzero ones, of type E6 + A2; the tick's 25 carry "
         "250 at the 24 nonzero ones, of type A4 + A4; every one of these momenta is a critical point of the band":
             sun == Counter({("E8", 0): 1, ("E6+A2", 243): 80}) and tick == Counter({("E8", 0): 1, ("A4+A4", 250): 24}),
-        "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through seven of the eleven census "
-        "families (E8, D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1); the three others, sqrt 251, sqrt(4025/16) and "
+        "so six of the nine frequencies are placed, sqrt 224, 243, 248, 250, 252 and 256, through six of the eleven census "
+        "families (D8, A8, D5 + A3, A4 + A4, E6 + A2, E7 + A1), with E8 the seventh type present, at the band's minimum 0; "
+        "the three others, sqrt 251, sqrt(4025/16) and "
         "sqrt(6800/27), of types A5 + A2 + A1, A6 + A1 and A7, are at no fixed momentum of a prime clock and at no critical "
         "step of the principal circle, and the A7 + A1 family's 252 is placed only through A8":
             placed == {224, 243, 248, 250, 252, 256}
@@ -10383,6 +10470,10 @@ LEDGER_ROWS = [
     ("the sibling's clock corrections (MODEL, 14:41)", "lcm(30, 24, 20) = 120; the step 120 has order 36; the kernel of x -> 9x is <480>, of order 9, not the multiples of 9", "replayed: <36> has order 120 and the step 120 order 36; the multiples of 9 are <9>, of order 480, the kernel of x -> x mod 9", T, "23"),
     ("the address and principal subgroups (MODEL, 14:41)", "<120> (order 36) and <144> (order 30) meet in the subgroup of order 6; five, seven and three critical steps lie in them and in both", "replayed", T, "23"),
     ("the bridge's two splits (MODEL, 14:41)", "on the sum-zero four the signless Gram acts by 3 and the Gauss square by 5; on the all-ones line by 8 and 0", "replayed: M M^T = 3I + J and G5^2 = 5I - J, both pairs add to 8 (M M^T + G5^2 = 8I)", T, "23"),
+    ("the six-site rotor's skew (MODEL, 15:04)", "S = R - R^T has rank 4 and is killed by S^4 + 5S^2 + 5I, of rank 2; the five powers of R add to it", "replayed: t^2 - 5t + 5 in t = -S^2, the relation of the golden pairs 2 + phi and 3 - phi; the sum of the powers is 5 P_fix; the windings R - R^4 and R^2 - R^3 have Gram 10I", T, "23"),
+    ("Karma's commutators (MODEL, 15:04)", "K^2 = -4I, and [K, B^n] has trace 0 and determinant -29 F_n^2 through the tenth", "replayed with a witness K = [[1, 1], [-5, -1]]: [K, B^n] = F_n [K, B] for every n; 29 = h - 1 is the highest root's marks without the leading 1; the sibling's operand is not stored here", T, "23"),
+    ("the Names' clock readings (MODEL, 14:49)", "540 of order 8; 11 and 29 generate; 108 = 3 mod 5; the yugas add to 4320; x3 kills the nakshatra seam; 736 of order 135; 3600 of order 6; the golden landings 0, 216, 864, 1080, 0", "replayed; readings, not joins", T, "23"),
+    ("doubling after a triple translation (MODEL, 15:04)", "on <864>, doubling after a triple translation equals two translations", "corrected: 2(x + 3) = 2x + 1 mod 5, one translation after doubling; two translations after doubling is doubling after one", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -10511,6 +10602,13 @@ NOT_JOINED = [
     ("the sibling's 14:31 and 14:41 editions", "new Intake, Copies and Provenance sections: the N34 copies' byte identity "
                                               "and receipts, the observer archive's 57 files with 56 hashed; read as data, "
                                               "their arithmetic replayed in notes_1441", RP),
+    ("the separate model's Matched History model (15:00)", "a 951539-byte archive with 36 payload files and 35 hashes, 19 "
+                                                          "layers, 24 exact groups, 9 regressions, 4 new typed joins "
+                                                          "(620 -> 624), 0 new matrices; its receipt read as data, the "
+                                                          "archive not opened", RP),
+    ("the sibling's 14:49 and 15:04 editions", "342 exact checks (339 before); the twenty-five name auditors, the sign "
+                                              "census matrix and the observer's line on the fixed plane are not stored "
+                                              "here; the arithmetic is replayed in notes_1504", RP),
 ]
 
 
