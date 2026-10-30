@@ -292,10 +292,13 @@ Every join of the sibling's 28 October ledger (FULL_UPDATE_20261028, 18:17 UTC),
 | the clock on the Sylow labels (hub, 14:07) | p = 4j mod 5 onto the five moving labels, 864 each | replayed and joined (time clock -> PGL(2,5)) | THEOREM | 23 |
 | the comparator (MODEL, 13:02-14:18) | moments 1, 242, 58691, 14259954, 3470101592; Hankel 15930273; last diagonal 200 or 210 | replayed: the triangle port's; not unique, and by the all-order theorem no finite comparator is exact | THEOREM | 23 |
 | the THEOREM diagram | - | THEOREM maps alone join 68 of the 71 dots, no one or two of them hold it together, and they join every pair of levels at least twice; the datum's regular S5-orbit and the time clock's actions on the roots (48 extended A4 pentagons), the zero modes (one per character) and the triple close the last cuts | THEOREM | 23 |
-| all dots | - | 71 dots and 293 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
+| all dots | - | 71 dots and 294 joins in one connected diagram (docs/DOTS.md) | THEOREM | 23 |
 | the six-line quotient (hub, 23:38; MODEL, 23:26-00:00) | A S = S Q, Q = 10J - 4I; spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84; a reducing split with zero Schur memory | replayed and joined (residue plane -> root graph) | THEOREM | 23 |
 | the midpoint code (hub, 23:38) | [15, 5, 6]: all 3003 ten-reading sets span, 10 of 5005 nine-reading sets fail | replayed: the ten failures are the zero sets of the 3 + 3 splits | THEOREM | 23 |
 | the selected matrix over F5 (MODEL, 23:26-00:00) | D = [[1, 4], [1, 2]]: D^2 = 3C, D^6 = 3I, order 24, a 6-cycle on the lines | replayed: D is conjugate in GL(2,5) to the inverse day d^-1 | THEOREM | 23 |
+| the native moments (hub, 00:25) | m0..m6 = 1, 232, 54213, 12740592, 3008062816, 712951229280, 169533368834085; Hankel 275042684645559311; 0.00435118836 <= s <= 0.00436266657 | replayed: m5 and m6 recomputed on the lattice; the Hankel, Jacobi and Galerkin values hold; the congestion bound is stated | THEOREM | 23 |
+| the Petersen sequence (hub, 00:25) | B B^T = 3I + A_Petersen = 4I + J - K, rank 10; P_source and (B B^T)^-1 as polynomials | replayed and joined (synthemes -> Petersen) | THEOREM | 23 |
+| the Weyl vector's order (MODEL, 00:04-00:38) | 46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's | corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2 | THEOREM | 23 |
 | separate model's joined model (22:02) | 158 check groups, 80 matrices, 63 typed relationships | recorded, not rerun | REPORTED | 23 |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

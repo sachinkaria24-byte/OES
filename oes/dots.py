@@ -8506,6 +8506,177 @@ def notes_2356():
     }
 
 
+@functools.lru_cache(maxsize=None)
+def _wedge_moments():
+    """The root-wedge port's moments m_n = t^T H^n t / t^T t through n = 6, from H^3 t on the lattice (t = column e01)."""
+    R10, V, W, Bw, G, h, Hc = _wedge()
+    R2 = np.asarray(R10, dtype=np.int64) // 5
+    off, base = 64, 128
+    w = base ** np.arange(8, dtype=np.int64)
+
+    def apply_h(keys, vals):
+        pts = np.stack([(keys // base ** i) % base - off for i in range(8)], axis=1)
+        nk = np.concatenate([keys, ((pts[:, None, :] + R2[None, :, :]).reshape(-1, 8) + off) @ w])
+        nv = np.concatenate([240 * vals, np.repeat(-vals, 240)]).astype(float)
+        u, inv = np.unique(nk, return_inverse=True)
+        s = np.rint(np.bincount(inv, weights=nv)).astype(np.int64)
+        return u[s != 0], s[s != 0]
+    t = np.asarray(Bw[:, 0], dtype=np.int64)
+    keys, vals = (R2[t != 0] + off) @ w, t[t != 0]
+    order = np.argsort(keys)
+    seq = [(keys[order], vals[order])]
+    for _ in range(3):
+        seq.append(apply_h(*seq[-1]))
+
+    def dot(a, b):
+        _, ia, ib = np.intersect1d(a[0], b[0], return_indices=True)
+        return sum(int(x) * int(y) for x, y in zip(a[1][ia], b[1][ib]))
+    raw = [dot(seq[i // 2], seq[(i + 1) // 2]) for i in range(7)]
+    return [sp.Rational(r, raw[0]) for r in raw], [len(k) for k, _ in seq]
+
+
+def petersen_sequence():
+    """The hub's 00:25 text: the ten nonspecial synthemes meet the fifteen duads in the signless Petersen incidence."""
+    H, sig, S5, sgn, U = _six_lines()
+    E = carrier.edges()
+    SY = _matchings(range(6))
+    move = lambda p, m: frozenset(frozenset(sig[p][y] for y in pr) for pr in m)
+    special = next(o for o in ({move(p, m) for p in S5} for m in SY) if len(o) == 5)
+    v = {i: next(m for m in special if all(move(p, m) == m for p in S5 if p[i] == i)) for i in range(5)}
+    edge = {tuple(i for i in range(5) if not v[i] & m): m for m in SY if m not in special}
+    duads = [frozenset(d) for d in itertools.combinations(range(6), 2)]
+    B = sp.Matrix(10, 15, lambda r, c: int(duads[c] in edge[E[r]]))
+    M = sp.Matrix(carrier.signless_incidence())
+    K, J, I = M.T * M, sp.ones(10, 10), sp.eye(10)
+    BB = B * B.T
+    P = (BB - I) * (6 * I - BB) / 6
+    N = sp.Matrix(15, 15, lambda r, c: int(duads[r] in SY[c]))
+    Ak = np.array([[int(not duads[i] & duads[j]) for j in range(15)] for i in range(15)])
+    induced = sum(1 for a, b, c, d in itertools.permutations(range(15), 4)
+                  if Ak[a, b] and Ak[b, c] and Ak[c, d] and Ak[d, a] and not Ak[a, c] and not Ak[b, d]) // 8
+    Nn = np.array(N.tolist(), dtype=np.int64)
+    Lv = np.block([[np.zeros((15, 15), dtype=np.int64), Nn], [Nn.T, np.zeros((15, 15), dtype=np.int64)]])
+    deg = Lv.sum(axis=1)
+    return {
+        "B, the incidence of the ten nonspecial synthemes (in K5-edge order) with the fifteen duads, has three ones in "
+        "each row and two in each column, and B B^T = 3I + A_Petersen = 4I + J - K for K = M^T M: two synthemes share a "
+        "duad exactly when their K5 edges are disjoint, so B is the signless incidence of the Petersen graph, of rank 10":
+            {sum(B.row(r)) for r in range(10)} == {3} and {sum(B.col(c)) for c in range(15)} == {2}
+            and BB == 4 * I + J - K and B.rank() == 10,
+        "the Petersen Gram has eigenvalues 4 on the source ker M, 1 on the charge part and 6 on the constant, so "
+        "P_source = (BB^T - I)(6I - BB^T)/6 and (BB^T)^-1 = (I + K)/4 - (5/24) J":
+            P * P == P and P.rank() == 5 and M * P == sp.zeros(5, 10) and BB.inv() == (I + K) / 4 - sp.Rational(5, 24) * J,
+        "the full duad-syntheme incidence N has N N^T = 3I + A of the Kneser graph K(6,2), spectrum 9, 4^9, 0^5 and rank "
+        "10; K(6,2) has exactly 90 induced four-cycles, while the Levi graph of N (30 vertices, 45 edges) has none":
+            (N * N.T).eigenvals() == {9: 1, 4: 9, 0: 5} and N.rank() == 10 and induced == 90 and int(Lv.sum()) == 90
+            and int(np.trace(np.linalg.matrix_power(Lv, 4))) == int(2 * (deg ** 2).sum() - deg.sum()),
+    }
+
+
+def notes_0032():
+    """The hub's 00:25 text and the sibling's MODEL (00:04-00:38): the native moments through 6 from the lattice, the
+    Hankel and Jacobi chain and the Galerkin bound on the static Green scalar, the reflection Casimir, the critical
+    steps against the canon's subgroups, the Weyl vector's order, and the arithmetic."""
+    N = 4320
+    order = lambda s: N // gcd(s, N)
+    sub = lambda s: {(s * k) % N for k in range(order(s))}
+    land = lambda n: (3456 * n) % N
+    m, supports = _wedge_moments()
+    adj = [1, 8, 453, 27168, 2195296, 209077920, 22553934885]
+    x = sp.Symbol("x")
+    L = lambda p: sum(c * m[i] for i, c in enumerate(reversed(sp.Poly(sp.expand(p), x).all_coeffs())))
+    p, a, b2 = [sp.Integer(1), x - m[1]], [m[1]], []
+    for n in (1, 2):
+        a.append(L(x * p[n] ** 2) / L(p[n] ** 2))
+        b2.append(L(p[n] ** 2) / L(p[n - 1] ** 2))
+        p.append(sp.expand((x - a[n]) * p[n] - b2[-1] * p[n - 1]))
+    b2.append(L(p[3] ** 2) / L(p[2] ** 2))
+    A3 = sp.Matrix(3, 3, lambda i, j: m[i + j + 1])
+    c = A3.LUsolve(sp.Matrix(m[:3]))
+    ell = sum(c[i] * m[i] for i in range(3))
+    res = m[0] - 2 * sum(c[j] * m[j + 1] for j in range(3)) + sum(c[i] * c[j] * m[i + j + 2] for i in range(3)
+                                                                   for j in range(3))
+    R10, V, W, Bw, G, h, Hc = _wedge()
+    R2 = np.asarray(R10, dtype=np.int64) // 5
+    key = {tuple(r): i for i, r in enumerate(R2.tolist())}
+    Bw = np.asarray(Bw, dtype=np.int64)
+    casimir = sum(Bw - Bw[[key[tuple(y)] for y in (R2 - np.outer((R2 @ r) // 4, r)).tolist()]]
+                  for r in R2 if tuple(r) > tuple(-r))
+    crit = {864, 1728, 2592, 3456, 1080, 3240, 1440, 2880, 2160}   # layer 28's critical steps
+    addr, prin, gold = sub(120), sub(144), sub(20)
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho = principal.weyl_vector()[0]
+    theta = RB[int(np.argmax(RB.sum(axis=1)))]
+    phi121 = sp.Poly(sp.cyclotomic_poly(121, x), x, modulus=241)
+    q = sp.Poly(x ** 2 - 133 * x + 1, x, modulus=241)
+    facs = phi121.factor_list()[1]
+    J6 = sp.ones(6, 6)
+    return {
+        "the root-wedge port's moments through order 6 recomputed on the lattice (H^3 on 897672 sites from the column "
+        "e01) are 1, 232, 54213, 12740592, 3008062816, 712951229280 and 169533368834085: the hub's native m5 and m6 "
+        "replay, and they are the binomial transform of its adjacency moments 1, 8, 453, ..., 22553934885":
+            m == [1, 232, 54213, 12740592, 3008062816, 712951229280, 169533368834085] and supports[0] == 152
+            and all(m[k] == sum(sp.binomial(k, j) * 240 ** (k - j) * (-1) ** j * adj[j] for j in range(k + 1))
+                    for k in range(7)),
+        "their 4 x 4 Hankel determinant is 275042684645559311, the new Jacobi coefficients are a2 = 14038040210424/"
+        "85511499823 and b3^2 = 106991604327122571979/48322550088744649, and the Galerkin value of [m_(i+j+1)] c = [m_i] "
+        "at n = 3 is l3 = 6446188211663/1481477624895392 <= s = <T, H^-1 T>; with the hub's congestion bound "
+        "(n + 1)(n + 2)/48 (stated, not replayed) the upper end 114900908004970886996873523137/26337311436788301626627314003968 "
+        "follows, so 0.00435118836 <= s <= 0.00436266657":
+            sp.Matrix(4, 4, lambda i, j: m[i + j]).det() == 275042684645559311
+            and a[2] == sp.Rational(14038040210424, 85511499823)
+            and b2[2] == sp.Rational(106991604327122571979, 48322550088744649)
+            and ell == sp.Rational(6446188211663, 1481477624895392) and res > 0
+            and ell + sp.Rational(20, 48) * res == sp.Rational(114900908004970886996873523137,
+                                                              26337311436788301626627314003968)
+            and sp.Rational(435118836, 10 ** 11) <= ell and ell + sp.Rational(20, 48) * res <= sp.Rational(436266657, 10 ** 11),
+        "the 120 root reflections give L_ref T = 48 T on all ten columns of the port (28800 root-reflection pairs), "
+        "L_ref = sum (I - U_s)":
+            np.array_equal(casimir, 48 * Bw),
+        "the nine critical steps of layer 28 lie five in the address subgroup <120> (order 36), seven in the principal "
+        "subgroup <144> (order 30) and three in both (1440, 2880, 2160); <120> and <144> meet in <720>, sit in the "
+        "subgroup <20> of order 216 and the whole circle respectively, and generate <24> of order 180; <20> holds the "
+        "five address-critical steps, none of the tick stations, and meets <144> in <720> (the sibling)":
+            len(crit & addr) == 5 and len(crit & prin) == 7 and crit & addr & prin == {1440, 2880, 2160}
+            and addr & prin == sub(720) and len(sub(720)) == 6 and addr <= gold and len(gold) == 216
+            and crit & addr <= gold and not {864, 1728, 2592, 3456} & gold and gold & prin == sub(720)
+            and len(sub(gcd(120, 144))) == 180 and N // 180 == 24,
+        "correction: the Weyl vector's coordinates 46, 68, 91, 135, 110, 84, 57, 29 are in the Bourbaki order, the order "
+        "in which the highest root is 2, 3, 4, 6, 5, 4, 3, 2 (Bourbaki's tables); their sum, 620, is |rho|^2":
+            rho.tolist() == [46, 68, 91, 135, 110, 84, 57, 29] and theta.tolist() == [2, 3, 4, 6, 5, 4, 3, 2]
+            and int(rho.sum()) == int(rho @ C @ rho) == 620 == 30 * 248 // 12,
+        "mod 241: 241 = -1 mod 121, so Phi_121 splits into 55 quadratics, one of them t^2 - 133t + 1; (183I + 52J)(54I + "
+        "25J) = I and 241I - J = -J for the six-site J; the steps 168, 55 and 133 generate the subgroups of order 180, "
+        "864 and 4320":
+            241 % 121 == 120 and phi121.rem(q).is_zero and len(facs) == 55
+            and all(f.degree() == 2 and e == 1 for f, e in facs)
+            and ((183 * sp.eye(6) + 52 * J6) * (54 * sp.eye(6) + 25 * J6)).applyfunc(lambda z: z % 241) == sp.eye(6)
+            and [order(s) for s in (168, 55, 133)] == [180, 864, 4320],
+        "arithmetic: the Petersen graph's power traces are 0, 30, 0, 150, 120, 990, with 12 pentagons and 10 hexagons; "
+        "2420 = 121 x 20 generates <20> (order 216) and 132 the subgroup of order 360, meeting in order 72; 4(64 - 6) = "
+        "232 and 4(64 + 6) = 280 add to 512; 27 x 47^2/400 = 59643/400; the energy enclosure [5.00015251952, "
+        "5.00074396355] holds the older [5.00061970298, 5.00067938080], with 5.0001 below, 5.001 above and 5.0005 "
+        "inside; the clock orders of 12, 15, 105, 95, 60, 30, 232, 64, 512, 17, 99, 1435, 54, 162 and the landings hold":
+            _petersen_traces() == ([0, 30, 0, 150, 120, 990], 12, 10)
+            and order(2420) == 216 and sub(2420) == sub(20) and order(132) == 360 and len(sub(20) & sub(12)) == 72
+            and 4 * (64 - 6) == 232 and 4 * (64 + 6) == 280 and 232 + 280 == 512
+            and sp.Rational(27 * 47 ** 2, 400) == sp.Rational(59643, 400)
+            and 5.00015251952 < 5.00061970298 < 5.00067938080 < 5.00074396355 and 5.0001 < 5.00015251952
+            and 5.00074396355 < 5.001 and 5.00015251952 < 5.0005 < 5.00074396355
+            and [order(s) for s in (12, 15, 105, 95, 60, 30, 232, 64, 512, 17, 99, 1435, 54, 162)]
+            == [360, 288, 288, 864, 72, 144, 540, 135, 135, 4320, 480, 864, 80, 80] and land(8) == land(1728) == 1728,
+    }
+
+
+def _petersen_traces():
+    E = carrier.edges()
+    A = np.array([[int(not set(e) & set(f)) for f in E] for e in E], dtype=np.int64)
+    tr = [int(np.trace(np.linalg.matrix_power(A, k))) for k in range(1, 7)]
+    cycles = lambda n: sum(1 for c in itertools.permutations(range(10), n) if c[0] == min(c) and c[1] < c[-1]
+                           and all(A[c[i], c[(i + 1) % n]] for i in range(n)))
+    return tr, cycles(5), cycles(6)
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -8899,6 +9070,7 @@ JOINS = [
     ("time", "principal", "the A4 + A4 vertex", "the time clock's steps 864k are the principal points of order 5, whose centralizer has the carrier's root system A4 + A4: the family of the tick's 24 fixed momenta, at eps 250 (layer 28)", T, "principal.critical_steps"),
     ("observer", "principal", "the D5 + A3 vertex", "the observer clock's generators 1080 and 3240 are the principal points of order 4, of type D5 + A3 at eps 248, and its square 2160 is the D8 half-turn at the band's top 256 (layer 28)", T, "principal.critical_steps"),
     ("c27", "principal", "the A8 vertex", "the 27-clock meets the critical steps exactly in its order-3 steps 1440 and 2880, the principal points of type A8 at eps 252 (layer 28)", T, "principal.critical_steps"),
+    ("synthemes", "petersen", "the syntheme incidence", "the ten nonspecial synthemes meet the fifteen duads in B with B B^T = 4I + J - K = 3I + A_Petersen: two synthemes share a duad exactly when their K5 edges are disjoint, so B is the signless Petersen incidence, of rank 10, and P_source = (B B^T - I)(6I - B B^T)/6 (the hub, 00:25)", T, "petersen_sequence"),
     ("residue", "rootgraph", "the six-line quotient", "A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38)", T, "six_lines"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
@@ -9113,6 +9285,9 @@ LEDGER_ROWS = [
     ("the six-line quotient (hub, 23:38; MODEL, 23:26-00:00)", "A S = S Q, Q = 10J - 4I; spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84; a reducing split with zero Schur memory", "replayed and joined (residue plane -> root graph)", T, "23"),
     ("the midpoint code (hub, 23:38)", "[15, 5, 6]: all 3003 ten-reading sets span, 10 of 5005 nine-reading sets fail", "replayed: the ten failures are the zero sets of the 3 + 3 splits", T, "23"),
     ("the selected matrix over F5 (MODEL, 23:26-00:00)", "D = [[1, 4], [1, 2]]: D^2 = 3C, D^6 = 3I, order 24, a 6-cycle on the lines", "replayed: D is conjugate in GL(2,5) to the inverse day d^-1", T, "23"),
+    ("the native moments (hub, 00:25)", "m0..m6 = 1, 232, 54213, 12740592, 3008062816, 712951229280, 169533368834085; Hankel 275042684645559311; 0.00435118836 <= s <= 0.00436266657", "replayed: m5 and m6 recomputed on the lattice; the Hankel, Jacobi and Galerkin values hold; the congestion bound is stated", T, "23"),
+    ("the Petersen sequence (hub, 00:25)", "B B^T = 3I + A_Petersen = 4I + J - K, rank 10; P_source and (B B^T)^-1 as polynomials", "replayed and joined (synthemes -> Petersen)", T, "23"),
+    ("the Weyl vector's order (MODEL, 00:04-00:38)", "46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's", "corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -9158,6 +9333,11 @@ NOT_JOINED = [
                                                                 "alpha = 1/137, and nothing here forms alpha or r_2",
      gates.UNFORMED),
     ("SEVEN_PAIRS's decoder", "D4 C4 = I3 and the reading ladder need operands not stored here", RP),
+    ("the separate model's reconciled capsule (00:30)", "5032710 bytes, 189 new check groups and 887 matrix references, with "
+                                                        "a source patch of 8240856 bytes; certificate read, nothing decoded "
+                                                        "or run", RP),
+    ("the canon's N32 release (00:04-00:13)", "25 source-graded claims from nine sources in four new tabs (3746 and 3701 "
+                                             "sheets), no new matrix ids and no gate changes; read from its receipt", RP),
     ("the separate model's reviewed and extended capsules (21:46, 23:40)", "1692628 and 6462293 bytes; 72 and 271 new "
                                                                             "check groups, 26 and 1572 matrix references; "
                                                                             "certificates read, capsules not decoded or run",
@@ -9245,6 +9425,7 @@ def _checks():
         "principal.circle": principal.circle, "principal.regular_steps": principal.regular_steps,
         "principal.band_on_circle": principal.band_on_circle, "principal.critical_steps": principal.critical_steps,
         "six_lines": six_lines,
+        "petersen_sequence": petersen_sequence,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -9856,6 +10037,20 @@ def run():
             "petals' POVM, the minimum-energy bath and its Green scalar, the encoder value; the hub's marked and quadratic "
             "rosebud bridges (det B = 4/125, Jacobian -256), the [22, 10, 6] exterior code, the 36 norm-four dark copies' "
             "jet ranks, the 24 Cauchy moments, the invisible sector and the energy caps", RP, True)
+    n0032 = notes_0032()
+    rep.add("the 00:25 text and the 00:04-00:38 model: the native moments through 6 recomputed on the lattice, their "
+            "Hankel and Jacobi chain and the Galerkin bound on the static Green scalar, the reflection Casimir 48, the "
+            "critical steps against the canon's subgroups, the Weyl vector's Bourbaki order (a correction) and the "
+            "arithmetic", T, all(n0032.values()), n0032)
+    rep.add("Drive check 00:32: the sibling's MODEL editions of 00:04-00:38, the latest (00:38) read as text, with its "
+            "spine29.ts (00:38) read as data, not run; the hub's OES_Unified_Model_20261029.txt as revised at 00:25 "
+            "(sources through 23:54; 1435 groups in 53 receipts) read as text, its zip (26691563 bytes) not downloaded; "
+            "the canon's N32 release read from its receipt; the separate model's reconciled capsule recorded from its "
+            "certificate; the OES-paper PDFs not read", RP, True)
+    rep.add("not replayed: the hub's operator tomography on 36 Hermitian directions, the active13 and three-exposure "
+            "erasure costs, the 119 five-cell erasure orbits, the attained energy minimum and its 106040-site interval, "
+            "the J7 clock quotients and the delayed-Return cutset, the congestion bound itself, and the sibling's "
+            "minimum-energy caps, defect formulas and rank ladders (their arithmetic replays)", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

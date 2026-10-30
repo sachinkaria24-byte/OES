@@ -377,12 +377,13 @@ flowchart TB
     time -->|"the A4 + A4 vertex"| principal
     observer -->|"the D5 + A3 vertex"| principal
     c27 -->|"the A8 vertex"| principal
+    synthemes -->|"the syntheme incidence"| petersen
     residue -->|"the six-line quotient"| rootgraph
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-71 dots and 293 joins: 263 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+71 dots and 294 joins: 264 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
@@ -390,7 +391,7 @@ flowchart TB
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 7 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 12 | 11 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 5 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 12 | 5 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle | 24 | 26 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 22 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
@@ -778,6 +779,7 @@ The maps that join each pair of levels directly.
 | time clock | principal circle | the time clock's steps 864k are the principal points of order 5, whose centralizer has the carrier's root system A4 + A4: the family of the tick's 24 fixed momenta, at eps 250 (layer 28) | THEOREM | `principal.critical_steps` |
 | observer clock | principal circle | the observer clock's generators 1080 and 3240 are the principal points of order 4, of type D5 + A3 at eps 248, and its square 2160 is the D8 half-turn at the band's top 256 (layer 28) | THEOREM | `principal.critical_steps` |
 | 27-clock | principal circle | the 27-clock meets the critical steps exactly in its order-3 steps 1440 and 2880, the principal points of type A8 at eps 252 (layer 28) | THEOREM | `principal.critical_steps` |
+| synthemes | Petersen | the ten nonspecial synthemes meet the fifteen duads in B with B B^T = 4I + J - K = 3I + A_Petersen: two synthemes share a duad exactly when their K5 edges are disjoint, so B is the signless Petersen incidence, of rank 10, and P_source = (B B^T - I)(6I - B B^T)/6 (the hub, 00:25) | THEOREM | `petersen_sequence` |
 | residue plane | root graph | A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38) | THEOREM | `six_lines` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
@@ -805,6 +807,8 @@ The maps that join each pair of levels directly.
 | air | no air operator is stored, and none is formed | UNFORMED |
 | the board's fine-structure digits (BOARD_A, ALPHA_JOIN) | a = 0.0072973525664 is written by hand; no e, hbar, c, electron mass or length is stored, the canon removed alpha = 1/137, and nothing here forms alpha or r_2 | UNFORMED |
 | SEVEN_PAIRS's decoder | D4 C4 = I3 and the reading ladder need operands not stored here | REPORTED |
+| the separate model's reconciled capsule (00:30) | 5032710 bytes, 189 new check groups and 887 matrix references, with a source patch of 8240856 bytes; certificate read, nothing decoded or run | REPORTED |
+| the canon's N32 release (00:04-00:13) | 25 source-graded claims from nine sources in four new tabs (3746 and 3701 sheets), no new matrix ids and no gate changes; read from its receipt | REPORTED |
 | the separate model's reviewed and extended capsules (21:46, 23:40) | 1692628 and 6462293 bytes; 72 and 271 new check groups, 26 and 1572 matrix references; certificates read, capsules not decoded or run | REPORTED |
 | the canon's N31 release (23:36-23:40) | 29 source-reported claims in four new tabs (3742 and 3697 sheets), no new matrix ids and no gate changes; read from its two receipts | REPORTED |
 | the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51) | Python verifiers, JSON receipts and SHA256SUMS: not downloaded and not run; their stated results are replayed | REPORTED |
