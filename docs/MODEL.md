@@ -1969,6 +1969,33 @@ Eleven joins close these spots and add no dot.
   - On the circle, 30 and 210 have order 144, 40 has order 108, 125 has order 864, and 29 has order 4320.
 - **Not replayed.** The sheet's moments 58702 and 14267058 and its polynomials of degrees 18 and 9 need the sheet's operator, which is not opened here. The overlays' 33083 base instances are not rerun.
 
+**The 09:22 check.**
+- **New items:**
+  - the sibling's MODEL editions of 09:02–09:12 (the 09:12 one read as text, its spine29.ts read as data);
+  - the separate model's continuation (08:53), with its certificate (08:54) and its checkpoint (08:57);
+  - its note-correction capsule (09:07), whose text files were read as data in memory and whose code was not run;
+  - its checkpoint recovery (09:15).
+
+  All of it replays in `notes_0912`.
+- **The sibling's arithmetic.**
+  - 138 and 438 have order 720.
+  - 3 × 12 + 3 × 8 + 3 × 6 + 2 = 80 = 5 × 16.
+  - 943507 = 433 × 2179, and 35366 = 183 × 193 + 47.
+  - The 08:54 certificate: packets 12 + 10 + 5 + 11 + 17 + 11 = 66 with 60 hashes; 151 − 150 = 1; 4052 + 28 = 4080; 556 + 18 = 574; 288/625 is in lowest terms.
+  - The sibling also reads this session's count: 1073 = 29 × 37.
+- **The pentagon operator, replayed by the sibling.** The 08:51 note is confirmed:
+  - P is the Gauss sum of the 5-cycle, and P² = 5I − J is both the K5 Laplacian and the Gram of the oriented incidence;
+  - P³ = 5P, with characteristic polynomial t(t² − 5)² and rank 4;
+  - its power traces are 5, then 0 at odd orders and 4 × 5^m at order 2m.
+- **The separate model's three corrections, replayed.**
+  - *Rational Jacobi.* The Jacobi matrix [[242, 138], [1, 13889/69]] gives the sheet's moments 1, 242, 58702, 14267058 exactly. So the non-divisibility of 27778 by 138 excludes only an integer diagonal. It does not exclude a rational continuation. The 08:51 note's wording, "next Jacobi coefficient 13889/69", stands.
+  - *The tick and the schedules.* The sibling wrote that "the 125 schedules generate the order-864 tick". In fact ⟨125⟩ = ⟨5⟩ is the miss set, of order 864. The tick ⟨864⟩ has order 5. The two meet in 0 and make the circle.
+  - *The pentagon factors.* (√5 I + P)(√5 I − P) = J on ℝ⁵, and the product is 0 on the sum-zero four.
+- **A correction of the same kind.** The sibling wrote that 1060 "generates the golden subgroup of order 216". In fact ⟨1060⟩ = ⟨20⟩ has order 216, while the golden orbit ⟨216⟩ has order 20. They meet in the observer clock ⟨1080⟩.
+- **Recorded (REPORTED).**
+  - The continuation reports 41 integration groups over six source packets, 28 new matrices, 18 new typed joins (574 relationships) and 10 observation contracts. The certificate was read; the zip was not opened or run.
+  - The note corrections report 16 exact note-review groups and 3 typed corrections (577 relationships). They change no matrix or gate.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -2280,6 +2307,7 @@ The circle's highest point is the band's top, 256. It is reached only at the hal
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
 - the sibling's MODEL_20261029.md editions of 19:37–20:02 (the latest, 1_TfETkjO8Ra6ofUhZi0PTrIXc9ODtzfU, read as text) and the hub's `OES_Unified_Model_20261029.txt` as revised at 19:39, read as text (its zip, 6685879 bytes, not downloaded); the spine29.ts editions and the OES-paper PDFs of 19:37–20:02, not read: §24, the 19:50 check
 - the separate model's `oes-connected-verification-20261030-0121.txt` (1PGudk-xUzz4ZDN_uqLNPNT8ns5sksj4B), read, with its capsule `oes-connected-model-20261030-0121.txt` (16cGvNIpGEhr-vB_C3085jcRhKLQ20HjD) and `MODEL_UPDATE_CHECKPOINT_RECOVERY_20261030_0121.txt` (1ZCE1H5ZEzCSfX421MfFP2IiRpLv5jiyt) not downloaded: §24, the 01:48 check
+- the sibling's MODEL_20261029.md editions of 09:02–09:12 (the latest, 1JPEt6fYCqoYSjfZPO9HAp7ZVkR1bT672, read as text) and its spine29.ts of 09:12 (1IsZ7fzQgm27gC9eV7z7lk-1Ta1dYZjCP, read as data, not run); the separate model's `OES_Unified_Model_Continuation_20261030.zip` (1t-NaUhNF2PiwS1Ilds9CCc_ahxIEtQM_, not opened) with its certificate (1Ew6Eck8VEgg68O0zkNB3LPtE9JUQF4UM) and checkpoint (1RyMS54i0arKrruWQRXjPi3505tTrpvz4); its `OES_Model_Note_Corrections_20261030_0907.txt` (16KrLSDMsJ65AwWXOHh0wTRzfHQoVnV2m, decoded in memory and read as data, not run), certificate (1ngDG-Ccq-9ox4yUe1prqeH79gnPGsG5d) and checkpoint recovery (1-7o6T3sPB9yYpNuNnoEBEbDmbIeV-JxN): §24, the 09:22 check
 - the sibling's MODEL_20261029.md editions of 08:22–08:44 (the latest, 1a5unQeGcP7S4JdvLXtOrPpj6TEfqvH0k, read as text) and its spine29.ts of 08:44 (18FtZuQ0uimnlBLoj6MxLuNd1rSppRLS5, read as data, not run): §24, the 08:51 check
 - the sibling's MODEL_20261029.md editions of 00:46–01:16 (the latest, 1I-mWXqMR3vlPgN6uvVNkWMj3aBXeebit, read as text) and its spine29.ts of 01:16 (1I-VU62ATUyA3ymtjMfLfQlmjW3L81qo4, read as data, not run); the hub's `OES_Unified_Model_20261029.txt` as revised at 00:52 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text); and the canon's N33 receipt `OES_N33_CURRENT_RELEASE_20261030.json` (1kGoapJLSn4iNFUYAIs7UIabIe3RhNk6U), read, with the N33 workbooks not opened: §24, the 01:17 check
 - the sibling's MODEL_20261029.md editions of 00:04–00:38 (the latest, 1YhjEraQJ9HyNrq1Fuz2GQEFpiz0KNaMF, read as text) and its spine29.ts of 00:38 (1VP_mNDgMp2vMQVqbi82Q6fOBX_fayW6_, read as data, not run); the hub's `OES_Unified_Model_20261029.txt` as revised at 00:25 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text; its zip not downloaded); the canon's N32 receipt `N32_CURRENT_RELEASE_20261030.json` (1M68h_jaOiFV-EUguyFceiVjzWvYcG9zn), read, with the N32 workbooks not opened; and the separate model's `oes-reconciled-verification-20261030-0030.txt` (1n0F3DuySy9JtFAu5xSZRWpN87RwoGFHi), read, with its capsule, source patch and checkpoint not downloaded: §24, the 00:32 check

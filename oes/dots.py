@@ -8871,6 +8871,47 @@ def notes_0844():
     }
 
 
+def notes_0912():
+    """The sibling's MODEL of 09:02-09:12, the separate model's continuation (08:53) and its note corrections (09:07)."""
+    order = lambda s: N // gcd(s, N)
+    sub = lambda s: set(spine.subgroup(s))
+    I5, J5, s5 = sp.eye(5), sp.ones(5, 5), sp.sqrt(5)
+    R = sp.Matrix(5, 5, lambda i, j: int(j == (i + 1) % 5))
+    P = R + R ** 4 - R ** 2 - R ** 3
+    t = sp.symbols("t")
+    Q = sp.Matrix.hstack(*[I5[:, i] - I5[:, 4] for i in range(4)])
+    on_four = lambda X: (Q.T * Q).inv() * Q.T * X * Q
+    Jac = sp.Matrix([[242, 138], [1, sp.Rational(13889, 69)]])
+    return {
+        "the sibling's arithmetic: 138 and 438 have order 720; 3 x 12 + 3 x 8 + 3 x 6 + 2 = 80 = 5 x 16; "
+        "943507 = 433 x 2179; 35366 = 183 x 193 + 47; the 08:54 certificate's packets 12 + 10 + 5 + 11 + 17 + 11 = 66 "
+        "with 60 hashes, 151 - 150 = 1, 4052 + 28 = 4080, 556 + 18 = 574 and 288/625 in lowest terms; 1073 = 29 x 37":
+            order(138) == order(438) == 720 and 3 * 12 + 3 * 8 + 3 * 6 + 2 == 80 == 5 * 16 and 433 * 2179 == 943507
+            and 183 * 193 + 47 == 35366 and sum([12, 10, 5, 11, 17, 11]) == 66 and sum([11, 9, 4, 10, 16, 10]) == 60
+            and 151 - 150 == 1 and 4052 + 28 == 4080 and 556 + 18 == 574 and gcd(288, 625) == 1
+            and 288 == 32 * 9 and 625 == 5 ** 4 and 29 * 37 == 1073
+            and [order(x) for x in (28, 150, 66, 41, 13, 1073)] == [1080, 144, 720, 4320, 4320, 4320],
+        "the pentagon operator as the sibling replays it: P^3 = 5P, characteristic polynomial t (t^2 - 5)^2, rank 4, "
+        "the four nonzero eigenvalues' squares multiply to 625, and tr P^0 = 5, tr P^(2m+1) = 0, tr P^(2m) = 4 x 5^m":
+            P ** 3 == 5 * P and sp.expand(P.charpoly(t).as_expr() - t * (t ** 2 - 5) ** 2) == 0 and P.rank() == 4
+            and 5 ** 4 == 625 and all((P ** k).trace() == (5 if k == 0 else 0 if k % 2 else 4 * 5 ** (k // 2))
+                                      for k in range(9)),
+        "the separate model's three corrections, replayed: the rational Jacobi matrix [[242, 138], [1, 13889/69]] "
+        "gives the sheet's moments 1, 242, 58702, 14267058 exactly, so non-divisibility excludes only an integer "
+        "diagonal; <125> = <5> is the miss set, of order 864, not the tick <864> of order 5, and the two meet in 0 and "
+        "make the circle; the pentagon factors multiply to J on R^5 and to 0 on the sum-zero four":
+            [(Jac ** k)[0, 0] for k in range(4)] == [1, 242, 58702, 14267058]
+            and sub(125) == sub(5) and len(sub(125)) == 864 and len(sub(864)) == 5 and sub(125) & sub(864) == {0}
+            and len({(a + b) % N for a in sub(864) for b in sub(5)}) == N
+            and sp.simplify((s5 * I5 + P) * (s5 * I5 - P) - J5) == sp.zeros(5)
+            and sp.simplify(on_four((s5 * I5 + P) * (s5 * I5 - P))) == sp.zeros(4),
+        "a correction of the same kind: 1060 generates <20>, of order 216, while the golden orbit <216> has order 20; "
+        "the two meet in the observer clock <1080>":
+            sub(1060) == sub(20) and len(sub(20)) == 216 and len(sub(216)) == 20 and sub(20) & sub(216) == sub(1080)
+            and len(sub(1080)) == 4,
+    }
+
+
 # ------------------------------------------------------------------- joins of 30 Oct: every dot on THEOREM maps but two
 
 def _cycles(perm):
@@ -9792,6 +9833,9 @@ LEDGER_ROWS = [
     ("the Weyl vector's order (MODEL, 00:04-00:38)", "46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's", "corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
+    ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
+    ("the tick and the schedules (MODEL, 08:22-09:12; separate model, 09:07)", "the 125 schedules generate the order-864 tick", "corrected (the separate model, replayed): <125> = <5> is the miss set, of order 864; the tick <864> has order 5; they meet in 0 and make the circle", T, "23"),
+    ("the golden subgroup (MODEL, 09:12)", "1060 generates the golden subgroup of order 216", "corrected: <1060> = <20> has order 216, while the golden orbit <216> has order 20; the two meet in the observer clock <1080>", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -9866,6 +9910,13 @@ NOT_JOINED = [
                                                           "9; the sheet's operator is not opened here; the list "
                                                           "is neither the contrast list nor the triangle port's "
                                                           "(notes_0844)", RP),
+    ("the separate model's continuation (08:53)", "1045843 bytes; 41 integration groups over six source packets "
+                                                 "(66 payloads), 28 new matrices, 18 new typed joins (574 "
+                                                 "relationships) and 10 observation contracts; certificate read, "
+                                                 "zip not opened or run", RP),
+    ("the separate model's note corrections (09:07)", "16 exact note-review groups and 3 typed corrections (577 "
+                                                     "relationships), no new matrix; the corrections are replayed "
+                                                     "(notes_0912); the capsule's code not run", RP),
 ]
 
 
@@ -10596,6 +10647,15 @@ def run():
             "not read", RP, True)
     rep.add("not replayed: the N33 sector sheet's moments 58702 and 14267058 and its polynomials of degrees 18 and "
             "9 (the sheet's operator is not opened here), and the overlays' 33083 base instances", RP, True)
+    n0912 = notes_0912()
+    rep.add("the 09:02-09:12 model and the separate model's 09:07 corrections: the sibling's arithmetic and its "
+            "replay of the pentagon operator (P^3 = 5P, t (t^2 - 5)^2), the rational Jacobi reference, the miss "
+            "set <125> = <5> against the tick, and <1060> = <20> against the golden orbit", T, all(n0912.values()), n0912)
+    rep.add("Drive check 09:22: the sibling's MODEL editions of 09:02-09:12, the latest (09:12) read as text, with its "
+            "spine29.ts (09:12) read as data, not run; the separate model's continuation (08:53) recorded from its "
+            "certificate (08:54) and its checkpoint (08:57); its note-correction capsule (09:07) read in memory as "
+            "data, its code not run, with its certificate and checkpoint recovery (09:15); the OES-paper PDFs not "
+            "read", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
