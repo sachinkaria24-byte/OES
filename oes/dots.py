@@ -8317,6 +8317,189 @@ def notes_2325():
     }
 
 
+def six_lines():
+    """The hub's 23:38 text: the six lines of the tick's residue plane are an equitable, reducing partition of the
+    root graph."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    _, lines = cyclotomic.residue()
+    pts = [cyclotomic.point(x) for x in RB]
+    S = np.array([[int(pts[i] in L) for L in lines] for i in range(240)], dtype=np.int64)
+    A = (RB @ C @ RB.T == 1).astype(np.int64)
+    Q = 10 * np.ones((6, 6), dtype=np.int64) - 4 * np.eye(6, dtype=np.int64)
+    spec = Counter(int(round(x)) for x in np.linalg.eigvalsh(A.astype(float)))
+    finite = [int(np.trace(np.linalg.matrix_power(A, k))) // 240 for k in range(5)]
+    P = sp.Matrix(Q.tolist()) / 56
+    return {
+        "with S the root-line incidence of the six lines (40 roots each), A S = S Q and S^T S = 40 I for Q = 10J - 4I: "
+        "a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition "
+        "of the root graph, with quotient spectrum 56 and (-4)^5 inside 56, 28^8, 8^35, (-2)^112, (-4)^84":
+            np.array_equal(A @ S, S @ Q) and np.array_equal(S.T @ S, 40 * np.eye(6, dtype=np.int64))
+            and spec == Counter({56: 1, 28: 8, 8: 35, -2: 112, -4: 84})
+            and sp.Matrix(Q.tolist()).eigenvals() == {56: 1, -4: 5},
+        "the split is reducing: A commutes with S S^T, so the finite graph's cross block between the six-dimensional "
+        "line part and its 234-dimensional complement, and with it the Schur memory, is zero; the walks per root are "
+        "1, 0, 56, 1512, 62160 against the lattice's 1, 0, 240, 13440, 1260720, so the finite graph is not the bath":
+            np.array_equal(A @ S @ S.T, S @ S.T @ A) and sum(spec.values()) - 6 == 234
+            and finite == [1, 0, 56, 1512, 62160] and recurrence.load_walks()[:5] == [1, 0, 240, 13440, 1260720],
+        "the line chain Q/56 has diagonal 3/28 and off-diagonal 5/28 and eigenvalues 1 and (-1/14)^5, so one step is no "
+        "real exponential while two steps are exp(log 196 (J/6 - I))":
+            (P[0, 0], P[0, 1]) == (sp.Rational(3, 28), sp.Rational(5, 28))
+            and P.eigenvals() == {1: 1, sp.Rational(-1, 14): 5}
+            and P ** 2 == (sp.log(196) * (sp.ones(6, 6) / 6 - sp.eye(6))).exp().applyfunc(sp.nsimplify),
+    }
+
+
+def notes_2356():
+    """The sibling's MODEL (23:26-00:00) and the hub's 23:38 text: the [15, 5, 6] midpoint code, the Dirac polynomial,
+    the selected matrix over F5, the Klein fours, the printed moments' Jacobi chain, and the arithmetic."""
+    N = 4320
+    land = lambda n: (3456 * n) % N
+    order = lambda s: N // gcd(s, N)
+    h = [6 * np.eye(6, dtype=np.int64)[i] - 1 for i in range(6)]
+    pairs = list(itertools.combinations(range(6), 2))
+    U = np.array([(h[i] + h[j]) // 2 for i, j in pairs], dtype=float)
+    rank = lambda rows: np.linalg.matrix_rank(U[list(rows)])
+    ten = {rank(s) for s in itertools.combinations(range(15), 10)}
+    fail = sorted(sorted(s) for s in itertools.combinations(range(15), 9) if rank(s) < 5)
+    splits = [sum(h[i] for i in T) for T in itertools.combinations(range(6), 3) if 0 in T]
+    zeros = sorted(sorted(k for k, (i, j) in enumerate(pairs) if int((h[i] + h[j]) @ x) == 0) for x in splits)
+    E = list(itertools.combinations(range(5), 2))
+    M = sp.Matrix(5, 10, lambda v, e: int(v in E[e]))
+    K, I10 = M.T * M, sp.eye(10)
+    Pk = {lam: sp.prod([(K - mu * I10) / (lam - mu) for mu in (0, 3, 8) if mu != lam]) for lam in (0, 3, 8)}
+    TD = (K ** 2 - 7 * K - 2 * I10) / 2
+    D, Cx = np.array([[1, 4], [1, 2]], dtype=np.int64), np.array([[0, 4], [1, 1]], dtype=np.int64)
+    Dk = [np.eye(2, dtype=np.int64)]
+    for _ in range(24):
+        Dk.append((Dk[-1] @ D) % 5)
+    scalar = lambda X: X[0, 1] == 0 and X[1, 0] == 0 and X[0, 0] == X[1, 1]
+    line = lambda p: (0, 1) if p[0] % 5 == 0 else (1, int(p[1]) * pow(int(p[0]), -1, 5) % 5)
+    proj = [(0, 1)] + [(1, b) for b in range(5)]
+
+    def cycles(X):
+        nxt = {p: line(tuple(int(t) for t in (X @ np.array(p)) % 5)) for p in proj}
+        seen, out = set(), []
+        for p in proj:
+            n, q = 0, p
+            while q not in seen:
+                seen.add(q)
+                q, n = nxt[q], n + 1
+            if n:
+                out.append(n)
+        return sorted(out)
+    k = cyclotomic.clocks()
+    day, cp = cyclotomic.on_plane(k["day"]) % 5, cyclotomic.on_plane(k["c"]) % 5
+    poly = lambda X: (int(np.trace(X)) % 5, int(round(np.linalg.det(X))) % 5)
+    dpow = [np.eye(2, dtype=np.int64)]
+    for _ in range(24):
+        dpow.append((dpow[-1] @ day) % 5)
+    klein = {frozenset({(a, b), (c, d)}) for om in range(5)
+             for a, b, c, d in [tuple(v for v in range(5) if v != om)]
+             for (a, b), (c, d) in [((a, b), (c, d)), ((a, c), (b, d)), ((a, d), (b, c))]}
+    disjoint = {frozenset({e, f}) for e, f in itertools.combinations(E, 2) if not set(e) & set(f)}
+    m = [1, 248, 61526, 15269016, 3790531010, 941278124080, 233807211090510]
+    x = sp.Symbol("x")
+    L = lambda p: sum(c * m[i] for i, c in enumerate(reversed(sp.Poly(sp.expand(p), x).all_coeffs())))
+    p, a, b2 = [sp.Integer(1), x - 248], [sp.Integer(248)], []
+    for n in (1, 2):
+        a.append(L(x * p[n] ** 2) / L(p[n] ** 2))
+        b2.append(L(p[n] ** 2) / L(p[n - 1] ** 2))
+        p.append(sp.expand((x - a[n]) * p[n] - b2[-1] * p[n - 1]))
+    b2.append(L(p[3] ** 2) / L(p[2] ** 2))
+
+    def fmul(u, v):
+        return (u[0] * v[0] - u[1] * v[1]) % 241, (u[0] * v[1] + u[1] * v[0] + 133 * u[1] * v[1]) % 241
+
+    def fpow(u, n):
+        y = (1, 0)
+        while n:
+            y, u, n = (fmul(y, u) if n & 1 else y), fmul(u, u), n >> 1
+        return y
+    w, t = sp.symbols("w t")
+    series = sp.series(1 / (3 + 8 * w + 3 * w ** 2), w, 0, 3).removeO()
+    c3 = [series.coeff(w, i) for i in range(3)]
+    r5 = sp.sqrt(5)
+    ca, cb, cc = sp.Rational(8, 5) + 4 * r5 / 25, sp.Rational(39, 50) + 47 * r5 / 250, sp.Rational(78, 625) + 6 * r5 / 125
+    cubic = lambda X: X ** 3 - ca * X ** 2 + cb * X - cc
+    ode = lambda y, f: (sp.simplify(sp.diff(y, t, 2) + 64 * y - f) == 0 and y.subs(t, 0) == 0
+                        and sp.diff(y, t).subs(t, 0) == 0)
+    band = lambda f: sp.nsimplify(sp.simplify(sum(sp.cos(2 * sp.pi * f * j / 5) ** 2 for j in range(5))))
+    Gc, Gu, s = sp.symbols("G_c G_u s")
+    marks = [{(0, 2), (0, 3), (1, 3), (1, 4), (2, 4)}, {(0, 2), (0, 4), (2, 3), (3, 4)}, {(0, 1), (0, 2), (0, 4), (1, 3)}]
+    lo, hi, weyl = 435118836, 436266657, 2 ** 14 * 3 ** 5 * 5 ** 2 * 7
+    return {
+        "the fifteen midpoint readings of the six Golden vectors (Gram 12I - 2J) are a [15, 5, 6] code: all 3003 "
+        "ten-reading sets span, and exactly 10 of the 5005 nine-reading sets fail, the zero sets of the ten 3 + 3 "
+        "splits (the hub)":
+            ten == {5} and fail == zeros and len(fail) == 10 and all(len(z) == 9 for z in zeros),
+        "with K = M^T M, T = (K^2 - 7K - 2I)/2 = -P0 - 7P3 + 3P8 and (P0 + P8) T - (3/10) J = -P0 (the hub)":
+            TD == -Pk[0] - 7 * Pk[3] + 3 * Pk[8] and (Pk[0] + Pk[8]) * TD - sp.Rational(3, 10) * sp.ones(10, 10) == -Pk[0],
+        "the selected matrix D = [[1, 4], [1, 2]] over F5 squares to 3C with C of characteristic polynomial x^2 - x + 1, "
+        "the Coxeter clock's on the residue plane; D^6 = 3I, D^12 = -I, D^24 = I and no power below 6 is scalar; on the "
+        "six lines D, D^2 and D^3 have cycle types 6, 3 + 3 and 2 + 2 + 2; and D has the characteristic polynomial of "
+        "the inverse day d^-1 = d^23 (and its Frobenius twin d^19), so it is conjugate to d^-1 in GL(2,5)":
+            np.array_equal(Dk[2], np.array([[0, 2], [3, 3]])) and np.array_equal(Dk[2], (3 * Cx) % 5)
+            and poly(Cx) == poly(cp) == (1, 1) and np.array_equal(Dk[6], 3 * np.eye(2, dtype=np.int64))
+            and np.array_equal(Dk[12], 4 * np.eye(2, dtype=np.int64)) and np.array_equal(Dk[24], np.eye(2, dtype=np.int64))
+            and not any(scalar(Dk[j]) for j in range(1, 6)) and [cycles(Dk[j]) for j in (1, 2, 3)] == [[6], [3, 3], [2, 2, 2]]
+            and [j for j in range(1, 25) if poly(dpow[j]) == poly(D)] == [19, 23],
+        "the five even Klein fours, one for each omitted vertex, have fifteen non-identity elements, exactly the "
+        "fifteen disjoint edge pairs; a four-cycle squares to one of them; the quarter-turn squares to -I":
+            klein == disjoint and len(disjoint) == 15 and (Permutation([1, 2, 3, 0, 4]) ** 2).cyclic_form == [[0, 2], [1, 3]]
+            and sp.Matrix([[0, -1], [1, 0]]) ** 2 == -sp.eye(2),
+        "if the printed moments 1, 248, 61526, ... are exact, their Hankel determinants are 22, 128724 and 540658207776, "
+        "so no two atoms match five of them and no three all seven; the Jacobi diagonals are 248, 2556/11 and "
+        "24755888/117997 and the off-diagonal squares 22, 32181/121 and 247801678564/345205587; the static resolvent "
+        "bound 520089621/128932714232 lies between 124/30763 and 1/240, and the stated native enclosure above it":
+            [sp.Matrix(n, n, lambda i, j: m[i + j]).det() for n in (2, 3, 4)] == [22, 128724, 540658207776]
+            and a == [248, sp.Rational(2556, 11), sp.Rational(24755888, 117997)]
+            and b2 == [22, sp.Rational(32181, 121), sp.Rational(247801678564, 345205587)]
+            and sp.Rational(124, 30763) < sp.Rational(520089621, 128932714232) < sp.Rational(1, 240)
+            and sp.Rational(lo, 10 ** 11) > sp.Rational(520089621, 128932714232),
+        "mod 241, 94/75 = 133, and a root of t^2 - 133t + 1 (whose discriminant is a non-residue) has order 121 in "
+        "F_241^2, its eleventh power not 1; the cleared Hankel has determinant 81; 1/(3 + 8w + 3w^2) begins 1/3, -8/9, "
+        "55/27, which misses the carrier recurrence x^2 + 11x + 24 = (x + 3)(x + 8) by 7/27; the squared frequencies "
+        "(4 +- sqrt7)/3 are positive":
+            (133 * 75 - 94) % 241 == 0 and pow((133 * 133 - 4) % 241, 120, 241) == 240 and fpow((0, 1), 121) == (1, 0)
+            and fpow((0, 1), 11) != (1, 0)
+            and sp.Matrix([[0, 0, 0, 3], [0, 0, 3, 0], [0, 3, 0, -8], [3, 0, -8, 0]]).det() == 81
+            and c3 == [sp.Rational(1, 3), sp.Rational(-8, 9), sp.Rational(55, 27)]
+            and c3[2] + 11 * c3[1] + 24 * c3[0] == sp.Rational(7, 27)
+            and all(r > 0 for r in sp.solve(3 * w ** 2 - 8 * w + 3, w)),
+        "the cubic X^3 - (8/5 + 4 sqrt5/25) X^2 + (39/50 + 47 sqrt5/250) X - (78/625 + 6 sqrt5/125) is negative at 19/20 "
+        "and positive at 957/1000 and its larger turning point is below 19/20, so its largest root leaves more than "
+        "43/1000; sqrt(80/129) lies between 787/1000 and 788/1000, and 75/2 turns 43/1000 into 129/80":
+            cubic(sp.Rational(19, 20)) < 0 < cubic(sp.Rational(957, 1000))
+            and (ca + sp.sqrt(ca ** 2 - 3 * cb)) / 3 < sp.Rational(19, 20)
+            and sp.Rational(787, 1000) < sp.sqrt(sp.Rational(80, 129)) < sp.Rational(788, 1000)
+            and sp.Rational(43, 1000) * sp.Rational(75, 2) == sp.Rational(129, 80),
+        "the fixture y'' + 64y = -cos 4t, -1 and -sin 4t from rest has the responses (cos 8t - cos 4t)/48, (cos 8t - 1)/64 "
+        "and sin 8t/96 - sin 4t/48; the bands 4 and 8 on five samples both have squared norm 5/2; Phi_5(2) = 31 = 25 + 6":
+            ode((sp.cos(8 * t) - sp.cos(4 * t)) / 48, -sp.cos(4 * t)) and ode((sp.cos(8 * t) - 1) / 64, -1)
+            and ode(sp.sin(8 * t) / 96 - sp.sin(4 * t) / 48, -sp.sin(4 * t)) and band(4) == band(8) == sp.Rational(5, 2)
+            and sp.cyclotomic_poly(5, 2) == 31 == 25 + 6,
+        "arithmetic: (1440 + 5s) G_c + s G_u = 6 for every s gives G_c = 1/240 and G_u = -1/48; |W(E8)| = 2^14 3^5 5^2 7 is "
+        "prime to 11; on the circle 3, 8, 24, 11, 48, 90, 242 and 20 have orders 1440, 540, 180, 4320, 90, 48, 2160 and "
+        "216; the enclosure has width 1147821 and reciprocals in (229, 230); C(12, 5..7) = 792, 924, 792, "
+        "C(12, 8..12) add to 794 and C(25, 5) = 53130; (25 - 1)/(5 - 1) = 6 and (81 - 1)/(9 - 1) = 10 count the lines "
+        "of the hexad and the decad; 7! - 6! = 4320 = 12 x 360; the three exposures use 13 marks on 9 edges, missing 12 "
+        "and sharing 02, with 80 one-erasure patterns; and the stated landings x -> 3456x hold":
+            sp.solve(sp.Poly(sp.expand((1440 + 5 * s) * Gc + s * Gu - 6), s).coeffs(), [Gc, Gu])
+            == {Gc: sp.Rational(1, 240), Gu: sp.Rational(-1, 48)} and weyl == 696729600 and weyl % 11 != 0
+            and gcd(242, N) == 2 and [order(q) for q in (3, 8, 24, 11, 48, 90, 242, 20)]
+            == [1440, 540, 180, 4320, 90, 48, 2160, 216] and hi - lo == 1147821
+            and 229 < sp.Rational(10 ** 11, hi) and sp.Rational(10 ** 11, lo) < 230
+            and [sp.binomial(12, q) for q in (5, 6, 7)] == [792, 924, 792]
+            and sum(sp.binomial(12, q) for q in range(8, 13)) == 794 and sp.binomial(25, 5) == 53130
+            and ((25 - 1) // (5 - 1), (81 - 1) // (9 - 1)) == (len(cyclotomic.residue()[1]), 10) == (6, 10)
+            and factorial(7) - factorial(6) == N == 12 * 360 and gcd(36, 120) == 12
+            and sum(map(len, marks)) == 13 and len(set.union(*marks)) == 9 and (1, 2) not in set.union(*marks)
+            and set.intersection(*marks) == {(0, 2)} and len(marks[0]) * len(marks[1]) * len(marks[2]) == 80
+            and [land(q) for q in (726, 125, 269, 13, 16, 79, 229, 313, 43, 129, 48, 234, 72, 216, 24, 7, 27, 242, 31)]
+            == [3456, 0, 864, 1728, 3456, 864, 864, 1728, 1728, 864, 1728, 864, 2592, 3456, 864, 2592, 2592, 2592, 3456],
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -8699,6 +8882,7 @@ JOINS = [
     ("halfper", "golden", "F4 = F2[phi]", "on the half-periods Phi is a cube root of unity keeping both primes over 2, F4 = F2[Phi], and B has Pisano period 3 mod 2: the golden field is inert at 2, while at 5 it is ramified (layer 27)", T, "places.golden_places"),
     ("memory", "clocks", "no clock of order 90", "an element of order n of GL8(Z) needs psi(n) <= 8, and the memory clock has order 90 with psi(90) = 10, so no lattice clock of the seed runs it (layer 27)", OB, "places.limits"),
     ("circle", "clocks", "no faithful circle", "psi(4320) = 38 > 8: the circle's images in GL8(Z) have order at most 60, and the element orders of W(E8) stop at 30 (cited), so only its part <144> acts, as the Coxeter clock (layer 27)", OB, "places.limits"),
+    ("residue", "rootgraph", "the six-line quotient", "A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38)", T, "six_lines"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
 ]
@@ -8906,6 +9090,9 @@ LEDGER_ROWS = [
     ("the comparator (MODEL, 13:02-14:18)", "moments 1, 242, 58691, 14259954, 3470101592; Hankel 15930273; last diagonal 200 or 210", "replayed: the triangle port's; not unique, and by the all-order theorem no finite comparator is exact", T, "23"),
     ("the THEOREM diagram", "-", f"THEOREM maps alone join {len(DOTS) - 3} of the {len(DOTS)} dots, no one or two of them hold it together, and they join every pair of levels at least twice; the datum's regular S5-orbit and the time clock's actions on the roots (48 extended A4 pentagons), the zero modes (one per character) and the triple close the last cuts", T, "23"),
     ("all dots", "-", f"{len(DOTS)} dots and {len(JOINS)} joins in one connected diagram (docs/DOTS.md)", T, "23"),
+    ("the six-line quotient (hub, 23:38; MODEL, 23:26-00:00)", "A S = S Q, Q = 10J - 4I; spectrum 56, 28^8, 8^35, (-2)^112, (-4)^84; a reducing split with zero Schur memory", "replayed and joined (residue plane -> root graph)", T, "23"),
+    ("the midpoint code (hub, 23:38)", "[15, 5, 6]: all 3003 ten-reading sets span, 10 of 5005 nine-reading sets fail", "replayed: the ten failures are the zero sets of the 3 + 3 splits", T, "23"),
+    ("the selected matrix over F5 (MODEL, 23:26-00:00)", "D = [[1, 4], [1, 2]]: D^2 = 3C, D^6 = 3I, order 24, a 6-cycle on the lines", "replayed: D is conjugate in GL(2,5) to the inverse day d^-1", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -8951,6 +9138,12 @@ NOT_JOINED = [
                                                                 "alpha = 1/137, and nothing here forms alpha or r_2",
      gates.UNFORMED),
     ("SEVEN_PAIRS's decoder", "D4 C4 = I3 and the reading ladder need operands not stored here", RP),
+    ("the separate model's reviewed and extended capsules (21:46, 23:40)", "1692628 and 6462293 bytes; 72 and 271 new "
+                                                                            "check groups, 26 and 1572 matrix references; "
+                                                                            "certificates read, capsules not decoded or run",
+     RP),
+    ("the canon's N31 release (23:36-23:40)", "29 source-reported claims in four new tabs (3742 and 3697 sheets), no new "
+                                             "matrix ids and no gate changes; read from its two receipts", RP),
     ("the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51)", "Python verifiers, JSON "
                                                                                               "receipts and SHA256SUMS: not "
                                                                                               "downloaded and not run; their "
@@ -9029,6 +9222,7 @@ def _checks():
         "primes.decad": primes.decad, "primes.parent_cover": primes.parent_cover,
         "places.band_at_places": places.band_at_places, "places.golden_places": places.golden_places,
         "places.qubit_primes": places.qubit_primes, "places.limits": places.limits,
+        "six_lines": six_lines,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -9626,6 +9820,20 @@ def run():
             "unchanged since 22:51; the spine29.ts editions and the OES-paper PDFs not read; not replayed: the jet-rank "
             "increments and the degree-five kernel 23, the generating function's eighth derivative, the 4188 rows, the "
             "120-site bath and the reported 67, 37, 96 and 939 checks", RP, True)
+    n2356 = notes_2356()
+    rep.add("the 23:38 text and the 23:26-00:00 model: the [15, 5, 6] midpoint code and its ten failing nine-sets, the "
+            "Dirac polynomial, the selected matrix over F5 (conjugate to the inverse day), the Klein fours, the printed "
+            "moments' Hankel and Jacobi chain, the closure field F_241^2, the cubic over Q(sqrt5), the fixture and the "
+            "arithmetic", T, all(n2356.values()), n2356)
+    rep.add("Drive check 23:56: the sibling's MODEL editions of 23:26-00:00, the latest (00:00) read as text, with its "
+            "spine29.ts (00:01) read as data, not run; the hub's OES_Unified_Model_20261029.txt as revised at 23:38 "
+            "(sources through 23:15; 1336 groups in 48 receipts) read as text, its zip (20969993 bytes) not downloaded; "
+            "the canon's N31 release read from its receipts; the separate model's capsules recorded from their "
+            "certificates; the OES-paper PDFs not read", RP, True)
+    rep.add("not replayed: the static Schur completion energies 13/27 and 16/27 (the operator is not given), the six "
+            "petals' POVM, the minimum-energy bath and its Green scalar, the encoder value; the hub's marked and quadratic "
+            "rosebud bridges (det B = 4/125, Jacobian -256), the [22, 10, 6] exterior code, the 36 norm-four dark copies' "
+            "jet ranks, the 24 Cauchy moments, the invisible sector and the energy caps", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep

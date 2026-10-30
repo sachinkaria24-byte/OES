@@ -367,11 +367,12 @@ flowchart TB
     halfper -->|"F4 = F2[phi]"| golden
     memory -.->|"no clock of order 90"| clocks
     circle -.->|"no faithful circle"| clocks
+    residue -->|"the six-line quotient"| rootgraph
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
 ```
 
-70 dots and 283 joins: 253 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+70 dots and 284 joins: 254 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
 
 ## Levels
 
@@ -380,7 +381,7 @@ flowchart TB
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 7 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 12 | 11 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 11 | 5 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad | 21 | 25 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad | 22 | 25 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 22 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
 
@@ -757,6 +758,7 @@ The maps that join each pair of levels directly.
 | half-periods | golden companion | on the half-periods Phi is a cube root of unity keeping both primes over 2, F4 = F2[Phi], and B has Pisano period 3 mod 2: the golden field is inert at 2, while at 5 it is ramified (layer 27) | THEOREM | `places.golden_places` |
 | memory clock | W(E8) clocks | an element of order n of GL8(Z) needs psi(n) <= 8, and the memory clock has order 90 with psi(90) = 10, so no lattice clock of the seed runs it (layer 27) | OBSTRUCTION | `places.limits` |
 | circle | W(E8) clocks | psi(4320) = 38 > 8: the circle's images in GL8(Z) have order at most 60, and the element orders of W(E8) stop at 30 (cited), so only its part <144> acts, as the Coxeter clock (layer 27) | OBSTRUCTION | `places.limits` |
+| residue plane | root graph | A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38) | THEOREM | `six_lines` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
 
@@ -783,6 +785,8 @@ The maps that join each pair of levels directly.
 | air | no air operator is stored, and none is formed | UNFORMED |
 | the board's fine-structure digits (BOARD_A, ALPHA_JOIN) | a = 0.0072973525664 is written by hand; no e, hbar, c, electron mass or length is stored, the canon removed alpha = 1/137, and nothing here forms alpha or r_2 | UNFORMED |
 | SEVEN_PAIRS's decoder | D4 C4 = I3 and the reading ladder need operands not stored here | REPORTED |
+| the separate model's reviewed and extended capsules (21:46, 23:40) | 1692628 and 6462293 bytes; 72 and 271 new check groups, 26 and 1572 matrix references; certificates read, capsules not decoded or run | REPORTED |
+| the canon's N31 release (23:36-23:40) | 29 source-reported claims in four new tabs (3742 and 3697 sheets), no new matrix ids and no gate changes; read from its two receipts | REPORTED |
 | the hub's observer-completion verifier and the K+ADDENDUM2/3 evidence (02:36-02:51) | Python verifiers, JSON receipts and SHA256SUMS: not downloaded and not run; their stated results are replayed | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.
