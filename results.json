@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.62,
+  "1-carrier": 0.77,
   "2-spectral": 0.01,
-  "3-spacetime": 11.15,
-  "4-native": 103.06,
-  "5-observer": 0.26,
-  "6-gravity": 10.34,
-  "7-cosmology": 2.17,
-  "8-frontier": 45.91,
-  "9-joins": 11.09,
-  "10-literal": 41.96,
-  "11-glue": 0.29,
-  "12-binding": 0.04,
-  "13-gates": 0.1,
-  "14-recurrence": 81.33,
-  "15-court": 1.92,
-  "16-handover": 1.36,
-  "17-waves": 0.56,
-  "18-snapshot": 1.03,
-  "19-spine": 4.89,
-  "20-canon": 7.81,
-  "21-ledger": 53.92,
-  "22-counts": 26.7,
-  "23-dots": 383.52,
-  "24-assignment": 4.51,
-  "25-unify": 5.12,
-  "26-primes": 6.22,
-  "27-places": 2.31,
-  "28-principal": 1.87
+  "3-spacetime": 11.27,
+  "4-native": 105.15,
+  "5-observer": 0.23,
+  "6-gravity": 6.49,
+  "7-cosmology": 1.88,
+  "8-frontier": 46.93,
+  "9-joins": 12.22,
+  "10-literal": 44.93,
+  "11-glue": 0.2,
+  "12-binding": 0.03,
+  "13-gates": 0.09,
+  "14-recurrence": 83.16,
+  "15-court": 1.83,
+  "16-handover": 1.3,
+  "17-waves": 0.61,
+  "18-snapshot": 0.98,
+  "19-spine": 5.38,
+  "20-canon": 6.87,
+  "21-ledger": 51.62,
+  "22-counts": 24.78,
+  "23-dots": 346.45,
+  "24-assignment": 3.94,
+  "25-unify": 3.9,
+  "26-primes": 5.65,
+  "27-places": 2.06,
+  "28-principal": 1.78
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 759,
-   "total": 759
+   "passed": 760,
+   "total": 760
   },
   "OBSTRUCTION": {
    "passed": 70,
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 132,
-   "total": 132
+   "passed": 135,
+   "total": 135
   }
  },
  "checks": [
@@ -11216,6 +11216,31 @@
   },
   {
    "layer": "23-dots",
+   "name": "the 09:23 text and the 09:38-09:51 model: the source histories (the Plucker counterfeit and its syzygies), the six root probes and the three-sector algebra, the F20 bright-dark line, the Golden projectors and channel, and the hub's local arithmetic",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the source histories: the false e0 ^ (e1 + u e2 + u^2 e3) and the genuine (e0 + u e1) ^ (e2 + u e3) both pass all 25 Plucker equations on the 30 coefficients, which linearize to rank 13 at both (kernels of 17 meeting in 8, row spaces in 4)": true,
+    "the syzygies separate them: both have rank 8 and nullity 2, the false kernel e0, u e0 wedges to 0, so no two-packet factorization exists, and the genuine kernel e0 + u e1, e2 + u e3 wedges back to the history; the false planes share the line e0, the genuine planes meet in 0; a determinant-1 change of the packets fixes the wedge and a determinant-2 one doubles it; u(u - 1)(u - 2)(u - 3) is 0 at four phases and 24 at the fifth": true,
+    "the 09:24 certificate's counts: 4080 + 25 = 4105 artifacts, 574 + 13 = 587 relationships, 3 + 12 = 15 regressions, 68 files with 67 hashes; the 09:07 correction's 577 = 574 + 3 was not absorbed by its parent": true,
+    "the hub's six root probes (09:23): one root on each of the six residue lines, in three orthogonal A2 pairs, have two-step return Gram A^2 = 44I + 12J - 11H on the root graph (56 on the diagonal, 1 in a pair, 12 between pairs), and with the six-line quotient's P = (10J - 4I)/56 = E0 - (E+ + E-)/14 and V = 105 E0 + 33 E+ + 55 E- they give H = (244I + 336P - 5V)/55, E0 = (I + 14P)/15 and E- = (5V - 189I - 336P)/110": true,
+    "the bright six Lambda^2 A4 and the dark four sign (x) A4 have intertwiners of dimension 4, 2, 1 and 0 under C5, D10, F20 and S5: one F20 line, and none under S5": true,
+    "the six Sylow-five averages on Lambda^2 A4 are rank-two projectors with sum 2I and tr F_i F_j = 2/5, and the selected channel Phi(X) = sum tr(F_i X / 2)(11I - 5F_i)/56 measures the six-line transition (10J - 4I)/56, has spectrum 1, (-1/14)^5, 0^30 and Phi^n = D + (-1/14)^(n-1)(Phi - D)": true,
+    "its Choi spectrum is (3/28)^2, (1/7)^10, (9/56)^10, (11/56)^14 with trace 6, the second channel's is 1/6 + (-1/14)(lambda - 1/6), and X = F0 - F1 has Tr X^2 = 16/5 and Phi(X) = -X/14, the witness of the hub's no-go for a closed finite unreset bath": true,
+    "the hub's local arithmetic: the twin lanes gcd(a(a + 2), W) = 1 are 1, 2, 4 mod 5, 36 mod 360 and 432 mod 4320, and reduction mod 360 is 12 to 1 onto the 36; omega = (4, -1, -1, -1, -1)/5 generates A4*/A4 = Z/5 and every coordinate permutation fixes its class; (1 - 2/5)/(1 - 1/5)^2 = 15/16; the lane mask does not commute with the shift (commutator rank 4), and {0, 2} has a stabilizer of order 2 in AGL(1,5)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Drive check 09:51: the hub's OES_Unified_Model_20261029.txt as revised at 09:23 read as text; the separate model's source-history completion (09:24) recorded from its certificate (09:25) and checkpoint (09:27); the sibling's MODEL editions of 09:38-09:51, the latest read as text, with its spine29.ts read as data, not run; the OES-paper PDFs not read",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "not joined: the Yukawa sizes (layer 24): the roots give which couplings can be nonzero, not their sizes; no Yukawa block is formed, and masses and mixings stay removed",
    "status": "UNFORMED",
    "passed": true,
@@ -11441,6 +11466,22 @@
   {
    "layer": "23-dots",
    "name": "not joined: the separate model's note corrections (09:07): 16 exact note-review groups and 3 typed corrections (577 relationships), no new matrix; the corrections are replayed (notes_0912); the capsule's code not run",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's source-history completion (09:24): 326410 bytes; 32 exact groups, 25 new matrices, 13 new typed joins (587 relationships) and 5 observation contracts; certificate read, zip not opened or run; its Plucker counterfeit is replayed (notes_0951)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the hub's 09:23 text, unreplayed parts: the literal 49-tuple and the bounded-gap route, the PTP13 and R15 certificates, the marked contrast port's Green bounds, the J7 host, the Woodbury Green formula, the information cut and the time-order test need operands or analytic inputs not stored here",
    "status": "REPORTED",
    "passed": true,
    "value": null,
