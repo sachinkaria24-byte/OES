@@ -317,8 +317,8 @@ def test_every_level_is_joined():
     assert lv["layers"] == list(range(1, 29))
     assert sorted(dots.LEVEL_OF) == sorted(dots.DOTS)
     assert all(len(c) == 1 for c in lv["inside"].values()) and all(lv["between"])
-    # THEOREM joins alone leave out exactly the two conditional dots and the memory clock, joined by selection
-    assert sorted(sorted(c) for c in lv["theorem"] if len(c) == 1) == [["cosmology"], ["gravity"], ["memory"]]
+    # THEOREM joins alone leave out exactly the two conditional dots
+    assert sorted(sorted(c) for c in lv["theorem"] if len(c) == 1) == [["cosmology"], ["gravity"]]
     for check in (dots.surface, dots.cube_cuts, dots.critical_momenta, dots.nine_torus, dots.triple, dots.readout,
                   dots.sound_light, dots.calibration):
         out = check()
@@ -341,6 +341,27 @@ def test_every_pair_of_levels_and_no_two_maps(monkeypatch):
     assert dots.level_pairs()[(1, 5)] == 0
     monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] not in (("air801", "surface"), ("residue", "air801"))])
     assert not all(dots.no_two_maps().values())
+
+
+def test_no_two_dots_and_the_memory_without_selection(monkeypatch):
+    for check in (dots.memory_quotients, dots.massless_tower, dots.stiff_kernel, dots.cosmos_calibration,
+                  dots.day_units, dots.frame_a8, dots.cube_frobenius, dots.grain_steps, dots.plane_synthemes):
+        out = check()
+        assert all(out.values()), out
+    nd = dots.no_two_dots()
+    assert all(nd.values()), nd
+    # a non-unit power of the memory clock changes its cycle type, so only the 24 unit steppings are conjugate to it
+    perm, cycles, P = dots._memory()
+    lengths = lambda p: sorted(len(c) for c in dots._cycles(p))
+    assert lengths(P[7]) == lengths(perm) != lengths(P[2])
+    # both checks can fail: without the three new conditional maps the datum and the triple cut off the product
+    # geometry and FLRW, and without the memory's 24 maps THEOREM joins leave the memory clock out
+    joins = dots.JOINS
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins
+                                        if j[5] not in ("massless_tower", "stiff_kernel", "cosmos_calibration")])
+    assert not all(dots.no_two_dots().values())
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[5] != "memory_quotients"])
+    assert ["memory"] in [sorted(c) for c in dots.components([True] * len(dots.JOINS), statuses=(gates.THEOREM,))]
 
 
 def test_the_0928_notes_replay():

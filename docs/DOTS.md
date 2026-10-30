@@ -381,20 +381,31 @@ flowchart TB
     residue -->|"the six-line quotient"| rootgraph
     time -->|"the phase on the Sylow labels"| pgl
     assignment -.->|"one root of every pair"| binding
+    circle -->|"24 maps, one orbit"| memory
+    memory -->|"up to doubling"| vortex
+    memory -->|"up to doubling"| time
+    kerM -->|"the massless tower"| gravity
+    kerM -->|"the dark momentum"| cosmology
+    cosmology -->|"the mass scale"| calibration
+    G120 -->|"the unit group"| residue
+    frame -->|"A8"| census
+    AGL -->|"the Frobenius"| cube
+    grain -->|"the regular steps"| principal
+    pg25 -->|"secants through a point"| synthemes
 ```
 
-71 dots and 294 joins: 264 THEOREM, 10 SELECTED_REFERENCE, 4 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect every dot but the product geometry and FLRW, which attach through the conditional heat coefficients (J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections (one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and they join every pair of levels at least twice.
+71 dots and 305 joins: 272 THEOREM, 10 SELECTED_REFERENCE, 7 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
-| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 26 | 7 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 12 | 11 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 12 | 5 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle | 24 | 26 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 22 |
-| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 10 | - |
+| 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 29 | 7 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 12 | 12 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 13 | 5 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle | 25 | 26 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 24 |
+| 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 11 | - |
 
 ## Level pairs
 
@@ -402,12 +413,12 @@ The maps that join each pair of levels directly.
 
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
-| number | - | 7 | 3 | 7 | 3 | 2 |
-| symmetry | 7 | - | 11 | 23 | 12 | 7 |
-| combinatorics | 3 | 11 | - | 5 | 19 | 7 |
-| lattice | 7 | 23 | 5 | - | 26 | 5 |
-| operator | 3 | 12 | 19 | 26 | - | 22 |
-| physics | 2 | 7 | 7 | 5 | 22 | - |
+| number | - | 7 | 3 | 8 | 3 | 2 |
+| symmetry | 7 | - | 12 | 24 | 12 | 7 |
+| combinatorics | 3 | 12 | - | 5 | 19 | 7 |
+| lattice | 8 | 24 | 5 | - | 26 | 5 |
+| operator | 3 | 12 | 19 | 26 | - | 24 |
+| physics | 2 | 7 | 7 | 5 | 24 | - |
 
 ## Dots
 
@@ -783,6 +794,17 @@ The maps that join each pair of levels directly.
 | residue plane | root graph | A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38) | THEOREM | `six_lines` |
 | time clock | PGL(2,5) | sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07) | THEOREM | `clock_sylow` |
 | root assignment | binding | taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time | OBSTRUCTION | `assignment.chirality` |
+| circle | memory clock | the circle maps onto the memory clock's group <A> = Z/90 in 24 ways, k -> A^(uk) for the units u, each with kernel <90>; A^u has A's cycle type 10^11 9 1, so the memory's normalizer in S_120 makes the 24 conjugate: the stepping is unique up to the memory's symmetry, without the selection (30 Oct) | THEOREM | `memory_quotients` |
+| memory clock | vortex | for every map of the circle onto the memory clock the 9-cycle reads x -> u x mod 9, and u mod 9 is a power of 2, a primitive root mod 9: the vortex up to its doubling (30 Oct) | THEOREM | `memory_quotients` |
+| memory clock | time clock | for every map of the circle onto the memory clock the 10-cycles read x -> u x mod 10, and u mod 5 is a power of 2, a primitive root mod 5: the time coordinate x mod 5 up to its doubling (30 Oct) | THEOREM | `memory_quotients` |
+| zero modes | product geometry | on M4 x F the cross terms cancel, D^2 = D_M^2 (x) 1 + m^2 (1 (x) D_F^2): over every level of M4 sits the tower 0, 3m^2, 8m^2 (multiplicities 5, 8, 2), whose bottom is the five dark modes ker M, and the heat trace factorizes; M4 and m stay free (30 Oct) | CONDITIONAL | `massless_tower` |
+| zero modes | FLRW | the stiff sector is the five dark modes: the kernel projector 0 + P_kerM commutes with D^2, so a^3 P0 psi' is conserved on every flat FLRW background and the dark modes' energy falls as a^-6 (30 Oct) | CONDITIONAL | `stiff_kernel` |
+| FLRW | calibration | a calibration t -> tau t acts on the cosmos's free inputs, m -> m/tau and Lambda_cc -> Lambda_cc/tau^2, with the same a and psi, so the cosmos has no internal time unit either; in the decoupling limit its flow is the native flow in u = m t, a calibration with tau = 1/m (30 Oct) | CONDITIONAL | `cosmos_calibration` |
+| day-Coxeter group | residue plane | G120 acts on the tick's residue field F25 by multiplication, with kernel the tick <g> and image all of F25^x, the day's 24 powers: G120 / <g> = F25^x and G120 = <g> x\| <d>, the day doubling the tick (30 Oct) | THEOREM | `day_units` |
+| eight-root frame | critical census | the frame's 72 roots are an A8, and each dual vector w_j is a point of order 3 whose stabilizer is exactly that A8: the band is critical there at 252, the census's A8 family of 1920 points, the alcove's vertex of mark 3 and the principal steps 1440 and 2880 (30 Oct) | THEOREM | `frame_a8` |
+| AGL(1,5) | four-cube | on the four-cube's vertices, the sixteen cuts of K5 mod 2 = F16 by delta({k}) -> zeta^k, the tick multiplies by a primitive fifth root of unity and the doubling is the Frobenius y -> y^2: AGL(1,5) acts as <zeta5> x\| Gal(F16/F2) inside GammaL(1,16) (30 Oct) | THEOREM | `cube_frobenius` |
+| grain | principal circle | on the principal circle the grain is the 60 points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3, with the spectra of the golden clock and the sun; it holds the steps of the eleven regular orders dividing 60, all but the day's 8 and 24 (30 Oct) | THEOREM | `grain_steps` |
+| PG(2,5) | synthemes | the three secants through an interior point of PG(2,5) meet the conic in a syntheme: the ten interior points are the ten nonspecial synthemes, and the fifteen exterior points, in five self-polar triangles, give the special five, a one-factorization; a labelling that carries the exceptional sigma onto PGL(2,5) matches them with the Sylow labels' 10 + 5 (30 Oct) | THEOREM | `plane_synthemes` |
 
 ## Not joined
 

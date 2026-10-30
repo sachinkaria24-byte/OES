@@ -28,7 +28,8 @@ choices that the Galois clocks permute.
 The inputs (INPUTS) are ten: the circle Z/4320 with its stages and memory clock, the datum, the literal operands, the
 words, the integers of the 801 matrix, the Standard-Model split of the five sites, the time unit and the product
 geometry. Ten more dots are built from them (FROM_INPUTS). Two of the inputs meet the seed exactly: mod 5 the 801
-matrix is minus the day, and the circle's order-30 subgroup is <c'>.
+matrix is minus the day, and the circle's order-30 subgroup is <c'>. The memory clock meets the circle through the
+circle's 24 maps onto it, all conjugate under its symmetry, so its stepping is unique up to that symmetry.
 """
 
 from . import cyclotomic, dots, gates, principal
@@ -64,7 +65,8 @@ INPUTS = {
     "circle": ("the canon's circle Z/4320; its step 144 goes to c', one of eight choices, all conjugate under the "
                "Galois clocks", "clocks", "clock_joins"),
     "stages": ("the canon's fifteen stage indices on the circle", "circle", "counts.check_claims"),
-    "memory": ("the 120-state memory clock, stepped by the circle (a selection)", "circle", "memory_clock"),
+    "memory": ("the 120-state memory clock; the circle maps onto it in 24 ways, all conjugate under its symmetry, and the "
+               "canon's stepping is one of them (a selection)", "circle", "memory_quotients"),
     "datum": ("the canon's datum (psi0, v0), a vector on the zero modes of energy 34", "kerM", "counts.tick_tock"),
     "literal": ("the owner's native source matrices", "source", "literal_port"),
     "words": ("the canon's words 088, 086 and 980", "A4", "words_c5"),
@@ -148,9 +150,10 @@ def derivation():
 
 
 def uniqueness():
-    """Each choice on the trunk is unique up to the symmetry built before it."""
+    """Each choice on the trunk, and each stepping of an input by the circle, is unique up to symmetry."""
     lines = cyclotomic.tick_normalizer()
     galois = cyclotomic.galois_clocks()
+    memory = dots.memory_quotients()
     from . import spine
     c, cp, r, rp, g, w = spine.spine_clock()
     return {
@@ -163,6 +166,9 @@ def uniqueness():
         "the circle's selection 144 -> c'^k is one of eight, and the normalizer of <c'> realizes every unit k, so all "
         "eight are conjugate":
             all(galois.values()),
+        "the memory clock's stepping k -> A^k is one of the circle's 24 maps onto it, and its normalizer in S_120 "
+        "realizes every unit mod 90, so all 24 are conjugate":
+            all(memory.values()),
     }
 
 

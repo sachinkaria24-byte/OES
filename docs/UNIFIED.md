@@ -209,7 +209,7 @@ flowchart TB
 |---|---|---|---|---|
 | circle | the canon's circle Z/4320; its step 144 goes to c', one of eight choices, all conjugate under the Galois clocks | W(E8) clocks (k 144 -> c'^k) | SELECTED_REFERENCE | psi(4320) = 38 > 8, so no lattice clock runs Z/4320 (layer 27); but it is the principal circle k -> k rho/4320 of the seed's momenta, whose step 144 is the Coxeter clock's lift and whose steps of order 2 to 5 are the band's critical vertices; only the number 4320 is the canon's (layer 28) |
 | stages | the canon's fifteen stage indices on the circle | circle (k -> k) | THEOREM | the canon's fifteen indices on the circle |
-| memory clock | the 120-state memory clock, stepped by the circle (a selection) | circle (one step, one step) | SELECTED_REFERENCE | order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27) |
+| memory clock | the 120-state memory clock; the circle maps onto it in 24 ways, all conjugate under its symmetry, and the canon's stepping is one of them (a selection) | circle (24 maps, one orbit) | THEOREM | order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27) |
 | datum | the canon's datum (psi0, v0), a vector on the zero modes of energy 34 | zero modes (v0) | THEOREM | a vector the canon chooses on the zero modes; its S5-orbit is regular (layer 23) |
 | literal operands | the owner's native source matrices | source (U) | THEOREM | the owner's matrices; they match the derived source up to an explicit isometry (layer 10) |
 | fifteen words | the canon's words 088, 086 and 980 | A4 (the Coxeter five-cycle) | THEOREM | the canon's words; isometric to the oriented duads of K6 only over Q(sqrt2) (layer 23) |

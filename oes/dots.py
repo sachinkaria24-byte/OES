@@ -373,6 +373,15 @@ k -> k rho / 4320 in R^8 / E8, with rho the Weyl vector. Its step 144 is Kostant
 Coxeter clock's lift. Its steps of the thirteen regular orders carry the spectra of the regular clocks' lifts, with
 the band 248 - 8 mu(d)/phi(d) there. And the band is critical on it exactly at its steps of order 2 to 5: the
 half-turn (D8), the 27-clock's 1440 (A8), the observer clock (D5 + A3) and the time clock (A4 + A4).
+
+The joins of 30 Oct add eleven maps and no dot. The memory clock is reached without the selection: the circle maps
+onto it in 24 ways, all conjugate under its symmetry, and every one reads the vortex and the time coordinate up to the
+doubling. So THEOREM maps reach every dot but the two conditional ones. The product geometry and FLRW get three more
+conditional maps: every Kaluza-Klein tower of M4 x F starts on the five dark modes, the dark modes' momentum a^3 P0
+psi' is conserved on every background, and a calibration acts on the cosmos's free inputs. With them no two dots and no
+two maps hold the diagram together. Five more THEOREM maps strengthen thin dots: the day-Coxeter group mod the tick is
+F25^x, the frame is the A8 of a census point of order 3, the doubling is the Frobenius on the cube's F16, the grain
+holds the regular steps of the orders dividing 60, and the secants through a point of PG(2,5) are the synthemes.
 """
 
 import functools
@@ -2396,13 +2405,19 @@ def product_geometry():
     }
 
 
-def friedmann():
-    """Layer 7: the carrier field on a flat FLRW background with the conditional G and Lambda_cc."""
+@functools.lru_cache(maxsize=1)
+def _flrw():
+    """Layer 7's flow from the datum, with G and Lambda_cc from the spectral action (L = 10 m, Lambda_cc tuned to 0)."""
     L, m = 10.0, 1.0
     G, Lcc = gravity.newton_and_vacuum(1, 1, gravity.tuned_F2(1, 1, L, m, 0.0), L, m)
     U = cosmology.FLRW(G, Lcc, m)
     psi0, v0 = carrier.canon_initial_datum()
-    sol = U.evolve(psi0, v0, 40.0, n=400)
+    return U, U.evolve(psi0, v0, 40.0, n=400), (G, Lcc, m, psi0, v0)
+
+
+def friedmann():
+    """Layer 7: the carrier field on a flat FLRW background with the conditional G and Lambda_cc."""
+    U, sol, _ = _flrw()
     rho0 = np.array([U.sector_rho(sol.y[:, i])[0] for i in range(sol.y.shape[1])])
     return {
         "with G and Lambda_cc from the spectral action the Friedmann constraint holds along the flow": max(
@@ -3407,21 +3422,28 @@ def level_pairs():
 
 
 def no_two_maps():
-    """No two maps hold the diagram together, apart from cutting off the two conditional dots."""
+    """No two maps hold the diagram together."""
     maps = [k for k, j in enumerate(JOINS) if j[4] in MAPS]
-    exempt = {"gravity", "cosmology"}
     degree = Counter(d for k in maps for d in JOINS[k][:2])
-    cuts = []
-    for x, y in itertools.combinations(maps, 2):
-        comps = components([k not in (x, y) for k in range(len(JOINS))])
-        main = next(c for c in comps if "circle" in c)
-        if not set(DOTS) - set(main) <= exempt:
-            cuts.append((JOINS[x][:2], JOINS[y][:2]))
+    cuts = [(JOINS[x][:2], JOINS[y][:2]) for x, y in itertools.combinations(maps, 2)
+            if len(components([k not in (x, y) for k in range(len(JOINS))])) > 1]
     return {
-        "every dot but the product geometry and FLRW lies on at least three maps": all(
-            degree[k] >= 3 for k in DOTS if k not in exempt),
-        "removing any two maps leaves the diagram connected, except that it can cut off the product geometry or FLRW, "
-        "whose only maps are conditional": not cuts,
+        "every dot lies on at least three maps": all(degree[k] >= 3 for k in DOTS),
+        "removing any two maps leaves the diagram connected": not cuts,
+    }
+
+
+def no_two_dots():
+    """No one and no two dots hold the diagram together, nor the THEOREM diagram."""
+    held = lambda statuses, dots, drop: len(components(
+        [True] * len(JOINS), statuses=statuses, dots=[d for d in dots if d not in drop])) == 1
+    thm = [d for d in DOTS if d not in ("gravity", "cosmology")]
+    cuts = lambda statuses, dots: [drop for n in (1, 2) for drop in itertools.combinations(dots, n)
+                                   if not held(statuses, dots, drop)]
+    return {
+        "removing any one or any two dots, with their maps, leaves the other dots joined": not cuts(MAPS, list(DOTS)),
+        f"and the THEOREM maps alone: removing any one or two of the {len(thm)} dots they reach leaves the rest joined "
+        "by THEOREM maps": not cuts((T,), thm),
     }
 
 # ------------------------------------------------------------------- the 08:35-09:28 notes
@@ -4996,8 +5018,8 @@ def theorem_connectivity():
     held = lambda drop: sum(1 for c in components([k not in drop for k in range(len(JOINS))], statuses=(T,))
                             if big & set(c)) == 1
     return {
-        "THEOREM maps alone reach every dot but the product geometry, FLRW and the memory clock":
-            set(DOTS) - big == {"gravity", "cosmology", "memory"},
+        "THEOREM maps alone reach every dot but the product geometry and FLRW, which need an external 4-manifold, "
+        "cutoff and mass scale": set(DOTS) - big == {"gravity", "cosmology"},
         "every one of those dots lies on at least three THEOREM maps": all(degree[d] >= 3 for d in big),
         "no one THEOREM map and no two THEOREM maps hold that diagram together":
             all(held((x,)) for x in thm) and all(held(pair) for pair in itertools.combinations(thm, 2)),
@@ -8791,6 +8813,301 @@ def _petersen_traces():
     return tr, cycles(5), cycles(6)
 
 
+# ------------------------------------------------------------------- joins of 30 Oct: every dot on THEOREM maps but two
+
+def _cycles(perm):
+    """The cycles of a permutation of range(n), each listed from its least point along the permutation."""
+    cycles, seen = [], set()
+    for s in range(len(perm)):
+        if s not in seen:
+            c = [s]
+            while perm[c[-1]] != s:
+                c.append(perm[c[-1]])
+            seen |= set(c)
+            cycles.append(c)
+    return cycles
+
+
+@functools.lru_cache(maxsize=1)
+def _memory():
+    """Layer 3's memory clock A as a permutation of its 120 states (A e_j = e_perm[j]), its cycles and its 90 powers."""
+    _, _, _, A = spacetime.clock_quotient()
+    perm = [int(np.argmax(A[:, j])) for j in range(120)]
+    powers = [list(range(120))]
+    for _ in range(89):
+        powers.append([perm[x] for x in powers[-1]])
+    return perm, _cycles(perm), powers
+
+
+def memory_quotients():
+    """The circle's maps onto the memory clock, without the selection: 24 of them, one orbit of the memory's symmetry."""
+    perm, cycles, P = _memory()
+    units = [u for u in range(90) if gcd(u, 90) == 1]
+
+    def conjugator(u):                                      # pi(A^(uk) s) = A^k s on every cycle, so pi A^u = A pi
+        pi = [0] * 120
+        for c in cycles:
+            x = c[0]
+            for k in range(len(c)):
+                pi[x], x = c[k], P[u][x]
+        return pi
+    conj = {u: conjugator(u) for u in units}
+    nine = next(c for c in cycles if len(c) == 9)
+    tens = [c for c in cycles if len(c) == 10]
+    reads = lambda c, u, k: c.index(P[u * k % 90][c[0]])
+    return {
+        "the memory clock A permutes its 120 states with cycle type 10^11 9 1, so it has order 90":
+            sorted(Counter(len(c) for c in cycles).items()) == [(1, 1), (9, 1), (10, 11)] and P[1] == perm,
+        "every map of the circle onto <A> = Z/90 is k -> A^(uk) for one of the 24 units u mod 90, and each has kernel "
+        "<90>, 48 points": len(units) == 24 and all(
+            [k for k in range(N) if u * k % 90 == 0] == list(range(0, N, 90)) for u in units),
+        "A^u has A's cycle type for every unit u, and a permutation of the 120 states conjugates it to A: the memory's "
+        "normalizer in S_120 makes the 24 maps one orbit, so the canon's stepping k -> A^k is unique up to the memory's "
+        "symmetry":
+            all(sorted(pi) == list(range(120)) and all(pi[P[u][x]] == perm[pi[x]] for x in range(120))
+                for u, pi in conj.items()),
+        "for every one of them the 9-cycle reads x -> u x mod 9 and each 10-cycle x -> u x mod 10, and u is a power of "
+        "2 mod 9 and mod 5 (2 is a primitive root of both): the vortex x mod 9 and the time coordinate x mod 5, up to "
+        "the doubling":
+            all(reads(nine, u, k) == u * k % 9 and all(reads(c, u, k) == u * k % 10 for c in tens)
+                for u in units for k in range(1, 46))
+            and {u % 9 for u in units} == {pow(2, j, 9) for j in range(6)}
+            and {u % 5 for u in units} == {pow(2, j, 5) for j in range(4)},
+    }
+
+
+def massless_tower():
+    """Layer 6 (conditional): every Kaluza-Klein tower of M4 x F starts on the five dark modes."""
+    X = np.array([[1, -2, 0, 3], [2, 1, -1, 0], [0, 3, 1, -2], [-1, 0, 2, 1]])
+    DM = np.block([[np.zeros((4, 4), dtype=int), X], [X.T, np.zeros((4, 4), dtype=int)]])   # an even stand-in for M4
+    gam = np.diag([1] * 4 + [-1] * 4)
+    DF = np.array(carrier.dirac(carrier.signless_incidence()), dtype=int)
+    m = 2
+    D = np.kron(DM, np.eye(15, dtype=int)) + np.kron(gam, m * DF)
+    mu = np.linalg.eigvalsh((DM @ DM).astype(float))
+    lam = np.rint(np.linalg.eigvalsh((DF @ DF).astype(float))).astype(int)
+    spec = np.sort(np.linalg.eigvalsh((D @ D).astype(float)))
+    ZF = lambda t: 5 + 8 * np.exp(-3 * m * m * t) + 2 * np.exp(-8 * m * m * t)
+    kernel = sp.Matrix(DF).nullspace()
+    return {
+        "for D = D_M (x) 1 + gamma (x) m D_F, with gamma^2 = 1 anticommuting with D_M, the cross terms cancel: D^2 = "
+        "D_M^2 (x) 1 + m^2 (1 (x) D_F^2), checked exactly on an even stand-in for M4's Dirac operator":
+            np.array_equal(DM @ gam + gam @ DM, np.zeros((8, 8), dtype=int))
+            and np.array_equal(D @ D, np.kron(DM @ DM, np.eye(15, dtype=int)) + m * m * np.kron(np.eye(8, dtype=int), DF @ DF)),
+        "so spec D^2 = spec D_M^2 + m^2 {0, 3, 8}: over every level of M4 sits the tower 0, 3m^2, 8m^2 with "
+        "multiplicities 5, 8 and 2, and the heat trace factorizes as Tr e^(-t D_M^2) (5 + 8 e^(-3 m^2 t) + 2 e^(-8 m^2 t))":
+            sorted(Counter(lam.tolist()).items()) == [(0, 5), (3, 8), (8, 2)]
+            and np.allclose(spec, np.sort((mu[:, None] + m * m * lam[None, :]).ravel()))
+            and all(np.isclose(np.exp(-t * spec).sum(), np.exp(-t * mu).sum() * ZF(t)) for t in (0.05, 0.3, 1.0)),
+        "the bottom of every tower is the five dark modes: ker D_F = 0 + ker M, so the massless sector of M4 x F is M4's "
+        "levels times ker M, with the gap 3 m^2 = (h(D5) - h(A4)) m^2; M4 and m stay free":
+            len(kernel) == 5 and all(v[i] == 0 for v in kernel for i in range(5))
+            and len(sp.Matrix(carrier.signless_incidence()).nullspace()) == 5,
+    }
+
+
+def stiff_kernel():
+    """Layer 7 (conditional): the stiff sector is the five dark modes, on every background."""
+    U, sol, _ = _flrw()
+    P0 = U.P[0]
+    K = np.array(sp.Matrix.hstack(*sp.Matrix(carrier.signless_incidence()).nullspace()), dtype=float)
+    momentum = np.array([np.exp(3 * sol.y[0, i]) * (P0 @ sol.y[17:, i]) for i in range(sol.y.shape[1])])
+    return {
+        "the kernel projector of D^2 is 0 + the projector onto ker M: the stiff sector is the five dark modes":
+            np.allclose(P0[:5], 0) and np.allclose(P0[5:, 5:], K @ np.linalg.inv(K.T @ K) @ K.T)
+            and round(float(np.trace(P0))) == 5,
+        "P0 commutes with D^2, so psi'' + 3 H psi' + m^2 D^2 psi = 0 gives (a^3 P0 psi')' = 0: the dark modes' momentum "
+        "a^3 P0 psi' is conserved whatever a(t) does, and their energy falls as a^-6 (checked along the flow, over which "
+        "a grows 26-fold)":
+            np.allclose(P0 @ U.K, U.K @ P0) and np.abs(momentum - momentum[0]).max() < 1e-8
+            and np.exp(sol.y[0, -1]) > 20,
+    }
+
+
+def cosmos_calibration():
+    """Layer 7 (conditional): a calibration acts on the cosmos's free inputs, and in the decoupling limit tau = 1/m."""
+    U, _, (G, Lcc, m, psi0, v0) = _flrw()
+    tau = 2.0
+    gaps = []
+    for lam in (Lcc, 0.3):
+        s1 = cosmology.FLRW(G, lam, m).evolve(psi0, v0, 20.0, n=201)
+        s2 = cosmology.FLRW(G, lam / tau ** 2, m / tau).evolve(psi0, v0 / tau, 20.0 * tau, n=201)
+        gaps.append(max(np.abs(s1.y[2:17] - s2.y[2:17]).max(), np.abs(s1.y[0] - s2.y[0]).max(),
+                        np.abs(s1.y[1] - tau * s2.y[1]).max(), np.abs(s1.y[17:] - tau * s2.y[17:]).max()))
+    mu = 0.5
+    s0 = cosmology.FLRW(0.0, 0.0, mu).evolve(psi0, mu * v0, 30.0, n=301)
+
+    def native(u):                                             # psi'' + D^2 psi = 0 from (psi0, v0), in native time u
+        out = U.P[0] @ (psi0 + u * v0)
+        for lam, Pl in U.P.items():
+            w = np.sqrt(float(lam))
+            if w:
+                out = out + Pl @ (np.cos(w * u) * psi0 + np.sin(w * u) / w * v0)
+        return out
+    return {
+        "t -> tau t with m -> m/tau and Lambda_cc -> Lambda_cc/tau^2 carries the flow psi'' + 3 H psi' + m^2 D^2 psi = 0, "
+        "H^2 = (8 pi G/3) rho + Lambda_cc/3 to a flow with the same a and psi, H and psi' divided by tau (checked at "
+        "tau = 2 for Lambda_cc = 0 and 0.3): the conditional cosmos has no internal time unit either":
+            max(gaps) < 1e-8,
+        "in the decoupling limit G -> 0 with Lambda_cc tuned to 0, H stays 0 and the flow is the carrier's native flow "
+        "in u = m t: the free mass scale is a calibration with tau = 1/m (checked at m = 1/2)":
+            np.abs(s0.y[1]).max() == 0 and max(np.abs(s0.y[2:17, i] - native(mu * s0.t[i])).max()
+                                                for i in range(len(s0.t))) < 1e-8,
+    }
+
+
+def day_units():
+    """The day-Coxeter group modulo the tick is the unit group of the tick's residue field."""
+    k = cyclotomic.clocks()
+    c, d, g = (np.rint(k[n]).astype(np.int64) for n in ("c", "day", "g"))
+    G = primes._matrix_group([c, d])
+    key = lambda Q: tuple((np.asarray(Q) % 5).flatten().tolist())
+    image = {key(cyclotomic.on_plane(x)) for x in G}
+    Qc, Qd = cyclotomic.on_plane(c), cyclotomic.on_plane(d)
+    days = {key(np.linalg.matrix_power(Qd, j)) for j in range(24)}
+    field = {key(a * np.eye(2, dtype=np.int64) + b * Qc) for a in range(5) for b in range(5)}
+    kernel = [x for x in G if key(cyclotomic.on_plane(x)) == (1, 0, 0, 1)]
+    ticks = [spine.mpow(g, j) for j in range(5)]
+    di = np.rint(np.linalg.inv(d)).astype(np.int64)
+    return {
+        "G120 = <c', d> has 120 elements, and each acts on the tick's residue plane E8/(1 - g)E8 as a multiplication "
+        "a + b omega of the field F25 = F5[omega], omega the image of c'": len(G) == 120 and image <= field,
+        "its image is all of F25^x, the 24 powers of the day, and its kernel is the tick <g>: G120 / <g> = F25^x, so "
+        "G120 = <g> x| <d>, the day doubling the tick (d g d^-1 = g^2)":
+            image == days and len(days) == 24 and len(kernel) == 5
+            and all(any(np.array_equal(x, t) for t in ticks) for x in kernel)
+            and np.array_equal(d @ g @ di, spine.mpow(g, 2)),
+    }
+
+
+def frame_a8():
+    """The eight-root frame is an A8, the stabilizer of a census point of order 3."""
+    e = lambda i: np.eye(8)[i]
+    R = np.array([-e(0) - e(i) for i in range(1, 8)] + [-0.5 * np.ones(8)])
+    roots = glue.roots()
+    key = lambda v: tuple(np.rint(2 * v).astype(int))
+    span = {key(x) for x in list(R) + list(-R) + [a - b for a, b in itertools.permutations(R, 2)]}
+    W = np.linalg.inv(R).T                                      # the dual basis: <v_i, w_j> = delta_ij
+    stab = lambda w: {key(r) for r in roots if abs(r @ w - round(r @ w)) < 1e-9}
+    eps = lambda w: 240 - np.cos(2 * np.pi * roots @ w).sum()
+    grad = lambda w: np.abs((np.sin(2 * np.pi * roots @ w)[:, None] * roots).sum(axis=0)).max()
+    in_e8 = lambda v: (np.allclose(v, np.rint(v)) or np.allclose(v - 0.5, np.rint(v - 0.5))) and round(v.sum()) % 2 == 0
+    census = {t: f for (_, t), f in handover.critical_census().items()}
+    return {
+        "the frame's 72 roots, +-v_i and v_i - v_j, are the roots of its span, an A8: Gram I + J is the A8 form in the "
+        "basis e0 - e_i": len(span) == 72 and span <= {key(r) for r in roots},
+        "each dual vector w_j is a point of order 3 of the momentum torus (3 w_j lies in E8, w_j does not) whose "
+        "stabilizer is exactly the frame's A8":
+            all(stab(w) == span and handover.stabiliser(roots, w)[0] == "A8" and in_e8(3 * w) and not in_e8(w) for w in W),
+        "the band is critical there with eps = 252: the census's A8 family of 1920 = |W(E8)| / |W(A8)| points, the "
+        "alcove's vertex of mark 3 and the principal steps 1440 and 2880":
+            all(np.isclose(eps(w), 252) and grad(w) < 1e-9 for w in W) and round(240 - census["A8"]["lambda"]) == 252
+            and census["A8"]["orbit"] == 1920 == 696729600 // factorial(9),
+    }
+
+
+def cube_frobenius():
+    """AGL(1,5) on the four-cube's vertices, the cuts mod 2: the tick multiplies by zeta5, the doubling is Frobenius."""
+    E = carrier.edges()
+    star = lambda v: tuple(int(v in e) for e in E)
+    plus = lambda a, b: tuple((x + y) % 2 for x, y in zip(a, b))
+    cuts = {}
+    for S in itertools.product(range(2), repeat=5):
+        cuts.setdefault(functools.reduce(plus, (star(v) for v in range(5) if S[v]), (0,) * 10), S)
+
+    def times_x(a):                                             # F16 = F2[x]/(x^4 + x^3 + x^2 + x + 1)
+        return (a[3], (a[0] + a[3]) % 2, (a[1] + a[3]) % 2, (a[2] + a[3]) % 2)
+
+    def mul(a, b):
+        out = (0, 0, 0, 0)
+        for i in range(4):
+            if a[i]:
+                out = plus(out, b)
+            b = times_x(b)
+        return out
+    zeta = [(1, 0, 0, 0)]
+    for _ in range(4):
+        zeta.append(times_x(zeta[-1]))
+    psi = lambda cut: functools.reduce(plus, (zeta[v] for v in range(5) if cuts[cut][v]), (0, 0, 0, 0))
+
+    def act(f, cut):
+        out = [0] * 10
+        for k, (i, j) in enumerate(E):
+            out[E.index(tuple(sorted((f(i), f(j)))))] = cut[k]
+        return tuple(out)
+    return {
+        "delta({k}) -> zeta^k is a bijection from the sixteen cuts of K5 mod 2, the four-cube's vertices, onto F16 = "
+        "F2[zeta5], well defined since the five vertex stars sum to 0 as the fifth roots of unity do":
+            len(cuts) == 16 and len({psi(cut) for cut in cuts}) == 16
+            and functools.reduce(plus, zeta, (0, 0, 0, 0)) == (0, 0, 0, 0),
+        "the tick k -> k + 1 multiplies by zeta and the doubling k -> 2k is the Frobenius y -> y^2: AGL(1,5) acts on the "
+        "cube's vertices as <zeta5> x| Gal(F16/F2) inside GammaL(1,16)":
+            all(psi(act(lambda i: (i + 1) % 5, cut)) == mul(zeta[1], psi(cut))
+                and psi(act(lambda i: 2 * i % 5, cut)) == mul(psi(cut), psi(cut)) for cut in cuts),
+    }
+
+
+def grain_steps():
+    """The grain on the principal circle: the golden step times the sun's step, holding eleven regular steps."""
+    reg = primes.regular()
+    k = cyclotomic.clocks()
+    held = [d for d in sorted(reg) if (N // d) % 72 == 0]
+    return {
+        "on the principal circle the grain <72> is the 60 points k rho/60, generated by the golden step 216 = rho/20 and "
+        "the sun's step 1440 = rho/3, which carry the spectra of the golden clock and of the sun s = c'^10, the regular "
+        "classes 20 and 3": gcd(216, 1440) == 72 and N // 20 == 216 and N // 3 == 1440
+        and np.array_equal(reg[3], spine.mpow(k["c"], 10)) and np.array_equal(reg[20], k["golden"])
+        and all(principal.regular_steps().values()),
+        "it holds the step 4320/d of a regular order d exactly when d divides 60: the eleven regular orders 1, 2, 3, 4, "
+        "5, 6, 10, 12, 15, 20 and 30, all but the day's 8 and 24":
+            held == [d for d in sorted(reg) if 60 % d == 0] == [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30],
+    }
+
+
+def plane_synthemes():
+    """The secants through a point of PG(2,5) meet the conic in a syntheme: interior points are the ten, the
+    exterior points' self-polar triangles the five."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    exterior = [q for q in points if q not in conic and count[q] == 2]
+    interior = [q for q in points if q not in conic and count[q] == 0]
+    secant = {frozenset(pr): cross(label[pr[0]], label[pr[1]]) for pr in itertools.combinations(range(6), 2)}
+    through = lambda q: [pr for pr, L in secant.items() if on(L, q)]
+    pole = {cross(tangent[label[a]], tangent[label[b]]): frozenset((a, b)) for a, b in itertools.combinations(range(6), 2)}
+    syn = {q: frozenset(through(q)) for q in interior}
+    syn.update({q: frozenset(through(q) + [pole[q]]) for q in exterior})
+    perfect = lambda m: len(m) == 3 and len(set().union(*m)) == 6
+    five = {syn[q] for q in exterior}
+    triangles = [[q for q in exterior if syn[q] == m] for m in five]
+    polar = lambda q: (-q[2] % 5, 2 * q[1] % 5, -q[0] % 5)          # the polar line of q for the conic y^2 = xz
+    duads = [frozenset(dd) for dd in itertools.combinations(range(6), 2)]
+    det = lambda m: (m[0] * m[3] - m[1] * m[2]) % 5
+    pgl = {tuple(conic[sym2(m)(label[x])] for x in range(6)) for m in itertools.product(range(5), repeat=4) if det(m)}
+    H, sig, S5, sgn, U = _six_lines()
+    group = set(sig.values())
+    f = next(f for f in itertools.permutations(range(6))
+             if {tuple(f[s[f.index(x)]] for x in range(6)) for s in group} == pgl)
+    move = lambda p, m: frozenset(frozenset(sig[p][y] for y in pr) for pr in m)
+    special = {m for m in _matchings(range(6)) if len({move(p, m) for p in S5}) == 5}
+    to_conic = lambda m: frozenset(frozenset(f[y] for y in pr) for pr in m)
+    return {
+        "the three secants through an interior point of PG(2,5) meet the conic in a syntheme of its six points, and the "
+        "ten interior points give ten different synthemes": all(perfect(syn[q]) for q in interior)
+        and len({syn[q] for q in interior}) == 10,
+        "through an exterior point pass two secants, and with the duad of its two tangents they make a syntheme too: "
+        "the fifteen exterior points give five synthemes, three times each, at the vertices of a self-polar triangle, "
+        "and the five are a one-factorization, the other five of the fifteen":
+            all(perfect(syn[q]) for q in exterior) and len(five) == 5 and all(len(t) == 3 for t in triangles)
+            and all(on(polar(x), y) for t in triangles for x in t for y in t if x != y)
+            and Counter(pr for m in five for pr in m) == Counter({dd: 1 for dd in duads})
+            and five | {syn[q] for q in interior} == set(_matchings(range(6))),
+        "a labelling of the conic by the six Sylow labels carries the hub's exceptional sigma onto PGL(2,5), and with "
+        "it the five are the synthemes dot's special five, invariant under the exceptional S5, and the interior points "
+        "its ten": len(pgl) == 120 and {to_conic(m) for m in special} == five,
+    }
+
+
 # ------------------------------------------------------------------- the diagram
 
 DOTS = {
@@ -9188,6 +9505,17 @@ JOINS = [
     ("residue", "rootgraph", "the six-line quotient", "A S = S Q with Q = 10J - 4I: a root has 6 neighbours on its own line and 10 on each other, so the six A4 + A4 are an equitable partition of the root graph, and a reducing one (A commutes with S S^T), so the finite graph has no Schur memory across it (the hub, 23:38)", T, "six_lines"),
     ("time", "pgl", "the phase on the Sylow labels", "sigma_g fixes one Sylow label; f(p) = sigma_g^p(anchor) has f(p(j + 864)) = sigma_g f(p(j)) and f(p(3457 j)) = sigma_d f(p(j)) on all 4320 frames, 864 per label (the hub, 14:07)", T, "clock_sylow"),
     ("assignment", "binding", "one root of every pair", "taking one of each pair +-rho as whole multiplets gives an odd SU(5) anomaly and 25 doublets (Witten's anomaly), every time", OB, "assignment.chirality"),
+    ("circle", "memory", "24 maps, one orbit", "the circle maps onto the memory clock's group <A> = Z/90 in 24 ways, k -> A^(uk) for the units u, each with kernel <90>; A^u has A's cycle type 10^11 9 1, so the memory's normalizer in S_120 makes the 24 conjugate: the stepping is unique up to the memory's symmetry, without the selection (30 Oct)", T, "memory_quotients"),
+    ("memory", "vortex", "up to doubling", "for every map of the circle onto the memory clock the 9-cycle reads x -> u x mod 9, and u mod 9 is a power of 2, a primitive root mod 9: the vortex up to its doubling (30 Oct)", T, "memory_quotients"),
+    ("memory", "time", "up to doubling", "for every map of the circle onto the memory clock the 10-cycles read x -> u x mod 10, and u mod 5 is a power of 2, a primitive root mod 5: the time coordinate x mod 5 up to its doubling (30 Oct)", T, "memory_quotients"),
+    ("kerM", "gravity", "the massless tower", "on M4 x F the cross terms cancel, D^2 = D_M^2 (x) 1 + m^2 (1 (x) D_F^2): over every level of M4 sits the tower 0, 3m^2, 8m^2 (multiplicities 5, 8, 2), whose bottom is the five dark modes ker M, and the heat trace factorizes; M4 and m stay free (30 Oct)", gates.CONDITIONAL, "massless_tower"),
+    ("kerM", "cosmology", "the dark momentum", "the stiff sector is the five dark modes: the kernel projector 0 + P_kerM commutes with D^2, so a^3 P0 psi' is conserved on every flat FLRW background and the dark modes' energy falls as a^-6 (30 Oct)", gates.CONDITIONAL, "stiff_kernel"),
+    ("cosmology", "calibration", "the mass scale", "a calibration t -> tau t acts on the cosmos's free inputs, m -> m/tau and Lambda_cc -> Lambda_cc/tau^2, with the same a and psi, so the cosmos has no internal time unit either; in the decoupling limit its flow is the native flow in u = m t, a calibration with tau = 1/m (30 Oct)", gates.CONDITIONAL, "cosmos_calibration"),
+    ("G120", "residue", "the unit group", "G120 acts on the tick's residue field F25 by multiplication, with kernel the tick <g> and image all of F25^x, the day's 24 powers: G120 / <g> = F25^x and G120 = <g> x| <d>, the day doubling the tick (30 Oct)", T, "day_units"),
+    ("frame", "census", "A8", "the frame's 72 roots are an A8, and each dual vector w_j is a point of order 3 whose stabilizer is exactly that A8: the band is critical there at 252, the census's A8 family of 1920 points, the alcove's vertex of mark 3 and the principal steps 1440 and 2880 (30 Oct)", T, "frame_a8"),
+    ("AGL", "cube", "the Frobenius", "on the four-cube's vertices, the sixteen cuts of K5 mod 2 = F16 by delta({k}) -> zeta^k, the tick multiplies by a primitive fifth root of unity and the doubling is the Frobenius y -> y^2: AGL(1,5) acts as <zeta5> x| Gal(F16/F2) inside GammaL(1,16) (30 Oct)", T, "cube_frobenius"),
+    ("grain", "principal", "the regular steps", "on the principal circle the grain is the 60 points k rho/60, the golden step 216 = rho/20 times the sun's step 1440 = rho/3, with the spectra of the golden clock and the sun; it holds the steps of the eleven regular orders dividing 60, all but the day's 8 and 24 (30 Oct)", T, "grain_steps"),
+    ("pg25", "synthemes", "secants through a point", "the three secants through an interior point of PG(2,5) meet the conic in a syntheme: the ten interior points are the ten nonspecial synthemes, and the fifteen exterior points, in five self-polar triangles, give the special five, a one-factorization; a labelling that carries the exceptional sigma onto PGL(2,5) matches them with the Sylow labels' 10 + 5 (30 Oct)", T, "plane_synthemes"),
 ]
 
 # rows for docs/LEDGER.md: (join, the statement, the unified statement, status, layer)
@@ -9404,6 +9732,7 @@ LEDGER_ROWS = [
     ("the identity step (MODEL, 00:46-01:16)", "the band at the identity step is 240 = 248 - 8 mu(1)/phi(1)", "corrected: it is 0, the minimum; the formula holds for d > 1", T, "23"),
     ("the Petersen sequence (hub, 00:25)", "B B^T = 3I + A_Petersen = 4I + J - K, rank 10; P_source and (B B^T)^-1 as polynomials", "replayed and joined (synthemes -> Petersen)", T, "23"),
     ("the Weyl vector's order (MODEL, 00:04-00:38)", "46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's", "corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2", T, "23"),
+    ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
 ]
 
@@ -9550,6 +9879,9 @@ def _checks():
         "principal.band_on_circle": principal.band_on_circle, "principal.critical_steps": principal.critical_steps,
         "six_lines": six_lines,
         "petersen_sequence": petersen_sequence,
+        "memory_quotients": memory_quotients, "massless_tower": massless_tower, "stiff_kernel": stiff_kernel,
+        "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
+        "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
         "counts.tick_tock": counts.tick_tock, "counts.folded_bath": counts.folded_bath,
         "counts.pauli_quotient": counts.pauli_quotient, "counts.two_clocks": counts.two_clocks,
@@ -9614,13 +9946,14 @@ def dots_page():
     count = Counter(status for *_, status, _ in JOINS)
     lines += ["```", "", f"{len(DOTS)} dots and {len(JOINS)} joins: {count[T]} THEOREM, {count[SR]} SELECTED_REFERENCE, "
               f"{count[gates.CONDITIONAL]} CONDITIONAL and {count[OB]} OBSTRUCTION. With the obstructions left out, the "
-              "joins that hold connect every dot: the diagram is one piece, and no two maps hold it together: every dot "
-              "but the product geometry and FLRW lies on at least three maps, and removing any two maps leaves the "
-              "diagram connected, except that it can cut off those two conditional dots. THEOREM joins alone connect "
-              "every dot but the product geometry and FLRW, which attach through the conditional heat coefficients "
-              "(J10), the Friedmann flow and its stiff sector, and the memory clock, which attaches through selections "
-              "(one circle step is one memory step). No one or two THEOREM maps hold the THEOREM diagram together, and "
-              "they join every pair of levels at least twice.", "",
+              "joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and "
+              "neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, "
+              "leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. "
+              "Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: "
+              "the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum "
+              "and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all "
+              "conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two "
+              "dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.", "",
               "## Levels", "", "| level | what lives there | dots | joins inside | joins to the next level |",
               "|---|---|---|---|---|"]
     cell = lambda x: x.replace("|", "\\|")
@@ -9672,10 +10005,11 @@ def run():
         f"{LEVELS[k][0]}-{LEVELS[k + 1][0]} {len(b)}" for k, b in enumerate(lv["between"])) + " joins", T,
         all(lv["between"]), [[f"{j[0]} -> {j[1]}" for j in b] for b in lv["between"]])
     rest = sorted(sorted(c) for c in lv["theorem"] if len(c) > 1)
-    rep.add(f"THEOREM joins alone connect {len(DOTS) - 3} of the {len(DOTS)} dots; the product geometry and FLRW "
-            "attach only through CONDITIONAL joins (J10, the Friedmann flow and its stiff sector), and the memory clock "
-            "only through selections (one circle step is one memory step)", T,
-            len(lv["theorem"]) == 4 and all([d] in [sorted(c) for c in lv["theorem"]] for d in ("cosmology", "gravity", "memory"))
+    rep.add(f"THEOREM joins alone connect {len(DOTS) - 2} of the {len(DOTS)} dots: all but the product geometry and "
+            "FLRW, which need an external 4-manifold, cutoff and mass scale and attach only through CONDITIONAL joins "
+            "(J10, the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's "
+            "calibration); the memory clock is reached by the circle's 24 maps onto it, without the selection", T,
+            len(lv["theorem"]) == 3 and all([d] in [sorted(c) for c in lv["theorem"]] for d in ("cosmology", "gravity"))
             and len(rest) == 1, dict(lv["statuses"]))
     nb = no_bridge()
     rep.add("no dot hangs by one join: every dot has at least two maps, and removing any one map leaves the diagram "
@@ -9685,13 +10019,16 @@ def run():
         f"{LEVELS[i][0]}-{LEVELS[j][0]} {lp[(i, j)]}" for i, j in itertools.combinations(range(len(LEVELS)), 2)), T,
         all(lp[p] for p in itertools.combinations(range(len(LEVELS)), 2)), dict(lp))
     n2 = no_two_maps()
-    rep.add("no two maps hold the diagram together: every dot but the product geometry and FLRW lies on three maps, and "
-            "removing any two leaves it connected, except that it can cut off those two conditional dots", T,
-            all(n2.values()), n2)
+    rep.add("no two maps hold the diagram together: every dot lies on at least three maps, and removing any two maps "
+            "leaves it connected", T, all(n2.values()), n2)
     tc = theorem_connectivity()
-    rep.add(f"no one and no two THEOREM maps hold the THEOREM diagram together: its {len(DOTS) - 3} dots each lie on at "
+    rep.add(f"no one and no two THEOREM maps hold the THEOREM diagram together: its {len(DOTS) - 2} dots each lie on at "
             "least three THEOREM maps, removing any two THEOREM maps leaves them connected, and every pair of the six "
             "levels is joined directly by at least two THEOREM maps", T, all(tc.values()), tc)
+    nd = no_two_dots()
+    rep.add(f"no one and no two dots hold the diagram together: removing any two of the {len(DOTS)} dots, with their "
+            f"maps, leaves the rest joined, and removing any two of the {len(DOTS) - 2} THEOREM dots leaves the rest "
+            "joined by THEOREM maps", T, all(nd.values()), nd)
     a8 = air_801()
     rep.add("AIR_801's matrix [[108, 801], [106, 901]]: det 12402; mod 5 a Singer cycle of order 24 in GL(2,5) and 6 in "
             "PGL(2,5); the clock polynomial has degree 27 and a simple root at 1", T, all(a8.values()), a8)
