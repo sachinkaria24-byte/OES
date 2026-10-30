@@ -1875,6 +1875,27 @@ So THEOREM maps alone connect every dot but the product geometry, FLRW and the m
   - The separate model's reconciled capsule (00:30) is recorded from its certificate.
   - Not replayed: the hub's operator tomography, its erasure costs and orbits, the attained energy minimum and its interval, the J7 quotients, the delayed-Return cutset and the congestion bound.
 
+**The 01:17 check.** The sibling's MODEL went through eight editions between 00:46 and 01:16 (326 checks). The hub's text was revised at 00:52: it has a new opening chapter, over the preserved v23 paper, its 360/093 paper v14 and three source appendices. The readings replay (THEOREM, `notes_0117`):
+- **The native moments through order 8** (the hub's v14). H⁴ applied to the port column reaches 4770696 lattice sites. It gives m₇ = 40427488329573760 and m₈ = 9664268760217668816, the hub's values. All nine moments are the binomial transform of its adjacency moments.
+  - The 5 × 5 Hankel determinant is 925993405224288478170979103007 > 0.
+  - The monic norms are 1, 389, 219823907/389, 275042684645559311/219823907 and 925993405224288478170979103007/275042684645559311.
+  - The new Jacobi entries are a₃ = 9170078120306091261578543712/60460957530555757944248077 and b₄² = 203555488192637304566628840438354188349/75648478377036587574008272018794721.
+- **The five-site port** (the sibling). Take five roots with pairwise products 1.
+  - They carry the uniform moments 1, 236, 56144 (variance 448) and the contrast moments 1, 241, 58264, 14121093 (variance 183). The contrast moments are E_(k+1)/240.
+  - The next Lanczos coefficient is 35366/183, and 58702 − 242² = 138.
+- **Correction.** The sibling applies the band formula of §29 at d = 1 and gets ε = 240 at the identity step. At the identity step the band is 0, the minimum. The formula 248 − 8μ(d)/φ(d) holds only for d > 1, because at d = 1 the 240 roots add 240 to the character.
+- **The pentagon metric** (the sibling). The circulant [4, 1, −2, −2, 1] has characteristic polynomial (t − 2)(t² − 9t + 9)² and determinant 162. Since det(I + J) = 6 and 162/6 = 27 is not a square, the two forms are not rationally isometric. Mod 241, (183I + 58J)(54I + 182J) = I for the six-site J.
+- **Arithmetic.**
+  - K5 has 125 spanning trees among the 210 four-edge sets.
+  - det(12I − 2J) = 41472 = 16² × 162.
+  - The golden convergents 13/8 and 21/13 are 1/104 apart, with φ between them.
+  - x ↦ 1 + 1/x and z ↦ z² − 1 share their fixed points and differ at 2.
+  - N33's sheet counts and claim counts add up.
+  - The clock orders hold.
+- **Recorded (REPORTED).**
+  - The canon's N33 release adds 29 source-graded claims from seven families in four tabs. It has no new matrix ids and changes no gate.
+  - Not replayed: the hub's F20 bridge, its pullback action, its two causal contracts and their five-time codes, the electrical-flow Green certificates, and the sibling's rounded Green values and noise constant.
+
 **Recorded (REPORTED).**
 - The separate model's update overlay (21:46), joined model (22:02) and checkpoint (22:04) were not downloaded or rerun. The joined model reports 158 check groups, 12 review groups, 80 matrices and 63 typed relationships, with SHA-256 b0c17731….
 - The canon's coordination release OES_COORD_20261029 adds one sheet to each workbook, keeps every prior cell and changes no gate.
@@ -2093,7 +2114,7 @@ Layer 27 showed that no lattice clock runs the canon's circle ℤ/4320, since ψ
 - At d = 30, Kostant's theorem makes exp(2πiρ/30) conjugate to a lift of c′ (cited). So the canon's step 144 is the Coxeter clock's lift, and the selection 144 → c′ is this identification.
 - The steps 180 and 216 carry the spectra of the day (order 24) and of the golden clock (order 20). 216 is the canon's golden step, B^k ↦ 216k.
 
-**The band on the circle** (THEOREM). At the step 4320/d of a regular order, the Ramanujan sum gives ε = 248 − 8μ(d)/φ(d):
+**The band on the circle** (THEOREM). At the step 4320/d of a regular order d > 1, the Ramanujan sum gives ε = 248 − 8μ(d)/φ(d). At d = 1, the identity step, the band is 0, since there the 240 roots add 240 to the character:
 
 | d | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 15 | 20 | 24 | 30 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -2184,6 +2205,7 @@ The circle's highest point is the band's top, 256. It is reached only at the hal
 - the sibling's notes of 00:53–01:54 UTC in One Machine 20261028 (SPECTRA 1XAwbGqq-bpRsMxrbetQlW0lah4B-l0sS through ORTHOGONAL_126 1nKog02yNgbI_yI6HaGAsjf2PyzqUby2E), its `SPINE_20261029.md` (11IVa2lSEM5KvuWtfFjsMTUiXGGMSE431, 01:19) and `tick_projectors_20261029.json` (1TaXLpv8crWjDyexy4c8jDWLSyFBCeDTM); the separate model's `oes-unified-verification-20261029.json` (1DQeQPkAvhDcBvxt7ivKkymfgl8i2EALr), whose archive (1kCDYiwyyojn_6wPvmvYljIn5iyOY1z07) was not downloaded; and the hub's release K: `CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`, the canon claim (1reTu4JDVmPAKi_LwHKQmi7Z5WI4V0oOD) and `OES CANON K — All Dots Joined` (18KWbs2MegxS3fnUZk--GCp0E3qVVuDKM7_afaATNFw8): §24, the 01:54 items
 - the sibling's 29 notes of 01:57–02:49 UTC in One Machine 20261028 (SPECTRUM_AND_ATLAS 1YbuvI-R5Jvg_LKPj-jr01qThouvXCj8Z through TRIPLET 1ytAA4-bW0wJE5RUeB_XEKCxUD4kE6vWH), with the 02:28 `spine29.ts` (1uukXRmY8FJd82BRuIoQsdtFJmTlt__OT) and `Spine29.tsx` (1dSbsIrGP6lOdTgBkvayor0LLaiyr9Vyl), read as text (the 02:09 editions were not read); the hub's `OES_All_Dots_Canon_Completion_20261029.md` (1KgWhZMEVArTIGBZeoVwFGwQeZNkZPvjb), the Canon K doc as revised at 02:37, releases K+ADDENDUM2 and K+ADDENDUM3 (`CURRENT_STATUS.csv`, `CURRENT_RELEASE.json`, `00_START_HERE.txt`) and the claims CLAIM_CANON_20261029T021345Z, T023124Z and T024136Z; the zips (16Q9SxQB7DUlNnbCRcrqi3Zn9XS9HL56n, 1bS_Ja-VF-0kJv39WyCG7QSJ7lE95QEyv, 1tOI5EqTBJ_06P17435bArm0iTgqUYZrp) were not downloaded: §24, the 02:52 items
 - the sibling's MODEL_20261029.md editions of 19:37–20:02 (the latest, 1_TfETkjO8Ra6ofUhZi0PTrIXc9ODtzfU, read as text) and the hub's `OES_Unified_Model_20261029.txt` as revised at 19:39, read as text (its zip, 6685879 bytes, not downloaded); the spine29.ts editions and the OES-paper PDFs of 19:37–20:02, not read: §24, the 19:50 check
+- the sibling's MODEL_20261029.md editions of 00:46–01:16 (the latest, 1I-mWXqMR3vlPgN6uvVNkWMj3aBXeebit, read as text) and its spine29.ts of 01:16 (1I-VU62ATUyA3ymtjMfLfQlmjW3L81qo4, read as data, not run); the hub's `OES_Unified_Model_20261029.txt` as revised at 00:52 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text); and the canon's N33 receipt `OES_N33_CURRENT_RELEASE_20261030.json` (1kGoapJLSn4iNFUYAIs7UIabIe3RhNk6U), read, with the N33 workbooks not opened: §24, the 01:17 check
 - the sibling's MODEL_20261029.md editions of 00:04–00:38 (the latest, 1YhjEraQJ9HyNrq1Fuz2GQEFpiz0KNaMF, read as text) and its spine29.ts of 00:38 (1VP_mNDgMp2vMQVqbi82Q6fOBX_fayW6_, read as data, not run); the hub's `OES_Unified_Model_20261029.txt` as revised at 00:25 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text; its zip not downloaded); the canon's N32 receipt `N32_CURRENT_RELEASE_20261030.json` (1M68h_jaOiFV-EUguyFceiVjzWvYcG9zn), read, with the N32 workbooks not opened; and the separate model's `oes-reconciled-verification-20261030-0030.txt` (1n0F3DuySy9JtFAu5xSZRWpN87RwoGFHi), read, with its capsule, source patch and checkpoint not downloaded: §24, the 00:32 check
 - the sibling's MODEL_20261029.md editions of 23:26–00:00 (the latest, 1WtY6rkRZ5bFIQHwk2UXlVUYwPQIBtlmw, read as text) and its spine29.ts of 00:01 (1ymowmsgoV-2NGkKehuuzgTXhNhFbptnR, read as data, not run); the hub's `OES_Unified_Model_20261029.txt` as revised at 23:38 (171m7A94wFGIG0nE6bvGvCbpfn8WQ9sqy, read as text; its zip not downloaded); the canon's N31 receipts `CURRENT_RELEASE_N31_20261030.json` (1yP_D0tX0SExyszG3wUHXXalgXrmEGQs1) and `N31_FOUR_COPY_RECEIPT_20261030.json` (1L7UPtCyS30HPQQwysGL4sPdLzD0Ak6y5), read, with the N31 workbooks not opened; and the separate model's certificates `oes-reviewed-verification-20261029-2146.txt` (1632yg1kqGaTNfqOasfyyyrrOuoKZqFaz) and `oes-extended-verification-20261029-2340.txt` (1JdEo0hx3c15WMw-k8xiw3N6U6EmB-5VU), read, with their capsules and source dumps not downloaded: §24, the 23:56 check
 - the sibling's MODEL_20261029.md editions of 23:07–23:22 (the latest, 18QlOd4kkIAIBEhN2rfdlCJimH_Q236Up, read as text): §24, the 23:25 check

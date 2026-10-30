@@ -808,6 +808,7 @@ The maps that join each pair of levels directly.
 | the board's fine-structure digits (BOARD_A, ALPHA_JOIN) | a = 0.0072973525664 is written by hand; no e, hbar, c, electron mass or length is stored, the canon removed alpha = 1/137, and nothing here forms alpha or r_2 | UNFORMED |
 | SEVEN_PAIRS's decoder | D4 C4 = I3 and the reading ladder need operands not stored here | REPORTED |
 | the separate model's reconciled capsule (00:30) | 5032710 bytes, 189 new check groups and 887 matrix references, with a source patch of 8240856 bytes; certificate read, nothing decoded or run | REPORTED |
+| the canon's N33 release (00:59-01:06) | 29 selected-reference source-graded claims from seven families in four new tabs (3750 and 3705 sheets), no new matrix ids and no gate changes; read from its receipt | REPORTED |
 | the canon's N32 release (00:04-00:13) | 25 source-graded claims from nine sources in four new tabs (3746 and 3701 sheets), no new matrix ids and no gate changes; read from its receipt | REPORTED |
 | the separate model's reviewed and extended capsules (21:46, 23:40) | 1692628 and 6462293 bytes; 72 and 271 new check groups, 26 and 1572 matrix references; certificates read, capsules not decoded or run | REPORTED |
 | the canon's N31 release (23:36-23:40) | 29 source-reported claims in four new tabs (3742 and 3697 sheets), no new matrix ids and no gate changes; read from its two receipts | REPORTED |

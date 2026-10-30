@@ -8508,30 +8508,36 @@ def notes_2356():
 
 @functools.lru_cache(maxsize=None)
 def _wedge_moments():
-    """The root-wedge port's moments m_n = t^T H^n t / t^T t through n = 6, from H^3 t on the lattice (t = column e01)."""
+    """The root-wedge port's moments m_n = t^T H^n t / t^T t through n = 8, from H^4 t on the lattice (t = column e01).
+    H pushes 240 f(x) to x and -f(x) to the 240 neighbours x + r; the sums stay below 2^53, so float weights are exact."""
     R10, V, W, Bw, G, h, Hc = _wedge()
     R2 = np.asarray(R10, dtype=np.int64) // 5
     off, base = 64, 128
     w = base ** np.arange(8, dtype=np.int64)
 
-    def apply_h(keys, vals):
+    def push(keys, vals):
         pts = np.stack([(keys // base ** i) % base - off for i in range(8)], axis=1)
         nk = np.concatenate([keys, ((pts[:, None, :] + R2[None, :, :]).reshape(-1, 8) + off) @ w])
         nv = np.concatenate([240 * vals, np.repeat(-vals, 240)]).astype(float)
         u, inv = np.unique(nk, return_inverse=True)
-        s = np.rint(np.bincount(inv, weights=nv)).astype(np.int64)
+        return u, np.bincount(inv, weights=nv)
+
+    def apply_h(keys, vals, chunk=60000):
+        parts = [push(keys[lo:lo + chunk], vals[lo:lo + chunk]) for lo in range(0, len(keys), chunk)]
+        u, inv = np.unique(np.concatenate([k for k, _ in parts]), return_inverse=True)
+        s = np.rint(np.bincount(inv, weights=np.concatenate([v for _, v in parts]))).astype(np.int64)
         return u[s != 0], s[s != 0]
     t = np.asarray(Bw[:, 0], dtype=np.int64)
     keys, vals = (R2[t != 0] + off) @ w, t[t != 0]
     order = np.argsort(keys)
     seq = [(keys[order], vals[order])]
-    for _ in range(3):
+    for _ in range(4):
         seq.append(apply_h(*seq[-1]))
 
     def dot(a, b):
         _, ia, ib = np.intersect1d(a[0], b[0], return_indices=True)
         return sum(int(x) * int(y) for x, y in zip(a[1][ia], b[1][ib]))
-    raw = [dot(seq[i // 2], seq[(i + 1) // 2]) for i in range(7)]
+    raw = [dot(seq[i // 2], seq[(i + 1) // 2]) for i in range(9)]
     return [sp.Rational(r, raw[0]) for r in raw], [len(k) for k, _ in seq]
 
 
@@ -8615,7 +8621,7 @@ def notes_0032():
         "the root-wedge port's moments through order 6 recomputed on the lattice (H^3 on 897672 sites from the column "
         "e01) are 1, 232, 54213, 12740592, 3008062816, 712951229280 and 169533368834085: the hub's native m5 and m6 "
         "replay, and they are the binomial transform of its adjacency moments 1, 8, 453, ..., 22553934885":
-            m == [1, 232, 54213, 12740592, 3008062816, 712951229280, 169533368834085] and supports[0] == 152
+            m[:7] == [1, 232, 54213, 12740592, 3008062816, 712951229280, 169533368834085] and supports[0] == 152
             and all(m[k] == sum(sp.binomial(k, j) * 240 ** (k - j) * (-1) ** j * adj[j] for j in range(k + 1))
                     for k in range(7)),
         "their 4 x 4 Hankel determinant is 275042684645559311, the new Jacobi coefficients are a2 = 14038040210424/"
@@ -8665,6 +8671,114 @@ def notes_0032():
             and 5.00074396355 < 5.001 and 5.00015251952 < 5.0005 < 5.00074396355
             and [order(s) for s in (12, 15, 105, 95, 60, 30, 232, 64, 512, 17, 99, 1435, 54, 162)]
             == [360, 288, 288, 864, 72, 144, 540, 135, 135, 4320, 480, 864, 80, 80] and land(8) == land(1728) == 1728,
+    }
+
+
+def notes_0117():
+    """The hub's 00:52 text (with the preserved 360/093 paper: the native moments through 8) and the sibling's MODEL
+    (00:46-01:16): m7 and m8 on the lattice, the five-site port's sectors, the identity step (a correction), the
+    pentagon metric and the arithmetic."""
+    N = 4320
+    order = lambda s: N // gcd(s, N)
+    m, supports = _wedge_moments()
+    adj = [1, 8, 453, 27168, 2195296, 209077920, 22553934885, 2673812041040, 341474102417616]
+    dets = [sp.Matrix(k, k, lambda i, j: m[i + j]).det() for k in range(1, 6)]
+    x = sp.Symbol("x")
+    L = lambda p: sum(c * m[i] for i, c in enumerate(reversed(sp.Poly(sp.expand(p), x).all_coeffs())))
+    p, a, b2 = [sp.Integer(1), x - m[1]], [m[1]], []
+    for n in (1, 2, 3):
+        a.append(L(x * p[n] ** 2) / L(p[n] ** 2))
+        b2.append(L(p[n] ** 2) / L(p[n - 1] ** 2))
+        p.append(sp.expand((x - a[n]) * p[n] - b2[-1] * p[n - 1]))
+    b2.append(L(p[4] ** 2) / L(p[3] ** 2))
+    R10 = _wedge()[0]
+    Hn = _walk_entries()
+    E = [Hn(np.zeros(8, dtype=np.int64), n) for n in range(4)]
+    S = [Hn(np.asarray(R10[0], dtype=np.int64), n) for n in range(4)]
+    uniform, contrast = [E[n] + 4 * S[n] for n in range(3)], [E[n] - S[n] for n in range(4)]
+    rs = principal.weyl_vector()[1]
+    Rst = spine.frame()[4]
+    band0 = 240 - np.cos(2 * np.pi * (Rst @ (0 * rs))).sum()
+    C5 = sp.Matrix(5, 5, lambda i, j: [4, 1, -2, -2, 1][(j - i) % 5])
+    t = sp.Symbol("t")
+    J6, J5 = sp.ones(6, 6), sp.ones(5, 5)
+    E10 = list(itertools.combinations(range(5), 2))
+    P4 = list(itertools.combinations(range(4), 2))
+
+    def tree(es):
+        parent = list(range(5))
+
+        def find(u):
+            while parent[u] != u:
+                u = parent[u]
+            return u
+        for u, v in es:
+            ru, rv = find(u), find(v)
+            if ru == rv:
+                return False
+            parent[ru] = rv
+        return True
+    trees = sum(1 for es in itertools.combinations(E10, 4) if tree(es))
+    phi = (1 + sp.sqrt(5)) / 2
+    conv = [sp.Rational(sp.fibonacci(n + 1), sp.fibonacci(n)) for n in range(2, 8)]
+    g = lambda z: z ** 2 - 1
+    lo = sp.Rational(146357822798943902250, 84570222726627452591)
+    return {
+        "the root-wedge port's moments through order 8 on the lattice (H^4 on 4770696 sites from the column e01): m7 = "
+        "40427488329573760 and m8 = 9664268760217668816, the hub's values, and all nine are the binomial transform of its "
+        "adjacency moments 1, 8, 453, ..., 341474102417616":
+            m[7:] == [40427488329573760, 9664268760217668816] and supports[4] == 4770696
+            and all(m[k] == sum(sp.binomial(k, j) * 240 ** (k - j) * (-1) ** j * adj[j] for j in range(k + 1))
+                    for k in range(9)),
+        "the 5 x 5 Hankel determinant is 925993405224288478170979103007 > 0, the monic norms are 1, 389, 219823907/389, "
+        "275042684645559311/219823907 and 925993405224288478170979103007/275042684645559311, and the next Jacobi entries "
+        "are a3 = 9170078120306091261578543712/60460957530555757944248077 and b4^2 = "
+        "203555488192637304566628840438354188349/75648478377036587574008272018794721":
+            dets[4] == 925993405224288478170979103007
+            and [dets[0]] + [dets[k] / dets[k - 1] for k in range(1, 5)]
+            == [1, 389, sp.Rational(219823907, 389), sp.Rational(275042684645559311, 219823907),
+                sp.Rational(925993405224288478170979103007, 275042684645559311)]
+            and a[3] == sp.Rational(9170078120306091261578543712, 60460957530555757944248077)
+            and b2[3] == sp.Rational(203555488192637304566628840438354188349, 75648478377036587574008272018794721),
+        "five roots with pairwise products 1 carry the uniform moments 1, 236, 56144 (variance 448) and the contrast "
+        "moments 1, 241, 58264, 14121093 (variance 183), the contrast being E_(k+1)/240; the next Lanczos coefficient is "
+        "35366/183, and 58702 - 242^2 = 138":
+            uniform == [1, 236, 56144] and contrast == [1, 241, 58264, 14121093] and uniform[2] - 236 ** 2 == 448
+            and contrast[2] - 241 ** 2 == 183 and contrast[3] - 482 * contrast[2] + 241 ** 2 * contrast[1] == 35366
+            and 58702 - 242 ** 2 == 138,
+        "correction: at the identity step the band is 0, the minimum, not 240; the formula 248 - 8 mu(d)/phi(d) of layer "
+        "28 holds for d > 1, since at d = 1 the 240 roots add 240 to the character":
+            abs(band0) < 1e-12 and 248 - 8 * sp.mobius(1) // 1 == 240,
+        "the pentagon metric [4, 1, -2, -2, 1] has characteristic polynomial (t - 2)(t^2 - 9t + 9)^2 and determinant "
+        "162; det(I + J) = 6 and 162/6 = 27 is no square, so the two forms are not rationally isometric; mod 241, "
+        "(183I + 58J)(54I + 182J) = I for the six-site J":
+            sp.factor(C5.charpoly(t).as_expr()) == sp.factor((t - 2) * (t ** 2 - 9 * t + 9) ** 2) and C5.det() == 162
+            and (sp.eye(5) + J5).det() == 6 and not sp.sqrt(27).is_rational
+            and ((183 * sp.eye(6) + 58 * J6) * (54 * sp.eye(6) + 182 * J6)).applyfunc(lambda z: z % 241) == sp.eye(6),
+        "the golden convergents 2/1, 3/2, 5/3, 8/5, 13/8, 21/13 end 1/104 apart with phi between the last two; x -> 1 + 1/x "
+        "and z -> z^2 - 1 share the fixed-point equation and differ at 2 (3/2 against 3); the quadratic's multipliers "
+        "1 +- sqrt5 multiply to -4 and both exceed 1 in size, and 0 <-> -1 is its superattracting 2-cycle":
+            conv == [2, sp.Rational(3, 2), sp.Rational(5, 3), sp.Rational(8, 5), sp.Rational(13, 8), sp.Rational(21, 13)]
+            and abs(conv[5] - conv[4]) == sp.Rational(1, 104) and conv[5] < phi < conv[4]
+            and sp.simplify(1 + 1 / phi - phi) == 0 and sp.simplify(g(phi) - phi) == 0
+            and (1 + sp.Rational(1, 2), g(2)) == (sp.Rational(3, 2), 3)
+            and sp.expand((1 + sp.sqrt(5)) * (1 - sp.sqrt(5))) == -4 and (1 - sp.sqrt(5)) ** 2 > 1
+            and (g(0), g(-1)) == (-1, 0) and 2 * 0 * 2 * (-1) == 0,
+        "arithmetic: K5 has 125 spanning trees (Cayley) among C(10, 4) = 210 four-edge sets; 1 + 5 x 7 = 36; the "
+        "compound of I4 + J4 has determinant 125 and det(12I5 - 2J5) = 41472 = 16^2 x 162; Lambda^2 diag(2, 1, 1, 1, 1) "
+        "has eigenvalues 2^4 1^6; the Singleton bounds 21 - 17 + 1 = 5 and 25 - 12 + 1 = 14; C(21, 4) x 250 = 1496250; "
+        "N33's sheets 3750 and 3705 follow 14 = 2 + 3 + 4 + 5 and three steps of 4, with claims 12 + 29 + 25 + 29 = 95; "
+        "E4 < 7/4; the coordinates of rho have plain square sum 56492 against |rho|^2 = 620; and the clock orders hold":
+            trees == 125 and sp.binomial(10, 4) - trees == 85 and 1 + 5 * 7 == 36
+            and sp.Matrix(6, 6, lambda a, b: (sp.eye(4) + sp.ones(4, 4)).extract(list(P4[a]), list(P4[b])).det()).det() == 125
+            and (12 * sp.eye(5) - 2 * J5).det() == 41472 == 16 ** 2 * 162
+            and sp.Matrix(compound2(sp.diag(2, 1, 1, 1, 1))).eigenvals() == {2: 4, 1: 6}
+            and (21 - 17 + 1, 25 - 12 + 1) == (5, 14) and sp.binomial(21, 4) * 250 == 1496250
+            and 3738 - 3724 == 3693 - 3679 == 14 == 2 + 3 + 4 + 5 and 3738 + 12 == 3750 and 3693 + 12 == 3705
+            and 12 + 29 + 25 + 29 == 95 and lo < sp.Rational(7, 4)
+            and int((principal.weyl_vector()[0] ** 2).sum()) == 56492
+            and [order(s) for s in (138, 236, 183, 56, 63, 125, 7, 14121093, 1260720)]
+            == [720, 1080, 1440, 540, 480, 864, 4320, 1440, 6] and order(125) == order(5),
     }
 
 
@@ -9286,6 +9400,8 @@ LEDGER_ROWS = [
     ("the midpoint code (hub, 23:38)", "[15, 5, 6]: all 3003 ten-reading sets span, 10 of 5005 nine-reading sets fail", "replayed: the ten failures are the zero sets of the 3 + 3 splits", T, "23"),
     ("the selected matrix over F5 (MODEL, 23:26-00:00)", "D = [[1, 4], [1, 2]]: D^2 = 3C, D^6 = 3I, order 24, a 6-cycle on the lines", "replayed: D is conjugate in GL(2,5) to the inverse day d^-1", T, "23"),
     ("the native moments (hub, 00:25)", "m0..m6 = 1, 232, 54213, 12740592, 3008062816, 712951229280, 169533368834085; Hankel 275042684645559311; 0.00435118836 <= s <= 0.00436266657", "replayed: m5 and m6 recomputed on the lattice; the Hankel, Jacobi and Galerkin values hold; the congestion bound is stated", T, "23"),
+    ("the native moments through 8 (hub, 00:52)", "m7 = 40427488329573760, m8 = 9664268760217668816; 5 x 5 Hankel 925993405224288478170979103007; a3, b4^2", "replayed: m7 and m8 recomputed on the lattice (H^4 on 4770696 sites)", T, "23"),
+    ("the identity step (MODEL, 00:46-01:16)", "the band at the identity step is 240 = 248 - 8 mu(1)/phi(1)", "corrected: it is 0, the minimum; the formula holds for d > 1", T, "23"),
     ("the Petersen sequence (hub, 00:25)", "B B^T = 3I + A_Petersen = 4I + J - K, rank 10; P_source and (B B^T)^-1 as polynomials", "replayed and joined (synthemes -> Petersen)", T, "23"),
     ("the Weyl vector's order (MODEL, 00:04-00:38)", "46, 68, 91, 135, 110, 84, 57, 29 in a different order from Bourbaki's", "corrected: they are in the Bourbaki order, where the highest root is 2, 3, 4, 6, 5, 4, 3, 2", T, "23"),
     ("separate model's joined model (22:02)", "158 check groups, 80 matrices, 63 typed relationships", "recorded, not rerun", RP, "23"),
@@ -9336,6 +9452,9 @@ NOT_JOINED = [
     ("the separate model's reconciled capsule (00:30)", "5032710 bytes, 189 new check groups and 887 matrix references, with "
                                                         "a source patch of 8240856 bytes; certificate read, nothing decoded "
                                                         "or run", RP),
+    ("the canon's N33 release (00:59-01:06)", "29 selected-reference source-graded claims from seven families in four new "
+                                             "tabs (3750 and 3705 sheets), no new matrix ids and no gate changes; read "
+                                             "from its receipt", RP),
     ("the canon's N32 release (00:04-00:13)", "25 source-graded claims from nine sources in four new tabs (3746 and 3701 "
                                              "sheets), no new matrix ids and no gate changes; read from its receipt", RP),
     ("the separate model's reviewed and extended capsules (21:46, 23:40)", "1692628 and 6462293 bytes; 72 and 271 new "
@@ -10051,6 +10170,17 @@ def run():
             "erasure costs, the 119 five-cell erasure orbits, the attained energy minimum and its 106040-site interval, "
             "the J7 clock quotients and the delayed-Return cutset, the congestion bound itself, and the sibling's "
             "minimum-energy caps, defect formulas and rank ladders (their arithmetic replays)", RP, True)
+    n0117 = notes_0117()
+    rep.add("the 00:52 text and the 00:46-01:16 model: the native moments m7 and m8 on the lattice with the 5 x 5 Hankel "
+            "and the next Jacobi entries, the five-site port's sectors, the identity step's band 0 (a correction), the "
+            "pentagon metric, the golden convergents and the arithmetic", T, all(n0117.values()), n0117)
+    rep.add("Drive check 01:17: the sibling's MODEL editions of 00:46-01:16, the latest (01:16) read as text, with its "
+            "spine29.ts (01:16) read as data, not run; the hub's OES_Unified_Model_20261029.txt as revised at 00:52 (a "
+            "new opening chapter over the preserved v23 paper, the 360/093 paper v14 and three source appendices) read "
+            "as text; the canon's N33 release read from its receipt; the OES-paper PDFs not read", RP, True)
+    rep.add("not replayed: the hub's F20 bridge and positive operator family, the source pullback action, the two causal "
+            "input contracts and their five-time codes, the electrical-flow Green certificates and the sibling's "
+            "rounded lower Green values, source determinants and noise constant", RP, True)
     for name, why, status in NOT_JOINED:
         rep.add(f"not joined: {name}: {why}", status, True)
     return rep
