@@ -57,44 +57,44 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.58,
+  "1-carrier": 0.59,
   "2-spectral": 0.01,
-  "3-spacetime": 7.21,
-  "4-native": 90.21,
+  "3-spacetime": 5.74,
+  "4-native": 79.2,
   "5-observer": 0.19,
-  "6-gravity": 4.38,
-  "7-cosmology": 1.38,
-  "8-frontier": 33.76,
-  "9-joins": 8.4,
-  "10-literal": 33.01,
-  "11-glue": 0.13,
-  "12-binding": 0.03,
+  "6-gravity": 4.07,
+  "7-cosmology": 1.31,
+  "8-frontier": 33.35,
+  "9-joins": 6.79,
+  "10-literal": 31.32,
+  "11-glue": 0.18,
+  "12-binding": 0.02,
   "13-gates": 0.1,
-  "14-recurrence": 36.85,
-  "15-court": 1.41,
-  "16-handover": 1.32,
-  "17-waves": 0.72,
-  "18-snapshot": 1.57,
-  "19-spine": 4.28,
-  "20-canon": 5.27,
-  "21-ledger": 33.62,
-  "22-counts": 18.87,
-  "23-dots": 363.46,
-  "24-assignment": 3.63,
-  "25-unify": 4.41,
-  "26-primes": 3.72,
-  "27-places": 1.61,
-  "28-principal": 2.3
+  "14-recurrence": 34.26,
+  "15-court": 1.46,
+  "16-handover": 0.93,
+  "17-waves": 0.56,
+  "18-snapshot": 0.59,
+  "19-spine": 3.01,
+  "20-canon": 5.2,
+  "21-ledger": 31.05,
+  "22-counts": 19.99,
+  "23-dots": 452.53,
+  "24-assignment": 2.99,
+  "25-unify": 3.68,
+  "26-primes": 3.38,
+  "27-places": 1.43,
+  "28-principal": 2.14
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 902,
-   "total": 902
+   "passed": 936,
+   "total": 936
   },
   "OBSTRUCTION": {
-   "passed": 73,
-   "total": 73
+   "passed": 74,
+   "total": 74
   },
   "REMOVED": {
    "passed": 2,
@@ -113,8 +113,8 @@
    "total": 24
   },
   "CONDITIONAL": {
-   "passed": 29,
-   "total": 29
+   "passed": 32,
+   "total": 32
   },
   "REPORTED": {
    "passed": 155,
@@ -11181,6 +11181,509 @@
   },
   {
    "layer": "23-dots",
+   "name": "D5 -> binding: the 128 half-integer roots of E8 project onto D5's span as the 32 weights (+-1/2)^5, four over each, and W(D5) splits them by the parity of the minus signs into the half-spins 16 and 16' = -16, the stabilizer of u/2 being S5 = W(A4): the 16 is u/2 - e_S over the even subsets S of the sites, the singlet, the ten u/2 - e_a - e_b and the five e_a - u/2, the binding's 5 + Lambda^2 5 at opposite chiralities; the roots act minusculely, A4's inside each piece and +-(e_a + e_b) between them, and the cubic sum vanishes on R^5: B4's A(5) = A(Lambda^2 5) and, at h = u, (125 + 10 - 135)/8 = 0 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 128 half-integer roots of E8 project onto the span of the carrier's D5 (the first five coordinates, whose 40 roots +-e_i +- e_j lie in E8) as the 32 weights (+-1/2)^5, four roots over each": true,
+    "W(D5), the 1920 permutations with even sign changes, splits the 32 into two orbits of 16 by the parity of the minus signs, the half-spins 16 and 16' = -16, and the stabilizer of u/2 is exactly the 120 permutations, S5 = W(A4)": true,
+    "the 16 is u/2 - e_S over the even subsets S of the five sites: the singlet u/2, the ten u/2 - e_a - e_b and the five e_a - u/2, so on the SU(5) Cartan (h perpendicular to u) its weights are 0, the binding's 5 (e_a) and minus its Lambda^2 5 (-(e_a + e_b)): 5 + Lambda^2 5 at opposite chiralities, with a singlet": true,
+    "the 40 roots act minusculely (w.alpha in {0, +-1}, and w + alpha is in the 16 when w.alpha = -1): the 20 roots of A4 keep the singlet, the ten and the five, and the 20 roots +-(e_a + e_b) carry 1 -> 10 -> 5 and back": true,
+    "the cubic and linear sums over the 16 vanish identically on R^5, the D5 Cartan: at the binding's h = (1, 2, 3, 4, -10) this is A(5) - A(Lambda^2 5) = -900 + 900 (B4), and at h = u it is (125 + 10 - 135)/8 = 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "critical census -> five-site charges: as momenta x in R^8/E8, on the carrier's coordinates, the charges are census points: 2T3 = e3 - e4 is a root, Q has order 3 and Y order 6, and their integral roots have full rank, 128 for T3 (the weak A1 and an E7), 78 for Q (the colour A2 and an E6) and 38 for Y (the colour A2, the weak A1 and an A5 holding the twin A4'), so the band is critical there, at 224, 243 = 240 - 78 + 81 and 251: alcove reduction gives the vertices E7 + A1, E6 + A2 and A5 + A2 + A1 (120, 2240, 80640 points), off every W-conjugate of the principal circle, whose points of order 2, 3, 6 are D8, A8 and A4 + A3 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "2 T3 = e3 - e4 is a root and Q, Y are not half-periods: the charges are points of order 2, 3 and 6 of the momentum torus R^8 / E8 (3Q = (-1, -1, -1, 3, 0, 0, 0, 0) and 6Y lie in E8)": true,
+    "their integral roots (r.x in Z) have full rank 8: 128 for T3, the weak A1 and the E7 orthogonal to it; 78 for Q, the colour A2 and an E6; 38 for Y, the colour A2, the weak A1 and an A5 holding the twin's A4'": true,
+    "the band eps = 240 - sum cos(2 pi r.x) is 240 - 128 + 112 = 224 at T3, 240 - 78 + 81 = 243 at Q and 240 - 38 - 36 + 45 + 40 = 251 at Y, and its gradient sum r sin(2 pi r.x) vanishes exactly at each": true,
+    "alcove reduction carries each, by affine reflections, to the fundamental alcove's vertex omega_i/m_i of that type, of mark 2, 3 and 6: the census families E7 + A1, E6 + A2 and A5 + A2 + A1 of 120, 2240 and 80640 points, of Morse index 1, 2 and 5": true,
+    "none lies on the principal circle or a W(E8)-conjugate of it (the type is W- and E8-invariant): its points of order 2, 3 and 6 are of types D8, A8 and A4 + A3 (rank 7)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> spectral triple: the carrier's A4 modulo 2 is a 4-space of 16 half-periods, the even subsets of the sites, and the triple's 15 atoms are its nonzero points (the only S5-equivariant way): a duad at its root class e_a - e_b (type E7 + A1, band 224), a site at the class of the six norm-four vectors of A4 off it (type D8, band 256); the half-period form q = <x, x>/2 mod 2 is 1 on duads and 0 on sites, elliptic, so gamma = (-1)^q, the polar form <x, y> mod 2 is D + D^2 mod 2 (M between sites and duads, M M^T and M^T M inside), and S5 = W(A4) is its whole orthogonal group O^-_4(2) of order 120 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "x -> x mod 2 E8 is injective on A4 / 2 A4: the carrier's A4 gives a 4-space F2^4 of 16 half-periods, the even subsets of the five sites; its 15 nonzero points are the ten root classes +-(e_a - e_b) and five classes of norm-four vectors, each holding the six e_b + e_c - e_d - e_e off one site a (30 in all)": true,
+    "the half-period form q(x) = <x, x>/2 mod 2 is 0 on the five site classes and 1 on the ten duad classes, so it is elliptic (five singular points, an ovoid of PG(3, 2)), and the triple's grading is gamma = (-1)^q: +1 on the sites, -1 on the duads; the sites are half-periods of type D8 (band 256) and the duads of type E7 + A1 (224)": true,
+    "the polar form <x, y> mod 2 on the 15 atoms is D + D^2 mod 2: between a site and a duad it is the incidence M (D), among the sites M M^T = 3I + J and among the duads M^T M = 2I + A (D^2), all mod 2": true,
+    "S5 = W(A4) permutes the 16 classes as the sites and duads (so the identification is S5-equivariant, and the only such one: each atom's stabilizer fixes no other point of its kind), and it is the whole orthogonal group of q: the invertible q-isometries of F2^4 are exactly 120, O^-_4(2), and the 120 permutations act as 120 of them": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Petersen -> sound and light: |Curl| is the Petersen adjacency: Curl = *d1 joins an edge e only to the three edges f disjoint from it, with the sign of the permutation (e, f, c), c the fifth vertex, so Curl is a signing of the Petersen graph, of square 5I - B^T B = 5 P_cycle and spectrum +-sqrt5 (three each), 0^4 against the graph's 3, 1^5, (-2)^4; of its twelve pentagons, the Hamiltonian cycles of K5, six are positive and six negative, the pentagon and pentagram of each C5 having opposite signs, and a vertex permutation multiplies every sign by its own: the two A5-orbits (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "|Curl| is the Petersen adjacency: Curl = *d1 joins an edge e only to the three edges f disjoint from it, with Curl_ef = sgn(e, f, c), the sign of the permutation (e, f, c) with c the fifth vertex; it is symmetric": true,
+    "its square is 5I - B^T B = 5 P_cycle, so the signed graph has spectrum +-sqrt5 (three each) and 0^4, against the graph's 3, 1^5, (-2)^4": true,
+    "the Petersen graph has twelve pentagons, exactly the Hamiltonian cycles of K5; six have Curl-sign +1 and six -1, and for each of the six C5s its pentagon (step 1) and pentagram (step 2) have opposite signs": true,
+    "a vertex permutation multiplies every pentagon's sign by its own sign, so the positive six and the negative six are the two orbits of A5, swapped by every odd permutation": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "rotor plane -> sound and light: Curl keeps the rotor plane and acts on (pentagon, pentagram) as [[2, -1], [-1, -2]], trace 0 and square 5, so the plane holds the tick-fixed line of each helicity, pentagon - phi^-3 pentagram at +sqrt5 and pentagon + phi^3 pentagram at -sqrt5, and J_H = Curl/sqrt5 exchanges the golden lines phi pentagon + pentagram and pentagon - phi pentagram, the area forms of the two Penrose planes; on the four moving cycles Curl = -(I + 2(T + T^-1)), a polynomial in the edge tick, which the rotor plane alone escapes (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the rotor plane is the whole fixed space of the edge tick, spanned by the oriented pentagon and pentagram (Gram 5I), and lies in light": true,
+    "Curl keeps it and acts on (pentagon, pentagram) as [[2, -1], [-1, -2]], symmetric with trace 0 and square 5I": true,
+    "so the plane holds one line of each helicity, the tick-fixed ones: pentagon - phi^-3 pentagram at +sqrt5 and pentagon + phi^3 pentagram at -sqrt5": true,
+    "J_H = Curl/sqrt5 exchanges the golden lines phi pentagon + pentagram and pentagon - phi pentagram (the area forms of the two Penrose planes, 72 and 144 degrees)": true,
+    "on the four moving cycles Curl = -(I + 2(T + T^-1)), a polynomial in the edge tick, while on the rotor plane T = I and I + 2(T + T^-1) = 5: the rotor plane is exactly where the tick does not determine Curl": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "4-simplex -> binding: a face S is the weight 1_S of Lambda^|S| 5, so the binding's 5 and Lambda^2 5 (weights e_i and e_i + e_j) are the simplex's vertices and edges; for every traceless diagonal charge h the cubic sum of h(S) over grade k is a_k sum h_i^3 with a = 1, 1, -1, -1, 0, the SU(5) anomalies of Lambda^(k+1) 5 (the quadratic sums 1, 3, 3, 1, 0 times sum h_i^2); the complement S -> V - S negates h(S), so the binding's 5 + 10 at opposite chiralities is the edges and tetrahedra at one, and the even faces 1 + 10 + 5b (with the empty face) and the odd faces 5 + 10b + 1 are anomaly-free (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a face S is the weight 1_S of Lambda^|S| 5: the binding's weights e_i of the 5 and e_i + e_j of Lambda^2 5 are exactly the indicator vectors of the simplex's vertices and edges": true,
+    "for every traceless diagonal charge h the cubic sum of h(S) over the faces of grade k is a_k sum h_i^3 with a = 1, 1, -1, -1, 0, the SU(5) anomalies of Lambda^(k+1) 5; the linear sums vanish and the quadratic ones are 1, 3, 3, 1, 0 times sum h_i^2": true,
+    "the complement S -> V - S negates h(S) for every traceless h, carrying grade k to grade 3 - k: the tetrahedra carry the 5b, the conjugate of the vertices, and the triangles the 10b": true,
+    "so the binding's 5 (chirality -) + 10 (chirality +) is the edges plus the tetrahedra at one chirality, anomaly 1 - 1 = 0, and the even faces 1 + 10 + 5b and the odd faces 5 + 10b + 1 are each anomaly-free for every h": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "synthemes -> sound and light: the fifteen pair commutators C_ij of the six Sylow lines lie in light and are Curl-isotropic, and C^T Curl C is 80 times a signing of the line graph of K6, so the three commutators of each syntheme are pairwise Curl-orthogonal and span an isotropic subspace; for the five special synthemes (the one-factorization) they are orthogonal of square 64 and span a Lagrangian V_s, light = V_s + J_H V_s, the graph of an isometry of helicity +sqrt5 onto -sqrt5, with the five projectors summing to (5/2) P_cycle; for the ten others a signed sum vanishes and they span an isotropic plane (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the fifteen pair commutators C_ij of the six Sylow lines lie in light and are Curl-isotropic, and C^T Curl C is 80 times a signing of the line graph of K6: two commutators are Curl-orthogonal exactly when their duads are equal or disjoint": true,
+    "so the three commutators of each of the fifteen synthemes are pairwise Curl-orthogonal and span a Curl-isotropic subspace of light": true,
+    "for the five special synthemes (the one-factorization of the exceptional S5) they are orthogonal of square 64, and their span V_s is Lagrangian for the Hodge form: dimension 3, light = V_s + J_H V_s, so sqrt2 P_+ maps V_s isometrically onto the helicity +sqrt5 and V_s is the graph of an isometry of one helicity onto the other; the five projectors sum to (5/2) P_cycle": true,
+    "for the ten other synthemes the three are dependent, a signed sum vanishing, with Gram 64 and +-32, and span an isotropic plane": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Petersen -> readout: the readout 'one edge' at 01 observes 6 dimensions, the positions and velocities of the functions on the edge atoms constant on the Petersen distance classes of 01: the edge, its three neighbours 23, 24, 34 and the six edges at distance 2. D^2 = A^2 - I on the edges and the graph is distance-regular with intersection array {3, 2; 1, 1}, so the classes are equitable with quotient [[0, 3, 0], [1, 0, 2], [0, 1, 2]] of spectrum 3, 1, -2, and the readout sees D^2 = 8, 0, 3, every frequency; the classes are the orbits of the edge's stabilizer S2 x S3 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the named readout 'one edge' reads the position of the edge atom 01, and its observable space has dimension 6": true,
+    "it is spanned by the positions and the velocities of the indicators of the Petersen distance classes of 01: the edge itself, its three neighbours (the disjoint edges 23, 24, 34) and the six edges at distance 2": true,
+    "because D^2 = A^2 - I on the edges and the Petersen graph is distance-regular with intersection array {3, 2; 1, 1}: the classes are an equitable partition with quotient [[0, 3, 0], [1, 0, 2], [0, 1, 2]], of spectrum 3, 1, -2, so the readout sees D^2 = 8, 0, 3, every frequency 0, sqrt3, sqrt8": true,
+    "the classes are the orbits of the edge's stabilizer S2 x S3 (order 12), so the observable space is exactly the stabilizer's fixed space on the edge positions and velocities": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "root assignment -> spectral triple: a root of (10, 5) at carrier duad e and twin site i and a root of (5b, 10) at carrier site v and twin duad d, i not in d, sum to a root exactly when v lies in e, the root of (5, 10b) at the site e - v and the twin duad opposite {i} u d: so the 30 such 5 x 10 bracket tables are M, the block of the triple's D, and those with i in d are 0; the 10 x 10 tables (i != j) are the Petersen graph I + J - M^T M and the 5b x 5b ones (disjoint duads) M M^T - 4I, so on the carrier labels every bracket among the matter roots is read off D and D^2 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a root of (10, 5) at carrier duad e and twin site i and a root of (5b, 10) at carrier site v and twin duad d with i not in d sum to a root exactly when v lies in e, and the sum is the root of (5, 10b) at the carrier site e - v and the twin duad opposite {i} u d (600 brackets)": true,
+    "so each of the 30 such 5 x 10 bracket tables is the signless incidence M, the off-diagonal block of the triple's D = [[0, M], [M^T, 0]], and the 20 tables with i in d are 0": true,
+    "the 10 x 10 bracket tables at twin sites i != j are the Petersen graph I + J - M^T M, from the edge block of D^2, and at i = j they are 0": true,
+    "the 5b x 5b tables at disjoint twin duads are J - I = M M^T - 4I, from the vertex block of D^2, and 0 when the duads meet": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "product geometry -> sound and light: the acoustic system p' = -d0^T u, u' = d0 p squares to -D_s^2, D_s = d0 + d0^T = [[0, B], [B^T, 0]], odd on the triple's 15 atoms, D_s^2 = B B^T + B^T B with spectrum 0^7 5^8; Tr D_s^0, D_s^2, D_s^4 = 15, 40, 200 are the carrier's (the Witten index is -5 = 5 - 10 for both), so M4 x F_sound has the heat coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3 of M4 x F: the same G and Lambda_cc for every f, L and m, with 7 massless modes against 5; Tr D_s^6 = 1000 against Tr D^6 = 1240 first separates them, the 60 ordered triangles of K5 counting -1 for B (31 Oct)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "the acoustic system p' = -d0^T u, u' = d0 p squares to -D_s^2, with D_s = d0 + d0^T = [[0, B], [B^T, 0]] on the triple's 15 atoms, odd for its grading, and D_s^2 = B B^T + B^T B has spectrum 0^7 5^8 (the carrier's D^2: 0^5 3^8 8^2); D_s and D have the same entries up to sign": true,
+    "Tr D_s^0, D_s^2, D_s^4 = 15, 40, 200 are the carrier's moments, so (4 - tR/3) Tr exp(-t m^2 D_s^2) has the coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3 of M4 x F: for every f, L and m the two product geometries have the same G and Lambda_cc": true,
+    "and the same Witten index: ker D_s^2 is the uniform vertex line plus the six cycles, Tr(gamma on ker D_s^2) = 1 - 6 = -5, against the carrier's 0 - 5, so the massless towers have 7 modes against 5": true,
+    "Tr D^6 = 1240 and Tr D_s^6 = 1000 first separate them: the off-diagonal entries of M M^T and B B^T are +1 and -1, so the 60 ordered triangles of K5 count +1 and -1 on each side, 2 x 2 x 60 = 240": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "FLRW -> readout: on a flat FLRW background the dark modes enter the bright equations only through H, and H only through their energy |p|^2/2a^6, p = a^3 P0 psi' conserved: (ln a, H, the bright modes, |P0 psi'|^2) is a closed system, so (cited: uniqueness of solutions) the Dirac readout D psi(t), like a(t), reads the dark sector only through |p|; from the datum a dark shift with p turned in ker M leaves the record unchanged, |p|^2 = 4 -> 9 changes it, and at G = 0 the hidden sector ker M + ker M is hidden again: G makes one dark number observable (31 Oct)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "the dark modes enter the bright equations only through H, and H only through |P0 psi'|^2: P0 is the orthogonal projector onto ker D, D^2 P0 = 0, so the bright part of v' is -3 H (1 - P0) v - m^2 D^2 (1 - P0) psi, the dark part is -3 H P0 v, H' = -4 pi G (|(1 - P0) v|^2 + |P0 v|^2), |P0 v|^2 obeys s' = -6 H s, rho splits the same way and D psi = D (1 - P0) psi: (ln a, H, the bright modes, s) is a closed system": true,
+    "so (by uniqueness of solutions, cited) the Dirac readout D psi(t) and a(t) read the dark sector only through |p|^2 = s a^6, p = a^3 P0 psi' conserved; from the datum (|p|^2 = 4, P0 psi0 = 0), a dark shift k in ker M with p reflected inside ker M has the same bright data and the same |p|, hence the same record": true,
+    "while |p|^2 = 4 -> 9 changes both (the records differ by more than 1e-3, the integration tolerances being 1e-11): gravity makes one dark number observable": 1.0,
+    "and at G = 0, H' = 0 and the bright equations do not contain s: the readout's hidden sector ker M + ker M is hidden again": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "binding -> FLRW: on every flat FLRW background the dark O(5), the orthogonal part of the commutant's M5 block, and the dark shifts psi -> psi + k (k in ker D) are symmetries with the same a(t); their Noether charges, the momentum p = a^3 P0 psi' in ker D and the angular momentum a^3 P0 psi ^ P0 psi' = P0 psi ^ p in Lambda^2 ker D, are conserved and transform as the binding's 5 and 10; the dark modes move on a line along p, so the bivector is decomposable and contains p, and the checked datum starts at P0 psi0 = 0, so its bivector vanishes (31 Oct)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "an orthogonal X that is the identity off ker D lies in the commutant's M5 block (D^2 P0 = P0 D^2 = 0 gives X D^2 = D^2 X = D^2), so the dark O(5) commutes with D; with the dark shifts psi -> psi + k, k in ker D, it keeps the flat FLRW vector field and rho for symbolic G, Lambda_cc and m, so solutions go to solutions with the same a(t) (worked on an exact rotation and an exact reflection of ker D)": true,
+    "their charges, the momentum p = a^3 P0 psi' in ker D and the angular momentum a^3 P0 psi ^ P0 psi' in Lambda^2 ker D, are conserved along the flow, and the dark O(5) acts on them as on the binding's 5 and 10: p -> X p, L -> X L X^T": true,
+    "since P0 psi' = p/a^3 with p constant, the dark modes move on the line through P0 psi(0) along p and the bivector is P0 psi(0) ^ p, decomposable and containing p": true,
+    "the datum starts at P0 psi0 = 0 with |P0 v0|^2 = 4, so its dark angular momentum vanishes and only p, |p|^2 = 4, remains": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "five-site charges -> spectral triple: the triple's D carries a charge on the sites to its charge on the duads: D(q, 0) = (0, M^T q), (M^T q)_ij = q_i + q_j, the weights of Lambda^2 5, so Q goes to -2/3, 2/3, -1/3, 1 on the colour, colour-3, colour-4 and weak duads, the charges of u^c, u, d, e^c on the roots; as q is trace-free D(0, M^T q) = (3q, 0), so (sqrt3 q, +-M^T q) are eigenvectors at +-sqrt3 and |M^T q|^2 = 3|q|^2 (4, 5/2, 3/2 for Q, Y, T3): the index ratio of Lambda^2 5 to 5 is D^2 = 3 on the charges (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "D(q, 0) = (0, M^T q) with (M^T q)_ij = q_i + q_j, the weights of Lambda^2 5, for Q, Y and T3": true,
+    "Q goes to -2/3, 2/3, -1/3 and 1 on the colour, colour-3, colour-4 and weak duads, and these are the charges of u^c, u, d and e^c on the 50 roots of (10, 5)": true,
+    "as each charge is trace-free, D(0, M^T q) = (3q, 0): (sqrt3 q, +-M^T q) are eigenvectors of D at +-sqrt3, and the charge plane spanned by Y and T3 lies in D^2 = 3 on the vertex atoms": true,
+    "|M^T q|^2 = 3 |q|^2 (4 = 3 x 4/3 for Q, 5/2 = 3 x 5/6 for Y, 3/2 = 3 x 1/2 for T3): the second moment of the ten duad weights is M M^T = 3I + J, the triple's vertex block, so the quadratic index of Lambda^2 5 is 3 times that of 5 on every trace-free charge, the eigenvalue h(D5) - h(A4) = 8 - 5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "calibration -> spectral triple: a calibration t = tau u carries the triple to (A, H, D/tau, gamma): the physical generator is the first-order form of (D/tau)^2, with the frequencies omega_hat/tau, and layer 13's physical flow is its closed-form flow; the heat trace becomes Z(beta/tau^2), the zeta function tau^(2s) zeta_D(s), the spectral dimension d_s(beta/tau^2) and the spectral action at cutoff L the native one at tau L, so zeta(0) = 10, the Witten index -5 and the peak spectral dimension are invariant while Tr D^2 = 40 becomes 40/tau^2: the spectral action cannot tell a calibration from a change of cutoff (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the calibrated triple (A, H, D/tau, gamma) is again odd for gamma, and the physical generator [[0, I], [-D^2/tau^2, 0]] is the first-order form of (D/tau)^2: its square is -((D/tau)^2 + (D/tau)^2), its frequencies are the readout law omega_hat/tau, and layer 13's physical flow exp(t A_phys) is the closed-form flow of D/tau, for every tau": true,
+    "its heat trace is Z(beta/tau^2), its zeta function tau^(2s) zeta_D(s), its spectral dimension d_s(beta/tau^2) and its spectral action Tr f((D/tau)^2/L^2) the native one at cutoff tau L, for every f": true,
+    "so zeta(0) = 10 = rank D^2, the Witten index -5 and the peak spectral dimension (the supremum of a reparametrized d_s) are calibration-invariant, while Tr D^2 = 40 becomes 40/tau^2: only dimensionless spectral numbers survive, and the triple's spectral action cannot tell a calibration from a change of cutoff": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "readout -> sound and light: the readout's edge dynamics never keeps the Hodge split: for each of the 2^10 orientations of K5, sound + M^T M sound has dimension 7 (320) or 8 (704), so neither sound nor light is invariant under D^2 on the edges and P (+) P never commutes with A; with the canon's orientation the light reading P_light psi_E observes 18 of the 20 edge dimensions, blind to the line where sound meets the edges' D^2 = 3 space, and the sound reading 14, blind to ker M n light, three dark circulations, in position and velocity (31 Oct)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "for each of the 2^10 orientations of K5, sound + M^T M sound has dimension 7 (320 orientations) or 8 (704), never 4: neither sound nor its complement light is invariant under the carrier's edge block D^2|_E = M^T M, whatever the orientation": true,
+    "so for the canon's orientation the Hodge projectors do not commute with the readout's generator: P (+) P, with P the sound or the light projector on the edge atoms, does not commute with A = [[0, I], [-D^2, 0]], and Curl does not commute with M^T M": true,
+    "the light reading P_light psi_E meets the edge eigenspaces 0, 3, 8 in ranks 5, 3, 1 and observes 18 of the 20 edge dimensions, blind to the line E3 n sound of the 3-space; the sound reading meets them in 2, 4, 1 and observes 14, blind to ker M n light, three dark circulations, in position and velocity": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "datum -> readout: the datum is a state of the control system, with flow (1, 1, 1, 1, 1) cos(2 sqrt2 t) + c cos(sqrt3 t) on the vertices and M^T c cos(sqrt3 t) + t v0 on the edges, c = (1, -1, 0, 0, 0); of its energy 34 the observable part carries 23 for the vertex positions, 20 for the vertex sum, 11 for the edge positions and 32 for D psi, which sees psi0 whole and misses exactly the zero-mode drift t v0 and its 2; read one edge at a time, 01 and 23 record exactly t and 24 and 34 record 0 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the datum is an initial state of the readout's control system x' = A x, A = [[0, I], [-D^2, 0]], and its flow is psi = 1 cos(2 sqrt2 t) + c cos(sqrt3 t) on the vertices and M^T c cos(sqrt3 t) + t v0 on the edges, c = (1, -1, 0, 0, 0): x(0) = (psi0, v0) and x' = A x exactly": true,
+    "the observable part of the datum carries energy 23 for the vertex positions, 20 for the vertex sum, 11 = 9 + 2 for the edge positions, 32 for the Dirac image D psi and all 34 for all positions; the hidden part's record vanishes and the energy splits": true,
+    "the Dirac readout misses exactly the velocity's 2: D psi(t) is the record of (psi0, 0), the zero-mode drift t v0 lying in ker D": true,
+    "read at one edge, edges 01 and 23 record exactly t, the drift, and edges 24 and 34 record 0 for all t": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "triangle port -> root assignment: the port's six roots are the assignment's six gluon roots, with Y = T3 = Q = 0, and the colour Weyl group S3 = Sym{0, 1, 2} permutes them simply transitively with the port as its sign character: port = -sum sgn(w) delta_(w rho_c), rho_c = e_0 - e_2 the colour Weyl vector and the highest gluon root, so its Fourier transform -8i sin(x/2) sin(y/2) sin(z/2), x, y, z = k.(e_0 - e_1), k.(e_1 - e_2), k.(e_2 - e_0), is minus the Weyl denominator of the colour SU(3); of the 12 site permutations keeping Y the port keeps the six of C3 x S2, the kernel of the colour sign (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the triangle port's six roots are exactly the assignment's six gluon roots, and they carry no hypercharge, isospin or charge (colour weight nonzero)": true,
+    "the colour Weyl group S3 = Sym{0, 1, 2} permutes them simply transitively and the port is its sign character: port(w r) = sgn(w) port(r), the only such line": true,
+    "port = -sum_w sgn(w) delta_(w rho_c), rho_c = e_0 - e_2 the colour Weyl vector (half the sum of e_0 - e_1, e_1 - e_2, e_0 - e_2) and itself the highest gluon root": true,
+    "so its Fourier transform, -8i sin(x/2) sin(y/2) sin(z/2), is minus the Weyl denominator of the colour SU(3): sum port(r) e^(i k.r) = -prod_(a > 0) (e^(i k.a/2) - e^(-i k.a/2))": true,
+    "of the 12 site permutations keeping Y (S3 x S2), the 6 keeping the port are C3 x S2, the kernel of the colour sign": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Pauli algebra -> root assignment: x -> 5x carries the weights of A4 + A4' into E8 and the frame's index 5 is odd, so E8/2E8 is the orthogonal sum of the two factors' sixteen classes and M16(R) = M2(H) (x) M2(H), each factor generated by its five sites: five symmetric site Paulis, pairwise anticommuting, whose ten products are the antisymmetric duad Paulis; a root's Pauli is its pair +-rho, and (24,1), (1,24), (10,5), (5b,10) are duad x 1, 1 x duad', duad x site', site x duad': the 120 particle-antiparticle pairs are exactly the antisymmetric Paulis, decayed at 224 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "x -> 5x carries the weights of A4 + A4' into E8 and the frame has odd index 5, so E8/2E8 is the orthogonal sum of the carrier's sixteen classes and the twin's sixteen: their Paulis commute with each other and their products are the 256 Paulis, each once": true,
+    "in each factor the five site Paulis are symmetric, square to I and pairwise anticommute, and the ten duad Paulis, their products, are antisymmetric and are the factor's root classes e_a - e_b": true,
+    "each factor is M2(H): the colour duads 01, 12 give quaternion units and the weak sites 3, 4 their commutant M2(R), so M16(R) = M2(H) (x) M2(H)": true,
+    "a root's Pauli is its pair +-rho, and the classes are tensor types: (24,1) duad x 1, (1,24) 1 x duad', (10,5) and (10b,5b) duad x site', (5b,10) and (5,10b) site x duad', with the root's own duads and sites": true,
+    "so the 120 particle-antiparticle pairs are exactly the 120 antisymmetric Paulis, all decayed by L at 224, and the 135 symmetric ones (site x 1, 1 x site', site x site', duad x duad': 5, 5, 25, 100) are no root's": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Pauli algebra -> spectral triple: vertex a -> X_a, the Pauli of the spoke e_a + e_5, and edge ab -> X_a X_b, +- the Pauli of the rim e_a - e_b, carry H isometrically (trace form / 16) onto a Lie algebra of antisymmetric Paulis: L_a5 -> X_a/2, L_ab -> -X_a X_b/2 is an isomorphism from so(6) = su(4), the edges spanning so(5); -gamma is the involution of the symmetric pair so(6) > so(5), conjugation by a Pauli for exactly eight labels, six of them the family roots meeting the twin duad 34 once (e_5 + e_6 among them); and D_ve != 0 exactly when the two Paulis do not commute (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "vertex a -> X_a, the Pauli of the spoke e_a + e_5, and edge ab -> X_a X_b, which is +- the Pauli of the rim e_a - e_b, map H = l2(V u E) isometrically (trace form / 16) onto fifteen antisymmetric Paulis": true,
+    "their span is closed under the commutator and L_a5 -> X_a / 2, L_ab -> -X_a X_b / 2 is a Lie algebra isomorphism from so(6) = su(4); the edges span the so(5) fixing the apex": true,
+    "-gamma, +1 on the edges and -1 on the vertices, is the involution of the symmetric pair so(6) > so(5), and in M16(R) it is conjugation Ad phi(z) by a Pauli for exactly eight labels z, six of them roots, the family roots mu_a - mu_b meeting the twin duad 34 once (e_5 + e_6 among them)": true,
+    "D_ve != 0 exactly when the vertex's and the edge's Paulis do not commute, so D is the vertex-edge block of the bracket": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Pauli algebra -> five-site charges: the hypercharge's parity is inner: 6Y = (-2, -2, -2, 3, 3, 0, 0, 0) and 2T3 = e_3 - e_4, the W+ root, lie in E8 and differ by 2(-1, -1, -1, 1, 2, 0, 0, 0) in 2E8, so they have one Pauli; (-1)^(6Y.rho) = (-1)^(2T3.rho) on all 240 roots, the Z2 of the Standard Model's Z6, and conjugation by the W+'s Pauli fixes the Paulis of the SU(2) singlets and of W+-, and negates exactly those of the 56 doublet pairs, u, d, e, nu, X and Y (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "6Y = (-2, -2, -2, 3, 3, 0, 0, 0) and 2T3 = e_3 - e_4, the W+ root, are lattice vectors of E8, and they differ by 2 (-1, -1, -1, 1, 2, 0, 0, 0) in 2 E8, so they have one Pauli": true,
+    "so (-1)^(6Y.rho) = (-1)^(2T3.rho) on all 240 roots: the Z2 of the Standard Model's Z6 (every root's 6Y is an integer)": true,
+    "conjugation by the W+'s Pauli fixes the Paulis of the singlets (gluons, W, u^c, d^c, e^c, family) and negates exactly those of the 56 doublet pairs, u, d, e, nu, X and Y with their conjugates": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "eight-root frame -> half-periods: the frame's index 3 is odd, so its eight roots are an F2-basis of the half-periods Lambda / 2 Lambda, and since their Gram is I + J the half-period of a subset S has q = |S|(|S| + 1)/2 mod 2: the 120 nonsingular ones (E7 + A1, band 224) are the subsets of sizes 1, 2, 5, 6 and the 135 of type D8 (256) those of sizes 3, 4, 7, 8; the frame's A8 fills the 36 classes of sizes 1 and 2, two roots each, the other 168 roots those of sizes 5 and 6; the reflections in the r_i - r_j are the frame's S8, permuting the basis with the nine sizes as orbits (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the frame's eight roots (-e1 - e_i and -(1, ..., 1)/2) have integer root-basis coordinates with Gram I + J and determinant 3 (the index), odd: so they are an F2-basis of Lambda / 2 Lambda, the 256 subset sums being distinct half-periods": true,
+    "the half-period of a subset S has q = <y, y>/2 = |S|(|S| + 1)/2 mod 2 (the Gram is I + J), so the 120 nonsingular half-periods are the subsets of sizes 1, 2, 5, 6, with band 224 and integral roots E7 + A1 (126 + 2), and the 135 singular ones the subsets of sizes 3, 4, 7, 8, with band 256 and integral roots D8 (112); the sum of all eight, 3q = q mod 2, is a D8 half-period": true,
+    "every nonsingular class holds two roots, +-r; the frame's A8 (its 72 roots +-r_i and r_i - r_j) fills the 8 + 28 classes of sizes 1 and 2, and the other 168 roots the 56 + 28 of sizes 5 and 6": true,
+    "the reflection in r_i - r_j swaps r_i and r_j and fixes the other six, so the reflections in the differences generate the frame's S8 (the Weyl group of the A7 they span), which permutes the F2-basis: its orbits on the 256 half-periods are the nine subset sizes, 1, 8, 28, 56, 70, 56, 28, 8, 1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> root graph: r -> r mod 2 Lambda folds the root graph two to one onto the 120 nonsingular half-periods, joined when B(x, y) = <x, y> mod 2 is 1: a strongly regular graph (120, 56, 28, 24), the non-orthogonality graph of the nonsingular points of the GO8+(2) quadric, of which the root graph is the antipodal double cover (+-r over each class, a perfect matching over each edge); so its spectrum splits into the base's 56, 8^35, -4^84 on even functions and 28^8, -2^112 on odd ones, the signed graph being the classes' Gram minus 2I, with Gram 30 times a projector of rank 8 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "r -> r mod 2 Lambda maps the 240 roots two to one, +-r over each class, onto the 120 nonsingular half-periods (q = 1)": true,
+    "joining two classes when B(x, y) = <x, y> mod 2 is 1 gives a strongly regular graph (120, 56, 28, 24), the non-orthogonality graph of the nonsingular points of the half-period quadric of GO8+(2)": true,
+    "the root graph is its antipodal double cover: over each edge of the base the two fibres are joined by a perfect matching (<r, s> = 1 or -1 picks the signs), over each non-edge not at all": true,
+    "so the root graph's adjacency is block diagonal on even and odd functions (pi, sigma, orthogonal, together a basis): on even functions it is the base graph, on odd ones the signed graph, whose matrix is the Gram of the 120 class representatives minus 2I": true,
+    "the base has spectrum 56, 8^35, -4^84 (Ab^2 - 4 Ab - 32 I = 24 J, trace 0), and the Gram satisfies G^2 = 30 G (sum r r^T = 60 I over the 240 roots, halved over the classes) with trace 240, so the signed graph has 28^8, -2^112: the root graph's eigenvalues 56, 28, 8, -2, -4 split as 56, 8, -4 from the half-periods and 28, -2 from the lattice's eight directions": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 + A4' -> critical census: a momentum of order 5 has at least 40 integral roots, and exactly 40 at 48384 points, the census's A4 + A4 family (band 250, the roots' residues 40, 50, 50, 50, 50): there the integral roots are two orthogonal A4 spanning a sublattice L_x of index 5 with x a nonzero character of E8 / L_x, and x -> L_x is 4 : 1 onto 12096 sublattices, the fibre over each its characters k x; the carrier's L0 is one, its fibre the tick's four momenta integral on it, so the 12096 are the W(E8)-conjugates of L0, with stabilizer of order 57600 = 4 x 120^2 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a momentum of order 5 (x = B c / 5, c in (Z/5)^8) has at least 40 integral roots (<r, x> in Z), and exactly 40 at 48384 points; there the roots' residues 5<r, x> mod 5 are 40, 50, 50, 50, 50, so the band is 240 - 40 - 50 sum cos(2 pi k/5) = 250": true,
+    "these 48384 points are the census's A4 + A4 family: it is the W(E8)-orbit of the alcove vertex omega_5/5 (mark 5), of size |W(E8)| / |W(A4 + A4)| = 696729600 / 14400 = 48384, which lies among them, and the set is W(E8)-invariant": true,
+    "at each, the 40 integral roots are two orthogonal irreducible systems of 20 roots, so A4 + A4 (only A4 has 20 roots), spanning a sublattice L_x of determinant 25, index 5 in the unimodular E8, on which x is integral: x is a nonzero character of E8 / L_x = Z/5": true,
+    "x -> L_x is 4 : 1 onto 12096 sublattices, the fibre over each being its four nonzero characters k x, k = 1, ..., 4": true,
+    "the carrier's L0 = A4 + A4' is one of them, and its fibre is the four nonzero momenta of the tick that are integral on L0 (layer 23's characters of E8 / L0); since the family is one W(E8)-orbit, the 12096 are the W(E8)-conjugates of L0 and its stabilizer has 696729600 / 12096 = 57600 = 4 x 120^2 elements": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "icosians -> half-periods: 2 is inert in Z[phi] and the icosian algebra splits there: explicit matrix units give Lambda / 2 Lambda = I/2I = M2(F4), F4 = F2[phi], the reduced norm becoming the determinant; as alpha = phi/sqrt5 = phi mod 2, the half-period form is q(x) = Tr_F4/F2(phi det x), so the 120 nonsingular half-periods are det x = 1, the units two over each element of SL(2,4) = 2I/{+-1}, and det x = phi, the phi^-1 u, while the 135 of type D8 are the 75 matrices of rank 1 and the 60 of determinant phi^2 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the icosian ring is the model's E8 (eight icosians with the Cartan Gram, the 240 minimal icosians onto the 240 roots), so Lambda / 2 Lambda = I/2I, coordinates mod 2 in the eight icosians; 2 is inert in Z[phi] (x^2 - x - 1 has no root mod 2), F4 = Z[phi]/2 acting by multiplication by phi": true,
+    "explicit matrix units E11 (an idempotent), E12, E21, E22 make the F4-linear map M2(F4) -> I/2I a ring isomorphism, under which the reduced norm N(x) = x xbar mod 2 is the determinant": true,
+    "since alpha = phi/sqrt5 = phi mod 2, the half-period form is q(x) = <x, x>/2 = Tr_F4/F2(phi det x): q = 1 exactly for det in {1, phi}, 60 + 60 = 120 nonsingular half-periods, and q = 0 for det in {0, phi^2}, 76 + 60 = 136, the zero and 135 of type D8, of which 75 are the matrices of rank 1": true,
+    "the 120 unit icosians fall two to one (u and -u) onto the 60 classes of determinant 1, a group under the product, SL(2,4) = 2I/{+-1} = A5, and the 120 phi^-1 u two to one onto the 60 of determinant phi = phi^-2 mod 2: these are the root classes, +-r over each nonsingular half-period": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "icosians -> sun's decad: under W1 or W2 the Coxeter clock is c' = L_u R_b, q -> u q bbar, u the tick's order-5 unit and b of order 6 (trace 1), unique up to (-u, -b); so the sun c'^10 is R_w, w = b^4 of order 3, and its momenta F81 = E8/(1 - s)E8 are I/I(1 - wbar), N(1 - w) = 3; the 120 left multiplications act there as 120 distinct F9-linear maps of determinant 1, a 2I in SL(2,9), and on the decad as A5 = 2I/{+-1}, transitively with stabilizers of order 12 in 2I, each order-3 unit fixing exactly one F9-line: the ten 4A2 frames are the ten Sylow 3-subgroups of 2I (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the icosian ring is the model's E8 (the 240 minimal icosians onto the roots), and under W1 and W2 (the tick to the left multiplication by an order-5 unit u) the Coxeter clock is c' = L_u R_b, q -> u q bbar, with b of order 6 and trace 1: exactly two such factorizations, (u, b) and (-u, -b)": true,
+    "so the sun s = c'^10 is the right multiplication R_w, q -> q wbar, by w = b^10 = b^4 of order 3 (trace -1), and E8/(1 - s)E8 = F81 (Smith form 1^4 3^4) is I/I(1 - wbar), with N(1 - w) = 2 - (w + wbar) = 3": true,
+    "the 120 left multiplications commute with s and act on its momenta as 120 distinct maps commuting with phi, so F9-linear on F81 = F9^2, all of F9-determinant 1: a 2I inside SL(2,9)": true,
+    "on the decad (the ten F9-lines, ten 4A2 frames) they act as A5 = 2I/{+-1}, transitively, the stabilizer of each line of order 12, the normalizer of a Sylow 3-subgroup; each order-3 unit fixes exactly one line, and P -> the line its elements fix is a 2I-equivariant bijection from the ten Sylow 3-subgroups onto the ten lines": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "icosians -> A4 + A4': under W2 (the tick as L_u, trace -phi) the carrier's near roots +-(e_i - e_(i+1)) are a great decagon D = <-u>x of unit icosians, a right coset of the tick's cyclic group of order 10, and its far roots are exactly phi^-1 D, e_i - e_(i+2) = phi^-1 (e_(i+3) - e_(i+4)), whose Galois conjugate is the H2 star's far = phi x near: A4 = D u phi^-1 D; A4' is the same on <-u>tx, t of order 4, so the units of A4 + A4' are N x for the dicyclic normalizer N of <u> (order 20), and the six A4 + A4 of the residue lines are N x u phi^-1 N x over the six right cosets of N in 2I (W1 swaps the scales) (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the icosian ring is the model's E8, and under W2 (the tick to L_u, trace -phi) the carrier's ten near roots +-(e_i - e_(i+1)) are unit icosians and its ten far roots +-(e_i - e_(i+2)) are exactly phi^-1 times them, e_i - e_(i+2) = phi^-1 (e_(i+3) - e_(i+4)), the image of (X - I)(e_(i+3) - e_(i+4)) = e_i - e_(i+2) for X = -(g + g^-1) = phi; under W1 (trace phi^-1) the scales swap, the near roots being phi^-1 times the far": true,
+    "the ten unit roots of A4 are a right coset D = <-u>x of the tick's cyclic group of order 10, lying in one plane of H = R^4 (rank 2 over the reals): a great decagon of the 600-cell, and A4 = D u phi^-1 D": true,
+    "the normalizer N of <u> in 2I is dicyclic of order 20 (<-u> and ten elements of order 4), and the units of A4 + A4' are the right coset N x: D for A4, <-u>tx for A4' (t of order 4), each at both scales": true,
+    "the six A4 + A4 of the tick's residue lines (pulled back from the six F5-lines of E8/(1 - g)E8) are N x u phi^-1 N x for the six right cosets N x of N in 2I, the carrier's A4 + A4' among them": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "D5 -> residue plane: on D5 the residue map E8 -> E8/(1 - g)E8 = F25 is x -> (sum x / 2) q + (sum i x_i) p, p and q the points of e_1 - e_0 and 2 e_0, onto: A4 goes onto the carrier line F5 p, the r-pentagon e_(i+k) - e_i over k p, and the ten roots e_i + e_j onto the parallel line q + F5 p, two over each point, i + j = c mod 5: a side of the pentagon and its parallel diagonal, one point per direction, their negatives on -q + F5 p; so D5 meets L0, the pullback of the carrier line, in A4 + Z(2, 2, 2, 2, 2, 0, 0, 0), of index 5, and D5 + L0 = E8 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on D5 the residue map E8 -> E8/(1 - g)E8 = F25 is x -> (sum x / 2) q + (sum_i i x_i) p, with p the point of e_1 - e_0 and q off the carrier line F5 p, so D5 maps onto F25 (checked on all 40 roots, which span D5)": true,
+    "A4 goes onto the carrier line, the pullback of which is L0 = A4 + A4', the r-pentagon e_(i+k) - e_i lying over k p": true,
+    "the ten roots e_i + e_j lie over the five points q + c p of a parallel line, two over each, those with i + j = c mod 5: disjoint, a side of the pentagon and its parallel diagonal, one point for each of the pentagon's five directions; their negatives lie over -q + F5 p, so the 40 roots of D5 cover 4 + 5 + 5 points": true,
+    "so D5 n L0 is the kernel of x -> sum x / 2 mod 5, A4 + Z(2, 2, 2, 2, 2, 0, 0, 0) (determinant 5 x 20 = 100 against 4 for D5: index 5), and D5 + L0 = E8, D5 meeting every glue class": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Penrose planes -> residue plane: the vertex rotation r is the identity on A4' (x) R, and 1 - r maps the scheme's A4* onto A4 (e_i - u/5 -> e_i - e_(i+1)) and A4 onto (1 - r)A4 = A4 n (1 - g)E8, of index Phi_5(1) = 5: so r - 1 carries the scheme's index group A4*/A4 = E8/L0 = Z/5 isomorphically onto A4/(1 - r)A4, the carrier line of the residue plane F25, index sum k going to k p, the point under the r-pentagon e_(i+k) - e_i; on F25, r is the transvection along the carrier line that reads each parallel line (glue class) as this point (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "1 - r maps the vertex weights e_i - u/5, which generate A4*, onto the simple roots e_i - e_(i+1), so (1 - r)A4* = A4, and on A4 it has determinant Phi_5(1) = 5: (1 - r)A4 has index 5 in A4": true,
+    "the residue map sends e_i - e_j to (i - j)p, p the point of e_1 - e_0, so A4 goes onto the carrier line F5 p (the r-pentagon e_(i+k) - e_i over k p) with kernel (1 - r)A4 = (1 - g)A4 = A4 n (1 - g)E8, g being r on A4": true,
+    "r is the identity on A4' (x) R, so (r - 1)x = (r - 1)P1 x sees only the A4 shadow, and for every root the point of (r - 1)x is k p, k the scheme's index of its shadow (the index sum mod 5, 1 for a vertex weight): the index is 0 exactly on the 40 roots of L0 and takes each other value 50 times, and E8/L0 = A4*/A4 -> A4/(1 - r)A4 = F5 p is an isomorphism": true,
+    "on F25 the vertex rotation acts as the transvection along the carrier line: (Q - I)^2 = 0, with kernel and image the carrier line, so x -> (r - 1)x reads each parallel line (glue class) as one point of the carrier line": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "360 parent -> triangle port: with the hexad point a at the site x_a = e_a + e_5 and the apex 5 at 0, the six sites' W(A5) (x_a - x_b -> x_g(a) - x_g(b), root permutations commuting with Delta) lets the parent's A6 carry the triangle port to the forty oriented triangle ports of K6, stabilizer <(012), (345)>; the reader T = [U_g p]_g has rank 10, the odd lift of K6's cycles, and T P10 = 360 T: it reads the chi10 block that O36 is blind to, its r, t-history has ranks 10, 30, 50, 80, 100, O36 and T reach 360, and T* Delta^n T = m_n T* T (Schur, cited), m = 1, 242, 58691 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "with the hexad point a at the site x_a = e_a + e_5 (a = 0..4) and the apex 5 at the origin, each g in the parent's A6 gives the integer orthogonal map x_a - x_b -> x_g(a) - x_g(b) (identity off the simplex's A5), which permutes the 240 roots, so U_g delta_x = delta_(A_g x) commutes with Delta; g -> A_g is a homomorphism": true,
+    "the triangle port (A4 roots e_0 - e_1, e_1 - e_2, e_2 - e_0 with +1, their negatives with -1) is the odd lift of the oriented triangle x_0 -> x_1 -> x_2, and A6 carries it to 40 distinct ports, the 20 triangles of K6 with both orientations, its stabilizer the 9 elements of <(012), (345)>": true,
+    "the reader T = [U_g p]_g on Q[A6] has rank 10 and its columns span the odd lift of K6's cycle space (dimension 10): the irreducible chi10 = Lambda^2 chi5; T P10 = 360 T, while T kills the constants and the chi5 block (T J = 0, T P5 = 0)": true,
+    "O36 is blind to it (O36 P10 = 0): under the right action of r and t the triangle reader's history has exact ranks 10, 30, 50, 80, 100 by word length (the whole chi10 block), and O36 with T reaches 360 (static rank 46)": true,
+    "the bath reads the reader as the triangle: T* Delta^n T = m_n T* T for n <= 4, m = 1, 242, 58691, 14259954, 3470101592 (Schur: chi10 is absolutely irreducible and Delta commutes with A6)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "literal operands -> triangle port: the owner's adapters chart the triangle ports: Fedge_native_inverse F carries the six native coordinates onto the cycles of K5 (B F = 0, Chi F = I) and Fext_Lambda2_A4 lists the triangles i -> j -> 4; the triangle port's odd lift reads an edge vector as an antisymmetric matrix on the A4 roots, so Hilbert-Schmidt is l2, and T = lift o F has T^T T = 2 F^T F = W_p: the owner's port metric is the triangle-port Gram, with T^T Delta^n T = m_n W_p (Schur on the cycles, cited; m = 1, 242, 58691, 14259954), and 0 -> 1 -> 2 reads (1, 1, 0, 0, 0, -1) natively (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the owner's Fedge_native_inverse F carries the six native coordinates onto the cycles of K5 (B F = 0, rank 6, Chi_native_port F = I), and Fext_Lambda2_A4 lists the six oriented triangles i -> j -> 4 in the file's wedge order, with Gext_A4 = Fext^T Fext and Chi Fext = Adapter_exterior_to_native": true,
+    "the odd lift reads an edge vector as the antisymmetric matrix X on the A4 roots (e_i - e_j -> X_ij), so its Gram is the Hilbert-Schmidt form, 2 |x|^2; the triangle port is the odd lift of 0 -> 1 -> 2, which the file reads as (1, 1, 0, 0, 0, -1) natively and (1, -1, 0, 1, 0, 0) exteriorly": true,
+    "so the owner's port metric is the triangle-port Gram: T = odd lift o F has T^T T = 2 F^T F = W_p, and the exterior chart gives 2 Gext; the triangle's native W_p-norm is 6 = |p|^2": true,
+    "and the bath compresses to the triangle's moments in both charts: T^T Delta^n T = m_n W_p and m_n 2 Gext for n <= 4, m = 1, 242, 58691, 14259954, 3470101592": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> 360 parent: the carrier's A5 = Stab(5) permutes the six Golden lines framing ker M (Gram 12 I - 2 J), without signs, exactly as it permutes the cosets of PSL(2,5) in A6 (one equivariant bijection, PSL(2,5) to the pentagon 0-1-2-3-4), so h_beta(x) -> h_beta(gx) extends it to the parent's A6 with character chi5', the only extension (A6's two 5s and Schur, cited); the dark reader [h_beta(g PSL)]_g has rank 5, lies in the chi5' block outside the blind 126 with history 25, and on the marked A5 it is the hub's Golden adapter B_G (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the six Golden lines (pentagon minus pentagram, Gram 12 I - 2 J) frame ker M, and the carrier's A5 = Stab(5) permutes them, without signs, exactly as it permutes the six cosets of PSL(2,5) in the parent's A6: the equivariant bijection is unique, sending the coset PSL(2,5) to the line of the pentagon 0-1-2-3-4": true,
+    "so rho(g) h_beta(x) = h_beta(gx) is an action of A6 on the five dark modes extending the carrier's A5 (rho(a) = U(a) on ker M for every a in Stab(5)), by orthogonal maps, with character chi5' = (fixed cosets of PSL(2,5)) - 1; ker M is absolutely irreducible under A5 while chi5 restricted to Stab(5) is not, so (A6's two 5s and Schur, cited) this is the only extension; t = (23)(45) fixes two of the six lines and moves the pentagon 0-1-2-3-4's": true,
+    "the dark reader G = [h_beta(g PSL)]_g on Q[A6] has rank 5 and G P5' = 360 G: it lies in the chi5' block, outside the blind 126 (G P_blind = 0), and its r, t-history reaches 25, the whole block": true,
+    "on the marked A5 it is the hub's Golden adapter: B_G = G restricted to the 60 elements fixing 5 (zero elsewhere), so B_G is the restriction of an A6-equivariant reader, and the dark modes sit in the Golden30's 234, complementary to the simplex's 126": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> PG(2,5): on A4/5A4* = H(F5)/u the form x.x mod 5 is nondegenerate, and the moment map x -> (sum i x_i, sum i^2 x_i, 3 sum i^3 x_i) carries it onto the plane with x.x = -(b^2 - ac): the quadric is the Veronese conic, its six points the classes of the 120 bijections V -> F5 modulo AGL(1,5), the Sylow labels (sign vectors chi(f(j) - f(i))); W(A4) = S5 acts as PGL(2,5) through the symmetric square, r as [[1, 0], [2, 1]]; the root classes are the interior points, each cutting its edge's syntheme, with the Petersen graph as their polarity, and the e_i + e_j - e_k - e_l the exterior points (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "A4/5A4* is H(F5)/u: the Cartan matrix of A4 has rank 3 mod 5 and its kernel is the simple-root vector (1, 2, 3, 4) = u - 5 e_4, so x.x mod 5 is a nondegenerate form on the 125 classes; the moment map x -> (sum i x_i, sum i^2 x_i, 3 sum i^3 x_i) is linear on H(F5) with kernel exactly the multiples of u": true,
+    "for every x in H(F5), x.x = -(b^2 - ac) at (a, b, c) = mu(x): the moment map is an isometry up to sign onto the model's PG(2,5) with its discriminant, so the quadric of the root lattice mod 5 is the Veronese conic": true,
+    "the six isotropic points are the classes of the 120 bijections f: V -> F5, twenty each, the AGL(1,5)-cosets a f + b (the Sylow 5-subgroups): the ramp (0, 1, 2, 3, 4) of the vertex rotation goes to the conic point 0 and i -> i^3 to infinity": true,
+    "they are the synthemes dot's six Sylow labels: the bijections over each conic point have sign vectors +-chi(f(j) - f(i)) on the edges (chi the quadratic character mod 5; pentagon minus pentagram for the ramp) equal to one Sylow sign line, and the induced labelling carries the exceptional sigma_p to the action of p": true,
+    "every vertex permutation acts on the 31 points as the symmetric square of one element of PGL(2,5), injectively and onto: W(A4) = S5 is PGL(2,5) on the plane; the vertex rotation is [[1, 0], [2, 1]] (z -> z/(2z + 1), fixing the ramp's point 0) and every transposition an involution with no fixed conic point": true,
+    "the ten root classes +-(e_i - e_j) are the ten interior points, two of them conjugate (orthogonal mod 5) exactly when their edges are disjoint: the polarity on the roots is the Petersen graph; the fifteen classes e_i + e_j - e_k - e_l are the fifteen exterior points, the three avoiding a vertex m a self-polar triangle": true,
+    "and with the Sylow labels the plane is the synthemes dot's bridge: the three secants through the root point of the edge ij cut the conic in the syntheme of ij, and the self-polar triangle at m gives the special syntheme of the vertex m": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Penrose planes -> surface: the surface's six axes are six equiangular lines in R u + E2: the cone point on u, the site i on u + 5 sqrt2 P2 e_i, every two at |cos| = 1/sqrt5, so their twelve unit vectors are a regular icosahedron whose twenty faces are, up to sign, the hemi-icosahedron's ten; sqrt5 (C - I), C their cosines, is the conference matrix [[0, 1], [1, -Q]], Q_ij = chi(i - j) the quadratic character mod 5, a triangle being a face exactly when its entries multiply to +1; on R u + E1 (Galois conjugate) [[0, 1], [1, Q]] gives the complement, and the doubling, swapping E1 and E2, maps one to the other (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the six vectors lie in the 3-space R u + E2 (P2 projects onto the 144-degree plane, P2 u = 0) and have squared lengths 25 (sites) and 5 (cone point); every two of the six lines meet at |cos| = 1/sqrt5: six equiangular lines, cos(cone, site) = 1/sqrt5 and cos(i, j) = 1/5 + (4/5) cos(144 (i - j)) = -+1/sqrt5": true,
+    "the twelve unit vectors on them are a regular icosahedron: each has exactly five neighbours at the nearest distance (cos = 1/sqrt5), thirty edges and twenty triangular faces, and the faces up to sign are exactly the ten faces of the hemi-icosahedron on the six axes (the cone point at infinity = 5)": true,
+    "S = sqrt5 (Gram of unit vectors - I) is the symmetric conference matrix [[0, 1], [1, -Q]] (cone point last) with Q_ij = chi(i - j) the quadratic character mod 5, S^2 = 5I: a triangle is a face of the hemi-icosahedron exactly when the product of its three entries is +1, so the cone point's link is the pentagram (P2 turns the sites by 144 degrees) and the faces in V the consecutive triples": true,
+    "on R u + E1 the same recipe gives the Galois conjugate configuration (its Gram matrix is that of R u + E2 under sqrt5 -> -sqrt5), with Seidel matrix [[0, 1], [1, Q]] itself, whose positive triangles are the complement (link the pentagon); the doubling, an isometry of R^5 with delta P2 delta^-1 = P1, carries the line of site i on R u + E2 to the line of site 2i on R u + E1 and so the hemi-icosahedron onto its complement, as PGL(2,5) outside PSL(2,5) does": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "icosians -> PG(2,5): at the prime sqrt5, in the icosians check's chart, u - ubar goes to the traceless 2m - tr(m) I, and [[x, y], [z, -x]] -> (-y, x, z) puts P(sl2(F5)) on the model's plane with det = -(b^2 - ac), conjugation by a unit acting as the symmetric square of its matrix (PSL(2,5)): the six axes of the order-5 units, the icosahedron's vertices, go to the conic, the fifteen of order 4 to the exterior points, each the pole of the two vertex axes it is perpendicular to, and the ten of orders 3 and 6 to the interior points, each face centre to its face's perspector (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "reduced at the prime sqrt5 in the icosians check's chart (phi -> 3, 1/2 -> 3; 1, i, j, k -> I, diag(2, 3), [[0, 1], [4, 0]], [[0, 2], [2, 0]]) the 120 units go multiplicatively to 120 distinct matrices of determinant 1 (2I = SL(2,5)), and the pure part u - ubar to the traceless matrix 2m - tr(m) I": true,
+    "[[x, y], [z, -x]] -> (-y, x, z) is a linear bijection of sl2(F5) onto F5^3 with det = -(b^2 - ac), so its projective plane is the model's PG(2,5) with the nilpotent lines as the Veronese conic; conjugation by every unit acts on it as the symmetric square of the unit's matrix, the 120 units giving the 60 collineations of PSL(2,5) (kernel +-1)": true,
+    "the 24 units of orders 5 and 10 go to exactly the six conic points (the six Sylow axes, each unit's point the fixed point of its unipotent image on the projective line), the 30 of order 4 to the fifteen exterior points and the 40 of orders 3 and 6 to the ten interior points; +-1 go to 0": true,
+    "the imaginary parts of the twelve units of trace phi^-1 are a regular icosahedron (4 Im a . Im b = phi for five neighbours each: 30 edges, 20 faces); for every edge the two-fold axis perpendicular to both vertex axes goes to the pole of their secant, where the tangents at the two conic points meet, and the three-fold axis through every face centre to the perspector of the face's three conic points; the faces, up to sign, go to the ten triangles of one triangulation of the six conic labels (in this chart the complement of the hemi-icosahedron)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Petersen -> root graph: A has least eigenvalue -2, so 2I + A = J + 3I - M^T M is a Gram matrix of rank 6: the roots f_(i,i+1) = e_(i+2) + e_(i+4) and f_(i,i+2) = (e_i + e_(i+1) + e_(i+2) - e_(i+3) - e_(i+4) + e_5 + e_6 + e_7)/2 of E8 have products 1 on the Petersen edges and 0 elsewhere, so the root graph induces the Petersen graph on them, equivariantly for the pentagon's dihedral group; their span meets the 240 roots in an E6 (72 roots, determinant 3), the edge lattice Z^E modulo its integral (-2)-eigenvectors M^T(H) under the form 2I + A (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Petersen graph has spectrum 3, 1^5, (-2)^4, so 2I + A = J + 3I - M^T M is positive semidefinite of rank 6; its kernel is M^T(H), the (-2)-eigenspace, and its Smith invariants are 1^5 3": true,
+    "the ten vectors f_(i,i+1) = e_(i+2) + e_(i+4) (the D5 root of the far edge on the near edge's spoke) and f_(i,i+2) = (e_i + e_(i+1) + e_(i+2) - e_(i+3) - e_(i+4) + e_5 + e_6 + e_7)/2 are roots of the model's E8 with Gram matrix exactly 2I + A: products 1 on the Petersen edges (disjoint K5 edges) and 0 on all other pairs, so the root graph induces the Petersen graph on them": true,
+    "the map is equivariant for the dihedral group of the pentagon, x -> +-x + b on the carrier's coordinates (the tick r and the reflection), acting on the edges as Petersen automorphisms": true,
+    "their span meets the 240 roots in 72 roots, all integer combinations of six of the ten whose Gram determinant is 3: the span's lattice is E6 (rank 6, 72 roots, determinant 3), the image of the edge lattice Z^E with the form 2I + A, whose kernel is the integral (-2)-eigenvectors": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "4-simplex -> Penrose planes: the face on S is the vertex e_S of the 5-cube on the slice sum x = |S|, its weight e_S - (|S|/5) u in class |S| of A4*/A4; projected into E2 the faces of size k have as convex hull the k-th window of the Penrose vertex sets (cited): the five sites a regular pentagon W1 (squared radius 2/5, turned 144 degrees by r), the far duads the vertices of W2 = -phi W1, P2(e_i + e_(i+2)) = -phi P2 e_(i+1), with the near duads strictly inside, and the complementary faces W3 = -W2 and W4 = -W1 (P2 u = 0) (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the face on S is the vertex e_S of the 5-cube on the slice sum x = |S| (the hypersimplex of the size-|S| faces), and its weight e_S - (|S|/5) u lies in A4*, the faces of one size in one class of A4*/A4 (their differences in A4), the size mod 5 being the class, the Penrose index sum (penrose -> L0)": true,
+    "projected into E2 (P2 u = 0) the five sites are a regular pentagon W1 of squared radius 2/5, consecutive sites at cos 144 = -phi/2 (r, commuting with P2, turns E2 by 144 degrees), and the complementary faces of size 4 give W4 = -W1": true,
+    "the far duads give P2(e_i + e_(i+2)) = -phi P2 e_(i+1), the vertices of the pentagon W2 = -phi W1 (squared radius 2 phi^2/5), and the near duads P2(e_i + e_(i+1)), of squared radius 2/(5 phi^2), lie strictly inside it: the ten faces of size 2 span W2, and their complements W3 = -W2": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "eight-root frame -> Pauli algebra: the frame's eight roots are an F2-basis of E8/2E8 (Gram I + J, determinant 9) with odd products, so their Paulis A_1..A_8 are eight anticommuting antisymmetric Paulis with A_i^2 = -I and their 256 products are the Paulis up to sign: e_i -> A_i is an isomorphism Cl(0,8) = M16(R); A_S is symmetric exactly for |S| = 0, 3 mod 4, so L is 224 on the grades 1, 2, 5, 6 (the 120 jump operators) and 256 on 3, 4, 7, 8; the volume element, the Pauli of the frame's sum 3q, splits R^16 = 8 + 8, and the -A_i A_j/2 act as so(8) on the halves (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the frame's eight roots (-e1 - e_i and -(1, ..., 1)/2, eight_roots) have Gram I + J of determinant 9, odd, so their classes are an F2-basis of E8/2E8: the 256 subset sums are the 256 half-periods": true,
+    "under layer 22's Pauli map their Paulis A_1..A_8 are antisymmetric with A_i^2 = -I and pairwise anticommute (products 1 are odd): eight anticommuting complex structures on R^16": true,
+    "the 256 ordered products A_S are, up to sign, the Paulis of the half-periods sum_(i in S) r_i, all distinct, and orthogonal for the trace form (tr A_S^T A_T = 16 delta_ST), so they are a basis of M16(R): e_i -> A_i maps the 256-dimensional Clifford algebra Cl(0,8) (e_i^2 = -1, e_i e_j = -e_j e_i) onto M16(R), an isomorphism": true,
+    "A_S^T = (-1)^(k(k+1)/2) A_S for k = |S|, so the 136 symmetric Paulis are the grades 0, 3, 4, 7, 8 (1 + 56 + 70 + 8 + 1) and the 120 antisymmetric ones, the jump operators of the GKSL generator, the grades 1, 2, 5, 6 (8 + 28 + 56 + 28); L(A_S) = eps A_S with eps the band at the half-period: 0 at grade 0, 224 at grades 1, 2, 5, 6 and 256 at grades 3, 4, 7, 8, so L is a function of the Clifford grade (|sum r_i|^2/2 = k(k + 1)/2)": true,
+    "the volume element omega = A_1 ... A_8 is the Pauli of the frame's sum 3q (q = (-5/2, -1/2, ..., -1/2), norm 8, at the band top 256): symmetric, omega^2 = I, trace 0, anticommuting with every A_i, so R^16 = 8 + 8, its two eigenspaces, exchanged by each A_i": true,
+    "the 28 bivectors -A_i A_j / 2 satisfy the relations of so(8), [b_ij, b_kl] = delta_jk b_il - delta_ik b_jl - delta_jl b_ik + delta_il b_jk, are 28 independent antisymmetric Paulis at the rate 224 and commute with omega: the spin representation of so(8) on the two halves 8 + 8": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cyclotomic line -> triangle port: in the cyclotomic line the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2) cut the 240 roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d of sum 0 without antipodes, so each, as an odd port, has per unit norm the triangle port's signed Gram and meets every root off it with signed count zero; W(E8) is transitive on root pairs of each product, so the mu_d-invariant odd root functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the triangle port's measure (1, 242, 58691, ...): polygons isospectral to a triangle (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "W(E8) is transitive on the roots and a root's stabilizer on each class of products 2, 1, 0, -1, -2, so (Delta^n)_(rho, sigma) between roots depends only on <rho, sigma>, for every n and every function of Delta": true,
+    "multiplication by the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2 on Z[zeta30]) cuts the 240 roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d, each of sum 0 and without antipodes (the fifteen-gons meet themselves at 1 as well as at 0 and -1)": true,
+    "so each polygon, as the odd port +1 on rho mu_d and -1 on -rho mu_d, has per unit norm the triangle port's signed Gram and meets every root off it with signed count zero at each inner product: the mu_d-invariant odd root functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the triangle port's spectral measure": true,
+    "its moments per unit norm, from the model's walk entries, are the triangle port's 1, 242, 58691, 14259954, 3470101592 on every polygon, with zero cross moments through n = 4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "rotor plane -> root graph: the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -11231,7 +11734,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 427 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 465 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -11491,7 +11994,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 21, combinatorics-lattice 7, lattice-operator 27, operator-physics 24 joins",
+   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 21, combinatorics-lattice 12, lattice-operator 29, operator-physics 29 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -11539,6 +12042,11 @@
      "petersen -> D5",
      "residue -> surface",
      "penrose -> rotor",
+     "A4 -> pg25",
+     "penrose -> surface",
+     "icosians -> pg25",
+     "petersen -> rootgraph",
+     "simplex -> penrose",
      "rotor -> rootgraph"
     ],
     [
@@ -11568,7 +12076,9 @@
      "halfper -> gksl",
      "halfper -> pauli",
      "principal -> bath",
-     "penrose -> carrier"
+     "penrose -> carrier",
+     "frame -> pauli",
+     "cyclo -> triangle"
     ],
     [
      "carrier -> triple",
@@ -11594,7 +12104,12 @@
      "darkport -> readout",
      "parent -> readout",
      "kerM -> gravity",
-     "kerM -> cosmology"
+     "kerM -> cosmology",
+     "datum -> readout",
+     "triangle -> assignment",
+     "pauli -> assignment",
+     "pauli -> triple",
+     "pauli -> charges"
     ]
    ],
    "note": ""
@@ -11605,10 +12120,10 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 388,
-    "OBSTRUCTION": 19,
+    "THEOREM": 422,
+    "OBSTRUCTION": 20,
     "SELECTED_REFERENCE": 10,
-    "CONDITIONAL": 10
+    "CONDITIONAL": 13
    },
    "note": ""
   },
@@ -11625,21 +12140,21 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 21, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 7, combinatorics-operator 26, combinatorics-physics 7, lattice-operator 27, lattice-physics 5, operator-physics 24",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 21, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 12, combinatorics-operator 26, combinatorics-physics 12, lattice-operator 29, lattice-physics 8, operator-physics 29",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "(2, 3)": 7,
-    "(3, 4)": 27,
+    "(2, 3)": 12,
+    "(3, 4)": 29,
     "(2, 4)": 26,
     "(1, 3)": 39,
     "(1, 2)": 21,
     "(0, 1)": 12,
     "(0, 2)": 7,
     "(1, 4)": 17,
-    "(4, 5)": 24,
-    "(2, 5)": 7,
-    "(3, 5)": 5,
+    "(4, 5)": 29,
+    "(2, 5)": 12,
+    "(3, 5)": 8,
     "(0, 3)": 18,
     "(0, 4)": 8,
     "(0, 5)": 8,
@@ -14050,7 +14565,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 303 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 328 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,

@@ -271,8 +271,8 @@ def test_no_dot_hangs_by_one_join():
                   dots.torus_calibration, dots.literal_incidences, dots.measure_band, dots.wave_calibration):
         out = check()
         assert all(out.values()), out
-    # the check can fail: cutting both maps at the calibration cuts it off
-    cut = [not (j[1] == "calibration" and j[4] != gates.OBSTRUCTION) for j in dots.JOINS]
+    # the check can fail: cutting the maps at the calibration cuts it off
+    cut = [not ("calibration" in j[:2] and j[4] != gates.OBSTRUCTION) for j in dots.JOINS]
     assert len(dots.components(cut)) == 2
 
 
@@ -306,8 +306,8 @@ def test_all_dots_are_joined():
     rep = dots.run()
     assert all(c.passed for c in rep.checks)
     assert len(dots.components([True] * len(dots.JOINS))) == 1
-    # without the calibration's one map it is cut off: the connectivity check can fail
-    cut = [not (j[1] == "calibration" and j[4] != gates.OBSTRUCTION) for j in dots.JOINS]
+    # without the calibration's maps it is cut off: the connectivity check can fail
+    cut = [not ("calibration" in j[:2] and j[4] != gates.OBSTRUCTION) for j in dots.JOINS]
     assert len(dots.components(cut)) == 2
 
 
@@ -421,11 +421,12 @@ def test_the_theorem_diagram(monkeypatch):
     for check in (dots.datum_orbit, dots.witness_loop, dots.frame_affine, dots.tick_actions, dots.theorem_connectivity):
         out = check()
         assert all(out.values()), out
-    # the checks can fail: without S5 -> datum and time -> datum (the join sweep's) the datum lies on two THEOREM
-    # maps, which then cut it off; keeping one THEOREM map between the number and physics levels (time -> triple)
-    # leaves that pair joined by one THEOREM map
+    # the checks can fail: keeping only two THEOREM maps at the datum (kerM -> datum and datum -> carrier; the join
+    # sweep added time -> datum and datum -> readout to S5 -> datum) cuts it off; keeping one THEOREM map between the
+    # number and physics levels (time -> triple) leaves that pair joined by one THEOREM map
     joins = dots.JOINS
-    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] not in (("S5", "datum"), ("time", "datum"))])
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if "datum" not in j[:2] or j[4] != gates.THEOREM
+                                        or j[:2] in (("kerM", "datum"), ("datum", "carrier"))])
     out = dots.theorem_connectivity()
     assert not out["every one of those dots lies on at least three THEOREM maps"]
     assert not out["no one THEOREM map and no two THEOREM maps hold that diagram together"]
