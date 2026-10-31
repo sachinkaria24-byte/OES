@@ -10060,6 +10060,7 @@ JOINS = [
     ("simplex", "penrose", "the faces as windows", "the face on S is the vertex e_S of the 5-cube on the slice sum x = |S|, its weight e_S - (|S|/5) u in class |S| of A4*/A4; projected into E2 the faces of size k have as convex hull the k-th window of the Penrose vertex sets (cited): the five sites a regular pentagon W1 (squared radius 2/5, turned 144 degrees by r), the far duads the vertices of W2 = -phi W1, P2(e_i + e_(i+2)) = -phi P2 e_(i+1), with the near duads strictly inside, and the complementary faces W3 = -W2 and W4 = -W1 (P2 u = 0) (31 Oct)", T, "join_simplex_penrose"),
     ("frame", "pauli", "the Clifford algebra of a frame", "the frame's eight roots are an F2-basis of E8/2E8 (Gram I + J, determinant 9) with odd products, so their Paulis A_1..A_8 are eight anticommuting antisymmetric Paulis with A_i^2 = -I and their 256 products are the Paulis up to sign: e_i -> A_i is an isomorphism Cl(0,8) = M16(R); A_S is symmetric exactly for |S| = 0, 3 mod 4, so L is 224 on the grades 1, 2, 5, 6 (the 120 jump operators) and 256 on 3, 4, 7, 8; the volume element, the Pauli of the frame's sum 3q, splits R^16 = 8 + 8, and the -A_i A_j/2 act as so(8) on the halves (31 Oct)", T, "join_frame_pauli"),
     ("cyclo", "triangle", "polygons isospectral to a triangle", "in the cyclotomic line the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2) cut the 240 roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d of sum 0 without antipodes, so each, as an odd port, has per unit norm the triangle port's signed Gram and meets every root off it with signed count zero; W(E8) is transitive on root pairs of each product, so the mu_d-invariant odd root functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the triangle port's measure (1, 242, 58691, ...): polygons isospectral to a triangle (31 Oct)", T, "join_cyclo_triangle"),
+    ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
 ]
@@ -20099,6 +20100,85 @@ def notes_2154():
     }
 
 
+def one_quadratic():
+    """One statement (31 Oct): the cycle Laplacian and the golden band are the one quadratic x^2 - 5x + 5 at two
+    scales, read on the ten edges of K5 whose cycles carry it, over the 240 roots that the two A4 and K5 make."""
+    R, A, Ap = glue.a4_pair()
+    P1, P2 = glue.projector(A), glue.projector(Ap)
+    mixed = [r for r in R if not np.allclose(P1 @ r, 0) and not np.allclose(P2 @ r, 0)]
+    fibres = Counter(glue.carrier_atom_of(P1 @ r) for r in mixed)
+    R2 = np.rint(2 * R).astype(np.int64)
+    G = R2 @ R2.T                                              # 4 x inner products
+    pairs_to = [int((G[i] == 4).sum()) // 2 for i in range(240)]
+    S = R2[:, None, :] + R2[None, :, :]
+    orth = {tuple(v) for v in S[G == 0]}
+    sixty = {tuple(v) for v in S[G == 4]}
+    n2 = lambda v: sum(x * x for x in v)                       # 4 x norm of the half-scaled vector
+    ints = np.array(list(itertools.product(range(-2, 3), repeat=8)), dtype=np.int64)
+    halves = np.array(list(itertools.product((-3, -1, 1, 3), repeat=8)), dtype=np.int64)
+    in_e8 = lambda V, half: (V.sum(1) % 4 == 0) if half else (V.sum(1) % 2 == 0)
+    shell = lambda m: (int(((ints ** 2).sum(1) == m)[in_e8(ints, False)].sum())
+                       + int(((halves ** 2).sum(1) == 4 * m)[in_e8(halves, True)].sum()))
+    E = list(itertools.combinations(range(5), 2))
+    B = sp.Matrix(5, 10, lambda v, e: (1 if v == E[e][0] else -1 if v == E[e][1] else 0))
+    I10 = sp.eye(10)
+
+    def edge_map(perm):
+        T = sp.zeros(10, 10)
+        for e, (i, j) in enumerate(E):
+            a, b = perm[i], perm[j]
+            T[E.index((min(a, b), max(a, b))), e] = 1 if a < b else -1
+        return T
+    rot = [1, 2, 3, 4, 0]
+    T = edge_map(rot)
+    Ti = T.inv()
+    Agni = 5 * I10 - B.T * B
+    Soma = Agni / 5
+    Pcyc = Soma
+    L5, L5p = 2 * I10 - T - Ti, 2 * I10 - T ** 2 - Ti ** 2
+    fixed_sum = sum((T ** k for k in range(5)), sp.zeros(10, 10))
+    Prot = fixed_sum / 5
+    Mov = I10 - Prot
+    X = -(T + Ti)
+    pent = {(i, (i + 1) % 5) for i in range(5)}
+    gram = {(i, (i + 2) % 5) for i in range(5)}
+    sq = [rot[rot[i]] for i in range(5)]
+    trace = lambda p: {(min(i, p[i]), max(i, p[i])) for i in range(5)}     # the cycle a permutation traces
+    cyc = sp.Matrix.hstack(*B.nullspace())
+    C = (cyc.T * cyc).inv() * cyc.T * T * cyc                 # the tick on the cycles
+    Lc = 2 * sp.eye(6) - C - C.inv()
+    lam, y = sp.symbols("lam y")
+    quad = lambda M, Id: M ** 2 - 5 * M + 5 * Id
+    return {
+        "the 240 roots are the two A4 (20 each) and 200 mixed roots, and every mixed root lies over K5: its A4 part is a "
+        "signed vertex weight (10 roots over each of the 10) or a signed edge weight (5 over each of the 20)":
+            len(A) == 20 and len(Ap) == 20 and len(mixed) == 200 and None not in fibres
+            and sorted(Counter(n for a, n in fibres.items() if a[0] == "V").items()) == [(10, 10)]
+            and sorted(Counter(n for a, n in fibres.items() if a[0] == "E").items()) == [(5, 20)],
+        "around every root 28 pairs of roots sum to it (its 56 neighbours at 60 degrees, paired); the sums of orthogonal "
+        "pairs are exactly the 2160 vectors of norm 4 and the sums of pairs at 60 degrees exactly the 6720 of norm 6":
+            set(pairs_to) == {28} and len(orth) == 2160 and all(n2(v) == 16 for v in orth)
+            and len(sixty) == 6720 and all(n2(v) == 24 for v in sixty) and shell(4) == 2160 and shell(6) == 6720,
+        "on the ten edges Agni = 5I - B^T B is 5 times the projector onto the cycles and Soma = Agni/5 is that projector; "
+        "the vertex rotation has order 5, traced as a cycle it is the pentagon and its square traces the pentagram; the pentagon and "
+        "pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 add, and multiply, to 5I minus the fixed sum "
+        "I + T + ... + T^4, which is 5 times the rotor plane's projector, inside the cycles where Agni acts as 5":
+            Agni == 5 * Pcyc and Soma ** 2 == Soma and Soma.rank() == 6 and T ** 5 == I10 and T != I10
+            and trace(rot) == {(min(i, j), max(i, j)) for i, j in pent} and trace(sq) == {(min(i, j), max(i, j)) for i, j in gram}
+            and L5 + L5p == 5 * I10 - fixed_sum and L5 * L5p == 5 * I10 - fixed_sum
+            and Prot ** 2 == Prot and Prot.rank() == 2 and B * Prot == sp.zeros(5, 10) and Agni * fixed_sum == 5 * fixed_sum,
+        "the one quadratic: on the moving part both Laplacians satisfy x^2 - 5x + 5 = 0, its two roots (5 -+ sqrt5)/2 "
+        "on swapped planes; the cycle Laplacian 2I - C - C^-1 of the tick on the cycles is lam^2 (lam^2 - 5 lam + 5)^2; "
+        "and at double scale 2(2I - T - T^-1) = 4I + 2X, X = -(T + T^-1) the golden companion (X^2 = X + I on the moving "
+        "part), is the golden band 5 -+ sqrt5, the roots of y^2 - 10y + 20 (the port metric's contrast block)":
+            quad(L5, I10) * Mov == sp.zeros(10, 10) and quad(L5p, I10) * Mov == sp.zeros(10, 10)
+            and sp.factor(Lc.charpoly(lam).as_expr()) == sp.factor(lam ** 2 * (lam ** 2 - 5 * lam + 5) ** 2)
+            and 2 * L5 == 4 * I10 + 2 * X and (X ** 2 - X - I10) * Mov == sp.zeros(10, 10)
+            and sp.expand((y / 2) ** 2 - 5 * (y / 2) + 5 - (y ** 2 - 10 * y + 20) / 4) == 0
+            and set(sp.solve(y ** 2 - 10 * y + 20, y)) == {5 - sp.sqrt(5), 5 + sp.sqrt(5)},
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -20612,6 +20692,9 @@ LEDGER_ROWS = [
     ("the golden clock and its return (separate model's N40, 31 Oct 21:39, dated 1 Nov)", "for the saved clock C (C^5 = I), metric G and Hodge H (H^2 = 5I): L = 2I - C - C^-1, A = (C - C^-1)/2, F, B; HB = 2L - 5B, L(L^2 - 5L + 5I) = 0; (sI + L)^-1 = [s^2 I + s(5I - L) + 5F]/[s(s^2 + 5s + 5)] = F/s + [(s + 5/2)B - HB/2]/(s^2 + 5s + 5); the Schur energy criterion for W = R6(s) G^-1", "replayed on the model's own tick on the cycles with G6 and the wedge star (notes_2154): every identity holds, with HB = 2L - 5B for the wedge orientation up to the sign of H; the energy criterion is the standard Schur complement and the source's own P31, Z31, T6, S6 stay in its zip", T, "23"),
     ("the E8 root moments through degree ten (separate model's N40)", "P2 = 60q, P4 = 36q^2, P6 = 30q^3; P8 - 30q^4 harmonic; (132/5)q^4 < P8 <= 39q^4 by two sum-of-squares certificates; 4P10 - 15qP8 + 315q^5 = 0; tenth moments 225/8, 135/2, 265/8, 265/8; the Taylor remainder 0 <= sigma - T8 <= q^5/53760, sharp", "replayed exactly on the 240 roots (notes_2154), through all 19448 degree-ten coefficients; it sharpens notes_1757's q^5/30240 by the factor 9/16; the note itself says the degree-ten identity and the lower bound were in the canon's older reports", T, "22"),
     ("the canon's N40 publication state and the archive (31 Oct 21:37-21:54)", "N40 golden-moment unification release with publication state and handover; PAGE_0013 (27 Oct notes) and the twin-prime FinalGold folders of 13 Aug", "recorded (REPORTED): release receipts not opened; the archive joins the backlog", RP, "23"),
+    ("one statement (the user's synthesis, 31 Oct 22:35)", "the 240 roots are the two A4 and the fibres of one K5; 28 pairs sum to each root, orthogonal pairs fill the 2160 vectors of norm 4 and 60-degree pairs the 6720 of norm 6; Agni = 5I - G on the ten edges, Soma = Agni/5; the pentagon and pentagram Laplacians add to 5I minus the fixed sum, in the cycles where Agni acts as 5; x^2 - 5x + 5 = 0 is the cycle Laplacian and at double scale the golden band 5 -+ sqrt5", "replayed and joined (cycles -> golden, one_quadratic) with G read as the signed edge Gram B^T B (so Agni = 5 P_cycles and Soma = P_cycles); the two Laplacians also multiply to the same 5I minus the fixed sum, so on the moving part they are the quadratic's two roots; the golden band at double scale is the port metric's contrast block 4I + 2X; the residual stays 0 and AUTH stays NOT_PASS", T, "23"),
+    ("the N39 counted pointer (the user's synthesis, 31 Oct 22:35)", "N39 stays the counted pointer at 3782 and 3737 sheets", "recorded (REPORTED): the N39 workbooks were not opened here; the N37 receipt counted 3770 and 3725", RP, "23"),
+    ("the separate model's 30th reference layer (31 Oct 22:09)", "a two-part 38 MB archive of the unified reference model: 30 layers, 4522 artifacts, 748 relationships, 179 matrix presentations", "recorded (REPORTED): the manifest and certificate were read as data and the archive was not opened; no claim in them can be replayed without its matrices", RP, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -20880,7 +20963,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
