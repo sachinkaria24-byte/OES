@@ -10159,6 +10159,163 @@ def notes_0936():
     }
 
 
+def notes_1009():
+    """The sibling's MODEL edition of 10:05 on 31 Oct (Readout), the separate model's paired readout and seven-code
+    archives (09:43-09:52) and the seven-code court packet (09:38), replayed as arithmetic."""
+    order = lambda s: N // gcd(s, N)
+    I6, I4 = sp.eye(6), sp.eye(4)
+    R = sp.zeros(6)                                                           # three disjoint pair swaps
+    for i in range(3):
+        R[2 * i, 2 * i + 1] = R[2 * i + 1, 2 * i] = 1
+    Q = sp.diag(1, -1, 1, -1, 1, -1)                                          # the sign probe
+    O = sp.Matrix(3, 6, lambda r, c: int(c // 2 == r))                        # the sum readout
+    M = O.col_join(O * Q)                                                     # the two-view stack
+    D = sp.diag(700, 7, 800, 8,900, 9)                                        # the literal weights
+    W = O.col_join(O * D)
+    Peven, Podd = (I6 + R) / 2, (I6 - R) / 2
+    corr = R / 2                                                              # q(x) = x1 x2 + x3 x4 + x5 x6
+    x = sp.Matrix(sp.symbols("x1:7"))
+    q = (x.T * corr * x)[0]
+    # the separate model's stored adapter into its Golden six-frame (read as data)
+    A = sp.Matrix(6, 6, lambda r, c: sp.Rational(1, 10) if (r != 3 and c < 2) else (sp.Rational(1, 2) if (r == 3 and c in (2, 3)) else 0))
+    # the model's six-site rotor (order 5, one fixed site) and the same rotor moved onto the separate model's fixed site 3
+    T = sp.Matrix(np.rint(np.array(native.boundary_rotation(), dtype=float)).astype(int).tolist())
+    fixed = [i for i in range(6) if T[:, i] == sp.eye(6)[:, i]]
+    P03 = sp.eye(6).permute([[fixed[0], 3]]) if fixed[0] != 3 else sp.eye(6)
+    Tp = P03 * T * P03
+    F = sum((T ** k for k in range(5)), sp.zeros(6)) / 5
+    Xs = sp.Matrix(6, 6, sp.symbols("y0:36"))
+    sol = sp.linsolve(list(T * Xs - Xs * R), list(Xs))
+    free = sorted((sol.args[0]).free_symbols, key=lambda s: int(str(s)[1:]))
+    solved = Xs.subs(dict(zip(list(Xs), list(sol.args[0]))))
+    hom_basis = [solved.subs({**{s: 0 for s in free}, f: 1}) for f in free]
+    witness = F.columnspace()[0] * Peven.columnspace()[0].T + F.columnspace()[1] * Peven.columnspace()[1].T
+    # the hub court's four-coordinate reader
+    R4 = sp.Matrix([[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]])
+    Q4 = sp.diag(1, -1, 1, -1)
+    O4 = sp.Matrix([[1, 1, 0, 0], [0, 0, 1, 1]])
+    T4 = O4.col_join(O4 * Q4)
+    z = sp.Matrix(sp.symbols("z1:5"))
+    s_, d_ = O4 * z, O4 * Q4 * z
+    lag = sp.Matrix([[0, 0, 1, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 1, 0, 0]]) / 2                   # z1 z3 + z2 z4
+    K4 = sp.Matrix([[1, 0], [-1, 0], [0, 1], [0, -1]])                                               # ker O4
+    # S7 on seven sites: the permutation character and the character of the third exterior power
+    perms = list(itertools.permutations(range(7)))
+    subsets = list(itertools.combinations(range(7), 3))
+    pairs = list(itertools.combinations(range(7), 2))
+    def ext_char(p, subs):
+        tot = 0
+        for S in subs:
+            img = tuple(sorted(p[i] for i in S))
+            if img == S:
+                tot += Permutation([S.index(p[i]) for i in S]).signature()
+        return tot
+    chiV = np.array([sum(p[i] == i for i in range(7)) for p in perms])
+    chi3 = np.array([ext_char(p, subsets) for p in perms])
+    chi2 = np.array([ext_char(p, pairs) for p in perms])
+    ip = lambda a, b: int(np.dot(a, b)) // len(perms) if int(np.dot(a, b)) % len(perms) == 0 else None
+    tau = perms.index((1, 0, 2, 3, 4, 5, 6))
+    # the L00 smear and Markov helpers: kernel of S Delta and similarity invariance of C D^n B
+    Delta = sp.Matrix([[1, 2, 3, 4, 5, 6], [2, 4, 6, 8, 10, 12], [1, 0, 1, 0, 1, 0], [3, 4, 7, 8, 11, 12]])
+    S4 = sp.Matrix([[2, 1, 0, 0], [1, 1, 0, 0], [0, 3, 1, 2], [1, 0, 1, 1]])
+    Cm, Dm, Bm = sp.Matrix([[1, 0, 2], [0, 1, 1]]), sp.Matrix([[1, 1, 0], [0, 1, 1], [1, 0, 1]]), sp.Matrix([[1, 0], [1, 1], [0, 1]])
+    S3 = sp.Matrix([[1, 1, 0], [0, 1, 1], [1, 0, 2]])
+    Y = sp.diag(0, 2, 2, 2, -3, -3)
+    N0, N2, Nm3 = (2 * I6 - Y) * (Y + 3 * I6), Y * (Y + 3 * I6), Y * (Y - 2 * I6)
+    t = sp.Symbol("t")
+    return {
+        "the paired readout: three disjoint pair swaps R and the sign probe Q = diag(1, -1, 1, -1, 1, -1) are involutions with "
+        "RQ = -QR; (I + R)/2 and (I - R)/2 are projectors of rank 3 and (I + R)^2 = 2(I + R); the sum readout O (3 x 6) has rank 3, "
+        "reading Gram O O^T = 2I and pair Gram O^T O = I + R, the difference readout OQ has Gram I - R; the stack M = [O; OQ] has "
+        "M^T M = 2I, determinant 8 and rank 6 with M^-1 = M^T/2 and mod-2 rank 3 (it inverts over Q, not over Z); ker O is the odd "
+        "space of dimension 3, "
+        "so three further readings are necessary and OQ supplies them; these are the separate model's stored swap, probe, sum "
+        "and two-view matrices":
+            R ** 2 == I6 and Q ** 2 == I6 and R * Q == -Q * R and Peven ** 2 == Peven and Podd ** 2 == Podd
+            and Peven.rank() == 3 and Podd.rank() == 3 and (I6 + R) ** 2 == 2 * (I6 + R)
+            and O.rank() == 3 and O * O.T == 2 * sp.eye(3) and O.T * O == I6 + R and (O * Q).T * (O * Q) == I6 - R
+            and M.T * M == 2 * I6 and M.det() == 8 and M.rank() == 6 and M.inv() == M.T / 2
+            and sp.Matrix(M.applyfunc(lambda e: e % 2)).rank(iszerofunc=lambda e: e % 2 == 0) == 3
+            and O.nullspace() and all(R * k == -k for k in O.nullspace()) and len(O.nullspace()) == 3
+            and R == sp.Matrix([[0,1,0,0,0,0],[1,0,0,0,0,0],[0,0,0,1,0,0],[0,0,1,0,0,0],[0,0,0,0,0,1],[0,0,0,0,1,0]])
+            and M == sp.Matrix([[1,1,0,0,0,0],[0,0,1,1,0,0],[0,0,0,0,1,1],[1,-1,0,0,0,0],[0,0,1,-1,0,0],[0,0,0,0,1,-1]]),
+        "the pair correlation q(x) = x1 x2 + x3 x4 + x5 x6 = x^T (R/2) x is (|Ox|^2 - |OQx|^2)/4, the difference of the squared "
+        "readings over four; the swap keeps it and the probe reverses it; (1, 1) and (2, 0) have the same sum 2 and products 1 "
+        "and 0, so equal sum readings hide unequal correlation (the fibres of O are translates of the odd space)":
+            sp.expand(q - ((O * x).T * (O * x))[0] / 4 + ((O * Q * x).T * (O * Q * x))[0] / 4) == 0
+            and sp.expand(q.subs(dict(zip(list(x), list(R * x))), simultaneous=True) - q) == 0
+            and sp.expand(q.subs(dict(zip(list(x), list(Q * x))), simultaneous=True) + q) == 0
+            and O * sp.Matrix([1, 1, 0, 0, 0, 0]) == O * sp.Matrix([2, 0, 0, 0, 0, 0])
+            and (sp.Matrix([1, 1, 0, 0, 0, 0]).T * corr * sp.Matrix([1, 1, 0, 0, 0, 0]))[0] == 1
+            and (sp.Matrix([2, 0, 0, 0, 0, 0]).T * corr * sp.Matrix([2, 0, 0, 0, 0, 0]))[0] == 0,
+        "the literal weights D = diag(700, 7, 800, 8, 900, 9): the swap defect D - RDR = diag(693, -693, 792, -792, 891, -891) "
+        "= 99 diag(7, -7, 8, -8, 9, -9) has rank 6, the even part D + RDR = 101 diag(7, 7, 8, 8, 9, 9), and the commutator [D, R] "
+        "has rank 6 and is not the defect; 99 = 100 - 1 meets the tick and 100 does not; the weighted stack [O; OD] has "
+        "determinant 693 x 792 x 891 and inverts over Q, each pair (a, b) with weights (A, B) from its sum u = a + b and weighted sum "
+        "v = Aa + Bb as a = (v - Bu)/(A - B), b = (Au - v)/(A - B)":
+            D - R * D * R == sp.diag(693, -693, 792, -792, 891, -891) == 99 * sp.diag(7, -7, 8, -8, 9, -9)
+            and (D - R * D * R).rank() == 6 and D + R * D * R == 101 * sp.diag(7, 7, 8, 8, 9, 9)
+            and (D * R - R * D).rank() == 6 and D * R - R * D != D - R * D * R
+            and 99 % 5 != 0 and 100 % 5 == 0 and 101 % 5 != 0 and W.det() == 693 * 792 * 891 and W.rank() == 6
+            and all(sp.simplify(W.inv() * W * x - x) == sp.zeros(6, 1) for _ in [0])
+            and all(sp.expand(((W * x)[3 + i] - b * (W * x)[i]) / (a - b) - x[2 * i]) == 0
+                    and sp.expand((a * (W * x)[i] - (W * x)[3 + i]) / (a - b) - x[2 * i + 1]) == 0
+                    for i, (a, b) in enumerate([(700, 7), (800, 8), (900, 9)])),
+        "the six-site rotor against the pair swap: T^5 = I, the five powers of T add to 5F with F the rank-2 fixed projector "
+        "(so the sum squares to 5 times itself), T + I has rank 6; the intertwiner equation TX = XR has nullity 6, every solution "
+        "is F X (I + R)/2 (it kills the odd line of each pair and lands in the fixed plane) and has rank at most 2, the six outer "
+        "products of a fixed basis with an even basis are independent solutions, a rank-2 witness exists, the identity is not one; the separate model's "
+        "stored adapter has rank 2, does not intertwine this rotor, and intertwines T conjugated by the site swap (0 3), which fixes "
+        "site 3 as the separate model's six-frame rotor does":
+            T ** 5 == I6 and T != I6 and F.rank() == 2 and F ** 2 == F and (5 * F) ** 2 == 5 * (5 * F) and (T + I6).rank() == 6
+            and len(hom_basis) == 6 and all(T * X == X * R for X in hom_basis) and all(X == F * X * Peven for X in hom_basis)
+            and all(X.rank() <= 2 for X in hom_basis) and witness.rank() == 2 and T * witness == witness * R
+            and sp.Matrix.hstack(*[X.reshape(36, 1) for X in hom_basis]).rank() == 6
+            and sp.Matrix.hstack(*[(f * e.T).reshape(36, 1) for f in F.columnspace() for e in Peven.columnspace()]).rank() == 6
+            and all(T * (f * e.T) == (f * e.T) * R for f in F.columnspace() for e in Peven.columnspace())
+            and T * I6 != I6 * R and A.rank() == 2 and T * A != A * R and Tp * A == A * R and Tp ** 5 == I6
+            and Tp[:, 3] == sp.eye(6)[:, 3] and len(fixed) == 1,
+        "the seven-code court's four-coordinate reader on the ordered family (600, 009, 800, 008): R4 and Q4 = diag(1, -1, 1, -1) are "
+        "anticommuting involutions, O4 = [[1, 1, 0, 0], [0, 0, 1, 1]] has rank 2, the stack [O4; O4 Q4] has determinant -4 and "
+        "inverts to the stored decoder ((s + d)/2, (s - d)/2 per pair), the lag-two quadratics are z1 z3 + z2 z4 = (s1 s2 + d1 d2)/2 "
+        "and z1 z4 + z2 z3 = (s1 s2 - d1 d2)/2; the lag-two form is nondegenerate (determinant 1/16), so no rank-2 observer "
+        "determines it: on the kernel directions of O4 its bilinear form does not vanish":
+            R4 ** 2 == I4 and Q4 ** 2 == I4 and R4 * Q4 == -Q4 * R4 and O4.rank() == 2 and T4.det() == -4
+            and T4.inv() == sp.Matrix([[1, 0, 1, 0], [1, 0, -1, 0], [0, 1, 0, 1], [0, 1, 0, -1]]) / 2
+            and sp.expand((s_[0] * s_[1] + d_[0] * d_[1]) / 2 - (z[0] * z[2] + z[1] * z[3])) == 0
+            and sp.expand((s_[0] * s_[1] - d_[0] * d_[1]) / 2 - (z[0] * z[3] + z[1] * z[2])) == 0
+            and sp.expand((z.T * lag * z)[0] - (z[0] * z[2] + z[1] * z[3])) == 0 and lag.det() == sp.Rational(1, 16)
+            and (lag * K4).rank() == 2 and O4 * K4 == sp.zeros(2, 2)
+            and sp.expand(((z + K4[:, 0]).T * lag * (z + K4[:, 0]))[0] - (z.T * lag * z)[0]) == z[2] - z[3],
+        "the 700 obstruction with the court's actions: S7 permuting seven sites has permutation character chi_V with "
+        "<chi_V, chi_V> = 2 (V7 = 1 + std), the third exterior power has <chi_3, chi_3> = 2 and dimension 35 = 20 + 15, "
+        "<chi_V, chi_3> = 0 (no common constituent; the second exterior power shares one constituent with each), so "
+        "Hom_S7(V7 (x) 1_100, 1_20 (x) Lambda^3 V7) = 100 x 20 x 0 = 0 although both have dimension 700; a transposition has "
+        "character 5 on V7 and 5 on Lambda^3 V7, so 500 and 100 on the two 700-dimensional spaces":
+            len(perms) == 5040 and ip(chiV, chiV) == 2 and ip(chi3, chi3) == 2 and int(chi3[0]) == 35 == 20 + 15
+            and ip(chiV, chi3) == 0 and ip(chi2, chi3) == 1 and ip(chi2, chiV) == 1 and ip(chi2, chi2) == 2
+            and ip(np.ones(len(perms), dtype=int), chi3) == 0 and ip(np.ones(len(perms), dtype=int), chiV) == 1
+            and 100 * 7 == 20 * 35 == 700 and int(chiV[tau]) == 5 and int(chi3[tau]) == 5 and 100 * 5 == 500 and 20 * 5 == 100,
+        "the selected diagonal again: Y^2 + Y - 6I = -6 P0, tr Y^2 = 30, Y = (10 P2 - 15 P-3)/5 = 2 P2 - 3 P-3, the "
+        "characteristic polynomial t (t - 2)^3 (t + 3)^2 has discriminant 0 while the minimal polynomial's is 900; the "
+        "stored N0, N2, N-3 and cleared_zero, cleared_two, cleared_minus_three are 6 P0, 10 P2, 15 P-3":
+            Y ** 2 + Y - 6 * I6 == -N0 and (Y ** 2).trace() == 30 and Y == (N2 - Nm3) / 5
+            and sp.discriminant(t * (t - 2) ** 3 * (t + 3) ** 2, t) == 0 and sp.discriminant(t * (t - 2) * (t + 3), t) == 900
+            and Y.charpoly(t).as_expr() == sp.expand(t * (t - 2) ** 3 * (t + 3) ** 2)
+            and N0 == sp.diag(6, 0, 0, 0, 0, 0) and N2 == sp.diag(0, 10, 10, 10, 0, 0) and Nm3 == sp.diag(0, 0, 0, 0, 15, 15),
+        "the smear and Markov helpers: for an invertible S, ker(S Delta) = ker Delta (here Delta is 4 x 6 of rank 2); the "
+        "similarity B' = SB, D' = S D S^-1, C' = C S^-1 keeps every Markov parameter C' D'^n B' = C D^n B through order 8; the "
+        "receipts' arithmetic: 4176 + 13 = 4189 and 633 + 5 = 638 (readout), 4176 + 14 = 4190 (seven code), 4189 + 14 = 4203 and "
+        "638 + 5 = 643 (reconciled), 35/34, 41/40, 45/44 files/hashes; 31 + 9 + 10 = 50 misses the tick and is not 31; "
+        "9 + 5 = 14 is neither 22 nor 23; 346 = 345 + 1; 17 + 31 = 48 = 280 - 232; 800 = 20 (30 + 10); 900 = 30^2":
+            Delta.rank() == 2 and S4.det() != 0 and (S4 * Delta).nullspace() == Delta.nullspace()
+            and all(sp.Matrix(Cm * S3.inv() * (S3 * Dm * S3.inv()) ** n * S3 * Bm) == Cm * Dm ** n * Bm for n in range(9)) and S3.det() != 0
+            and 4176 + 13 == 4189 and 633 + 5 == 638 and 4176 + 14 == 4190 and 4189 + 14 == 4203 and 638 + 5 == 643
+            and all(a - b == 1 for a, b in ((35, 34), (41, 40), (45, 44))) and (31 + 9 + 10) % 5 == 0 and 31 + 9 + 10 != 31
+            and 9 + 5 == 14 not in (22, 23) and 346 == 345 + 1 and 17 + 31 == 48 == 280 - 232 and 800 == 20 * (30 + 10) and 900 == 30 ** 2,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -10640,6 +10797,13 @@ LEDGER_ROWS = [
     ("the Quotient's receipt readings (MODEL, 09:36)", "630 has order 48; 633, 21 and 3 have order 1440; 4176 has order 30; 37 generates the circle; 43200 = 10 x 4320 is 0 on it", "replayed as arithmetic; the receipts' groups and regressions are recorded, not rerun", T, "23"),
     ("the Label's selected diagonal (MODEL, 09:36)", "Y = diag(0, 2, 2, 2, -3, -3) has minimal polynomial t(t - 2)(t + 3), Vandermonde 30 and discriminant 900 = 6 x 10 x 15; the cleared projectors have ranks 1, 3, 2 and 5 x 6P0 + 3 x 10P2 + 2 x 15P-3 = 30I", "replayed; the Lagrange denominator at 0 is -6, so the cleared projector 6 P0 is (2I - Y)(Y + 3I), with 10 P2 = Y(Y + 3I) and 15 P-3 = Y(Y - 2I); Y - 2I has rank 3 and is not 10 P2", T, "23"),
     ("the Label's hook lengths (MODEL, 09:36)", "S7's hook lengths give 1, 6, 20, 15 for [7], [6, 1], [4, 1, 1, 1], [5, 1, 1]; 100(1 + 6) = 700 = 20(20 + 15) = 20 x 35 with 35 = C(7, 3); 700 has order 216 and 600 order 36; 719 generates the circle", "replayed as arithmetic; 700, 800 and 900 miss the tick and 7, 8, 9 meet it; the ordinary and parity readings, the 719-dimensional kernel and the equivariant Hom are not stored here", T, "23"),
+    ("the paired readout (MODEL, 10:05)", "the three disjoint pair swaps R (one involution) and the probe Q = diag(1, -1, 1, -1, 1, -1) anticommute; O O^T = 2I and O^T O = I + R for the sum readout O; the stack [O; OQ] has M^T M = 2I, determinant 8 and mod-2 rank 3; the correlation x1 x2 + x3 x4 + x5 x6 = (|Ox|^2 - |OQx|^2)/4 is kept by R and reversed by Q", "replayed on the separate model's stored swap, probe, sum and two-view matrices; ker O is the odd space, so three further readings are necessary and the difference readout supplies them", T, "23"),
+    ("the literal weights 700, 7, 800, 8, 900, 9 (MODEL, 10:05)", "the swap defect D - RDR is 99 diag(7, -7, 8, -8, 9, -9), of rank 6, the even part D + RDR is 101 diag(7, 7, 8, 8, 9, 9), and the weighted stack [O; OD] has determinant 693 x 792 x 891", "replayed; 99 meets the tick and 100 does not; the weighted stack inverts over Q pair by pair", T, "23"),
+    ("the pair swap against the six-site rotor (MODEL, 10:05)", "TX = XR has a six-dimensional solution space; every solution factors through the rank-2 fixed projector of T and the rank-3 even projector of R and has rank at most 2, so no invertible equivariant adapter exists", "replayed on the model's rotor T (order 5, fixing x0): nullity 6, a rank-2 witness, the identity not a solution; the separate model's stored rank-2 adapter intertwines R with T conjugated by the site swap (0 3), the rotor fixing the separate model's site 3, not with T itself", T, "23"),
+    ("the four-coordinate reader (seven-code court, 09:38)", "on the ordered family (600, 009, 800, 008) the stack [O4; O4 Q4] has determinant -4 and inverts to the stored decoder; z1 z3 + z2 z4 = (s1 s2 + d1 d2)/2 and z1 z4 + z2 z3 = (s1 s2 - d1 d2)/2; no rank-2 observer determines a nondegenerate quadratic", "replayed; the lag-two form has determinant 1/16 and its bilinear form does not vanish on the kernel of O4", T, "23"),
+    ("the 700 obstruction (seven-code court, 09:38)", "with S7 permuting seven sites and acting trivially on the auxiliary factors, Hom_S7(V7 (x) 1_100, 1_20 (x) Lambda^3 V7) = 0 although both have dimension 700; a transposition has characters 500 and 100 on them", "replayed over all 5040 permutations: <chi_V, chi_3> = 0, <chi_V, chi_V> = <chi_3, chi_3> = 2, and Lambda^2 V7 shares one constituent with each; the Label note's missing actions are supplied by the court", T, "23"),
+    ("the selected diagonal's resolution (seven-code court, 09:38; the readout and seven-code archives)", "Y^2 + Y - 6I = -6 P0, tr Y^2 = 30 and Y = (10 P2 - 15 P-3)/5; the characteristic polynomial t (t - 2)^3 (t + 3)^2 has discriminant 0 while the minimal polynomial's is 900", "replayed; the archives' stored N0, N2, N-3 are the cleared projectors 6 P0, 10 P2, 15 P-3 of the 09:37 check", T, "23"),
+    ("the smear and Markov helpers (seven-code court, 09:38)", "ker(S Delta) = ker Delta for an invertible S, and the similarity B' = SB, D' = S D S^-1, C' = C S^-1 keeps every Markov parameter C D^n B", "replayed on integer witnesses through order 8", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -10790,6 +10954,23 @@ NOT_JOINED = [
                                                         "cyclic receipts of the 16:11 check and the Label section reads a pasted note whose "
                                                         "ordinary and parity readings, 719-dimensional kernel and equivariant Hom are not "
                                                         "stored here; the arithmetic is replayed in notes_0936", RP),
+    ("the sibling's 10:05 edition (31 Oct)", "346 exact checks (345 before); the Readout section reads the separate model's paired readout "
+                                           "and seven-code archives; its arithmetic is replayed in notes_1009", RP),
+    ("the separate model's Unified Readout (09:43) and Seven Code (09:48, 09:50) archives", "a 612405-byte zip (35 files, 34 hashes; "
+                                                                                        "31 exact groups, 5 typed joins, 4176 -> 4189 "
+                                                                                        "artifacts and 633 -> 638 relationships; its 22nd "
+                                                                                        "layer) and two capsules (41/40 and 45/44 files/"
+                                                                                        "hashes; 38 groups and 14 matrix presentations "
+                                                                                        "each; 4190 and 638 on the cyclic root, then 4203 "
+                                                                                        "and 643 reconciled onto the readout release as "
+                                                                                        "its 23rd layer); stored matrices, "
+                                                                                        "registries and READMEs read as data, its code not "
+                                                                                        "run; the checkpoint recovery (09:52) not opened", RP),
+    ("the seven-code court packet (09:38)", "a reference note with a certificate and a sympy verifier (read as data, not run): the Y "
+                                           "projectors, the four-coordinate reader, the S7 obstruction, the 007 fingerprint and the smear "
+                                           "and Markov helpers, replayed in notes_1009; its quoted sources are a Locked Memory "
+                                           "consolidation handover of 1 October and the master join theorems note (neither opened "
+                                           "here)", RP),
 ]
 
 

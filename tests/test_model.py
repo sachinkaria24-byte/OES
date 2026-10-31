@@ -656,7 +656,7 @@ def test_the_one_object():
                   dots.notes_2325, dots.notes_2356, dots.six_lines, dots.notes_0032,
                   dots.petersen_sequence, dots.notes_0117, dots.notes_0844,
                   dots.notes_0912, dots.notes_0951, dots.notes_1004, dots.notes_1411, dots.notes_1441, dots.notes_1504, dots.notes_1611,
-                  dots.notes_0936,
+                  dots.notes_0936, dots.notes_1009,
                   dots.golden_cosine, dots.golden_galois, dots.regular_cosines, dots.torus_places, unify.levels_unified):
         out = check()
         assert all(out.values()), out
