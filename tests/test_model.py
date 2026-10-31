@@ -354,13 +354,15 @@ def test_no_two_dots_and_the_memory_without_selection(monkeypatch):
     perm, cycles, P = dots._memory()
     lengths = lambda p: sorted(len(c) for c in dots._cycles(p))
     assert lengths(P[7]) == lengths(perm) != lengths(P[2])
-    # both checks can fail: without the three new conditional maps the datum and the triple cut off the product
-    # geometry and FLRW, and without the memory's 24 maps THEOREM joins leave the memory clock out
+    # both checks can fail: keep only one map at FLRW and removing its other end cuts the cosmos off (since the
+    # join sweep of 31 Oct the cosmos sits on several conditional maps), and without the memory's 24 maps and the
+    # sweep's three (its 9-cycle, its 10-cycles and Z/90 = Z/18 x Z/5) THEOREM joins leave the memory clock out
     joins = dots.JOINS
-    monkeypatch.setattr(dots, "JOINS", [j for j in joins
-                                        if j[5] not in ("massless_tower", "stiff_kernel", "cosmos_calibration")])
+    first = next(k for k, j in enumerate(joins) if "cosmology" in j[:2])
+    monkeypatch.setattr(dots, "JOINS", [j for k, j in enumerate(joins) if k == first or "cosmology" not in j[:2]])
     assert not all(dots.no_two_dots().values())
-    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[5] != "memory_quotients"])
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[5] not in
+                                        ("memory_quotients", "join_c27_memory", "join_grain_memory", "join_memory_miss")])
     assert ["memory"] in [sorted(c) for c in dots.components([True] * len(dots.JOINS), statuses=(gates.THEOREM,))]
 
 
