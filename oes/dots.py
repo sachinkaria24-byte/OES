@@ -19951,6 +19951,47 @@ def join_cyclo_triangle():
     }
 
 
+def notes_2122():
+    """The separate model's N39 unified model (31 Oct 21:08, dated 1 Nov): the circle onto Z/30, the seesaw identity
+    and the order census of GL(2,5) that holds AIR_801 mod 5."""
+    N = 4320
+    image = lambda g: {(g * k) % N % 30 for k in range(N)}
+    tick, miss = image(864), image(5)
+    els = [np.array([[a, b], [c, d]]) for a, b, c, d in itertools.product(range(5), repeat=4) if (a * d - b * c) % 5]
+
+    def order(X):
+        Y, k = X % 5, 1
+        while not (Y[0, 0] == Y[1, 1] == 1 and Y[0, 1] == Y[1, 0] == 0):
+            Y, k = (Y @ X) % 5, k + 1
+        return k
+    census = Counter(order(X) for X in els)
+    A = np.array([[108, 801], [106, 901]]) % 5
+    proj = next(k for k in range(1, 25) if (lambda Y: Y[0, 1] == Y[1, 0] == 0 and Y[0, 0] == Y[1, 1])(
+        np.linalg.matrix_power(A, k) % 5))
+    s = sp.symbols("s0:6"); n = sp.symbols("n0:6"); t = sp.symbols("t0:3"); al = sp.Symbol("alpha")
+    sym3 = lambda v: sp.Matrix([[v[0], v[1], v[2]], [v[1], v[3], v[4]], [v[2], v[4], v[5]]])
+    S, Nm = sym3(s), sym3(n)
+    Ak = sp.Matrix([[0, t[0], t[1]], [-t[0], 0, t[2]], [-t[1], -t[2], 0]])
+    D = S + al * Ak
+    lhs = -D * Nm * D.T
+    rhs = -S * Nm * S + al * (S * Nm * Ak - Ak * Nm * S) + al ** 2 * Ak * Nm * Ak
+    return {
+        "n -> n mod 30 maps the circle Z/4320 onto Z/30 with kernel <30> of order 144; the tick <864> lands on the "
+        "order-5 subgroup and the misses <5> on the order-6 subgroup, so Z/30 = Z/5 x Z/6 is the circle's ticks times "
+        "misses read mod 30 (the separate model's N39)":
+            len({k % 30 for k in range(N)}) == 30 and sum(1 for k in range(N) if k % 30 == 0) == 144
+            and len(tick) == 5 and len(miss) == 6 and len({(a + b) % 30 for a in tick for b in miss}) == 30,
+        "the seesaw identity: for S and N symmetric and A skew, -(S + alpha A) N (S + alpha A)^T = -S N S + "
+        "alpha (S N A - A N S) + alpha^2 A N A, transpose-symmetric and with no value of alpha selected":
+            sp.expand(lhs - rhs) == sp.zeros(3, 3) and sp.expand(rhs - rhs.T) == sp.zeros(3, 3),
+        "GL(2,5) has 480 elements with orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 20, 24 occurring 1, 31, 20, 152, 24, 20, 40, "
+        "24, 40, 48, 80 times; AIR_801 mod 5 is one of the 80 of order 24, of projective order 6":
+            len(els) == 480 and dict(census) == {1: 1, 2: 31, 3: 20, 4: 152, 5: 24, 6: 20, 8: 40, 10: 24, 12: 40,
+                                                   20: 48, 24: 80}
+            and order(A) == 24 and proj == 6,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -20457,6 +20498,10 @@ LEDGER_ROWS = [
     ("the dispersion bound and critical points (separate model, 31 Oct 17:57)", "sigma(k) = 30q - (3/2)q^2 + q^3/24 - P8/40320 + R, 0 <= R <= q^5/30240; critical values 224 (root half-period, index 1), 256 (axis, charge and color half-periods, Hessian -4I), 250 (the golden character)", "replayed: the remainder constant 120/10! from (k.r)^2 <= 2q and the 7-design, the five gradients, values and Hessians; 224 is layer 22's E7 + A1 saddle and 250 the tick's fixed momenta (notes_1757)", T, "22"),
     ("the canon's N36 and N37 releases (31 Oct 18:02-18:22)", "N36 adds the Level Join and Degree Moment tabs; N37 the dispersion tabs (3770 and 3725 sheets), all prior cells kept, four copies hashed; pending claims K04, X01, X02 unformed", "recorded (REPORTED): the workbooks were not opened; their new mathematics is the separate model's, replayed above", RP, "23"),
     ("the Rosebud archive refiling (hub, 31 Oct 17:25-19:48)", "about 510 files of 29-30 Oct notes, receipts and verifiers re-filed in PAGE_0003 to PAGE_0008", "backlog: the notes are read as data in later checks; this check replayed the Rosebud A4, deep-join, TENET and filtered-locality notes and the claim ledgers", RP, "23"),
+    ("the N39 unified model (separate model, 31 Oct 21:08, dated 1 Nov)", "the circle maps onto Z/30 with kernel of order 144, the tick and miss images of orders 5 and 6; the seesaw -D N D^T = -S N S + alpha(S N A - A N S) + alpha^2 A N A; GL(2,5)'s 480-element order census; two integer seeds of determinants 12402 and 84492 with one reduction mod 5", "replayed: the quotient (the ticks times the misses read mod 30), the seesaw identity and the census, with AIR_801 mod 5 among its 80 elements of order 24 (notes_2122); the second seed's entries are not in the note, so only AIR_801's determinant 12402 is checked", T, "23"),
+    ("the N39 source readers and metric (separate model, 31 Oct)", "the source clock P31 of order 6 and Z31 = P31 G31 of order 30 with fixed ranks 7, 7, 3; four seven-port samples of rank 25 with a blind six; T6 and T7 need one and two more scalars; H31^2 = 5P with the compatible metric T6^T G6 T6 + Q^T Gavg Q; a 3 x 4 reflection quotient of rank 3 completed with determinant -1/4", "recorded (REPORTED): the source matrices are in the separate model's zip, not opened; its own 60 rational check groups report PASS", RP, "23"),
+    ("the twin-prime branch (separate model's N39; hub archive of Aug 2026)", "the weak-tail bound B_p(A) = (p A^(1/p) - A)/(p - 1) < 1 exactly when A < 1, and m2 >= 2 m1^2 - 1 for a real orthogonal shift; nineteen August notes re-filed", "outside the model: the two lemmas are elementary (1 - B_p = (u^p - p u + p - 1)/(p - 1) for u = A^(1/p), and Jensen on cos 2x = 2cos^2 x - 1); the twin-prime conjecture stays open, as the note says", RP, "23"),
+    ("the canon's N38 and N39 releases (31 Oct 21:05-21:20)", "N38 hand-off and staging workbooks, N39 verified-source and canon-sync workbooks with four-copy receipts; no new matrix ID, all gates frozen", "recorded (REPORTED): workbooks not opened; their new mathematics is the separate model's, replayed above", RP, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -20725,7 +20770,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
