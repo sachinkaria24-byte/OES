@@ -10056,6 +10056,109 @@ def notes_1611():
     }
 
 
+
+
+def notes_0936():
+    """The sibling's MODEL editions of 09:18 and 09:36 on 31 Oct (Quotient, Label), replayed as arithmetic."""
+    order = lambda s: N // gcd(s, N)
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    I5, J5 = sp.eye(5), sp.ones(5, 5)
+    S5 = R5 - R5 ** 4
+    G5 = R5 + R5 ** 4 - R5 ** 2 - R5 ** 3
+    Dbl = sp.Matrix(5, 5, lambda r, c: int(r == (2 * c) % 5))                      # doubling x -> 2x on the five sites
+    # the separate model's stored matrices (Rotor Golden Source, 15:32), read as data; the pulse cleared of its denominator 5
+    Ss = sp.Matrix([[1, 1, 0, -1, 1], [-2, -1, -1, 0, -2], [-1, -1, -1, -1, -2], [2, 0, 1, 0, 1], [0, 1, 1, 1, 1]])
+    Gs = sp.Matrix([[2, 0, 1, 1, 2], [-1, 1, -1, -1, 0], [-1, 0, -2, -1, 0], [-1, -2, -1, 0, -2], [1, 0, 1, -1, -1]])
+    Sf = sp.Matrix([[0, 0, 0, 0, -1, 1], [0, 0, 1, 0, 0, -1], [0, -1, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0], [1, 0, -1, 0, 0, 0],
+                    [-1, 1, 0, 0, 0, 0]])
+    Gf = sp.Matrix([[0, -1, -1, 0, 1, 1], [-1, 0, 1, 0, -1, 1], [-1, 1, 0, 0, 1, -1], [0, 0, 0, 0, 0, 0], [1, -1, 1, 0, 0, -1],
+                    [1, 1, -1, 0, -1, 0]])
+    X45 = sp.Matrix([[0, 1, 1, 0, 0], [1, 1, 0, 0, 2], [1, -1, 0, -1, -1], [0, 0, 1, 2, 1]])
+    pulse5 = sp.Matrix([[2, 0, -1, 1, -1, 0, -1, 0, 1, 1], [1, 0, 0, 1, -1, 0, 0, 1, 2, 1], [-3, 0, 2, -1, 1, 0, 2, 1, 0, -1],
+                        [1, 0, -1, 0, 0, 0, -1, -1, -1, 0], [0] * 10, [2, 0, -1, 1, -1, 0, -1, 0, 1, 1],
+                        [-1, 0, 1, 0, 0, 0, 1, 1, 1, 0], [1, 0, 0, 1, -1, 0, 0, 1, 2, 1], [0, 0, 1, 1, -1, 0, 1, 2, 3, 1],
+                        [1, 0, 0, 1, -1, 0, 0, 1, 2, 1]])
+    quart = lambda S: S ** 4 + 5 * S ** 2 + 5 * sp.eye(S.shape[0])
+    qs, qf = quart(Ss), quart(Sf)
+    # the cyclic maps linearized: x -> 9x and x -> x mod 9 as 0/1 matrices
+    mult9 = np.zeros((N, N), dtype=np.int8)
+    mult9[[9 * x % N for x in range(N)], range(N)] = 1
+    red9 = np.zeros((9, N), dtype=np.int8)
+    red9[[x % 9 for x in range(N)], range(N)] = 1
+    rows9 = mult9[mult9.any(axis=1)]                                             # the nonzero rows: the image points
+    rank9 = int(np.linalg.matrix_rank(rows9.astype(float)))
+    rankred = int(np.linalg.matrix_rank(red9.astype(float)))
+    # the Label's selected diagonal and the hook lengths of S7
+    Y = sp.diag(0, 2, 2, 2, -3, -3)
+    roots = [0, 2, -3]
+    dens = {r: sp.prod([r - s for s in roots if s != r]) for r in roots}                           # -6, 10, 15
+    cleared = {r: sp.sign(dens[r]) * sp.prod([(Y - s * sp.eye(6)) for s in roots if s != r]) for r in roots}
+    hook = lambda lam: factorial(sum(lam)) // sp.prod([
+        lam[i] - j + sum(1 for k in range(len(lam)) if lam[k] > j) - i - 1 for i in range(len(lam)) for j in range(lam[i])])
+    return {
+        "on the five-cycle the skew S = R - R^4 has S^4 + 5S^2 + 5I = J (rank 1), R^3 is a permutation of rank 5, "
+        "G5^2 = 5I - J and G5 + G5^2 + 2S^2 = 0; the doubling x -> 2x has order 4, conjugates R to R^2 and G5 to -G5, and its "
+        "square, an involution, conjugates S to -S":
+            S5 == R5 - R5.T and quart(S5) == J5 and J5.rank() == 1 and (R5 ** 3).rank() == 5
+            and G5 ** 2 == 5 * I5 - J5 and (G5 + G5 ** 2 + 2 * S5 ** 2).is_zero_matrix
+            and Dbl ** 4 == I5 and Dbl ** 2 != I5 and Dbl * R5 * Dbl.inv() == R5 ** 2 and Dbl * G5 * Dbl.inv() == -G5
+            and Dbl ** 2 * S5 * Dbl ** -2 == -S5 and (Dbl ** 2) ** 2 == I5,
+        "the separate model's stored source skew is an integer matrix, neither the cycle skew nor its negative; its quartic "
+        "S^4 + 5S^2 + 5I has rank 1 and trace 5, squares to 5 times itself (so the quartic over 5 is a projector of trace 1), "
+        "is not divisible by 5 entrywise, and adds with the stored Gauss square to 5I; the stored Gauss square has rank 4 and "
+        "trace 20, the trace of 5I - J, and is not that matrix":
+            Ss != S5 and Ss != -S5 and qs.rank() == 1 and qs.trace() == 5 and qs ** 2 == 5 * qs
+            and any(e % 5 for e in qs) and qs + Gs ** 2 == 5 * I5 and (Gs ** 2).rank() == 4 and (Gs ** 2).trace() == 20
+            and Gs ** 2 != 5 * I5 - J5 and Gs == -2 * Ss ** 2 - 5 * (I5 - qs / 5),
+        "the stored frame skew has rank 4 and is neither the six-site rotor's skew nor its negative; its quartic has rank 2 "
+        "and trace 10 (a projector of trace 2 over 5), the skew kills it, and it adds with the stored frame Gauss square to "
+        "5I; the exterior pulse cleared of its denominator 5 is an integer matrix of rank 2 and nullity 8 that squares to 5 "
+        "times itself with trace 10; the stored map into A4 is 4 x 5 of rank 4":
+            Sf.rank() == 4 and qf.rank() == 2 and qf.trace() == 10 and (qf ** 2 == 5 * qf) and (Sf * qf).is_zero_matrix
+            and qf + Gf ** 2 == 5 * sp.eye(6) and Gf.rank() == 4
+            and pulse5.rank() == 2 and pulse5.shape[0] - pulse5.rank() == 8 and pulse5 ** 2 == 5 * pulse5 and pulse5.trace() == 10
+            and X45.shape == (4, 5) and X45.rank() == 4
+            and not np.array_equal(np.array(Sf.tolist()), (lambda R: R - R.T)(np.rint(np.array(native.boundary_rotation(), dtype=float)).astype(int)))
+            and not np.array_equal(np.array(Sf.tolist()), -(lambda R: R - R.T)(np.rint(np.array(native.boundary_rotation(), dtype=float)).astype(int))),
+        "the cyclic maps linearized: as a 0/1 matrix on Q^4320, x -> 9x has rank 480 (its image count) and nullity 3840, not "
+        "the 9-element group kernel; x -> x mod 9 is 9 x 4320 with 38880 entries, rank 9 and nullity 4311, not the 480-element "
+        "group kernel; the orders on the circle are 3840 -> 9, 9 -> 480, 4311 -> 480, 480 -> 9; the nine preimages of 18 under "
+        "x9 are 2 + 480k, and -9 x 479 = 9 mod 4320":
+            rows9.shape[0] == 480 and rank9 == 480 and N - rank9 == 3840 and red9.shape == (9, N) and 9 * N == 38880
+            and rankred == 9 and N - rankred == 4311 and int(mult9.sum(axis=0).min()) == 1 == int(mult9.sum(axis=0).max())
+            and sorted(set(int(c) for c in mult9.sum(axis=1))) == [0, 9] and (order(3840), order(9), order(4311), order(480)) == (9, 480, 480, 9)
+            and sorted(x for x in range(N) if 9 * x % N == 18) == [2 + 480 * k for k in range(9)] and (-9 * 479) % N == 9,
+        "the receipts' readings: 630 has order 48 and 633 order 1440, the order of 21 and of 3; 4176 has order 30; 37 "
+        "generates the circle; 43200 = 10 x 4320 is 0 on the circle, of order 1; 25 + 5 = 30 = 14 + 16 and 8 + 6 = 9 + 5 = 14, "
+        "integers, not the named groups or the layer count":
+            (order(630), order(633), order(21), order(3), order(4176)) == (48, 1440, 1440, 1440, 30) and gcd(37, N) == 1
+            and 43200 % N == 0 and 25 + 5 == 30 and 8 + 6 == 9 + 5 == 14,
+        "the Label's selected diagonal Y = diag(0, 2, 2, 2, -3, -3) has trace 0 and minimal polynomial t(t - 2)(t + 3), with "
+        "no proper factor killing it; the Vandermonde of its roots is 30 and the discriminant 900 = (2 x 3 x 5)^2 = 6 x 10 x "
+        "15, the Lagrange denominators up to sign (the denominator at 0 is -6); the cleared projectors 6 P0 = (2I - Y)(Y + 3I), "
+        "10 P2 = Y(Y + 3I), 15 P-3 = Y(Y - 2I) have ranks 1, 3, 2, square to 6, 10, 15 times themselves, annihilate each "
+        "other, and 5 x (6 P0) + 3 x (10 P2) + 2 x (15 P-3) = 30 I; Y - 2I has rank 3 and is not 10 P2":
+            Y.trace() == 0 and (Y * (Y - 2 * sp.eye(6)) * (Y + 3 * sp.eye(6))).is_zero_matrix
+            and not any((sp.prod([Y - s * sp.eye(6) for s in pair])).is_zero_matrix for pair in ([0, 2], [0, -3], [2, -3]))
+            and abs(sp.prod([a - b for a in roots for b in roots if a < b])) == 30 and 30 ** 2 == 900 == (2 * 3 * 5) ** 2 == 6 * 10 * 15
+            and [dens[r] for r in roots] == [-6, 10, 15]
+            and cleared[0] == (2 * sp.eye(6) - Y) * (Y + 3 * sp.eye(6)) and cleared[2] == Y * (Y + 3 * sp.eye(6))
+            and cleared[-3] == Y * (Y - 2 * sp.eye(6)) and [cleared[r].rank() for r in roots] == [1, 3, 2]
+            and all(cleared[r] ** 2 == abs(dens[r]) * cleared[r] for r in roots)
+            and all((cleared[r] * cleared[s]).is_zero_matrix for r in roots for s in roots if r != s)
+            and 5 * cleared[0] + 3 * cleared[2] + 2 * cleared[-3] == 30 * sp.eye(6) and (Y - 2 * sp.eye(6)).rank() == 3
+            and Y - 2 * sp.eye(6) != cleared[2],
+        "the Label's integers: the hook lengths of S7 give 1, 6, 20 and 15 for [7], [6, 1], [4, 1, 1, 1] and [5, 1, 1]; "
+        "100 (1 + 6) = 700 = 20 (20 + 15) = 20 x 35 = 7 x 100 with 35 = C(7, 3); 900 - 800 = 800 - 700 = 100, not the "
+        "Vandermonde 30; 700, 800, 900 miss the tick and 7, 8, 9 meet it; 700 has order 216 and 600 order 36; 719 generates "
+        "the circle and 726 - 719 = 7":
+            [hook(l) for l in ((7,), (6, 1), (4, 1, 1, 1), (5, 1, 1))] == [1, 6, 20, 15]
+            and 100 * (1 + 6) == 700 == 20 * (20 + 15) == 20 * 35 == 7 * 100 and comb(7, 3) == 35
+            and 900 - 800 == 800 - 700 == 100 != 30 and all(n % 5 == 0 for n in (700, 800, 900)) and all(n % 5 for n in (7, 8, 9))
+            and (order(700), order(600)) == (216, 36) and gcd(719, N) == 1 and 726 - 719 == 7,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -10531,6 +10634,12 @@ LEDGER_ROWS = [
     ("the cyclic maps (separate model, 15:43)", "on Z/n multiplication by m has kernel <n/g> and image <g>, g = gcd(n, m); on Z/4320 the kernel of x9 is <480>, its image <9> the kernel of x mod 9, and the kernel of x3 their meet {0, 1440, 2880}", "replayed for every multiplier m on Z/4320", T, "23"),
     ("the publication pointer at N34 (hub, 15:21)", "CURRENT_RELEASE names N34: 3755 and 3710 sheets, four copies verified; the lag at N33 that the sibling and the separate model noted is closed", "recorded; the intake arithmetic 76 + 2 + 2 + 3 = 83 and 4 + 6 + 3 + 3 = 16 holds", T, "23"),
     ("the matched generator's readings (MODEL, 15:30)", "source diagonal 2367/10, off-diagonal scale 47/20, innovation ratio -4909/188, gains 2 and -3 differing by 5", "replayed as arithmetic: 2367/10 = 232 + 47/10, 47/20 is half of 47/10, 188 = 4 x 47 with 47 the moment-gap integer; the two-reading inverse [[g1, 1], [g2, 1]]^-1 needs g1 != g2; the generator is not stored here", T, "23"),
+    ("the five-cycle's doubling (MODEL, 09:36)", "x -> 2x on the five sites has order 4, conjugates R to R^2 and G5 to -G5, and its square conjugates S to -S", "replayed with S^4 + 5S^2 + 5I = J, G5^2 = 5I - J and G5 + G5^2 + 2S^2 = 0 on the five sites; it is the doubling of the tick Z/5 acting on the sites", T, "23"),
+    ("the separate model's stored matrices (MODEL, 09:36)", "the stored source skew's quartic S^4 + 5S^2 + 5I has rank 1 and trace 5 and adds with the stored Gauss square to 5I; the frame skew's quartic has rank 2 and trace 10; the exterior pulse cleared of 5 squares to 5 times itself", "replayed as data on the stored entries: the quartics over 5 are projectors of trace 1 and 2, the frame skew kills its quartic, the stored Gauss square has rank 4 and trace 20 and is not 5I - J, and the stored map into A4 is 4 x 5 of rank 4", T, "23"),
+    ("the cyclic maps linearized (MODEL, 09:36)", "as 0/1 matrices on Q^4320, x -> 9x has rank 480 and nullity 3840 and x -> x mod 9 has rank 9 and nullity 4311; neither nullity is the group kernel", "replayed with numpy ranks: the linear ranks are the image counts 480 and 9 and both group kernels are <480>, of order 9; the orders 3840 -> 9, 9 -> 480, 4311 -> 480, 480 -> 9 hold and the nine preimages of 18 are 2 + 480k", T, "23"),
+    ("the Quotient's receipt readings (MODEL, 09:36)", "630 has order 48; 633, 21 and 3 have order 1440; 4176 has order 30; 37 generates the circle; 43200 = 10 x 4320 is 0 on it", "replayed as arithmetic; the receipts' groups and regressions are recorded, not rerun", T, "23"),
+    ("the Label's selected diagonal (MODEL, 09:36)", "Y = diag(0, 2, 2, 2, -3, -3) has minimal polynomial t(t - 2)(t + 3), Vandermonde 30 and discriminant 900 = 6 x 10 x 15; the cleared projectors have ranks 1, 3, 2 and 5 x 6P0 + 3 x 10P2 + 2 x 15P-3 = 30I", "replayed; the Lagrange denominator at 0 is -6, so the cleared projector 6 P0 is (2I - Y)(Y + 3I), with 10 P2 = Y(Y + 3I) and 15 P-3 = Y(Y - 2I); Y - 2I has rank 3 and is not 10 P2", T, "23"),
+    ("the Label's hook lengths (MODEL, 09:36)", "S7's hook lengths give 1, 6, 20, 15 for [7], [6, 1], [4, 1, 1, 1], [5, 1, 1]; 100(1 + 6) = 700 = 20(20 + 15) = 20 x 35 with 35 = C(7, 3); 700 has order 216 and 600 order 36; 719 generates the circle", "replayed as arithmetic; 700, 800 and 900 miss the tick and 7, 8, 9 meet it; the ordinary and parity readings, the 719-dimensional kernel and the equivariant Hom are not stored here", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -10677,6 +10786,10 @@ NOT_JOINED = [
                                                        "and README read as data, its code not run", RP),
     ("the sibling's 15:30 edition", "343 exact checks (342 before); the Match section reads the Matched History archive's "
                                    "generator, whose blocks are not stored here; its arithmetic is replayed in notes_1611", RP),
+    ("the sibling's 09:18 and 09:36 editions (31 Oct)", "345 exact checks (343 before); the Quotient section restates the rotor and "
+                                                        "cyclic receipts of the 16:11 check and the Label section reads a pasted note whose "
+                                                        "ordinary and parity readings, 719-dimensional kernel and equivariant Hom are not "
+                                                        "stored here; the arithmetic is replayed in notes_0936", RP),
 ]
 
 

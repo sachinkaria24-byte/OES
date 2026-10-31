@@ -886,5 +886,6 @@ The maps that join each pair of levels directly.
 | the separate model's Rotor Golden Source model (15:32) | an 84338-byte archive with 22 payload files and 21 hashes, 20 layers, 30 exact groups, 9 regressions, 6 typed joins (624 -> 630), 6 coordinate presentations (4170 -> 4176 artifacts); its receipt, README, registry and generated matrices read as data, its code not run | REPORTED |
 | the separate model's Cyclic Maps model (15:43) | a 367815-byte capsule (zip + base64) with 26 payload files and 25 hashes, the 21st layer: 37 exact groups, 3 typed joins (630 -> 633), 43200 endomorphism values enumerated; decoded in memory, its registry and README read as data, its code not run | REPORTED |
 | the sibling's 15:30 edition | 343 exact checks (342 before); the Match section reads the Matched History archive's generator, whose blocks are not stored here; its arithmetic is replayed in notes_1611 | REPORTED |
+| the sibling's 09:18 and 09:36 editions (31 Oct) | 345 exact checks (343 before); the Quotient section restates the rotor and cyclic receipts of the 16:11 check and the Label section reads a pasted note whose ordinary and parity readings, 719-dimensional kernel and equivariant Hom are not stored here; the arithmetic is replayed in notes_0936 | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.
