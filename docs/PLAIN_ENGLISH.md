@@ -1,6 +1,6 @@
 # The OES model in plain English
 
-This page says, without formulas where it can, what the model in this repository is, what it proves, and what it does not. Every claim below is checked by `python verify.py`; the technical statement of each one, with its status, is in [`MODEL.md`](MODEL.md), the derivation of every object from one seed is in [`UNIFIED.md`](UNIFIED.md), and the diagram of objects and maps is in [`DOTS.md`](DOTS.md).
+This page says, without formulas where it can, what the model in this repository is, what it proves, and what it does not. [`READING.md`](READING.md) reads the same structures as a picture of reality in the canon's own names. Every claim below is checked by `python verify.py`; the technical statement of each one, with its status, is in [`MODEL.md`](MODEL.md), the derivation of every object from one seed is in [`UNIFIED.md`](UNIFIED.md), and the diagram of objects and maps is in [`DOTS.md`](DOTS.md).
 
 **The one-sentence version.** Everything in the model is built, with no free parameters, from a single mathematical object: the E8 lattice together with one of its symmetries, the Coxeter element, a rotation of order 30. The canon's clocks, its five-vertex graph, its 4320-step circle, its golden ratio, its bath and its small groups all turn out to be views of that one object; what the canon adds on top are a few inputs (a datum, a selection of colour sites, a time unit, an outer spacetime) that the mathematics cannot supply.
 
