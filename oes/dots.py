@@ -19992,6 +19992,113 @@ def notes_2122():
     }
 
 
+def notes_2154():
+    """The separate model's N40 unified model (31 Oct 21:39, dated 1 Nov): the golden clock's Laplacian and its
+    all-order return on the cycles, and the E8 root moments through degree ten with the sharp Taylor constant."""
+    # the golden clock on L6 = Lambda^2 A4 (the cycles): the tick U, the metric G6, the wedge Hodge star KH
+    W6 = list(itertools.combinations(range(4), 2))
+
+    def a4(s):
+        M = sp.zeros(4, 4)
+        for i in range(4):
+            if s(i) < 4:
+                M[s(i), i] += 1
+            if s(4) < 4:
+                M[s(4), i] -= 1
+        return M
+    wedge2 = lambda A: sp.Matrix(6, 6, lambda r, c: A[W6[r][0], W6[c][0]] * A[W6[r][1], W6[c][1]]
+                                 - A[W6[r][1], W6[c][0]] * A[W6[r][0], W6[c][1]])
+    I6 = sp.eye(6)
+    G6 = wedge2(sp.eye(4) + sp.ones(4, 4))
+    C = wedge2(a4(Permutation([1, 2, 3, 4, 0])))
+    Bw = sp.Matrix(6, 6, lambda r, c: 0 if len(set(W6[r]) | set(W6[c])) < 4
+                   else Permutation(list(W6[r]) + list(W6[c])).signature())
+    H = 5 * G6.inv() * Bw
+    Ci = C.inv()
+    L, A = 2 * I6 - C - Ci, (C - Ci) / 2
+    F = sum((C ** k for k in range(5)), sp.zeros(6, 6)) / 5
+    B = I6 - F
+    s, lam = sp.symbols("s lam")
+    R = (s * I6 + L).inv()
+    R1 = (s ** 2 * I6 + s * (5 * I6 - L) + 5 * F) / (s * (s ** 2 + 5 * s + 5))
+    sign = next(e for e in (1, -1) if e * H * B == 2 * L - 5 * B)
+    R2 = F / s + ((s + sp.Rational(5, 2)) * B - sign * H * B / 2) / (s ** 2 + 5 * s + 5)
+    # the E8 roots and their directional moments
+    roots = [tuple(sg * (i == p) + tg * (i == q) for i in range(8)) for p, q in itertools.combinations(range(8), 2)
+             for sg in (1, -1) for tg in (1, -1)]
+    roots += [tuple(sp.Rational(e, 2) for e in sg) for sg in itertools.product((1, -1), repeat=8)
+              if sum(1 for e in sg if e < 0) % 2 == 0]
+    k = sp.symbols("k0:8")
+    RR = np.array([[int(2 * x) for x in r] for r in roots], dtype=np.int64)
+
+    def compositions(d, n=8):
+        if n == 1:
+            yield (d,)
+            return
+        for first in range(d + 1):
+            for rest in compositions(d - first, n - 1):
+                yield (first,) + rest
+
+    def power_sum(d):
+        # P_d(k) = sum_r (r.k)^d through its multinomial coefficients d!/m! 2^-d sum_r (2r)^m
+        terms = {}
+        for m in compositions(d):
+            tot = int((RR ** np.array(m, dtype=np.int64)).prod(axis=1).sum())
+            if tot:
+                terms[m] = sp.Rational(factorial(d) * tot, int(np.prod([factorial(e) for e in m])) * 2 ** d)
+        return sp.Poly.from_dict(terms, *k)
+    P = {d: power_sum(d) for d in (2, 4, 6, 8, 10)}
+    Q = sp.Poly(sum(x ** 2 for x in k), *k)
+    x, qq = sp.symbols("x q")
+    p = sp.symbols("p0:11")
+    as_sums = lambda f: sum(c * (240 if e == 0 else p[e]) * qq ** j
+                            for (e, j), c in sp.Poly(sp.expand(f), x, qq).terms())
+    lower = as_sums((x ** 4 - qq * x ** 2 + qq ** 2 / 10) ** 2)
+    upper = as_sums(x ** 2 * (2 * qq - x ** 2) * (x ** 2 - qq / 2) ** 2)
+    known = {p[2]: 60 * qq, p[4]: 36 * qq ** 2, p[6]: 30 * qq ** 3}
+    lap = lambda f: sum(f.diff(v).diff(v) for v in k)
+    unit = lambda v, d: sp.nsimplify(sum(sum(a * b for a, b in zip(r, v)) ** d for r in roots)
+                                     / sum(a * a for a in v) ** (d // 2))
+    dirs = [(1, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 1, -1, 0, 0, 0), (1, 1, 1, 0, -3, 0, 0, 0), (1, 1, 1, 0, 0, 0, 0, 0)]
+    t = sp.Symbol("t")
+    return {
+        "on the cycles, with the tick C (C^5 = I), the metric G6 and the wedge Hodge star H (H^2 = 5I): L = 2I - C - "
+        "C^-1 is G6-self-adjoint and nonnegative of rank 4, A = (C - C^-1)/2 is G6-skew, C = I - L/2 + A, F = (I + C + "
+        "... + C^4)/5 and B = I - F are G6-orthogonal projectors of ranks 2 and 4, H B = 2L - 5B (for the wedge "
+        "orientation, up to the sign of H) with (H B)^2 = 5B, and L(L^2 - 5L + 5I) = 0: eigenvalues 0 and "
+        "(5 -+ sqrt5)/2, twice each (the separate model's N40)":
+            (G6 * L).T == G6 * L and (G6 * A).T == -(G6 * A) and L.rank() == 4 and C == I6 - L / 2 + A
+            and F ** 2 == F and B ** 2 == B and F.rank() == 2 and B.rank() == 4 and (G6 * F).T == G6 * F
+            and (sign * H * B) ** 2 == 5 * B and L * (L ** 2 - 5 * L + 5 * I6) == sp.zeros(6, 6)
+            and sp.factor(L.charpoly(lam).as_expr()) == sp.factor(lam ** 2 * (lam ** 2 - 5 * lam + 5) ** 2),
+        "the all-order return (sI + L)^-1 = [s^2 I + s(5I - L) + 5F]/[s(s^2 + 5s + 5)] = F/s + [(s + 5/2)B - HB/2]/"
+        "(s^2 + 5s + 5), with residue F at s = 0 and L^(n+2) = 5L^(n+1) - 5L^n for n >= 1":
+            sp.simplify(R - R1) == sp.zeros(6, 6) and sp.simplify(R - R2) == sp.zeros(6, 6)
+            and ((s ** 2 * I6 + s * (5 * I6 - L) + 5 * F) / (s ** 2 + 5 * s + 5)).subs(s, 0) == F
+            and all(L ** (n + 2) == 5 * L ** (n + 1) - 5 * L ** n for n in range(1, 6)),
+        "over the 240 roots P2 = 60q, P4 = 36q^2, P6 = 30q^3, and P8 - 30q^4 is harmonic; the certificates P8 - "
+        "(132/5)q^4 = sum [(a.k)^4 - q(a.k)^2 + q^2/10]^2 and 39q^4 - P8 = sum (a.k)^2 [2q - (a.k)^2][(a.k)^2 - q/2]^2 "
+        "hold identically, so (132/5)q^4 <= P8 <= 39q^4, the upper bound attained along a root (squared projections "
+        "0, 1/2, 2 times 126, 112, 2); the lower is strict, since (5 -+ sqrt15)/10 cannot carry 240 roots with sum 60":
+            P[2] == 60 * Q and P[4] == 36 * Q ** 2 and P[6] == 30 * Q ** 3
+            and lap(P[8] - 30 * Q ** 4).is_zero
+            and sp.expand(lower.subs(known) - (p[8] - sp.Rational(132, 5) * qq ** 4)) == 0
+            and sp.expand(upper.subs(known) - (39 * qq ** 4 - p[8])) == 0
+            and unit(dirs[1], 8) == 39 and sorted(Counter(sp.Rational(sum(a * b for a, b in zip(r, dirs[1])) ** 2, 2)
+                                                         for r in roots).items()) == [(0, 126), (sp.Rational(1, 2), 112), (2, 2)]
+            and all(sp.simplify(a * (5 + sp.sqrt(15)) + (240 - a) * (5 - sp.sqrt(15)) - 600) != 0 for a in range(241)),
+        "degree ten closes through degree eight: 4 P10 - 15 q P8 + 315 q^5 = 0 identically; the unit tenth moments are "
+        "225/8 (axis), 135/2 (root) and 265/8 (charge and color), so P10 <= (135/2) q^5, sharp along a root":
+            (4 * P[10] - 15 * Q * P[8] + 315 * Q ** 5).is_zero
+            and [unit(v, 10) for v in dirs] == [sp.Rational(225, 8), sp.Rational(135, 2), sp.Rational(265, 8), sp.Rational(265, 8)],
+        "so the band's eighth-order Taylor remainder, whose leading term is P10/10!, satisfies 0 <= sigma - T8 <= q^5/53760, sharp along a root, 9/16 of "
+        "the bound q^5/30240 of notes_1757, which it sharpens":
+            sp.Rational(135, 2) / factorial(10) == sp.Rational(1, 53760)
+            and sp.Rational(1, 53760) / sp.Rational(1, 30240) == sp.Rational(9, 16)
+            and sp.series(1 - sp.cos(t), t, 0, 12).removeO().coeff(t, 10) == sp.Rational(1, factorial(10)),
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -20502,6 +20609,9 @@ LEDGER_ROWS = [
     ("the N39 source readers and metric (separate model, 31 Oct)", "the source clock P31 of order 6 and Z31 = P31 G31 of order 30 with fixed ranks 7, 7, 3; four seven-port samples of rank 25 with a blind six; T6 and T7 need one and two more scalars; H31^2 = 5P with the compatible metric T6^T G6 T6 + Q^T Gavg Q; a 3 x 4 reflection quotient of rank 3 completed with determinant -1/4", "recorded (REPORTED): the source matrices are in the separate model's zip, not opened; its own 60 rational check groups report PASS", RP, "23"),
     ("the twin-prime branch (separate model's N39; hub archive of Aug 2026)", "the weak-tail bound B_p(A) = (p A^(1/p) - A)/(p - 1) < 1 exactly when A < 1, and m2 >= 2 m1^2 - 1 for a real orthogonal shift; nineteen August notes re-filed", "outside the model: the two lemmas are elementary (1 - B_p = (u^p - p u + p - 1)/(p - 1) for u = A^(1/p), and Jensen on cos 2x = 2cos^2 x - 1); the twin-prime conjecture stays open, as the note says", RP, "23"),
     ("the canon's N38 and N39 releases (31 Oct 21:05-21:20)", "N38 hand-off and staging workbooks, N39 verified-source and canon-sync workbooks with four-copy receipts; no new matrix ID, all gates frozen", "recorded (REPORTED): workbooks not opened; their new mathematics is the separate model's, replayed above", RP, "23"),
+    ("the golden clock and its return (separate model's N40, 31 Oct 21:39, dated 1 Nov)", "for the saved clock C (C^5 = I), metric G and Hodge H (H^2 = 5I): L = 2I - C - C^-1, A = (C - C^-1)/2, F, B; HB = 2L - 5B, L(L^2 - 5L + 5I) = 0; (sI + L)^-1 = [s^2 I + s(5I - L) + 5F]/[s(s^2 + 5s + 5)] = F/s + [(s + 5/2)B - HB/2]/(s^2 + 5s + 5); the Schur energy criterion for W = R6(s) G^-1", "replayed on the model's own tick on the cycles with G6 and the wedge star (notes_2154): every identity holds, with HB = 2L - 5B for the wedge orientation up to the sign of H; the energy criterion is the standard Schur complement and the source's own P31, Z31, T6, S6 stay in its zip", T, "23"),
+    ("the E8 root moments through degree ten (separate model's N40)", "P2 = 60q, P4 = 36q^2, P6 = 30q^3; P8 - 30q^4 harmonic; (132/5)q^4 < P8 <= 39q^4 by two sum-of-squares certificates; 4P10 - 15qP8 + 315q^5 = 0; tenth moments 225/8, 135/2, 265/8, 265/8; the Taylor remainder 0 <= sigma - T8 <= q^5/53760, sharp", "replayed exactly on the 240 roots (notes_2154), through all 19448 degree-ten coefficients; it sharpens notes_1757's q^5/30240 by the factor 9/16; the note itself says the degree-ten identity and the lower bound were in the canon's older reports", T, "22"),
+    ("the canon's N40 publication state and the archive (31 Oct 21:37-21:54)", "N40 golden-moment unification release with publication state and handover; PAGE_0013 (27 Oct notes) and the twin-prime FinalGold folders of 13 Aug", "recorded (REPORTED): release receipts not opened; the archive joins the backlog", RP, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -20770,7 +20880,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
