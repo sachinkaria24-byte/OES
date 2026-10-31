@@ -10061,6 +10061,7 @@ JOINS = [
     ("frame", "pauli", "the Clifford algebra of a frame", "the frame's eight roots are an F2-basis of E8/2E8 (Gram I + J, determinant 9) with odd products, so their Paulis A_1..A_8 are eight anticommuting antisymmetric Paulis with A_i^2 = -I and their 256 products are the Paulis up to sign: e_i -> A_i is an isomorphism Cl(0,8) = M16(R); A_S is symmetric exactly for |S| = 0, 3 mod 4, so L is 224 on the grades 1, 2, 5, 6 (the 120 jump operators) and 256 on 3, 4, 7, 8; the volume element, the Pauli of the frame's sum 3q, splits R^16 = 8 + 8, and the -A_i A_j/2 act as so(8) on the halves (31 Oct)", T, "join_frame_pauli"),
     ("cyclo", "triangle", "polygons isospectral to a triangle", "in the cyclotomic line the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2) cut the 240 roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d of sum 0 without antipodes, so each, as an odd port, has per unit norm the triangle port's signed Gram and meets every root off it with signed count zero; W(E8) is transitive on root pairs of each product, so the mu_d-invariant odd root functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the triangle port's measure (1, 242, 58691, ...): polygons isospectral to a triangle (31 Oct)", T, "join_cyclo_triangle"),
     ("E8", "cycles", "the quadratic clock feature", "the coordinate five-cycle fixes 20 roots and turns 220 in 44 pentagons, so on the 240 root labels L = 2I - P - P^-1 obeys the one quadratic L^2 - 5L + 5B = 0 (eigenvalues 0 sixty-four times and (5 -+ sqrt5)/2 eighty-eight times each); the wedge feature alpha -> x ^ C4 x of the A4 part x carries the roots onto the cycles Lambda^2 A4 with E P = C6 E, rank 6 and det(E E^T) = 8957952, vanishing on the 20 fixed roots and even in alpha, so E L = L6 E and the whole-catalogue return reads down exactly to the six-clock's (the separate model's N41, 31 Oct)", T, "notes_2256"),
+    ("bath", "cycles", "the two memory channels", "N41's wedge feature E, completed by the shell sum to E7 = [E; 1^T] (the smallest root-graph-invariant row space holding it, E B = 8E + 12 tau 1^T), reads the bath's root-shell resolvent K(s) = R (sI + Delta)^-1 R* through two scalar Green functions only: E7 K(s) J7 = g_mass Pi_mass + g_quad Pi_centered with g_mass = u0 + 56u2 + 126u4 + 56u6 + u8 and g_quad = u0 + 8u2 - 18u4 + 8u6 + u8, because the eight simple reflections leave five pair orbits; the shell bath reads diag(232 I6, 184) after centering, E7 P = diag(C6, 1) E7, the boundary covariance is 2117 Pi_mass + 389 Pi_centered and every channel leaks (Delta delta_(2 alpha) reads -delta_alpha), so the readout needs memory (the separate model's N42)", T, "notes_2327"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -20280,6 +20281,198 @@ def notes_2256():
     }
 
 
+def notes_2327():
+    """The separate model's N42 (31 Oct 23:21, dated 1 Nov): from the root clock to two native memory channels. The
+    root graph's association scheme, the bath's sharp cap as a 241-point Gram, the seven-reading shell completion of
+    N41's wedge feature, the two scalar Green channels it reads, their boundary covariance and moment bounds."""
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import connected_components
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)            # doubled roots, integer, norm 8
+    index = {tuple(r): i for i, r in enumerate(R2)}
+    G = R2 @ R2.T                                                # 4 alpha.beta
+    I = np.eye(240, dtype=np.int64)
+    ones = np.ones(240, dtype=np.int64)
+    cls = (2, 1, 0, -1, -2)
+    A = {k: (G == 4 * k).astype(np.int64) for k in cls}        # the five relations alpha.beta = k
+    B = A[1]
+    ev = Counter(np.rint(np.linalg.eigvalsh(B.astype(float))).astype(int).tolist())
+    # eight simple reflections, from the positive roots of a generic direction
+    w = np.array([1, 2, 3, 5, 7, 11, 13, 17])
+    pos = [i for i in range(240) if R2[i] @ w > 0]
+    sums = {tuple(R2[i] + R2[j]) for i in pos for j in pos}
+    simple = [i for i in pos if tuple(R2[i]) not in sums]
+    refl = [np.array([index[tuple(R2[b] - (G[b, a] // 4) * R2[a])] for b in range(240)]) for a in simple]
+    n = 240 * 240
+    src = np.arange(n)
+    rows = np.concatenate([src] * len(refl))
+    cols = np.concatenate([s[src // 240] * 240 + s[src % 240] for s in refl])
+    ncomp, lab = connected_components(coo_matrix((np.ones(len(rows)), (rows, cols)), shape=(n, n)), directed=False)
+    orbit_sizes = sorted(Counter(lab.tolist()).values())
+    # the 241-point Fourier Gram: 64 M = [[64, 4 1^T], [4 1, B + 4I]]
+    M64 = np.zeros((241, 241), dtype=np.int64)
+    M64[0, 0], M64[0, 1:], M64[1:, 0], M64[1:, 1:] = 64, 4, 4, B + 4 * I
+    diff = Counter()
+    diff[(0,) * 8] += 64 + 4 * 240
+    for i in range(240):
+        diff[tuple(R2[i])] += 4
+        diff[tuple(-R2[i])] += 4
+    for i, j in zip(*np.nonzero(B)):
+        diff[tuple(R2[j] - R2[i])] += 1
+    gram_ok = (diff[(0,) * 8] == 16 * 64 and len(diff) == 241
+               and all(diff[tuple(r)] == 64 for r in R2))
+    S_pi = int(((-1) ** (R2[:, 0] % 2)).sum())                   # theta = pi e0: integer roots +1, half roots -1
+    # N41's wedge feature E (same construction as notes_2256), scaled to integers
+    U = sp.Matrix(5, 4, lambda a, b: int(a == b + 1) - int(a == 0))
+    Qm = (U.T * U).inv() * U.T
+    D = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))
+    C4 = Qm * D * U
+    Wd = list(itertools.combinations(range(4), 2))
+    wedge2 = lambda X_: sp.Matrix(6, 6, lambda r, c: X_[Wd[r][0], Wd[c][0]] * X_[Wd[r][1], Wd[c][1]]
+                                  - X_[Wd[r][1], Wd[c][0]] * X_[Wd[r][0], Wd[c][1]])
+    C6, G6 = wedge2(C4), wedge2(U.T * U)
+    Bw = sp.Matrix(6, 6, lambda r, c: 0 if len(set(Wd[r]) | set(Wd[c])) < 4
+                   else Permutation(list(Wd[r]) + list(Wd[c])).signature())
+    H6 = 5 * G6.inv() * Bw
+    feat = lambda x, y: [x[a] * y[b] - x[b] * y[a] for a, b in Wd]
+    X = [Qm * sp.Matrix([sp.Rational(int(v), 2) for v in r[:5]]) for r in R2]
+    E = sp.Matrix([feat(x, C4 * x) for x in X]).T                # 6 x 240
+    den = int(sp.ilcm(*[sp.fraction(v)[1] for v in E]))
+    Ei = np.array((den * E).tolist(), dtype=np.int64)            # den * E, integer
+    tau = sp.Matrix([1, 0, 0, 1, 0, 1])
+    taui = np.array([1, 0, 0, 1, 0, 1], dtype=np.int64)
+    E7i = np.vstack([Ei, ones])                                  # diag(den I6, 1) E7
+    Dsc = sp.diag(*([sp.Rational(1, den)] * 6 + [1]))
+    to7 = lambda Mi: Dsc * sp.Matrix(Mi.tolist()) * Dsc          # (E7 X E7^T) from the scaled product
+    K7 = to7(E7i @ E7i.T)
+    E7 = sp.Matrix.vstack(E, sp.ones(1, 240))
+    A7 = sp.Matrix(sp.BlockMatrix([[232 * sp.eye(6), -12 * tau], [sp.zeros(1, 6), sp.Matrix([[184]])]]))
+    Wm = sp.Matrix(sp.BlockMatrix([[sp.eye(6), -tau / 4], [sp.zeros(1, 6), sp.Matrix([[1]])]]))
+    K = K7[:6, :6]
+    K7i = K7.inv()
+    xs = sp.Symbol("x")
+    comp6 = to7(E7i @ (240 * I - B) @ E7i.T)[:6, :6] * K.inv()  # the uncompleted compression E(240 - B)E^T K^-1
+    P = np.zeros((240, 240), dtype=np.int64)
+    for i, r in enumerate(R2):
+        P[index[tuple(np.r_[np.roll(r[:5], 1), r[5:]])], i] = 1
+    S5 = sum(np.linalg.matrix_power(P, k) for k in range(5))
+    rk = lambda Mi: np.linalg.matrix_rank(Mi.astype(float))
+    C7 = sp.diag(C6, 1)
+    Pi_m = sp.zeros(7, 7)
+    Pi_m[:, 6] = sp.Matrix.vstack(tau / 4, sp.Matrix([[1]]))
+    Pi_c = sp.eye(7) - Pi_m
+    lam_m = dict(zip(cls, (1, 56, 126, 56, 1)))
+    lam_q = dict(zip(cls, (1, 8, -18, 8, 1)))
+    Hl = Wm.inv() * sp.diag(H6, 0) * Wm
+    Ec = E - tau * sp.ones(1, 240) / 4
+    Kc = K - 15 * tau * tau.T                                    # Ec Ec^T
+    Xd = H6.T * Kc.inv() - Kc.inv() * H6
+    Vm = (C6 - sp.eye(6)).columnspace()
+    Vm = sp.Matrix.hstack(*Vm)
+    scalar = lambda Mx_: Mx_ == Mx_[0, 0] * sp.eye(Mx_.rows)       # K^-1 = c G6 iff K G6 is scalar
+    # two-step sites alpha + beta and the bath on the completed readings
+    S2 = (R2[:, None, :] + R2[None, :, :]).reshape(-1, 8)
+    sites, inv, cnt = np.unique(S2, axis=0, return_inverse=True, return_counts=True)
+    inv = inv.reshape(-1)
+    shell = (sites ** 2).sum(1) // 4                             # squared norm
+    by_shell = {s: sorted(set(cnt[shell == s].tolist())) + [int((shell == s).sum())] for s in (0, 2, 4, 6, 8)}
+    N = np.zeros((len(sites), 240), dtype=np.int64)              # N[x, a] = #{b : x = alpha_a + alpha_b}
+    np.add.at(N, (inv, np.repeat(np.arange(240), 240)), 1)
+    site_of = {tuple(s): k for k, s in enumerate(sites)}
+    Rinc = np.zeros((len(sites), 240), dtype=np.int64)
+    for a in range(240):
+        Rinc[site_of[tuple(R2[a])], a] = 1
+    DF = 240 * Rinc @ E7i.T - N @ E7i.T                          # Delta R* E7^T, scaled (sites x 7)
+    F2 = to7(DF.T @ DF)                                          # E7 R Delta^2 R* E7^T
+    F1 = to7(E7i @ (240 * I - B) @ E7i.T)                        # E7 R Delta R* E7^T = A7 K7
+    Bbd = F2 * K7i - A7 ** 2
+    Hank = sp.Matrix(sp.BlockMatrix([[K7, F1], [F1, F2]]))
+    dm = 240 * Rinc @ ones - N @ ones
+    leak = np.argwhere(40 - 4 * G == 8)
+    # three-moment quadratures and the interpolant identities
+    s, t = sp.symbols("s t", positive=True)
+    Mx = 256
+    p_up = sp.cancel(1 / (s + xs) + xs * (xs - t) ** 2 / (s * (s + t) ** 2 * (s + xs)))
+    p_lo = sp.cancel(1 / (s + xs) + (xs - Mx) * (xs - t) ** 2 / ((s + Mx) * (s + t) ** 2 * (s + xs)))
+    interp_ok = all(sp.Poly(sp.numer(sp.together(p)), xs).degree() <= 2 and not sp.denom(sp.together(p)).has(xs)
+                    and sp.simplify(p.subs(xs, t) - 1 / (s + t)) == 0
+                    and sp.simplify(sp.diff(p, xs).subs(xs, t) + 1 / (s + t) ** 2) == 0
+                    for p in (p_up, p_lo)) \
+        and sp.simplify(p_up.subs(xs, 0) - 1 / s) == 0 and sp.simplify(p_lo.subs(xs, Mx) - 1 / (s + Mx)) == 0
+    quad_ok = True
+    for a_, b_ in ((184, 2117), (232, 389)):
+        m2, d_ = a_ ** 2 + b_, Mx - a_
+        for nodes, wts in (((0, sp.Rational(m2, a_)), (sp.Rational(b_, m2), sp.Rational(a_ ** 2, m2))),
+                           ((a_ - sp.Rational(b_, d_), Mx), (sp.Rational(d_ ** 2, d_ ** 2 + b_), sp.Rational(b_, d_ ** 2 + b_)))):
+            quad_ok &= ([sum(wt * nd ** k for wt, nd in zip(wts, nodes)) for k in range(3)] == [1, a_, m2]
+                        and all(0 <= nd <= Mx for nd in nodes) and all(wt > 0 for wt in wts))
+        quad_ok &= 0 < b_ < a_ * (Mx - a_)
+    return {
+        "the root graph (alpha.beta = 1) on the 240 roots is 56-regular with classes 1, 56, 126, 56, 1 at alpha.beta = 2 "
+        "to -2 and eigenvalues 56, 28, 8, -2, -4 of multiplicities 1, 8, 35, 112, 84; the eight simple reflections cut the "
+        "57600 ordered pairs into exactly five orbits, 240, 13440, 30240, 13440, 240, so anything they commute with is "
+        "a polynomial in the five relations (the separate model's N42)":
+            all(int(A[k].sum(1).min()) == int(A[k].sum(1).max()) == v for k, v in zip(cls, (1, 56, 126, 56, 1)))
+            and sorted(ev.items()) == [(-4, 84), (-2, 112), (8, 35), (28, 8), (56, 1)]
+            and len(simple) == 8 and ncomp == 5 and orbit_sizes == [240, 240, 13440, 13440, 30240],
+        "the bath's sharp cap is a 241-point Gram: with M00 = 1, M0a = Maa = 1/16 and 1/64 on graph edges, the root block "
+        "(B + 4I)/64 is positive semidefinite (nullity 84), the uniform Schur complement is 0, rank 156; difference "
+        "counting gives v(theta)* M v(theta) = 16 + sum_alpha e^(i theta.alpha) exactly, so sum_alpha e^(ik.alpha) >= -16 "
+        "and Delta = 240 - sum T_alpha has spectrum [0, 256], the top reached at k = pi e0 (112 integer roots +1, 128 "
+        "half roots -1)":
+            gram_ok and rk(M64) == 156 and rk(B + 4 * I) == 156 and min(ev) == -4
+            and np.array_equal((B + 4 * I) @ ones, 60 * ones) and 64 * 60 == 16 * 240
+            and S_pi == -16 and 240 - S_pi == 256 and int((R2[:, 0] % 2 == 0).sum()) == 112,
+        "the minimum shell completion of N41: with tau = (1,0,0,1,0,1), E 1 = 60 tau, E B = 8E + 12 tau 1^T and 1^T B "
+        "= 56 1^T, so E7 = [E; 1^T] (rank 7) is the smallest B-invariant row space holding E; Ec = E - (tau/4) 1^T has "
+        "Ec 1 = 0 and Ec B = 8 Ec; the kernel (233) splits 61 fixed + 172 moving under the five-cycle; the shell bath "
+        "240I - B reads A7 = [[232 I6, -12 tau], [0, 184]], diag(232 I6, 184) after centering, while the uncompleted "
+        "compression has 192 once and 232 five times; det E7 E7^T = 358318080 and A7 is self-adjoint and positive in "
+        "the section metric K7^-1; E7 P = diag(C6, 1) E7 with fixed and moving ranks 3 and 4":
+            sp.Matrix((Ei @ ones).tolist()) == 60 * den * tau
+            and np.array_equal(Ei @ B, 8 * Ei + 12 * den * np.outer(taui, ones)) and np.array_equal(ones @ B, 56 * ones)
+            and rk(E7i) == 7 and Ec * sp.ones(240, 1) == sp.zeros(6, 1)
+            and rk(E7i @ S5) == 3 and rk(E7i @ (5 * I - S5)) == 4
+            and to7(E7i @ (240 * I - B) @ E7i.T) == A7 * K7
+            and Wm * A7 * Wm.inv() == sp.diag(232 * sp.eye(6), 184)
+            and sp.factor(comp6.charpoly(xs).as_expr()) == (xs - 192) * (xs - 232) ** 5
+            and K7.det() == 358318080 and K.det() == 8957952
+            and (K7i * A7).is_symmetric() and (K7i * A7).is_positive_definite
+            and E7 * sp.Matrix(P.tolist()) == C7 * E7 and (C7 - sp.eye(7)).rank() == 4,
+        "centering fixes the Hodge join but not the metric: diag(H6, 0) does not commute with A7 (H6 tau != 0), the "
+        "centered lift W^-1 diag(H6, 0) W commutes with A7 and with diag(C6, 1); H6^T Kc^-1 - Kc^-1 H6 has rank 2 and "
+        "vanishes on the moving four-space; the induced section metrics K^-1 and Kc^-1 are not multiples of the saved "
+        "G6 (the 23:09 layer-31 release's root-label limit)":
+            H6 * tau != sp.zeros(6, 1) and sp.diag(H6, 0) * A7 != A7 * sp.diag(H6, 0)
+            and Hl * A7 == A7 * Hl and Hl * C7 == C7 * Hl and Xd.rank() == 2 and Vm.rank() == 4
+            and Vm.T * Xd * Vm == sp.zeros(4, 4)
+            and not scalar(K * G6) and not scalar(Kc * G6),
+        "the infinite native response reads down to two scalar Green functions: for each of the five relations "
+        "E7 A_k J7 = lambda_mass Pi_mass + lambda_quad Pi_centered (1, 56, 126, 56, 1 and 1, 8, -18, 8, 1), so for "
+        "K(s) = R (sI + Delta)^-1 R* = sum_k u_k A_k, E7 K(s) J7 = g_mass Pi_mass + g_quad Pi_centered with g_mass = u0 "
+        "+ 56u2 + 126u4 + 56u6 + u8, g_quad = u0 + 8u2 - 18u4 + 8u6 + u8; Pi_mass (last column (tau/4, 1)) and "
+        "Pi_centered are complementary projectors of ranks 1 and 6":
+            all(to7(E7i @ A[k] @ E7i.T) * K7i == lam_m[k] * Pi_m + lam_q[k] * Pi_c for k in cls)
+            and Pi_m ** 2 == Pi_m and Pi_m.rank() == 1 and Pi_c.rank() == 6,
+        "memory is necessary and its first coefficients are exact: Delta delta_(2 alpha) reads -delta_alpha on the root "
+        "shell for all 240 roots, so every channel leaks; the 9361 two-step sites have shells 1, 240, 2160, 6720, 240 at "
+        "norms 0 to 8 with 240, 56, 14, 2, 1 decompositions; the boundary covariance is exactly 2117 Pi_mass + 389 "
+        "Pi_centered, the block moment Hankel is positive of rank 14, and the moments are m1 = 184, m2 = 35973 (mass) "
+        "and m1 = 232, m2 = 54213 (centered), so Sigma_j(s) = b_j/s + O(s^-2) with b_j/(s + 256) <= Sigma_j <= "
+        "min(a_j, b_j/s)":
+            [tuple(x) for x in leak] == [(i, i) for i in range(240)]
+            and len(sites) == 9361 and by_shell == {0: [240, 1], 2: [56, 240], 4: [14, 2160], 6: [2, 6720], 8: [1, 240]}
+            and Bbd == 2117 * Pi_m + 389 * Pi_c and Hank.rank() == 14 and Hank.is_positive_definite
+            and int(dm @ dm) == 240 * 35973 and 184 ** 2 + 2117 == 35973 and 232 ** 2 + 389 == 54213
+            and A7[6, 6] == 184 and A7[0, 0] == 232,
+        "three exact moments give rational enclosures: for (a, b) = (184, 2117) and (232, 389), the endpoint "
+        "quadratures (nodes 0, m2/a; weights b/m2, a^2/m2) and (nodes a - b/d, 256; weights d^2/(d^2 + b), b/(d^2 + b)), "
+        "d = 256 - a, reproduce 1, a, a^2 + b with nodes in [0, 256] (0 < b < a(256 - a)); the interpolants at 0 (or 256) "
+        "and a double node t satisfy p(x) - 1/(s + x) = x(x - t)^2/[s(s + t)^2(s + x)] and (x - 256)(x - t)^2/[(s + "
+        "256)(s + t)^2(s + x)], so each Green channel lies between the two quadratures for every s > 0":
+            interp_ok and quad_ok,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -20797,6 +20990,8 @@ LEDGER_ROWS = [
     ("the N39 counted pointer (the user's synthesis, 31 Oct 22:35)", "N39 stays the counted pointer at 3782 and 3737 sheets", "recorded (REPORTED): the N39 workbooks were not opened here; the N37 receipt counted 3770 and 3725", RP, "23"),
     ("the separate model's 30th reference layer (31 Oct 22:09)", "a two-part 38 MB archive of the unified reference model: 30 layers, 4522 artifacts, 748 relationships, 179 matrix presentations", "recorded (REPORTED): the manifest and certificate were read as data and the archive was not opened; no claim in them can be replayed without its matrices", RP, "23"),
     ("all 240 roots through the A4 clock (separate model's N41, 31 Oct 22:46, dated 1 Nov)", "the coordinate five-cycle: 20 fixed roots and 44 pentagons; L = 2I - P - P^-1 on the 240 labels with L^2 - 5L + 5B = 0, ranks 64 and 176, K^2 = 5B; the wedge feature E: E P = C6 E, rank 6, det(E E^T) = 8957952, Gram 12[tr Q_i tr Q_j + 2 tr Q_i Q_j]; E L = L6 E and the return reads down; the reflection's twisted law D6 = -(Lambda^2 R4) C6^-1; sharp bounds (57/2)q^4 <= P8 <= 39q^4 and (225/8)q^5 <= P10 <= (135/2)q^5 with the certificate (5/588)(t - 21/2)(t - 315/2)", "replayed exactly (notes_2256) and joined (E8 -> cycles); the sharp lower bound 57/2, attained along all 2160 norm-four directions, sharpens notes_2154's strict 132/5; the directional Taylor constant runs from 1/129024 to 1/53760; the note credits the sharp bounds to the canon's older reports", T, "23"),
+    ("two native memory channels (separate model's N42, 31 Oct 23:21, dated 1 Nov)", "the root graph's five relations and spectrum 56, 28, 8, -2, -4 (1, 8, 35, 112, 84), five reflection orbits on pairs; the 241-point Gram (B + 4I)/64 with v* M v = 16 + sum e^(ik.alpha), so the bath's spectrum is [0, 256]; E7 = [E; 1^T] with E B = 8E + 12 tau 1^T, A7 = [[232 I6, -12 tau], [0, 184]], det K7 = 358318080, kernel 61 + 172; the centered Hodge lift commutes, the metric defect has rank 2 and vanishes on the moving four-space; E7 K(s) J7 = g_mass Pi_mass + g_quad Pi_centered; 9361 two-step sites, boundary covariance 2117 Pi_mass + 389 Pi_centered, moments (184, 35973) and (232, 54213), Hankel rank 14; Radau enclosures; no finite autonomous intertwiner in L2", "replayed exactly (notes_2327), all seven statements; the cap's Gram certificate is a one-line proof of the 256 cap the model already proves; the no-intertwiner theorem follows from the absolutely continuous port measures (free_chain); the landing in the separate model's source31 clock (Z31, T7, S7) stays in its zip", T, "23"),
+    ("the separate model's 31st reference layer (23:09 release and certificate)", "a 79 MB seven-part archive: 31 mathematical layers, 924 new matrix presentations, 135 new typed relationships, no new canon matrix IDs or active summands, parameters unassigned; limits: the root-label section metric differs from the saved G6, and the selected 480-bounded pencils have terminal Rayleigh values above 256 so they are not compressions of the unchanged bath", "recorded (REPORTED): the manifest and certificate were read as data; the metric limit is checked (notes_2327: K^-1 and Kc^-1 are not multiples of G6) and the pencil limit is the 256 cap (a compression of Delta has its Rayleigh values in [0, 256]); the archive itself was not opened", RP, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -21065,7 +21260,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
