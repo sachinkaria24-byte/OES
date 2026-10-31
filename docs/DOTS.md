@@ -56,6 +56,8 @@ flowchart TB
         residue["residue plane"]
         sun["sun's decad"]
         principal["principal circle"]
+        icosians["icosians"]
+        penrose["Penrose planes"]
     end
     subgraph level5["level 5: operator"]
         carrier["carrier"]
@@ -409,18 +411,33 @@ flowchart TB
     torus -->|"the half-periods"| halfper
     torus -->|"the sun's momenta"| sun
     torus -->|"the tick's momenta"| momenta
+    icosians -->|"the folding"| E8
+    icosians -->|"multiplication by phi"| golden
+    icosians -->|"I/(1 - u)I"| residue
+    icosians -->|"the tick as a left multiplication"| clocks
+    icosians -->|"the six Sylow 5-subgroups"| pgl
+    penrose -->|"the two golden planes"| A4
+    penrose -->|"the eigenplanes of X"| golden
+    penrose -->|"the area forms, exact"| rotor
+    penrose -->|"the doubling swaps the planes"| AGL
+    penrose -->|"the fivefold symmetry"| time
+    penrose -->|"g = r on the carrier's A4"| clocks
+    penrose -->|"the glue group is the vertex index"| L0
+    penrose -->|"the four Penrose planes of E8"| E8
+    penrose -->|"three concentric stars"| carrier
+    AGL -->|"the five-cycle's golden companion"| golden
 ```
 
-71 dots and 322 joins: 289 THEOREM, 10 SELECTED_REFERENCE, 7 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
+73 dots and 337 joins: 304 THEOREM, 10 SELECTED_REFERENCE, 7 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
 
 ## Levels
 
 | level | what lives there | dots | joins inside | joins to the next level |
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 32 | 8 |
-| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 15 | 12 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 13 | 5 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle | 30 | 26 |
+| 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 16 | 12 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 13 | 6 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle, icosians, Penrose planes | 35 | 27 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 24 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 11 | - |
 
@@ -430,11 +447,11 @@ The maps that join each pair of levels directly.
 
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
-| number | - | 8 | 3 | 13 | 3 | 2 |
-| symmetry | 8 | - | 12 | 24 | 12 | 7 |
-| combinatorics | 3 | 12 | - | 5 | 19 | 7 |
-| lattice | 13 | 24 | 5 | - | 26 | 5 |
-| operator | 3 | 12 | 19 | 26 | - | 24 |
+| number | - | 8 | 3 | 14 | 3 | 2 |
+| symmetry | 8 | - | 12 | 30 | 12 | 7 |
+| combinatorics | 3 | 12 | - | 6 | 19 | 7 |
+| lattice | 14 | 30 | 6 | - | 27 | 5 |
+| operator | 3 | 12 | 19 | 27 | - | 24 |
 | physics | 2 | 7 | 7 | 5 | 24 | - |
 
 ## Dots
@@ -496,6 +513,8 @@ The maps that join each pair of levels directly.
 | nine-torus | T^9 of the nine positive critical frequencies, with a dense flow | lattice | 18 |
 | root graph | the 240 roots, adjacent at inner product 1: a four-class association scheme | lattice | 3, 22, 23 |
 | cyclotomic line | E8 = Z[zeta30] with the trace form Tr(alpha x ybar), alpha = (2 + 2 eta + eta^2)/15, and c' = zeta30 | lattice | 25 |
+| icosians | the 120 unit icosians (the vertices of the 600-cell, 2I = SL(2,5)) and their ring: E8 under the twisted trace form 2 Tr(alpha Re(p qbar)), alpha = phi/sqrt5 | lattice | 11, 23 |
+| Penrose planes | the two golden planes E1 (72 degrees) and E2 (144 degrees) of the five-cycle r on A4 (x) R, Galois conjugate over Q(sqrt5), and the cut-and-project scheme (E1, E2, A4) on which the Penrose vertex sets are built, four model sets to a tiling (cited) | lattice | 11, 23 |
 | residue plane | E8/(1 - g)E8 = F25, the tick's 25 fixed momenta, and its six lines | lattice | 25 |
 | 4-simplex | the 31 faces of the simplex on the five vertices, its boundaries and the tick on every grade | combinatorics | 17, 23 |
 | 801 matrix | AIR_801's [[108, 801], [106, 901]], mod 5 a Singer cycle of order 24 | symmetry | 23 |
@@ -839,6 +858,21 @@ The maps that join each pair of levels directly.
 | nine-torus | half-periods | two of the nine frequencies are the band at the 256 half-periods: 256 at the 135 of type D8 and 224 at the 120 of type E7 + A1; the half-turn 2160 is the half-period rho/2, of type D8 (30 Oct) | THEOREM | `torus_places` |
 | nine-torus | sun's decad | 243 is the band at the sun's 80 nonzero fixed momenta, of type E6 + A2, every one a critical point of the band (30 Oct) | THEOREM | `torus_places` |
 | nine-torus | tick momenta | 250 is the band at the tick's 24 nonzero fixed momenta, of type A4 + A4; so six of the nine frequencies are placed through six of the eleven census families (E8 is the seventh type present, at the band's minimum 0), and sqrt 251, sqrt(4025/16) and sqrt(6800/27) (A5 + A2 + A1, A6 + A1, A7) are at no fixed momentum of a prime clock and at no critical step of the circle (30 Oct) | THEOREM | `torus_places` |
+| icosians | E8 | the icosian ring, the Z[phi]-span of the 120 unit icosians, is E8 under the twisted trace form 2 Tr(alpha Re(p qbar)), alpha = phi/sqrt5 of norm 1/disc Q(sqrt5): an explicit isometry sends the Bourbaki simple roots to eight icosians with the Cartan Gram and the 240 roots exactly onto the 120 units (N = 1) and the 120 phi^-1 u (N = phi^-2), the lattice's only vectors of norm 2: E8's roots are H4 u phi^-1 H4, the vertices of the 600-cell at two scales; the left multiplications by the units are 120 elements of W(E8) (Aut(E8) = W(E8), cited) forming 2I = SL(2,5), free on the roots with the two scales as orbits (31 Oct) | THEOREM | `icosians` |
+| icosians | golden companion | under W2 (the W(E8) element carrying the tick to L_u2, trace -phi) the golden companion X = -(g + g^-1) of the tick's-cosine join is multiplication by phi on the icosian ring, so E8 = Z[phi]^4 is the icosian ring; under W1 (tick to L_u1, trace phi^-1) it is 1 - phi and layer 27's Phi = 1 + g + g^4 is phi, the two embeddings of Z[phi], exchanged by the day (D X = (I - X) D); the centralizer of X in W(E8) is W(H4), the 14400 Z[phi]-linear isometries, generated by the 60 H4 reflections q -> -v qbar v in the units (reflections of H = R^4; on E8 each has determinant 1 and a 6-dimensional fixed space, and W(H4) holds no reflection of E8), with the left and right multiplications its index-2 subgroup (2I x 2I)/{+-1} of 7200 and the conjugation q -> qbar the other coset (31 Oct) | THEOREM | `icosians` |
+| icosians | residue plane | under W2 the tick's residue plane E8/(1 - g)E8 = F25 is the icosian ring modulo the right ideal (1 - u2)I, N(1 - u) = 3 - phi or 2 + phi of norm 5 and Smith form 1^6 5^2 for either order-5 class; the 120 right multiplications q -> q vbar act on it as all of SL(2,5), the ten left multiplications by +-u^k as +-I, and C_W(g) is exactly the 600 maps L_a R_b, a in {+-u^k}, b a unit: (Z/10 x 2I)/{+-1}, the SL(2,5) of the tick's-normalizer join being the right multiplication by the unit icosians (31 Oct) | THEOREM | `icosians` |
+| icosians | W(E8) clocks | the tick g is conjugate in W(E8), by explicit W1 and W2, to left multiplication by an order-5 unit icosian u1 (trace phi^-1 = 2 cos 72) and by u2 = u1^2 (trace -phi), the two conjugacy classes of order 5 in 2I; c' commutes with g, so it lies in C_W(X) = W(H4): W1 c' W1^-1 is in the class of the Coxeter element s1 s2 s3 s4 of H4 and W2 c' W2^-1 in the class of its seventh power, the two classes of 480 that the day exchanges, together all 960 elements of W(H4) with characteristic polynomial Phi_30, so E8's Coxeter clock is, in W(E8), a Coxeter element of H4 and the tick its sixth power; the day is Galois-semilinear, squares the tick (sigma2 on Q(zeta5), as in the Galois-clocks join), exchanges the two scales, and with W(H4) generates the 28800 isometries carrying X to X or I - X (31 Oct) | THEOREM | `icosians` |
+| icosians | PGL(2,5) | on I/(1 - u)I the right multiplications fix each of the six lines by a group of order 20, the normalizer of one of the six Sylow 5-subgroups of 2I (each order-5 unit fixes exactly one line, its own), and act on the lines as PSL(2,5) = A5 with kernel {+-1}; the day normalizes the right multiplications by an outer automorphism theta of 2I and with them gives PGL(2,5) = S5 on the lines, the line of P going to the line of b P b^-1 and of theta(P): the six Sylow 5-subgroups and the six residue lines of the tick's-normalizer join (the six A4 + A4, layer 25's six axes) are one S5-set; the Sylow 5-subgroups are the six axes of the icosahedron whose vertices are the imaginary parts (0, +-phi, +-1)/2 of the twelve order-5 units of trace phi^-1 (31 Oct) | THEOREM | `icosians` |
+| Penrose planes | A4 | the five-cycle r splits A4 (x) R into orthogonal planes E1 = ker(r + r^-1 - 1/phi) and E2 = ker(r + r^-1 + phi), defined over Q(sqrt5) and swapped by sqrt5 -> -sqrt5, neither defined over Q, on which r turns by 72 and 144 degrees; the 20 roots project onto E1 as two regular decagons on ten rays 36 degrees apart, the near roots +-(e_i - e_(i+1)) at square 1 - 1/sqrt5 and the far roots at square 1 + 1/sqrt5, far = phi x near (P1(e_i - e_(i+2)) = phi P1(e_(i-1) - e_(i+3))), the H2 star, with the radii exchanged on E2; the projection is injective on A4 (ker P1 n Q^5 = Q u) and P1(A4) = Z[phi] P1(e_0 - e_1) + Z[phi] P1(e_1 - e_2) is dense (Kronecker, cited; phi^-10 P1 a replayed in the basis), so (E1, E2, A4) is a cut-and-project scheme with star map the Galois conjugation; the Penrose vertex sets are unions of four translated model sets of it, one on each nonzero class of A4*/A4 = Z/5 (cited; the pentagonal windows and the tiling are not replayed) (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | golden companion | on A4 (x) R the golden companion X = -(g + g^-1) is -(r + r^-1), with the scalars 1 - phi = -2 cos 72 on E1 and phi = -2 cos 144 on E2: the Penrose planes are the eigenplanes of the golden companion on the carrier's A4, with projectors P1 = (phi - X)(I - J/5)/sqrt5 and P2 = (X + 1/phi)(I - J/5)/sqrt5 Galois conjugate; -(r + r^-1) agrees with X only there (on u it is -2), while X^2 = X + I holds on all of E8 (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | rotor plane | the cycles -> rotor join made exact over Q(sqrt5): the area forms P1 e_0 ^ P1 e_1 of E1 and P2 e_0 ^ P2 e_1 of E2 are the lines of golden slope phi pentagon + pentagram and pentagon - phi pentagram of the rotor plane (Gram 5I), orthogonal and spanning the C5-fixed plane of the cycles; the unit area form of E1 is (2/5)(sin 72 pentagon + sin 144 pentagram), of slope sin 72 / sin 36 = phi (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | AGL(1,5) | the doubling i -> 2i conjugates r to r^2 and so swaps E1 and E2 (delta P1 delta^-1 = P2), carrying X to I - X on A4 (x) R: it realizes the Galois conjugation sqrt5 -> -sqrt5 on the carrier's A4 as the day does on E8 (d g d^-1 = g^2, d X d^-1 = I - X); on the cycles its second compound sends the area form of E1 to -phi times that of E2, the quarter turn of the rotor plane (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | time clock | through kappa(x) = 4x mod 5 (kappa(864) = 1) the time clock acts on the carrier's coordinates as r^kappa(x), and on E8 through the tick g = r r', which is r on A4 (x) R: the k-th tick turns E1 by 72k degrees and E2 by 144k, faithfully on each plane, so the time clock is the fivefold symmetry of the Penrose planes (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | W(E8) clocks | in coordinates the tick g = c'^6 = r r' is the vertex rotation e_i -> e_(i+1) on the carrier's A4 (x) R and r' is the identity there, while r' is a Coxeter element of A4' and r is the identity on A4' (x) R: the tick's two factors turn the Penrose planes of the two A4 copies separately, each by 72 and 144 degrees, and the day conjugates g to g^2 (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | A4 + A4' | the projection of Z^5 onto A4 (x) R is A4* (weights e_i - u/5, Gram determinant 1/5, so A4*/A4 has order 5), and the projection of E8 onto A4 (x) R is A4* too: the 240 roots project onto 0, the 20 A4 roots and the 30 signed weights, which generate A4*, with 40 roots in class 0 (the roots of A4 and A4') and 50 in each other class, and the class vanishes on A4 and on A4', so E8/(A4 + A4') = Z/5 (Gram determinant 25) is A4*/A4 by projection, the index sum k_i mod 5 of the scheme's lattice points: the four nonzero classes are the five vertex weights (class 1), the ten edge weights e_i + e_j - 2u/5 (class 2) and their negatives (4, 3), the four vertex classes of the Penrose tilings (cited) (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | E8 | on E8 (x) R the phi-eigenspace of X = -(g + g^-1) is E2 + E2' and the (1 - phi)-eigenspace is E1 + E1', the Penrose planes of the carrier's A4 (under r) and of the twin A4' (under r', a Coxeter element of A4'), with the spectral projector (X - (1 - phi))/sqrt5 = P2 + P2' of trace 4: the golden splitting of E8 that the icosian folding starts from (31 Oct) | THEOREM | `penrose_planes` |
+| Penrose planes | carrier | the carrier's fifteen atoms, the shadows of the mixed roots (layer 25), project onto E1 as three concentric regular stars: the five sites at square 2/5, 72 degrees apart (P1 e_i . P1 e_j = (2/5) cos 72(i - j)), and the ten duads at radii phi (near) and 1/phi (far) times a site's, \|P1(e_i + e_j)\|^2 = (4/5)(1 + cos theta) = (2/5)(2 cos(theta/2))^2, the unit edge vectors of the Penrose rhombs and their two diagonals; on the fifteen atoms the monograph's stiffness R = 3I - U - U^-1 (replayed at 20:33, notes_2033) is 3I + X_U for the tick's negative cosine X_U, whose eigenvalues 1 - phi and phi, six times each, sit on the E1-type and E2-type directions that the doubling swaps (D R D^-1 = 3I - U^2 - U^-2, rank of the difference 12, Frobenius square 60, average P + (7/2)(I - P)) (31 Oct) | THEOREM | `penrose_planes` |
+| AGL(1,5) | golden companion | on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct) | THEOREM | `notes_1250` |
 
 ## Not joined
 
@@ -849,7 +883,7 @@ The maps that join each pair of levels directly.
 | canon SMEAR (184 / 481) | a rank-6 port T and a rank-4 projector P with minor -512 alpha^4 / 25; the operands are not stored here | REPORTED |
 | source-to-cube bridge | rank 10 with an exact left decoder (canon); not stored here | REPORTED |
 | the hub's Z31 clock (I_STATUS) | order 30 on 31 states, maximal rank 29 into the 45-point product; it rests on a supplied characteristic that is not stored here | CONDITIONAL |
-| the hub's R15 and F20 rows (I_STATUS) | R15 with (t - 1)^3 (t^2 - 7t + 11)^6 and its F20 average 1^3, (7/2)^12; the operators are not stored here | REPORTED |
+| the hub's R15 and F20 rows (I_STATUS) | R15 with (t - 1)^3 (t^2 - 7t + 11)^6 and its F20 average 1^3, (7/2)^12; the operators are not stored here; replayed on 31 Oct as R = 3I + X_U on the fifteen atoms (notes_2033, notes_1250, penrose_planes): any order-5 U with three free five-cycles, signed or not, gives the same spectrum | REPORTED |
 | the separate model's release H (22:41) | 5247252 bytes, 168 check groups, 77 presentations, a finite Hilbert space of dimension 174108; not opened or rerun | REPORTED |
 | the separate model's IJ update (23:30) | 637057 bytes (matching Drive), 176 check groups, 60 presentations, a finite Hilbert space of dimension 176368; not opened or rerun | REPORTED |
 | BassForge (GB-018) | the view and the retraction are absent in the canon and unformable; the 38-fiber's 117 checks are not stored here | UNFORMED |
@@ -891,5 +925,7 @@ The maps that join each pair of levels directly.
 | the separate model's Unified Readout (09:43) and Seven Code (09:48, 09:50) archives | a 612405-byte zip (35 files, 34 hashes; 31 exact groups, 5 typed joins, 4176 -> 4189 artifacts and 633 -> 638 relationships; its 22nd layer) and two capsules (41/40 and 45/44 files/hashes; 38 groups and 14 matrix presentations each; 4190 and 638 on the cyclic root, then 4203 and 643 reconciled onto the readout release as its 23rd layer); stored matrices, registries and READMEs read as data, its code not run; the checkpoint recovery (09:52) not opened | REPORTED |
 | the seven-code court packet (09:38) | a reference note with a certificate and a sympy verifier (read as data, not run): the Y projectors, the four-coordinate reader, the S7 obstruction, the 007 fingerprint and the smear and Markov helpers, replayed in notes_1009; its quoted sources are a Locked Memory consolidation handover of 1 October and the master join theorems note (neither opened here) | REPORTED |
 | the separate model's typed-adapter annotation (10:43) | a 104036-byte capsule (zip + base64; 11 files, 10 hashes; 11 review checks, no new layer or matrix) over its reconciled 23rd layer, taking the sibling's 10:05 edition as source; decoded in memory, its rotors, adapter and residuals read as data, its code not run; the checkpoint recovery (10:48) not opened | REPORTED |
+| the wave-geometry synthesis (pasted into the session, 31 Oct 12:50) | a Locked Memory style master document joining the septuple, the 64-of-64 spine, the post-N34 updates and four arXiv bridges drawn from the video 'Esoteric Nature \| Decrypting Physical Reality' (youtube unreachable here); its sections 2 and 4 are replayed in notes_1250 with one correction, its quasicrystal row is built as the icosians and Penrose planes dots, its biology row is EXTERNAL and its folklore row (beetle anti-gravity, thought-frozen water, plasmoid alchemy) REJECTED, as it says; its '0 errors' passes are not adopted | REPORTED |
+| the video's arXiv bridges (the 12:50 synthesis) | arXiv:2605.15075, 1903.10851, math/0002020 and 2604.10574 were identified by web search (titles and abstracts) but not read: arxiv.org is unreachable; two of the document's attributions are wrong (the icosian folding and the index-5 A4 + A4 are classical results, not those papers'), one is loose (2604.10574 restates A4 -> Penrose as background) and one is right (Moody's model-sets survey for cut and project) | REPORTED |
 
 AUTH = NOT_PASS. ScientificGold = FALSE. No term is added to the action.

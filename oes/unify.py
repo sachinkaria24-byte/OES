@@ -7,7 +7,7 @@ at a named interface.
 
 The seed. E8 with c' is the cyclotomic line Z[zeta30] with the trace form Tr(alpha x ybar) (oes/cyclotomic.py (a)).
 
-The derivation (DERIVATION) builds 53 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
+The derivation (DERIVATION) builds 55 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
   - the trunk: E8 -> the cyclotomic line -> the clocks (the Galois group) -> the tick's residue plane F25 -> one
     residue line, the carrier's A4 + A4' -> either factor, A4 -> K5 (its positive roots) -> the vertices, the zero
     modes, the cycles and the source;
@@ -83,6 +83,7 @@ DERIVATION = {
     "regular": ("clocks", "primes.regular_clocks"), "sun": ("cyclo", "primes.prime_clocks"),
     "goldenport": ("cycles", "golden_root_port"), "wedgeport": ("cycles", "wedge_port"), "darkport": ("L0", "dark_port"),
     "principal": ("E8", "principal.circle"),
+    "icosians": ("E8", "icosians"), "penrose": ("A4", "penrose_planes"),
     "time": ("principal", "principal.critical_steps"), "observer": ("principal", "principal.critical_steps"),
     "grain": ("principal", "grain_steps"),
 }
@@ -166,7 +167,7 @@ def derivation(held=None):
         f"the {len(dots.DOTS)} dots split into the seed, {len(DERIVATION)} derived dots, {len(INPUTS)} canon inputs and "
         f"{len(FROM_INPUTS)} dots built from the inputs, with no dot left over or counted twice":
             set.union(*names) == set(dots.DOTS) and sum(len(n) for n in names) == len(dots.DOTS)
-            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (53, 10, 7),
+            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (55, 10, 7),
         "every derived dot is built by a THEOREM join of layer 23 whose check holds, and its parents lead back to E8 "
         "without a cycle":
             all(j is not None and j[4] == T and held[j[5]] for j in edges.values())

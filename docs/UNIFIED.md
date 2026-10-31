@@ -50,7 +50,7 @@ No lattice clock runs the canon's circle, but a circle of the seed's momenta doe
 - **The number level is rooted in the principal circle.** Its derived dots are the time clock, the observer clock and the grain, joined inside the level by the golden step (⟨864⟩ + ⟨1080⟩ = ⟨216⟩) and the sum of the three small clocks (⟨864⟩ + ⟨1080⟩ + ⟨1440⟩ = ⟨72⟩); the observer clock is the regular class 4, the day's sixth power.
 - **The golden companion is joined inside the symmetry level.** It is the tick's negative cosine X = −(g + g⁻¹), with X² = X + I and characteristic polynomial (x² − x − 1)⁴; E8 has a basis of four roots and their images in which X is four Fibonacci blocks, so E8 = ℤ[φ]⁴. The day conjugates X to I − X (the Galois conjugation of Q(√5)), G120 acts on ℤ[X] through Gal(Q(√5)/Q) with kernel ⟨g, d²⟩, and X lies in a regular clock's cosine ring ℤ[w + w⁻¹] exactly for the orders divisible by 5.
 - **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them.
-- **The structure** (`levels_unified`). Every level holds derived dots (3 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 14 on the lattice level, 15 on the operator level, 4 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 54 derived dots are connected by the 220 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
+- **The structure** (`levels_unified`). Every level holds derived dots (3 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 4 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 56 derived dots are connected by the 235 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
 
 ## The derivation
 
@@ -106,6 +106,8 @@ flowchart TB
     wedgeport["root-wedge port"]
     darkport["dark ports"]
     principal["principal circle"]
+    icosians["icosians"]
+    penrose["Penrose planes"]
     time["time clock"]
     observer["observer clock"]
     grain["grain"]
@@ -160,6 +162,8 @@ flowchart TB
     cycles --> wedgeport
     L0 --> darkport
     E8 --> principal
+    E8 --> icosians
+    A4 --> penrose
     principal --> time
     principal --> observer
     principal --> grain
@@ -172,6 +176,7 @@ flowchart TB
 | cyclotomic line | E8 | the cyclotomic line | `cyclotomic_line` | 1 |
 | eight-root frame | E8 | a maximal clique | `eight_roots` | 1 |
 | Hodge 70 | E8 | Lambda^4 of the lattice | `hodge70` | 1 |
+| icosians | E8 | the folding | `icosians` | 1 |
 | principal circle | E8 | the Weyl vector | `principal.circle` | 1 |
 | root graph | E8 | inner product 1 | `root_scheme` | 1 |
 | W(E8) clocks | cyclotomic line | the clocks are Galois | `galois_clocks` | 2 |
@@ -204,6 +209,7 @@ flowchart TB
 | D5 | A4 | inclusion | `k5_roots` | 6 |
 | K5 edges | A4 | B | `k5_roots` | 6 |
 | S5 | A4 | W(A4) | `s5_weyl` | 6 |
+| Penrose planes | A4 | the two golden planes | `penrose_planes` | 6 |
 | spectral triple | carrier | D | `triple` | 6 |
 | K5 vertices | K5 edges | contraction | `exterior` | 7 |
 | binding | spectral triple | commutant | `binding_joins` | 7 |
