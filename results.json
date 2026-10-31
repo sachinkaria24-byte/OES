@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.5,
+  "1-carrier": 0.6,
   "2-spectral": 0.0,
-  "3-spacetime": 5.42,
-  "4-native": 85.18,
-  "5-observer": 0.23,
-  "6-gravity": 4.54,
-  "7-cosmology": 1.45,
-  "8-frontier": 32.38,
-  "9-joins": 6.12,
-  "10-literal": 34.09,
-  "11-glue": 0.14,
-  "12-binding": 0.04,
+  "3-spacetime": 6.12,
+  "4-native": 79.61,
+  "5-observer": 0.2,
+  "6-gravity": 4.38,
+  "7-cosmology": 1.49,
+  "8-frontier": 32.22,
+  "9-joins": 8.62,
+  "10-literal": 34.1,
+  "11-glue": 0.15,
+  "12-binding": 0.03,
   "13-gates": 0.1,
-  "14-recurrence": 39.22,
-  "15-court": 1.44,
-  "16-handover": 1.07,
-  "17-waves": 0.44,
-  "18-snapshot": 1.01,
-  "19-spine": 3.85,
-  "20-canon": 6.94,
-  "21-ledger": 37.33,
-  "22-counts": 19.94,
-  "23-dots": 435.42,
-  "24-assignment": 2.69,
-  "25-unify": 3.67,
-  "26-primes": 3.53,
-  "27-places": 1.55,
-  "28-principal": 1.91
+  "14-recurrence": 34.77,
+  "15-court": 1.45,
+  "16-handover": 0.85,
+  "17-waves": 0.48,
+  "18-snapshot": 0.59,
+  "19-spine": 3.03,
+  "20-canon": 5.06,
+  "21-ledger": 32.46,
+  "22-counts": 17.59,
+  "23-dots": 427.68,
+  "24-assignment": 2.98,
+  "25-unify": 3.4,
+  "26-primes": 3.43,
+  "27-places": 1.47,
+  "28-principal": 1.88
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 936,
-   "total": 936
+   "passed": 937,
+   "total": 937
   },
   "OBSTRUCTION": {
    "passed": 74,
@@ -11684,6 +11684,19 @@
   },
   {
    "layer": "23-dots",
+   "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 240 roots are the two A4 (20 each) and 200 mixed roots, and every mixed root lies over K5: its A4 part is a signed vertex weight (10 roots over each of the 10) or a signed edge weight (5 over each of the 20)": true,
+    "around every root 28 pairs of roots sum to it (its 56 neighbours at 60 degrees, paired); the sums of orthogonal pairs are exactly the 2160 vectors of norm 4 and the sums of pairs at 60 degrees exactly the 6720 of norm 6": true,
+    "on the ten edges Agni = 5I - B^T B is 5 times the projector onto the cycles and Soma = Agni/5 is that projector; the vertex rotation has order 5, traced as a cycle it is the pentagon and its square traces the pentagram; the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 add, and multiply, to 5I minus the fixed sum I + T + ... + T^4, which is 5 times the rotor plane's projector, inside the cycles where Agni acts as 5": true,
+    "the one quadratic: on the moving part both Laplacians satisfy x^2 - 5x + 5 = 0, its two roots (5 -+ sqrt5)/2 on swapped planes; the cycle Laplacian 2I - C - C^-1 of the tick on the cycles is lam^2 (lam^2 - 5 lam + 5)^2; and at double scale 2(2I - T - T^-1) = 4I + 2X, X = -(T + T^-1) the golden companion (X^2 = X + I on the moving part), is the golden band 5 -+ sqrt5, the roots of y^2 - 10y + 20 (the port metric's contrast block)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "rotor plane -> root graph: the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -11734,7 +11747,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 465 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 466 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -11994,7 +12007,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 21, combinatorics-lattice 12, lattice-operator 29, operator-physics 29 joins",
+   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 12, lattice-operator 29, operator-physics 29 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12033,7 +12046,8 @@
      "G120 -> pg25",
      "regular -> surface",
      "S5 -> surface",
-     "S5 -> cube"
+     "S5 -> cube",
+     "cycles -> golden"
     ],
     [
      "E -> A4",
@@ -12120,7 +12134,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 422,
+    "THEOREM": 423,
     "OBSTRUCTION": 20,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 13
@@ -12140,7 +12154,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 21, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 12, combinatorics-operator 26, combinatorics-physics 12, lattice-operator 29, lattice-physics 8, operator-physics 29",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 12, combinatorics-operator 26, combinatorics-physics 12, lattice-operator 29, lattice-physics 8, operator-physics 29",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -12148,7 +12162,7 @@
     "(3, 4)": 29,
     "(2, 4)": 26,
     "(1, 3)": 39,
-    "(1, 2)": 21,
+    "(1, 2)": 22,
     "(0, 1)": 12,
     "(0, 2)": 7,
     "(1, 4)": 17,
@@ -14565,7 +14579,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 328 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 329 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
