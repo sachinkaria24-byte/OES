@@ -10060,6 +10060,7 @@ JOINS = [
     ("simplex", "penrose", "the faces as windows", "the face on S is the vertex e_S of the 5-cube on the slice sum x = |S|, its weight e_S - (|S|/5) u in class |S| of A4*/A4; projected into E2 the faces of size k have as convex hull the k-th window of the Penrose vertex sets (cited): the five sites a regular pentagon W1 (squared radius 2/5, turned 144 degrees by r), the far duads the vertices of W2 = -phi W1, P2(e_i + e_(i+2)) = -phi P2 e_(i+1), with the near duads strictly inside, and the complementary faces W3 = -W2 and W4 = -W1 (P2 u = 0) (31 Oct)", T, "join_simplex_penrose"),
     ("frame", "pauli", "the Clifford algebra of a frame", "the frame's eight roots are an F2-basis of E8/2E8 (Gram I + J, determinant 9) with odd products, so their Paulis A_1..A_8 are eight anticommuting antisymmetric Paulis with A_i^2 = -I and their 256 products are the Paulis up to sign: e_i -> A_i is an isomorphism Cl(0,8) = M16(R); A_S is symmetric exactly for |S| = 0, 3 mod 4, so L is 224 on the grades 1, 2, 5, 6 (the 120 jump operators) and 256 on 3, 4, 7, 8; the volume element, the Pauli of the frame's sum 3q, splits R^16 = 8 + 8, and the -A_i A_j/2 act as so(8) on the halves (31 Oct)", T, "join_frame_pauli"),
     ("cyclo", "triangle", "polygons isospectral to a triangle", "in the cyclotomic line the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2) cut the 240 roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d of sum 0 without antipodes, so each, as an odd port, has per unit norm the triangle port's signed Gram and meets every root off it with signed count zero; W(E8) is transitive on root pairs of each product, so the mu_d-invariant odd root functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the triangle port's measure (1, 242, 58691, ...): polygons isospectral to a triangle (31 Oct)", T, "join_cyclo_triangle"),
+    ("E8", "cycles", "the quadratic clock feature", "the coordinate five-cycle fixes 20 roots and turns 220 in 44 pentagons, so on the 240 root labels L = 2I - P - P^-1 obeys the one quadratic L^2 - 5L + 5B = 0 (eigenvalues 0 sixty-four times and (5 -+ sqrt5)/2 eighty-eight times each); the wedge feature alpha -> x ^ C4 x of the A4 part x carries the roots onto the cycles Lambda^2 A4 with E P = C6 E, rank 6 and det(E E^T) = 8957952, vanishing on the 20 fixed roots and even in alpha, so E L = L6 E and the whole-catalogue return reads down exactly to the six-clock's (the separate model's N41, 31 Oct)", T, "notes_2256"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -20179,6 +20180,106 @@ def one_quadratic():
     }
 
 
+def notes_2256():
+    """The separate model's N41 (31 Oct 22:46, dated 1 Nov): all 240 roots through the A4 clock. The coordinate
+    five-cycle gives the whole root catalogue the one quadratic, a quadratic wedge feature carries it onto the six-clock,
+    and the eighth and tenth root moments get their sharp lower bounds."""
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)            # doubled roots, integer
+    index = {tuple(r): i for i, r in enumerate(R2)}
+    cyc = lambda r: np.r_[np.roll(r[:5], 1), r[5:]]             # (D r)_{i+1} = r_i on the first five coordinates
+    P = np.zeros((240, 240), dtype=np.int64)
+    for i, r in enumerate(R2):
+        P[index[tuple(cyc(r))], i] = 1
+    I = np.eye(240, dtype=np.int64)
+    fixed = [i for i in range(240) if P[i, i] == 1]
+    S5 = sum(np.linalg.matrix_power(P, k) for k in range(5))   # 5F
+    Lr = 2 * I - P - P.T
+    orbits = len(fixed) + (240 - len(fixed)) // 5
+    # the A4 chart: U = [e_i - e_0], Q = (U^T U)^-1 U^T, C4 = Q D U, and its exterior square
+    U = sp.Matrix(5, 4, lambda a, b: int(a == b + 1) - int(a == 0))
+    Qm = (U.T * U).inv() * U.T
+    D = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))
+    C4 = Qm * D * U
+    W = list(itertools.combinations(range(4), 2))
+    wedge2 = lambda A: sp.Matrix(6, 6, lambda r, c: A[W[r][0], W[c][0]] * A[W[r][1], W[c][1]]
+                                 - A[W[r][1], W[c][0]] * A[W[r][0], W[c][1]])
+    C6, G6 = wedge2(C4), wedge2(U.T * U)
+    Bw = sp.Matrix(6, 6, lambda r, c: 0 if len(set(W[r]) | set(W[c])) < 4
+                   else Permutation(list(W[r]) + list(W[c])).signature())
+    H6 = 5 * G6.inv() * Bw
+    feat = lambda x, y: sp.Matrix([x[a] * y[b] - x[b] * y[a] for a, b in W])
+    X = [Qm * sp.Matrix([sp.Rational(int(v), 2) for v in r[:5]]) for r in R2]
+    E = sp.Matrix.hstack(*[feat(x, C4 * x) for x in X])
+    Pm = sp.Matrix(P.tolist())
+    EEt = E * E.T
+    zero_cols = [i for i in range(240) if E[:, i] == sp.zeros(6, 1)]
+    neg = {i: index[tuple(-R2[i])] for i in range(240)}
+    # the quadratic forms Q_i with f_i(alpha) = alpha^T Q_i alpha, from x = Wx alpha
+    Wx = Qm * sp.Matrix.hstack(sp.eye(5), sp.zeros(5, 3))
+    unit4 = lambda a: sp.Matrix(4, 1, lambda u, _: int(u == a))
+    Mi = [unit4(a) * C4[b, :] - unit4(b) * C4[a, :] for a, b in W]          # x^T M x = x_a (C4 x)_b - x_b (C4 x)_a
+    Qs = [Wx.T * ((M + M.T) / 2) * Wx for M in Mi]
+    Lc = 2 * sp.eye(6) - C6 - C6.inv()
+    # the reflection i -> -i mod 5 and its twisted feature law
+    refl = lambda r: np.r_[r[[0, 4, 3, 2, 1]], r[5:]]
+    Rp = sp.zeros(240, 240)
+    for i, r in enumerate(R2):
+        Rp[index[tuple(refl(r))], i] = 1
+    R5 = sp.Matrix(5, 5, lambda a, b: int(a == (-b) % 5))
+    D6 = -wedge2(Qm * R5 * U) * C6.inv()
+    # sharp moments: y = (a.k)^2/q, t = 39 - P8/q^4, sums S1..S5 = 60, 36, 30, 39 - t, (15(39 - t) - 315)/4
+    t, yv = sp.symbols("t y")
+    a_, c_ = sp.Rational(5, 4), sp.Rational(3, 8) - t / 84
+    Ssum = {1: 60, 2: 36, 3: 30, 4: 39 - t, 5: (15 * (39 - t) - 315) / 4}
+    poly = sp.Poly(sp.expand(yv * (yv ** 2 - a_ * yv + c_) ** 2), yv)
+    cert = sum(cf * Ssum[m[0]] for m, cf in poly.terms())
+    ints = np.array(list(itertools.product(range(-2, 3), repeat=8)), dtype=np.int64)
+    halves = np.array(list(itertools.product((-3, -1, 1, 3), repeat=8)), dtype=np.int64)
+    norm4 = np.vstack([2 * ints[((ints ** 2).sum(1) == 4) & (ints.sum(1) % 2 == 0)],
+                       halves[((halves ** 2).sum(1) == 16) & (halves.sum(1) % 4 == 0)]])  # doubled, 2160 of them
+    dots_ = norm4 @ R2.T                                         # 4 lambda.alpha for the doubled pair
+    same = all(sorted(Counter(int(v) ** 2 for v in row).items()) == sorted(Counter(int(v) ** 2 for v in dots_[0]).items())
+               for row in dots_)
+    return {
+        "the coordinate five-cycle on the first five coordinates fixes 20 roots and turns the other 220 in 44 pentagons; "
+        "on the 240 root labels L = 2I - P - P^-1 satisfies L^2 - 5L + 5B = 0 with F of rank 64 and B = I - F of rank "
+        "176, and since its trace 440 is rational its eigenvalues are 0 (64 times) and (5 -+ sqrt5)/2 (88 times each): "
+        "the one quadratic on the whole root catalogue; K = 2L - 5B has K^2 = 5B (the separate model's N41)":
+            len(fixed) == 20 and orbits == 64 and np.array_equal(Lr @ Lr - 5 * Lr + 5 * I - S5, np.zeros((240, 240), dtype=np.int64))
+            and np.linalg.matrix_rank(S5.astype(float)) == 64 and int(np.trace(Lr)) == 440
+            and np.array_equal(np.linalg.matrix_power(P, 5), I)
+            and np.array_equal((2 * Lr - (5 * I - S5)) @ (2 * Lr - (5 * I - S5)), 5 * I - S5),
+        "in the chart U = [e_i - e_0], the five-cycle's A4 action C4 = Q D U has exterior square C6 (C6^5 = I, keeping "
+        "G6 = Lambda^2 (I4 + J4), det 125), and the quadratic wedge feature f(alpha) = x ^ C4 x of x = Q alpha is a 6 x "
+        "240 matrix E with E P = C6 E, rank 6, det(E E^T) = 8957952, vanishing exactly on the 20 fixed roots and even "
+        "under alpha -> -alpha, so its 234-dimensional kernel holds the whole 120-dimensional odd part":
+            C6 ** 5 == sp.eye(6) and C6.T * G6 * C6 == G6 and G6.det() == 125 and E * Pm == C6 * E and E.rank() == 6
+            and EEt.det() == 8957952 and sorted(zero_cols) == sorted(fixed)
+            and all(E[:, i] == E[:, neg[i]] for i in range(240)),
+        "the feature Gram is the roots' fourth moment: sum_alpha f_i = 60 tr Q_i and (E E^T)_ij = 12[tr Q_i tr Q_j + "
+        "2 tr(Q_i Q_j)] for the quadratic forms f_i = alpha^T Q_i alpha; and E L = L6 E for L6 = 2I - C6 - C6^-1, so the "
+        "whole-catalogue return reads down exactly, E (sI + L)^-1 J = (sI + L6)^-1 with J = E^T (E E^T)^-1":
+            all(sum(E[i, :]) == 60 * Qs[i].trace() for i in range(6))
+            and all(EEt[i, j] == 12 * (Qs[i].trace() * Qs[j].trace() + 2 * (Qs[i] * Qs[j]).trace())
+                    for i in range(6) for j in range(6))
+            and E * (2 * sp.eye(240) - Pm - Pm.T) == Lc * E,
+        "the reflection i -> -i mod 5 needs a twist: E R = D6 E with D6 = -(Lambda^2 R4) C6^-1, D6^2 = I, D6 C6 D6 = "
+        "C6^-1, keeping G6 and commuting with the Hodge star H6 = 5 G6^-1 B (H6^2 = 5I)":
+            E * Rp == D6 * E and D6 ** 2 == sp.eye(6) and D6 * C6 * D6 == C6.inv() and D6.T * G6 * D6 == G6
+            and D6 * H6 == H6 * D6 and H6 ** 2 == 5 * sp.eye(6),
+        "sharp moments: with y = (a.k)^2/q and t = 39 - P8/q^4, sum y [y^2 - (5/4) y + 3/8 - t/84]^2 = (5/588)(t - 21/2)"
+        "(t - 315/2), so (57/2) q^4 <= P8 <= 39 q^4 and, by 4P10 = 15 q P8 - 315 q^5, (225/8) q^5 <= P10 <= (135/2) q^5; "
+        "the lower bound is attained along all 2160 directions lambda/2 of norm-four vectors (squared projections 0, 1/4, "
+        "1 on 84, 128, 28 roots), so the directional Taylor constant runs from 1/129024 to 1/53760":
+            sp.expand(cert - sp.Rational(5, 588) * (t - sp.Rational(21, 2)) * (t - sp.Rational(315, 2))) == 0
+            and len(norm4) == 2160 and same
+            and sorted(Counter(int(v) ** 2 for v in dots_[0]).items()) == [(0, 84), (16, 128), (64, 28)]
+            and sp.Rational(225, 8) / factorial(10) == sp.Rational(1, 129024)
+            and sp.Rational(135, 2) / factorial(10) == sp.Rational(1, 53760)
+            and (15 * sp.Rational(57, 2) - 315) / 4 == sp.Rational(225, 8),
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -20695,6 +20796,7 @@ LEDGER_ROWS = [
     ("one statement (the user's synthesis, 31 Oct 22:35)", "the 240 roots are the two A4 and the fibres of one K5; 28 pairs sum to each root, orthogonal pairs fill the 2160 vectors of norm 4 and 60-degree pairs the 6720 of norm 6; Agni = 5I - G on the ten edges, Soma = Agni/5; the pentagon and pentagram Laplacians add to 5I minus the fixed sum, in the cycles where Agni acts as 5; x^2 - 5x + 5 = 0 is the cycle Laplacian and at double scale the golden band 5 -+ sqrt5", "replayed and joined (cycles -> golden, one_quadratic) with G read as the signed edge Gram B^T B (so Agni = 5 P_cycles and Soma = P_cycles); the two Laplacians also multiply to the same 5I minus the fixed sum, so on the moving part they are the quadratic's two roots; the golden band at double scale is the port metric's contrast block 4I + 2X; the residual stays 0 and AUTH stays NOT_PASS", T, "23"),
     ("the N39 counted pointer (the user's synthesis, 31 Oct 22:35)", "N39 stays the counted pointer at 3782 and 3737 sheets", "recorded (REPORTED): the N39 workbooks were not opened here; the N37 receipt counted 3770 and 3725", RP, "23"),
     ("the separate model's 30th reference layer (31 Oct 22:09)", "a two-part 38 MB archive of the unified reference model: 30 layers, 4522 artifacts, 748 relationships, 179 matrix presentations", "recorded (REPORTED): the manifest and certificate were read as data and the archive was not opened; no claim in them can be replayed without its matrices", RP, "23"),
+    ("all 240 roots through the A4 clock (separate model's N41, 31 Oct 22:46, dated 1 Nov)", "the coordinate five-cycle: 20 fixed roots and 44 pentagons; L = 2I - P - P^-1 on the 240 labels with L^2 - 5L + 5B = 0, ranks 64 and 176, K^2 = 5B; the wedge feature E: E P = C6 E, rank 6, det(E E^T) = 8957952, Gram 12[tr Q_i tr Q_j + 2 tr Q_i Q_j]; E L = L6 E and the return reads down; the reflection's twisted law D6 = -(Lambda^2 R4) C6^-1; sharp bounds (57/2)q^4 <= P8 <= 39q^4 and (225/8)q^5 <= P10 <= (135/2)q^5 with the certificate (5/588)(t - 21/2)(t - 315/2)", "replayed exactly (notes_2256) and joined (E8 -> cycles); the sharp lower bound 57/2, attained along all 2160 norm-four directions, sharpens notes_2154's strict 132/5; the directional Taylor constant runs from 1/129024 to 1/53760; the note credits the sharp bounds to the canon's older reports", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -20963,7 +21065,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
