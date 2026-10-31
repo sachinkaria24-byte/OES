@@ -10316,6 +10316,76 @@ def notes_1009():
     }
 
 
+def notes_1112():
+    """The separate model's typed-adapter annotation of 10:43 on 31 Oct (its stored rotors, adapter and residuals read as
+    data), replayed as arithmetic."""
+    I6 = sp.eye(6)
+    R = sp.zeros(6)                                                           # the three disjoint pair swaps
+    for i in range(3):
+        R[2 * i, 2 * i + 1] = R[2 * i + 1, 2 * i] = 1
+    Peven = (I6 + R) / 2
+    A = sp.Matrix(6, 6, lambda r, c: sp.Rational(1, 10) if (r != 3 and c < 2) else (sp.Rational(1, 2) if (r == 3 and c in (2, 3)) else 0))
+    Td = sp.Matrix([[0, 0, 0, 0, 0, 1], [0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 1, 0], [0, 0, 0, 1, 0, 0], [1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0]])
+    A6 = sp.Matrix([[1, 1, 1, 0, 0, 0], [-1, 0, 0, 1, 1, 0], [0, -1, 0, -1, 0, 1], [1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0]])
+    T = sp.Matrix(np.rint(np.array(native.boundary_rotation(), dtype=float)).astype(int).tolist())
+    t = sp.Symbol("t")
+    phi = (t - 1) ** 2 * (t ** 4 + t ** 3 + t ** 2 + t + 1)
+    Fd = sum((Td ** k for k in range(5)), sp.zeros(6)) / 5
+    witness = Fd.columnspace()[0] * Peven.rowspace()[0] + Fd.columnspace()[1] * Peven.rowspace()[1]
+    perms = [sp.Matrix(6, 6, lambda r, c: int(r == p[c])) for p in itertools.permutations(range(6))]
+    conj = [P for P in perms if P * T * P.T == Td]
+    Xs = sp.Matrix(6, 6, sp.symbols("c0:36"))
+    sol = sp.linsolve(list(Xs * A6 - Td * Xs), list(Xs))
+    expr = sp.Matrix(6, 6, list(sol.args[0]))
+    free = sorted(expr.free_symbols, key=lambda s: int(str(s)[1:]))
+    S = expr.subs({f: k + 1 for k, f in enumerate(free)})
+    hom = sp.linsolve(list(Td * Xs - Xs * R), list(Xs))
+    homfree = sorted(sp.Matrix(6, 6, list(hom.args[0])).free_symbols, key=lambda s: int(str(s)[1:]))
+    P03 = sp.eye(6).permute([[0, 3]])
+    fixedpart = sp.linsolve(list(Xs * A6 - Td * Xs) + list(Xs * (A6 - I6)), list(Xs))                  # conjugators through the fixed plane
+    h = sp.Rational
+    resid = sp.Matrix([[h(1, 5), h(1, 5), 0, 0, 0, 0], [-h(1, 10), -h(1, 10), h(1, 2), h(1, 2), 0, 0], [-h(1, 10), -h(1, 10), -h(1, 2), -h(1, 2), 0, 0],
+                       [h(1, 10), h(1, 10), -h(1, 2), -h(1, 2), 0, 0], [0] * 6, [-h(1, 10), -h(1, 10), h(1, 2), h(1, 2), 0, 0]])   # the stored rank-2 residual
+    return {
+        "the declared Golden-frame rotor is a permutation of order 5 fixing site 3 (the cycle 0 -> 4 -> 2 -> 1 -> 5 -> 0) with "
+        "characteristic polynomial (t - 1)^2 (t^4 + t^3 + t^2 + t + 1) and no eigenvalue -1; its five powers add to 5F with F "
+        "the rank-2 fixed projector; the stored adapter has rank 2, intertwines it with the pair swap exactly (residual 0), and is "
+        "the witness f0 e0 + f1 e1 built from the fixed basis and the even basis; the declared rotor is the model's six-site "
+        "rotor conjugated by a permutation of the sites (exactly five permutations do it, none of them the swap (0 3) of notes_1009: "
+        "that conjugate is another five-cycle fixing site 3, and the adapter intertwines it too, since A R = A and the adapter's "
+        "columns are fixed by every site permutation fixing site 3, so it intertwines R with every permutation matrix fixing site 3 "
+        "and with no other)":
+            Td ** 5 == I6 and Td != I6 and Td[:, 3] == I6[:, 3] and sum(Td[i, i] for i in range(6)) == 1
+            and Td * sp.eye(6)[:, 0] == sp.eye(6)[:, 4] and Td * sp.eye(6)[:, 4] == sp.eye(6)[:, 2] and Td * sp.eye(6)[:, 2] == sp.eye(6)[:, 1]
+            and Td * sp.eye(6)[:, 1] == sp.eye(6)[:, 5] and Td * sp.eye(6)[:, 5] == sp.eye(6)[:, 0]
+            and sp.factor(Td.charpoly(t).as_expr()) == sp.factor(phi) and (Td + I6).rank() == 6
+            and Fd.rank() == 2 and (5 * Fd) ** 2 == 5 * (5 * Fd) and A.rank() == 2 and (Td * A - A * R).is_zero_matrix
+            and witness == A and len(conj) == 5 and all(P * T * P.T == Td for P in conj)
+            and A * R == A and all(P != P03 for P in conj) and P03 * T * P03 != Td and (P03 * T * P03) * A == A * R
+            and all((P * A - A * R).is_zero_matrix == (P[:, 3] == I6[:, 3]) for P in perms),
+        "the older rotor is an integer matrix of determinant 1, neither a permutation nor orthogonal, of order 5 with the same "
+        "characteristic polynomial, a fixed space of dimension 2 and no eigenvalue -1; against it the stored adapter's residual "
+        "has rank 2 and is the stored residual (the annotation's rank-two defect); it is similar over Q to the declared rotor (the maps X "
+        "with X A6 = Td X form a space of dimension 8 = 4 + 4, the 4 through the fixed plane checked, with an invertible S, "
+        "S A6 S^-1 = Td), and in that chart the transported adapter S^-1 A intertwines it with the "
+        "swap: the defect is a missing chart, not a missing adapter; by the same similarity the older rotor is similar to the "
+        "model's six-site rotor":
+            A6.det() == 1 and not all(sum(A6[:, j]) == 1 and min(A6[:, j]) >= 0 for j in range(6)) and A6 * A6.T != I6
+            and A6 ** 5 == I6 and A6 != I6 and sp.factor(A6.charpoly(t).as_expr()) == sp.factor(phi)
+            and len((A6 - I6).nullspace()) == 2 and (A6 + I6).rank() == 6 and (A6 * A - A * R).rank() == 2 and A6 * A - A * R == resid
+            and len(sp.Matrix(6, 6, list(fixedpart.args[0])).free_symbols) == 4
+            and len(free) == 8 and S.det() != 0 and S * A6 * S.inv() == Td and A6 * (S.inv() * A) == (S.inv() * A) * R
+            and (S.inv() * A).rank() == 2 and (conj[0].T * S) * A6 * (conj[0].T * S).inv() == T,
+        "the intertwiners of the declared rotor with the swap form a Q-vector space of dimension 6, so 'at most six such maps' "
+        "counts a basis, not maps (the sibling's next sentence gives the dimension 6): 2A and A + f0 e1 are further intertwiners; "
+        "the annotation's receipts (recorded): 11 "
+        "files and 10 hashes, 11 review checks, no new layer or matrix, over the reconciled 23rd layer":
+            len(homfree) == 6 and (Td * (2 * A) - (2 * A) * R).is_zero_matrix
+            and (Td * (A + Fd.columnspace()[0] * Peven.rowspace()[1]) - (A + Fd.columnspace()[0] * Peven.rowspace()[1]) * R).is_zero_matrix
+            and (A + Fd.columnspace()[0] * Peven.rowspace()[1]) != A and 11 - 10 == 1,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -10799,11 +10869,12 @@ LEDGER_ROWS = [
     ("the Label's hook lengths (MODEL, 09:36)", "S7's hook lengths give 1, 6, 20, 15 for [7], [6, 1], [4, 1, 1, 1], [5, 1, 1]; 100(1 + 6) = 700 = 20(20 + 15) = 20 x 35 with 35 = C(7, 3); 700 has order 216 and 600 order 36; 719 generates the circle", "replayed as arithmetic; 700, 800 and 900 miss the tick and 7, 8, 9 meet it; the ordinary and parity readings, the 719-dimensional kernel and the equivariant Hom are not stored here", T, "23"),
     ("the paired readout (MODEL, 10:05)", "the three disjoint pair swaps R (one involution) and the probe Q = diag(1, -1, 1, -1, 1, -1) anticommute; O O^T = 2I and O^T O = I + R for the sum readout O; the stack [O; OQ] has M^T M = 2I, determinant 8 and mod-2 rank 3; the correlation x1 x2 + x3 x4 + x5 x6 = (|Ox|^2 - |OQx|^2)/4 is kept by R and reversed by Q", "replayed on the separate model's stored swap, probe, sum and two-view matrices; ker O is the odd space, so three further readings are necessary and the difference readout supplies them", T, "23"),
     ("the literal weights 700, 7, 800, 8, 900, 9 (MODEL, 10:05)", "the swap defect D - RDR is 99 diag(7, -7, 8, -8, 9, -9), of rank 6, the even part D + RDR is 101 diag(7, 7, 8, 8, 9, 9), and the weighted stack [O; OD] has determinant 693 x 792 x 891", "replayed; 99 meets the tick and 100 does not; the weighted stack inverts over Q pair by pair", T, "23"),
-    ("the pair swap against the six-site rotor (MODEL, 10:05)", "TX = XR has a six-dimensional solution space; every solution factors through the rank-2 fixed projector of T and the rank-3 even projector of R and has rank at most 2, so no invertible equivariant adapter exists", "replayed on the model's rotor T (order 5, fixing x0): nullity 6, a rank-2 witness, the identity not a solution; the separate model's stored rank-2 adapter intertwines R with T conjugated by the site swap (0 3), the rotor fixing the separate model's site 3, not with T itself", T, "23"),
+    ("the pair swap against the six-site rotor (MODEL, 10:05)", "TX = XR has a six-dimensional solution space; every solution factors through the rank-2 fixed projector of T and the rank-3 even projector of R and has rank at most 2, so no invertible equivariant adapter exists", "replayed on the model's rotor T (order 5, fixing x0): nullity 6, a rank-2 witness, the identity not a solution; the separate model's stored rank-2 adapter intertwines R with T conjugated by the site swap (0 3), a five-cycle fixing site 3 as the separate model's frame rotor does, not with T itself", T, "23"),
     ("the four-coordinate reader (seven-code court, 09:38)", "on the ordered family (600, 009, 800, 008) the stack [O4; O4 Q4] has determinant -4 and inverts to the stored decoder; z1 z3 + z2 z4 = (s1 s2 + d1 d2)/2 and z1 z4 + z2 z3 = (s1 s2 - d1 d2)/2; no rank-2 observer determines a nondegenerate quadratic", "replayed; the lag-two form has determinant 1/16 and its bilinear form does not vanish on the kernel of O4", T, "23"),
     ("the 700 obstruction (seven-code court, 09:38)", "with S7 permuting seven sites and acting trivially on the auxiliary factors, Hom_S7(V7 (x) 1_100, 1_20 (x) Lambda^3 V7) = 0 although both have dimension 700; a transposition has characters 500 and 100 on them", "replayed over all 5040 permutations: <chi_V, chi_3> = 0, <chi_V, chi_V> = <chi_3, chi_3> = 2, and Lambda^2 V7 shares one constituent with each; the Label note's missing actions are supplied by the court", T, "23"),
     ("the selected diagonal's resolution (seven-code court, 09:38; the readout and seven-code archives)", "Y^2 + Y - 6I = -6 P0, tr Y^2 = 30 and Y = (10 P2 - 15 P-3)/5; the characteristic polynomial t (t - 2)^3 (t + 3)^2 has discriminant 0 while the minimal polynomial's is 900", "replayed; the archives' stored N0, N2, N-3 are the cleared projectors 6 P0, 10 P2, 15 P-3 of the 09:37 check", T, "23"),
     ("the smear and Markov helpers (seven-code court, 09:38)", "ker(S Delta) = ker Delta for an invertible S, and the similarity B' = SB, D' = S D S^-1, C' = C S^-1 keeps every Markov parameter C D^n B", "replayed on integer witnesses through order 8", T, "23"),
+    ("the typed adapter's chart (separate model, 10:43)", "the stored rank-2 adapter intertwines its declared Golden-frame rotor exactly and fails by a rank-2 residual against an older rotor given without a chart; the intertwiners form a six-dimensional space, not a six-element set", "replayed: the declared rotor is the model's six-site rotor conjugated by a site permutation (five of them do it, none the swap (0 3) of the 10:05 row, whose conjugate the adapter also intertwines since AR = A); the older rotor is similar over Q to both (the maps X with X A6 = T_d X form a space of dimension 8 = 4 + 4 with invertible members S), and the transported adapter S^-1 A intertwines it with the swap, so the defect is a missing chart, not a missing adapter", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -10971,6 +11042,10 @@ NOT_JOINED = [
                                            "and Markov helpers, replayed in notes_1009; its quoted sources are a Locked Memory "
                                            "consolidation handover of 1 October and the master join theorems note (neither opened "
                                            "here)", RP),
+    ("the separate model's typed-adapter annotation (10:43)", "a 104036-byte capsule (zip + base64; 11 files, 10 hashes; 11 review checks, no new "
+                                                            "layer or matrix) over its reconciled 23rd layer, taking the sibling's "
+                                                            "10:05 edition as source; decoded in memory, its rotors, adapter and residuals read as "
+                                                            "data, its code not run; the checkpoint recovery (10:48) not opened", RP),
 ]
 
 
