@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.61,
+  "1-carrier": 0.7,
   "2-spectral": 0.01,
-  "3-spacetime": 6.78,
-  "4-native": 84.19,
-  "5-observer": 0.29,
-  "6-gravity": 4.5,
-  "7-cosmology": 1.52,
-  "8-frontier": 35.59,
-  "9-joins": 7.73,
-  "10-literal": 34.1,
-  "11-glue": 0.14,
+  "3-spacetime": 6.21,
+  "4-native": 84.62,
+  "5-observer": 0.23,
+  "6-gravity": 4.55,
+  "7-cosmology": 1.43,
+  "8-frontier": 39.41,
+  "9-joins": 10.18,
+  "10-literal": 34.31,
+  "11-glue": 0.15,
   "12-binding": 0.03,
-  "13-gates": 0.09,
-  "14-recurrence": 34.57,
-  "15-court": 1.43,
-  "16-handover": 0.96,
-  "17-waves": 0.48,
-  "18-snapshot": 0.77,
-  "19-spine": 3.1,
-  "20-canon": 5.77,
-  "21-ledger": 36.58,
-  "22-counts": 17.48,
-  "23-dots": 265.77,
-  "24-assignment": 3.21,
-  "25-unify": 4.05,
-  "26-primes": 4.37,
-  "27-places": 1.59,
-  "28-principal": 1.96
+  "13-gates": 0.03,
+  "14-recurrence": 37.52,
+  "15-court": 1.38,
+  "16-handover": 1.0,
+  "17-waves": 0.56,
+  "18-snapshot": 0.93,
+  "19-spine": 3.96,
+  "20-canon": 6.85,
+  "21-ledger": 38.07,
+  "22-counts": 18.85,
+  "23-dots": 287.66,
+  "24-assignment": 4.59,
+  "25-unify": 4.32,
+  "26-primes": 4.73,
+  "27-places": 2.33,
+  "28-principal": 2.51
  },
  "fast": false,
  "summary": {
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 149,
-   "total": 149
+   "passed": 152,
+   "total": 152
   }
  },
  "checks": [
@@ -11908,6 +11908,30 @@
   {
    "layer": "23-dots",
    "name": "not joined: the sibling's 09:18 and 09:36 editions (31 Oct): 345 exact checks (343 before); the Quotient section restates the rotor and cyclic receipts of the 16:11 check and the Label section reads a pasted note whose ordinary and parity readings, 719-dimensional kernel and equivariant Hom are not stored here; the arithmetic is replayed in notes_0936",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the sibling's 10:05 edition (31 Oct): 346 exact checks (345 before); the Readout section reads the separate model's paired readout and seven-code archives; its arithmetic is replayed in notes_1009",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's Unified Readout (09:43) and Seven Code (09:48, 09:50) archives: a 612405-byte zip (35 files, 34 hashes; 31 exact groups, 5 typed joins, 4176 -> 4189 artifacts and 633 -> 638 relationships; its 22nd layer) and two capsules (41/40 and 45/44 files/hashes; 38 groups and 14 matrix presentations each; 4190 and 638 on the cyclic root, then 4203 and 643 reconciled onto the readout release as its 23rd layer); stored matrices, registries and READMEs read as data, its code not run; the checkpoint recovery (09:52) not opened",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the seven-code court packet (09:38): a reference note with a certificate and a sympy verifier (read as data, not run): the Y projectors, the four-coordinate reader, the S7 obstruction, the 007 fingerprint and the smear and Markov helpers, replayed in notes_1009; its quoted sources are a Locked Memory consolidation handover of 1 October and the master join theorems note (neither opened here)",
    "status": "REPORTED",
    "passed": true,
    "value": null,
