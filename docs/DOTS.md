@@ -425,10 +425,11 @@ flowchart TB
     penrose -->|"the glue group is the vertex index"| L0
     penrose -->|"the four Penrose planes of E8"| E8
     penrose -->|"three concentric stars"| carrier
+    rotor -->|"the Golden measurement channel"| rootgraph
     AGL -->|"the five-cycle's golden companion"| golden
 ```
 
-73 dots and 337 joins: 304 THEOREM, 10 SELECTED_REFERENCE, 7 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
+73 dots and 338 joins: 305 THEOREM, 10 SELECTED_REFERENCE, 7 CONDITIONAL and 16 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
 
 ## Levels
 
@@ -436,7 +437,7 @@ flowchart TB
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 32 | 8 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 16 | 12 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 13 | 6 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 13 | 7 |
 | 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle, icosians, Penrose planes | 35 | 27 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 35 | 24 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 11 | - |
@@ -449,8 +450,8 @@ The maps that join each pair of levels directly.
 |---|---|---|---|---|---|---|
 | number | - | 8 | 3 | 14 | 3 | 2 |
 | symmetry | 8 | - | 12 | 30 | 12 | 7 |
-| combinatorics | 3 | 12 | - | 6 | 19 | 7 |
-| lattice | 14 | 30 | 6 | - | 27 | 5 |
+| combinatorics | 3 | 12 | - | 7 | 19 | 7 |
+| lattice | 14 | 30 | 7 | - | 27 | 5 |
 | operator | 3 | 12 | 19 | 27 | - | 24 |
 | physics | 2 | 7 | 7 | 5 | 24 | - |
 
@@ -872,6 +873,7 @@ The maps that join each pair of levels directly.
 | Penrose planes | A4 + A4' | the projection of Z^5 onto A4 (x) R is A4* (weights e_i - u/5, Gram determinant 1/5, so A4*/A4 has order 5), and the projection of E8 onto A4 (x) R is A4* too: the 240 roots project onto 0, the 20 A4 roots and the 30 signed weights, which generate A4*, with 40 roots in class 0 (the roots of A4 and A4') and 50 in each other class, and the class vanishes on A4 and on A4', so E8/(A4 + A4') = Z/5 (Gram determinant 25) is A4*/A4 by projection, the index sum k_i mod 5 of the scheme's lattice points: the four nonzero classes are the five vertex weights (class 1), the ten edge weights e_i + e_j - 2u/5 (class 2) and their negatives (4, 3), the four vertex classes of the Penrose tilings (cited) (31 Oct) | THEOREM | `penrose_planes` |
 | Penrose planes | E8 | on E8 (x) R the phi-eigenspace of X = -(g + g^-1) is E2 + E2' and the (1 - phi)-eigenspace is E1 + E1', the Penrose planes of the carrier's A4 (under r) and of the twin A4' (under r', a Coxeter element of A4'), with the spectral projector (X - (1 - phi))/sqrt5 = P2 + P2' of trace 4: the golden splitting of E8 that the icosian folding starts from (31 Oct) | THEOREM | `penrose_planes` |
 | Penrose planes | carrier | the carrier's fifteen atoms, the shadows of the mixed roots (layer 25), project onto E1 as three concentric regular stars: the five sites at square 2/5, 72 degrees apart (P1 e_i . P1 e_j = (2/5) cos 72(i - j)), and the ten duads at radii phi (near) and 1/phi (far) times a site's, \|P1(e_i + e_j)\|^2 = (4/5)(1 + cos theta) = (2/5)(2 cos(theta/2))^2, the unit edge vectors of the Penrose rhombs and their two diagonals; on the fifteen atoms the monograph's stiffness R = 3I - U - U^-1 (replayed at 20:33, notes_2033) is 3I + X_U for the tick's negative cosine X_U, whose eigenvalues 1 - phi and phi, six times each, sit on the E1-type and E2-type directions that the doubling swaps (D R D^-1 = 3I - U^2 - U^-2, rank of the difference 12, Frobenius square 60, average P + (7/2)(I - P)) (31 Oct) | THEOREM | `penrose_planes` |
+| rotor plane | root graph | the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct) | THEOREM | `notes_1751` |
 | AGL(1,5) | golden companion | on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct) | THEOREM | `notes_1250` |
 
 ## Not joined

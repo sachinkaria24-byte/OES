@@ -9933,6 +9933,7 @@ JOINS = [
     ("penrose", "L0", "the glue group is the vertex index", "the projection of Z^5 onto A4 (x) R is A4* (weights e_i - u/5, Gram determinant 1/5, so A4*/A4 has order 5), and the projection of E8 onto A4 (x) R is A4* too: the 240 roots project onto 0, the 20 A4 roots and the 30 signed weights, which generate A4*, with 40 roots in class 0 (the roots of A4 and A4') and 50 in each other class, and the class vanishes on A4 and on A4', so E8/(A4 + A4') = Z/5 (Gram determinant 25) is A4*/A4 by projection, the index sum k_i mod 5 of the scheme's lattice points: the four nonzero classes are the five vertex weights (class 1), the ten edge weights e_i + e_j - 2u/5 (class 2) and their negatives (4, 3), the four vertex classes of the Penrose tilings (cited) (31 Oct)", T, "penrose_planes"),
     ("penrose", "E8", "the four Penrose planes of E8", "on E8 (x) R the phi-eigenspace of X = -(g + g^-1) is E2 + E2' and the (1 - phi)-eigenspace is E1 + E1', the Penrose planes of the carrier's A4 (under r) and of the twin A4' (under r', a Coxeter element of A4'), with the spectral projector (X - (1 - phi))/sqrt5 = P2 + P2' of trace 4: the golden splitting of E8 that the icosian folding starts from (31 Oct)", T, "penrose_planes"),
     ("penrose", "carrier", "three concentric stars", "the carrier's fifteen atoms, the shadows of the mixed roots (layer 25), project onto E1 as three concentric regular stars: the five sites at square 2/5, 72 degrees apart (P1 e_i . P1 e_j = (2/5) cos 72(i - j)), and the ten duads at radii phi (near) and 1/phi (far) times a site's, |P1(e_i + e_j)|^2 = (4/5)(1 + cos theta) = (2/5)(2 cos(theta/2))^2, the unit edge vectors of the Penrose rhombs and their two diagonals; on the fifteen atoms the monograph's stiffness R = 3I - U - U^-1 (replayed at 20:33, notes_2033) is 3I + X_U for the tick's negative cosine X_U, whose eigenvalues 1 - phi and phi, six times each, sit on the E1-type and E2-type directions that the doubling swaps (D R D^-1 = 3I - U^2 - U^-2, rank of the difference 12, Frobenius square 60, average P + (7/2)(I - P)) (31 Oct)", T, "penrose_planes"),
+    ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
 ]
 
@@ -11674,6 +11675,321 @@ def notes_1250():
     }
 
 
+def notes_1751():
+    """The hub's Rosebud notes (30 Oct, filed 31 Oct 17:50-17:53): the six-petal bank on Lambda^2 A4, its mirror
+    decoders and positional repair, the Golden measurement channel onto the six-line chain, the clock schedule, the
+    TENET oscillator on the cycles, and the filtered resolvent identity."""
+    W6 = list(itertools.combinations(range(4), 2))
+
+    def a4(s):
+        M = sp.zeros(4, 4)
+        for i in range(4):
+            if s(i) < 4:
+                M[s(i), i] += 1
+            if s(4) < 4:
+                M[s(4), i] -= 1
+        return M
+
+    def wedge2(A):
+        return sp.Matrix(6, 6, lambda r, c: A[W6[r][0], W6[c][0]] * A[W6[r][1], W6[c][1]]
+                         - A[W6[r][1], W6[c][0]] * A[W6[r][0], W6[c][1]])
+    rho = lambda s: wedge2(a4(s))
+    G4 = sp.eye(4) + sp.ones(4, 4)
+    G6 = wedge2(G4)
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    g = Permutation([[0, 1], [2, 3, 4]], size=5)
+    cyc = [Permutation([1, 2, 3, 4, 0])]
+    for _ in range(5):
+        cyc.append(g ** -1 * cyc[-1] * g)                     # H_(i+1) = g H_i g^-1
+    F = [sum((rho(c ** k) for k in range(5)), sp.zeros(6, 6)) / 5 for c in cyc]
+    U, M = rho(g), rho(Permutation([[0, 1]], size=5))
+    ell = sp.Matrix([[0, 0, 0, 0, 0, 1]])
+    B = sp.Matrix.vstack(*[ell * Fi for Fi in F])
+    B5 = sp.Matrix([[2, 1, 2, 1, 1, 2], [2, 2, 1, -1, -2, 1], [2, -1, -1, -2, -1, 2],
+                    [-2, 1, 1, 1, 2, 2], [-2, -1, -2, 2, 1, 1], [-2, -2, -1, -1, -1, 2]])
+    Hh = sp.Matrix(6, 6, lambda i, j: int(j == (i + 3) % 6))
+    rank = lambda X: X.rank()
+    # parity decoders
+    Ev = sp.Matrix.hstack(I6[:, 1] + I6[:, 3], I6[:, 2] + I6[:, 4], I6[:, 5])
+    Od = sp.Matrix.hstack(I6[:, 0], I6[:, 1] - I6[:, 3], I6[:, 2] - I6[:, 4])
+    Zp = sp.Matrix(3, 6, lambda i, j: sp.Rational(int(j == i) + int(j == i + 3), 2))
+    Zm = sp.Matrix(3, 6, lambda i, j: sp.Rational(int(j == i) - int(j == i + 3), 2))
+    Ap, Am = Zp * B * Ev, Zm * B * Od
+    inf = lambda X: max(sum(abs(x) for x in X.row(i)) for i in range(X.rows))
+    a, b, c = sp.symbols("a b c")
+    Babc = sp.Matrix.vstack(*[sp.Matrix([[0, a, b, a, b, c]]) * Fi for Fi in F])
+    Pp = 4*a**2*b - 4*a**2*c - 4*a*b**2 + 8*a*b*c - 4*a*c**2 - 4*b**2*c + 4*b*c**2 - c**3
+    Pm = 2*a**2*b - 2*a*b**2 + 2*a*b*c + c**3
+    # positional flower
+    Wc = sp.Matrix(6, 6, lambda i, j: int(i == (j + 1) % 6))
+    C = I6 + Wc
+    av = sp.Matrix([1, -1, 1, -1, 1, -1])
+    H3 = Wc ** 3
+    q = sp.Matrix([[1, 0, 0, -1, 0, 0]])
+    Cq = C.col_join(q)
+    D = sp.diag(*av)
+    kron = lambda X, Y: sp.Matrix(sp.kronecker_product(X, Y))
+    Pmds = I6.col_join(sp.ones(1, 6)).col_join(sp.Matrix([[1, 2, 3, 4, 5, 6]]))
+    minors = [Pmds.extract(list(r), list(range(6))).det() for r in itertools.combinations(range(8), 6)]
+    scan = sp.Matrix.vstack(*[ell * U ** i * F[0] for i in range(6)])
+    # the Golden measurement channel
+    E = [Fi / 2 for Fi in F]
+    sig = [(11 * I6 - 5 * Fi) / 56 for Fi in F]
+    Pch = sp.Matrix(6, 6, lambda i, j: (E[i] * sig[j]).trace())
+    Bfr, Binv, Cfr, Cinv, R, RB = spine.frame()
+    _, lines = cyclotomic.residue()
+    pts = [cyclotomic.point(x) for x in RB]
+    S = np.array([[int(pts[i] in L) for L in lines] for i in range(240)], dtype=np.int64)
+    A = (RB @ Cfr @ RB.T == 1).astype(np.int64)
+    Q = sp.Matrix((S.T @ A @ S) // 40)
+
+    Meas = sp.Matrix(6, 36, lambda j, k: E[j][k % 6, k // 6])
+    Prep = sp.Matrix(36, 6, lambda r, j: sig[j][r // 6, r % 6])
+    Phi = Prep * Meas
+    qmap = lambda y: [sp.expand((y.T * G6 * Fi * y)[0, 0] / 2) for Fi in F]
+
+    def perm_on_labels(s):
+        return [next(j for j in range(6) if rho(s) * F[i] * rho(s) ** -1 == F[j]) for i in range(6)]
+    gens = [Permutation([1, 2, 3, 4, 0]), Permutation([[0, 1]], size=5)]
+    equivariant = all((G6 * Fi).T == G6 * Fi for Fi in F) and all(
+        rho(s).T * G6 * F[perm_on_labels(s)[i]] * rho(s) == G6 * F[i] for s in gens for i in range(6))
+    blocks = []
+    for s in gens:
+        pi = perm_on_labels(s)
+        Pm6 = sp.Matrix(6, 6, lambda i, j: int(pi[j] == i))
+        blocks.append(kron(I6, Pm6) - kron(rho(s).T, I6))           # vec(P X - X rho) on column-stacked X
+    hom = 36 - sp.Matrix.vstack(*blocks).rank()
+    lam = sp.Symbol("lam")
+    pairpoly = {sp.factor((F[i] + F[j]).charpoly(lam).as_expr()) for i, j in itertools.combinations(range(6), 2)}
+    tripoly = {sp.expand(125 * (F[i] + F[j] + F[k]).charpoly(lam).as_expr())
+               for i, j, k in itertools.combinations(range(6), 3)}
+    petal = F[0].columnspace()
+    t1, t2 = sp.symbols("t1 t2")
+    xp = t1 * petal[0] + t2 * petal[1]
+    nrm = (xp.T * G6 * xp)[0, 0]
+    reads = [sp.simplify(r / nrm) for r in qmap(xp)]
+    # the clock schedule
+    Dm, Rm = np.array([[1, 4], [1, 2]]), np.array([[0, 4], [1, 1]])
+    proj = [(0, 1)] + [(1, k) for k in range(5)]
+    norm = lambda v: (0, 1) if v[0] % 5 == 0 else (1, int(v[1]) * pow(int(v[0]), -1, 5) % 5)
+    act = lambda X, p: norm(tuple(int(t) for t in (X @ np.array(p)) % 5))
+    Dp = [np.eye(2, dtype=np.int64)]
+    for _ in range(6):
+        Dp.append((Dp[-1] @ Dm) % 5)
+    f = lambda j: act(Dp[((j % 4320) // 72) % 6], proj[0])
+    sched = [f(j) for j in range(4320)]
+    from collections import Counter as Cn
+    fb = lambda bb: f(36 * bb)
+    # TENET on the cycles
+    t, d = Permutation([1, 2, 3, 4, 0]), Permutation([0, 2, 4, 1, 3])
+    Ut, Dd = rho(t), rho(d)
+    Rr = Dd ** 2
+    K = 3 * I6 - Ut - Ut ** -1
+    PF = sum((Ut ** k for k in range(5)), sp.zeros(6, 6)) / 5
+    vol = lambda r, cc: sp.Matrix([[int(k in W6[r]) for k in range(4)], [int(k in W6[cc]) for k in range(4)]])
+    Bw = sp.Matrix(6, 6, lambda r, cc: (lambda s: 0 if len(s) < 4 else Permutation(list(W6[r]) + list(W6[cc])).signature())
+                   (set(W6[r]) | set(W6[cc])))
+    KH = 5 * G6.inv() * Bw
+    star = KH / sp.sqrt(5)
+    Pmi, Ppl = PF * (I6 - star) / 2, PF * (I6 + star) / 2
+    Gmi, Gpl = G6 * (I6 - 2 * Pmi), G6 * (I6 - 2 * Ppl)
+    Z6 = sp.zeros(6, 6)
+    Aph = sp.Matrix(sp.BlockMatrix([[Z6, I6], [-K, Z6]]))
+    Tph = sp.diag(Rr, -Rr)
+    Om = sp.Matrix(sp.BlockMatrix([[Z6, G6], [-G6, Z6]]))
+    Obs = sp.Matrix.hstack(PF, Z6)
+    obsrank = sp.Matrix.vstack(*[Obs * Aph ** k for k in range(12)]).rank()
+    Hu = sp.diag(1, 2, 3)
+    Hd = sp.Matrix([[1, 1, sp.I], [1, 2, 1], [-sp.I, 1, 3]])
+    Cm = Hu * Hd - Hd * Hu
+    # the filtered resolvent identity
+    s, Ev_ = sp.symbols("s E", positive=True)
+    m = [1, 248, 61526]
+    rho0 = 1117414932480000000000
+    return {
+        "on L6 = Lambda^2 A4 (wedge basis 01, 02, 03, 12, 13, 23 of v_i = e_i - e_4) the six Sylow petals F_i, the "
+        "Reynolds averages of the Sylow five-cycle groups ordered by conjugation with g = (01)(234), are rank-2 "
+        "idempotents with sum F_i = 2I and F_i F_j F_i = F_i/5; every pair spans rank 4 and every triple rank 6; "
+        "M = U^3 = rho((01)) is an involution with eigenvalues +1 and -1 three times each (the hub's Rosebud, 30 Oct)":
+            all(Fi ** 2 == Fi and rank(Fi) == 2 for Fi in F) and sum(F, sp.zeros(6, 6)) == 2 * I6
+            and all(F[i] * F[j] * F[i] == F[i] / 5 for i in range(6) for j in range(6) if i != j)
+            and all(rank(F[i].col_join(F[j])) == 4 for i, j in itertools.combinations(range(6), 2))
+            and all(rank(sp.Matrix.vstack(F[i], F[j], F[k])) == 6 for i, j, k in itertools.combinations(range(6), 3))
+            and U ** 3 == M and M ** 2 == I6 and M.eigenvals() == {1: 3, -1: 3},
+        "the mirror-even leaf ell = e_23 (ell M = ell) read through the six petals is the bank B with 5B exactly the "
+        "hub's integer matrix, det B = 4/125, and B M = H B for the half-turn H of the six labels: the bank intertwines "
+        "the mirror with the opposite-petal exchange; ||B^-1||_inf = 7":
+            ell * M == ell and 5 * B == B5 and B.det() == sp.Rational(4, 125) and B * M == Hh * B and inf(B.inv()) == 7,
+        "the bank splits into mirror-even and mirror-odd 3 x 3 decoders, the cross blocks vanish, det A+ = -1/5 and "
+        "det A- = -2/25, with inverses [[0, 2, -1], [1, -2, 0], [1, 1, 1]] and [[3/2, -1/2, 3/2], [-3, 1, 2], [2, 1, -3]] "
+        "(infinity norms 3 and 6)":
+            Zp * B * Od == sp.zeros(3, 3) and Zm * B * Ev == sp.zeros(3, 3) and Ap.det() == sp.Rational(-1, 5)
+            and Am.det() == sp.Rational(-2, 25) and Ap.inv() == sp.Matrix([[0, 2, -1], [1, -2, 0], [1, 1, 1]])
+            and Am.inv() == sp.Matrix([[sp.Rational(3, 2), sp.Rational(-1, 2), sp.Rational(3, 2)], [-3, 1, 2], [2, 1, -3]])
+            and (inf(Ap.inv()), inf(Am.inv())) == (3, 6),
+        "every mirror-even leaf (0, a, b, a, b, c) gives det B(a, b, c) = -(4/125) P+ P- with P+ = 4a^2b - 4a^2c - "
+        "4ab^2 + 8abc - 4ac^2 - 4b^2c + 4bc^2 - c^3 and P- = 2a^2b - 2ab^2 + 2abc + c^3: such a leaf reconstructs iff "
+        "P+ P- != 0, and e_23 has P+ = -1, P- = 1":
+            sp.expand(Babc.det() + sp.Rational(4, 125) * Pp * Pm) == 0
+            and (Pp.subs({a: 0, b: 0, c: 1}), Pm.subs({a: 0, b: 0, c: 1})) == (-1, 1),
+        "the positional flower C = I + W on Q^6 has rank 5 and kernel the alternating vector a, odd under the "
+        "half-turn W^3; the opposite-petal leaf q = e_0 - e_3 is odd, q.a = 2, [C; q] has rank 6 (the first five rows "
+        "with q have determinant -2) and [C; q] W^3 = diag(W^3, -1) [C; q]; in P6 (x) L6 the bank C (x) B has rank 30 "
+        "and [C; q] (x) B rank 36; with D = diag(a), C^T C + (CD)^T (CD) = 4I":
+            rank(C) == 5 and C * av == sp.zeros(6, 1) and H3 * av == -av and q * H3 == -q and (q * av)[0] == 2
+            and rank(Cq) == 6 and C[:5, :].col_join(q).det() == -2 and Cq * H3 == sp.diag(H3, -1) * Cq
+            and rank(kron(C, B)) == 30 and rank(kron(Cq, B)) == 36 and C.T * C + (C * D).T * (C * D) == 4 * I6,
+        "the record packet [I6; 1...1; 1 2 3 4 5 6] has all 28 six-row minors nonzero, an [8, 6, 3] MDS code (two "
+        "erasures or one error), while a co-rotating scan x_i = U^i x_0 reads only rank 2":
+            len(minors) == 28 and all(v != 0 for v in minors) and rank(scan) == 2,
+        "the Golden measurement channel: E_i = F_i/2 is a six-outcome resolution of the identity and sigma_j = "
+        "(11I - 5F_j)/56 has trace 1 and eigenvalues 3/28 (twice) and 11/56 (four times); tr(E_i sigma_j) is exactly "
+        "Q/56 for Q = S^T A S/40 = 10J - 4I, the root graph's six-line quotient on the residue plane's lines; the "
+        "measure-and-prepare map Phi = Prep Meas on the 36-dimensional operators has rank 6 and kernel 30, and since "
+        "Meas Prep = Q/56 its nonzero eigenvalues are 1 and (-1/14)^5 (the hub's deep join, 30 Oct)":
+            sum(E, sp.zeros(6, 6)) == I6 and all(sg.trace() == 1 for sg in sig)
+            and all(sg.eigenvals() == {sp.Rational(3, 28): 2, sp.Rational(11, 56): 4} for sg in sig)
+            and Q == 10 * J6 - 4 * I6 and Pch == Q / 56 and Meas * Prep == Pch and Phi.rank() == 6
+            and Pch.eigenvals() == {1: 1, sp.Rational(-1, 14): 5},
+        "there is no nonzero S5-equivariant linear map from L6 to the six labels' permutation module (Hom = 0), but the "
+        "quadratic readings x -> (x^T G6 F_i x / 2)_i are equivariant, so the channel lives at degree 2; on a petal "
+        "plane im F_i every vector reads 1/2 at its own label and 1/10 at the other five, so a whole circle of "
+        "sources is invisible to the six Golden energies":
+            hom == 0 and equivariant and len(petal) == 2 and set(reads) == {sp.Rational(1, 2), sp.Rational(1, 10)}
+            and reads.count(sp.Rational(1, 10)) == 5,
+        "every pair F_i + F_j has characteristic polynomial lam^2 ((lam - 1)^2 - 1/5)^2 and every triple "
+        "(5 lam^2 - 10 lam + 1)(5 lam^2 - 10 lam + 4)^2 / 125, so the six readings obey p_i <= 1/2, p_i + p_j <= "
+        "(1 + 1/sqrt5)/2 and (1 - 2/sqrt5)/2 <= p_i + p_j + p_k <= (1 + 2/sqrt5)/2":
+            pairpoly == {sp.factor(lam ** 2 * ((lam - 1) ** 2 - sp.Rational(1, 5)) ** 2)}
+            and tripoly == {sp.expand((5 * lam ** 2 - 10 * lam + 1) * (5 * lam ** 2 - 10 * lam + 4) ** 2)},
+        "the clock: j -> j + 144 fixes j mod 36 while the Coxeter clock R = [[0, 4], [1, 1]] moves every line of the "
+        "residue plane, so no schedule through j mod 36 alone carries R; the selected f(j) = D^floor((j mod 4320)/72) "
+        "line0 for D = [[1, 4], [1, 2]] covers the six lines 720 times each, with f(j + 72) = D f(j), f(j + 144) = "
+        "R f(j) and f(j + 216) = D^3 f(j), and with j = a + 36b it depends on b mod 12 and on no shorter period":
+            144 % 36 == 0 and all(act(Rm, p) != p for p in proj) and Cn(sched).most_common() and set(Cn(sched).values()) == {720}
+            and len(Cn(sched)) == 6 and all(sched[(j + 72) % 4320] == act(Dm, sched[j]) and sched[(j + 144) % 4320]
+                                            == act(Rm, sched[j]) and sched[(j + 216) % 4320] == act(Dp[3], sched[j])
+                                            for j in range(4320))
+            and all(f(a_ + 36 * b_) == fb(b_ % 12) for a_ in range(36) for b_ in range(120))
+            and all(any(fb(b_) != fb((b_ + p_) % 12) for b_ in range(12)) for p_ in (1, 2, 3, 4, 6)),
+        "TENET on the cycles: with U = Lambda^2 rho(t), D = Lambda^2 rho(d) for t: i -> i + 1 and d: i -> 2i, U^5 = "
+        "D^4 = I, D U D^-1 = U^2 and R = D^2 inverts U; K = 3I - U - U^-1 is G6-self-adjoint and positive with "
+        "characteristic polynomial (lam - 1)^2 (lam^2 - 7 lam + 11)^2 and commutes with R; on L6 + L6 the flow "
+        "A = [[0, I], [-K, 0]] is reversed by T = diag(R, -R) (T A T^-1 = -A, T^T Omega T = -Omega, energy kept)":
+            Ut ** 5 == I6 and Dd ** 4 == I6 and Dd * Ut * Dd.inv() == Ut ** 2 and Rr * Ut * Rr.inv() == Ut.inv()
+            and (G6 * K).T == G6 * K and all(v > 0 for v in (G6 * K).eigenvals())
+            and sp.factor(K.charpoly(lam).as_expr()) == sp.factor((lam - 1) ** 2 * (lam ** 2 - 7 * lam + 11) ** 2)
+            and Rr * K == K * Rr and Tph ** 2 == sp.eye(12) and Tph * Aph * Tph.inv() == -Aph
+            and Tph.T * Om * Tph == -Om and Rr.T * G6 * Rr == G6 and Rr.T * G6 * K * Rr == G6 * K,
+        "the wedge pairing gives KH = 5 G6^-1 B with KH^2 = 5I; on the rotor plane PF (rank 2) the star splits it into "
+        "two lines P-+, and G- = G6 (I - 2P-) has signature (5, 1) and determinant -125; R keeps G- and negates the "
+        "rotor plane, while D carries G- to G+: the two reversals differ (TENET); the selected oscillator with "
+        "observer [PF, 0] sees rank 4 of 12 at every order":
+            KH ** 2 == 5 * I6 and rank(PF) == 2 and rank(Pmi) == 1 and rank(Ppl) == 1 and Gmi.T == Gmi
+            and sp.simplify(Gmi.det()) == -125
+            and sorted(np.sign(np.linalg.eigvalsh(np.array(Gmi.evalf(30).tolist(), dtype=float)))) == [-1, 1, 1, 1, 1, 1]
+            and sp.simplify(Rr.T * Gmi * Rr - Gmi) == Z6 and Rr * PF == -PF
+            and sp.simplify(Dd.T * Gmi * Dd - Gpl) == Z6 and Gpl != Gmi and obsrank == 4,
+        "for Hermitian Hu = diag(1, 2, 3) and Hd = [[1, 1, i], [1, 2, 1], [-i, 1, 3]], tr([Hu, Hd]^3) = -12i: a nonzero "
+        "imaginary cube trace forbids one antiunitary symmetry fixing both (TENET's flavour witness)":
+            Hd == Hd.H and sp.expand((Cm ** 3).trace()) == -12 * sp.I,
+        "the filtered resolvent: E^2/(s + E) = E - s + s^2/(s + E), so 61526 G1(s) = 248 - s + s^2 G0(s) for the "
+        "dark port's moments 1, 248, 61526 (m2 - m1^2 = 22), G1(0) = 124/30763, and the low-energy and heat "
+        "constants of the first filter follow from the zeroth by m2 and Gamma: 1117414932480000000000 x 61526 = "
+        "68750071135764480000000000, 11!/1117414932480000000000 = 1/27993600000000 and 13!/68750071135764480000000000 "
+        "= 13/143527852800000000 (the hub's PROOF_NOTE, 30 Oct)":
+            sp.simplify(Ev_ ** 2 / (s + Ev_) - (Ev_ - s + s ** 2 / (s + Ev_))) == 0 and m[2] - m[1] ** 2 == 22
+            and sp.Rational(m[1], m[2]) == sp.Rational(124, 30763) and rho0 * m[2] == 68750071135764480000000000
+            and sp.Rational(factorial(11), rho0) == sp.Rational(1, 27993600000000)
+            and sp.Rational(factorial(13), 68750071135764480000000000) == sp.Rational(13, 143527852800000000)
+            and all(sp.simplify(Ev_ ** (2 * n) / (s + Ev_) - sum((-s) ** j * Ev_ ** (2 * n - 1 - j) for j in range(2 * n))
+                                - s ** (2 * n) / (s + Ev_)) == 0 for n in range(1, 6)),
+    }
+
+
+def notes_1757():
+    """The separate model's degree-moment and dispersion verifications (31 Oct, 17:24-17:57): the eighth directional
+    moments, the color-charge transport, the uniform Taylor bound of the band, and its critical points."""
+    R = [sp.Matrix(v) for v in
+         [tuple(s * (i == p) + t * (i == q) for i in range(8)) for p, q in itertools.combinations(range(8), 2)
+          for s in (1, -1) for t in (1, -1)]
+         + [tuple(sp.Rational(e, 2) for e in signs) for signs in itertools.product((1, -1), repeat=8)
+            if sum(1 for e in signs if e < 0) % 2 == 0]]
+    dirs = {"axis": sp.Matrix([1, 0, 0, 0, 0, 0, 0, 0]), "root": sp.Matrix([0, 0, 0, 1, -1, 0, 0, 0]),
+            "charge": sp.Matrix([1, 1, 1, 0, -3, 0, 0, 0]), "color": sp.Matrix([1, 1, 1, 0, 0, 0, 0, 0])}
+    counts = {k: Counter((r.T * v)[0, 0] for r in R) for k, v in dirs.items()}
+    mom = {k: [sum((r.T * v)[0, 0] ** (2 * n) for r in R) / (v.T * v)[0, 0] ** n for n in (1, 2, 3, 4)]
+           for k, v in dirs.items()}
+
+    def dominant(v):
+        simple = [sp.Matrix([0, 1, -1, 0, 0, 0, 0, 0]), sp.Matrix([0, 0, 1, -1, 0, 0, 0, 0]),
+                  sp.Matrix([0, 0, 0, 1, -1, 0, 0, 0]), sp.Matrix([0, 0, 0, 0, 1, -1, 0, 0]),
+                  sp.Matrix([0, 0, 0, 0, 0, 1, -1, 0]), sp.Matrix([0, 0, 0, 0, 0, 1, 1, 0]),
+                  sp.Matrix([-sp.Rational(1, 2)] * 8), sp.Matrix([1, -1, 0, 0, 0, 0, 0, 0])]
+        v = sp.Matrix(v)
+        while True:
+            neg = [a for a in simple if (a.T * v)[0, 0] < 0]
+            if not neg:
+                return v
+            a = neg[0]
+            v = v - (a.T * v)[0, 0] * a
+    k = sp.Matrix(sp.symbols("k0:8"))
+    sym = lambda kv: sum(1 - sp.cos((r.T * kv)[0, 0]) for r in R)
+    grad = lambda kv: sp.Matrix([sum(sp.sin((r.T * kv)[0, 0]) * r[i] for r in R) for i in range(8)])
+    hess = lambda kv: sum((sp.cos((r.T * kv)[0, 0]) * r * r.T for r in R), sp.zeros(8, 8))
+    pi = sp.pi
+    pts = {"root half-period": pi * dirs["root"], "axis half-period": 2 * pi * dirs["axis"],
+           "charge half-period": pi * dirs["charge"], "color half-period": 2 * pi * dirs["color"],
+           "golden character": sp.Rational(4, 5) * pi * sp.Matrix([1, 1, 1, 1, 1, 0, 0, 0])}
+    val = {n: sp.nsimplify(sp.simplify(sym(p))) for n, p in pts.items()}
+    grads = {n: grad(p).applyfunc(sp.simplify) for n, p in pts.items()}
+    H = {n: hess(p).applyfunc(lambda z: sp.nsimplify(sp.simplify(z))) for n, p in pts.items()}
+    r5 = sp.sqrt(5)
+    Hg = sp.zeros(8, 8)
+    for i in range(5):
+        for j in range(5):
+            Hg[i, j] = -sp.Rational(5, 2) + 3 * r5 / 2 if i == j else -r5
+    for i in range(5, 8):
+        Hg[i, i] = -5 * r5 / 2 - sp.Rational(5, 2)
+    Hr = sp.diag(12, 12, 12, sp.Matrix([[-20, 32], [32, -20]]), 12, 12, 12)
+    x, q = sp.symbols("x q", positive=True)
+    taylor = sp.series(1 - sp.cos(x), x, 0, 10).removeO()
+    return {
+        "the 240 roots read along the axis e1, the root e4 - e5, the charge (1, 1, 1, 0, -3, 0, 0, 0) and the color "
+        "(1, 1, 1, 0, 0, 0, 0, 0) have unit-normalized even moments 60, 36, 30 in degrees 2, 4, 6 for all four and "
+        "57/2, 39, 179/6, 179/6 in degree 8: color and charge agree in every degree although their inner-product "
+        "counts differ (46 zeros each; charge 48, 30, 16, 3 at 1, 2, 3, 4, color 48, 30, 16, 3 at 1/2, 1, 3/2, 2) "
+        "(the separate model's degree moments, 31 Oct)":
+            all(m[:3] == [60, 36, 30] for m in mom.values())
+            and [mom[n][3] for n in ("axis", "root", "charge", "color")] == [sp.Rational(57, 2), 39, sp.Rational(179, 6), sp.Rational(179, 6)]
+            and counts["charge"] == Counter({0: 46, 1: 48, -1: 48, 2: 30, -2: 30, 3: 16, -3: 16, 4: 3, -4: 3})
+            and counts["color"] == Counter({0: 46, sp.Rational(1, 2): 48, -sp.Rational(1, 2): 48, 1: 30, -1: 30,
+                                            sp.Rational(3, 2): 16, -sp.Rational(3, 2): 16, 2: 3, -2: 3}),
+        "twice the color and the charge are lattice vectors of norm 12 with the same dominant representative, so a "
+        "Weyl element of E8 carries 2 color to charge and permutes the roots: the equal profiles are a symmetry, not "
+        "a coincidence":
+            dominant(2 * dirs["color"]) == dominant(dirs["charge"]) and (dirs["charge"].T * dirs["charge"])[0, 0] == 12,
+        "the band sigma(k) = sum_r (1 - cos k.r) is 30q - (3/2)q^2 + q^3/24 - P8(k)/40320 + R with 0 <= R <= "
+        "q^5/30240 for q = |k|^2 and P8 = sum (k.r)^8: the first three terms are the 7-design moments 60, 36, 30 over "
+        "2!, 4!, 6!, per root the cosine remainder after x^8 lies in [0, x^10/10!] (cited), and since every root has "
+        "norm 2, (k.r)^2 <= 2q and sum (k.r)^10 <= (2q)^2 sum (k.r)^6 = 120 q^5, with 120/10! = 1/30240":
+            sp.expand(taylor - (x ** 2 / 2 - x ** 4 / 24 + x ** 6 / 720 - x ** 8 / 40320)) == 0
+            and all((r.T * r)[0, 0] == 2 for r in R) and len(R) == 240
+            and [sp.Rational(c, factorial(n)) for c, n in ((60, 2), (36, 4), (30, 6))] == [30, sp.Rational(3, 2), sp.Rational(1, 24)]
+            and sp.Rational(4 * 30, factorial(10)) == sp.Rational(1, 30240),
+        "critical points of the band: the root half-period pi(e4 - e5) has sigma = 224 with Hessian diag(12, 12, 12, "
+        "[[-20, 32], [32, -20]], 12, 12, 12), one descending direction (eigenvalue -52): one of the 120 E7 + A1 saddles "
+        "of layer 22; the axis, charge and color half-periods are D8-type maxima at 256 with Hessian -4I; the golden "
+        "character (4 pi/5)(1, 1, 1, 1, 1, 0, 0, 0) is critical at 250, the band's value at the tick's 24 nonzero fixed "
+        "momenta, with the stated sqrt5 Hessian":
+            all(g == sp.zeros(8, 1) for g in grads.values())
+            and [val[n] for n in pts] == [224, 256, 256, 256, 250]
+            and H["root half-period"] == Hr and sorted(Hr.eigenvals()) == [-52, 12]
+            and all(H[n] == -4 * sp.eye(8) for n in ("axis half-period", "charge half-period", "color half-period"))
+            and (H["golden character"] - Hg).applyfunc(sp.simplify) == sp.zeros(8, 8),
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -12170,6 +12486,16 @@ LEDGER_ROWS = [
     ("the K5 septuple and the F20 descent (the 12:50 synthesis, 31 Oct; section 2)", "C(n, 2) = 2n only at n = 5; M M^T = 3I + J, M^T M = I + J - A_Petersen; spec D^2 = {0^5, 3^8, 8^2}; G5^2 = 5I - J, M M^T + G5^2 = 8I; G^2 = 5G; R = 3I - U - U^-1 with spec {1^3, (4 - phi)^6, (3 + phi)^6}, det 11^6 and F20 average P + (7/2)(I - P); det 155, 31, 5; the address-time bijection and D T = T^2 D on Z36; the CRT idempotents (3456, 3105, 2080)", "replayed on the carrier's incidences, the signed edge tick and the five-cycle on K5's 15 = 5 + 10 (notes_1250); R is the monograph's Golden15 stiffness already held (notes_2033, the 20:33 check), realised on the carrier's atoms with the hub's R15 polynomial (t - 1)^3 (t^2 - 7t + 11)^6, the hub's operator itself still not stored here; the twenty affine maps, the twisted doubling D T = T^2 D and the idempotents already held (clock_joins, the shift-and-doubling and primary-split rows); new: on the 12-dimensional moving part X = -(U + U^-1) is the golden companion and the doubling is its Galois conjugation", T, "23"),
     ("the E8 overlattice readings (the 12:50 synthesis, 31 Oct; section 2)", "eight-root frame Gram I + J, 8/9; glue partition 240 = 20 + 20 + 4 x 50 with 32 + 8; five fourth-moment shells; root-graph spectrum and returns; lattice walks W_0..W_6; 7-design (60, 36, 30), degree-8 anisotropy 33 vs 123/4; nine frequencies F2-rank 8; half-periods 16 + 48 x 5 and 1 + 51 = 52; witness 220.6345317313; six-port 241I - J, 183I + 52J, 171; port metric {2, 5 -+ sqrt5, 2/5}; mixing 32 sqrt5/675", "replayed from glue.roots() by exact convolution of root steps and exact moment tensors (notes_1250); corrected: the degree-8 moments are 57/2 at e1 and 39 at (e1 + e2)/sqrt2, not 33 and 123/4 (the anisotropy stands, the two values do not); read as: the glue class sums the five A4(1) coordinates, as 'relative to A4(1) + A4(2)' says, and over all eight the formula would give 126, 56, 56, 1, 1; the variance 171 is MEMORY's stated block (stated_block, golden_root_port); the partition, the root-graph spectrum and the walk counts already held (the L0, six-line quotient and two-walk-counts rows)", T, "23"),
     ("the open computations (the 12:50 synthesis, 31 Oct; section 4)", "walk recurrence past order 6, channel densities, collar positivity on (220.63, 224), bath memory growth, resolvent matching, external operands", "recorded as open: no operand here; the collar witness itself replays (eps 220.6345317313, least tangent eigenvalue 6.985582)", RP, "23"),
+    ("the Rosebud bank (hub, 30 Oct, filed 31 Oct 17:50)", "the mirror-even leaf e_23 read through the six Sylow petals of Lambda^2 A4 is a 6 x 6 bank of determinant 4/125 intertwining the mirror (01) with the opposite-petal half-turn; mirror-even and mirror-odd 3 x 3 decoders (det -1/5, -2/25; inverse norms 3, 6; ||B^-1|| = 7); a mirror-even leaf (0, a, b, a, b, c) reconstructs iff P+ P- != 0", "replayed exactly, including the hub's integer matrix 5B and both decoder inverses; the petals are ordered H_(i+1) = g H_i g^-1 from the tick's own Sylow group (notes_1751)", T, "23"),
+    ("the positional flower and the record packet (hub, 30 Oct)", "C = I + W has the alternating dark stripe; the opposite-petal leaf q = e_0 - e_3 repairs it (rank 6, determinant -2, parity-intertwining); C (x) B rank 30 and [C; q] (x) B rank 36; C^T C + (CD)^T (CD) = 4I; the packet [I6; 1; 1..6] is an [8, 6, 3] MDS code; a co-rotating scan reads rank 2", "replayed exactly; the code repairs stored records only and adds no upstream information, as the note says (notes_1751)", T, "23"),
+    ("the Golden measurement channel (hub's deep join, 30 Oct)", "E_i = F_i/2, sigma_j = (11I - 5F_j)/56 give tr(E_i sigma_j) = (10J - 4I)/56, the E8 six-line chain; rank 6, kernel 30; Hom_S5(L6, six labels) = 0, so the bridge is quadratic; petal-plane sources read (1/2, 1/10, ..., 1/10) on a whole circle; pair and triple petal sums have the stated characteristic polynomials and probability bounds", "replayed exactly and joined: rotor -> root graph (notes_1751); the one-step chain has no real generator and the two-step one is exp(log 196 (J/6 - I)), as already in six_lines", T, "23"),
+    ("the hexad clock (hub's deep join, 30 Oct)", "D = [[1, 4], [1, 2]] over F5 with D^2 = 3R; j -> j + 144 cannot be carried through j mod 36 alone; the selected schedule f(j) = D^floor((j mod 4320)/72) line0 covers the six lines 720 times each and needs b mod 12 for j = a + 36b", "replayed: R moves every line, the schedule is equivariant at +72, +144 and +216 on all 4320 ticks and has no shorter period in b; D itself was already in notes_2356 as a selection", SR, "23"),
+    ("TENET on the cycles (hub, 30 Oct)", "U = Lambda^2 rho(i -> i + 1), D = Lambda^2 rho(i -> 2i): K = 3I - U - U^-1 is G-positive with characteristic polynomial (lam - 1)^2 (lam^2 - 7 lam + 11)^2; T = diag(R, -R), R = D^2, reverses the phase flow anti-symplectically; G- = G6 (I - 2P-) has signature (5, 1), kept by R and carried by D to G+; the selected observer [PF, 0] sees rank 4 of 12; a flavour witness has tr([Hu, Hd]^3) = -12i", "replayed exactly; the temporal-pincer statement (both time directions see the same kernel for a bounded generator) is the analytic Taylor argument, cited; entropy and retrocausality claims are not mathematics of the model and are not adopted (notes_1751)", T, "23"),
+    ("the filtered static locality (hub's PROOF_NOTE, 30 Oct)", "61526 G1(s) = 248 - s + s^2 G0(s); G1(0) = 124/30763; the Newton polytope of H^n T* widens by 100 per filter in scale-five units (960 -> 22080 sites); low-energy and heat constants of the first filter from the zeroth by m2 and Gamma", "replayed: the polynomial division identities through n = 5 and the stated constants; the site counts 960 and 22080 = 23 x 960 were already held; the polytope growth is Minkowski additivity (cited) (notes_1751)", T, "23"),
+    ("the eighth directional moments (separate model, 31 Oct 17:24)", "the 240 roots have moments 60, 36, 30 in every direction and 57/2, 39, 179/6, 179/6 along the axis, a root, the charge (1, 1, 1, 0, -3, 0, 0, 0) and the color (1, 1, 1, 0, ...); twice the color is carried to the charge by a root permutation", "replayed: the inner-product counts, the four eighth moments, and the Weyl equivalence of 2 color and charge (one dominant representative), which explains their equal profiles (notes_1757)", T, "23"),
+    ("the dispersion bound and critical points (separate model, 31 Oct 17:57)", "sigma(k) = 30q - (3/2)q^2 + q^3/24 - P8/40320 + R, 0 <= R <= q^5/30240; critical values 224 (root half-period, index 1), 256 (axis, charge and color half-periods, Hessian -4I), 250 (the golden character)", "replayed: the remainder constant 120/10! from (k.r)^2 <= 2q and the 7-design, the five gradients, values and Hessians; 224 is layer 22's E7 + A1 saddle and 250 the tick's fixed momenta (notes_1757)", T, "22"),
+    ("the canon's N36 and N37 releases (31 Oct 18:02-18:22)", "N36 adds the Level Join and Degree Moment tabs; N37 the dispersion tabs (3770 and 3725 sheets), all prior cells kept, four copies hashed; pending claims K04, X01, X02 unformed", "recorded (REPORTED): the workbooks were not opened; their new mathematics is the separate model's, replayed above", RP, "23"),
+    ("the Rosebud archive refiling (hub, 31 Oct 17:25-19:48)", "about 510 files of 29-30 Oct notes, receipts and verifiers re-filed in PAGE_0003 to PAGE_0008", "backlog: the notes are read as data in later checks; this check replayed the Rosebud A4, deep-join, TENET and filtered-locality notes and the claim ledgers", RP, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -12438,6 +12764,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
+        "notes_1751": notes_1751, "notes_1757": notes_1757,
         "golden_cosine": golden_cosine, "golden_galois": golden_galois, "regular_cosines": regular_cosines,
         "torus_places": torus_places,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
