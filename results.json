@@ -57,34 +57,34 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.7,
+  "1-carrier": 0.85,
   "2-spectral": 0.01,
-  "3-spacetime": 6.21,
-  "4-native": 84.62,
-  "5-observer": 0.23,
-  "6-gravity": 4.55,
-  "7-cosmology": 1.43,
-  "8-frontier": 39.41,
-  "9-joins": 10.18,
-  "10-literal": 34.31,
-  "11-glue": 0.15,
-  "12-binding": 0.03,
-  "13-gates": 0.03,
-  "14-recurrence": 37.52,
-  "15-court": 1.38,
-  "16-handover": 1.0,
-  "17-waves": 0.56,
-  "18-snapshot": 0.93,
-  "19-spine": 3.96,
-  "20-canon": 6.85,
-  "21-ledger": 38.07,
-  "22-counts": 18.85,
-  "23-dots": 287.66,
-  "24-assignment": 4.59,
-  "25-unify": 4.32,
-  "26-primes": 4.73,
-  "27-places": 2.33,
-  "28-principal": 2.51
+  "3-spacetime": 7.72,
+  "4-native": 84.48,
+  "5-observer": 0.21,
+  "6-gravity": 4.69,
+  "7-cosmology": 1.77,
+  "8-frontier": 36.85,
+  "9-joins": 7.82,
+  "10-literal": 34.25,
+  "11-glue": 0.28,
+  "12-binding": 0.09,
+  "13-gates": 0.12,
+  "14-recurrence": 38.54,
+  "15-court": 1.63,
+  "16-handover": 1.14,
+  "17-waves": 0.58,
+  "18-snapshot": 0.88,
+  "19-spine": 3.39,
+  "20-canon": 5.76,
+  "21-ledger": 37.67,
+  "22-counts": 20.95,
+  "23-dots": 284.43,
+  "24-assignment": 3.17,
+  "25-unify": 4.22,
+  "26-primes": 4.38,
+  "27-places": 1.75,
+  "28-principal": 2.42
  },
  "fast": false,
  "summary": {
@@ -117,8 +117,8 @@
    "total": 26
   },
   "REPORTED": {
-   "passed": 152,
-   "total": 152
+   "passed": 153,
+   "total": 153
   }
  },
  "checks": [
@@ -11932,6 +11932,14 @@
   {
    "layer": "23-dots",
    "name": "not joined: the seven-code court packet (09:38): a reference note with a certificate and a sympy verifier (read as data, not run): the Y projectors, the four-coordinate reader, the S7 obstruction, the 007 fingerprint and the smear and Markov helpers, replayed in notes_1009; its quoted sources are a Locked Memory consolidation handover of 1 October and the master join theorems note (neither opened here)",
+   "status": "REPORTED",
+   "passed": true,
+   "value": null,
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "not joined: the separate model's typed-adapter annotation (10:43): a 104036-byte capsule (zip + base64; 11 files, 10 hashes; 11 review checks, no new layer or matrix) over its reconciled 23rd layer, taking the sibling's 10:05 edition as source; decoded in memory, its rotors, adapter and residuals read as data, its code not run; the checkpoint recovery (10:48) not opened",
    "status": "REPORTED",
    "passed": true,
    "value": null,
