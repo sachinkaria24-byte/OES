@@ -421,14 +421,16 @@ def test_the_theorem_diagram(monkeypatch):
     for check in (dots.datum_orbit, dots.witness_loop, dots.frame_affine, dots.tick_actions, dots.theorem_connectivity):
         out = check()
         assert all(out.values()), out
-    # the checks can fail: without S5 -> datum the datum lies on two THEOREM maps, which then cut it off; without
-    # time -> triple the number and physics levels are joined by one THEOREM map
+    # the checks can fail: without S5 -> datum and time -> datum (the join sweep's) the datum lies on two THEOREM
+    # maps, which then cut it off; keeping one THEOREM map between the number and physics levels (time -> triple)
+    # leaves that pair joined by one THEOREM map
     joins = dots.JOINS
-    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] != ("S5", "datum")])
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] not in (("S5", "datum"), ("time", "datum"))])
     out = dots.theorem_connectivity()
     assert not out["every one of those dots lies on at least three THEOREM maps"]
     assert not out["no one THEOREM map and no two THEOREM maps hold that diagram together"]
-    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] != ("time", "triple")])
+    number_physics = lambda j: {dots.LEVEL_OF[j[0]], dots.LEVEL_OF[j[1]]} == {0, 5} and j[4] == gates.THEOREM
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if not number_physics(j) or j[:2] == ("time", "triple")])
     out = dots.theorem_connectivity()
     assert not out["every pair of the six levels is joined directly by at least two THEOREM maps"]
     assert out["no one THEOREM map and no two THEOREM maps hold that diagram together"]
