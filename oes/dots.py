@@ -9933,6 +9933,95 @@ JOINS = [
     ("penrose", "L0", "the glue group is the vertex index", "the projection of Z^5 onto A4 (x) R is A4* (weights e_i - u/5, Gram determinant 1/5, so A4*/A4 has order 5), and the projection of E8 onto A4 (x) R is A4* too: the 240 roots project onto 0, the 20 A4 roots and the 30 signed weights, which generate A4*, with 40 roots in class 0 (the roots of A4 and A4') and 50 in each other class, and the class vanishes on A4 and on A4', so E8/(A4 + A4') = Z/5 (Gram determinant 25) is A4*/A4 by projection, the index sum k_i mod 5 of the scheme's lattice points: the four nonzero classes are the five vertex weights (class 1), the ten edge weights e_i + e_j - 2u/5 (class 2) and their negatives (4, 3), the four vertex classes of the Penrose tilings (cited) (31 Oct)", T, "penrose_planes"),
     ("penrose", "E8", "the four Penrose planes of E8", "on E8 (x) R the phi-eigenspace of X = -(g + g^-1) is E2 + E2' and the (1 - phi)-eigenspace is E1 + E1', the Penrose planes of the carrier's A4 (under r) and of the twin A4' (under r', a Coxeter element of A4'), with the spectral projector (X - (1 - phi))/sqrt5 = P2 + P2' of trace 4: the golden splitting of E8 that the icosian folding starts from (31 Oct)", T, "penrose_planes"),
     ("penrose", "carrier", "three concentric stars", "the carrier's fifteen atoms, the shadows of the mixed roots (layer 25), project onto E1 as three concentric regular stars: the five sites at square 2/5, 72 degrees apart (P1 e_i . P1 e_j = (2/5) cos 72(i - j)), and the ten duads at radii phi (near) and 1/phi (far) times a site's, |P1(e_i + e_j)|^2 = (4/5)(1 + cos theta) = (2/5)(2 cos(theta/2))^2, the unit edge vectors of the Penrose rhombs and their two diagonals; on the fifteen atoms the monograph's stiffness R = 3I - U - U^-1 (replayed at 20:33, notes_2033) is 3I + X_U for the tick's negative cosine X_U, whose eigenvalues 1 - phi and phi, six times each, sit on the E1-type and E2-type directions that the doubling swaps (D R D^-1 = 3I - U^2 - U^-2, rank of the difference 12, Frobenius square 60, average P + (7/2)(I - P)) (31 Oct)", T, "penrose_planes"),
+    ("circle", "grain", "the 60-torsion", "the grain <72> is the circle's 60-torsion, the points x with 60 x = 0 for 60 = lcm(2, 3, 4, 5) of the critical orders, 60 points of index 72; x -> x mod 72 maps the circle onto Z/72 with kernel the grain, 60 points over each residue, and Z/72 = Z/8 x Z/9 by (x mod 8, x mod 9), with the same kernel <8> n <9> = <72>: the circle modulo the grain is the circle modulo the coil times the vortex (31 Oct)", T, "join_circle_grain"),
+    ("c27", "time", "the odd part", "the 27-clock <160> and the time clock <864> meet in 0 and add to <32> = Z/135 = Z/27 x Z/5 (gcd 32), the circle's odd part: the points of odd order, the kernel of x -> 135 x, complementary to the 2-part <135>; on it the idempotents 2080 and 3456 read the two summands, and doubling has order 36 = lcm(18, 4), its orders on the two clocks (31 Oct)", T, "join_c27_time"),
+    ("c27", "observer", "the pada", "the 27-clock <160> and the observer clock <1080> meet in 0 and add to the pada subgroup <40> = Z/108 = Z/27 x Z/4 (gcd 40), which is the coil's miss set <8> n <5>, the kernel of the coil's time coordinate: the 108 coil points the tick does not see, against the 432 it meets; each pada point is one nakshatra point plus one observer point, read by the idempotents 2080 and 3105 (31 Oct)", T, "join_c27_observer"),
+    ("c27", "memory", "the 9-cycle alone", "for every one of the 24 maps k -> A^(uk) of the circle onto the memory clock, the 27-clock <160> maps onto the memory's subgroup of order 9, the powers A^(10 m), with kernel <160> n <90> = <1440>, the sun's subgroup; each nakshatra point 160 k fixes the 110 states on the 10-cycles and the fixed state and turns the 9-cycle by 7 k u mod 9, u times its vortex coordinate: the 27-clock acts on the memory as the vortex, up to the doubling (31 Oct)", T, "join_c27_memory"),
+    ("coil", "vortex", "coil / grain", "x -> x mod 9 maps the coil <8> onto the vortex Z/9 with kernel <8> n <9> = <72>, the grain: coil / grain = vortex, 540 / 60 = 9, the nine cosets of the grain in the coil being the nine vortex coordinates, 60 coil points each; the vortex's kernel <9> is eight copies of the grain and meets the coil in the grain alone, and doubling sends the grain into itself (onto <144>, the Coxeter subgroup), so it descends to coil / grain as the unit 2 of Z/9, of order 6 (31 Oct)", T, "join_coil_vortex"),
+    ("grain", "memory", "the 10-cycles alone", "for every one of the 24 maps k -> A^(uk) of the circle onto the memory clock, the grain <72> maps onto the memory's subgroup of order 5, the powers A^(18 m), with kernel <72> n <90> = <360>, the kernel of the time coordinate on the grain; a grain point 72 k fixes the 9-cycle and moves every 10-cycle by 2 k u mod 10, which depends only on its time coordinate 72 k = 2 k mod 5: the memory reads the grain's golden index mod 5 and nothing of the sun, whose subgroup <1440> lies in every kernel (31 Oct)", T, "join_grain_memory"),
+    ("atlas", "coil", "the stable addresses", "x mod 36 maps the coil <8> onto the nine addresses 0, 4, ..., 32, the multiples of gcd(8, 36) = 4, with kernel <8> n <36> = <72>, the grain, 60 coil points at each; these are the atlas's stable addresses, where doubling's contraction 36 -> 18 -> 9 settles and permutes (a fixed address, a 2-cycle, a 6-cycle); their full preimage is <4>, 1080 points, in which the coil has index 2 and is the image of doubling, 2 <4> = <8> (31 Oct)", T, "join_atlas_coil"),
+    ("atlas", "observer", "a -> 1080 a", "a -> 1080 a is well defined on the atlas Z/36 (1080 x 36 = 9 x 4320) and maps it onto the observer clock <1080> with kernel the nine stable addresses 0, 4, ..., 32: the atlas's checksum a mod 4 followed by k -> 1080 k; on the circle x -> 1080 x is the homomorphism onto the observer clock, the points of order dividing 4, with kernel <4> (1080 points), and it factors through the address since 4 | 36; the observer clock itself lies on the seam, address 0, so the atlas sees it as a quotient and not as a subgroup (31 Oct)", T, "join_atlas_observer"),
+    ("memory", "miss", "Z/90 = Z/18 x Z/5", "for every one of the 24 maps k -> A^(uk) of the circle onto the memory clock, the miss set <5> maps onto the memory's subgroup of order 18, the powers A^(5 m) = Z/2 x Z/9, with kernel <90>, the map's whole kernel, which lies in the miss set; a miss x turns the 9-cycle by u x mod 9 and every 10-cycle by a half-turn when x is odd and not at all when x is even; the time clock's image is the subgroup of order 5, A^(18 m), so Z/90 = Z/18 x Z/5 mirrors Z/4320 = <5> + <864> (31 Oct)", T, "join_memory_miss"),
+    ("time", "hodge", "the tick on Hodge 70", "the time clock acts on Lambda^4 R^8 through the tick g (864 -> g, determinant 1), whose fourth compound has order 5 and commutes with the Hodge star, keeping the halves 35 + 35; its traces are 5 on the 70, 5 on the star's +1 half and 0 on the -1 half, so the characters are (x - 1)^18 Phi_5^13, (x - 1)^11 Phi_5^6 and (x - 1)^7 Phi_5^7: the tick fixes 18 four-forms, 11 self-dual and 7 anti-self-dual, and turns the other 52 in 13 copies of its four nontrivial characters (31 Oct)", T, "join_time_hodge"),
+    ("observer", "hodge", "the quarter turn on Hodge 70", "the observer clock's class d^6 (the regular class 4, 1080 -> d^6, with d^12 = -1 at the half-turn 2160) acts on Lambda^4 R^8 as an involution commuting with the Hodge star, since its square -1 is trivial on four-forms: the Hodge 70 sees the quarter turn and not the half-turn; its traces are 6 on the 70, 11 on the star's +1 half and -5 on the -1 half, so it fixes 38 four-forms and negates 32, 23 + 12 self-dual and 15 + 20 anti-self-dual, and the observer clock acts there through Z/2 with kernel <2160> (31 Oct)", T, "join_observer_hodge"),
+    ("observer", "golden", "E8 = Z[phi, i]^2", "the observer clock's class d^6 commutes with the golden companion X = -(g + g^-1) (it lies in <g, d^2>, the kernel of the day's Galois action) and squares to -1, so I, X, J = d^6, XJ span the ring Z[phi, i] of rank 4, discriminant 400, the integers of Q(sqrt5, i) (cited: its discriminant is 400), and E8 is a free module of rank 2 over it: two roots y give the Z-basis Xy, y, XJy, Jy in which X is four golden blocks B and J two quarter turns [[0, -I2], [I2, 0]]; every root generates a rank-4 submodule (31 Oct)", T, "join_observer_golden"),
+    ("miss", "AGL", "the doubling's fixed frames", "on the 4320 frames j -> j + 864 and j -> 3457 j generate AGL(1,5), whose stabilizer of 0 is the four powers of the doubling 3457; 3457 j = j + 3456 j, a frame plus its tick part, so the doubling fixes a frame exactly when its time coordinate is 0: the miss set <5> is the fixed locus of the stabilizer of 0, the orbits are the 864 cosets of the time clock, affine lines F5, and the miss set meets each once while the translation moves every miss off it: the circle is the affine line times the miss set as an AGL(1,5)-set (31 Oct)", T, "join_miss_AGL"),
+    ("time", "petersen", "the rotation of the drawing", "through kappa = 4x mod 5 the time clock acts on the Petersen graph by automorphisms, 864 -> U, the unsigned edge permutation of the vertex rotation (U A U^T = A, U^5 = I, kernel the miss set): U turns the near edges, which induce the outer pentagon, and the far edges, the inner pentagram, each near edge on one spoke; of the twelve pentagons it fixes those two and turns the other ten in two five-cycles; it commutes with the three Petersen projectors and has polynomials x - 1, (x - 1) Phi_5 and Phi_5 on the eigenspaces 3, 1 (= ker M) and -2 (31 Oct)", T, "join_time_petersen"),
+    ("time", "surface", "the turn about the cone point", "the vertex rotation i -> i + 1 of K5, fixing the cone point 5 = infinity, is the translation x -> x + 1 of the projective line over F5, in PSL(2,5), and keeps the hemi-icosahedron and its complement: through kappa the time clock acts on RP^2 by simplicial automorphisms, 864 -> the translation, fixing the cone point alone, turning the 15 edges of K6 in three five-cycles (spokes, near, far) and the ten faces in two; the surface's 60 symmetries are PSL(2,5), only the five powers commute with the rotation, so this is the only action of the circle extending the tick, kernel the miss set (31 Oct)", T, "join_time_surface"),
+    ("time", "pg25", "the unipotent on the plane", "through kappa the time clock acts on PG(2,5) by collineations, 864 -> s, the symmetric square of the translation [[1, 1], [0, 1]], which on the conic is the vertex rotation x -> x + 1 with infinity fixed; s is a single Jordan block mod 5, so it fixes exactly one point, the conic point at infinity, and one line, the tangent there, and turns the other 30 points in six five-cycles, conic 5, exterior 3 x 5, interior 2 x 5; it carries poles to poles and perspectors to perspectors, so on the exterior and interior points it is the tick on the surface's edges and faces; kernel the miss set (31 Oct)", T, "join_time_pg25"),
+    ("time", "rotor", "the fixed plane", "the rotor plane is the fixed space of the time clock on the whole edge space: the edge tick T = Lambda^2 r fixes exactly a plane of Lambda^2 R^5, spanned by the oriented pentagon and pentagram (Gram 5I), and its Reynolds average (I + T + ... + T^4)/5 is the orthogonal projector (pp^T + ss^T)/5 onto it; the pentagon is the T-orbit sum of the near edge 01 and the pentagram of the far edge 02, every edge's orbit sum being plus or minus one of them; so the rotor plane is the time clock's trivial isotypic component on the edges, multiplicity 2, each nontrivial character appearing twice (31 Oct)", T, "join_time_rotor"),
+    ("observer", "D5", "the dual of E8 / (D5 + A3)", "the dot's D5 with the A3 of the other three coordinates has index 4 in E8, and its characters, the momenta integral on all 52 roots, are the four points k x, x = (e5 + e6 + e7)/2, with band 0, 248, 256, 248 and types E8, D5 + A3, D8, D5 + A3, as at the observer clock's steps k rho/4; reducing rho/4 and x to the alcove's D5 + A3 vertex gives an isometry w of E8 with w rho/4 = x mod E8, carrying the observer clock onto that Z/4, the half-turn onto the half-period e5 + e6 + e7 and the roots of height 0 mod 4 onto D5 + A3: the observer clock is the dual of E8 / (D5 + A3), up to W(E8) (31 Oct)", T, "join_observer_D5"),
+    ("time", "D5", "the vertex rotation on D5", "the time clock acts on D5 through the carrier's vertex rotation r (864 -> r by kappa), the permutation i -> i + 1 of the five coordinates: r lies in W(A4) = S5 inside W(D5), is A4's Coxeter element ((x - 1) Phi_5 on R^5) and permutes the 40 roots freely in eight five-cycles, four on A4 (the orbits of e_i - e_(i+k), summing to 0, two of them pentagons with products -1, the extended A4 diagram) and four on +-(e_i + e_j), summing to +-2(1,1,1,1,1,0,0,0); the tick g = r r' agrees with r on A4 but moves D5's other 20 roots to half-spin roots: D5 is kept by the rotation, not by the tick (31 Oct)", T, "join_time_D5"),
+    ("observer", "A4", "the carrier and its twin", "every embedding of the observer clock in the day-Coxeter group (its ten elements of order 4) maps the carrier's 20 roots e_i - e_j onto the twin's and the twin's back: it keeps A4 + A4' and exchanges the factors, an isometry A4 -> A4' whose square, the half-turn -1, keeps both; as it inverts the tick g = r r', M r M^-1 = r'^-1: the vertex rotation goes to the inverse of the twin's Coxeter element, and none of the ten keeps A4 (an automorphism +-(i -> a i + b) of A4 inverting r squares to 1, not to -1); with the tick it generates a dicyclic group of order 20, the nonabelian lift of <216> (31 Oct)", T, "join_observer_A4"),
+    ("c27", "sun", "no cube root of the sun", "no action of the 27-clock on E8 lifts 1440 -> s: the sun s = c'^10 has character Phi_3^4, so an isometry y with y^3 = s would have only primitive ninth roots of unity as eigenvalues and a characteristic polynomial Phi_9^k of degree 6k = 8, impossible; no isometry has order 27 (Phi_27 has degree 18 > 8), so every homomorphism Z/27 -> GL8(Z) has image of order 1, 3 or 9 and kills the sun's step 1440 = 9 x 160 (the frame's nine-cycle L cubes to (x - 1)^2 Phi_3^3, not to the sun): the Coxeter selection 144 k -> c'^k, which sends 1440 = 10 x 144 to s, does not extend to the 27-clock (31 Oct)", OB, "join_c27_sun"),
+    ("circle", "cyclo", "the Galois orbit of the selection", "<c'> is the roots of unity of the cyclotomic line Z[zeta30], and the isomorphisms of the Coxeter subgroup <144> onto it are the eight maps 144 k -> c'^(uk), u a unit mod 30; each unit is the exponent of an isometry d^a v^b normalizing <c'> (the day sigma7, the golden clock sigma11), so the eight selections are one orbit of Gal(Q(zeta30)/Q) through W(E8): 144 -> c' is unique up to the line's Galois symmetry; no homomorphism of the whole circle restricts to it: its 30 maps k -> c'^(jk) send 144 and 864 to the same c'^(24j) and 180 to 1, as 24 j = 1 mod 30 has no solution (31 Oct)", T, "join_circle_cyclo"),
+    ("time", "literal", "the literal rotor", "864 -> R: through kappa the tick acts on the owner's saved source basis N_source by the vertex rotation, N R = Pi N, and R is the printed literal rotor, of order 5 with characteristic polynomial (x - 1) Phi_5; it preserves W_source = N^T N and the pair rotor keeps M_source = diag(W, W)/4, the wedge WAS_native intertwines Lambda^2 R with the boundary rotation in the file's native order (i -> i + 1, not its inverse), Wp_source_HS is invariant, and R's fixed line is the near-minus-far zero mode: the time clock acts on the literal operands as on the reconstruction (31 Oct)", T, "join_time_literal"),
+    ("time", "datum", "five data, one cyclic velocity", "through kappa the tick carries the integral datum (psi0, v0) to five distinct data of energy 34, its orbit under the time clock; the five translates of the velocity v0 are a basis of ker M (Gram the circulant 4, -2, 1, 1, -2, determinant 162), so v0 is a cyclic vector for the time clock on the zero modes, and they sum to the near-minus-far mode; the translates of psi0 are independent, sum to five times the constant vertex mode (D^2 = 8) and have edge parts in the row space of M: the orbit spans ten dimensions, five dark and five bright (31 Oct)", T, "join_time_datum"),
+    ("time", "pauli", "a real Clifford tick", "the tick's permutation of the 256 half-periods is an inner automorphism of the Pauli algebra: V P_i = phi(g alpha_i) V on the eight Dynkin Paulis has a one-dimensional solution, an integer V with entries 0, +-1, V^T V = 4 I and V^5 = -32 I, so U = -V/2 is a rational orthogonal matrix of order 5 and 864 j -> U^j a homomorphism of the time clock into O(16) with U phi(c) U^T = +-phi(g c) on all 256 Paulis (128 of each sign; one label fixed, 51 five-cycles); conjugation by U commutes with L and every e^-tL and permutes the 120 antisymmetric jump operators (31 Oct)", T, "join_time_pauli"),
+    ("time", "goldenport", "the diagonal five-cycle", "864 -> R_diag: the diagonal five-cycle SITE_i -> SITE_(i+1), TWIN_i -> TWIN_(i+1) is a lattice isometry of order 5 with no fixed vector, in W(E8) and conjugate there to the tick g; it permutes the Golden port's ten root sites as the rotation permutes the edges, F Lambda^2(rot) = R_diag F, so T_G intertwines the time clock on the cycles with it on the lattice; the moment operators commute with the rotation and by Schur are a 2 x 2 block on the rotor plane (239, 241; 371, 171) and the scalars 1203/5 + (2/5) cos(2 pi k/5) = 481/2 +- sqrt5/10, (1987 -+ 31 sqrt5)/10 on its two rotation planes (31 Oct)", T, "join_time_goldenport"),
+    ("circle", "bath", "the bath on the circle", "the height h(v) = <rho, v>, a homomorphism of E8 onto Z, reduces to a surjection P of the lattice onto the circle Z/4320, dual to the principal embedding (<r, k rho/4320> = k h(r)/4320); P Delta = Delta_circ P with Delta_circ = 240 - sum_r S^h(r), the Laplacian of the loopless 240-regular circulant graph whose jumps are the heights with Kostant's multiplicities #{i: m_i >= j}; its eigenvalue at k is eps(k rho/4320), the band on the principal circle, its kernel the constants (the heights have gcd 1), and x mod 36, x mod 9 fold it onto the atlas and the vortex (31 Oct)", T, "join_circle_bath"),
+    ("time", "assignment", "the Z/5 grading", "the time clock's point k rho/5 acts on the root space of r by zeta_5^(k ht(r)): the 40 fixed roots are an A4 + A4 spanning the index-5 kernel of ht mod 5, an isometry w of E8 (alcove reduction of rho/5 and of the class character y) carries them onto A4 + A4' = (24,1) + (1,24), and then each nontrivial eigenvalue class is one mixed class of 50 roots, (10,5) with its 15 u, 15 d, 15 u^c, 5 e^c, (5b,10) with 30 d^c, 10 e, 10 nu, and their antiparticles at the inverse eigenvalues; <864> is exactly the subgroup of the circle acting through the classes (31 Oct)", T, "join_time_assignment"),
+    ("time", "binding", "a maximal torus of the commutant", "the tick lies in the commutant of D (dimension 59 = M5 + M4 + M4 + C + C); its characters meet the eigenspaces of D^2 with multiplicities 1,1,1,1,1 (0), 0,2,2,2,2 (3), 2,0,0,0,0 (8) and D, odd, splits each plane into +-sqrt(lambda), so the fifteen joint eigenlines are distinct and the commutant of D and the time clock together is commutative of dimension 15 = dim H, a maximal commutative subalgebra; on 5 + Lambda^2 5 the tick is the Weyl element (0 1 2 3 4), one five-cycle on the 5 and two (near, far duads) on the 10 (31 Oct)", T, "join_time_binding"),
+    ("time", "readout", "a symmetry of the control system", "V = U + U commutes with A = [[0, I], [-D^2, 0]], so the time clock acts on the control system; the vertex, edge, all-position and Dirac readouts are tick-equivariant and the vertex sum invariant, so their observable subspaces (10, 20, 30, 20, 2) are V-invariant; 'one vertex' (4) and 'one edge' (6) are moved, but their five tick images span exactly the vertex (10) and edge (20) observers; the hidden sector ker M + ker M carries ((x - 1) Phi_5)^2, each character once on positions and once on velocities (31 Oct)", T, "join_time_readout"),
+    ("time", "charges", "cyclic charges", "the time clock turns the five sites (864 -> i -> i + 1), and a site function it keeps is constant, so no nonzero traceless charge is tick-invariant and Q, Y, T3 average to 0; each has a nonzero component (exactly, in Q[x]/Phi_5) in every nontrivial character, so each is a cyclic vector: its five tick images span all traceless charges with the one relation summing to 0; the doubling i -> 2i acts on the characters by k -> 2k, permuting Q's four components in the four-cycle (1 2 4 3) (31 Oct)", T, "join_time_charges"),
+    ("time", "gravity", "the tick on M4 x F", "1 (x) U commutes with D = D_M (x) 1 + gamma (x) m D_F and the grading, so the time clock acts on the product geometry by automorphisms; the tower 0, 3m^2, 8m^2 (5, 8, 2) over every level of M4 splits into five sectors, the invariant one with 0, 8m^2, 8m^2 and each turning one with 0, 3m^2, 3m^2, each starting on one dark mode; Tr(U^j D_F^0, D_F^2, D_F^4) = 0, 10, 110 for j != 0, so the tick-twisted heat coefficients are 0, -40 m^2, 220 m^4 + 10 m^2 R/3: no volume term and no Einstein-Hilbert R term at order t, the curvature entering only with m^2; M4, m, f, L stay free (31 Oct)", gates.CONDITIONAL, "join_time_gravity"),
+    ("time", "cosmology", "a symmetry of the cosmos", "U is orthogonal and commutes with D^2 and the spectral projectors, so rho, the pressure, the Friedmann constraint, H' and the sector energies are unchanged under (psi, psi') -> (U psi, U psi'), and psi'' + 3 H psi' + m^2 D^2 psi = 0 is U-equivariant: the time clock carries every solution (a, psi) to (a, U psi) with the same scale factor, for every G, Lambda_cc, m; the datum's five tick images are distinct data with the same a(t); the stiff dark sector splits into one invariant and four turning modes, each with a^3 P_chi P0 psi' conserved (31 Oct)", gates.CONDITIONAL, "join_time_cosmology"),
+    ("pg25", "simplex", "the faces as points", "a vertex a -> its conic point (a^2, a, 1), an edge ab -> the pole where the tangents at a and b meet, a triangle -> its perspector, a tetrahedron V - {e} -> the pole of the secant e-infinity, the body -> the point at infinity: a bijection of the 31 faces onto the 31 points of PG(2,5), grade by grade onto the affine conic points, the affine exterior points, the interior points, the exterior points at infinity and infinity; it intertwines the tick and the doubling with the symmetric squares of x -> x + 1 and x -> 2x, no symmetric square of PGL(2,5) induces the transposition (0 1) on the faces, a vertex and its opposite tetrahedron lie on the tangent at the vertex, and an edge ab and its opposite triangle on the secant through infinity and the vertex fixed by the reflection swapping a and b (31 Oct)", T, "join_pg25_simplex"),
+    ("cube", "pg25", "the cuts as exterior points", "the fifteen nonzero vertices of the four-cube, the nonzero cuts (cube_cuts), are the fifteen duads of the six conic points (star of e = e-infinity, pair cut of {a, b} = ab); duad -> the pole of its secant is a bijection onto the fifteen exterior points, the stars to the tangent at infinity, equivariant for the tick and the doubling; two cuts share an odd number of edges exactly when the line joining their points is a tangent, and the 35 zero-sum triples go to 10 collinear triples on external lines (the nonspecial synthemes), 5 self-polar triangles with secant sides (the special five) and 20 tangential triangles (31 Oct)", T, "join_cube_pg25"),
+    ("petersen", "surface", "the hemi-dodecahedron", "each face of the hemi-icosahedron is matched to its complementary triple edge by edge, a syntheme; the five synthemes no face gives each hold one spoke e-infinity, v_e, and face -> the edge jk whose v_j, v_k share no duad with its syntheme (the syntheme incidence) is a bijection of the ten faces onto the ten edges carrying faces sharing an edge to disjoint edges: the dual graph of the hemi-icosahedron, the hemi-dodecahedron's 1-skeleton, is the Petersen graph; a K5 face goes to its pentagram edge, a cone face to the parallel chord of its edge, the six vertex links to six of Petersen's twelve pentagons (31 Oct)", T, "join_petersen_surface"),
+    ("cube", "petersen", "the middle layers", "the cube's vertices are the empty cut, the five stars (weights 1 and 4, the antipode among them) and the ten pair cuts (weights 2 and 3); two pair cuts differ by a star exactly when their pairs are disjoint (the fifth vertex's star), so the middle layers induce the Petersen graph in the folded five-cube: inside the four-cube its twelve edges between weights 2 and 3 and the three antipodal pairs of weight 2, 12 + 3 = 15; the five stars are Petersen's five maximum independent sets, the rows of M with A M^T = 2(J - M^T), each pair cut induces a 6-cycle and each non-edge lies in exactly one star (31 Oct)", T, "join_cube_petersen"),
+    ("cube", "synthemes", "the symplectic cuts", "the fifteen nonzero cuts are the fifteen duads of V + {infinity} (star of e = e-infinity, pair cut = ab), and the parity of two cuts' common edges, |S||T| + |S meet T| mod 2, is a symplectic form on F2^4, Tr(x y^4) on F16 = F2[zeta5], invariant under the tick and the doubling (the Frobenius); of the 35 lines x, y, x + y the 15 totally isotropic ones are the synthemes and the 20 others the triangles of K6; under every one of the 120 labellings carrying the exceptional sigma onto PGL(2,5) the Sylow special five are the five F4-lines zeta^e F4^x, the regular spread, the pairs the reflection through e preserves (31 Oct)", T, "join_cube_synthemes"),
+    ("cube", "simplex", "the Boolean lattice", "x -> the face {k : x_k = 1} of the tetrahedron 1234 is a bijection of the cube's vertices onto the sixteen faces of the facet opposite vertex 0, the empty face included, with the 32 cube edges the covering relations: the four-cube is the Hasse diagram of that facet's face lattice and its 81 cells are the lattice's intervals [S, T]; the simplex's own face lattice, the 32 subsets of V, is the five-cube, which complementation folds 2-to-1 onto the sixteen cuts (cube_cuts), the Clebsch graph srg(16, 5, 0, 2) with all five stars as steps, the four-cube being the part not using the star of 0 (31 Oct)", T, "join_cube_simplex"),
+    ("rotor", "simplex", "the fixed triangles", "the tick fixes 1, 2, 2, 1, 1 dimensions on the five grades, the plane on the edges being the rotor plane; the two orbits of triangles, {a, a+1, a+2} and {a, a+1, a+3}, are permuted without sign, their sums c, o span the fixed triangle plane, and the boundary carries c to 2 near - far and o to near + 2 far: in the bases (c, o), (pentagon, pentagram) it is 2I - Q, Q the quarter turn, of determinant 5, sqrt5 times a rotation, so the rotor plane is the boundary of the tick-fixed triangles, d d^T = 5 on it for the triangle boundary d; the fixed subcomplex has the homology of a point (31 Oct)", T, "join_rotor_simplex"),
+    ("surface", "synthemes", "the face synthemes", "every edge of a face T of the hemi-icosahedron lies in one other face, meeting T^c in one vertex, so T is matched to T^c edge by edge, a syntheme: the ten faces give ten distinct synthemes, the same from the complementary face in the complementary triangulation, the syntheme of the face's perspector in PG(2,5); the other five are exactly the matchings whose three involutions are symmetries of the hemi-icosahedron, its five Klein four-groups (its 15 involutions fix two axes, three to each), and under every labelling carrying the exceptional sigma onto PGL(2,5) these are the Sylow special five (31 Oct)", T, "join_surface_synthemes"),
+    ("simplex", "surface", "two Mobius bands", "coning the simplex at the cone point gives the 5-simplex on the six axes; its 20 triangles are the two triangulations, each taking five of the simplex's ten triangles, one tick-orbit (the consecutive triples for the hemi-icosahedron, {a, a+1, a+3} for its complement), and five edges coned (the pentagram's, the pentagon's); the five K5 triangles of either form a Mobius band (chi = 0, connected, every vertex link a path, non-orientable under every signing) whose boundary is that triangulation's own link at infinity: each hemi-icosahedron is a Mobius band on K5 coned off along its boundary, the 2-skeleton two bands glued along K5 (31 Oct)", T, "join_simplex_surface"),
+    ("cycles", "petersen", "the triangle frame", "the ten triangle boundaries lie in the cycles, span them and form a tight frame, T T^T = 5 P_cycle (the filled simplex's interior Laplacian), each of norm 3; their Gram is +-1 for triangles sharing an edge and 0 for triangles sharing one vertex, which happens exactly when the complementary edges are disjoint, so under triangle -> complementary edge the orthogonality graph of the frame is the Petersen graph on the ten edges (as it is of the roots e_i + e_j) and |Gram| - 3I the line graph of K5; the Gram has spectrum 5^6 0^4 and its signed line graph 2^6 (-3)^4 against the unsigned 6, 1^4, (-2)^5 (31 Oct)", T, "join_cycles_petersen"),
+    ("cube", "cycles", "cuts plus cycles", "mod 2 the cycles ker B are the 64 even subgraphs of K5, spanned by the triangles, the cuts their annihilator, and the two meet only in the empty set and span F2^E: every subgraph is uniquely a cut plus an even subgraph, so the four-cube's sixteen vertices, the cuts (cube_cuts), are the quotient F2^E / (ker B mod 2), each a class of 64 subgraphs; over Z the cycle lattice and the cut lattice are saturated (Smith forms 1^6, 1^4) but their sum has index 125 in Z^E, the number of spanning trees, Z^E / (cycles + cuts) = (Z/5)^3, odd, which is why they are complementary mod 2 (31 Oct)", T, "join_cube_cycles"),
+    ("petersen", "pauli", "the commutation graph", "under layer 22's Pauli map the ten edges, as the root classes of B's columns e_j - e_i (or, a second labelling, of M's e_i + e_j) in E8/2E8, are ten antisymmetric Paulis decayed by L at 224; two commute exactly when the edges are disjoint and anticommute when they share a vertex (odd inner product of the half-periods), so the Petersen graph is the commutation graph of the edge Paulis and the line graph of K5 their anticommutation graph (31 Oct)", T, "join_petersen_pauli"),
+    ("simplex", "pauli", "the face Paulis", "face S -> y_S = sum_(i in S) (e_i + e_5), the sum of its lifted sites: with the empty face, an injective homomorphism of F2^5 under symmetric difference into E8/2E8; vertices, edges and the solid give antisymmetric Paulis at rate 224, triangles and tetrahedra symmetric ones at 256 (q = (|S| + |S|^2)/2 mod 2); two face Paulis commute exactly when |S n T| + |S||T| is even, so the five vertex Paulis pairwise anticommute, the edge Paulis commute along Petersen, a vertex's commutes with a triangle's exactly when it lies on it, and the solid's is central; the edge labels are the A4 root classes (31 Oct)", T, "join_simplex_pauli"),
+    ("rotor", "source", "the invariant areas", "the tick acts on ker M as the regular representation, so the tick-invariant bivectors of the source form a plane, the area forms of the tick's two eigenplanes; the commutator W_AS carries it isomorphically onto the rotor plane (its kernel has no tick-fixed vector), sending the zeta^(+-1) and zeta^(+-2) areas to perpendicular lines with pentagram : pentagon = (2 - 5 sqrt5)/11 and (2 + 5 sqrt5)/11, each the other's quarter turn, as the doubling, which swaps the eigenplanes and quarter-turns the rotor plane, requires (31 Oct)", T, "join_rotor_source"),
+    ("rotor", "goldenport", "the fixed channels", "T_G* Delta T_G keeps the tick-fixed rotor plane and in the basis (pentagon, pentagram) is [[240, -1], [-1, 240]], with variance [[271, 100], [100, 271]]: the pentagon and the pentagram each read mean 240 and variance 272, while the diagonals are the Golden port's two fixed channels, pentagon + pentagram with mean 239 and variance 371 and pentagon - pentagram with mean 241 and variance 171, the two simple eigenvalues of the Golden moment operator; the doubling, a quarter turn of the rotor plane, exchanges the two channels (31 Oct)", T, "join_rotor_goldenport"),
+    ("E", "bath", "the edge roots as sites", "the ten D5 roots e_i + e_j are distinct sites with Gram M^T M, so T_E x = sum x_e delta_(e_i + e_j) is an isometry of the edge space into the bath, and T_E* Delta T_E = 242 I - M^T M = 242 - D^2 on the edge atoms (two edge roots differ by a root exactly when the edges share a vertex); since (Delta^n)_(r, s) depends only on <r, s> in {2, 1, 0}, each moment through n = 4 is a polynomial in M^T M, and the port's three sectors are the carrier's edge eigenspaces 0^5, 3^4, 8^1, with means 242, 239, 234 and variances 138, 267, 582 (31 Oct)", T, "join_E_bath"),
+    ("surface", "triangle", "faces as triangle ports", "on the six sites x_inf = 0, x_a = e_a + e_5 every edge of the surface's K6 is a root, so each oriented face is an odd port on six roots with the triangle port's moments 1, 242, 58691, 14259954, 3470101592 (0-1-2 is itself a face); the ten face ports of the hemi-icosahedron have Gram 6I + 2S with |S| the face-adjacency graph, the Petersen graph, and the signs of S the coherence of orientations: no orientation leaves fewer than three incoherent pairs (RP^2), spec S = (+-sqrt5)^3 0^4, the ten span the cycle space of K6, and the family is scalar, T_F* Delta^n T_F = m_n (6I + 2S) for n <= 4 (31 Oct)", T, "join_surface_triangle"),
+    ("V", "kerM", "no symmetric map to the sites", "ker M is an irreducible 5 of S5 and the sites are 1 + 4, so Hom_S5(ker M, R^V) = 0, and Hom_A5(ker M, R^V) = 0 as well: no S5- or A5-linear map carries the five dark modes to the five sites; the affine group AGL(1, 5) leaves exactly one, the midpoint map ab -> 3(a + b) mod 5 of kerM-cycles, which intertwines the tick and the doubling, has rank 4 and kills the near-minus-far line, and the five-cycle alone leaves five (31 Oct)", OB, "join_V_kerM"),
+    ("cycles", "pauli", "the cycle kernel", "e -> the class of e_j - e_i in E8/2E8 extends to F2^E -> E8/2E8 with kernel exactly the cycle code (the 64 mod-2 cycles of K5, dimension 6) and image A4/2A4, sixteen classes: 0 -> cycles -> F2^E -> A4/2A4 -> 0; so the product of the edge Paulis along a mod-2 edge set is +-I exactly when the set is a cycle, and around every triangle (order ij, jk, ik) it is -I, the three Paulis pairwise anticommuting (31 Oct)", T, "join_cycles_pauli"),
+    ("S5", "hodge", "the fourth compound of W(A4)", "S5 = W(A4) acts on Lambda^4 R^8 through the vertex permutations as 1 + sign + 4 x 4 + 4 x 4' + 6 x 6 (five irreducible characters built from the permutation character); star Lambda^4(s) = sgn(s) Lambda^4(s) star, so the Hodge star is an S5-map Lambda^4 -> Lambda^4 (x) sign: it carries the invariant form u ^ vol(R^3) to the sign form, the volume form of the sum-zero hyperplane H; tr(star Lambda^4 s) = 0 on A5, so the two halves are isomorphic A5-modules 1 + 4 x 4 + 3 x 3a + 3 x 3b, exchanged by the odd permutations (31 Oct)", T, "join_S5_hodge"),
+    ("AGL", "hodge", "the Legendre symbol on the halves", "x -> a x + b has sign (a/5) on the five vertices, so on Lambda^4 R^8 star Lambda^4 = (a/5) Lambda^4 star: the ten rotations and reflections keep the halves and the ten doublings exchange them; AGL(1,5) fixes exactly one 4-form, u ^ vol(R^3), and carries exactly one line by the Legendre character, the sign form (the contraction of vol(R^5) with u), the star exchanging the two; the pentagon's D5 fixes one form in each half, f +- star f, and the doubling swaps them (31 Oct)", T, "join_AGL_hodge"),
+    ("golden", "hodge", "the star as Galois conjugation", "X = -(g + g^-1), the golden companion on E8, is symmetric with X^2 = X + I and det X = 1, so X^-1 = -(I - X) and star Lambda^4(X) star = Lambda^4(I - X): the Hodge star conjugates the fourth compound of the golden companion to that of its Galois conjugate Phi, as the day does on E8; Lambda^4 X has eigenvalues phi^4, -phi^2, 1, -phi^-2, phi^-4 with multiplicities 1, 16, 36, 16, 1; the star keeps the three rational eigenspaces, exchanges the two golden volume forms (star M star = 7 - M on their plane) and splits the 36 and the 32 evenly: each half is 18 + 16 + 1 (31 Oct)", T, "join_golden_hodge"),
+    ("hodge", "regular", "the half-characters", "each regular clock w has determinant 1 and keeps both halves; its traces there are (e4 +- D)/2, e4 the x^4-coefficient of Phi_d^(8/phi(d)) and D = tr(star Lambda^4 w) with D^2 = det(I - w^2), for d >= 3 the number of momenta w^2 fixes (layer 19): (e4, |D|) = (70, 0), (70, 0), (19, 9), (6, 16), (5, 5), (19, 9), (2, 4), (5, 5), (3, 1), (-1, 1), (1, 1), (-1, 1), (-1, 1) for d = 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 30; the tick's four powers have traces 5 and 0, so the tick fixes eleven 4-forms in one half and seven in the other (31 Oct)", T, "join_hodge_regular"),
+    ("G120", "hodge", "three self-dual invariants", "every element of G120 = <c', d> has determinant 1 and commutes with the Hodge star, so G120 acts on each half; over its 120 elements the sums of e4 (the x^4-coefficients) and of D = tr(star Lambda^4 w) are both 360, so the invariant 4-forms have dimension (360 + 360)/240 = 3 in one half and 0 in the other: G120 fixes exactly three 4-forms, all in one half (Reynolds ranks 3 and 0) (31 Oct)", T, "join_G120_hodge"),
+    ("G120", "S5", "the line stabilizer", "exactly twenty elements of G120 = <c', d> keep the carrier's A4 + A4': <g, d^6>, the kernel of G120's action on the six residue lines (d^6 is the scalar 2 of F25); they normalize S5 x S5' = W(A4) x W(A4'): the tick g = r r' acts on S5 by conjugation as its five-cycle r (r' commutes with S5), d^12 = -1 acts trivially, and d^6 carries W(A4) onto W(A4') with d^6 r d^-6 = r'^-1 and d^6 g d^-6 = g^-1; G120 meets S5 x S5' only in <g> (31 Oct)", T, "join_G120_S5"),
+    ("S5", "clocks", "twelve conjugates of the carrier's A4", "the clock group <c', d, v, m> (the normalizer of <c'>, 240 elements) carries the carrier's A4, the root system of S5, to exactly twelve root systems, the two A4 factors of the six residue lines' A4 + A4', with a stabilizer of 20 elements acting on A4 as D5 x {+-1}; the tick g = r r' and the mirror m keep A4 and act on S5 = W(A4) by conjugation as the pentagon's rotation i -> i + 1 and reflection i -> -i, the dihedral D5 inside AGL(1,5), while c', d and the golden clock carry A4 to other factors (31 Oct)", T, "join_S5_clocks"),
+    ("S5", "regular", "S5 x S5' meets the tick's class", "S5 = W(A4) and S5' = W(A4') are commuting subgroups of W(E8) with r in the first and r' in the second; the characteristic polynomial of a product (s, t) is chi_std(s) chi_std(t), and the standard polynomial of a permutation of five points has the root 1 unless it is a five-cycle (Phi_5), so S5 x S5' meets the thirteen regular polynomials Phi_d^(8/phi(d)) only at d = 1 and d = 5: the 24 x 24 = 576 pairs of five-cycles, all conjugate under S5 x S5' to the tick g = r r' (31 Oct)", T, "join_S5_regular"),
+    ("G120", "regular", "a group of regular elements", "G120 = <g> x| <d> with d g d^-1 = g^2: d^j moves g unless 4 | j, so g^a d^j is G120-conjugate to d^j when 4 does not divide j, and <g, d^4> = <c'>; hence every element of G120 is conjugate to a power of c' or of d, and all 120 have regular characteristic polynomials Phi_d^(8/phi(d)): twelve regular classes with 1, 1, 2, 10, 4, 2, 20, 4, 20, 8, 40, 8 elements of orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30; the golden clock's class 20 is the one G120 misses, since d^6 inverts g and every g^a d^6 squares to -1 (31 Oct)", T, "join_G120_regular"),
+    ("golden", "pgl", "the Fibonacci Moebius map", "mod 5 the golden companion acts on the projective line as x -> (x + 1)/x = 1 + 1/x, the step F_(n+1)/F_n -> F_(n+2)/F_(n+1) of the Fibonacci ratios: B^5 = 3I, so its class in PGL(2,5) has order 5 = 20/4 (the Pisano period over the scalars) and the ratios run 1, 2, 4, 0, infinity; it fixes the golden point 3, the double root of x^2 - x - 1 mod 5 (5 ramifies), and turns the other five points in one five-cycle, a Sylow 5-subgroup; det B = -1 is a square, so B lies in PSL(2,5) and keeps the hemi-icosahedron and its complement, which the 801 matrix swaps; the two generate PGL(2,5) (31 Oct)", T, "join_golden_pgl"),
+    ("S5", "V", "the permutation representation", "p -> P(p) is a faithful homomorphism of the 120 vertex permutations into O(5), fixing u = (1, 1, 1, 1, 1) and keeping the sum-zero hyperplane H, the A4 space, where the transpositions are the reflections in e_i - e_j: R^5 = u + H; the character fix - 1 of H has norm 1 (irreducible, the standard representation), the permutation character 5, 3, 1, 2, 0, 1, 0 (on the classes 1^5, 2, 2^2, 3, 3 2, 4, 5) has norm 2 (2-transitive on the five atoms), the commutant is spanned by I and J with Reynolds average J/5, and P(p) has characteristic polynomial the product of x^c - 1 over the cycle lengths c (31 Oct)", T, "join_S5_V"),
+    ("S5", "petersen", "Aut(Petersen) = S5", "every vertex permutation, induced on the ten edges of K5, is an automorphism of the Petersen graph (adjacent = disjoint), injectively, and the graph has exactly 120 automorphisms: Aut(Petersen) = S5, transitive on the 10 vertices, 15 edges, 30 non-edges and 12 pentagons (stabilizers 12, 8, 4, 10), the pentagons being the Hamiltonian cycles of K5; the commutant of S5 on the edges is the adjacency algebra, spanned by I, A and J - I - A, so the eigenspaces of A (3, 1, -2; dimensions 1, 5, 4) are the irreducible constituents: the trivial, the five-dimensional on ker M, and the standard (31 Oct)", T, "join_S5_petersen"),
+    ("S5", "simplex", "Lambda^(k+1) of the permutation representation", "S5 acts on the faces of each grade by signed permutations, L_k(p) the (k + 1)-th compound of P(p): grade k is Lambda^(k+1) R^5; every boundary is equivariant and the homology is the trivial point; each grade is one orbit (stabilizers 24, 12, 12, 24, 120), the body carries the sign, complementary grades are sign-twins (tr L_k = sgn tr L_(3-k)), the grade characters have norms 2, 2, 2, 2, 1 (1 + 4, 4 + 6, 4' + 6, sgn + 4', sgn), and every permutation's Lefschetz number, the alternating sum of its grade traces, is 1 (31 Oct)", T, "join_S5_simplex"),
+    ("hodge", "simplex", "the complementary face", "along R^8 = R^5 + R^3 (the carrier's five coordinates and the other three) Lambda^4 R^8 = sum_k Lambda^k R^5 (x) Lambda^(4-k) R^3: the simplex's vertices, edges, triangles and tetrahedra with multiplicities 1, 3, 3, 1 (5 + 30 + 30 + 5), on which the vertex permutations act gradewise; the Hodge star carries e_S ^ e_T to +- e_(S^c) ^ e_(T^c), the complementary face, exchanging the blocks k and 5 - k, so each half is 5 + 30 = 35; the contraction with u = e0 + ... + e4 is the simplex's boundary on every block, and the star conjugates u ^ iota_u into iota_u u ^, two Laplacians of rank 35 summing to <u, u> = 5 (31 Oct)", T, "join_hodge_simplex"),
+    ("golden", "pg25", "the unipotent collineation", "x^2 - x - 1 = (x - 3)^2 over F5 (phi = 1/2 = 3), so B = 3(I + N) mod 5 with N^2 = 0, of order 20 = 4 x 5, B^5 = 3I; on the projective line B is x -> (x + 1)/x in PSL(2,5), fixing the golden axis 3 and turning 0 -> infinity -> 1 -> 2 -> 4; through the symmetric square it is 4 times a single Jordan block on PG(2,5): a collineation of order 5 keeping the Veronese conic, fixing exactly the conic point of 3 and its tangent, with orbits conic 1 + 5, exterior 5 + 5 + 5, interior 5 + 5; B^k is trivial on the plane exactly when 5 | F_k, when 5 | k (31 Oct)", T, "join_golden_pg25"),
+    ("G120", "pg25", "the symmetric square of F25^x", "G120 acts on the residue plane F5^2 = E8/(1 - g)E8 as F25^x (day_units), and v -> v v^T puts its six lines on the Veronese conic: through the symmetric square G120 acts on PG(2,5) by collineations keeping the conic, the day turning it as its 6-cycle of the lines; the kernel is the twenty scalars <g, d^6>, the stabilizer of A4 + A4', the image Z/6 = F25^x/F5^x generated by the day, with orbits conic 6, exterior 3 + 6 + 6, interior 1 + 3 + 6 (the 801 matrix's pattern); the fixed point is interior, the symmetric Sigma with d Sigma d^T = det(d) Sigma, inverse to the anisotropic norm form of F25/F5 (31 Oct)", T, "join_G120_pg25"),
+    ("regular", "surface", "the regular clocks on the six axes", "every regular clock normalizes the tick, so acts on the residue plane F25 by a matrix mod 5 and on its six lines, the surface's axes, the square determinants giving PSL(2,5), whose two orbits of triangles are the hemi-icosahedron and its complement; the orders 1, 2, 4, 5, 10 are scalars fixing every axis, 3, 6, 12, 15, 30 turn the axes in two 3-cycles, the golden clock 20 is a half-turn fixing two axes, all keeping both triangulations; the day 24 (a 6-cycle) and its cube 8 (three transpositions), of non-square determinant, exchange them (31 Oct)", T, "join_regular_surface"),
+    ("S5", "surface", "the twelve hemi-icosahedra", "fixing the cone point, the vertex permutations act on K6 and its 20 triangles (orbits 10 + 10); exactly ten keep the hemi-icosahedron (the pentagon's D5 = S5 meet PSL(2,5)) and ten carry it onto its complement (with D5 the F20 = S5 meet PGL(2,5)), so S5 is transitive on its orbit of twelve, every hemi-icosahedron on the six labelled axes (720/60); a hemi-icosahedron is determined by its link at the cone point, a Hamiltonian cycle of K5, bijectively onto the twelve (the pentagram for the hemi-icosahedron, the pentagon for its complement); complementation pairs the twelve in six (31 Oct)", T, "join_S5_surface"),
+    ("S5", "cube", "the five cubes on the cuts", "a vertex permutation carries the cut of S to the cut of p(S): an F2-linear bijection of the sixteen cuts, the cube's vertices, fixing the empty cut; p -> its 4 x 4 matrix mod 2 is a faithful homomorphism S5 -> GL(4,2), with orbits 1 + 5 + 10 (origin, stars, pair cuts: the carrier's atoms); the cuts carry five cube structures cube_k (c joined to c + star(j), j != k), the model's being cube_0, and p carries cube_k to cube_(p k), transitively with stabilizer S4: the permutations keeping the four-cube's 32 edges are the 24 fixing vertex 0, its coordinate permutations (31 Oct)", T, "join_S5_cube"),
+    ("hodge", "L0", "the volume forms", "the volume forms vol(A4) and vol(A4'), the wedges of Z-bases of the carrier's A4 and the twin in Lambda^4 of the lattice, have norm 5, their Gram determinants; the Hodge star carries vol(A4) to +-vol(A4'), and vol(A4) ^ vol(A4') = +-5 e_1 ^ ... ^ e_8, the index of A4 + A4' in the unimodular E8 times its volume form: the star pairs the two factors of L0 and reads their index (31 Oct)", T, "join_hodge_L0"),
+    ("hodge", "sun", "the decad's area forms", "each 4A2 frame of the decad gives six 4-forms omega_i ^ omega_j, the wedges of the area forms (Z-bases) of two of its four A2, of norm 9 in Lambda^4 of the lattice; the Hodge star carries each to +-the complementary pair's form, and the four area forms wedge to +-9 e_1 ^ ... ^ e_8, the frame's index; the sun keeps all sixty, which span 31 of its 36 fixed 4-forms, 21 self-dual and 15 anti-self-dual (31 Oct)", T, "join_hodge_sun"),
+    ("G120", "frame", "a free action on the frames", "an isometry keeping a frame (eight roots with pairwise products 1) permutes them and fixes their sum 3q, of norm 72, so it has eigenvalue 1; every element of the day-Coxeter group but the identity is conjugate to a power of c' or of the day and has none, so G120 acts freely on the 17280 frames: 144 regular orbits of 120 (31 Oct)", T, "join_G120_frame"),
+    ("S5", "frame", "the carrier's forty frames", "the carrier's S5 = W(A4), the permutations of the first five coordinates, keeps exactly 40 of the 17280 frames; on each it fixes three roots of the twin A4' and turns five in one orbit whose differences are the carrier's 20 roots, so the frame's A8 holds A4 and meets the twin in an A3; the 40 are one orbit of the twin's W(A4') x {+-1}, with stabilizer of order 6 (31 Oct)", T, "join_S5_frame"),
+    ("G120", "census", "fixed momenta are critical", "a momentum fixed by an isometry without eigenvalue 1 is a critical point of the band (its gradient is fixed, so zero), and every element of G120 but the identity is such: its |det(w - 1)| fixed momenta are census points, 1 + 24 A4 + A4 for the tick, 1 + 80 E6 + A2 for the sun, 1 + 120 E7 + A1 + 135 D8 for the half-turn, 1 + 15 and 1 + 3 D8 half-periods for d^6 and d^3, the origin alone for the 82 others; so G120 permutes the 243600 census points in (243600 + 840)/120 = 2037 orbits (31 Oct)", T, "join_G120_census"),
+    ("regular", "D5", "an odd complement", "an isometry keeping a D5 keeps its 5-dimensional span and the 3-dimensional complement, where it has a real eigenvalue +-1; the regular clock of order d has characteristic polynomial Phi_d^(8/phi(d)), real-rooted only for d = 1, 2, so no regular clock of order 3 to 30, nor a conjugate of one, keeps any D5, while the half-turn keeps the carrier's (whose complement holds an A3) (31 Oct)", OB, "join_regular_D5"),
+    ("clocks", "D5", "the tick's five D5", "the tick g = r r' turns the carrier's D5 in five images that pairwise meet exactly in A4, where g is r; they are all the D5 through A4 (the root systems in the spans of A4 and one more root are five D5, ten A5 and ten A4 + A1), one for each vertex weight of the twin, which r' turns, and their union is A4 with the 100 mixed roots of edge shadow (norm 6/5), the other 120 being the twin and the vertex shadows; G120 moves the D5 in an orbit of 60, stabilizer {+-1} (31 Oct)", T, "join_clocks_D5"),
+    ("G120", "halfper", "the day swaps the primes over 2", "on Lambda / 2 Lambda = F16 x F16 the day swaps the two primes over 2, since 7 is not in the decomposition group <2> = {1, 2, 4, 8} of 2 in (Z/15)^x, while c' and d^2 keep them: G120 acts on the pair through a sign with kernel <c', d^2>, of order 60, transitive on each prime's 15 nonzero points; G120 has 7 orbits on the 256 half-periods, 1 + 15 + 30 + 30 + 60 + 60 + 60, refining the types D8 (15 + 30 + 30 + 60) and E7 + A1 (60 + 60), the two primes' 30 nonzero points being one orbit (31 Oct)", T, "join_G120_halfper"),
+    ("regular", "A4", "the clocks that keep the carrier", "an isometry keeping the carrier's A4 acts on its span through Aut(A4) = W(A4) x {+-1}, 240 maps permuting the 20 roots, whose eigenvalues there are all primitive d-th roots only for the identity, -1, the 24 five-cycles (d = 5) and their negatives (d = 10); so a regular clock keeps A4 only in the classes 1, 2, 5, 10: the identity, the half-turn, the tick and -g (Phi_10^2) do, and no clock of the other nine regular orders can (31 Oct)", T, "join_regular_A4"),
+    ("golden", "L0", "Z[phi]^2 + Z[phi]^2", "X = -(g + g^-1) commutes with the tick and so keeps A4 and A4', on each with X^2 = X + 1 and characteristic polynomial (x^2 - x - 1)^2: L0 = Z[phi]^2 + Z[phi]^2 inside E8 = Z[phi]^4; on the quotient E8 / L0 = Z/5 it is the scalar 3, the double root of x^2 - x - 1 mod 5, so E8 / L0 = Z[phi]/(2 phi - 1), the residue field at the ramified prime over 5, as a Z[phi]-module (31 Oct)", T, "join_golden_L0"),
+    ("G120", "walks", "a free action on the walks", "every nonidentity element of G120 is regular, so fixes no nonzero vector: G120 acts freely on the 240 roots (two regular orbits) and on the closed walks of every length n >= 1, so 120 divides every W_n (W_0..W_90 on file), with W_n/120 = 2, 112, 10506, 1148448, 142848320 orbits for n = 2..6; for odd n the reversal joins in (a palindrome's middle root would lie in 2 E8) and 240 divides W_n (31 Oct)", T, "join_G120_walks"),
+    ("G120", "triangle", "a regular orbit of hexagons", "W(E8) acts on the lattice functions, and G120 carries the triangle port to 120 distinct ports, its stabilizer trivial: 60 alternating hexagons each with both signs (-1 lies in G120), touching all 240 roots and spanning 60 dimensions, with Gram entries 6, -6, +-2 and 0; every one has the triangle's moments 1, 242, 58691, 14259954, since W(E8) commutes with the bath (31 Oct)", T, "join_G120_triangle"),
+    ("AGL", "triangle", "the twenty oriented triangles", "AGL(1,5) acts freely on the triangle port: its twenty images are the twenty oriented triangles of K5, exactly the S5 orbit of the port (the odd S5 port of the parity pair), on which S5 has the stabilizer C3 x S2; the rotations keep a triangle consecutive and the doubling sends 0-1-2 to the skew 0-2-4, so the ten triangles are one AGL(1,5) orbit; the twenty span the six cycles and, lifted to A4 roots, all have the triangle's moments 1, 242, 58691, 14259954 (31 Oct)", T, "join_AGL_triangle"),
+    ("pgl", "sixsite", "the simplex's affine S6", "the fifteen affine reflections x -> s_alpha(x) + c alpha in the simplex's roots alpha = q - p generate 720 affine lattice isometries, one for each permutation of the six sites, each with linear part in W(E8) and translation in E8, so commuting with the bath; with the apex at infinity and the lifted vertex i at the point i of the projective line over F5, the 120 Mobius maps of PGL(2,5) are among them, 2-transitive on the sites, its stabilizer of infinity the cone's AGL(1,5) (linear coordinate permutations) and its hundred other maps carrying a translation (31 Oct)", T, "join_pgl_sixsite"),
+    ("golden", "goldenport", "the golden companion in the Golden port", "the diagonal five-cycle (site_k -> site_(k+1), mu_k -> mu_(k+1)) is a lattice isometry permuting the Golden port's ten root sites as the edge tick, L F = F T_k, so the port's moment matrices on the cycles commute with the cycle rotation R; on the four moving cycles X = -(R + R^-1) is the golden companion, X^2 = X + I, and the mean and variance are (1203 - X)/5 and (978 + 31 X)/5: at X = phi the Golden channels 481/2 - sqrt5/10 and (1987 + 31 sqrt5)/10, at 1 - phi their conjugates; the rotor plane (X = -2) carries 239, 241 and 371, 171 (31 Oct)", T, "join_golden_goldenport"),
+    ("hodge", "waves", "the product Hodge star", "the Hodge star of Lambda^4 R^8 keeps the block Lambda^2 A4 (x) Lambda^2 A4' (36 of the 70: the wedges of a carrier cycle with a twin cycle) and acts there as J_H (x) J_H', the light's Hodge star times its twin's: 5 *(f ^ f') = -Curl f ^ Curl' f' with both K5's sites in the order 0..4; the halves 35 + 35 meet the block in 18 + 18 (pairs of equal helicity in one half, of opposite helicity in the other) and swap the complementary blocks 1 + 16 and 16 + 1, so 35 = 1 + 16 + 18 (31 Oct)", T, "join_hodge_waves"),
+    ("S5", "gravity", "the equivariant tower", "S5 acts on M4 x F by 1 (x) P_sigma, commuting with D = D_M (x) 1 + gamma_M (x) m D_F and with the grading (exact on the massless tower's stand-in for M4), so the spectral action is S5-invariant and every Kaluza-Klein level is an S5-module: the tower 0, 3 m^2, 8 m^2 over each level of M4 is [3, 2] + 2 [4, 1] + 2 [5] (tr P_lambda P_sigma = chi_duads - chi_sites, 2 (fix - 1), 2), and Tr((1 (x) P_sigma) e^(-t D^2)) = Tr e^(-t D_M^2) (chi_[3,2] + 2 chi_[4,1] e^(-3 m^2 t) + 2 e^(-8 m^2 t)); M4 and m stay free (31 Oct)", gates.CONDITIONAL, "join_s5_gravity"),
+    ("S5", "readout", "the symmetric readouts", "the 120 vertex permutations lift to the control system as diag(P_sigma, P_sigma) and commute with A = [[0, I], [-D^2, 0]]; the vertex positions, edge positions, Dirac image, all positions and vertex sum are invariant readouts whose observable spaces (10, 20, 20, 30, 2) are S5-modules with characters 2 fix, 2 fix_duads, 4 fix (the complement of the dark [3, 2], twice), 2 (fix + fix_duads) and 2 (the trivial part); one vertex and one edge are kept only by S4 and S2 x S3, and their orbits' observable spaces sum to the vertex and the edge positions' (31 Oct)", T, "join_s5_readout"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
 ]
@@ -11990,6 +12079,4816 @@ def notes_1757():
     }
 
 
+# ------------------------------------------------------------------- the join sweep (31 Oct)
+
+def join_circle_grain():
+    """The grain is the circle's 60-torsion, and the circle modulo the grain is Z/72 = Z/8 x Z/9."""
+    S = spine.subgroup
+    G = S(72)
+    torsion = frozenset(x for x in range(N) if 60 * x % N == 0)
+    pair = lambda x: (x % 8, x % 9)
+    fibres = Counter(x % 72 for x in range(N))
+    return {
+        "the grain <72> is the subgroup of the points x with 60 x = 0, 60 = lcm(2, 3, 4, 5) the lcm of the critical "
+        "orders: the 60-torsion of the circle, 60 points of index 72":
+            G == torsion and len(G) == 60 and lcm(2, 3, 4, 5) == 60 and N // len(G) == 72,
+        "x -> x mod 72 is a homomorphism of the circle onto Z/72 with kernel the grain, 60 points over each residue":
+            frozenset(x for x in range(N) if x % 72 == 0) == G and set(fibres) == set(range(72))
+            and all(v == 60 for v in fibres.values())
+            and all((x + y) % 72 == (x % 72 + y % 72) % 72 for x in range(0, N, 37) for y in (1, 8, 9, 72, 864, 1080)),
+        "Z/72 = Z/8 x Z/9: (x mod 8, x mod 9) has the same kernel <8> n <9> = <72> and all 72 pairs as image, and depends "
+        "on x mod 72 alone, so the circle modulo the grain is the circle modulo the coil times the vortex":
+            frozenset(x for x in range(N) if pair(x) == (0, 0)) == S(8) & S(9) == G and lcm(8, 9) == 72
+            and len({pair(x) for x in range(N)}) == 72 and all(pair(x) == pair(x % 72) for x in range(N)),
+    }
+
+
+def join_c27_time():
+    """The 27-clock and the time clock are complementary in the circle's odd part <32> = Z/135 = Z/27 x Z/5."""
+    S = spine.subgroup
+    odd = S(32)
+    add = lambda A, B: frozenset((a + b) % N for a in A for b in B)
+    order = lambda x: N // gcd(x, N)
+    mult_order = lambda m: next(k for k in range(1, 200) if pow(2, k, m) == 1)
+    return {
+        "the 27-clock <160> and the time clock <864> meet in 0 and add to <32> = Z/135, 27 x 5 points (gcd(160, 864) = 32)":
+            S(160) & S(864) == {0} and add(S(160), S(864)) == odd and len(odd) == 135 == 27 * 5 and gcd(160, 864) == 32,
+        "<32> is the circle's odd part, the points of odd order, the kernel of x -> 135 x, and the complement of the "
+        "2-part: Z/4320 = <32> + <135> with <32> n <135> = 0":
+            odd == frozenset(x for x in range(N) if order(x) % 2 == 1) == frozenset(x for x in range(N) if 135 * x % N == 0)
+            and odd & S(135) == {0} and add(odd, S(135)) == frozenset(range(N)),
+        "on the odd part the idempotents 2080 and 3456 read the two summands, x = 2080 x + 3456 x with 2080 x in <160> "
+        "and 3456 x in <864>, and doubling has order 36 = lcm(18, 4), its orders on the 27-clock and on the time clock":
+            all(2080 * x % N in S(160) and 3456 * x % N in S(864) and (2080 * x + 3456 * x) % N == x for x in odd)
+            and mult_order(135) == 36 == lcm(18, 4) and mult_order(27) == 18 and mult_order(5) == 4,
+    }
+
+
+def join_c27_observer():
+    """The 27-clock plus the observer clock is the pada subgroup <40>, the coil's miss set."""
+    S = spine.subgroup
+    add = lambda A, B: frozenset((a + b) % N for a in A for b in B)
+    pada = S(40)
+    return {
+        "the 27-clock <160> and the observer clock <1080> meet in 0 and add to the pada subgroup <40> = Z/108 = Z/27 x Z/4 "
+        "(gcd(160, 1080) = 40)":
+            S(160) & S(1080) == {0} and add(S(160), S(1080)) == pada and gcd(160, 1080) == 40 and len(pada) == 108 == 27 * 4,
+        "the pada subgroup is the coil's miss set <8> n <5>, the kernel of the coil's time coordinate x -> 3456 x: the 108 "
+        "coil points the tick does not see, against the 432 it meets":
+            pada == S(8) & S(5) and lcm(8, 5) == 40 and pada == frozenset(x for x in S(8) if 3456 * x % N == 0)
+            and not any(ledger.contains_tick(x) for x in pada) and sum(1 for x in S(8) if ledger.contains_tick(x)) == 432,
+        "every pada point is one nakshatra point plus one observer point, uniquely, the two read by the idempotents 2080 "
+        "and 3105 (3105 x 40 = 3240 lies in the observer clock)":
+            all(2080 * x % N in S(160) and 3105 * x % N in S(1080) and (2080 * x + 3105 * x) % N == x for x in pada)
+            and 3105 * 40 % N == 3240 and len({(2080 * x % N, 3105 * x % N) for x in pada}) == 108,
+    }
+
+
+def join_c27_memory():
+    """The 27-clock steps the memory through its 9-cycle alone: onto the subgroup of order 9, kernel the sun."""
+    perm, cycles, P = _memory()
+    units = [u for u in range(90) if gcd(u, 90) == 1]
+    nine = next(c for c in cycles if len(c) == 9)
+    rest = [x for c in cycles if len(c) != 9 for x in c]
+    image = lambda u: {160 * u * k % 90 for k in range(27)}
+    kernel = lambda u: {160 * k % N for k in range(27) if 160 * u * k % 90 == 0}
+    return {
+        "for every one of the 24 maps k -> A^(uk) of the circle onto the memory clock, the 27-clock <160> maps onto the "
+        "memory's subgroup of order 9, the powers A^(10 m), with kernel <160> n <90> = <1440>, the sun's subgroup":
+            len(units) == 24 and all(image(u) == set(range(0, 90, 10)) and kernel(u) == set(spine.subgroup(1440)) for u in units)
+            and lcm(160, 90) == 1440 and len(rest) == 111,
+        "each nakshatra point 160 k fixes the 110 states on the 10-cycles and the fixed state, and turns the 9-cycle by "
+        "160 k u mod 9 = 7 k u mod 9, u times its vortex coordinate: the 27-clock acts on the memory as the vortex, up "
+        "to the doubling":
+            all(all(P[160 * u * k % 90][x] == x for x in rest)
+                and all(nine.index(P[160 * u * k % 90][nine[i]]) == (i + 160 * k * u) % 9 for i in range(9))
+                for u in units for k in range(27))
+            and all(160 * k % 9 == 7 * k % 9 for k in range(27)) and 160 % 9 == 7 and {u % 9 for u in units} == {pow(2, j, 9) for j in range(6)},
+    }
+
+
+def join_coil_vortex():
+    """The coil modulo the grain is the vortex: x mod 9 maps <8> onto Z/9 with kernel <72>."""
+    S = spine.subgroup
+    C, G = S(8), S(72)
+    cosets = {frozenset((x + g) % N for g in G) for x in C}
+    return {
+        "x -> x mod 9 maps the coil <8> onto the vortex Z/9 (8 is prime to 9) with kernel <8> n <9> = <72>, the grain: "
+        "coil / grain = vortex, 540 / 60 = 9":
+            {x % 9 for x in C} == set(range(9)) and frozenset(x for x in C if x % 9 == 0) == C & S(9) == G
+            and lcm(8, 9) == 72 and len(C) // len(G) == 9,
+        "the nine cosets of the grain in the coil are the nine vortex coordinates, 60 coil points each":
+            len(cosets) == 9 and all(len({x % 9 for x in c}) == 1 for c in cosets)
+            and Counter(x % 9 for x in C) == Counter({r: 60 for r in range(9)}),
+        "the vortex's kernel <9> is eight copies of the grain and meets the coil in the grain alone; doubling sends the "
+        "grain into itself (onto its half <144>, the Coxeter subgroup, 30 points), so it descends to coil / grain, where "
+        "it is the unit 2 of Z/9, of order 6":
+            len(S(9)) == 8 * len(G) and S(9) & C == G and next(k for k in range(1, 20) if pow(2, k, 9) == 1) == 6
+            and frozenset(2 * x % N for x in G) == S(144) < G and len(S(144)) == 30
+            and all(2 * x % 9 == (2 * (x % 9)) % 9 for x in C),
+    }
+
+
+def join_grain_memory():
+    """The grain steps the memory through its 10-cycles alone, by its time coordinate: onto the subgroup of order 5."""
+    perm, cycles, P = _memory()
+    units = [u for u in range(90) if gcd(u, 90) == 1]
+    nine = next(c for c in cycles if len(c) == 9)
+    tens = [c for c in cycles if len(c) == 10]
+    grain = [72 * k % N for k in range(60)]
+    image = lambda u: {72 * u * k % 90 for k in range(60)}
+    kernel = lambda u: {72 * k % N for k in range(60) if 72 * u * k % 90 == 0}
+    return {
+        "for every one of the 24 maps k -> A^(uk) of the circle onto the memory clock, the grain <72> maps onto the "
+        "memory's subgroup of order 5, the powers A^(18 m), with kernel <72> n <90> = <360>, the kernel of the time "
+        "coordinate on the grain":
+            len(units) == 24 and all(image(u) == set(range(0, 90, 18)) and kernel(u) == set(spine.subgroup(360)) for u in units)
+            and lcm(72, 90) == 360 and set(spine.subgroup(360)) == {x for x in grain if 3456 * x % N == 0},
+        "a grain point 72 k fixes the 9-cycle and the fixed state and moves every 10-cycle by 2 k u mod 10, which "
+        "depends only on its time coordinate 72 k = 2 k mod 5: the memory reads the grain's golden index mod 5 and nothing "
+        "of the sun, whose subgroup <1440> lies in every kernel":
+            all(all(P[72 * u * k % 90][s] == s for s in nine + [119])
+                and all(c.index(P[72 * u * k % 90][c[0]]) == 2 * k * u % 10 for c in tens)
+                for u in units for k in range(60))
+            and all(72 * k % 5 == 2 * k % 5 for k in range(60)) and all(1440 * j * u % 90 == 0 for j in range(3) for u in units),
+    }
+
+
+def join_atlas_coil():
+    """The coil's addresses are the atlas's nine stable addresses, with kernel the grain."""
+    S = spine.subgroup
+    C, G = S(8), S(72)
+    dbl = lambda a: 2 * a % 36
+    images = [set(range(36))]
+    for _ in range(4):
+        images.append({dbl(a) for a in images[-1]})
+    stable = frozenset(range(0, 36, 4))
+    seen, lengths = set(), []
+    for a in sorted(stable):
+        if a not in seen:
+            n, b = 0, a
+            while b not in seen:
+                seen.add(b)
+                b, n = dbl(b), n + 1
+            lengths.append(n)
+    return {
+        "x mod 36 maps the coil <8> onto the nine addresses 0, 4, ..., 32, the multiples of gcd(8, 36) = 4, with kernel "
+        "<8> n <36> = <72>, the grain: 60 coil points at each":
+            {x % 36 for x in C} == stable and frozenset(x for x in C if x % 36 == 0) == C & S(36) == G and lcm(8, 36) == 72
+            and Counter(x % 36 for x in C) == Counter({a: 60 for a in stable}),
+        "these are the atlas's stable addresses, where doubling's contraction 36 -> 18 -> 9 settles and acts as a "
+        "permutation (a fixed address, a 2-cycle and a 6-cycle): the coil's addresses are the doubling-stable part of the atlas":
+            images[2] == images[3] == images[4] == set(stable) and {dbl(a) for a in stable} == set(stable)
+            and sorted(lengths) == [1, 2, 6],
+        "the full preimage of the stable addresses is <4>, 1080 points, in which the coil has index 2 and is the image of "
+        "doubling, 2 <4> = <8>":
+            frozenset(x for x in range(N) if x % 36 in stable) == S(4) and len(S(4)) == 1080 == 2 * len(C)
+            and frozenset(2 * x % N for x in S(4)) == C,
+    }
+
+
+def join_atlas_observer():
+    """The atlas maps onto the observer clock by a -> 1080 a, with kernel the nine stable addresses."""
+    S = spine.subgroup
+    obs = S(1080)
+    f = lambda a: 1080 * a % N
+    stable = frozenset(range(0, 36, 4))
+    return {
+        "a -> 1080 a is well defined on the atlas Z/36 (1080 x 36 = 9 x 4320) and maps it onto the observer clock <1080>, "
+        "with kernel the nine stable addresses 0, 4, ..., 32: it is a mod 4 followed by k -> 1080 k, the atlas's checksum mod 4":
+            1080 * 36 % N == 0 and {f(a) for a in range(36)} == obs and frozenset(a for a in range(36) if f(a) == 0) == stable
+            and all(f(a) == 1080 * (a % 4) % N for a in range(36)) and all(f((a + b) % 36) == (f(a) + f(b)) % N for a in range(36) for b in range(36)),
+        "on the circle x -> 1080 x is the homomorphism onto the observer clock with kernel <4> (1080 points), the observer "
+        "clock being the points of order dividing 4; it factors through the address since 4 | 36":
+            frozenset(x for x in range(N) if 1080 * x % N == 0) == S(4) and len(S(4)) == 1080 and {1080 * x % N for x in range(N)} == obs
+            and obs == frozenset(x for x in range(N) if 4 * x % N == 0) and all(1080 * x % N == f(x % 36) for x in range(N)),
+        "the observer clock itself lies on the seam, address 0, so the atlas sees it as a quotient and not as a subgroup: "
+        "the composite <1080> -> circle -> Z/36 is zero":
+            all(x % 36 == 0 for x in obs) and obs <= S(36),
+    }
+
+
+def join_memory_miss():
+    """The miss set steps the memory onto its subgroup of order 18, Z/2 x Z/9: parity on the 10-cycles, vortex on the 9-cycle."""
+    perm, cycles, P = _memory()
+    units = [u for u in range(90) if gcd(u, 90) == 1]
+    nine = next(c for c in cycles if len(c) == 9)
+    tens = [c for c in cycles if len(c) == 10]
+    miss, time = spine.subgroup(5), spine.subgroup(864)
+    image = lambda u, H: {u * x % 90 for x in H}
+    eighteen, five = set(range(0, 90, 5)), set(range(0, 90, 18))
+    return {
+        "for every one of the 24 maps k -> A^(uk) of the circle onto the memory clock, the miss set <5> maps onto the "
+        "memory's subgroup of order 18, the powers A^(5 m) = Z/2 x Z/9, with kernel <90>, the map's whole kernel, which "
+        "lies in the miss set":
+            len(units) == 24 and all(image(u, miss) == eighteen for u in units) and len(eighteen) == 18
+            and spine.subgroup(90) <= miss and lcm(5, 90) == 90,
+        "a miss x turns the 9-cycle by u x mod 9 and every 10-cycle by a half-turn when x is odd and not at all when x is "
+        "even: on the 10-cycles the memory reads a miss's parity, on the 9-cycle its vortex coordinate up to the doubling":
+            all(nine.index(P[u * x % 90][nine[0]]) == u * x % 9 and all(c.index(P[u * x % 90][c[0]]) == 5 * (x % 2) for c in tens)
+                for u in units for x in range(0, N, 5)),
+        "the time clock's image is the subgroup of order 5, the powers A^(18 m); it meets the miss set's image in the "
+        "identity and with it generates <A>: Z/90 = Z/18 x Z/5 mirrors Z/4320 = <5> + <864>":
+            all(image(u, time) == five for u in units) and eighteen & five == {0}
+            and {(a + b) % 90 for a in eighteen for b in five} == set(range(90)) and miss & time == {0},
+    }
+
+
+def join_time_hodge():
+    """The time clock on Hodge 70: the tick fixes 18 four-forms, 11 self-dual and 7 anti-self-dual."""
+    k = cyclotomic.clocks()
+    g = np.rint(k["g"]).astype(np.int64)
+    S = sp.zeros(8, 8)
+    S[0, :] = sp.Matrix([[1, -1, -1, -1, -1, -1, -1, 1]]) / 2
+    S[1, 0], S[1, 1] = 1, 1
+    for i in range(2, 8):
+        S[i, i - 1], S[i, i - 2] = 1, -1
+    Bm = S.T                                                   # the simple roots as columns: root basis -> standard
+    Bi = Bm.inv()
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: i for i, q in enumerate(quads)}
+
+    def lam4(M):                                               # the fourth compound in the standard coordinates, exactly
+        M4 = 4 * Bm * sp.Matrix(M.tolist()) * Bi
+        return sp.Matrix(70, 70, lambda a, b: M4.extract(list(quads[a]), list(quads[b])).det() / 256)
+
+    def sign(p):
+        s, p = 1, list(p)
+        for i in range(len(p)):
+            for j in range(i + 1, len(p)):
+                if p[i] > p[j]:
+                    s = -s
+        return s
+    star = sp.zeros(70, 70)
+    for q in quads:
+        cc = tuple(t for t in range(8) if t not in q)
+        star[idx[cc], idx[q]] = sign(q + cc)
+    I70 = sp.eye(70)
+    Pp, Pm = (I70 + star) / 2, (I70 - star) / 2
+    rank = lambda M: sp.polys.matrices.DomainMatrix.from_Matrix(M).convert_to(sp.QQ).rank()
+    L = lam4(g)
+    Gs = Bm * sp.Matrix(g.tolist()) * Bi
+    tr, trp, trm = L.trace(), (L * Pp).trace(), (L * Pm).trace()
+    fixed, fp, fm = 70 - rank(L - I70), 35 - rank((L - I70) * Pp), 35 - rank((L - I70) * Pm)
+    return {
+        "the time clock acts on Lambda^4 R^8 through the tick g (864 -> g), of determinant 1; the fourth compound of g has "
+        "order 5 and commutes with the Hodge star, so it keeps the two halves 35 + 35":
+            Gs.det() == 1 and L ** 5 == I70 and L != I70 and L * star == star * L and star * star == I70 and rank(Pp) == 35,
+        "its trace is 5 on the 70, 5 on the star's +1 half and 0 on its -1 half; a rational matrix of order 5 has character "
+        "(x - 1)^a Phi_5^b with trace a - b, so the characters are (x - 1)^18 Phi_5^13 on the 70, (x - 1)^11 Phi_5^6 on "
+        "the +1 half and (x - 1)^7 Phi_5^7 on the -1 half":
+            (tr, trp, trm) == (5, 5, 0) and (fixed, fp, fm) == (18, 11, 7)
+            and 18 + 4 * 13 == 70 and 11 + 4 * 6 == 35 and 7 + 4 * 7 == 35,
+        "the tick fixes 18 of the 70 four-forms, 11 self-dual and 7 anti-self-dual, and turns the other 52 in 13 copies of "
+        "its four nontrivial characters, 6 self-dual and 7 anti-self-dual":
+            fixed == 18 and fp + fm == 18 and (70 - fixed) // 4 == 13 and (35 - fp) // 4 == 6 and (35 - fm) // 4 == 7,
+    }
+
+
+def join_observer_hodge():
+    """The observer clock on Hodge 70: its quarter turn d^6 is an involution there, its half-turn invisible."""
+    k = cyclotomic.clocks()
+    day = np.rint(k["day"]).astype(np.int64)
+    P = spine.mpow
+    I8 = np.eye(8, dtype=np.int64)
+    J = P(day, 6)
+    S = sp.zeros(8, 8)
+    S[0, :] = sp.Matrix([[1, -1, -1, -1, -1, -1, -1, 1]]) / 2
+    S[1, 0], S[1, 1] = 1, 1
+    for i in range(2, 8):
+        S[i, i - 1], S[i, i - 2] = 1, -1
+    Bm = S.T
+    Bi = Bm.inv()
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: i for i, q in enumerate(quads)}
+
+    def lam4(M):                                               # the fourth compound in the standard coordinates, exactly
+        M4 = 4 * Bm * sp.Matrix(M.tolist()) * Bi
+        return sp.Matrix(70, 70, lambda a, b: M4.extract(list(quads[a]), list(quads[b])).det() / 256)
+
+    def sign(p):
+        s, p = 1, list(p)
+        for i in range(len(p)):
+            for j in range(i + 1, len(p)):
+                if p[i] > p[j]:
+                    s = -s
+        return s
+    star = sp.zeros(70, 70)
+    for q in quads:
+        cc = tuple(t for t in range(8) if t not in q)
+        star[idx[cc], idx[q]] = sign(q + cc)
+    I70 = sp.eye(70)
+    Pp, Pm = (I70 + star) / 2, (I70 - star) / 2
+    rank = lambda M: sp.polys.matrices.DomainMatrix.from_Matrix(M).convert_to(sp.QQ).rank()
+    L = lam4(J)
+    Js = Bm * sp.Matrix(J.tolist()) * Bi
+    tr, trp, trm = L.trace(), (L * Pp).trace(), (L * Pm).trace()
+    fixed, fp, fm = 70 - rank(L - I70), 35 - rank((L - I70) * Pp), 35 - rank((L - I70) * Pm)
+    obs = spine.subgroup(1080)
+    return {
+        "the observer clock <1080> = Z/4 carries the regular class 4, the day's sixth power d^6, with d^12 = -1 at its square "
+        "2160; d^6 has determinant 1 and acts on Lambda^4 R^8 as an involution commuting with the Hodge star, since its square "
+        "-1 is trivial on four-forms: the Hodge 70 sees the quarter turn and not the half-turn":
+            np.array_equal(primes.regular()[4], J) and np.array_equal(P(day, 12), -I8) and 2160 in obs and len(obs) == 4
+            and Js.det() == 1 and L * L == I70 and L != I70 and lam4(-I8) == I70 and L * star == star * L,
+        "its trace is 6 on the 70, 11 on the star's +1 half and -5 on the -1 half: an involution with trace a - b on a + b "
+        "dimensions fixes a, so d^6 fixes 38 four-forms and negates 32, 23 + 12 self-dual and 15 + 20 anti-self-dual":
+            (tr, trp, trm) == (6, 11, -5) and (fixed, fp, fm) == (38, 23, 15)
+            and (70 - fixed, 35 - fp, 35 - fm) == (32, 12, 20),
+        "so the observer clock acts on Hodge 70 through Z/2, with kernel its half-turn <2160>: the time clock's tick, by "
+        "contrast, acts faithfully there":
+            fixed < 70 and lam4(P(day, 12)) == I70,
+    }
+
+
+def join_observer_golden():
+    """The observer clock's class commutes with the golden companion: E8 = Z[phi, i]^2 with i = d^6 and phi = X."""
+    I8 = np.eye(8, dtype=np.int64)
+    k = cyclotomic.clocks()
+    g, day = (np.rint(k[n]).astype(np.int64) for n in ("g", "day"))
+    P, inv = spine.mpow, spine.inverse
+    X = -(g + inv(g))
+    J = P(day, 6)
+    RB = spine.frame()[5]
+    ops = [X, I8, X @ J, J]                                   # columns (Xy, y, XJy, Jy)
+    cols = lambda ys: np.array([o @ y for y in ys for o in ops], dtype=np.int64).T
+    rank = lambda M: sp.Matrix(M.tolist()).rank()
+    unimodular = lambda M: abs(sp.Matrix(M.tolist()).det()) == 1
+    span = np.array([o.flatten() for o in ops])
+    found = next(((a, b) for a in range(240) if rank(cols([RB[a]])) == 4
+                  for b in range(a + 1, 240) if abs(round(np.linalg.det(cols([RB[a], RB[b]]).astype(float)))) == 1), None)
+    basis = cols([RB[found[0]], RB[found[1]]])
+    binv = np.rint(np.linalg.inv(basis.astype(float))).astype(np.int64)
+    B2 = np.array([[1, 1], [1, 0]], dtype=np.int64)
+    Q = np.array([[0, -1], [1, 0]], dtype=np.int64)
+    T = sp.Matrix(4, 4, lambda a, b: sp.Rational(int(np.trace(ops[a] @ ops[b])), 2))     # the field trace: rank 2 module
+    H = primes._matrix_group([g, day @ day])
+    key = lambda M: M.tobytes()
+    return {
+        "the observer clock's class d^6 (the regular class 4, 1080 -> d^6) commutes with the golden companion X = -(g + g^-1) "
+        "and squares to -1: it lies in <g, d^2>, the 60-element kernel of the day's Galois action on Z[X]":
+            np.array_equal(primes.regular()[4], J) and np.array_equal(J @ X, X @ J) and np.array_equal(J @ J, -I8)
+            and key(J) in {key(M) for M in H} and len(H) == 60,
+        "so I, X, J, XJ span a commutative ring of rank 4, Z[X, J] = Z[phi, i] with X^2 = X + 1, J^2 = -1 and trace form of "
+        "discriminant 400 = (5 x 4)^2, the integers of Q(sqrt5, i) (cited: its discriminant is 400), and E8 is a module over it":
+            rank(span) == 4 and np.array_equal(X @ X, X + I8) and T.det() == 400 and T.is_symmetric(),
+        "E8 is free of rank 2 over Z[phi, i]: two roots y1, y2 give the Z-basis Xy, y, XJy, Jy (y = y1, y2), in which X is "
+        "four golden blocks B = [[1, 1], [1, 0]] and J two quarter turns [[0, -I2], [I2, 0]]; every one of the 240 roots generates a rank-4 "
+        "submodule":
+            found is not None and unimodular(basis) and np.array_equal(basis @ binv, I8)
+            and np.array_equal(binv @ X @ basis, np.kron(np.eye(4, dtype=np.int64), B2))
+            and np.array_equal(binv @ J @ basis, np.kron(np.eye(2, dtype=np.int64), np.kron(Q, np.eye(2, dtype=np.int64))))
+            and all(rank(cols([y])) == 4 for y in RB),
+    }
+
+
+def join_miss_AGL():
+    """The miss set is the fixed locus of the frame doubling and a transversal of the affine group's orbits."""
+    j = np.arange(N)
+    comp = lambda f, h: ((f[0] * h[0]) % N, (f[0] * h[1] + f[1]) % N)
+    t, m = (1, 864), (3457, 0)
+    group, frontier = {(1, 0)}, [(1, 0)]
+    while frontier:
+        frontier = [x for x in {comp(h, f) for f in frontier for h in (t, m)} if x not in group]
+        group.update(frontier)
+    apply = lambda f: (f[0] * j + f[1]) % N
+    miss, tick = spine.subgroup(5), spine.subgroup(864)
+    fixed = lambda f: frozenset(np.nonzero(apply(f) == j)[0].tolist())
+    stab0 = [f for f in group if f[1] == 0]
+    orbits = {frozenset((f[0] * x + f[1]) % N for f in group) for x in range(N)}
+    tick_part = 3456 * j % N                                   # the time idempotent
+    return {
+        "j -> j + 864 and j -> 3457 j generate the twenty affine maps of AGL(1,5) on the 4320 frames; the stabilizer of the "
+        "frame 0 is the four multiplications by the powers of 3457, the doubling of the phase":
+            len(group) == 20 and len(stab0) == 4 and {f[0] for f in stab0} == {pow(3457, k, N) for k in range(4)}
+            and all(pow(3457, k, N) % 5 == pow(2, k, 5) for k in range(4)),
+        "3457 j = j + 3456 j, a frame plus its tick part, so the doubling fixes a frame exactly when its time coordinate is 0: "
+        "its fixed frames are the miss set <5>, which is the fixed locus of the whole stabilizer of 0":
+            np.array_equal(3457 * j % N, (j + tick_part) % N) and fixed(m) == miss
+            and all(fixed(f) == miss for f in stab0 if f != (1, 0)) and len(miss) == 864,
+        "the orbits of AGL(1,5) are the 864 cosets of the time clock, each an affine line F5, and the miss set meets every "
+        "orbit exactly once while the translation moves every miss off the miss set: the circle is the affine line times "
+        "the miss set as an AGL(1,5)-set":
+            len(orbits) == 864 and all(len(o) == 5 and o == frozenset((min(o) + s) % N for s in tick) and len(o & miss) == 1
+                                       for o in orbits) and not any((x + 864) % N in miss for x in miss),
+    }
+
+
+def join_time_petersen():
+    """Through kappa the time clock acts on the Petersen graph by automorphisms: the tick is the rotation of its drawing."""
+    E = carrier.edges()
+    A = carrier.petersen()
+    M = sp.Matrix(carrier.signless_incidence())
+    I10 = sp.eye(10)
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    U = compound2(R5).applyfunc(abs)                       # the unsigned edge permutation of the vertex rotation
+    powers = [U ** k for k in range(5)]
+    kappa = lambda x: 4 * x % 5
+    act = lambda x: powers[kappa(x)]
+    perm = [list(U.col(k)).index(1) for k in range(10)]
+    near = frozenset(k for k, (i, j) in enumerate(E) if (j - i) % 5 in (1, 4))
+    far = frozenset(k for k, (i, j) in enumerate(E) if (j - i) % 5 in (2, 3))
+    cycles = {frozenset(c) for c in Permutation(perm).full_cyclic_form}
+    deg = lambda S, Tt: {sum(A[a, b] for b in Tt) for a in S}
+    An = [[int(A[i, j]) for j in range(10)] for i in range(10)]
+    pent = {frozenset(c) for c in itertools.permutations(range(10), 5)
+            if c[0] == min(c) and c[1] < c[4] and all(An[c[i]][c[(i + 1) % 5]] for i in range(5))}
+    image = lambda s: frozenset(perm[v] for v in s)
+
+    def orbit_sizes(items):
+        seen, out = set(), []
+        for s in items:
+            if s not in seen:
+                o = [s]
+                while image(o[-1]) not in o:
+                    o.append(image(o[-1]))
+                seen |= set(o)
+                out.append(len(o))
+        return sorted(out)
+    proj = {}
+    for lam in (3, 1, -2):
+        X = I10
+        for mu in (3, 1, -2):
+            if mu != lam:
+                X = X * (A - mu * I10) / (lam - mu)
+        proj[lam] = X
+    x = sp.symbols("x")
+    phi5 = x ** 4 + x ** 3 + x ** 2 + x + 1
+
+    def on(P):
+        V = sp.Matrix.hstack(*P.columnspace())
+        return sp.expand(((V.T * V).inv() * V.T * U * V).charpoly(x).as_expr())
+    return {
+        "x -> U^kappa(x), with U the unsigned edge permutation of the vertex rotation and kappa(x) = 4x mod 5, is a "
+        "homomorphism of the circle into the automorphisms of the Petersen graph (U A U^T = A, U^5 = I) sending the tick "
+        "864 to U: through kappa the time clock acts on the Petersen graph, with kernel the miss set <5>":
+            U * A * U.T == A and U ** 5 == I10 and kappa(TICK) == 1
+            and all(powers[(i + j) % 5] == powers[i] * powers[j] for i in range(5) for j in range(5))
+            and all(kappa((a + b) % N) == (kappa(a) + kappa(b)) % 5 for a in range(N) for b in (1, 5, 36, 864, 1080, 2160))
+            and frozenset(x for x in range(N) if act(x) == I10) == spine.subgroup(5),
+        "U turns the five near edges and the five far edges in two five-cycles; in the Petersen graph the near edges "
+        "induce a five-cycle (the outer pentagon) and the far edges another (the inner pentagram), and each near edge is "
+        "adjacent to exactly one far edge (the spokes): the tick is the rotation of the standard drawing":
+            cycles == {near, far} and deg(near, near) == {2} and deg(far, far) == {2} and deg(near, far) == {1}
+            and deg(far, near) == {1},
+        "of the twelve pentagons of the Petersen graph the tick fixes exactly two, the outer and the inner, and turns "
+        "the other ten in two five-cycles": len(pent) == 12 and {s for s in pent if image(s) == s} == {near, far}
+            and orbit_sizes(sorted(pent, key=sorted)) == [1, 1, 5, 5],
+        "U commutes with A and with its three spectral projectors (ranks 1, 5, 4); on the eigenspaces 3, 1 and -2 the "
+        "time clock has characteristic polynomials x - 1, (x - 1) Phi_5 and Phi_5: the constant is fixed, the "
+        "eigenvalue-1 space, which is ker M, is the regular representation of the five-clock, and the eigenvalue -2 "
+        "space has no fixed vector": U * A == A * U and all(U * P == P * U for P in proj.values())
+            and [proj[lam].rank() for lam in (3, 1, -2)] == [1, 5, 4] and (M * proj[1]).is_zero_matrix
+            and [on(proj[lam]) for lam in (3, 1, -2)] == [x - 1, sp.expand((x - 1) * phi5), phi5],
+    }
+
+
+def join_time_surface():
+    """The vertex rotation, extended by fixing the cone point, is a symmetry of the hemi-icosahedron: through kappa
+    the time clock turns the surface about its cone point."""
+    A, Ac = _surface_labels()
+    pgl, psl = projective_line()
+    rot = tuple([(x + 1) % 5 for x in range(5)] + [5])
+    image = lambda s, F: {tuple(sorted(s[i] for i in f)) for f in F}
+    comp = lambda a, b: tuple(a[b[i]] for i in range(6))
+    ident = tuple(range(6))
+    powers = [ident]
+    for _ in range(4):
+        powers.append(comp(rot, powers[-1]))
+    kappa = lambda x: 4 * x % 5
+
+    def orbits(F):
+        seen, out = set(), []
+        for f in sorted(F):
+            if f not in seen:
+                o, g = [], f
+                while g not in o:
+                    o.append(g)
+                    g = tuple(sorted(rot[i] for i in g))
+                seen |= set(o)
+                out.append(o)
+        return out
+    edges = set(itertools.combinations(range(6), 2))
+    spokes = {(i, 5) for i in range(5)}
+    near = {tuple(sorted((i, (i + 1) % 5))) for i in range(5)}
+    far = {tuple(sorted((i, (i + 2) % 5))) for i in range(5)}
+    aut = {p for p in itertools.permutations(range(6)) if image(p, A) == A}
+    cent = {p for p in aut if comp(p, rot) == comp(rot, p)}
+    link = lambda F, v: {tuple(sorted(set(f) - {v})) for f in F if v in f}
+    E = carrier.edges()
+    U = compound2(sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))).applyfunc(abs)
+    return {
+        "the vertex rotation i -> i + 1 of the carrier's K5, extended by fixing the cone point 5 = infinity, is the "
+        "translation x -> x + 1 of the projective line over F5; it lies in PSL(2,5), has order 5 and maps the "
+        "hemi-icosahedron's ten triangles onto themselves and the complement's onto themselves: a simplicial "
+        "automorphism of RP^2": rot in psl and image(rot, A) == A and image(rot, Ac) == Ac
+            and powers[4] != ident and comp(rot, powers[4]) == ident,
+        "so x -> rot^kappa(x) is an action of the circle on the surface with the tick 864 -> rot; it fixes the cone "
+        "point alone, turns the fifteen edges of K6 in three five-cycles (the five spokes, the five near and the five "
+        "far K5 edges) and the ten faces of either triangulation in two (the five at the cone point and the five away "
+        "from it)": kappa(TICK) == 1 and [v for v in range(6) if rot[v] == v] == [5]
+            and {frozenset(o) for o in orbits(edges)} == {frozenset(spokes), frozenset(near), frozenset(far)}
+            and sorted(sum(5 in f for f in o) for o in orbits(A)) == [0, 5]
+            and sorted(sum(5 in f for f in o) for o in orbits(Ac)) == [0, 5],
+        "the symmetries of the hemi-icosahedron are exactly the 60 elements of PSL(2,5), and those commuting with the "
+        "rotation are its five powers: the time coordinate is the only action of the circle on the surface extending "
+        "the tick, and its kernel is the miss set <5>": aut == psl and len(aut) == 60 and cent == set(powers)
+            and frozenset(x for x in range(N) if powers[kappa(x)] == ident) == spine.subgroup(5),
+        "on the K5 left by deleting the cone point the rotation is the tick on the vertices and on the edges (the "
+        "unsigned edge tick), and it turns the link of the cone point, the pentagram on the hemi-icosahedron and the "
+        "pentagon on its complement, as the tick turns the far and the near edges":
+            all(tuple(sorted((rot[i], rot[j]))) == E[list(U.col(k)).index(1)] for k, (i, j) in enumerate(E))
+            and link(A, 5) == far and link(Ac, 5) == near and image(rot, link(A, 5)) == far and image(rot, link(Ac, 5)) == near,
+    }
+
+
+def join_time_pg25():
+    """Through kappa the time clock acts on PG(2,5) by the symmetric square of the translation x -> x + 1: a unipotent
+    collineation with one fixed point and one fixed line."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    s = sym2((1, 1, 0, 1))                                  # (x, y) -> (x + y, y) on (x^2, xy, y^2)
+    S = sp.Matrix([[1, 2, 1], [0, 1, 1], [0, 0, 1]])
+    mod5 = lambda X: X.applyfunc(lambda e: e % 5)
+
+    def norm(v):                                            # the point of PG(2,5) with first nonzero coordinate 1
+        v = [int(e) % 5 for e in v]
+        inv = pow(next(e for e in v if e), 3, 5)
+        return tuple(e * inv % 5 for e in v)
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    kind = lambda q: "conic" if q in conic else ("exterior" if count[q] == 2 else "interior")
+    seen, orbits = set(), []
+    for q in points:
+        if q not in seen:
+            o, r = [], q
+            while r not in o:
+                o.append(r)
+                r = s(r)
+            seen |= set(o)
+            orbits.append(o)
+    pts = lambda L: frozenset(q for q in points if on(L, q))
+    fixed_points = [q for q in points if s(q) == q]
+    fixed_lines = [L for L in points if {s(q) for q in pts(L)} == pts(L)]
+    powers = [{q: q for q in points}]
+    for _ in range(5):
+        powers.append({q: s(powers[-1][q]) for q in points})
+    kappa = lambda x: 4 * x % 5
+    A, Ac = _surface_labels()
+    rot = lambda v: (v + 1) % 5 if v < 5 else 5
+    pole = lambda a, b: cross(tangent[label[a]], tangent[label[b]])
+
+    def perspector(T):
+        a, b, c = T
+        lines = [cross(label[a], pole(b, c)), cross(label[b], pole(a, c)), cross(label[c], pole(a, b))]
+        X = cross(lines[0], lines[1])
+        return X if on(lines[2], X) else None
+    turn = lambda T: tuple(sorted(rot(v) for v in T))
+    return {
+        "on the conic the symmetric square of the translation [[1, 1], [0, 1]] is the vertex rotation, label x -> x + 1 "
+        "with infinity fixed, so x -> s^kappa(x) is an action of the circle on PG(2,5) by collineations with the tick "
+        "864 -> s; s has order 5 and the kernel is the miss set <5>":
+            all(s(label[x]) == label[(x + 1) % 5] for x in range(5)) and s(label[5]) == label[5] and kappa(TICK) == 1
+            and powers[5] == powers[0] and all(powers[k] != powers[0] for k in range(1, 5))
+            and frozenset(x for x in range(N) if powers[kappa(x)] == powers[0]) == spine.subgroup(5),
+        "its matrix on (x^2, xy, y^2) is a single Jordan block mod 5 ((S - I)^2 != 0 = (S - I)^3), so it fixes exactly "
+        "one point, the conic point at infinity, and exactly one line, the tangent there, and turns the other 30 points "
+        "in six five-cycles: conic 5, exterior 3 x 5 and interior 2 x 5":
+            all(s(q) == norm(mod5(S * sp.Matrix(q))) for q in points)
+            and mod5((S - sp.eye(3)) ** 2) != sp.zeros(3) and mod5((S - sp.eye(3)) ** 3) == sp.zeros(3)
+            and fixed_points == [label[5]] and fixed_lines == [tangent[label[5]]]
+            and sorted((kind(o[0]), len(o)) for o in orbits) == [("conic", 1), ("conic", 5), ("exterior", 5),
+                                                                  ("exterior", 5), ("exterior", 5), ("interior", 5), ("interior", 5)],
+        "the Veronese identification is equivariant: s carries the pole of the tangents at a and b (the surface's edge "
+        "ab) to the pole for the rotated edge, and the perspector of a face to the perspector of the rotated face, so "
+        "the time clock's action on the conic, the exterior and the interior points is its action on the surface's six "
+        "axes, fifteen edges and ten faces":
+            all(s(pole(a, b)) == pole(rot(a), rot(b)) for a, b in itertools.combinations(range(6), 2))
+            and all(perspector(T) is not None and s(perspector(T)) == perspector(turn(T)) for T in A | Ac),
+    }
+
+
+def join_time_rotor():
+    """The rotor plane is the time clock's fixed space in the edge space, and its Reynolds image: the pentagon and
+    pentagram are the tick-orbit sums of a near and a far edge."""
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+    I10 = sp.eye(10)
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    T = compound2(R5)
+    powers = [T ** k for k in range(5)]
+    avg = sum(powers, sp.zeros(10)) / 5
+    pent, star = (sp.Matrix(counts._oriented_cycle(k)) for k in (1, 2))
+    basis = lambda k: sp.Matrix(10, 1, lambda r, _: int(r == k))
+    e01, e02 = basis(E.index((0, 1))), basis(E.index((0, 2)))
+    orbit_sum = lambda v: sum((P * v for P in powers), sp.zeros(10, 1))
+    fixed = (T - I10).nullspace()
+    near = [k for k, (i, j) in enumerate(E) if (j - i) % 5 in (1, 4)]
+    far = [k for k, (i, j) in enumerate(E) if (j - i) % 5 in (2, 3)]
+    kappa = lambda x: 4 * x % 5
+    dbl = counts._edge_action(lambda i: 2 * i % 5)
+    return {
+        "the edge tick T = Lambda^2 r fixes exactly a plane of Lambda^2 R^5, and it is the rotor plane: the fixed space "
+        "of the time clock (acting by x -> T^kappa(x)) in the whole edge space lies in the cycles and is spanned by the "
+        "oriented pentagon and pentagram, with Gram 5I": len(fixed) == 2 and kappa(TICK) == 1
+            and sp.Matrix.hstack(*fixed, pent, star).rank() == 2 and (B * pent).is_zero_matrix and (B * star).is_zero_matrix
+            and T * pent == pent and T * star == star and sp.Matrix.hstack(pent, star).T * sp.Matrix.hstack(pent, star) == 5 * sp.eye(2),
+        "the Reynolds average (I + T + T^2 + T^3 + T^4)/5 of the time clock is the orthogonal projector onto the rotor "
+        "plane, (pentagon pentagon^T + pentagram pentagram^T)/5, of rank 2 and trace 2":
+            avg == (pent * pent.T + star * star.T) / 5 and avg ** 2 == avg and avg.T == avg and avg.rank() == 2
+            and avg.trace() == 2,
+        "the rotor plane is the image of the time clock's averaging: the oriented pentagon is the orbit sum of the near "
+        "edge 01 and the pentagram the orbit sum of the far edge 02 under T, and every edge's orbit sum is plus or "
+        "minus one of them (near edges give the pentagon, far edges the pentagram)":
+            orbit_sum(e01) == pent and orbit_sum(e02) == star
+            and all(orbit_sum(basis(k)) in (pent, -pent) for k in near) and all(orbit_sum(basis(k)) in (star, -star) for k in far),
+        "the time clock acts trivially on the rotor plane while the doubling of the circle's AGL turns it a quarter, so "
+        "the rotor plane is the time clock's trivial isotypic component of the edge space, of multiplicity 2, and the "
+        "other eight dimensions carry the four nontrivial characters twice each":
+            all(P * pent == pent and P * star == star for P in powers) and dbl * pent == star and dbl * star == -pent
+            and (T - I10).rank() == 8 and sp.expand(T.charpoly(sp.symbols("x")).as_expr())
+            == sp.expand((sp.symbols("x") - 1) ** 2 * (sp.symbols("x") ** 4 + sp.symbols("x") ** 3 + sp.symbols("x") ** 2 + sp.symbols("x") + 1) ** 2),
+    }
+
+
+def join_observer_D5():
+    """The observer clock is the character group of E8 / (D5 + A3): an explicit isometry carries k rho/4 onto
+    k (e5 + e6 + e7)/2, the momenta integral on the carrier coordinates' D5 and the other three coordinates' A3."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = principal.weyl_vector()
+    Q = lambda z: sp.Rational(int(round(2 * z)), 2)
+    Rm = sp.Matrix([[Q(v) for v in r] for r in R])
+    Bm = sp.Matrix([[Q(v) for v in row] for row in B])
+    Bi, Cm = Bm.inv(), sp.Matrix(C.tolist())
+    S2 = [tuple(int(round(2 * v)) for v in B[:, i]) for i in range(8)]
+    theta2 = tuple(int(round(2 * v)) for v in R[int(np.argmax(ht))])
+
+    def in_e8(v):
+        v2 = [2 * a for a in v]
+        if any(not a.is_integer for a in v2):
+            return False
+        v2 = [int(a) for a in v2]
+        return (all(a % 2 == 0 for a in v2) or all(a % 2 == 1 for a in v2)) and sum(v2) % 4 == 0
+
+    def reduce(x):
+        n, x = 8, [Fraction(int(a.p), int(a.q)) for a in x]
+        w = [[Fraction(int(i == j)) for j in range(n)] for i in range(n)]
+        while True:
+            hit = next((a2 for a2 in S2 if sum(Fraction(ai, 2) * xi for ai, xi in zip(a2, x)) < 0), None)
+            shift = 0
+            if hit is None:
+                c = sum(Fraction(ai, 2) * xi for ai, xi in zip(theta2, x))
+                if c <= 1:
+                    return tuple(x), sp.Matrix(w)
+                hit, shift = theta2, 1
+            a = [Fraction(v, 2) for v in hit]
+            c = sum(ai * xi for ai, xi in zip(a, x))
+            x = [xi - (c - shift) * ai for xi, ai in zip(x, a)]
+            w = [[w[i][j] - a[i] * sum(a[k] * w[k][j] for k in range(n)) for j in range(n)] for i in range(n)]
+
+    def band(y):
+        return sp.nsimplify(sp.simplify(240 - sum(sp.cos(2 * sp.pi * (Rm.row(i) * y)[0]) for i in range(240))))
+    typ = lambda y: handover.stabiliser(R, np.array([float(v) for v in y]))[0]
+    key = lambda v: tuple(sp.Matrix([Q(a) for a in v]))
+    D5 = {key(r) for r in R if np.allclose(r[5:], 0)}
+    A3 = {key(r) for r in R if np.allclose(r[:5], 0)}
+    e = lambda i: sp.Matrix([int(j == i) for j in range(8)])
+    basis = sp.Matrix.hstack(*[e(i) - e(i + 1) for i in range(4)], e(3) + e(4), e(5) - e(6), e(6) - e(7), e(6) + e(7)).T
+    dual = basis.inv().T
+    x = (e(5) + e(6) + e(7)) / 2
+    chars = [k * x for k in range(4)]
+    x1 = sp.Matrix([Q(v) for v in rs]) / 4
+    v1, w1 = reduce(x1)
+    v2, w2 = reduce(x)
+    w = w2.inv() * w1
+    wr = Bi * w * Bm
+    stab = [i for i in range(240) if int(ht[i]) % 4 == 0]
+    imgD5 = Counter(int(ht[i]) for i in stab if tuple(w * Rm.row(i).T) in D5)
+    imgA3 = Counter(int(ht[i]) for i in stab if tuple(w * Rm.row(i).T) in A3)
+    half = 2 * x
+    return {
+        "the dot's D5 (the 40 roots +-e_i +- e_j on the carrier's five coordinates) and the A3 = D3 of the 12 roots on the "
+        "other three make a rank-8 subsystem D5 + A3 of index 4 in E8 (Gram determinant 4 x 4 = 16 on simple roots); its "
+        "characters, the momenta integral on all 52 roots, are the four points k x, x = (e5 + e6 + e7)/2: every dual basis "
+        "vector is a multiple of x mod E8, 4x lies in E8 and 2x does not, so E8 / (D5 + A3) is dual to the Z/4 of momenta k x":
+            len(D5) == 40 and len(A3) == 12 and (basis * basis.T).det() == 16
+            and all(any(in_e8(list(dual.row(i).T - k * x)) for k in range(4)) for i in range(8))
+            and all((sp.Matrix(r).T * x)[0].is_integer for r in D5 | A3) and [in_e8(list(c)) for c in chars] == [True, False, False, False],
+        "on them the band is 0, 248, 256, 248 with stabilizers E8, D5 + A3, D8, D5 + A3, as at the observer clock's steps 0, "
+        "1080, 2160, 3240 = k rho/4; 2x = e5 + e6 + e7 is a half-period of type D8 at the band's top, the observer's square":
+            [band(c) for c in chars] == [0, 248, 256, 248] and [typ(c) for c in chars] == ["E8", "D5+A3", "D8", "D5+A3"]
+            and [band(k * x1) for k in range(4)] == [0, 248, 256, 248] and in_e8(list(2 * half)) and not in_e8(list(half)),
+        "reducing rho/4 and x to the alcove by simple and affine reflections lands both on the D5 + A3 vertex "
+        "(0, 0, 0, 0, 1, 1, 1, 3)/4, so w = w2^-1 w1 is an isometry of E8 (orthogonal, integral in the root basis, keeping the "
+        "Cartan form) with w rho/4 = x mod E8: it carries the observer clock k rho/4 onto the character group k x and the "
+        "half-turn rho/2 onto the half-period e5 + e6 + e7":
+            v1 == v2 == tuple(Fraction(v, 4) for v in (0, 0, 0, 0, 1, 1, 1, 3)) and w.T * w == sp.eye(8)
+            and all(a.is_integer for a in wr) and wr.T * Cm * wr == Cm and all(in_e8(list(w * (k * x1) - k * x)) for k in range(4)),
+        "w carries the 52 roots of height 0 mod 4 (the stabilizer of rho/4) onto D5 + A3: 40 of them, of heights +-4 (five "
+        "of the seven), +-8 (four of six), +-12 (four of five), +-16 (three of four), +-20, +-24 and +-28, onto the dot's D5 on "
+        "the carrier's coordinates, and the twelve others, two each of heights +-4 and +-8 and one each of +-12 and +-16, onto "
+        "the A3 of the other three coordinates":
+            len(stab) == 52 and {tuple(w * Rm.row(i).T) for i in stab} == D5 | A3
+            and imgD5 == Counter({4: 5, 8: 4, 12: 4, 16: 3, 20: 2, 24: 1, 28: 1, -4: 5, -8: 4, -12: 4, -16: 3, -20: 2, -24: 1, -28: 1})
+            and imgA3 == Counter({4: 2, 8: 2, 12: 1, 16: 1, -4: 2, -8: 2, -12: 1, -16: 1})
+            and Counter(int(ht[i]) for i in stab) == imgD5 + imgA3,
+    }
+
+
+def join_time_D5():
+    """The time clock acts on D5 through the carrier's vertex rotation r (864 -> r by kappa): eight free five-cycles."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    _, cp, r, rp, g, _ = spine.spine_clock()
+    Rs = np.rint(spine.to_standard(r)).astype(int)
+    Gs = spine.to_standard(g)
+    key = lambda v: tuple(np.rint(2 * v).astype(int))
+    roots = {key(v) for v in R}
+    D5 = [v for v in R if np.allclose(v[5:], 0)]
+    D5set = {key(v) for v in D5}
+    A4set = {key(v) for v in D5 if np.isclose(v.sum(), 0)}
+    idx = {key(v): i for i, v in enumerate(D5)}
+    cyc = Permutation([idx[key(Rs @ v)] for v in D5]).full_cyclic_form
+    around = lambda c: tuple(int(round(D5[c[i]] @ D5[c[(i + 1) % 5]])) for i in range(5))
+    sums = [key(sum(D5[i] for i in c)) for c in cyc]
+    in_a4 = lambda c: all(key(D5[i]) in A4set for i in c)
+    x = sp.symbols("x")
+    R5 = sp.Matrix(Rs[:5, :5].tolist())
+    one = np.array([1, 1, 1, 1, 1, 0, 0, 0])
+    mixed = [v for v in D5 if key(v) not in A4set]
+    return {
+        "r is the permutation matrix of the vertex rotation i -> i + 1 on the carrier's five coordinates and the identity on "
+        "the other three, an element of W(E8) (it keeps the 240 roots) lying in W(A4) = S5 inside W(D5); on R^5 its "
+        "characteristic polynomial is (x - 1) Phi_5: the Coxeter element of A4, not of D5 (Coxeter number 8)":
+            all(Rs[(i + 1) % 5, i] == 1 for i in range(5)) and np.array_equal(Rs[5:, 5:], np.eye(3, dtype=int))
+            and (Rs != 0).sum() == 8 and {key(Rs @ v) for v in R} == roots and spine.is_weyl(np.rint(r).astype(np.int64))
+            and sp.expand(R5.charpoly(x).as_expr() - (x - 1) * sp.cyclotomic_poly(5, x)) == 0 and (40 // 5, 20 // 4) == (8, 5),
+        "the time coordinate kappa sends the tick 864 to one rotation (4 x 864 = 1 mod 5), so the time clock acts on the 40 "
+        "roots of D5 freely in eight five-cycles: four on A4 (the orbits of e_i - e_(i+k), k = 1 to 4, summing to 0; the two "
+        "with k = 1, 4 are pentagons with products -1 around, the extended A4 diagram) and four on the roots +-(e_i + e_j) "
+        "(the orbits of +-(e_i + e_(i+k)), k = 1, 2, summing to +-2(1, 1, 1, 1, 1, 0, 0, 0), a lattice vector of norm 20; those "
+        "with k = 1 have products +1 around)":
+            4 * 864 % 5 == 1 and len(D5) == 40 and {key(Rs @ v) for v in D5} == D5set and Counter(len(c) for c in cyc) == Counter({5: 8})
+            and sum(in_a4(c) for c in cyc) == 4 and sum(not in_a4(c) and all(key(D5[i]) not in A4set for i in c) for c in cyc) == 4
+            and Counter(around(c) for c in cyc if in_a4(c)) == Counter({(-1,) * 5: 2, (0,) * 5: 2})
+            and Counter(around(c) for c in cyc if not in_a4(c)) == Counter({(1,) * 5: 2, (0,) * 5: 2})
+            and Counter(sums) == Counter({key(np.zeros(8)): 4, key(2 * one): 2, key(-2 * one): 2})
+            and int((2 * one) @ (2 * one)) == 20 and (2 * one).sum() % 2 == 0,
+        "the tick g = r r' agrees with r on D5's A4 (r' fixes the carrier's sum-zero coordinates) but moves the twenty roots "
+        "+-(e_i + e_j) off D5, to half-spin roots: D5 is kept by the vertex rotation and not by the tick, so the time clock "
+        "acts on D5 through the carrier's rotation alone":
+            all(np.allclose(Gs @ v, Rs @ v) for v in D5 if key(v) in A4set) and np.array_equal(np.rint(g), np.rint(r @ rp))
+            and sum(key(Gs @ v) in D5set for v in D5) == 20
+            and all(key(Gs @ v) in roots and key(Gs @ v) not in D5set and np.allclose(np.abs(Gs @ v), 0.5) for v in mixed),
+    }
+
+
+def join_observer_A4():
+    """Every embedding of the observer clock in the day-Coxeter group exchanges the carrier's A4 with its twin A4',
+    carrying the vertex rotation to the inverse of the twin's Coxeter element."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    _, cp, r, rp, g, _ = spine.spine_clock()
+    k = cyclotomic.clocks()
+    c, d = (np.rint(k[n]).astype(np.int64) for n in ("c", "day"))
+    g, r, rp = (np.rint(M).astype(np.int64) for M in (g, r, rp))
+    G = primes._matrix_group([c, d])
+    inv, P = spine.inverse, spine.mpow
+    four = [M for M in G if spine.mat_order(M) == 4]
+    _, A, Ap = glue.a4_pair()
+    to_rb = lambda rows: {tuple(x) for x in np.round(np.array(rows) @ Binv.T).astype(np.int64)}
+    SA, SAp = to_rb(A), to_rb(Ap)
+    act = lambda M, X: {tuple(M @ np.array(x)) for x in X}
+    M0 = four[0]
+    dic = primes._matrix_group([g, M0])
+    orders = Counter(spine.mat_order(M) for M in dic)
+    # the automorphisms of A4 normalizing the five-cycle: +-(i -> a i + b) on the five coordinates
+    R5 = np.roll(np.eye(5, dtype=np.int64), 1, axis=0)
+    aff = lambda a, b: np.array([[int(i == (a * j + b) % 5) for j in range(5)] for i in range(5)])
+    agl = [e * aff(a, b) for e in (1, -1) for a in (1, 2, 3, 4) for b in range(5)]
+    S = spine.subgroup
+    return {
+        "each of the ten elements of order 4 of <g, d> (every embedding of the observer clock) maps the carrier's 20 roots "
+        "e_i - e_j onto the twin's 20 roots and the twin's back onto the carrier's: it keeps A4 + A4' (it fixes every residue "
+        "line) and exchanges the two factors, an isometry A4 -> A4' of root systems; its square, the half-turn -1, keeps both":
+            len(four) == 10 and len(A) == len(Ap) == 20 and all(act(M, SA) == SAp and act(M, SAp) == SA for M in four)
+            and all(act(M @ M, SA) == SA and act(M @ M, SAp) == SAp and np.array_equal(M @ M, -np.eye(8, dtype=np.int64)) for M in four),
+        "since it inverts the tick g = r r' (r the vertex rotation on A4, r' the twin's Coxeter element, each trivial on the "
+        "other's span), M r M^-1 = r'^-1 and M r' M^-1 = r^-1: the observer clock carries the carrier's vertex rotation to the "
+        "inverse of the twin's; none of the ten keeps A4, and among the 40 maps +-(i -> a i + b) of A4, which normalize <r>, "
+        "the ten inverting r (a = 4) all square to the identity, not to -1":
+            np.array_equal(g, r @ rp) and np.array_equal(r @ rp, rp @ r)
+            and all(np.array_equal(M @ r @ inv(M), inv(rp)) and np.array_equal(M @ rp @ inv(M), inv(r)) for M in four)
+            and all(np.array_equal(M @ g @ inv(M), P(g, 4)) for M in four)
+            and len({X.tobytes() for X in agl}) == 40 and all(np.array_equal(X @ R5 @ X.T, np.linalg.matrix_power(R5, a)) for X, a in
+                                                              zip(agl, [a for e in (1, -1) for a in (1, 2, 3, 4) for b in range(5)]))
+            and sum(np.array_equal(X @ R5 @ X.T, np.linalg.matrix_power(R5, 4)) for X in agl) == 10
+            and all(np.array_equal(X @ X, np.eye(5, dtype=np.int64)) for X in agl if np.array_equal(X @ R5 @ X.T, np.linalg.matrix_power(R5, 4))),
+        "with the tick each embedding generates a dicyclic group of order 20 (M g M^-1 = g^-1, M^2 = -1 central): the lift of "
+        "<216> = Z/20 = time clock + observer clock to the symmetry level is not abelian, though the two clocks meet in 0 and "
+        "commute on the circle":
+            len(dic) == 20 and orders == Counter({1: 1, 2: 1, 4: 10, 5: 4, 10: 4}) and not np.array_equal(M0 @ g, g @ M0)
+            and S(864) & S(1080) == {0} and len(S(216)) == 20 and frozenset((a + b) % N for a in S(864) for b in S(1080)) == S(216),
+    }
+
+
+def join_c27_sun():
+    """No action of the 27-clock on E8 lifts 1440 -> s: the sun has no cube root among the lattice isometries, and no
+    isometry has order 27."""
+    k = cyclotomic.clocks()
+    c = np.rint(k["c"]).astype(np.int64)
+    s = spine.mpow(c, 10)
+    x = sp.symbols("x")
+    phi3, phi9, phi27 = (sp.cyclotomic_poly(n, x) for n in (3, 9, 27))
+    cps = sp.Matrix(s.tolist()).charpoly(x).as_expr()
+    cubes_to_primitive = [j for j in range(9) if (3 * j) % 9 in (3, 6)]          # zeta9^j cubes to zeta3 or zeta3^2
+    primitive_ninth = [j for j in range(9) if gcd(j, 9) == 1]
+    z9 = sp.exp(2 * sp.pi * sp.I / 9)
+    minpolys = sp.minimal_polynomial(z9, x) == phi9 and sp.minimal_polynomial(z9 ** 3, x) == phi3
+    e = lambda i: np.eye(8)[i]
+    Fr = np.array([-e(0) - e(i) for i in range(1, 8)] + [-0.5 * np.ones(8)])
+    P = [np.zeros(8)] + list(Fr)
+    T = np.array([P[(j + 1) % 9] - P[1] for j in range(1, 9)]).T
+    L = spine.to_root_basis(T @ np.linalg.inv(Fr.T))
+    S = spine.subgroup
+    return {
+        "the sun s = c'^10 has characteristic polynomial Phi_3^4: all its eigenvalues are primitive cube roots of unity; a "
+        "lattice isometry y with y^3 = s would have eigenvalues cubing to them, hence all primitive ninth roots (the ninth "
+        "roots cubing to a primitive cube root are exactly the six primitive ones), and a rational characteristic polynomial "
+        "Phi_9^k of degree 6k = 8: impossible, so the sun has no cube root in GL8(Z), let alone a ninth root":
+            sp.expand(cps - phi3 ** 4) == 0 and cubes_to_primitive == primitive_ninth == [1, 2, 4, 5, 7, 8] and minpolys
+            and sp.degree(phi9, x) == 6 and 8 % 6 != 0,
+        "no lattice isometry has order 27 (an element of order 27 has an eigenvalue of order 27, whose minimal polynomial "
+        "Phi_27 has degree 18 > 8), so every homomorphism from the 27-clock Z/27 to GL8(Z) has image of order 1, 3 or 9 and "
+        "kills the sun's step 1440 = 9 x 160; the frame's nine-cycle L (order 9, Phi_3 Phi_9) shows the order-9 images: its "
+        "cube has eigenvalue 1 twice, (x - 1)^2 Phi_3^3, and is not the sun":
+            sp.degree(phi27, x) == 18 and 1440 == 9 * 160 and all(pow(9, 1) % o == 0 for o in (1, 3, 9))
+            and spine.mat_order(L) == 9 and sp.expand(sp.Matrix(L.tolist()).charpoly(x).as_expr() - phi3 * phi9) == 0
+            and sp.expand(sp.Matrix(spine.mpow(L, 3).tolist()).charpoly(x).as_expr() - (x - 1) ** 2 * phi3 ** 3) == 0
+            and not np.array_equal(spine.mpow(L, 3), s),
+        "so the 27-clock reaches the sun only through the Coxeter subgroup: 1440 = 10 x 144 -> c'^10 = s under 144 k -> c'^k, "
+        "while <160>, the Sylow 3-subgroup holding 1440, has no lattice action in which 1440 acts as s: the Coxeter selection "
+        "does not extend to the 27-clock; the sun's fixed momenta E8/(1 - s)E8 number 81":
+            1440 == 10 * 144 and np.array_equal(spine.mpow(c, 10), s) and S(1440) <= S(160) and len(S(160)) == 27
+            and [len(S(d)) for d in (1440, 160)] == [3, 27] and round(abs(np.linalg.det(np.eye(8) - s))) == 81,
+    }
+
+
+def join_circle_cyclo():
+    """The circle's maps to the roots of unity of the cyclotomic line: the Coxeter selection 144 -> c' is unique up to the
+    Galois group, realized by isometries, and extends to no homomorphism of the whole circle."""
+    k = cyclotomic.clocks()
+    c, d, v, m = (np.rint(k[n]).astype(np.int64) for n in ("c", "day", "golden", "mirror"))
+    inv, P = spine.inverse, spine.mpow
+    units = [u for u in range(30) if gcd(u, 30) == 1]
+    homs = [j for j in range(30) if N * j % 30 == 0]
+    onto = [j for j in homs if gcd(j, 30) == 1]
+    kernel = lambda j: frozenset(x for x in range(N) if j * x % 30 == 0)
+    order = lambda j: 30 // gcd(j, 30)
+    expo = lambda n: next(j for j in range(30) if np.array_equal(n @ c @ inv(n), P(c, j)))
+    realized = {expo(P(d, a) @ P(v, b)): (a, b) for a in range(4) for b in range(2)}
+    S = spine.subgroup
+    return {
+        "Phi_30(c') = 0 and c' has order 30, so <c'> is the group of roots of unity of the cyclotomic line Z[zeta30] (a ring of "
+        "degree 8 holds no other roots of unity: phi(n) <= 8 and 30 | n force n = 30); the isomorphisms of the Coxeter "
+        "subgroup <144> = Z/30 onto it are the eight maps 144 k -> c'^(uk), u a unit mod 30":
+            spine.mat_order(c) == 30 and not sum(int(a) * P(c, j) for j, a in enumerate(sp.Poly(sp.cyclotomic_poly(30, sp.Symbol("x"))).all_coeffs()[::-1])).any()
+            and [n for n in range(1, 200) if n % 30 == 0 and sum(1 for j in range(1, n + 1) if gcd(j, n) == 1) <= 8] == [30]
+            and len(S(144)) == 30 and len(units) == 8,
+        "each unit is the exponent of an isometry normalizing <c'>: d^a v^b (the day sigma7 and the golden clock sigma11) "
+        "conjugates c' to c'^(7^a 11^b), and these run through all eight units, so the eight selections are one orbit of "
+        "Gal(Q(zeta30)/Q) acting through W(E8): the Coxeter selection is unique up to the cyclotomic line's Galois symmetry":
+            sorted(realized) == units and all(pow(7, a, 30) * pow(11, b, 30) % 30 == u for u, (a, b) in realized.items())
+            and expo(d) == 7 and expo(v) == 11 and expo(m) == 29,
+        "no homomorphism of the whole circle restricts to it: Z/4320 has 30 homomorphisms to <c'>, k -> c'^(jk), the eight "
+        "onto ones with kernel <30> (144 points), and each sends the Coxeter step 144 and the tick 864 to the same fifth root "
+        "of unity c'^(24 j) and the day's step 180 to 1, since 144 = 864 = 24 and 180 = 0 mod 30; 24 j = 1 mod 30 has no "
+        "solution, so 144 -> c' is a map of the Coxeter subgroup, not of the circle":
+            len(homs) == 30 and len(onto) == 8 and all(kernel(j) == S(30) for j in onto) and len(S(30)) == 144
+            and all(order(144 * j) == 5 and (144 * j - 864 * j) % 30 == 0 and 180 * j % 30 == 0 for j in onto)
+            and (144 % 30, 864 % 30, 180 % 30) == (24, 24, 0) and not [j for j in range(30) if 24 * j % 30 == 1],
+    }
+
+
+def join_time_literal():
+    """The time clock on the owner's literal operands: the vertex rotation in the saved source basis is the printed rotor."""
+    d = literal.load()
+    R = literal.source_rotor(d)
+    Rp = sp.Matrix([[sp.Rational(v) for v in row] for row in literal.R_PRINTED])
+    Nn, W, Ms = d["N_source"], d["W_source"], d["M_source"]
+    WAS, Pn, Wp = d["WAS_native"], d["P_native_to_boundary_order"], d["Wp_source_HS"]
+    Ed = [tuple(e) for e in d["edge_order"]]
+    ix = {e: k for k, e in enumerate(Ed)}
+    Pi = sp.zeros(10, 10)                                   # the vertex rotation i -> i + 1 on the ten edges
+    for k, (i, j) in enumerate(Ed):
+        a, b = sorted(((i + 1) % 5, (j + 1) % 5))
+        Pi[ix[(a, b)], k] = 1
+    pairs = [tuple(p) for p in d["source_wedge_order"]]
+    L2R = sp.Matrix(10, 10, lambda a, b: R.extract(list(pairs[a]), list(pairs[b])).det())
+    S = sp.Matrix(native.boundary_rotation().astype(int))  # cone point fixed, rim i -> i + 1, boundary order
+    Sn = Pn.T * S * Pn                                      # the same rotation in the file's native order
+    M = sp.Matrix(carrier.signless_incidence())
+    x = sp.symbols("x")
+    fixed = (R - sp.eye(5)).nullspace()
+    nf = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in carrier.edges()])
+    RR = sp.diag(R, R)
+    return {
+        "the vertex rotation i -> i + 1, the tick 864 through kappa, acts on the owner's saved source basis N_source "
+        "(10 x 5, a basis of ker M in the carrier's edge order) by the printed rotor R = (N^T N)^-1 N^T Pi N: N R = Pi N, "
+        "R has order 5 and characteristic polynomial (x - 1) Phi_5, and it is the printed matrix":
+            Ed == carrier.edges() and (M * Nn).is_zero_matrix and Nn.rank() == 5 and Nn * R == Pi * Nn
+            and R ** 5 == sp.eye(5) and all(R ** k != sp.eye(5) for k in range(1, 5))
+            and sp.expand(R.charpoly(x).as_expr() - (x - 1) * (x ** 4 + x ** 3 + x ** 2 + x + 1)) == 0 and R == Rp,
+        "R preserves the owner's source metric W_source = N^T N and the pair rotor diag(R, R) preserves the source mass "
+        "M_source = diag(W, W)/4: the owner's mass is tick-invariant":
+            W == Nn.T * Nn and Ms == sp.diag(W, W) / 4 and R.T * W * R == W and RR.T * Ms * RR == Ms,
+        "the owner's wedge WAS_native intertwines Lambda^2 R, the rotor on the ten source wedges, with the boundary "
+        "rotation written in the file's native order (P^T S P, cone point fixed), in the direction i -> i + 1 and not "
+        "its inverse, and the port metric Wp_source_HS is invariant under it: the tick acts on the literal port as the "
+        "boundary rotation": WAS * L2R == Sn * WAS and WAS * L2R != Sn.inv() * WAS and Sn * Wp * Sn.T == Wp
+            and Sn ** 5 == sp.eye(6),
+        "R fixes one line, which N carries to the near-minus-far zero mode, and the other four dimensions carry Phi_5: "
+        "the tick-invariant literal source is the near-minus-far mode, as for the reconstruction":
+            len(fixed) == 1 and sp.Matrix.hstack(Nn * fixed[0], nf).rank() == 1
+            and sp.expand(((R - sp.eye(5)).charpoly(x).as_expr()) / x) != 0,
+    }
+
+
+def join_time_datum():
+    """The time clock on the datum: five data of energy 34, the velocity a cyclic vector on the zero modes."""
+    psi0f, v0f = carrier.canon_initial_datum()
+    psi0, v0 = sp.Matrix(np.rint(psi0f).astype(int)), sp.Matrix(np.rint(v0f).astype(int))
+    E = carrier.edges()
+    rot = [(i + 1) % 5 for i in range(5)]
+
+    def act(p, v):
+        out = sp.zeros(15, 1)
+        for i in range(5):
+            out[p[i]] = v[i]
+        for k, (i, j) in enumerate(E):
+            out[5 + E.index(tuple(sorted((p[i], p[j]))))] = v[5 + k]
+        return out
+    K = sp.Matrix(carrier.D2())
+    M = sp.Matrix(carrier.signless_incidence())
+    vs, ps = [v0], [psi0]
+    for _ in range(4):
+        vs.append(act(rot, vs[-1]))
+        ps.append(act(rot, ps[-1]))
+    energy = lambda p, v: (v.T * v)[0] / 2 + (p.T * K * p)[0] / 2
+    V = sp.Matrix.hstack(*[v[5:, :] for v in vs])
+    P = sp.Matrix.hstack(*ps)
+    nf = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+    ones = sp.Matrix([1] * 5 + [0] * 10)
+    return {
+        "the datum is integral, psi0 = (c + 1, M^T c) with c = (1, -1, 0, 0, 0) and v0 the alternating 4-cycle; through "
+        "kappa the tick carries it to five distinct data of energy 34 (the vertex rotation commutes with D^2), its orbit "
+        "under the time clock": np.allclose(psi0f, np.array(psi0.T.tolist()[0], float)) and np.allclose(v0f, np.array(v0.T.tolist()[0], float))
+            and psi0[:5, :] == sp.Matrix([1, -1, 0, 0, 0]) + sp.ones(5, 1) and psi0[5:, :] == M.T * sp.Matrix([1, -1, 0, 0, 0])
+            and len({(tuple(p), tuple(v)) for p, v in zip(ps, vs)}) == 5 and all(energy(p, v) == 34 for p, v in zip(ps, vs)),
+        "the five translates of the velocity v0 lie in ker M and are a basis of it (Gram the circulant 4, -2, 1, 1, -2, "
+        "determinant 162): v0 is a cyclic vector for the time clock on the five zero modes": (M * V).is_zero_matrix
+            and V.rank() == 5 and V.T * V == sp.Matrix(5, 5, lambda i, j: [4, -2, 1, 1, -2][(j - i) % 5])
+            and (V.T * V).det() == 162,
+        "their sum is the near-minus-far mode, the time clock's invariant zero mode, and the translates of psi0 sum to "
+        "five times the constant vertex mode (D^2 = 8): the tick averages each half of the datum onto the invariant "
+        "line of its sector": V * sp.ones(5, 1) == nf and P * sp.ones(5, 1) == 5 * ones and K * ones == 8 * ones,
+        "the five translates of psi0 are independent too and their edge parts lie in the row space of M, orthogonal to "
+        "ker M: the datum's orbit under the time clock spans ten dimensions, the five zero modes and five more":
+            P.rank() == 5 and all((p[5:, :].T * V).is_zero_matrix for p in ps) and sp.Matrix.hstack(P, sp.Matrix.vstack(sp.zeros(5, 5), V)).rank() == 10,
+    }
+
+
+def join_time_pauli():
+    """The tick on the Pauli algebra is inner: a rational orthogonal U of order 5 with U P U^T = +-P' on all 256 Paulis."""
+    _, _, _, _, g, _ = spine.spine_clock()
+    gi = np.rint(g).astype(np.int64)
+    single = counts._letters()
+    words = counts.dynkin_paulis()
+    P = [functools.reduce(np.kron, [single[a] for a in w]) for w in words]
+    I16 = np.eye(16, dtype=np.int64)
+    phi = lambda c: functools.reduce(lambda u, v: u @ v, [P[i] for i in range(8) if c[i]], I16)
+    step = lambda c: tuple(int(v) for v in gi @ np.array(c) % 2)
+    Q = [phi(step(tuple(int(i == j) for j in range(8)))) for i in range(8)]
+    K = np.vstack([np.kron(P[i].T, np.eye(16)) - np.kron(np.eye(16), Q[i]) for i in range(8)])
+    _, s, vt = np.linalg.svd(K)
+    V = vt[-1].reshape(16, 16, order="F")
+    V = V / np.abs(V[np.abs(V) > 1e-9]).min()
+    Vi = np.rint(V).astype(np.int64)
+    mpow = lambda A, k: functools.reduce(lambda u, v: u @ v, [A] * k, I16)
+    if np.array_equal(mpow(Vi, 5), 32 * I16):
+        Vi = -Vi
+    classes = list(itertools.product((0, 1), repeat=8))
+    signs = []
+    for c in classes:
+        lhs, rhs = Vi @ phi(c), phi(step(c)) @ Vi
+        signs.append(1 if np.array_equal(lhs, rhs) else (-1 if np.array_equal(lhs, -rhs) else 0))
+    index = {c: k for k, c in enumerate(classes)}
+    perm = [index[step(c)] for c in classes]
+    L = lambda X: 240 * X + 16 * X.T - 16 * np.trace(X) * I16
+    Xg = np.arange(256, dtype=np.int64).reshape(16, 16) % 7 - 3
+    anti = [c for c in classes if np.array_equal(phi(c).T, -phi(c))]
+    return {
+        "the eight Dynkin Paulis P_i and their images Q_i = phi(g alpha_i) under the tick g = r r' (864 through kappa "
+        "and the carrier rotations) admit a 16 x 16 V with V P_i = Q_i V for all eight: the 2048 linear equations have "
+        "a one-dimensional solution space (singular values 0 then 2), and its integer generator V has entries 0, +-1, "
+        "V^T V = V V^T = 4 I and V^5 = -32 I": np.allclose(V, Vi) and s[-1] < 1e-9 and abs(s[-2] - 2) < 1e-9
+            and set(np.unique(Vi).tolist()) <= {-1, 0, 1} and all(np.array_equal(Vi @ P[i], Q[i] @ Vi) for i in range(8))
+            and np.array_equal(Vi.T @ Vi, 4 * I16) and np.array_equal(Vi @ Vi.T, 4 * I16)
+            and np.array_equal(mpow(Vi, 5), -32 * I16),
+        "so U = -V/2 is a rational orthogonal matrix of order exactly 5, 864 j -> U^j a homomorphism of the time clock "
+        "into O(16), and U phi(c) U^T = +-phi(g c) for all 256 Paulis (128 of each sign): the tick's permutation of the "
+        "Pauli labels, one fixed and 51 five-cycles, is an inner automorphism of M16(R)": all(v != 0 for v in signs)
+            and Counter(signs) == Counter({1: 128, -1: 128}) and sorted(perm) == list(range(256))
+            and Counter(len(c) for c in Permutation(perm).full_cyclic_form) == Counter({1: 1, 5: 51})
+            and all(np.array_equal(mpow(Vi, k), (-2) ** k * I16) == (k == 5) for k in range(1, 6)),
+        "conjugation by U commutes with the GKSL generator L(X) = 240 X + 16 X^T - 16 tr(X) I (U is orthogonal, so "
+        "transposes and traces are kept), hence with every e^-tL, and it permutes the 120 antisymmetric Paulis, the jump "
+        "operators, among themselves: the time clock acts on the GKSL semigroup by inner automorphisms, not only on its "
+        "labels": np.array_equal(L(Vi @ Xg @ Vi.T), Vi @ L(Xg) @ Vi.T) and len(anti) == 120
+            and all(step(c) in set(anti) for c in anti),
+    }
+
+
+def join_time_goldenport():
+    """The time clock on the Golden root-site port: the diagonal five-cycle permutes its ten root sites, T_G is equivariant."""
+    S10, T10 = sp.Matrix(assignment.SITE), sp.Matrix(assignment.TWIN)
+    src = sp.Matrix.vstack(S10[:4, :], T10[:4, :]).T
+    dst = sp.Matrix.vstack(S10[1:5, :], T10[1:5, :]).T
+    Rd = dst * src.inv()                                      # SITE_i -> SITE_(i+1), TWIN_i -> TWIN_(i+1)
+    Rdr = spine.to_root_basis(np.array(Rd.tolist(), dtype=float))
+    _, _, _, _, g, _ = spine.spine_clock()
+    w = spine.conjugator(Rdr, g)
+    site, sign = _golden_sites()
+    F = sp.Matrix.hstack(*[sign[e] * sp.Matrix(site[e]) for e in range(10)]) / 10
+    rot = [(i + 1) % 5 for i in range(5)]
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == rot[c]))
+    T = compound2(R5)
+    B = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - B.T * B / 5
+    Cb = sp.Matrix.hstack(*B.nullspace())
+    Hn = _walk_entries()
+    G = {n: sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * Hn(site[f] - site[e], n)) for n in range(3)}
+    M = {n: (Cb.T * Cb).inv() * Cb.T * G[n] * Cb for n in range(3)}
+    Tc = (Cb.T * Cb).inv() * Cb.T * T * Cb
+    Pfix = sum((Tc ** k for k in range(5)), sp.zeros(6)) / 5
+    Pphi = sp.eye(6) - Pfix
+    Y = Tc + Tc.inv()
+    Var = M[2] - M[1] * M[1]
+    Fx = sp.Matrix.hstack(*(Tc - sp.eye(6)).nullspace())
+    on_fix = lambda Z: ((Fx.T * Fx).inv() * Fx.T * Z * Fx).eigenvals()
+    r5 = sp.sqrt(5)
+    c5 = {1: (-1 + r5) / 2, 2: (-1 - r5) / 2}                # 2 cos(2 pi k/5)
+    return {
+        "the diagonal five-cycle R_diag, SITE_i -> SITE_(i+1) and TWIN_i -> TWIN_(i+1) on the carrier's five sites and "
+        "their twins, is an orthogonal isometry of E8 of order 5 with no fixed vector, in W(E8) and conjugate there to "
+        "the tick g = r r' (a conjugator w with w R_diag w^-1 = g is exhibited): 864 -> R_diag is the lift of the time "
+        "clock that turns the glue coordinates with the sites": all(Rd * S10.row(i).T == S10.row((i + 1) % 5).T
+                                                                   and Rd * T10.row(i).T == T10.row((i + 1) % 5).T for i in range(5))
+            and Rd.T * Rd == sp.eye(8) and Rd ** 5 == sp.eye(8) and not (Rd - sp.eye(8)).nullspace()
+            and spine.is_weyl(Rdr) and w is not None and np.array_equal(w @ Rdr, g @ w) and spine.is_weyl(w),
+        "it permutes the Golden port's ten root sites exactly as the vertex rotation permutes the edges, orientation "
+        "signs included: F Lambda^2(rot) = R_diag F for the hub's signed site map F, so T_G = F P_cycle intertwines the "
+        "time clock's edge action on the cycles with R_diag on the lattice, T_G T = R_diag T_G, and the port's Gram "
+        "matrices G_n = F^T H^n F commute with T": F * T == Rd * F and F * Pc * T == Rd * F * Pc
+            and all(G[n] * T == T * G[n] for n in range(3)) and G[0] == sp.eye(10),
+        "so the moment operators M_n = T_G* Delta^n T_G on the cycles commute with the rotation, and Schur's lemma fixes "
+        "their shape: on the rotor plane (the fixed plane) a 2 x 2 block with eigenvalues 239, 241 and variances 371, "
+        "171; on the Phi_5 part M_1 = 1203/5 + (1/5)(T + T^-1) and the variance 978/5 - (31/5)(T + T^-1), scalar on "
+        "each rotation plane of the pentagon": all(M[n] * Tc == Tc * M[n] for n in range(3)) and Fx.shape[1] == 2
+            and on_fix(M[1]) == {239: 1, 241: 1} and on_fix(Var) == {371: 1, 171: 1}
+            and ((M[1] - sp.Rational(1203, 5) * sp.eye(6) - Y / 5) * Pphi).is_zero_matrix
+            and ((Var - sp.Rational(978, 5) * sp.eye(6) + sp.Rational(31, 5) * Y) * Pphi).is_zero_matrix,
+        "with 2 cos(2 pi k/5) = (-1 +- sqrt5)/2 these scalars are the port's Galois-conjugate channels 481/2 +- sqrt5/10 "
+        "and (1987 -+ 31 sqrt5)/10 of multiplicity 2 each: the time clock's two rotation planes are the two conjugate "
+        "Golden channels": all(sp.simplify(sp.Rational(1203, 5) + c5[k] / 5 - (sp.Rational(481, 2) + s * r5 / 10)) == 0
+                              and sp.simplify(sp.Rational(978, 5) - sp.Rational(31, 5) * c5[k] - (1987 - s * 31 * r5) / 10) == 0
+                              for k, s in ((1, 1), (2, -1)))
+            and sp.expand((Y * Pphi).charpoly(sp.symbols("x")).as_expr()
+                          - sp.symbols("x") ** 2 * (sp.symbols("x") ** 2 + sp.symbols("x") - 1) ** 2) == 0,
+    }
+
+
+def join_circle_bath():
+    """The bath on the circle: the height pushes Delta onto the circulant 240 - sum S^h(r) on Z/4320, whose spectrum is
+    the band on the principal circle."""
+    rho, rs, ht = principal.weyl_vector()
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    h = [int(v) for v in ht]
+    pos = Counter(v for v in h if v > 0)                      # positive roots by height
+    kostant = {j: sum(1 for m in principal.EXPONENTS if m >= j) for j in range(1, 30)}
+    hts = {tuple(r): h[k] for k, r in enumerate(RB.tolist())}
+    height = lambda v: sum(v)                               # the height is the sum of the root coordinates
+    S = lambda k, f: np.roll(f, -k)                          # (S^k f)(x) = f(x + k)
+    delta = lambda x: np.eye(1, N, x % N, dtype=np.int64)[0]
+    circ = lambda f: 240 * f - sum(S(v, f) for v in h)      # Delta_circ = 240 - sum_r S^h(r)
+
+    def push_bath(v):                                         # P (Delta delta_v) for a lattice point v (root coordinates)
+        out = 240 * delta(height(v))
+        for r in RB.tolist():
+            out = out - delta(height([a + b for a, b in zip(v, r)]))
+        return out
+    points = [[0] * 8] + RB.tolist()
+    ks = np.arange(N)
+    lam = sum(np.cos(2 * np.pi * ks * v / N) for v in h)
+    eps = 240 - lam
+    band = np.array([principal._band(rs * k / N) for k in range(N)])
+    fold = lambda m: sp.Matrix(m, m, lambda i, j: (240 if i == j else 0) - Counter(v % m for v in h)[(j - i) % m])
+    f36 = sorted(complex(z).real for z in np.linalg.eigvals(np.array(fold(36).tolist(), float)))
+    f9 = sorted(complex(z).real for z in np.linalg.eigvals(np.array(fold(9).tolist(), float)))
+    return {
+        "the height h(v) = <rho, v>, the sum of the root coordinates, is a homomorphism of E8 onto Z (it takes the value 1 "
+        "on eight roots), so v -> h(v) mod 4320 is a surjection P of the lattice onto the circle, dual to the principal "
+        "embedding k -> k rho/4320: <r, k rho/4320> = k h(r)/4320 exactly; the roots have heights +-1..+-29 with "
+        "multiplicities Kostant's dual partition #{i: m_i >= j} on the positive side, mirrored on the negative": np.array_equal(np.rint(R @ rs).astype(int), np.array(h))
+            and np.array_equal(RB.sum(axis=1), np.array(h)) and pos[1] == 8 and functools.reduce(gcd, [abs(v) for v in h]) == 1
+            and max(pos) == 29 and all(pos[j] == kostant[j] for j in range(1, 30)) and sum(pos.values()) == 120
+            and Counter(-v for v in h if v < 0) == pos,
+        "P intertwines the bath with the circulant Delta_circ = 240 - sum_r S^h(r) on functions on Z/4320: P Delta = "
+        "Delta_circ P, checked on the deltas of the origin and the 240 roots (each root shifts the height by its own "
+        "height); Delta_circ is the Laplacian of the 240-regular loopless circulant graph with jumps the heights":
+            all(np.array_equal(push_bath(v), circ(delta(height(v)))) for v in points) and all(v % N for v in h)
+            and all(-v in h for v in h) and circ(delta(0))[0] == 240 and int(-circ(delta(0))[1:].sum()) == 240,
+        "its eigenvalue at the character k is 240 - sum_r cos(2 pi k h(r)/4320) = eps(k rho/4320), the band at the k-th "
+        "point of the principal circle (all 4320 agree to 1e-9): the bath on the circle is the band on the circle, so "
+        "its spectrum holds 256 at the half-turn, 252 at the A8 steps, 248 at the observer's and 250 at the tick's":
+            np.abs(eps - band).max() < 1e-9 and all(abs(eps[k] - v) < 1e-9 for k, v in ((2160, 256), (1440, 252), (1080, 248), (864, 250))),
+        "its kernel is the constants: eps(k rho/4320) = 0 needs 4320 | k h(r) for every root, so 4320 | k since the "
+        "heights have gcd 1 (and numerically the band stays above 0.039 off k = 0, smallest at the generators +-1)":
+            functools.reduce(gcd, [abs(v) for v in h]) == 1 and eps[0] < 1e-12 and eps[1:].min() > 0.039
+            and int(np.argmin(eps[1:])) + 1 in (1, N - 1),
+        "pushing further along the circle's quotients x mod 36 and x mod 9 folds the bath onto the atlas and the vortex, "
+        "the circulants with weights the roots by height mod 36 and mod 9, whose eigenvalues are the band at the "
+        "subgroups <120> and <480> of the principal circle": np.allclose(f36, sorted(eps[::120])) and np.allclose(f9, sorted(eps[::480])),
+    }
+
+
+def join_time_assignment():
+    """The time clock grades the adjoint representation by the assignment's classes: the principal point k rho/5 acts on
+    the root space of r by zeta_5^(k ht(r)), its fixed roots are an A4 + A4 that an isometry w of E8 carries onto
+    A4 + A4', and then each eigenvalue class is one class of the root assignment, with its Standard-Model content."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = principal.weyl_vector()
+    Q = lambda z: sp.Rational(int(round(2 * z)), 2)
+    Rm = sp.Matrix([[Q(v) for v in r] for r in R])
+    Bm = sp.Matrix([[Q(v) for v in row] for row in B])
+    Bi, Cm = Bm.inv(), sp.Matrix(C.tolist())
+    S2 = [tuple(int(round(2 * v)) for v in B[:, i]) for i in range(8)]          # the simple roots, doubled
+    theta2 = tuple(int(round(2 * v)) for v in R[int(np.argmax(ht))])          # the highest root, doubled
+
+    def in_e8(v):
+        v2 = [2 * a for a in v]
+        if any(not a.is_integer for a in v2):
+            return False
+        v2 = [int(a) for a in v2]
+        return (all(a % 2 == 0 for a in v2) or all(a % 2 == 1 for a in v2)) and sum(v2) % 4 == 0
+
+    def reduce(x):                                             # affine Weyl reduction to the closed alcove, exactly
+        n, x = 8, [Fraction(int(a.p), int(a.q)) for a in x]
+        w = [[Fraction(int(i == j)) for j in range(n)] for i in range(n)]
+        while True:
+            hit = next((a2 for a2 in S2 if sum(Fraction(ai, 2) * xi for ai, xi in zip(a2, x)) < 0), None)
+            shift = 0
+            if hit is None:
+                c = sum(Fraction(ai, 2) * xi for ai, xi in zip(theta2, x))
+                if c <= 1:
+                    return tuple(x), sp.Matrix(w)
+                hit, shift = theta2, 1
+            a = [Fraction(v, 2) for v in hit]
+            c = sum(ai * xi for ai, xi in zip(a, x))
+            x = [xi - (c - shift) * ai for xi, ai in zip(x, a)]
+            w = [[w[i][j] - a[i] * sum(a[k] * w[k][j] for k in range(n)) for j in range(n)] for i in range(n)]
+
+    # the time clock's point and the class group's character, reduced to the alcove, give the isometry w
+    y = sp.Matrix([sp.Rational(-4, 5), sp.Rational(1, 5), sp.Rational(1, 5), sp.Rational(1, 5), sp.Rational(1, 5), 0, 0, 0])
+    x1 = sp.Matrix([Q(v) for v in rs]) / 5
+    v1, w1 = reduce(x1)
+    v2, w2 = reduce(y)
+    w = w2.inv() * w1
+    wr = Bi * w * Bm
+    _, A, Ap = glue.a4_pair()
+    L0 = {tuple(sp.Matrix([Q(v) for v in x])) for x in list(A) + list(Ap)}
+    kernel_roots = [i for i in range(240) if int(ht[i]) % 5 == 0]
+    gram = sp.Matrix([[int(RB[i] @ C @ RB[j]) for j in kernel_roots] for i in kernel_roots])
+    comps = []
+    seen = set()
+    for i in range(40):
+        if i in seen:
+            continue
+        stack, comp = [i], []
+        seen.add(i)
+        while stack:
+            u = stack.pop()
+            comp.append(u)
+            for v in range(40):
+                if v not in seen and gram[u, v] != 0:
+                    seen.add(v)
+                    stack.append(v)
+        comps.append(sorted(comp))
+    span = sp.Matrix([[int(c) for c in RB[kernel_roots[i]]] for i in range(40)])          # root-basis rows, integral
+    snf = smith_normal_form(span, domain=sp.ZZ)
+    index = abs(sp.prod([snf[i, i] for i in range(8)]))
+    # the assignment's classes, read on the roots in glue's order (= spine's order)
+    rows = assignment.classify()
+    cls = [k for _, k, _, _ in rows]
+    idx = {tuple(Rm.row(j)): j for j in range(240)}
+    perm = [idx[tuple(w * Rm.row(i).T)] for i in range(240)]                            # w as a permutation of the roots
+    grade = [int((Rm.row(j) * y)[0] * 5) % 5 for j in range(240)]                       # 5 <r, y> mod 5: the class in E8 / L0
+    table = assignment.table()
+    names = {}
+    for j, x in enumerate(table):
+        names.setdefault(grade[j], Counter())[x["particle"]] += 1
+    by_class = {c: {grade[i] for i in range(240) if cls[i] == c} for c in assignment.CLASSES}
+    unit = next(u for u in range(1, 5) if all(grade[i] == u * assignment.GRADE[cls[i]] % 5 for i in range(240)))
+    heights = {c: sorted({int(ht[i]) for i in range(240) if cls[perm[i]] == c}) for c in assignment.CLASSES}
+    through = [k for k in range(N) if all((k * (h - hh)) % N == 0 for c in heights for h in heights[c] for hh in heights[c])]
+    a4 = sp.Matrix([[2, -1, 0, 0], [-1, 2, -1, 0], [0, -1, 2, -1], [0, 0, -1, 2]])
+    simple = [glue.chain_order(glue.simple_system(np.array([R[kernel_roots[i]] for i in c]))) for c in comps]
+    cartan = [sp.Matrix(np.rint(S @ S.T).astype(int).tolist()) for S in simple]
+    return {
+        "the principal point k rho/5, the time clock's step 864 k, acts on the root space of r by zeta_5^(k ht(r)): the "
+        "40 roots of height 0 mod 5 are fixed, and each primitive fifth root of unity has 50 roots; the fixed roots are two "
+        "orthogonal A4's (20 roots each, Gram determinant 5 on a simple system), and they span the kernel of ht mod 5, a "
+        "sublattice of index 5 = sqrt(25) in E8":
+            Counter(int(h) % 5 for h in ht) == Counter({0: 40, 1: 50, 2: 50, 3: 50, 4: 50})
+            and [len(c) for c in comps] == [20, 20] and all(gram[i, j] == 0 for i in comps[0] for j in comps[1])
+            and all(len(S) == 4 for S in simple) and cartan == [a4, a4] and a4.det() == 5
+            and all(handover.stabiliser(R, rs * k / N)[0] == "A4+A4" for k in (864, 1728, 2592, 3456))
+            and index == 5 and (N // 5) == 864,
+        "reducing rho/5 and the class character y = (-4, 1, 1, 1, 1, 0, 0, 0)/5 of A4 + A4' to the alcove lands both on the "
+        "A4 + A4 vertex, so w = w2^-1 w1 is an isometry of E8 (orthogonal, integral in the root basis, keeping the Cartan "
+        "form) with w rho/5 = y mod E8, carrying the fixed roots onto A4 + A4' = (24, 1) + (1, 24)":
+            v1 == v2 and w.T * w == sp.eye(8) and all(a.is_integer for a in wr) and wr.T * Cm * wr == Cm
+            and in_e8(list(w * x1 - y)) and {tuple(w * Rm.row(i).T) for i in kernel_roots} == L0
+            and {cls[i] for i in range(240) if tuple(Rm.row(i)) in L0} == {"(24,1)", "(1,24)"}
+            and all(grade[perm[i]] == int(ht[i]) % 5 for i in range(240)),
+        "after w the time clock's eigenvalue on a root is zeta_5^(u c) with c the assignment's class grade and u one fixed "
+        "unit: the four mixed classes (5, 10b), (10, 5), (10b, 5b), (5b, 10) are the four nontrivial eigenvalue classes, "
+        "each of 50 roots, and conjugate classes (particle and antiparticle, -1 in W(E8)) carry inverse eigenvalues":
+            all(len(by_class[c]) == 1 for c in assignment.CLASSES) and by_class["(24,1)"] == by_class["(1,24)"] == {0}
+            and {next(iter(by_class[c])) for c in assignment.CLASSES[2:]} == {1, 2, 3, 4}
+            and all(grade[i] == unit * assignment.GRADE[cls[i]] % 5 for i in range(240))
+            and all((next(iter(by_class[c])) + next(iter(by_class[assignment.CONJUGATE[c]]))) % 5 == 0 for c in assignment.CLASSES)
+            and Counter(grade) == Counter({0: 40, 1: 50, 2: 50, 3: 50, 4: 50}),
+        "so the time clock's nontrivial eigenspaces on the roots carry one Standard-Model class each: at one eigenvalue the "
+        "15 u, 15 d, 15 u^c and 5 e^c roots of (10, 5), at another the 30 d^c, 10 e and 10 nu of (5b, 10), and at the two "
+        "inverse eigenvalues their antiparticles; the fixed roots are the 6 gluons, W+-, the 12 leptoquarks and the 20 "
+        "family roots":
+            names[0] == Counter({"gluon": 6, "W+": 1, "W-": 1, "X": 3, "Y": 3, "X~": 3, "Y~": 3, "family": 20})
+            and sorted(sorted(v.items()) for g, v in names.items() if g) == sorted([
+                sorted(Counter({"u": 15, "d": 15, "u^c": 15, "e^c": 5}).items()),
+                sorted(Counter({"d^c": 30, "e": 10, "nu": 10}).items()),
+                sorted(Counter({"u~": 15, "d~": 15, "u^c~": 15, "e^c~": 5}).items()),
+                sorted(Counter({"d^c~": 30, "e~": 10, "nu~": 10}).items())]),
+        "the time clock <864> is exactly the subgroup of the circle whose action on the root spaces, zeta_4320^(k ht), is "
+        "constant on the assignment's classes: the heights within one class differ by multiples of 5, and the two A4's "
+        "together hold the heights +-5, +-10, +-15, +-20 twice each and +-25 once":
+            through == sorted(spine.subgroup(864)) and all(h - hh in {5 * t for t in range(-12, 13)} for c in heights
+                                                           for h in heights[c] for hh in heights[c])
+            and sorted(heights["(24,1)"] + heights["(1,24)"]) == sorted([5 * t for t in range(-5, 6) if t] + [5 * t for t in range(-4, 5) if t])
+            and Counter(abs(h) for h in heights["(24,1)"] + heights["(1,24)"]) == Counter({5: 4, 10: 4, 15: 4, 20: 4, 25: 2}),
+    }
+
+
+def join_time_binding():
+    """The time clock lies in the commutant of D: the tick U is an element of M5 + M4 + M4 + C + C whose characters split
+    every eigenspace of D into lines, so the commutant of D and the time clock together is a maximal commutative
+    subalgebra of dimension 15; U permutes the weights of 5 and Lambda^2 5 in one and two five-cycles."""
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    E = carrier.edges()
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    U = sp.diag(R5, compound2(R5).applyfunc(abs))                                # the tick on the 15 atoms
+    n = 15
+    I = sp.eye(n)
+    DM = sp.polys.matrices.DomainMatrix
+
+    def commutant(mats):                                                          # {X : X A = A X for all A}, as a basis
+        rows = [sp.kronecker_product(I, A) - sp.kronecker_product(A.T, I) for A in mats]  # vec(AX - XA), column-major
+        ns = DM.from_Matrix(sp.Matrix.vstack(*rows)).nullspace().to_Matrix()
+        return [sp.Matrix(n, n, list(ns.row(k))).T for k in range(ns.rows)]
+    comm_D = commutant([D])
+    comm_DU = commutant([D, U])
+    comm_U = commutant([U])
+    abelian = all((X * Y - Y * X).is_zero_matrix for X in comm_DU for Y in comm_DU)
+    nonabelian_D = any(not (X * Y - Y * X).is_zero_matrix for X in comm_D[:8] for Y in comm_D)
+    x = sp.symbols("x")
+    char_D = sp.factor(D.charpoly(x).as_expr())
+    P = carrier.spectral_projectors()
+    gamma = sp.Matrix(carrier.grading())
+    # the joint eigenlines, by traces: the character multiplicities of U on each eigenspace of D^2
+    tr = {lam: [(P[lam] * U ** k).trace() for k in range(5)] for lam in (0, 3, 8)}
+    mult = {lam: ((t[0] + 4 * t[1]) / 5, (t[0] - t[1]) / 5) for lam, t in tr.items()}   # (trivial character, each other)
+    odd = all((D * P[lam] * U ** k).trace() == 0 for lam in (0, 3, 8) for k in range(5))   # D is odd: trace 0 on each plane
+    five, ten, _ = binding.su5_weights()
+    perm5 = [next(k for k in range(5) if np.array_equal(np.roll(w, 1), five[k])) for w in five]
+    perm10 = [next(k for k in range(10) if np.array_equal(np.roll(w, 1), ten[k])) for w in ten]
+    cyc5 = Permutation(perm5).full_cyclic_form
+    cyc10 = Permutation(perm10).full_cyclic_form
+    edge_perm = [E.index(tuple(sorted(((i + 1) % 5, (j + 1) % 5)))) for i, j in E]
+    return {
+        "the tick U (the vertex five-cycle with its edge permutation, the time clock's 864 through kappa) commutes with D "
+        "and so lies in the commutant of D, whose dimension is 59 = 25 + 16 + 16 + 1 + 1, M5 + M4 + M4 + C + C on the "
+        "eigenvalues 0, +sqrt3, -sqrt3, +sqrt8, -sqrt8 of D (characteristic polynomial x^5 (x^2 - 3)^4 (x^2 - 8)); the "
+        "commutant of U alone is 5 x 9 = 45, five characters of rank 3": (U * D - D * U).is_zero_matrix
+            and len(comm_D) == 59 and nonabelian_D and U.T * U == I and U ** 5 == I
+            and sp.expand(char_D - x ** 5 * (x ** 2 - 3) ** 4 * (x ** 2 - 8)) == 0 and len(comm_U) == 45,
+        "the five characters of the time clock meet the eigenspaces of D^2 with multiplicities 1, 1, 1, 1, 1 (lambda = 0), "
+        "0, 2, 2, 2, 2 (lambda = 3) and 2, 0, 0, 0, 0 (lambda = 8) (from tr(P_lambda U^k) = 0, -2, 2 for k != 0), and D is "
+        "odd, so on each two-dimensional (lambda, character) plane D has trace 0 and square lambda: the plane splits into "
+        "the lines D = +sqrt(lambda) and D = -sqrt(lambda), and all fifteen joint eigenlines of D and U are distinct":
+            [tr[lam][1] for lam in (0, 3, 8)] == [0, -2, 2] and all(len(set(t[1:])) == 1 for t in tr.values())
+            and mult == {0: (1, 1), 3: (0, 2), 8: (2, 0)} and odd and (U * gamma - gamma * U).is_zero_matrix
+            and all((D * P[lam] * D - lam * P[lam]).is_zero_matrix for lam in (0, 3, 8)),
+        "so the commutant of D and the time clock together has dimension 15 = dim H and is commutative, the diagonal "
+        "algebra of the joint eigenbasis: a maximal commutative subalgebra of the binding's commutant, whose nonabelian "
+        "parts M5, M4, M4 the time clock removes": len(comm_DU) == 15 and abelian
+            and sp.Matrix.hstack(*[X.reshape(n * n, 1) for X in comm_DU + [I, U, D * D]]).rank() == 15,
+        "on the anomaly-free content the tick is the Weyl element (0 1 2 3 4) of S5 = W(A4): it turns the five weights e_i "
+        "of the 5 in one five-cycle and the ten weights e_i + e_j of Lambda^2 5 in two, the near duads and the far duads, "
+        "which is the edge block of U": [len(c) for c in cyc5] == [5] and sorted(len(c) for c in cyc10) == [5, 5]
+            and all(U[5 + edge_perm[k], 5 + k] == 1 for k in range(10)) and perm10 == edge_perm
+            and sorted(sorted(c) for c in cyc10) == sorted([sorted(k for k, (i, j) in enumerate(E) if (j - i) % 5 in (1, 4)),
+                                                              sorted(k for k, (i, j) in enumerate(E) if (j - i) % 5 in (2, 3))]),
+    }
+
+
+def join_time_readout():
+    """The time clock acts on the control system x' = Ax: V = U + U commutes with A, intertwines the named readouts, keeps
+    their observable subspaces (except the single-atom ones, whose five tick images together span the vertex and edge
+    observers), and carries the hidden sector ker M + ker M as twice the regular representation."""
+    K = sp.Matrix(carrier.D2())
+    n = 15
+    A = sp.zeros(2 * n, 2 * n)
+    A[:n, n:] = sp.eye(n)
+    A[n:, :n] = -K
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    U = sp.diag(R5, compound2(R5).applyfunc(abs))
+    V = sp.diag(U, U)
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    Z, I = sp.zeros(n, n), sp.eye(n)
+    pos = lambda S: sp.Matrix.hstack(I.extract(S, list(range(n))), Z.extract(S, list(range(n))))
+    readouts = {
+        "vertex positions": pos(list(range(5))),
+        "edge positions": pos(list(range(5, 15))),
+        "Dirac image D psi": sp.Matrix.hstack(D, Z),
+        "all positions": pos(list(range(15))),
+        "one vertex": pos([0]),
+        "one edge": pos([5]),
+        "vertex sum (uniform statistic)": sp.Matrix.hstack(sp.ones(1, 5), sp.zeros(1, 10), sp.zeros(1, 15)),
+    }
+    # the readouts' shapes agree with layer 5's
+    named = observer.readouts()
+    same = all(np.array_equal(np.array(readouts[k], dtype=float), named[k]) for k in named)
+
+    def observable(C):                                                   # row space of [C; CA; CA^2; ...], exactly
+        O = C
+        while True:
+            O2 = sp.Matrix.vstack(O, O * A)
+            if O2.rank() == O.rank():
+                return O
+            O = O2
+    obs = {k: observable(C) for k, C in readouts.items()}
+    ranks = {k: O.rank() for k, O in obs.items()}
+    invariant = {k: sp.Matrix.vstack(O, O * V).rank() == O.rank() for k, O in obs.items()}
+    equivariant_D = (readouts["Dirac image D psi"] * V - U * readouts["Dirac image D psi"]).is_zero_matrix
+    equivariant_V = (readouts["vertex positions"] * V - R5 * readouts["vertex positions"]).is_zero_matrix
+    equivariant_E = (readouts["edge positions"] * V - U[5:, 5:] * readouts["edge positions"]).is_zero_matrix
+    equivariant_all = (readouts["all positions"] * V - U * readouts["all positions"]).is_zero_matrix
+    sum_invariant = (readouts["vertex sum (uniform statistic)"] * V - readouts["vertex sum (uniform statistic)"]).is_zero_matrix
+    orbit = lambda k: sp.Matrix.vstack(*[obs[k] * V ** j for j in range(5)])
+    span_vertex = orbit("one vertex").rank() == ranks["vertex positions"] \
+        and sp.Matrix.vstack(orbit("one vertex"), obs["vertex positions"]).rank() == ranks["vertex positions"]
+    # the tick orbit of one near edge, and of one far edge, each gives the whole edge observer
+    one_far = pos([5 + carrier.edges().index((0, 2))])
+    far = observable(one_far)
+    span_edge = orbit("one edge").rank() == ranks["edge positions"] == 20 \
+        and sp.Matrix.vstack(*[far * V ** j for j in range(5)]).rank() == 20 and far.rank() == 6
+    # the hidden sector ker M + ker M as a time-clock representation
+    M = sp.Matrix(carrier.signless_incidence())
+    ker = sp.Matrix.hstack(*M.nullspace())
+    hid30 = sp.zeros(2 * n, 10)                                         # ker M + ker M in (edge position, edge velocity)
+    hid30[5:15, :5] = ker
+    hid30[20:30, 5:] = ker
+    X = (hid30.T * hid30).inv() * hid30.T * V * hid30                    # V restricted to the hidden sector
+    x = sp.symbols("x")
+    char = sp.factor(X.charpoly(x).as_expr())
+    return {
+        "the tick U commutes with D^2, so V = U + U on (position, velocity) commutes with the readout's generator A = "
+        "[[0, I], [-D^2, 0]]: the time clock acts on the control system by symmetries, V A = A V, V orthogonal, V^5 = 1":
+            (V * A - A * V).is_zero_matrix and V.T * V == sp.eye(2 * n) and V ** 5 == sp.eye(2 * n) and V != sp.eye(2 * n),
+        "the named readouts are the layer-5 ones (observable dimensions 10, 20, 20, 30, 4, 6, 2 of 30); the vertex, edge, "
+        "all-position and Dirac readouts are tick-equivariant (C V = U C with the matching block of U) and the vertex "
+        "sum is tick-invariant, so their observable subspaces are V-invariant": same
+            and [ranks[k] for k in readouts] == [10, 20, 20, 30, 4, 6, 2]
+            and equivariant_D and equivariant_V and equivariant_E and equivariant_all and sum_invariant
+            and all(invariant[k] for k in ("vertex positions", "edge positions", "Dirac image D psi", "all positions",
+                                           "vertex sum (uniform statistic)")),
+        "the single-atom readouts are not: V moves the observable subspaces of 'one vertex' (4) and 'one edge' (6); but "
+        "the five tick images of 'one vertex' together span exactly the vertex observer (10), and the five tick images of "
+        "one edge, near or far, span exactly the edge observer (20): one atom's observer, turned by the time clock, sees "
+        "all of its kind":
+            not invariant["one vertex"] and not invariant["one edge"] and span_vertex and span_edge,
+        "the hidden controllable sector ker M + ker M (edge force, Dirac readout) is V-invariant, and V acts on it with "
+        "characteristic polynomial ((x - 1) Phi_5)^2: twice the regular representation, each character of the time clock "
+        "once on positions and once on velocities":
+            sp.Matrix.hstack(hid30, V * hid30).rank() == 10
+            and sp.expand(char - ((x - 1) * sp.cyclotomic_poly(5, x)) ** 2) == 0,
+    }
+
+
+def join_time_charges():
+    """The time clock turns the five sites, and the five-site charges are cyclic vectors for it: no nonzero charge is
+    tick-invariant, each of Q, Y, T3 has a nonzero component in every nontrivial character, and the five tick images of
+    any one of them span all traceless site functions."""
+    third, half = Fraction(1, 3), Fraction(1, 2)
+    Q = [-third, -third, -third, Fraction(1), Fraction(0)]
+    Y = [-third, -third, -third, half, half]
+    T3 = [Fraction(0)] * 3 + [half, -half]
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))                # the tick on the sites, site i -> i + 1
+    kappa = lambda x: 4 * x % 5
+    x = sp.symbols("x")
+    Phi5 = sp.Poly(sp.cyclotomic_poly(5, x), x, domain="QQ")
+    vec = lambda c: sp.Matrix([sp.Rational(t.numerator, t.denominator) for t in c])
+    # the component at character k, as an element of Q(omega) = Q[x] / Phi_5: sum_i c_i omega^(-ik), reduced mod Phi_5
+    fourier = lambda c: [sp.Poly(sum(vec(c)[i] * x ** ((-i * k) % 5) for i in range(5)), x, domain="QQ").rem(Phi5) for k in range(5)]
+    orbit = lambda c: sp.Matrix.hstack(*[R5 ** j * vec(c) for j in range(5)])
+    traceless = sp.Matrix.hstack(*sp.ones(1, 5).nullspace())
+    avg = sum((R5 ** j for j in range(5)), sp.zeros(5, 5)) / 5
+    fixed = (R5 - sp.eye(5)).nullspace()
+    comps = {name: fourier(c) for name, c in (("Q", Q), ("Y", Y), ("T3", T3))}
+    spans = {name: orbit(c).rank() for name, c in (("Q", Q), ("Y", Y), ("T3", T3))}
+    relation = {name: (orbit(c) * sp.ones(5, 1)).is_zero_matrix for name, c in (("Q", Q), ("Y", Y), ("T3", T3))}
+    # the charges' doubling: x -> 2x on the sites (the units of the time clock) swaps characters k <-> 2k
+    D2 = sp.Matrix(5, 5, lambda r, c: int(r == 2 * c % 5))
+    doubled = fourier([Fraction(int(t.p), int(t.q)) for t in (D2 * vec(Q))])
+    unit_action = all(doubled[k] == comps["Q"][2 * k % 5] for k in range(5))
+    four_cycle = Permutation([0, 2, 4, 1, 3]).cyclic_form                    # i -> 2i on the nonzero sites
+    return {
+        "the time clock acts on the five sites through kappa (864 -> the rotation i -> i + 1), and a site function it "
+        "keeps is constant: the fixed space of the five-cycle is the line of constants, so the only tick-invariant "
+        "traceless charge is 0, and Q, Y and T3, which sum to 0, are not kept; their tick averages vanish":
+            kappa(864) == 1 and len(fixed) == 1 and fixed[0].T * sp.ones(5, 1) != sp.zeros(1, 1)
+            and all((avg * vec(c)).is_zero_matrix for c in (Q, Y, T3)) and all(R5 * vec(c) != vec(c) for c in (Q, Y, T3)),
+        "each of Q, Y, T3 has zero trivial component and a nonzero component in every one of the four nontrivial "
+        "characters of the time clock (the components taken exactly in Q(omega) = Q[x] / Phi_5)":
+            all(f[0].is_zero and all(not f[k].is_zero for k in range(1, 5)) for f in comps.values()),
+        "so each is a cyclic vector for the time clock on the traceless site functions: the five tick images of Q (of Y, "
+        "of T3) have rank 4 and span all traceless charges, with the one relation that they sum to 0":
+            all(r == 4 for r in spans.values()) and all(relation.values())
+            and all(sp.Matrix.hstack(orbit(c), traceless).rank() == 4 for c in (Q, Y, T3)),
+        "the doubling of the time coordinate, site i -> 2i (the unit 2 of the time clock, of order 4), acts on the "
+        "characters by k -> 2k: the doubled charge's component at character k is the charge's component at 2k, so the four "
+        "nontrivial components of Q are permuted in the four-cycle (1 2 4 3) and none is fixed":
+            unit_action and four_cycle == [[1, 2, 4, 3]] and D2 ** 4 == sp.eye(5) and D2 ** 2 != sp.eye(5)
+            and all(doubled[k] != comps["Q"][k] for k in range(1, 5)),
+    }
+
+
+def join_time_gravity():
+    """The time clock acts on the product geometry M4 x F as 1 (x) U, an automorphism of its spectral triple: the
+    Kaluza-Klein tower splits into five time-clock sectors, the invariant one with masses 0, 8m^2, 8m^2 and each other
+    with 0, 3m^2, 3m^2, and the tick-twisted heat coefficients have no volume term and no Einstein-Hilbert term (conditional)."""
+    DF = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    gamF = sp.Matrix(carrier.grading())
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    U = sp.diag(R5, compound2(R5).applyfunc(abs))
+    I15 = sp.eye(15)
+    X = sp.Matrix([[1, -2, 0, 3], [2, 1, -1, 0], [0, 3, 1, -2], [-1, 0, 2, 1]])    # an even stand-in for M4's Dirac operator
+    DM = sp.Matrix.vstack(sp.Matrix.hstack(sp.zeros(4, 4), X), sp.Matrix.hstack(X.T, sp.zeros(4, 4)))
+    gam = sp.diag(*([1] * 4 + [-1] * 4))
+    m = 2
+    D = sp.kronecker_product(DM, I15) + m * sp.kronecker_product(gam, DF)
+    V = sp.kronecker_product(sp.eye(8), U)
+    gamma_total = sp.kronecker_product(gam, gamF)
+    P = carrier.spectral_projectors()
+    tr = {lam: [(P[lam] * U ** k).trace() for k in range(5)] for lam in (0, 3, 8)}
+    sector = {lam: ((tr[lam][0] + 4 * tr[lam][1]) / 5, (tr[lam][0] - tr[lam][1]) / 5) for lam in (0, 3, 8)}
+    t, Rc, mm = sp.symbols("t R m", positive=True)
+    Z = {j: sum(tr[lam][j] * sp.exp(-t * mm ** 2 * lam) for lam in (0, 3, 8)) for j in range(5)}
+    coeffs = {j: sp.Poly(sp.expand(sp.series((4 - t * Rc / 3) * Z[j], t, 0, 3).removeO()), t).all_coeffs()[::-1] for j in (0, 1)}
+    untwisted, _ = gravity.product_heat_coefficients()
+    invariant_trace = sp.expand((Z[0] + 4 * Z[1]) / 5)
+    other_trace = sp.expand((Z[0] - Z[1]) / 5)
+    traces = {j: [(U ** j * DF ** (2 * p)).trace() for p in range(3)] for j in range(5)}
+    return {
+        "1 (x) U commutes with D = D_M (x) 1 + gamma (x) m D_F and with the grading gamma (x) gamma_F, and it is "
+        "orthogonal of order 5: the time clock acts on the product geometry's spectral triple by automorphisms, through "
+        "the carrier factor alone (checked exactly with an even stand-in for M4's Dirac operator; M4 and m stay free)":
+            (V * D - D * V).is_zero_matrix and (V * gamma_total - gamma_total * V).is_zero_matrix and V.T * V == sp.eye(120)
+            and V ** 5 == sp.eye(120) and (U * DF - DF * U).is_zero_matrix and (U * gamF - gamF * U).is_zero_matrix
+            and (DM * gam + gam * DM).is_zero_matrix,
+        "so the Kaluza-Klein tower 0, 3m^2, 8m^2 (5, 8, 2) over every level of M4 splits into five time-clock sectors: the "
+        "invariant sector has the internal masses 0, 8m^2, 8m^2 (multiplicities 1, 0, 2 on 0, 3, 8) and each of the four "
+        "others 0, 3m^2, 3m^2 (1, 2, 0); every sector starts on one dark mode, and the heat factor 5 + 8 e^(-3 m^2 t) + "
+        "2 e^(-8 m^2 t) splits as (1 + 2 e^(-8 m^2 t)) + 4 (1 + 2 e^(-3 m^2 t))":
+            all(len(set(tr[lam][1:])) == 1 for lam in (0, 3, 8)) and sector == {0: (1, 1), 3: (0, 2), 8: (2, 0)}
+            and invariant_trace == 1 + 2 * sp.exp(-8 * mm ** 2 * t) and other_trace == 1 + 2 * sp.exp(-3 * mm ** 2 * t)
+            and sp.expand(Z[0] - (5 + 8 * sp.exp(-3 * mm ** 2 * t) + 2 * sp.exp(-8 * mm ** 2 * t))) == 0
+            and sp.expand(invariant_trace + 4 * other_trace - Z[0]) == 0,
+        "the tick-twisted traces are Tr(U^j D_F^0, D_F^2, D_F^4) = 0, 10, 110 for every j != 0 (against 15, 40, 200 "
+        "untwisted), so in (4 - tR/3) Tr(U^j exp(-t m^2 D_F^2)) the twisted heat coefficients are 0, -40 m^2 and "
+        "220 m^4 + 10 m^2 R/3: the tick-twisted spectral action has no volume term and no Einstein-Hilbert R term at order t "
+        "(R enters only with m^2 at order t^2), and starts at the mass term; j = 0 gives back 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3":
+            all(traces[j] == [0, 10, 110] for j in range(1, 5)) and traces[0] == [15, 40, 200]
+            and all(sp.expand(Z[j] - Z[1]) == 0 for j in range(2, 5))
+            and [sp.expand(c) for c in coeffs[1]] == [0, -40 * mm ** 2, 220 * mm ** 4 + sp.Rational(10, 3) * mm ** 2 * Rc]
+            and all(sp.expand(a - b) == 0 for a, b in zip(coeffs[0], untwisted)) and len(coeffs[0]) == len(untwisted) == 3,
+    }
+
+
+def join_time_cosmology():
+    """The time clock is a symmetry of the conditional cosmos: the tick keeps the energy density, the pressure and every
+    sector energy of the carrier field on a flat FLRW background, so it carries solutions to solutions with the same
+    scale factor, and the stiff dark sector splits into one invariant mode and four turning ones (conditional)."""
+    K = sp.Matrix(carrier.D2())
+    R5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))
+    U = sp.diag(R5, compound2(R5).applyfunc(abs))
+    I = sp.eye(15)
+    P = carrier.spectral_projectors()
+    psi0, v0 = carrier.canon_initial_datum()
+    psi0 = sp.Matrix([int(round(x)) for x in psi0])
+    v0 = sp.Matrix([int(round(x)) for x in v0])
+    m, G, H = sp.symbols("m G H", positive=True)
+    psi = sp.Matrix(sp.symbols("p0:15"))
+    v = sp.Matrix(sp.symbols("v0:15"))
+    rho = (v.T * v)[0] / 2 + m ** 2 * (psi.T * K * psi)[0] / 2                 # layer 7's energy density
+    pressure = (v.T * v)[0] / 2 - m ** 2 * (psi.T * K * psi)[0] / 2
+    sub = lambda f, A: f.subs({**dict(zip(psi, A * psi)), **dict(zip(v, A * v))}, simultaneous=True)
+    at = lambda f, p, w: f.subs({**dict(zip(psi, p)), **dict(zip(v, w))}, simultaneous=True)
+    sectors = {lam: ((P[lam] * v).T * (P[lam] * v))[0] / 2 + m ** 2 * lam * ((P[lam] * psi).T * (P[lam] * psi))[0] / 2
+               for lam in (0, 3, 8)}
+    rhs_v = -3 * H * v - m ** 2 * K * psi                                      # v' in psi'' + 3 H psi' + m^2 D^2 psi = 0
+    orbit = [U ** j * psi0 for j in range(5)]
+    tr0 = [(P[0] * U ** k).trace() for k in range(5)]
+    mult0 = ((tr0[0] + 4 * tr0[1]) / 5, (tr0[0] - tr0[1]) / 5)
+    return {
+        "the tick U is orthogonal and commutes with D^2 and with every spectral projector, so the energy density "
+        "rho = |psi'|^2/2 + m^2 <psi, D^2 psi>/2, the pressure, the Friedmann constraint H^2 = (8 pi G/3) rho + "
+        "Lambda_cc/3, H' = -4 pi G |psi'|^2 and all three sector energies are unchanged under (psi, psi') -> (U psi, U psi')":
+            U.T * U == I and (U * K - K * U).is_zero_matrix and all((U * P[lam] - P[lam] * U).is_zero_matrix for lam in (0, 3, 8))
+            and sp.expand(sub(rho, U) - rho) == 0 and sp.expand(sub(pressure, U) - pressure) == 0
+            and sp.expand(sub((v.T * v)[0], U) - (v.T * v)[0]) == 0
+            and all(sp.expand(sub(sectors[lam], U) - sectors[lam]) == 0 for lam in (0, 3, 8)),
+        "and the carrier equation psi'' + 3 H psi' + m^2 D^2 psi = 0 is U-equivariant, U(-3 H psi' - m^2 D^2 psi) = "
+        "-3 H (U psi') - m^2 D^2 (U psi): the time clock carries every solution (a, psi) of the conditional cosmos to the "
+        "solution (a, U psi) with the same scale factor and the same H(t), for every G, Lambda_cc and m":
+            (U * rhs_v - (-3 * H * (U * v) - m ** 2 * K * (U * psi))).applyfunc(sp.expand).is_zero_matrix,
+        "the checked datum is moved: its five tick images are five distinct initial data with the same energy, the same "
+        "kernel-sector energy 2 and the same flow of a(t), so the history of the scale factor does not see which of the "
+        "five the carrier started from": len({tuple(x) for x in orbit}) == 5
+            and all(sp.expand(at(rho, U ** j * psi0, U ** j * v0) - at(rho, psi0, v0)) == 0 for j in range(5))
+            and all(at(sectors[0], U ** j * psi0, U ** j * v0) == 2 for j in range(5)),
+        "the stiff sector (the five dark modes, energy falling as a^-6) is the kernel projector P0, and it splits under the "
+        "time clock into one invariant dark mode and four turning ones, one per nontrivial character (tr(P0 U^k) = 0 for "
+        "k != 0); each character projector is a polynomial in U, so it commutes with D^2 and its a^3 P_chi P0 psi' is "
+        "conserved on every background": tr0 == [5, 0, 0, 0, 0] and mult0 == (1, 1)
+            and all((U ** k * K - K * U ** k).is_zero_matrix for k in range(5)) and (P[0] * K).is_zero_matrix
+            and P[0][:5, :] == sp.zeros(5, 15),
+    }
+
+
+def join_pg25_simplex():
+    """The 31 faces of the 4-simplex are the 31 points of PG(2,5), grade by grade, equivariantly for AGL(1,5)."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    exterior = {q for q in points if q not in conic and count[q] == 2}
+    interior = {q for q in points if q not in conic and count[q] == 0}
+    pole = lambda a, b: cross(tangent[label[a]], tangent[label[b]])
+
+    def perspector(T):
+        a, b, c = T
+        lines = [cross(label[a], pole(b, c)), cross(label[b], pole(a, c)), cross(label[c], pole(a, b))]
+        X = cross(lines[0], lines[1])
+        return X if on(lines[2], X) else None
+    faces = [S for n in range(1, 6) for S in itertools.combinations(range(5), n)]
+    grade = lambda k: [S for S in faces if len(S) == k]
+    comp = lambda S: tuple(v for v in range(5) if v not in S)
+
+    def point(S):
+        if len(S) == 1:
+            return label[S[0]]
+        if len(S) == 2:
+            return pole(*S)
+        if len(S) == 3:
+            return perspector(S)
+        if len(S) == 4:
+            return pole(comp(S)[0], 5)
+        return label[5]
+    img = {S: point(S) for S in faces}
+    tinf = tangent[label[5]]
+    tick_pl, dbl_pl = sym2((1, 1, 0, 1)), sym2((2, 0, 0, 1))      # x -> x + 1 and x -> 2x on (x, 1), then Sym^2
+    act = lambda g, S: tuple(sorted(g(v) for v in S))
+    tick, dbl = (lambda v: (v + 1) % 5), (lambda v: 2 * v % 5)
+    det = lambda m: (m[0] * m[3] - m[1] * m[2]) % 5
+    gl = [m for m in itertools.product(range(5), repeat=4) if det(m)]
+    t01 = lambda v: {0: 1, 1: 0}.get(v, v)
+    F20 = [(lambda v, u=u, a=a: (u * v + a) % 5) for u in (1, 2, 3, 4) for a in range(5)]
+    orbit = lambda S: frozenset(act(g, S) for g in F20)
+    refl = lambda a, b: (lambda v: (a + b - v) % 5)                 # the reflection swapping a and b
+    axis = lambda a, b: cross(label[next(v for v in range(5) if refl(a, b)(v) == v)], label[5])
+    return {
+        "a vertex a -> its conic point (a^2, a, 1), an edge ab -> the pole where the tangents at a and b meet, a "
+        "triangle -> its perspector, a tetrahedron V - {e} -> the pole of the secant through e and infinity, the "
+        "body -> the conic's point at infinity: a bijection of the 31 nonempty faces onto the 31 points of PG(2,5)":
+            len(set(img.values())) == 31 and set(img.values()) == set(points) and all(q is not None for q in img.values()),
+        "grade by grade: the five vertices are the conic's affine points, the ten edges the ten exterior points off "
+        "the tangent at infinity, the ten triangles all ten interior points, the five tetrahedra the five exterior "
+        "points on the tangent at infinity, the body the point at infinity":
+            all(img[S] in conic and img[S] != label[5] for S in grade(1))
+            and all(img[S] in exterior and not on(tinf, img[S]) for S in grade(2))
+            and {img[S] for S in grade(3)} == interior
+            and all(img[S] in exterior and on(tinf, img[S]) for S in grade(4)) and img[(0, 1, 2, 3, 4)] == label[5],
+        "the map intertwines the vertex rotation and the doubling on the faces with the symmetric squares of x -> x + 1 "
+        "and x -> 2x on the plane (which keep the conic and fix its point at infinity): an isomorphism of AGL(1,5)-sets, "
+        "the faces' orbits 5, 10, 10, 5, 1 onto the plane's 1 + 5 + 5 + 10 + 10":
+            all(img[act(tick, S)] == tick_pl(img[S]) and img[act(dbl, S)] == dbl_pl(img[S]) for S in faces)
+            and sorted(len(o) for o in {orbit(S) for S in faces}) == [1, 5, 5, 10, 10]
+            and tick_pl(label[5]) == dbl_pl(label[5]) == label[5],
+        "no symmetric square of GL(2,5) induces the transposition (0 1) on the faces; a vertex and the tetrahedron "
+        "opposite lie on the tangent at the vertex, and an edge ab and the triangle opposite on the axis of the "
+        "reflection swapping a and b, the secant through its fixed vertex and infinity":
+            not any(all(img[act(t01, S)] == sym2(m)(img[S]) for S in faces) for m in gl)
+            and all(on(tangent[label[a]], img[comp((a,))]) for a in range(5))
+            and all(on(axis(a, b), img[(a, b)]) and on(axis(a, b), img[comp((a, b))]) for a, b in grade(2)),
+    }
+
+
+def join_cube_pg25():
+    """The fifteen nonzero cuts (the four-cube's vertices) are the fifteen exterior points of PG(2,5), as duads."""
+    E = carrier.edges()
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    cube = list(itertools.product((0, 1), repeat=4))
+    f = {x: cut({k + 1 for k in range(4) if x[k]}) for x in cube}                      # cube_cuts' map
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    exterior = {q for q in points if q not in conic and count[q] == 2}
+    interior = {q for q in points if q not in conic and count[q] == 0}
+    tinf = tangent[label[5]]
+    tangents = set(tangent.values())
+    duads = [frozenset(d) for d in itertools.combinations(range(6), 2)]
+    polept = {d: cross(tangent[label[min(d)]], tangent[label[max(d)]]) for d in duads}
+    secant = {d: cross(label[min(d)], label[max(d)]) for d in duads}
+    cutof = {d: cut(set(d) - {5}) for d in duads}
+    duad_of = {c: d for d, c in cutof.items()}
+    plus = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+    beta = lambda c, d: sum(p * q for p, q in zip(c, d)) % 2
+    nonzero = [c for c in f.values() if any(c)]
+    tick_pl, dbl_pl = sym2((1, 1, 0, 1)), sym2((2, 0, 0, 1))
+    mv = lambda g, d: frozenset(5 if x == 5 else g(x) for x in d)
+    zero_sum = {frozenset(t) for t in itertools.combinations(nonzero, 3) if functools.reduce(plus, t) == (0,) * 10}
+    as_duads = lambda t: frozenset(duad_of[c] for c in t)
+    synthemes = {m for m in zero_sum if all(not a & b for a, b in itertools.combinations(as_duads(m), 2))}
+    triangles = zero_sum - synthemes
+    polar = lambda q: (-q[2] % 5, 2 * q[1] % 5, -q[0] % 5)
+    pts = lambda t: [polept[d] for d in as_duads(t)]
+    collinear = lambda t: on(cross(pts(t)[0], pts(t)[1]), pts(t)[2])
+    external = lambda t: sum(on(cross(pts(t)[0], pts(t)[1]), c) for c in conic) == 0
+    self_polar = lambda t: all(on(polar(p), q) for p in pts(t) for q in pts(t) if p != q)
+    secant_sides = lambda t: all(cross(polept[a], polept[b]) == secant[frozenset(range(6)) - a - b]
+                                 for a, b in itertools.combinations(as_duads(t), 2))
+    tangent_sides = lambda t: all(cross(p, q) in tangents for p in pts(t) for q in pts(t) if p != q)
+    special = {m for m in synthemes if not collinear(m)}
+    return {
+        "the fifteen nonzero vertices of the four-cube are the fifteen duads of the six conic points, the five atoms "
+        "and infinity: the star of e is the duad e-infinity and the pair cut of {a, b} the duad ab (the even subsets "
+        "of six points modulo complement), and the duad -> the pole of its secant, where the two tangents meet, is a "
+        "bijection of the nonzero cube vertices onto the fifteen exterior points of PG(2,5)":
+            len(duad_of) == 15 and set(duad_of) == set(nonzero) and all(cut({e}) == cutof[frozenset((e, 5))] for e in range(5))
+            and all(cut(set(d)) == cutof[frozenset(d)] for d in E) and {polept[d] for d in duads} == exterior
+            and len({polept[d] for d in duads}) == 15,
+        "the five stars (the four unit vectors and the antipode 1111) go to the five exterior points on the tangent at "
+        "infinity and the ten pair cuts (weights 2 and 3) to the ten affine exterior points; the map intertwines the "
+        "tick and the doubling on the cuts with the symmetric squares of x -> x + 1 and x -> 2x on the plane":
+            all(on(tinf, polept[duad_of[cut({e})]]) for e in range(5))
+            and all(not on(tinf, polept[duad_of[f[x]]]) for x in cube if sum(x) in (2, 3))
+            and {sum(x) for x in cube if 5 in duad_of.get(f[x], ())} == {1, 4}
+            and all(polept[mv(lambda x: (x + 1) % 5, d)] == tick_pl(polept[d])
+                    and polept[mv(lambda x: 2 * x % 5, d)] == dbl_pl(polept[d]) for d in duads),
+        "two cuts have an odd number of common edges exactly when the line joining their exterior points is a tangent "
+        "(the duads share a conic point); for an even overlap the joining line is external or a secant":
+            all((beta(cutof[a], cutof[b]) == 1) == (cross(polept[a], polept[b]) in tangents)
+                for a, b in itertools.combinations(duads, 2)),
+        "the 35 triples of nonzero cuts summing to zero (the lines of PG(3,2)) go to 10 collinear triples on the "
+        "external lines (the polars of the interior points: the ten nonspecial synthemes), 5 self-polar triangles whose "
+        "sides are the three secants of the syntheme (the special five, on the tangent at infinity) and 20 tangential "
+        "triangles of inscribed triangles, whose sides are tangents":
+            len(zero_sum) == 35 and len(synthemes) == 15 and len(triangles) == 20 and len(special) == 5
+            and all(collinear(m) and external(m) for m in synthemes - special)
+            and all(len([q for q in interior if all(on(polar(q), p) for p in pts(m))]) == 1 for m in synthemes - special)
+            and {next(q for q in interior if all(on(polar(q), p) for p in pts(m))) for m in synthemes - special} == interior
+            and all(self_polar(m) and secant_sides(m) and any(on(tinf, p) for p in pts(m)) for m in special)
+            and all(tangent_sides(t) and not collinear(t) for t in triangles),
+    }
+
+
+def join_petersen_surface():
+    """The dual graph of the hemi-icosahedron (the hemi-dodecahedron's 1-skeleton) is the Petersen graph on the edges."""
+    E = carrier.edges()
+    A = carrier.petersen()
+    An = np.array(A.tolist(), dtype=np.int64)
+    Asurf, Ac = _surface_labels()
+    SY = _matchings(range(6))
+    comp = lambda t: tuple(sorted(set(range(6)) - set(t)))
+    k5 = lambda t: tuple(sorted(set(t) - {5}))
+    is_far = lambda e: (e[1] - e[0]) % 5 in (2, 3)
+    edges_of = lambda t: [tuple(sorted(p)) for p in itertools.combinations(t, 2)]
+
+    def only(seq):
+        seq = list(seq)
+        return seq[0] if len(seq) == 1 else None
+
+    def face_syntheme(F, t):
+        m = set()
+        for a in t:
+            edge = tuple(sorted(set(t) - {a}))
+            u = next(w for w in F if set(edge) <= set(w) and w != t)
+            m.add(frozenset((a, (set(u) - set(edge)).pop())))
+        return frozenset(m)
+    nonspecial = {face_syntheme(Asurf, t) for t in Asurf}
+    special = set(SY) - nonspecial
+    v = {e: only(m for m in special if frozenset((e, 5)) in m) for e in range(5)}
+    ends = lambda m: tuple(e for e in range(5) if not v[e] & m)
+    phi = {t: ends(face_syntheme(Asurf, t)) for t in Asurf}
+    phic = {t: ends(face_syntheme(Ac, t)) for t in Ac}
+    adjacent = lambda s, t: len(set(s) & set(t)) == 2
+    iso = lambda F, m: all(adjacent(s, t) == bool(An[E.index(m[s]), E.index(m[t])]) for s in F for t in F if s != t)
+    chord = lambda e, far: only(g for g in E if is_far(g) == far and not set(g) & set(e))   # the one disjoint edge of a type
+    links = {x: [t for t in Asurf if x in t] for x in range(6)}
+    pentagons = {frozenset(c) for c in itertools.combinations(range(10), 5)
+                 if sum(An[a, b] for a, b in itertools.combinations(c, 2)) == 5
+                 and all(An[np.ix_(list(c), list(c))].sum(axis=1) == 2)}
+    link_cycles = {frozenset(E.index(phi[t]) for t in links[x]) for x in range(6)}
+    return {
+        "each face T of the hemi-icosahedron is matched to its complementary triple edge by edge (the other face on an "
+        "edge of T meets T^c in one vertex), a syntheme; the five synthemes that are no face each contain one spoke "
+        "e-infinity, call it v_e, and T -> the edge jk whose v_j, v_k share no duad with T's syntheme (the model's "
+        "syntheme incidence) is a bijection of the ten faces onto the ten edges of K5 carrying faces that share an "
+        "edge to disjoint edges: the dual graph of the hemi-icosahedron, the 1-skeleton of the hemi-dodecahedron, is "
+        "the Petersen graph": len(nonspecial) == 10 and all(v[e] is not None for e in range(5))
+            and sorted(phi.values()) == sorted(E) and iso(Asurf, phi),
+        "explicitly, a face in K5 (a consecutive triple, two pentagon edges and one pentagram edge) goes to its "
+        "pentagram edge, and a face at the cone point, over a pentagram edge, to the one pentagon edge disjoint from it, "
+        "its parallel chord": all(phi[t] == only(e for e in edges_of(t) if is_far(e)) for t in Asurf if 5 not in t)
+            and all(is_far(k5(t)) and phi[t] == chord(k5(t), far=False) for t in Asurf if 5 in t),
+        "the same construction on the complementary triangulation gives the same ten synthemes, again an isomorphism "
+        "onto Petersen, with complementary faces going to the same edge; there a K5 face (one pentagon edge, two "
+        "pentagram edges) goes to its pentagon edge and a cone face, over a pentagon edge, to the pentagram edge "
+        "disjoint from it": {face_syntheme(Ac, t) for t in Ac} == nonspecial and iso(Ac, phic)
+            and all(phi[t] == phic[comp(t)] for t in Asurf)
+            and all(phic[t] == only(e for e in edges_of(t) if not is_far(e)) for t in Ac if 5 not in t)
+            and all(not is_far(k5(t)) and phic[t] == chord(k5(t), far=True) for t in Ac if 5 in t),
+        "the five faces around each of the six axes go to a 5-cycle of Petersen, six distinct ones of its twelve: the "
+        "six pentagons of the hemi-dodecahedron, two of which meet in an edge as two axes span an edge of the "
+        "hemi-icosahedron": len(pentagons) == 12 and link_cycles <= pentagons and len(link_cycles) == 6
+            and all(len(set(links[x]) & set(links[y])) == 2 for x, y in itertools.combinations(range(6), 2)),
+    }
+
+
+def join_cube_petersen():
+    """The four-cube's middle layers (the pair cuts) induce the Petersen graph; the stars are its maximum independent sets."""
+    E = carrier.edges()
+    A = carrier.petersen()
+    An = np.array(A.tolist(), dtype=np.int64)
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    plus = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+    cube = list(itertools.product((0, 1), repeat=4))
+    f = {x: cut({k + 1 for k in range(4) if x[k]}) for x in cube}                      # cube_cuts' map
+    stars = {e: cut({e}) for e in range(5)}
+    pair = {cut(set(e)): e for e in E}
+    weight = lambda x: sum(x)
+    cube_edge = lambda x, y: sum(a != b for a, b in zip(x, y)) == 1
+    antipodal = lambda x, y: all(a != b for a, b in zip(x, y))
+    mid = [x for x in cube if weight(x) in (2, 3)]
+    adj = lambda x, y: An[E.index(pair[f[x]]), E.index(pair[f[y]])] == 1
+    origin = (0,) * 10
+    clebsch_adj = lambda c, d: plus(c, d) in stars.values()
+    M = sp.Matrix(carrier.signless_incidence())
+    star_sets = [frozenset(k for k, e in enumerate(E) if v in e) for v in range(5)]
+    independent = lambda S: all(An[a, b] == 0 for a, b in itertools.combinations(S, 2))
+    ind4 = [frozenset(S) for S in itertools.combinations(range(10), 4) if independent(S)]
+    ind5 = [S for S in itertools.combinations(range(10), 5) if independent(S)]
+
+    def induced_cycle(idx):
+        sub = An[np.ix_(idx, idx)]
+        seen, frontier = {0}, [0]
+        while frontier:
+            a = frontier.pop()
+            for b in range(len(idx)):
+                if sub[a, b] and b not in seen:
+                    seen.add(b)
+                    frontier.append(b)
+        return len(seen) == len(idx) and all(sub.sum(axis=1) == 2)
+    return {
+        "the sixteen cuts of K5, the cube's vertices, are the empty cut, the five vertex stars (weights 1 and 4: the "
+        "four unit vectors and the antipode 1111) and the ten pair cuts (weights 2 and 3), the cut of {a, b} being the "
+        "six edges from {a, b} to the other three vertices":
+            {f[x] for x in cube if weight(x) in (1, 4)} == set(stars.values())
+            and {f[x] for x in mid} == set(pair) and all(sum(c) == 6 for c in pair) and f[(0, 0, 0, 0)] == origin,
+        "two pair cuts differ by a star exactly when their pairs are disjoint, and then by the star of the fifth "
+        "vertex: so the ten vertices of weights 2 and 3 induce the Petersen graph in the folded five-cube (all five "
+        "stars as steps), the graph of the ten non-neighbours of the origin":
+            all(clebsch_adj(f[x], f[y]) == adj(x, y) for x in mid for y in mid if x != y)
+            and all(plus(f[x], f[y]) == stars[(set(range(5)) - set(pair[f[x]]) - set(pair[f[y]])).pop()]
+                    for x in mid for y in mid if adj(x, y))
+            and {c for c in f.values() if c != origin and not clebsch_adj(c, origin)} == set(pair),
+        "inside the four-cube itself these fifteen Petersen edges are its twelve edges between the weight-2 and "
+        "weight-3 layers and the three antipodal pairs within the weight-2 layer (which differ by the fifth star, "
+        "the antipode): every cube edge between the middle layers is a Petersen edge, 12 + 3 = 15":
+            all(adj(x, y) for x in mid for y in mid if cube_edge(x, y))
+            and sum(cube_edge(x, y) for x in mid for y in mid) // 2 == 12
+            and all(adj(x, y) for x in mid for y in mid if antipodal(x, y)) and sum(antipodal(x, y) for x in mid for y in mid) // 2 == 3
+            and sum(adj(x, y) for x in mid for y in mid) // 2 == 15,
+        "the five stars are the five maximum independent sets of the Petersen graph (size 4, exactly five, none of "
+        "size 5), the rows of M, with A M^T = 2(J - M^T); each pair cut induces a 6-cycle, and each non-edge of "
+        "Petersen lies in exactly one star": set(ind4) == set(star_sets) and len(ind4) == 5 and not ind5 and A * M.T == 2 * (sp.ones(10, 5) - M.T)
+            and all(induced_cycle([k for k in range(10) if c[k]]) for c in pair)
+            and all(sum(a in S and b in S for S in star_sets) == 1
+                    for a, b in itertools.combinations(range(10), 2) if An[a, b] == 0),
+    }
+
+
+def join_cube_synthemes():
+    """The parity of common edges is a symplectic form on the cuts; its isotropic lines are the synthemes, the special
+    five the F4-lines of F16."""
+    E = carrier.edges()
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    plus = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+    cuts = {}
+    for S in itertools.product(range(2), repeat=5):
+        cuts.setdefault(cut({v for v in range(5) if S[v]}), frozenset(v for v in range(5) if S[v]))
+    nonzero = [c for c in cuts if any(c)]
+    duads = [frozenset(d) for d in itertools.combinations(range(6), 2)]
+    cutof = {d: cut(set(d) - {5}) for d in duads}
+    duad_of = {c: d for d, c in cutof.items()}
+    beta = lambda c, d: sum(p * q for p, q in zip(c, d)) % 2
+    SY = _matchings(range(6))
+    lines = {frozenset((x, y, plus(x, y))) for x in nonzero for y in nonzero if x != y}
+    isotropic = {L for L in lines if all(beta(x, y) == 0 for x in L for y in L)}
+    syn_lines = {frozenset(cutof[d] for d in m) for m in SY}
+    tri_lines = {frozenset(cutof[frozenset(p)] for p in itertools.combinations(T, 2)) for T in itertools.combinations(range(6), 3)}
+    # F16 = F2[x] / (x^4 + x^3 + x^2 + x + 1) on 4-tuples, zeta = x; psi(cut of S) = sum of zeta^v over S
+    times_x = lambda a: (a[3], (a[0] + a[3]) % 2, (a[1] + a[3]) % 2, (a[2] + a[3]) % 2)
+    add = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+
+    def mul(a, b):
+        out = (0, 0, 0, 0)
+        for i in range(4):
+            if a[i]:
+                out = add(out, b)
+            b = times_x(b)
+        return out
+    zeta = [(1, 0, 0, 0)]
+    for _ in range(4):
+        zeta.append(times_x(zeta[-1]))
+    psi = lambda c: functools.reduce(add, (zeta[v] for v in cuts[c]), (0, 0, 0, 0))
+    sq = lambda a: mul(a, a)
+    trace = lambda a: add(add(a, sq(a)), add(sq(sq(a)), sq(sq(sq(a)))))
+    form = lambda c, d: trace(mul(psi(c), sq(sq(psi(d)))))                             # Tr(x y^4)
+    omega = add(zeta[1], zeta[4])
+    F4 = {(0, 0, 0, 0), zeta[0], omega, sq(omega)}
+    f4_lines = {frozenset(mul(zeta[e], w) for w in F4 if any(w)) for e in range(5)}
+    back = {psi(c): c for c in cuts}
+    f4_cut_lines = {frozenset(back[w] for w in L) for L in f4_lines}
+    tick = lambda c: cut({(v + 1) % 5 for v in cuts[c]})
+    frob = lambda c: cut({2 * v % 5 for v in cuts[c]})
+    # the synthemes dot: the Sylow labels' special five under the labellings carrying sigma onto PGL(2,5)
+    pgl, _ = projective_line()
+    H, sig, S5, sgn, U = _six_lines()
+    group = set(sig.values())
+    labellings = [f for f in itertools.permutations(range(6))
+                  if {tuple(f[s[f.index(x)]] for x in range(6)) for s in group} == pgl]
+    move = lambda p, m: frozenset(frozenset(sig[p][y] for y in pr) for pr in m)
+    special = {m for m in SY if len({move(p, m) for p in S5}) == 5}
+    carried = lambda f, m: frozenset(cutof[frozenset(f[y] for y in pr)] for pr in m)
+    return {
+        "the fifteen nonzero cuts of K5, the four-cube's vertices, are the fifteen duads of the six points V + "
+        "{infinity}: the star of e is the duad e-infinity and the pair cut of {a, b} the duad ab (even subsets of six "
+        "points modulo complement, a bijection), and the parity of two cuts' common edges, |S||T| + |S meet T| mod 2, "
+        "is a nondegenerate alternating form on F2^4: the symplectic space W(3,2)":
+            len(duad_of) == 15 and set(duad_of) == set(nonzero)
+            and all(beta(cutof[a], cutof[b]) == (len(a & b)) % 2 for a in duads for b in duads)
+            and all(beta(c, c) == 0 for c in cuts) and all(any(beta(c, d) for d in cuts) for c in nonzero)
+            and all(beta(c, d) == (len(cuts[c]) * len(cuts[d]) + len(cuts[c] & cuts[d])) % 2 for c in cuts for d in cuts),
+        "the 35 lines x, y, x + y of PG(3,2) on the cuts split 15 + 20: the fifteen totally isotropic lines are the "
+        "fifteen synthemes (three mutually disjoint duads sum to zero and are pairwise orthogonal), the twenty others "
+        "the triangles of K6; every isotropic line holds exactly one star": len(lines) == 35
+            and isotropic == syn_lines and len(syn_lines) == 15 and lines - isotropic == tri_lines
+            and all(sum(c in [cut({e}) for e in range(5)] for c in L) == 1 for L in isotropic),
+        "on F16 = F2[zeta5] (cube_frobenius: the star of e is zeta^e) the form is Tr(x y^4), invariant under the tick "
+        "(multiplication by zeta) and the doubling (Frobenius), with Tr(zeta^a zeta^-b) = 1 - delta_ab":
+            all(form(c, d) == (beta(c, d), 0, 0, 0) for c in cuts for d in cuts)
+            and all(beta(tick(c), tick(d)) == beta(c, d) == beta(frob(c), frob(d)) for c in cuts for d in cuts)
+            and all(beta(cut({a}), cut({b})) == int(a != b) for a in range(5) for b in range(5)),
+        "the special five synthemes, the exceptional S5's orbit of five on the Sylow labels, are under every one of the "
+        "120 labellings of the labels by the six points carrying sigma onto PGL(2,5) the five F4-lines zeta^e F4^x of "
+        "F16 (F4 = {0, 1, omega, omega^2}, omega = zeta + zeta^4 the cut of {1, 4}): the regular spread of W(3,2), "
+        "{e-infinity, (e-1)(e+1), (e+2)(e+3)}, the pairs the reflection through e preserves":
+            len(labellings) == 120 and len(special) == 5
+            and all({carried(f, m) for m in special} == f4_cut_lines for f in labellings)
+            and f4_cut_lines <= isotropic and omega == psi(cut({1, 4})) and sq(omega) == psi(cut({2, 3}))
+            and add(add(omega, sq(omega)), zeta[0]) == (0, 0, 0, 0)
+            and f4_cut_lines == {frozenset((cut({e}), cut({(e - 1) % 5, (e + 1) % 5}), cut({(e + 2) % 5, (e + 3) % 5})))
+                                 for e in range(5)},
+    }
+
+
+def join_cube_simplex():
+    """The four-cube is the Hasse diagram of the face lattice of the facet opposite vertex 0; the simplex's own face
+    lattice is the five-cube, folded by complementation onto the cuts."""
+    E = carrier.edges()
+    cells, d = _cube_complex()
+    cube = list(itertools.product((0, 1), repeat=4))
+    face_of = lambda x: frozenset(k + 1 for k in range(4) if x[k])
+    tetra_faces = [frozenset(S) for n in range(5) for S in itertools.combinations(range(1, 5), n)]
+    cube_edges = {frozenset((x, y)) for x in cube for y in cube if sum(a != b for a, b in zip(x, y)) == 1}
+    covers = {frozenset((x, y)) for x in cube for y in cube if face_of(x) < face_of(y) and len(face_of(y)) == len(face_of(x)) + 1}
+    intervals = {(frozenset(k + 1 for k in range(4) if c[k] == 1), frozenset(k + 1 for k in range(4) if c[k] in (1, 2))) for c in cells}
+    all_intervals = {(S, T) for S in tetra_faces for T in tetra_faces if S <= T}
+    dim_ok = all(c.count(2) == len(frozenset(k + 1 for k in range(4) if c[k] in (1, 2))) - len(frozenset(k + 1 for k in range(4) if c[k] == 1))
+                 for c in cells)
+    subsets = [frozenset(S) for n in range(6) for S in itertools.combinations(range(5), n)]
+    q5 = {frozenset((S, T)) for S in subsets for T in subsets if S < T and len(T) == len(S) + 1}
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    plus = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+    stars = {e: cut({e}) for e in range(5)}
+    cuts = {cut(S) for S in subsets}
+    folded = {frozenset((cut(S), cut(T))) for S, T in map(tuple, q5)}
+    clebsch = {frozenset((c, plus(c, s))) for c in cuts for s in stars.values()}
+    f = {x: cut({k + 1 for k in range(4) if x[k]}) for x in cube}                      # cube_cuts' map
+    model_edges = {frozenset((f[x], f[y])) for x, y in map(tuple, cube_edges)}
+    V = frozenset(range(5))
+    order = list(cuts)
+    C = np.zeros((16, 16), dtype=np.int64)
+    for a, b in map(tuple, clebsch):
+        C[order.index(a), order.index(b)] = C[order.index(b), order.index(a)] = 1
+    I16, J16 = np.eye(16, dtype=np.int64), np.ones((16, 16), dtype=np.int64)
+    fibre = lambda c: [S for S in subsets if cut(S) == c]
+    return {
+        "x -> the face {k : x_k = 1} of the tetrahedron 1234 (the empty face for the origin) is a bijection of the "
+        "cube's sixteen vertices onto the sixteen faces of the facet opposite vertex 0, and the cube's 32 edges are "
+        "the covering relations S < S + {k}: the four-cube is the Hasse diagram of that facet's face lattice, the "
+        "weight of a vertex the size of its face":
+            {face_of(x) for x in cube} == set(tetra_faces) and len({face_of(x) for x in cube}) == 16
+            and cube_edges == covers and len(covers) == 32
+            and all(sum(x) == len(face_of(x)) for x in cube),
+        "the 81 cells of the cube complex, the words in {0, 1, *}^4, are the 81 intervals [S, T] of that lattice "
+        "(S the 1s, T the 1s and *s), of dimension |T - S|": intervals == all_intervals and len(intervals) == 81 and dim_ok,
+        "the face lattice of the whole simplex, the 32 subsets of V with 80 covering relations, is the five-cube; "
+        "complementation S -> V - S folds it 2-to-1 onto the sixteen cuts of K5 (cube_cuts), a covering relation "
+        "becoming a step by a vertex star: the folded five-cube with all five stars as steps, the Clebsch graph, "
+        "strongly regular (16, 5, 0, 2) with 40 edges": len(q5) == 80 and folded == clebsch and len(clebsch) == 40
+            and all(cut(S) == cut(V - S) for S in subsets) and all(len(fibre(c)) == 2 for c in cuts)
+            and np.array_equal(C @ C, 5 * I16 + 2 * (J16 - I16 - C)),
+        "the four-cube is the part of the folded five-cube not using the star of vertex 0 (the antipodal matching "
+        "removed): its 32 edges are the covering relations among subsets of {1, 2, 3, 4}, and the simplex's 31 "
+        "nonempty faces cover the fifteen nonzero cuts twice each, a face of size k and its complement of size 5 - k, "
+        "while the body alone (with the empty set) covers the origin":
+            model_edges == {frozenset((cut(S), cut(T))) for S, T in map(tuple, q5) if 0 not in S | T}
+            and clebsch - model_edges == {frozenset((c, plus(c, stars[0]))) for c in cuts}
+            and all({len(S) for S in fibre(c)} in ({1, 4}, {2, 3}) for c in cuts if any(c)) and fibre((0,) * 10) == [frozenset(), V],
+    }
+
+
+def join_rotor_simplex():
+    """The tick fixes a plane of triangle chains; the simplex's boundary carries it onto the rotor plane as 2I - Q."""
+    E = carrier.edges()
+    faces = {k: list(itertools.combinations(range(5), k + 1)) for k in range(5)}
+
+    def boundary(k):
+        M = sp.zeros(len(faces[k - 1]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            for i in range(len(f)):
+                M[faces[k - 1].index(f[:i] + f[i + 1:]), j] += (-1) ** i
+        return M
+
+    def turn(k):
+        M = sp.zeros(len(faces[k]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            g = [(v + 1) % 5 for v in f]
+            M[faces[k].index(tuple(sorted(g))), j] = Permutation(sorted(range(len(g)), key=lambda t: g[t])).signature()
+        return M
+    d = {k: boundary(k) for k in range(1, 5)}
+    fixed = {k: (turn(k) - sp.eye(len(faces[k]))).nullspace() for k in range(5)}
+    Fx = {k: sp.Matrix.hstack(*fixed[k]) for k in range(5)}
+    near, far = sp.Matrix(counts._oriented_cycle(1)), sp.Matrix(counts._oriented_cycle(2))
+    rotor = sp.Matrix.hstack(near, far)
+    cons = sp.Matrix([int(f in {tuple(sorted((a % 5, (a + 1) % 5, (a + 2) % 5))) for a in range(5)}) for f in faces[2]])
+    oth = sp.Matrix([int(f in {tuple(sorted((a % 5, (a + 1) % 5, (a + 3) % 5))) for a in range(5)}) for f in faces[2]])
+    Q = sp.Matrix([[0, -1], [1, 0]])
+    Mx = 2 * sp.eye(2) - Q
+    B = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - B.T * B / 5
+    restricted_rank = lambda D, src: sp.Matrix.hstack(*[D * src[:, k] for k in range(src.cols)]).rank() if src.cols else 0
+    return {
+        "the signed vertex rotation (simplex_grades) fixes the constants on the vertices, a plane on the edges, a plane "
+        "on the triangles, a line on the tetrahedra and the body: dimensions 1, 2, 2, 1, 1; the fixed edge plane is the "
+        "rotor plane and the fixed tetrahedron line is the body's boundary":
+            [len(fixed[k]) for k in range(5)] == [1, 2, 2, 1, 1]
+            and sp.Matrix.hstack(Fx[1], rotor).rank() == 2 and sp.Matrix.hstack(Fx[3], d[4]).rank() == 1
+            and sp.Matrix.hstack(Fx[0], sp.ones(5, 1)).rank() == 1,
+        "the two orbits of triangles, the consecutive triples {a, a+1, a+2} and the others {a, a+1, a+3}, are permuted "
+        "without sign (a 3-cycle is even), so their plain sums c and o span the fixed triangle plane":
+            turn(2) * cons == cons and turn(2) * oth == oth and sp.Matrix.hstack(Fx[2], cons, oth).rank() == 2
+            and sum(cons) == sum(oth) == 5 and (cons.T * oth)[0] == 0,
+        "the boundary carries c to 2 near - far and o to near + 2 far: in the bases (c, o) and (pentagon, pentagram) it "
+        "is 2I - Q, Q the quarter turn, of determinant 5, sqrt5 times a rotation; so the rotor plane is the boundary of "
+        "the tick-fixed triangle chains, and d3 d3^T = 5 on it (the filled simplex's interior Laplacian)":
+            d[2] * cons == 2 * near - far and d[2] * oth == near + 2 * far
+            and rotor * Mx == sp.Matrix.hstack(d[2] * cons, d[2] * oth) and Mx.det() == 5
+            and (Mx.T * Mx) == 5 * sp.eye(2) and d[2] * d[2].T * near == 5 * near and d[2] * d[2].T * far == 5 * far,
+        "the fixed subcomplex 1 <- 2 <- 2 <- 1 <- 1 has boundary ranks 0, 2, 0, 1 (the rotor plane is cycles, the body's "
+        "boundary is a boundary) and the homology of a point, the tick-invariant part of the simplex's":
+            [restricted_rank(d[k], Fx[k]) for k in range(1, 5)] == [0, 2, 0, 1]
+            and (B * rotor).is_zero_matrix and Pc * rotor == rotor,
+    }
+
+
+def join_surface_synthemes():
+    """Each face of the hemi-icosahedron is matched to its complement edge by edge, a syntheme: the ten faces are the ten
+    nonspecial synthemes, the special five the Klein four-groups of the surface's A5."""
+    Asurf, Ac = _surface_labels()
+    SY = _matchings(range(6))
+    perfect = lambda m: len(m) == 3 and len(set().union(*m)) == 6
+    comp = lambda t: tuple(sorted(set(range(6)) - set(t)))
+
+    def face_syntheme(F, t):
+        m = set()
+        for a in t:
+            edge = tuple(sorted(set(t) - {a}))
+            others = [w for w in F if set(edge) <= set(w) and w != t]
+            if len(others) != 1:
+                return None
+            m.add(frozenset((a, (set(others[0]) - set(edge)).pop())))
+        return frozenset(m)
+    synA = {t: face_syntheme(Asurf, t) for t in Asurf}
+    synAc = {t: face_syntheme(Ac, t) for t in Ac}
+    nonspecial = set(synA.values())
+    special = set(SY) - nonspecial
+    # the plane: the syntheme of a face's perspector
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    pole = lambda a, b: cross(tangent[label[a]], tangent[label[b]])
+    secant = lambda a, b: cross(label[a], label[b])
+
+    def perspector(T):
+        a, b, c = T
+        lines = [cross(label[a], pole(b, c)), cross(label[b], pole(a, c)), cross(label[c], pole(a, b))]
+        X = cross(lines[0], lines[1])
+        return X if on(lines[2], X) else None
+    through = lambda q: frozenset(frozenset(pr) for pr in itertools.combinations(range(6), 2) if on(secant(*pr), q))
+    # the surface's symmetries and the involutions of a matching
+    aut = [s for s in itertools.permutations(range(6)) if {tuple(sorted(s[i] for i in f)) for f in Asurf} == set(Asurf)]
+
+    def involutions(m):
+        out = []
+        for fixed in m:
+            s = list(range(6))
+            for pr in m:
+                if pr != fixed:
+                    a, b = tuple(pr)
+                    s[a], s[b] = b, a
+            out.append(tuple(s))
+        return out
+    inv = [s for s in aut if s != tuple(range(6)) and all(s[s[i]] == i for i in range(6))]
+    syn_of = lambda s: frozenset([frozenset(i for i in range(6) if s[i] == i)] + [frozenset((i, s[i])) for i in range(6) if s[i] > i])
+    # the synthemes dot: the Sylow labels under the labellings carrying sigma onto PGL(2,5)
+    pgl, psl = projective_line()
+    H, sig, S5, sgn, U = _six_lines()
+    group = set(sig.values())
+    labellings = [f for f in itertools.permutations(range(6))
+                  if {tuple(f[s[f.index(x)]] for x in range(6)) for s in group} == pgl]
+    move = lambda p, m: frozenset(frozenset(sig[p][y] for y in pr) for pr in m)
+    sylow_special = {m for m in SY if len({move(p, m) for p in S5}) == 5}
+    carried = lambda f, m: frozenset(frozenset(f[y] for y in pr) for pr in m)
+    return {
+        "every edge of a face T of the hemi-icosahedron lies in exactly one other face, which meets the complementary "
+        "triple T^c in one vertex, and the three vertices so reached are distinct (the link of a vertex is a 5-cycle, "
+        "with no triangle): T is matched to T^c edge by edge, a perfect matching of the six axes, and the ten faces "
+        "give ten distinct synthemes": all(m is not None and perfect(m) for m in synA.values()) and len(nonspecial) == 10,
+        "the complementary face, in the complementary triangulation, gives the same syntheme, and it is the syntheme "
+        "of the face's perspector in PG(2,5), the three secants through that interior point: the ten face synthemes "
+        "are the ten nonspecial synthemes": all(synA[t] == synAc[comp(t)] for t in Asurf)
+            and all(synA[t] == through(perspector(t)) for t in Asurf)
+            and all(m is not None and perfect(m) for m in synAc.values()) and set(synAc.values()) == nonspecial,
+        "the other five are exactly the matchings whose three involutions (swap two of the duads, fix the third) are "
+        "all symmetries of the hemi-icosahedron, the five Klein four-groups of its 60; no face syntheme has even one; "
+        "and the fifteen involutions among the 60 each fix two axes, their fixed pair and two swaps being a special "
+        "syntheme, three to each": len(aut) == 60 and len(special) == 5
+            and all(all(s in aut for s in involutions(m)) for m in special)
+            and all(not any(s in aut for s in involutions(m)) for m in nonspecial) and len(inv) == 15
+            and all(sum(s[i] == i for i in range(6)) == 2 for s in inv)
+            and Counter(syn_of(s) for s in inv) == Counter({m: 3 for m in special}),
+        "under every one of the 120 labellings of the six Sylow labels by the axes that carry the exceptional sigma "
+        "onto PGL(2,5), the exceptional S5's orbit of five is this Klein-four five and its orbit of ten the face "
+        "synthemes": len(labellings) == 120 and len(sylow_special) == 5
+            and all({carried(f, m) for m in sylow_special} == special for f in labellings),
+    }
+
+
+def join_simplex_surface():
+    """The simplex's ten triangles split 5 + 5 between the hemi-icosahedron and its complement, two Mobius bands."""
+    E = carrier.edges()
+    Asurf, Ac = _surface_labels()
+    triangles = list(itertools.combinations(range(5), 3))
+    k5 = lambda F: sorted(t for t in F if 5 not in t)
+    coned = lambda F: sorted(tuple(sorted(set(t) - {5})) for t in F if 5 in t)
+    cons = {tuple(sorted((a % 5, (a + 1) % 5, (a + 2) % 5))) for a in range(5)}
+    oth = {tuple(sorted((a % 5, (a + 1) % 5, (a + 3) % 5))) for a in range(5)}
+    nearE = sorted(e for e in E if (e[1] - e[0]) % 5 in (1, 4))
+    farE = sorted(e for e in E if (e[1] - e[0]) % 5 in (2, 3))
+    all_k6 = {t for t in itertools.combinations(range(6), 3)}
+    incidence = lambda F: [sum(set(e) <= set(t) for t in F) for e in E]
+    boundary2 = lambda F: [x % 2 for x in incidence(F)]
+    indicator = lambda edges: [int(e in edges) for e in E]
+    tick = lambda t: tuple(sorted((v + 1) % 5 for v in t))
+
+    def tri_vec(t):
+        v = sp.zeros(10, 1)
+        a, b, c = t
+        v[E.index((b, c))] += 1
+        v[E.index((a, c))] -= 1
+        v[E.index((a, b))] += 1
+        return v
+
+    def orientable(F):
+        inner = [k for k in range(10) if incidence(F)[k] == 2]
+        for signs in itertools.product((1, -1), repeat=len(F)):
+            v = sum((s * tri_vec(t) for s, t in zip(signs, F)), sp.zeros(10, 1))
+            if all(v[k] == 0 for k in inner):
+                return True
+        return False
+    def link_path(F, x):                       # the link of x: one edge per face at x; a path means a connected tree
+        lk = [tuple(v for v in t if v != x) for t in F if x in t]
+        verts = {v for e in lk for v in e}
+        deg = Counter(v for e in lk for v in e)
+        reach = functools.reduce(lambda R, _: R | {v for e in lk if set(e) & R for v in e}, range(5), {lk[0][0]})
+        return reach == verts and len(verts) == len(lk) + 1 and max(deg.values()) <= 2
+    connected = lambda F: len(functools.reduce(lambda S, _: S | {t for t in F if any(set(t) & set(s) for s in S)}, range(5), {F[0]})) == len(F)
+    return {
+        "coning the 4-simplex at the cone point gives the 5-simplex on the six axes, whose 20 triangles are the 10 faces "
+        "of the hemi-icosahedron and the 10 of its complement; each triangulation takes five of the simplex's ten "
+        "triangles and five of its ten edges coned: the hemi-icosahedron the consecutive triples {a, a+1, a+2} and the "
+        "pentagram's edges, its complement the triples {a, a+1, a+3} and the pentagon's edges":
+            set(Asurf) | set(Ac) == all_k6 and not set(Asurf) & set(Ac) and set(k5(Asurf)) == cons and set(k5(Ac)) == oth
+            and cons | oth == set(triangles) and coned(Asurf) == farE and coned(Ac) == nearE,
+        "each half is one orbit of the vertex rotation on the simplex's 2-faces (simplex_grades: two orbits of five), "
+        "so the tick keeps both triangulations and the split is canonical":
+            all(tick(t) in cons for t in cons) and all(tick(t) in oth for t in oth),
+        "the five K5 triangles of either triangulation form a Mobius band: 5 vertices, 10 edges, 5 faces, Euler "
+        "characteristic 0, connected, every edge in at most two faces, every vertex link a path, with boundary (the edges in one face) a single "
+        "5-cycle, and non-orientable: no signing of the five triangles cancels all interior edges":
+            all(5 - 10 + 5 == 0 and connected(sorted(F)) and max(incidence(F)) == 2 and sum(x == 1 for x in incidence(F)) == 5
+                and not orientable(sorted(F)) and all(link_path(F, x) for x in range(5)) for F in (cons, oth)),
+        "the boundary of the hemi-icosahedron's band is the pentagram and of its complement's the pentagon, each "
+        "triangulation's own link at the cone point: each hemi-icosahedron is a Mobius band on K5 coned off along its "
+        "boundary (RP^2 = Mobius band + disc), and the simplex's 2-skeleton is the two bands glued along all of K5":
+            boundary2(cons) == indicator(farE) and boundary2(oth) == indicator(nearE)
+            and [x for x in incidence(cons)] == [2 if e in nearE else 1 for e in E]
+            and [x for x in incidence(oth)] == [1 if e in nearE else 2 for e in E]
+            and [a + b for a, b in zip(incidence(cons), incidence(oth))] == [3] * 10,
+    }
+
+
+def join_cycles_petersen():
+    """The Petersen graph is the orthogonality graph of the ten triangle boundaries, the tight frame of the cycles."""
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+    A = carrier.petersen()
+    triangles = list(itertools.combinations(range(5), 3))
+
+    def tri_vec(t):
+        v = sp.zeros(10, 1)
+        a, b, c = t
+        v[E.index((b, c))] += 1
+        v[E.index((a, c))] -= 1
+        v[E.index((a, b))] += 1
+        return v
+    T = sp.Matrix.hstack(*[tri_vec(t) for t in triangles])
+    G = T.T * T
+    Pc = sp.eye(10) - B.T * B / 5
+    comp = {t: tuple(sorted(set(range(5)) - set(t))) for t in triangles}
+    C = sp.Matrix(10, 10, lambda a, b: int(E[b] == comp[triangles[a]]))         # triangle -> complementary edge
+    orth = sp.Matrix(10, 10, lambda a, b: int(a != b and G[a, b] == 0))
+    touch = sp.Matrix(10, 10, lambda a, b: int(a != b and abs(G[a, b]) == 1))
+    shared = lambda a, b: len(set(triangles[a]) & set(triangles[b]))
+    M = sp.Matrix(carrier.signless_incidence())
+    line_graph = M.T * M - 2 * sp.eye(10)
+    S = G - 3 * sp.eye(10)
+    return {
+        "the ten triangle boundaries (the simplex's d3 on its 2-faces) lie in the cycles, span them and are a tight "
+        "frame: T T^T = 5 P_cycle, each of norm 3": (B * T).is_zero_matrix and T.rank() == 6 and T * T.T == 5 * Pc
+            and all(G[a, a] == 3 for a in range(10)),
+        "their Gram matrix is 3 on the diagonal, +-1 for two triangles sharing an edge and 0 for two sharing a single "
+        "vertex; two triangles share exactly one vertex exactly when their complementary edges are disjoint":
+            all((G[a, b] == 0) == (shared(a, b) == 1) and (abs(G[a, b]) == 1) == (shared(a, b) == 2)
+                for a in range(10) for b in range(10) if a != b)
+            and all((shared(a, b) == 1) == (not set(comp[triangles[a]]) & set(comp[triangles[b]]))
+                    for a in range(10) for b in range(10) if a != b),
+        "so under triangle -> complementary edge the orthogonality graph of the frame is the Petersen graph on the ten "
+        "edges, as it is of the roots e_i + e_j (petersen_roots), and |Gram| - 3I is the line graph of K5, its "
+        "complement": C * orth * C.T == A and C * touch * C.T == line_graph
+            and C * C.T == sp.eye(10) and orth + touch == sp.ones(10, 10) - sp.eye(10),
+        "the Gram has spectrum 5^6 0^4 and its signed line graph G - 3I has 2^6 (-3)^4, against 6, 1^4, (-2)^5 for the "
+        "unsigned line graph: the signs of the frame decide the spectrum, not the graph":
+            G.eigenvals() == {5: 6, 0: 4} and S.eigenvals() == {2: 6, -3: 4} and line_graph.eigenvals() == {6: 1, 1: 4, -2: 5},
+    }
+
+
+def join_cube_cycles():
+    """Mod 2 the edge space is cuts plus cycles: the cube's vertices are F2^E modulo the cycles; over Z the index is 125."""
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+    plus = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    cuts = {cut({v for v in range(5) if S[v]}) for S in itertools.product(range(2), repeat=5)}
+    cube = list(itertools.product((0, 1), repeat=4))
+    f = {x: cut({k + 1 for k in range(4) if x[k]}) for x in cube}                      # cube_cuts' map
+
+    def tri_vec(t):
+        v = sp.zeros(10, 1)
+        a, b, c = t
+        v[E.index((b, c))] += 1
+        v[E.index((a, c))] -= 1
+        v[E.index((a, b))] += 1
+        return v
+    fund = sp.Matrix.hstack(*[tri_vec((0, i, j)) for i, j in itertools.combinations(range(1, 5), 2)])   # a Z-basis of ker B
+    span2 = lambda cols: {functools.reduce(plus, [c for c, b in zip(cols, bits) if b], (0,) * 10)
+                          for bits in itertools.product((0, 1), repeat=len(cols))}
+    cycles2 = span2([tuple(fund[:, k].applyfunc(lambda e: e % 2)) for k in range(6)])
+    even = lambda z: all(sum(z[k] for k, e in enumerate(E) if v in e) % 2 == 0 for v in range(5))
+    dot = lambda a, b: sum(p * q for p, q in zip(a, b)) % 2
+    classes = {frozenset(plus(c, z) for z in cycles2) for c in cuts}
+    L = sp.Matrix.hstack(fund, B.T[:, 1:])
+    snf = lambda X: [x for x in smith_normal_form(X, domain=sp.ZZ).diagonal() if x != 0]
+    Lap = B * B.T
+    return {
+        "mod 2 the cycles ker B are the 64 even subgraphs of K5, spanned by the triangles, and the cuts are their "
+        "annihilator; cuts and cycles meet only in the empty set (a cut has a vertex of odd degree) and together span "
+        "F2^E: every subgraph of K5 is uniquely a cut plus an even subgraph":
+            len(cycles2) == 64 and all(even(z) for z in cycles2) and (B * fund).is_zero_matrix and fund.rank() == 6
+            and all(dot(c, z) == 0 for c in cuts for z in cycles2) and cuts & cycles2 == {(0,) * 10}
+            and len({plus(c, z) for c in cuts for z in cycles2}) == 1024,
+        "so the four-cube's sixteen vertices, the cuts (cube_cuts), are the quotient F2^E / (ker B mod 2): each "
+        "vertex is the class of the 64 subgraphs with its cut part, the origin the even subgraphs themselves":
+            len(classes) == 16 and all(len(k) == 64 for k in classes)
+            and {next(c for c in k if c in cuts) for k in classes} == set(f.values())
+            and frozenset(cycles2) in classes,
+        "over Z the cycle lattice (the triangles, Smith form 1^6) and the cut lattice (the rows of B, Smith form 1^4) "
+        "are both saturated, but their sum has index 125 in Z^E, the number of spanning trees of K5: Z^E / (cycles + "
+        "cuts) = (Z/5)^3, odd, which is why the two are complementary mod 2":
+            snf(fund) == [1] * 6 and snf(B.T) == [1] * 4 and abs(L.det()) == 125 and snf(L) == [1] * 7 + [5] * 3
+            and Lap[1:, 1:].det() == 125 and 125 % 2 == 1,
+    }
+
+
+def join_petersen_pauli():
+    """Layer 22's Pauli map on the ten edge roots: the Petersen graph is the commutation graph of the edge Paulis."""
+    E = carrier.edges()
+    A = carrier.petersen()
+    alpha2 = np.array(counts.SIMPLE_ROOTS_X2)
+    inv = np.linalg.inv(alpha2)
+    single = counts._letters()
+    gens = [functools.reduce(np.kron, [single[counts.LETTERS.index(a)] for a in w])
+            for w in ["".join(counts.LETTERS[a] for a in w) for w in counts.dynkin_paulis()]]
+
+    def label(x):                                                # Dynkin coordinates of x in E8, mod 2
+        c = (2 * np.array(x, dtype=float)) @ inv
+        assert np.allclose(c, np.rint(c))
+        return tuple(int(t) % 2 for t in np.rint(c))
+    phi = lambda c: functools.reduce(lambda a, b: a @ b, [gens[i] for i in range(8) if c[i]], np.eye(16, dtype=np.int64))
+    e = np.eye(8, dtype=np.int64)
+    PB = [phi(label(e[j] - e[i])) for i, j in E]                   # the columns of B, A4 roots
+    PM = [phi(label(e[i] + e[j])) for i, j in E]                   # the columns of M, D5 roots
+    commute = lambda P: sp.Matrix(10, 10, lambda a, b: int(a != b and np.array_equal(P[a] @ P[b], P[b] @ P[a])))
+    anti = lambda P: sp.Matrix(10, 10, lambda a, b: int(a != b and np.array_equal(P[a] @ P[b], -P[b] @ P[a])))
+    line = sp.Matrix(10, 10, lambda a, b: int(a != b and len(set(E[a]) & set(E[b])) == 1))
+    rate = lambda P: int(counts._generator(P)[np.nonzero(P)][0] // P[np.nonzero(P)][0])
+    return {
+        "the ten edges go to ten distinct antisymmetric Paulis, the root classes of B's columns e_j - e_i (and, a second "
+        "labelling, of M's e_i + e_j) in E8 / 2E8; each is decayed by L at 224":
+            all(len({tuple(p.ravel()) for p in P}) == 10 and all(np.array_equal(p.T, -p) for p in P)
+                and all(rate(p) == 224 for p in P) for P in (PB, PM)),
+        "two edge Paulis commute exactly when the edges are disjoint and anticommute exactly when they share a vertex: "
+        "the Petersen graph is the commutation graph and the line graph of K5 the anticommutation graph, for both "
+        "labellings": all(commute(P) == A and anti(P) == line and commute(P) + anti(P) == sp.ones(10, 10) - sp.eye(10)
+                          for P in (PB, PM)),
+        "the reason: Paulis commute exactly when their half-periods have even inner product, and <e_j - e_i, e_l - e_k> "
+        "and <e_i + e_j, e_k + e_l> are odd exactly when the edges share one vertex":
+            all((int((e[j] - e[i]) @ (e[l] - e[k])) % 2 == 1) == (int((e[i] + e[j]) @ (e[k] + e[l])) % 2 == 1)
+                == (len({i, j} & {k, l}) == 1) for i, j in E for k, l in E if (i, j) != (k, l)),
+    }
+
+
+def join_simplex_pauli():
+    """The 31 faces of the 4-simplex as Pauli labels: face S -> the sum of its lifted sites e_i + e_5, in E8 / 2E8."""
+    alpha2 = np.array(counts.SIMPLE_ROOTS_X2)
+    inv = np.linalg.inv(alpha2)
+    single = counts._letters()
+    gens = [functools.reduce(np.kron, [single[counts.LETTERS.index(a)] for a in w])
+            for w in ["".join(counts.LETTERS[a] for a in w) for w in counts.dynkin_paulis()]]
+
+    def label(x):
+        c = (2 * np.array(x, dtype=float)) @ inv
+        assert np.allclose(c, np.rint(c))
+        return tuple(int(t) % 2 for t in np.rint(c))
+    phi = lambda c: functools.reduce(lambda a, b: a @ b, [gens[i] for i in range(8) if c[i]], np.eye(16, dtype=np.int64))
+    e = np.eye(8, dtype=np.int64)
+    faces = [S for k in range(1, 6) for S in itertools.combinations(range(5), k)]
+    y = {S: sum(e[i] + e[5] for i in S) for S in faces}
+    lab = {S: label(y[S]) for S in faces}
+    lab[()] = (0,) * 8
+    add = lambda a, b: tuple((p + q) % 2 for p, q in zip(a, b))
+    sym_diff = lambda S, T: tuple(sorted(set(S) ^ set(T)))
+    P = {S: phi(lab[S]) for S in faces}
+    rate = lambda X: int(counts._generator(X)[np.nonzero(X)][0] // X[np.nonzero(X)][0])
+    sym = {S: np.array_equal(P[S].T, P[S]) for S in faces}
+    commute = lambda S, T: np.array_equal(P[S] @ P[T], P[T] @ P[S])
+    a4 = {label(e[i] - e[j]) for i in range(5) for j in range(5) if i != j}
+    full = tuple(range(5))
+    return {
+        "the face sums y_S = sum_(i in S) (e_i + e_5) lie in E8 and S -> y_S mod 2E8 is an injective homomorphism of the "
+        "faces under symmetric difference (F2^5) into E8 / 2E8: 31 distinct nonzero labels, additive":
+            all(int(y[S].sum()) % 2 == 0 for S in faces) and len(set(lab[S] for S in faces)) == 31
+            and all(any(lab[S]) for S in faces)
+            and all(lab[sym_diff(S, T)] == add(lab[S], lab[T]) for S in faces for T in faces),
+        "under layer 22's Pauli map the vertices, edges and the solid give antisymmetric Paulis, decayed by L at 224, "
+        "and the triangles and tetrahedra symmetric ones, decayed at 256 (q(y_S) = (|S| + |S|^2)/2 mod 2)":
+            all(sym[S] == (len(S) in (3, 4)) for S in faces) and all(rate(P[S]) == (256 if sym[S] else 224) for S in faces)
+            and all(int(y[S] @ y[S]) == len(S) + len(S) ** 2 for S in faces)
+            and all(((len(S) + len(S) ** 2) // 2) % 2 == (0 if sym[S] else 1) for S in faces),
+        "two face Paulis commute exactly when |S n T| + |S| |T| is even (the inner product <y_S, y_T>): the five vertex "
+        "Paulis pairwise anticommute, the edge Paulis commute along the Petersen graph, a vertex's Pauli commutes with a "
+        "triangle's exactly when the vertex lies on the triangle, and the solid's Pauli is central":
+            all(commute(S, T) == ((len(set(S) & set(T)) + len(S) * len(T)) % 2 == 0) for S in faces for T in faces)
+            and all(int(y[S] @ y[T]) == len(set(S) & set(T)) + len(S) * len(T) for S in faces for T in faces)
+            and all(not commute(S, T) for S in faces for T in faces if len(S) == len(T) == 1 and S != T)
+            and all(commute(S, T) == (not set(S) & set(T)) for S in faces for T in faces
+                    if len(S) == len(T) == 2 and S != T)
+            and all(commute(S, T) == (S[0] in T) for S in faces for T in faces if len(S) == 1 and len(T) == 3)
+            and all(commute(full, S) for S in faces),
+        "the edge labels are the ten root classes of the carrier's A4 (y_ij = e_i - e_j mod 2E8), and the even faces "
+        "span A4 / 2A4, the hyperplane of the cube's cuts": {lab[S] for S in faces if len(S) == 2} == a4
+            and {lab[S] for S in faces if len(S) % 2 == 0} | {lab[()]} == {add(a, b) for a in a4 | {lab[()]} for b in
+                                                                            a4 | {lab[()]}}
+            and len({lab[S] for S in faces if len(S) % 2 == 0}) == 15,
+    }
+
+
+def join_rotor_source():
+    """The tick-invariant bivectors of the source go isomorphically onto the rotor plane under the commutator W_AS."""
+    E = carrier.edges()
+    M = sp.Matrix(carrier.signless_incidence())
+    B = sp.Matrix(carrier.signed_incidence())
+    K = sp.Matrix.hstack(*M.nullspace())
+    Tk, _ = carrier.edge_tick()
+    Tabs = sp.Matrix(Tk).applyfunc(abs)                             # the tick on the unsigned edge module keeps ker M
+    Tker = (K.T * K).inv() * K.T * Tabs * K
+    x = sp.Symbol("x")
+    pairs = list(itertools.combinations(range(5), 2))
+    C2 = sp.Matrix(10, 10, lambda a, b: Tker.extract(list(pairs[a]), list(pairs[b])).det())   # the tick on Lambda^2 ker M
+    fixed = (C2 - sp.eye(10)).nullspace()
+
+    def Amat(v):
+        X = sp.zeros(5, 5)
+        for k, (i, j) in enumerate(E):
+            X[i, j] = X[j, i] = v[k]
+        return X
+    W = lambda a, b: sp.Matrix([(Amat(a) * Amat(b) - Amat(b) * Amat(a))[i, j] for i, j in E])
+    Wmat = sp.Matrix.hstack(*[W(K[:, i], K[:, j]) for i, j in pairs])                      # W_AS on Lambda^2 ker M
+    images = [Wmat * f for f in fixed]
+    pent, star = counts._oriented_cycle(1), counts._oriented_cycle(2)
+    rotor = sp.Matrix.hstack(pent, star)
+    S = Tker + Tker.inv()                                           # 2 cos of the tick: 2, (-1 + sqrt5)/2, (-1 - sqrt5)/2
+    plane = lambda mu: (S - 2 * sp.eye(5)) * (S - mu * sp.eye(5))  # kills the other two eigenspaces
+    mu1, mu2 = (-1 + sp.sqrt(5)) / 2, (-1 - sp.sqrt(5)) / 2
+
+    def area(mu):                                                   # the area form of the eigenplane of S at the other value
+        cols = [sp.simplify(plane(mu)[:, k]) for k in range(5)]
+        basis = []
+        for c in cols:
+            if not c.is_zero_matrix and (not basis or sp.Matrix.hstack(*(basis + [c])).rank() == 2):
+                basis.append(c)
+            if len(basis) == 2:
+                break
+        return sp.simplify(W(K * basis[0], K * basis[1]))
+    w1, w2 = area(mu2), area(mu1)                                   # zeta^(+-1) plane, zeta^(+-2) plane
+    coef = lambda w: sp.simplify((rotor.T * rotor).inv() * rotor.T * w)
+    c1, c2 = coef(w1), coef(w2)
+    slope = lambda c: sp.radsimp(c[1] / c[0])
+    dbl = counts._edge_action(lambda i: 2 * i % 5)
+    return {
+        "the tick acts on ker M with characteristic polynomial (x - 1) Phi_5, so its second compound on Lambda^2 ker M "
+        "fixes exactly a 2-plane of bivectors (the pairs of conjugate characters 1 + 4 and 2 + 3)":
+            sp.factor(Tker.charpoly(x).as_expr()) == (x - 1) * (x ** 4 + x ** 3 + x ** 2 + x + 1) and len(fixed) == 2
+            and (M * Tabs * K).is_zero_matrix,
+        "W_AS, a ^ b -> [A(a), A(b)], carries the fixed plane onto the rotor plane: both images are cycles fixed by the "
+        "tick, they are independent, and they lie in the span of the pentagon and the pentagram (the kernel of W_AS, "
+        "of dimension 4, has no tick-fixed vector)": all((B * v).is_zero_matrix and sp.Matrix(Tk) * v == v for v in images)
+            and sp.Matrix.hstack(*images).rank() == 2 and sp.Matrix.hstack(rotor, *images).rank() == 2
+            and Wmat.rank() == 6,
+        "the area forms of the tick's two eigenplanes in ker M (2 cos = (-1 +- sqrt5)/2) go to the lines of the rotor "
+        "plane with pentagram : pentagon = (2 - 5 sqrt5)/11 and (2 + 5 sqrt5)/11, perpendicular (product of slopes -1): "
+        "each is the other's quarter turn, as the doubling, which swaps the eigenplanes and turns the rotor plane by a "
+        "quarter, requires": sp.simplify(rotor * c1 - w1).is_zero_matrix and sp.simplify(rotor * c2 - w2).is_zero_matrix
+            and sp.simplify(slope(c1) - (2 - 5 * sp.sqrt(5)) / 11) == 0 and sp.simplify(slope(c2) - (2 + 5 * sp.sqrt(5)) / 11) == 0
+            and sp.simplify(slope(c1) * slope(c2) + 1) == 0 and dbl * pent == star and dbl * star == -pent
+            and (pent.T * star)[0] == 0 and (pent.T * pent)[0] == (star.T * star)[0],
+    }
+
+
+def join_rotor_goldenport():
+    """The Golden port's two fixed channels are the diagonals of the rotor plane, pentagon +- pentagram."""
+    B = sp.Matrix(carrier.signed_incidence())
+    Hn = _walk_entries()
+    site, sign = _golden_sites()
+    G = {n: sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * Hn(site[f] - site[e], n)) for n in range(3)}
+    Pc = sp.eye(10) - B.T * B / 5
+    pent, star = counts._oriented_cycle(1), counts._oriented_cycle(2)
+    R = sp.Matrix.hstack(pent, star)
+    Rinv = (R.T * R).inv() * R.T
+    mean = Rinv * Pc * G[1] * R
+    var = Rinv * Pc * (G[2] - G[1] * Pc * G[1]) * R
+    x = sp.Symbol("x")
+    read = lambda v, n: (v.T * G[n] * v)[0] / (v.T * v)[0]
+    dbl = counts._edge_action(lambda i: 2 * i % 5)
+    Tk = sp.Matrix(carrier.edge_tick()[0])
+    return {
+        "the pentagon and the pentagram are orthogonal cycles of square 5 spanning the tick-fixed plane, and T_G* Delta T_G "
+        "= P_cycle F^T H F P_cycle commutes with the tick, so it keeps the rotor plane":
+            (B * R).is_zero_matrix and R.T * R == 5 * sp.eye(2) and Tk * R == R
+            and Tk * Pc * G[1] * Pc == Pc * G[1] * Pc * Tk and sp.Matrix.hstack(R, Pc * G[1] * R).rank() == 2,
+        "in the basis (pentagon, pentagram) the first moment is [[240, -1], [-1, 240]] and the variance [[271, 100], "
+        "[100, 271]]: the pentagon and the pentagram each read mean 240 and variance 272, while the diagonals are the "
+        "port's fixed channels, pentagon + pentagram with mean 239 and variance 371, pentagon - pentagram with mean 241 "
+        "and variance 171": mean == sp.Matrix([[240, -1], [-1, 240]]) and var == sp.Matrix([[271, 100], [100, 271]])
+            and read(pent, 1) == read(star, 1) == 240 and read(pent, 2) - 240 ** 2 == read(star, 2) - 240 ** 2 == 272
+            and read(pent + star, 1) == 239 and read(pent + star, 2) - 239 ** 2 == 371
+            and read(pent - star, 1) == 241 and read(pent - star, 2) - 241 ** 2 == 171,
+        "these are the two simple eigenvalues of the Golden moment operator, whose other four lie on the moving cycles "
+        "(5x^2 - 2405x + 289201, twice): the fixed channels of goldenport-bath are exactly the rotor plane's diagonals":
+            sp.factor((Pc * G[1] * Pc).charpoly(x).as_expr())
+            == x ** 4 * (x - 241) * (x - 239) * (5 * x ** 2 - 2405 * x + 289201) ** 2 / 25,
+        "the doubling turns the rotor plane by a quarter (pentagon -> pentagram -> -pentagon), so it exchanges the two "
+        "fixed channels as lines; it does not commute with the Golden moment operator":
+            dbl * pent == star and dbl * star == -pent and dbl * (pent + star) == -(pent - star)
+            and dbl * Pc * G[1] * Pc != Pc * G[1] * Pc * dbl,
+    }
+
+
+def join_E_bath():
+    """The ten D5 roots e_i + e_j as bath sites: the port's moments are polynomials in the carrier's edge operator M^T M."""
+    E = carrier.edges()
+    M = sp.Matrix(carrier.signless_incidence())
+    G = M.T * M
+    I10 = sp.eye(10)
+    e10 = 10 * np.eye(8, dtype=np.int64)
+    sites = [e10[i] + e10[j] for i, j in E]
+    Hn = _walk_entries()
+    mom = {n: sp.Matrix(10, 10, lambda a, b: Hn(sites[b] - sites[a], n)) for n in range(5)}
+    roots10 = {tuple(r) for r in assignment.roots10()}
+    K = sp.Matrix.hstack(*M.nullspace())
+    H = sp.Matrix.hstack(*[_e(i) - _e(4) for i in range(4)])
+    four, const = M.T * H, sp.ones(10, 1)
+    sector = lambda X, V: (V.T * X * V)[0, 0] / (V.T * V)[0, 0]
+    scalar = lambda X, V: (X * V - sector(X, V) * V).is_zero_matrix
+    adj = next((a, b) for a in range(10) for b in range(10) if G[a, b] == 1)
+    dis = next((a, b) for a in range(10) for b in range(10) if G[a, b] == 0)
+    stat = lambda V: (sector(mom[1], V), sector(mom[2], V) - sector(mom[1], V) ** 2)
+    return {
+        "the ten sites e_i + e_j are distinct E8 roots with Gram M^T M (2, 1 or 0), so T_E x = sum_e x_e delta_(e_i + e_j) "
+        "is an isometry of the edge space into the bath (T_E* T_E = I)": all(tuple(s) in roots10 for s in sites)
+            and len({tuple(s) for s in sites}) == 10 and mom[0] == I10
+            and sp.Matrix(10, 10, lambda a, b: int(sites[a] @ sites[b]) // 100) == G,
+        "T_E* Delta T_E = 242 I - M^T M = 242 - D^2 on the edge atoms: the bath's one-step operator between the edge "
+        "roots is the carrier's edge operator, since the difference of two edge roots is a root exactly when the edges "
+        "share one vertex": mom[1] == 242 * I10 - G,
+        "every moment T_E* Delta^n T_E (n <= 4) is a polynomial in M^T M: its entries depend only on <r, s> in {2, 1, 0}, "
+        "so it is a I + b (M^T M - 2I) + c (J + I - M^T M): 57840 I - 424 (M^T M - 2I) + 14 (J + I - M^T M) at n = 2, with J = M^T M (M^T M - 3I)/4":
+            mom[2] == 57840 * I10 - 424 * (G - 2 * I10) + 14 * (sp.ones(10, 10) + I10 - G)
+            and sp.ones(10, 10) == G * (G - 3 * I10) / 4
+            and all(mom[n] == mom[n][0, 0] * I10 + mom[n][adj] * (G - 2 * I10) + mom[n][dis] * (sp.ones(10, 10) + I10 - G)
+                    for n in range(5))
+            and all(scalar(mom[n], K[:, 0]) and scalar(mom[n], four[:, 0]) and scalar(mom[n], const) for n in range(5))
+            and all((mom[n] * K - (mom[n] * K)[0, 0] / K[0, 0] * K).is_zero_matrix for n in range(5) if K[0, 0] != 0),
+        "so the port's three sectors are the carrier's edge eigenspaces: on ker M (D^2 = 0) mean 242 and variance 138, "
+        "on M^T of the trace-free sites (D^2 = 3) mean 239 and variance 267, on the constants (D^2 = 8) mean 234 and "
+        "variance 582": (G * K).is_zero_matrix and G * four == 3 * four and G * const == 8 * const
+            and stat(K[:, 0]) == (242, 138) and stat(four[:, 0]) == (239, 267) and stat(const) == (234, 582),
+    }
+
+
+def join_surface_triangle():
+    """Every face of the hemi-icosahedron, on the six sites of the cone, is a triangle port; the ten form a scalar family."""
+    hemi, comp = _surface_labels()
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    sites = {a: e2[a] + e2[5] for a in range(5)}
+    sites[5] = 0 * e2[0]                                            # the cone point, the projective line's infinity
+    roots = {tuple(r.tolist()) for r in counts._roots2()}
+
+    def port(F):                                                    # the oriented boundary a -> b -> c -> a on the roots
+        a, b, c = F
+        d = {}
+        for u, v in ((a, b), (b, c), (c, a)):
+            r = tuple((sites[u] - sites[v]).tolist())
+            d[r] = d.get(r, 0) + 1
+            d[tuple(-x for x in r)] = d.get(tuple(-x for x in r), 0) - 1
+        return d
+    faces = sorted(hemi)
+    fields = [port(F) for F in faces]
+    gram = lambda fs: np.array([[sum(v * fs[j].get(k, 0) for k, v in fs[i].items()) for j in range(10)]
+                                for i in range(10)], dtype=np.int64)
+    Gm = gram(fields)
+    S = (Gm - 6 * np.eye(10, dtype=np.int64)) // 2
+    absS = np.abs(S)
+    P = np.array(carrier.petersen(), dtype=np.int64)
+
+    def iso(A1, A2):                                                # a vertex bijection carrying A1 to A2
+        n = len(A1)
+        perm = [-1] * n
+        used = [False] * n
+
+        def rec(k):
+            if k == n:
+                return True
+            for v in range(n):
+                if not used[v] and all(A1[k, j] == A2[v, perm[j]] for j in range(k)):
+                    used[v], perm[k] = True, v
+                    if rec(k + 1):
+                        return True
+                    used[v], perm[k] = False, -1
+            return False
+        return perm if rec(0) else None
+    pi = iso(absS, P)
+    Pi = np.zeros((10, 10), dtype=np.int64)
+    for k, v in enumerate(pi or range(10)):
+        Pi[v, k] = 1
+    incoherent = []
+    for f in itertools.product((1, -1), repeat=9):
+        d = np.array((1,) + f)
+        incoherent.append(int((np.triu(d[:, None] * S * d[None, :], 1) == 1).sum()))
+    Hn = _walk_entries()
+    moment = lambda fs, n: sp.Matrix(10, 10, lambda i, j: sum(
+        vi * vj * Hn(5 * np.array(kj) - 5 * np.array(ki), n) for ki, vi in fs[i].items() for kj, vj in fs[j].items()))
+    Gs = sp.Matrix(Gm.tolist())
+    hexagon = counts.lattice_moments(*[list(z) for z in zip(*[(np.array(k), v) for k, v in port((0, 1, 2)).items()])], 4)
+    tri = [tuple(sorted(F)) for F in hemi | comp]
+    allfields = fields + [port(F) for F in sorted(comp)]
+    keys = sorted({k for f in allfields for k in f})
+    span = np.array([[f.get(k, 0) for k in keys] for f in allfields])
+    return {
+        "on the six sites x_inf = 0, x_a = e_a + e_5 every edge of the surface's K6 is a root, so each of its twenty "
+        "triangles, oriented, is an odd port on six roots like the triangle port; the triangle 0-1-2 is a face of the "
+        "hemi-icosahedron, and every face port has its moments 1, 242, 58691, 14259954, 3470101592 per unit norm":
+            all(tuple((sites[a] - sites[b]).tolist()) in roots for a in range(6) for b in range(6) if a != b)
+            and (0, 1, 2) in hemi and all(len(port(F)) == 6 and set(port(F).values()) == {1, -1} for F in tri)
+            and [v // 6 for v in hexagon] == [1, 242, 58691, 14259954, 3470101592]
+            and all(counts.lattice_moments(*[list(z) for z in zip(*[(np.array(k), v) for k, v in port(F).items()])], 4)
+                    == hexagon for F in tri),
+        "the ten face ports of the hemi-icosahedron have Gram 6I + 2S, where |S| is the face-adjacency graph (two faces "
+        "sharing an edge), isomorphic to the Petersen graph (the hemi-dodecahedron), and the sign of S_FG records "
+        "whether the two orientations agree on the shared edge": set(S.ravel().tolist()) == {-1, 0, 1}
+            and all(absS[i, j] == int(len(set(faces[i]) & set(faces[j])) == 2) for i in range(10) for j in range(10))
+            and pi is not None and np.array_equal(Pi @ absS @ Pi.T, P),
+        "no orientation of the ten faces makes fewer than three adjacent pairs incoherent (RP^2 is not orientable), so "
+        "S is never switching-equivalent to -|S|; its spectrum is +-sqrt5 (three each) and 0 (four), and the ten ports "
+        "are independent, spanning the cycle space of K6 (dimension 10), which the complement's ten ports span too":
+            min(incoherent) == 3 and sp.Matrix(S.tolist()).eigenvals() == {sp.sqrt(5): 3, -sp.sqrt(5): 3, 0: 4}
+            and np.linalg.matrix_rank(span[:10]) == 10 and np.linalg.matrix_rank(span) == 10
+            and np.linalg.matrix_rank(span[10:]) == 10,
+        "the family is scalar: T_F* Delta^n T_F = m_n (6I + 2S) with m = 1, 242, 58691, 14259954, 3470101592 (n <= 4), "
+        "so the hemi-icosahedron's faces share one spectral measure, the triangle port's, in the signed Petersen frame":
+            all(moment(fields, n) == (hexagon[n] // 6) * Gs for n in range(5)),
+    }
+
+
+def join_V_kerM():
+    """OBSTRUCTION: no S5- or A5-map carries the zero modes to the sites; the affine group leaves exactly the midpoint map."""
+    E = carrier.edges()
+    M = sp.Matrix(carrier.signless_incidence())
+    K = sp.Matrix.hstack(*M.nullspace())
+    Kinv = (K.T * K).inv() * K.T
+    perm = lambda p: sp.Matrix(5, 5, lambda a, b: int(a == p[b]))
+
+    def eperm(p):                                                   # the unsigned edge permutation (keeps ker M)
+        P = sp.zeros(10, 10)
+        for k, (i, j) in enumerate(E):
+            P[E.index(tuple(sorted((p[i], p[j])))), k] = 1
+        return P
+    xs = sp.symbols("x0:25")
+    X = sp.Matrix(5, 5, xs)
+
+    def hom(gens):                                                  # dim Hom_G(ker M, R^V) from the generators
+        eqs = []
+        for p in gens:
+            eqs += list(X * (Kinv * eperm(p) * K) - perm(p) * X)
+        (sol,) = sp.linsolve(eqs, xs)
+        return len(set().union(*[t.free_symbols for t in sol]))
+    tick, dbl, swap, three = (1, 2, 3, 4, 0), (0, 2, 4, 1, 3), (1, 0, 2, 3, 4), (1, 2, 0, 3, 4)
+    chi = lambda p: perm(p).trace()
+    S5 = list(itertools.permutations(range(5)))
+    chi_ker = {p: (Kinv * eperm(p) * K).trace() for p in S5}
+    mid = sp.Matrix(5, 10, lambda v, k: int(v == 3 * sum(E[k]) % 5))   # the midpoint map, edge ab -> the vertex 3(a + b)
+    return {
+        "ker M is kept by every vertex permutation and is irreducible under S5 (character norm 1); the sites R^V are "
+        "1 + 4, so Hom_S5(ker M, R^V) = 0 and Hom_A5(ker M, R^V) = 0: no symmetric linear map carries the five dark "
+        "modes to the five sites": all((M * eperm(p) * K).is_zero_matrix for p in (tick, swap))
+            and sum(chi_ker[p] ** 2 for p in S5) == 120 and sum(chi(p) ** 2 for p in S5) == 240
+            and hom([tick, swap]) == 0 and hom([tick, three]) == 0,
+        "under the affine group AGL(1, 5) exactly one map survives, and under the tick alone five (one per character)":
+            hom([tick, dbl]) == 1 and hom([tick]) == 5,
+        "the affine map is the midpoint map of kerM-cycles (edge ab -> the vertex 3(a + b) mod 5, the midpoint on the five-cycle), restricted to ker M: it intertwines "
+        "the tick and the doubling, has rank 4 on ker M and kills the near-minus-far line":
+            all(mid * eperm(p) == perm(p) * mid for p in (tick, dbl)) and (mid * K).rank() == 4
+            and (mid * (counts._oriented_cycle(1).applyfunc(abs) - counts._oriented_cycle(2).applyfunc(abs))).is_zero_matrix
+            and (M * (counts._oriented_cycle(1).applyfunc(abs) - counts._oriented_cycle(2).applyfunc(abs))).is_zero_matrix,
+    }
+
+
+def join_cycles_pauli():
+    """The edge Paulis multiply to +-I exactly around the cycles: the cycle code is the kernel of the edge labelling."""
+    E = carrier.edges()
+    B2 = np.array(carrier.signed_incidence(), dtype=np.int64) % 2
+    alpha2 = np.array(counts.SIMPLE_ROOTS_X2)
+    inv = np.linalg.inv(alpha2)
+    single = counts._letters()
+    gens = [functools.reduce(np.kron, [single[counts.LETTERS.index(a)] for a in w])
+            for w in ["".join(counts.LETTERS[a] for a in w) for w in counts.dynkin_paulis()]]
+
+    def label(x):
+        c = (2 * np.array(x, dtype=float)) @ inv
+        assert np.allclose(c, np.rint(c))
+        return tuple(int(t) % 2 for t in np.rint(c))
+    phi = lambda c: functools.reduce(lambda a, b: a @ b, [gens[i] for i in range(8) if c[i]], np.eye(16, dtype=np.int64))
+    e = np.eye(8, dtype=np.int64)
+    lab = [label(e[j] - e[i]) for i, j in E]                        # the A4 root classes of B's columns
+    P = [phi(c) for c in lab]
+    I16 = np.eye(16, dtype=np.int64)
+    words = list(itertools.product((0, 1), repeat=10))
+    is_cycle = lambda w: not ((B2 @ np.array(w)) % 2).any()
+    total = lambda w: tuple(sum(lab[k][i] for k in range(10) if w[k]) % 2 for i in range(8))
+    prod = lambda w: functools.reduce(lambda a, b: a @ b, [P[k] for k in range(10) if w[k]], I16)
+    scalar = lambda X: np.array_equal(X, I16) or np.array_equal(X, -I16)
+    cycles = [w for w in words if is_cycle(w)]
+    image = {total(w) for w in words}
+    tri = [(E.index((i, j)), E.index((j, k)), E.index((i, k))) for i, j, k in itertools.combinations(range(5), 3)]
+    sign = {t: 1 if np.array_equal(P[t[0]] @ P[t[1]] @ P[t[2]], I16) else -1 for t in tri}
+    return {
+        "e -> the class of e_j - e_i in E8 / 2E8 extends linearly to F2^E -> E8 / 2E8 with kernel exactly the cycle code "
+        "(the 64 mod-2 cycles of K5, dimension 6) and image of dimension 4, the cuts: 0 -> cycles -> F2^E -> A4/2A4 -> 0":
+            len(cycles) == 64 and all((total(w) == (0,) * 8) == is_cycle(w) for w in words) and len(image) == 16,
+        "so the product of the edge Paulis along any mod-2 edge set is +-I exactly when the set is a cycle; along a cut "
+        "or any other non-cycle it is a nonscalar Pauli": all(scalar(prod(w)) == is_cycle(w) for w in words),
+        "around the ten triangles, in the order ij, jk, ik, the product is -I on every triangle (the three Paulis pairwise "
+        "anticommute, so each product squares to I and is symmetric): a constant 2-cocycle, hence a coboundary":
+            all(sign[t] == -1 for t in tri)
+            and all(np.array_equal(P[a] @ P[b], -P[b] @ P[a]) for t in tri for a, b in itertools.combinations(t, 2)),
+    }
+
+
+def join_S5_hodge():
+    """S5 = W(A4) on Lambda^4 R^8 through the vertex permutations; the Hodge star is an S5-map twisted by the sign."""
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: i for i, q in enumerate(quads)}
+
+    def sgn(seq):
+        s = 1
+        for i in range(len(seq)):
+            for j in range(i + 1, len(seq)):
+                if seq[i] > seq[j]:
+                    s = -s
+        return s
+    star = np.zeros((70, 70), dtype=np.int64)
+    for q in quads:
+        c = tuple(t for t in range(8) if t not in q)
+        star[idx[c], idx[q]] = sgn(q + c)
+
+    def lam4(p8):                                              # Lambda^4 of a coordinate permutation, exactly
+        L = np.zeros((70, 70), dtype=np.int64)
+        for q in quads:
+            im = [p8[i] for i in q]
+            L[idx[tuple(sorted(im))], idx[q]] = sgn(im)
+        return L
+    perms = list(itertools.permutations(range(5)))
+    comp = lambda p, q: tuple(p[q[i]] for i in range(5))
+    fix = lambda p: sum(1 for i in range(5) if p[i] == i)
+    data = {}
+    for p in perms:
+        L = lam4(p + (5, 6, 7))
+        s = Permutation(list(p)).signature()
+        chiV = fix(p) - 1
+        chiL2 = (chiV * chiV - (fix(comp(p, p)) - 1)) // 2
+        data[p] = (L, s, chiV, chiL2)
+    chars = {"1": lambda s, v, l: 1, "sgn": lambda s, v, l: s, "V": lambda s, v, l: v, "V'": lambda s, v, l: s * v,
+             "L2V": lambda s, v, l: l}
+    inner = lambda f, h, G: sp.Rational(sum(f(*data[p][1:]) * h(*data[p][1:]) for p in G), len(G))
+    even = [p for p in perms if data[p][1] == 1]
+    I70 = np.eye(70, dtype=np.int64)
+    f = np.zeros(70, dtype=np.int64)                           # u ^ e5 ^ e6 ^ e7
+    for i in range(5):
+        f[idx[(i, 5, 6, 7)]] = 1
+    h = np.zeros(70, dtype=np.int64)                           # the contraction of e0 ^ ... ^ e4 with u
+    for i in range(5):
+        h[idx[tuple(t for t in range(5) if t != i)]] = (-1) ** i
+    return {
+        "S5 = W(A4) acts on Lambda^4 R^8 through the vertex permutations with trace 1 + sgn + 4 chi_V + 4 sgn chi_V + "
+        "6 chi_L2V on all 120 elements (chi_V = fix - 1, chi_L2V(s) = (chi_V(s)^2 - chi_V(s^2))/2), and these five "
+        "characters have norm 1 and are pairwise orthogonal: Lambda^4 = 1 + sign + 4 x 4 + 4 x 4' + 6 x 6":
+            all(int(np.trace(L)) == 1 + s + 4 * v + 4 * s * v + 6 * l for L, s, v, l in data.values())
+            and all(inner(chars[a], chars[b], perms) == int(a == b) for a in chars for b in chars),
+        "star Lambda^4(s) = sgn(s) Lambda^4(s) star for every s: the star is an S5-map Lambda^4 -> Lambda^4 x sign; it "
+        "carries the invariant form u ^ e5 ^ e6 ^ e7 to the sign form, the contraction of e0 ^ ... ^ e4 with u (the "
+        "volume form of the sum-zero hyperplane H), and the odd permutations exchange the halves":
+            all(np.array_equal(star @ L, s * L @ star) for L, s, v, l in data.values())
+            and all(np.array_equal(L @ f, f) and np.array_equal(L @ h, s * h) for L, s, v, l in data.values())
+            and (np.array_equal(star @ f, h) or np.array_equal(star @ f, -h))
+            and all(np.array_equal(L @ (I70 - star), (I70 + star) @ L) for L, s, v, l in data.values() if s == -1),
+        "tr(star Lambda^4(s)) = 0 for every even s, so the two halves have the same A5-character 1 + 4 chi_V + "
+        "3 chi_L2V; on A5 chi_V has norm 1 and chi_L2V norm 2 (two distinct irreducibles 3a, 3b), so each half is "
+        "1 + 4 x 4 + 3 x 3a + 3 x 3b: the halves are isomorphic A5-modules, not S5-modules":
+            all(int(np.trace(star @ data[p][0])) == 0 for p in even)
+            and all(int(np.trace(data[p][0])) == 2 * (1 + 4 * data[p][2] + 3 * data[p][3]) for p in even)
+            and inner(chars["V"], chars["V"], even) == 1 and inner(chars["L2V"], chars["L2V"], even) == 2
+            and inner(chars["1"], chars["1"], even) == 1 and inner(chars["1"], chars["V"], even) == 0
+            and inner(chars["1"], chars["L2V"], even) == 0 and inner(chars["V"], chars["L2V"], even) == 0,
+    }
+
+
+def join_AGL_hodge():
+    """AGL(1,5) on Lambda^4 R^8: the Hodge star commutes up to the Legendre symbol (a/5)."""
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: i for i, q in enumerate(quads)}
+
+    def sgn(seq):
+        s = 1
+        for i in range(len(seq)):
+            for j in range(i + 1, len(seq)):
+                if seq[i] > seq[j]:
+                    s = -s
+        return s
+    star = np.zeros((70, 70), dtype=np.int64)
+    for q in quads:
+        c = tuple(t for t in range(8) if t not in q)
+        star[idx[c], idx[q]] = sgn(q + c)
+
+    def lam4(p8):
+        L = np.zeros((70, 70), dtype=np.int64)
+        for q in quads:
+            im = [p8[i] for i in q]
+            L[idx[tuple(sorted(im))], idx[q]] = sgn(im)
+        return L
+    leg = {1: 1, 4: 1, 2: -1, 3: -1}
+    affine = {(a, b): tuple((a * i + b) % 5 for i in range(5)) for a in (1, 2, 3, 4) for b in range(5)}
+    Ls = {ab: lam4(p + (5, 6, 7)) for ab, p in affine.items()}
+    I70 = np.eye(70, dtype=np.int64)
+    f = np.zeros(70, dtype=np.int64)
+    for i in range(5):
+        f[idx[(i, 5, 6, 7)]] = 1
+    h = np.zeros(70, dtype=np.int64)
+    for i in range(5):
+        h[idx[tuple(t for t in range(5) if t != i)]] = (-1) ** i
+    rank = lambda M: sp.Matrix(np.asarray(M, dtype=object).tolist()).rank()
+    reyn = sum(L.astype(object) for L in Ls.values())
+    reyn_leg = sum(leg[a] * L.astype(object) for (a, b), L in Ls.items())
+    dihedral = sum(L.astype(object) for (a, b), L in Ls.items() if a in (1, 4))
+    fp, fm = (I70 + star) @ f, (I70 - star) @ f
+    return {
+        "x -> a x + b has sign (a/5) as a permutation of the five vertices, so on Lambda^4 R^8 star Lambda^4 = (a/5) "
+        "Lambda^4 star: the ten rotations and reflections (a = +-1) keep the two halves and the ten doublings "
+        "(a = 2, 3) exchange them":
+            all(Permutation(list(p)).signature() == leg[a] for (a, b), p in affine.items())
+            and all(np.array_equal(star @ L, leg[a] * L @ star) for (a, b), L in Ls.items()),
+        "AGL(1,5) fixes exactly one 4-form, u ^ e5 ^ e6 ^ e7, and carries exactly one line by the Legendre character, "
+        "the sign form (the contraction of e0 ^ ... ^ e4 with u); the star exchanges the two":
+            rank(reyn) == 1 and all(np.array_equal(L @ f, f) for L in Ls.values())
+            and rank(reyn_leg) == 1 and all(np.array_equal(L @ h, leg[a] * h) for (a, b), L in Ls.items())
+            and (np.array_equal(star @ f, h) or np.array_equal(star @ f, -h)),
+        "the pentagon's dihedral group D5 (a = +-1) fixes one 4-form in each half, f +- star f, and the doubling "
+        "carries the one onto the other":
+            rank((I70.astype(object) + star.astype(object)) @ dihedral) == 1
+            and rank((I70.astype(object) - star.astype(object)) @ dihedral) == 1
+            and all(np.array_equal(L @ fp, fp) and np.array_equal(L @ fm, fm) for (a, b), L in Ls.items() if a in (1, 4))
+            and np.array_equal(star @ fp, fp) and np.array_equal(star @ fm, -fm)
+            and np.array_equal(Ls[(2, 0)] @ fp, fm) and np.array_equal(Ls[(2, 0)] @ fm, fp),
+    }
+
+
+def join_golden_hodge():
+    """The Hodge star conjugates Lambda^4 of the golden companion X = -(g + g^-1) to Lambda^4 of its Galois conjugate."""
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: i for i, q in enumerate(quads)}
+    Q = np.array(quads)
+
+    def sgn(seq):
+        s = 1
+        for i in range(len(seq)):
+            for j in range(i + 1, len(seq)):
+                if seq[i] > seq[j]:
+                    s = -s
+        return s
+    star = np.zeros((70, 70), dtype=np.int64)
+    for q in quads:
+        c = tuple(t for t in range(8) if t not in q)
+        star[idx[c], idx[q]] = sgn(q + c)
+    S4 = [(p, Permutation(list(p)).signature()) for p in itertools.permutations(range(4))]
+
+    def lam4(M):                                               # exact fourth compound of an integer matrix
+        A = M[Q[:, None, :, None], Q[None, :, None, :]]
+        out = np.zeros((70, 70), dtype=np.int64)
+        for p, s in S4:
+            term = np.ones((70, 70), dtype=np.int64)
+            for i in range(4):
+                term = term * A[:, :, i, p[i]]
+            out += s * term
+        return out
+    I8 = np.eye(8, dtype=np.int64)
+    g = cyclotomic.clocks()["g"]
+    X = -(g + spine.inverse(g))
+    X4f = 4 * spine.to_standard(X)
+    X4 = np.rint(X4f).astype(np.int64)
+    LX, LIX = lam4(X4), lam4(4 * I8 - X4)                      # 256 Lambda^4 X and 256 Lambda^4 (I - X)
+    M = sp.Matrix(LX.tolist()) / 256
+    I70 = sp.eye(70)
+    St = sp.Matrix(star.tolist())
+    W = (M * M - 7 * M + I70).nullspace()
+    Wm = sp.Matrix.hstack(*W)
+    fix = sp.Matrix.hstack(*(M - I70).nullspace())
+    half = sp.Matrix.hstack(*(M * M + 3 * M + I70).nullspace())
+    x = sp.Symbol("x")
+    return {
+        "X = -(g + g^-1) is symmetric with X^2 = X + I and det X = 1, so X^-1 = X - I = -(I - X); hence star "
+        "Lambda^4(X) star = Lambda^4(X^-1) = Lambda^4(I - X): the Hodge star conjugates the fourth compound of the "
+        "golden companion to that of its Galois conjugate I - X = Phi":
+            np.allclose(X4f, X4) and np.array_equal(X4, X4.T)
+            and np.array_equal(X @ X, X + I8) and sp.Matrix(X.tolist()).det() == 1
+            and np.array_equal(X @ (X - I8), I8) and np.array_equal(star @ LX @ star, LIX),
+        "Lambda^4 X has the eigenvalues phi^4, -phi^2, 1, -phi^-2, phi^-4 with multiplicities 1, 16, 36, 16, 1: "
+        "(M - I)(M^2 + 3M + I)(M^2 - 7M + I) = 0 with kernels of dimensions 36, 32 and 2":
+            ((M - I70) * (M * M + 3 * M + I70) * (M * M - 7 * M + I70)).is_zero_matrix
+            and (fix.shape[1], half.shape[1], Wm.shape[1]) == (36, 32, 2),
+        "the star keeps each of the three kernels; on the plane of the two golden volume forms Lambda^4 E_phi and "
+        "Lambda^4 E_(1-phi) (the phi^4- and phi^-4-eigenlines) it acts as star M star = 7 - M, exchanging them, and "
+        "it splits the 36 and the 32 evenly: each half is 18 + 16 + 1":
+            (St * Wm).rank() == 2 and ((M * M - 7 * M + I70) * St * Wm).is_zero_matrix
+            and ((St * M * St - 7 * I70 + M) * Wm).is_zero_matrix
+            and ((M - I70) * St * fix).is_zero_matrix and ((M * M + 3 * M + I70) * St * half).is_zero_matrix
+            and ((I70 + St) * fix).rank() == 18 and ((I70 - St) * fix).rank() == 18
+            and ((I70 + St) * half).rank() == 16 and ((I70 - St) * half).rank() == 16
+            and ((I70 + St) * Wm).rank() == 1 and ((I70 - St) * Wm).rank() == 1,
+    }
+
+
+def join_hodge_regular():
+    """The regular clocks on the Hodge halves: traces (e4 +- D)/2 with D^2 = det(I - w^2), the momenta w^2 fixes."""
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: i for i, q in enumerate(quads)}
+    Q = np.array(quads)
+
+    def sgn(seq):
+        s = 1
+        for i in range(len(seq)):
+            for j in range(i + 1, len(seq)):
+                if seq[i] > seq[j]:
+                    s = -s
+        return s
+    star = np.zeros((70, 70), dtype=np.int64)
+    for q in quads:
+        c = tuple(t for t in range(8) if t not in q)
+        star[idx[c], idx[q]] = sgn(q + c)
+    S4 = [(p, Permutation(list(p)).signature()) for p in itertools.permutations(range(4))]
+
+    def lam4(M):
+        A = M[Q[:, None, :, None], Q[None, :, None, :]]
+        out = np.zeros((70, 70), dtype=np.int64)
+        for p, s in S4:
+            term = np.ones((70, 70), dtype=np.int64)
+            for i in range(4):
+                term = term * A[:, :, i, p[i]]
+            out += s * term
+        return out
+
+    def int_std(w):
+        S = 4 * spine.to_standard(w)
+        Si = np.rint(S).astype(np.int64)
+        assert np.allclose(S, Si)
+        return Si
+    x = sp.Symbol("x")
+    I8 = np.eye(8, dtype=np.int64)
+    I70 = np.eye(70, dtype=np.int64)
+    reg = primes.regular()
+    table, ok_poly, ok_det, ok_fixed = {}, True, True, True
+    for d, w in sorted(reg.items()):
+        Wm = sp.Matrix(w.tolist())
+        cp = sp.Poly(Wm.charpoly(x).as_expr(), x)
+        ok_poly &= cp == sp.Poly(sp.cyclotomic_poly(d, x) ** (8 // primes._phi(d)), x)
+        e4 = cp.all_coeffs()[::-1][4]
+        L = lam4(int_std(w))
+        tr, D = int(np.trace(L)), int(np.trace(star @ L))
+        assert tr % 256 == 0 and D % 256 == 0
+        tr, D = tr // 256, D // 256
+        ok_det &= Wm.det() == 1 and np.array_equal(star @ L, L @ star) and tr == e4
+        w2 = w @ w
+        ok_det &= D * D == sp.Matrix((I8 - w2).tolist()).det()
+        if d >= 3:
+            ok_fixed &= len(spine.fixed_momenta(w2)[0]) == D * D
+        table[d] = (e4, abs(D), (e4 + D) // 2, (e4 - D) // 2)
+    want = {1: (70, 0), 2: (70, 0), 3: (19, 9), 4: (6, 16), 5: (5, 5), 6: (19, 9), 8: (2, 4), 10: (5, 5), 12: (3, 1),
+            15: (-1, 1), 20: (1, 1), 24: (-1, 1), 30: (-1, 1)}
+    g = reg[5]
+    Lg = [lam4(int_std(spine.mpow(g, j))) for j in range(5)]
+    reyn = sum(L.astype(object) for L in Lg)
+    rank = lambda A: sp.Matrix(A.tolist()).rank()
+    traces = {(int(np.trace((I70 + star) @ L)) // 512, int(np.trace((I70 - star) @ L)) // 512) for L in Lg[1:]}
+    return {
+        "each regular clock w (characteristic polynomial Phi_d^(8/phi(d))) has determinant 1 and commutes with the "
+        "star, so it keeps both halves; its trace on Lambda^4 is e4, the x^4-coefficient of that polynomial, and its "
+        "traces on the halves are (e4 +- D)/2 with D = tr(star Lambda^4 w)": ok_poly and ok_det,
+        "D^2 = det(I - w^2) for all thirteen, for d >= 3 the number of momenta w^2 fixes on the torus (layer 19); "
+        "(e4, |D|) = (70, 0), (70, 0), (19, 9), (6, 16), (5, 5), (19, 9), (2, 4), (5, 5), (3, 1), (-1, 1), (1, 1), "
+        "(-1, 1), (-1, 1) for d = 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 30":
+            ok_fixed and {d: t[:2] for d, t in table.items()} == want,
+        "the tick's four nontrivial powers all have traces 5 and 0 on the two halves, so the tick fixes eleven "
+        "4-forms in one half and seven in the other (ranks of its Reynolds operator on the halves)":
+            traces == {(5, 0)} and sorted((rank((I70.astype(object) + star.astype(object)) @ reyn),
+                                           rank((I70.astype(object) - star.astype(object)) @ reyn))) == [7, 11]
+            and table[5] == (5, 5, 5, 0),
+    }
+
+
+def join_G120_hodge():
+    """The day-Coxeter group on Lambda^4 R^8: three invariant 4-forms, all in one Hodge half."""
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: i for i, q in enumerate(quads)}
+    Q = np.array(quads)
+
+    def sgn(seq):
+        s = 1
+        for i in range(len(seq)):
+            for j in range(i + 1, len(seq)):
+                if seq[i] > seq[j]:
+                    s = -s
+        return s
+    star = np.zeros((70, 70), dtype=np.int64)
+    for q in quads:
+        c = tuple(t for t in range(8) if t not in q)
+        star[idx[c], idx[q]] = sgn(q + c)
+    S4 = [(p, Permutation(list(p)).signature()) for p in itertools.permutations(range(4))]
+
+    def lam4(M):
+        A = M[Q[:, None, :, None], Q[None, :, None, :]]
+        out = np.zeros((70, 70), dtype=np.int64)
+        for p, s in S4:
+            term = np.ones((70, 70), dtype=np.int64)
+            for i in range(4):
+                term = term * A[:, :, i, p[i]]
+            out += s * term
+        return out
+
+    def int_std(w):
+        S = 4 * spine.to_standard(w)
+        Si = np.rint(S).astype(np.int64)
+        assert np.allclose(S, Si)
+        return Si
+    x = sp.Symbol("x")
+    k = cyclotomic.clocks()
+    G = ledger.closure([k["c"], k["day"]])
+    I70 = np.eye(70, dtype=np.int64)
+    reyn = np.zeros((70, 70), dtype=object)
+    sum_e4 = sum_D = 0
+    keep = True
+    for W in G:
+        L = lam4(int_std(W))
+        cp = sp.Poly(sp.Matrix(W.tolist()).charpoly(x).as_expr(), x)
+        keep &= cp.all_coeffs()[-1] == 1 and np.array_equal(star @ L, L @ star)
+        sum_e4 += cp.all_coeffs()[::-1][4]
+        sum_D += int(np.trace(star @ L)) // 256
+        reyn = reyn + L.astype(object)
+    rank = lambda A: sp.Matrix(A.tolist()).rank()
+    plus, minus = rank((I70.astype(object) + star.astype(object)) @ reyn), rank((I70.astype(object) - star.astype(object)) @ reyn)
+    return {
+        "every element of G120 = <c', d> has determinant 1 (constant term 1 of its characteristic polynomial) and "
+        "commutes with the Hodge star, so G120 acts on each half": len(G) == 120 and keep,
+        "over the 120 elements the sums of e4 (the x^4-coefficients) and of D = tr(star Lambda^4 w) are both 360, so "
+        "the invariant 4-forms have dimension (360 + 360)/240 = 3 in one half and (360 - 360)/240 = 0 in the other: "
+        "G120 fixes exactly three 4-forms, all in one half (Reynolds ranks 3 and 0)":
+            sum_e4 == 360 and abs(sum_D) == 360 and sorted((plus, minus)) == [0, 3] and rank(reyn) == 3,
+    }
+
+
+def join_G120_S5():
+    """The twenty elements of G120 that keep A4 + A4' normalize S5 x S5' = W(A4) x W(A4'); d^6 swaps the factors."""
+    k = cyclotomic.clocks()
+    cp, g, r, rp, d = k["c"], k["g"], k["r"], k["rp"], k["day"]
+    I8 = np.eye(8, dtype=np.int64)
+    inv = spine.inverse
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    _, A, Ap = glue.a4_pair()
+    to_rb = lambda rows: np.rint(np.array(rows) @ Binv.T).astype(np.int64)
+    SA = {tuple(v) for v in to_rb(A)}
+    SAp = {tuple(v) for v in to_rb(Ap)}
+    img = lambda W, S: {tuple(W @ np.array(s)) for s in S}
+    key = lambda M: M.tobytes()
+
+    def permmat(p):
+        P = np.zeros((8, 8))
+        for i in range(5):
+            P[p[i], i] = 1
+        for i in range(5, 8):
+            P[i, i] = 1
+        return spine.to_root_basis(P)
+    WA4 = [permmat(p) for p in itertools.permutations(range(5))]
+    refl = lambda v: spine.to_root_basis(np.eye(8) - np.outer(v, v))
+    WA4p = ledger.closure([refl(s) for s in glue.chain_order(glue.simple_system(Ap))])
+    keysA, keysAp = {key(M) for M in WA4}, {key(M) for M in WA4p}
+    G = ledger.closure([cp, d])
+    keep = [W for W in G if img(W, SA) <= SA | SAp]
+    swap = [W for W in keep if img(W, SA) == SAp]
+    d6 = spine.mpow(d, 6)
+    H = ledger.closure([g, d6])
+    same = lambda X, Y: {key(M) for M in X} == {key(M) for M in Y}
+    in_product = [W for W in G if any(key(inv(P) @ W) in keysAp for P in WA4)]
+    conj = lambda W, M: W @ M @ inv(W)
+    on_lines = [W for W in G if cyclotomic.on_lines(cyclotomic.on_plane(W)) == tuple(range(6))]
+    return {
+        "exactly twenty elements of G120 = <c', d> keep the carrier's A4 + A4' (its 40 roots): the group <g, d^6>, "
+        "which is the kernel of G120's action on the six residue lines (d^6 is the scalar 2 of F25); ten of them keep A4 and ten, d^6 among them, exchange A4 with A4'":
+            len(G) == 120 and len(keep) == 20 and len(H) == 20 and same(keep, H) and same(keep, on_lines)
+            and len(swap) == 10 and any(np.array_equal(W, d6) for W in swap)
+            and np.array_equal(cyclotomic.on_plane(d6) % 5, 2 * np.eye(2, dtype=np.int64)),
+        "S5 = W(A4) and S5' = W(A4') are the 120 vertex permutations and the Weyl group of the twin, r in the first "
+        "and r' in the second; <g, d^6> normalizes their product: g = r r' acts on S5 by conjugation as its five-cycle "
+        "r (r' commutes with S5), d^12 = -1 acts trivially, and d^6 carries W(A4) onto W(A4') with d^6 r d^-6 = r'^-1 "
+        "and d^6 g d^-6 = g^-1":
+            len(WA4p) == 120 and key(r) in keysA and key(rp) in keysAp
+            and all(np.array_equal(conj(g, M), conj(r, M)) for M in WA4)
+            and all(np.array_equal(rp @ M, M @ rp) for M in WA4) and np.array_equal(spine.mpow(d, 12), -I8)
+            and {key(conj(d6, M)) for M in WA4} == keysAp and np.array_equal(conj(d6, r), inv(rp))
+            and np.array_equal(conj(d6, g), inv(g)),
+        "G120 meets S5 x S5' only in the tick <g>: five elements":
+            len(in_product) == 5 and all(any(np.array_equal(W, spine.mpow(g, j)) for j in range(5)) for W in in_product),
+    }
+
+
+def join_S5_clocks():
+    """The clock group carries the carrier's A4 to twelve root systems; the tick and the mirror normalize S5 as D5."""
+    k = cyclotomic.clocks()
+    cp, g, r, rp, d, v, m = k["c"], k["g"], k["r"], k["rp"], k["day"], k["golden"], k["mirror"]
+    I8 = np.eye(8, dtype=np.int64)
+    inv = spine.inverse
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    _, A, Ap = glue.a4_pair()
+    to_rb = lambda rows: np.rint(np.array(rows) @ Binv.T).astype(np.int64)
+    SA = {tuple(x) for x in to_rb(A)}
+    img = lambda W, S: {tuple(W @ np.array(s)) for s in S}
+    Nrm = [w for mm, w in spine.normalizer()]
+    key = lambda M: M.tobytes()
+    gen = ledger.closure([cp, d, v, m])
+    orbit = {frozenset(img(W, SA)) for W in Nrm}
+    Lq, lines = cyclotomic.residue()
+    pts = [cyclotomic.point(x) for x in RB]
+    comps = set()
+    for L in lines:
+        rows = [RB[i] for i in range(240) if pts[i] in L]
+        n = len(rows)
+        adj = {a: [b for b in range(n) if b != a and int(rows[a] @ C @ rows[b]) in (1, -1)] for a in range(n)}
+        seen = set()
+        for a in range(n):
+            if a in seen:
+                continue
+            stack, comp = [a], {a}
+            while stack:
+                for b in adj[stack.pop()]:
+                    if b not in comp:
+                        comp.add(b)
+                        stack.append(b)
+            seen |= comp
+            comps.add(frozenset(tuple(rows[i]) for i in comp))
+
+    def permmat(p):
+        P = np.zeros((8, 8))
+        for i in range(5):
+            P[p[i], i] = 1
+        for i in range(5, 8):
+            P[i, i] = 1
+        return spine.to_root_basis(P)
+    perms = list(itertools.permutations(range(5)))
+    WA4 = {p: permmat(p) for p in perms}
+    on_A4 = lambda W: next(((p, e) for p in perms for e in (1, -1)
+                            if all(np.array_equal(W @ np.array(a), e * WA4[p] @ np.array(a)) for a in SA)), None)
+    stab = [W for W in Nrm if img(W, SA) == SA]
+    stab_action = {on_A4(W) for W in stab}
+    D5 = {tuple((a * i + b) % 5 for i in range(5)) for a in (1, 4) for b in range(5)}
+    conj = lambda W, M: W @ M @ inv(W)
+    rot, refl = (1, 2, 3, 4, 0), (0, 4, 3, 2, 1)
+    return {
+        "the clock group <c', d, v, m>, the normalizer of <c'> with 240 elements, carries the carrier's A4 (the root "
+        "system of S5) to exactly twelve root systems: the two A4 factors of each of the six residue lines' A4 + A4'; "
+        "the stabilizer of A4 has 240/12 = 20 elements and acts on A4 as the signed dihedral group D5 x {+-1}":
+            len(Nrm) == 240 and {key(W) for W in gen} == {key(W) for W in Nrm} and len(orbit) == 12
+            and orbit == comps and len(comps) == 12 and len(stab) == 20
+            and stab_action == {(p, e) for p in D5 for e in (1, -1)},
+        "the tick g = r r' and the mirror m keep A4 and act on S5 = W(A4) by conjugation as the pentagon's rotation "
+        "i -> i + 1 and reflection i -> -i (r' commutes with S5, and m restricted to A4 is the reflection), the "
+        "dihedral D5 inside AGL(1,5); c', d and the golden clock v carry A4 to other factors":
+            on_A4(g) == (rot, 1) and on_A4(m) == (refl, 1)
+            and all(np.array_equal(conj(g, M), conj(WA4[rot], M)) for M in WA4.values())
+            and all(np.array_equal(conj(m, M), conj(WA4[refl], M)) for M in WA4.values())
+            and all(np.array_equal(rp @ M, M @ rp) for M in WA4.values())
+            and all(img(W, SA) != SA for W in (cp, d, v)) and all(img(W, SA) in comps for W in (cp, d, v)),
+    }
+
+
+def join_S5_regular():
+    """S5 x S5' = W(A4) x W(A4') meets the regular classes only in the identity and the tick's class."""
+    x = sp.Symbol("x")
+    k = cyclotomic.clocks()
+    g, r, rp = k["g"], k["r"], k["rp"]
+    inv = spine.inverse
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    _, A, Ap = glue.a4_pair()
+    key = lambda M: M.tobytes()
+
+    def permmat(p):
+        P = np.zeros((8, 8))
+        for i in range(5):
+            P[p[i], i] = 1
+        for i in range(5, 8):
+            P[i, i] = 1
+        return spine.to_root_basis(P)
+    perms = list(itertools.permutations(range(5)))
+    WA4 = {p: permmat(p) for p in perms}
+    refl = lambda v: spine.to_root_basis(np.eye(8) - np.outer(v, v))
+    WA4p = ledger.closure([refl(s) for s in glue.chain_order(glue.simple_system(Ap))])
+    weyl = all(spine.is_weyl(M) for M in WA4.values()) and all(spine.is_weyl(M) for M in WA4p)
+    commute = all(np.array_equal(M @ Mp, Mp @ M) for M in WA4.values() for Mp in WA4p)
+    ctype = lambda p: tuple(sorted(Permutation(list(p)).cycle_structure.items()))
+    std = {}
+    for p in perms:
+        P = sp.Matrix(5, 5, lambda i, j: int(i == p[j]))
+        std.setdefault(ctype(p), sp.Poly(sp.quo(P.charpoly(x).as_expr(), x - 1), x))
+    reg = primes.regular()
+    regpoly = {dd: sp.Poly(sp.cyclotomic_poly(dd, x) ** (8 // primes._phi(dd)), x) for dd in reg}
+    hits = {(c1, c2, dd) for (c1, p1), (c2, p2) in itertools.product(std.items(), repeat=2)
+            for dd, q in regpoly.items() if p1 * p2 == q}
+    five = ((5, 1),)
+    # the eight-dimensional characteristic polynomial of a product is the product of the two standard polynomials:
+    # checked for every vertex permutation against the identity, a simple reflection and the five-cycle r' of W(A4')
+    reflp = refl(glue.chain_order(glue.simple_system(Ap))[0])
+    charpoly8 = lambda M: sp.Poly(sp.Matrix(M.tolist()).charpoly(x).as_expr(), x)
+    chk = all(charpoly8(WA4[p] @ Mp) == std[ctype(p)] * std_p for p in perms
+              for Mp, std_p in [(np.eye(8, dtype=np.int64), std[((1, 5),)]), (reflp, std[((1, 3), (2, 1))]), (rp, std[five])])
+    cycles5 = [WA4[p] for p in perms if ctype(p) == five]
+    cycles5p = [M for M in WA4p if sp.Poly(sp.Matrix(M.tolist()).charpoly(x).as_expr(), x) == std[five] * std[((1, 5),)]]
+    conj_r = {key(M @ r @ inv(M)) for M in WA4.values()}
+    conj_rp = {key(M @ rp @ inv(M)) for M in WA4p}
+    return {
+        "S5 = W(A4), the 120 vertex permutations, and S5' = W(A4') are commuting subgroups of W(E8) (integral "
+        "isometries keeping the roots), with r in the first and r' in the second": weyl and commute and len(WA4p) == 120
+            and key(r) in {key(M) for M in WA4.values()} and key(rp) in {key(M) for M in WA4p},
+        "the characteristic polynomial of a product (s, t) is chi_std(s) chi_std(t), and the standard polynomial of a "
+        "permutation of five points has the root 1 unless it is a five-cycle (Phi_5): so S5 x S5' meets the thirteen "
+        "regular polynomials Phi_d^(8/phi(d)) only at d = 1 (the identity) and d = 5":
+            chk and all(q.eval(1) == 0 for c, q in std.items() if c != five) and std[five].eval(1) != 0
+            and std[five] == sp.Poly(sp.cyclotomic_poly(5, x), x) and std[five] * std[five] == regpoly[5]
+            and hits == {(((1, 5),), ((1, 5),), 1), (five, five, 5)},
+        "the 24 x 24 = 576 pairs of five-cycles are all conjugate under S5 x S5' to the tick g = r r' (the five-cycles "
+        "of each factor are one class), so they fill the regular class 5 as far as S5 x S5' reaches it":
+            len(cycles5) == 24 and len(cycles5p) == 24 and conj_r == {key(M) for M in cycles5} and len(conj_r) == 24
+            and conj_rp == {key(M) for M in cycles5p} and len(conj_rp) == 24 and np.array_equal(g, r @ rp),
+    }
+
+
+def join_G120_regular():
+    """Every element of the day-Coxeter group is regular; the classes met are all but the golden clock's."""
+    x = sp.Symbol("x")
+    k = cyclotomic.clocks()
+    cp, g, d = k["c"], k["g"], k["day"]
+    I8 = np.eye(8, dtype=np.int64)
+    inv = spine.inverse
+    key = lambda M: M.tobytes()
+    G = ledger.closure([cp, d])
+    reg = primes.regular()
+    regpoly = {dd: sp.Poly(sp.cyclotomic_poly(dd, x) ** (8 // primes._phi(dd)), x) for dd in reg}
+    powers = {key(spine.mpow(cp, j)) for j in range(30)} | {key(spine.mpow(d, j)) for j in range(24)}
+    orders = Counter()
+    regular = conjugate = True
+    for W in G:
+        o = spine.mat_order(W)
+        orders[o] += 1
+        regular &= o in regpoly and sp.Poly(sp.Matrix(W.tolist()).charpoly(x).as_expr(), x) == regpoly[o]
+        conjugate &= any(key(Y @ W @ inv(Y)) in powers for Y in G)
+    counts = {1: 1, 2: 1, 3: 2, 4: 10, 5: 4, 6: 2, 8: 20, 10: 4, 12: 20, 15: 8, 24: 40, 30: 8}
+    d4 = spine.mpow(d, 4)
+    d6 = spine.mpow(d, 6)
+    semidirect = all(any(np.array_equal(W, spine.mpow(g, a) @ spine.mpow(d, j)) for a in range(5) for j in range(24))
+                     for W in G)
+    moved = all(not np.array_equal(spine.mpow(d, j) @ g @ inv(spine.mpow(d, j)), g) for j in range(24) if j % 4)
+    return {
+        "G120 = <g> x| <d> (every element is g^a d^j, d g d^-1 = g^2): d^j moves g unless 4 | j, so g^a d^j is "
+        "G120-conjugate to d^j for 4 not dividing j, while <g, d^4> = <c'> is cyclic of order 30; hence every element "
+        "of G120 is conjugate in G120 to a power of c' or of d":
+            len(G) == 120 and semidirect and np.array_equal(d @ g @ inv(d), spine.mpow(g, 2)) and moved
+            and {key(W) for W in ledger.closure([g, d4])} == {key(spine.mpow(cp, j)) for j in range(30)} and conjugate,
+        "so all 120 elements have regular characteristic polynomials Phi_d^(8/phi(d)): twelve regular classes, with "
+        "1, 1, 2, 10, 4, 2, 20, 4, 20, 8, 40, 8 elements of orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30":
+            regular and dict(orders) == counts,
+        "the golden clock's class 20 is the one regular class G120 misses: d^6 inverts g, so every g^a d^6 squares to "
+        "d^12 = -1 and has order 4, and G120 has no element of order 20":
+            np.array_equal(d6 @ g @ inv(d6), inv(g)) and np.array_equal(spine.mpow(d, 12), -I8)
+            and all(np.array_equal(spine.mpow(spine.mpow(g, a) @ d6, 2), -I8) for a in range(5)) and 20 not in orders
+            and set(regpoly) - set(orders) == {20},
+    }
+
+
+def join_golden_pgl():
+    """The golden companion mod 5 is the Fibonacci-ratio Moebius map x -> 1 + 1/x of the projective line over F5."""
+    pgl, psl = projective_line()
+    inv5 = lambda y: pow(y, 3, 5)
+
+    def mobius(a, b, c, d):
+        image = lambda t: ((a * inv5(c) % 5 if c else 5) if t == 5
+                           else 5 if (c * t + d) % 5 == 0 else (a * t + b) * inv5(c * t + d) % 5)
+        return tuple(image(t) for t in range(6))
+    mB, mA = mobius(1, 1, 1, 0), mobius(3, 1, 1, 1)
+    Bm = sp.Matrix([[1, 1], [1, 0]])
+    pw = [(Bm ** j).applyfunc(lambda e: e % 5) for j in range(21)]
+    F = [0, 1]
+    for _ in range(25):
+        F.append(F[-1] + F[-2])
+    ratio = lambda n: 5 if F[n] % 5 == 0 else (F[n + 1] % 5) * inv5(F[n] % 5) % 5
+    Af, Ac = _surface_labels()
+    img = lambda T, mm: {tuple(sorted(mm[t] for t in f)) for f in T}
+    comp = lambda a, b: tuple(a[b[i]] for i in range(6))
+    seen, frontier = {tuple(range(6))}, [tuple(range(6))]
+    while frontier:
+        new = []
+        for h in frontier:
+            for s in (mA, mB):
+                t = comp(s, h)
+                if t not in seen:
+                    seen.add(t)
+                    new.append(t)
+        frontier = new
+    orbit = [1]
+    for _ in range(5):
+        orbit.append(mB[orbit[-1]])
+    return {
+        "B = [[1, 1], [1, 0]] acts on the projective line over F5 as x -> (x + 1)/x = 1 + 1/x, which carries "
+        "F_(n+1)/F_n to F_(n+2)/F_(n+1): B^5 = 3I, so its class in PGL(2,5) has order 5 = 20/4, the Pisano period "
+        "over the scalars, and the Fibonacci ratios mod 5 run 1, 2, 4, 0, infinity with period 5":
+            mB in pgl and all(mB[ratio(n)] == ratio(n + 1) for n in range(1, 21)) and pw[5] == 3 * sp.eye(2)
+            and next(j for j in range(1, 21) if pw[j] == sp.eye(2)) == 20
+            and [ratio(n) for n in range(1, 11)] == [1, 2, 4, 0, 5] * 2 and orbit == [1, 2, 4, 0, 5, 1],
+        "it fixes the golden point 3, the double root of x^2 - x - 1 mod 5 (5 ramifies in Q(sqrt5)), and turns the "
+        "other five points in one five-cycle: a Sylow 5-subgroup of PGL(2,5)":
+            [t for t in range(5) if (t * t - t - 1) % 5 == 0] == [3] and sp.Poly(sp.Symbol("x") ** 2 - sp.Symbol("x") - 1,
+                                                                                 sp.Symbol("x"), modulus=5).discriminant() == 0
+            and mB[3] == 3 and Permutation(list(mB)).cycle_structure == {5: 1, 1: 1},
+        "det B = -1 is a square mod 5, so B lies in PSL(2,5) and keeps the hemi-icosahedron and its complement, which "
+        "the 801 matrix (determinant 2, a non-square) swaps; the two matrices generate PGL(2,5) on the line":
+            Bm.det() == -1 and pow(2, 2, 5) == 4 and mB in psl and img(Af, mB) == Af and img(Ac, mB) == Ac
+            and mA in pgl and mA not in psl and img(Af, mA) == Ac and seen == pgl,
+    }
+
+
+def join_S5_V():
+    """The permutation representation: S5 acts on R^5 by permutation matrices; it is the trivial line u plus the
+    sum-zero hyperplane H, the irreducible reflection representation of W(A4), and the commutant is spanned by I, J."""
+    S5 = [tuple(p) for p in itertools.permutations(range(5))]
+    P = {p: sp.Matrix(5, 5, lambda r, c: int(r == p[c])) for p in S5}
+    compose = lambda p, q: tuple(p[q[i]] for i in range(5))
+    gens = [(1, 0, 2, 3, 4), (1, 2, 3, 4, 0)]
+    I5, J5 = sp.eye(5), sp.ones(5, 5)
+    u = sp.ones(5, 1)
+    H = sp.Matrix.hstack(*[_e(i) - _e(4) for i in range(4)])
+    fix = lambda p: sum(1 for i in range(5) if p[i] == i)
+    cycle_type = lambda p: tuple(sorted((len(c) for c in Permutation(list(p)).full_cyclic_form), reverse=True))
+    classes = {}
+    for p in S5:
+        classes.setdefault(cycle_type(p), []).append(p)
+    types = ((1, 1, 1, 1, 1), (2, 1, 1, 1), (2, 2, 1), (3, 1, 1), (3, 2), (4, 1), (5,))
+    perm_char = {t: fix(ps[0]) for t, ps in classes.items()}
+    chi = {p: fix(p) - 1 for p in S5}
+    full = {p: fix(p) for p in S5}
+    inner = lambda f, h: Fraction(sum(f[p] * h[p] for p in S5), 120)
+    refl = lambda i, j: I5 - (_e(i) - _e(j)) * (_e(i) - _e(j)).T
+    swap = lambda i, j: tuple({i: j, j: i}.get(k, k) for k in range(5))
+    x = sp.symbols("x")
+    X = sp.Matrix(5, 5, sp.symbols("x0:25"))
+    sol = next(iter(sp.linsolve([e for g in gens for e in (X * P[g] - P[g] * X)], list(X))))
+    free = len(set().union(*[s.free_symbols for s in sol]))
+    return {
+        "p -> P(p), P(p) e_i = e_(p i), is a faithful homomorphism of the 120 vertex permutations into O(5): "
+        "P(pq) = P(p) P(q), P(p)^T P(p) = I, and the 120 matrices are distinct":
+            all(P[compose(p, q)] == P[p] * P[q] for p in gens for q in S5)
+            and all(P[p].T * P[p] == I5 for p in S5) and len({tuple(P[p]) for p in S5}) == 120,
+        "it fixes u = (1, 1, 1, 1, 1) and keeps the sum-zero hyperplane H = u^perp, the carrier's A4 space, on which "
+        "the transposition (i j) is the reflection in the root e_i - e_j, of determinant -1: R^5 = u + H as S5-modules":
+            all(P[p] * u == u and (u.T * P[p] * H).is_zero_matrix for p in S5)
+            and all(P[swap(i, j)] == refl(i, j) and refl(i, j).det() == -1 for i, j in itertools.combinations(range(5), 2)),
+        "the permutation character is the number of fixed vertices: 5, 3, 1, 2, 0, 1, 0 on the classes 1^5, 2, 2^2, "
+        "3, 3 2, 4, 5; its restriction to H, fix - 1, has <chi, chi> = 1, so H is irreducible (the standard "
+        "representation), and the permutation character has norm 2: S5 is 2-transitive on the five atoms, one orbit "
+        "of ten pairs":
+            [perm_char[t] for t in types] == [5, 3, 1, 2, 0, 1, 0] and inner(chi, chi) == 1 and inner(full, full) == 2
+            and len({frozenset((p[0], p[1])) for p in S5}) == 10,
+        "so the commutant of S5 on R^5 is two-dimensional, spanned by I and J: the only S5-invariant operators on the "
+        "five atoms are a I + b J, and the Reynolds average of the 120 matrices is J/5, the projector onto u":
+            free == 2 and sum((P[p] for p in S5), sp.zeros(5)) / 120 == J5 / 5
+            and all((a * I5 + b * J5) * P[p] == P[p] * (a * I5 + b * J5) for p in gens for a in (1, 2) for b in (1, -3)),
+        "the characteristic polynomial of P(p) is the product of x^c - 1 over the cycle lengths c, so on H it is that "
+        "product divided by x - 1: the five-cycle has Phi_5 on H, and the (2 3)-element (x - 1)(x + 1)(x^2 + x + 1)":
+            all(sp.expand(P[p].charpoly(x).as_expr() - sp.prod([x ** c - 1 for c in cycle_type(p)])) == 0 for p in S5)
+            and sp.expand(sp.cancel((x ** 5 - 1) / (x - 1)) - (x ** 4 + x ** 3 + x ** 2 + x + 1)) == 0
+            and sp.expand(sp.cancel((x ** 2 - 1) * (x ** 3 - 1) / (x - 1)) - (x - 1) * (x + 1) * (x ** 2 + x + 1)) == 0,
+    }
+
+
+def join_S5_petersen():
+    """Aut(Petersen) = S5: the vertex permutations, induced on the ten edges, are all the automorphisms of the
+    Petersen graph; its adjacency algebra is their commutant, so its eigenspaces are the irreducible constituents."""
+    E = carrier.edges()
+    A = carrier.petersen()
+    An = [[int(A[i, j]) for j in range(10)] for i in range(10)]
+    nbr = [{j for j in range(10) if An[i][j]} for i in range(10)]
+    S5 = [tuple(p) for p in itertools.permutations(range(5))]
+    ind = {p: tuple(E.index(tuple(sorted((p[i], p[j])))) for i, j in E) for p in S5}
+    compose = lambda a, b: tuple(a[b[i]] for i in range(10))
+    compose5 = lambda p, q: tuple(p[q[i]] for i in range(5))
+    gens = [(1, 0, 2, 3, 4), (1, 2, 3, 4, 0)]
+    auts = []
+
+    def extend(perm):
+        k = len(perm)
+        if k == 10:
+            auts.append(tuple(perm))
+            return
+        for v in range(10):
+            if v not in perm and all((u in nbr[k]) == (perm[u] in nbr[v]) for u in range(k)):
+                extend(perm + [v])
+    extend([])
+    pedges = [frozenset((a, b)) for a in range(10) for b in range(a + 1, 10) if An[a][b]]
+    nonedges = [frozenset((a, b)) for a in range(10) for b in range(a + 1, 10) if not An[a][b]]
+    pent = {frozenset(c) for c in itertools.permutations(range(10), 5)
+            if c[0] == min(c) and c[1] < c[4] and all(An[c[i]][c[(i + 1) % 5]] for i in range(5))}
+    act = lambda s, p: frozenset(ind[p][v] for v in s)
+    orbits = lambda items: len({frozenset(act(s, p) for p in S5) for s in items})
+    stab = lambda s: sum(1 for p in S5 if act(s, p) == s)
+    ham = {frozenset(tuple(sorted(e)) for e in zip(c, c[1:] + c[:1]))
+           for c in itertools.permutations(range(5)) if c[0] == 0 and c[1] < c[4]}
+    I10 = sp.eye(10)
+    Pm = lambda p: sp.Matrix(10, 10, lambda r, c: int(r == ind[p][c]))
+    X = sp.Matrix(10, 10, sp.symbols("y0:100"))
+    sol = next(iter(sp.linsolve([e for g in gens for e in (X * Pm(g) - Pm(g) * X)], list(X))))
+    free = len(set().union(*[s.free_symbols for s in sol]))
+    proj = {}
+    for lam in (3, 1, -2):
+        Y = I10
+        for mu in (3, 1, -2):
+            if mu != lam:
+                Y = Y * (A - mu * I10) / (lam - mu)
+        proj[lam] = Y
+    char = lambda lam, p: (Pm(p) * proj[lam]).trace()
+    cycle_type = lambda p: tuple(sorted((len(c) for c in Permutation(list(p)).full_cyclic_form), reverse=True))
+    reps = {}
+    for p in S5:
+        reps.setdefault(cycle_type(p), p)
+    types = ((1, 1, 1, 1, 1), (2, 1, 1, 1), (2, 2, 1), (3, 1, 1), (3, 2), (4, 1), (5,))
+    norm = lambda lam: Fraction(sum(char(lam, p) ** 2 for p in S5), 120)
+    return {
+        "every vertex permutation, induced on the ten edges of K5 (the vertices of the Petersen graph), is an "
+        "automorphism of the graph (adjacent = disjoint), the induced map is an injective homomorphism, and the "
+        "Petersen graph has exactly 120 automorphisms: Aut(Petersen) = S5, the vertex permutations":
+            all(An[a][b] == An[ind[p][a]][ind[p][b]] for p in S5 for a in range(10) for b in range(10))
+            and all(ind[compose5(p, q)] == compose(ind[p], ind[q]) for p in gens for q in S5)
+            and len(set(ind.values())) == 120 and len(auts) == 120 and set(auts) == set(ind.values()),
+        "S5 is transitive on the 10 vertices (stabilizer of order 12), the 15 edges (stabilizer 8), the 30 non-edges "
+        "(stabilizer 4) and the 12 pentagons (stabilizer 10, the pentagon's D5): a pentagon's vertex set is the edge "
+        "set of a Hamiltonian cycle of K5, and the twelve pentagons are the twelve Hamiltonian cycles":
+            orbits([frozenset([v]) for v in range(10)]) == 1 and stab(frozenset([0])) == 12
+            and len(pedges) == 15 and orbits(pedges) == 1 and stab(pedges[0]) == 8
+            and len(nonedges) == 30 and orbits(nonedges) == 1 and stab(nonedges[0]) == 4
+            and len(pent) == 12 and orbits(pent) == 1 and stab(next(iter(pent))) == 10
+            and {frozenset(E[v] for v in c) for c in pent} == ham and len(ham) == 12,
+        "the commutant of S5 on the ten edges is three-dimensional, spanned by I, A and J - I - A (the three orbitals: "
+        "equal, adjacent, non-adjacent), so it is the adjacency algebra of the Petersen graph, and the three eigenspaces "
+        "of A (eigenvalues 3, 1, -2, multiplicities 1, 5, 4) are the irreducible constituents of the edge module":
+            free == 3 and all(Pm(p) * A == A * Pm(p) for p in gens)
+            and sp.Matrix.hstack(I10.reshape(100, 1), A.reshape(100, 1), (sp.ones(10, 10) - I10 - A).reshape(100, 1)).rank() == 3
+            and [proj[lam].rank() for lam in (3, 1, -2)] == [1, 5, 4] and all(norm(lam) == 1 for lam in (3, 1, -2)),
+        "the eigenvalue -2 space is the standard representation (character fix - 1 of the vertex permutation) and the "
+        "eigenvalue 1 space, ker M, is the five-dimensional irreducible with character 5, 1, 1, -1, 1, -1, 0 on the "
+        "classes 1^5, 2, 2^2, 3, 3 2, 4, 5":
+            all(char(-2, p) == sum(1 for i in range(5) if p[i] == i) - 1 for p in S5)
+            and [char(1, reps[t]) for t in types] == [5, 1, 1, -1, 1, -1, 0]
+            and (sp.Matrix(carrier.signless_incidence()) * proj[1]).is_zero_matrix,
+    }
+
+
+def join_S5_simplex():
+    """S5 acts on every grade of the 4-simplex by signed face permutations, the exterior powers of the permutation
+    representation; the boundary is equivariant, complementary grades are sign-twins and every Lefschetz number is 1."""
+    faces = {k: list(itertools.combinations(range(5), k + 1)) for k in range(5)}
+    S5 = [tuple(p) for p in itertools.permutations(range(5))]
+    gens = [(1, 0, 2, 3, 4), (1, 2, 3, 4, 0)]
+    compose = lambda p, q: tuple(p[q[i]] for i in range(5))
+    sgn = {p: Permutation(list(p)).signature() for p in S5}
+
+    def boundary(k):
+        M = sp.zeros(len(faces[k - 1]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            for i in range(len(f)):
+                M[faces[k - 1].index(f[:i] + f[i + 1:]), j] += (-1) ** i
+        return M
+
+    def act(k, p):
+        M = sp.zeros(len(faces[k]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            g = [p[v] for v in f]
+            M[faces[k].index(tuple(sorted(g))), j] = Permutation(sorted(range(len(g)), key=lambda t: g[t])).signature()
+        return M
+    L = {(k, p): act(k, p) for k in range(5) for p in S5}
+    P5 = lambda p: sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+    compound = lambda P, k: sp.Matrix(len(faces[k]), len(faces[k]),
+                                      lambda a, b: P.extract(list(faces[k][a]), list(faces[k][b])).det())
+    chi = {k: {p: L[(k, p)].trace() for p in S5} for k in range(5)}
+    inner = lambda f, h: Fraction(sum(f[p] * h[p] for p in S5), 120)
+    orbits = lambda k: len({frozenset(tuple(sorted(p[v] for v in f)) for p in S5) for f in faces[k]})
+    stab = lambda k: sum(1 for p in S5 if tuple(sorted(p[v] for v in faces[k][0])) == faces[k][0])
+    d = {k: boundary(k) for k in range(1, 5)}
+    homology = [d[1].cols - d[1].rank() - d[2].rank(), d[2].cols - d[2].rank() - d[3].rank(),
+                d[3].cols - d[3].rank() - d[4].rank(), d[4].cols - d[4].rank()]
+    return {
+        "p -> L_k(p), face f -> p(f) with the sign of the reordering, is a homomorphism of S5 on each grade k = 0..4 "
+        "(5, 10, 10, 5, 1 faces), and L_k(p) is the (k + 1)-th compound of the permutation matrix: grade k is "
+        "Lambda^(k + 1) of the permutation representation R^5":
+            all(L[(k, compose(p, q))] == L[(k, p)] * L[(k, q)] for k in range(5) for p in gens for q in S5)
+            and all(L[(k, p)] == compound(P5(p), k) for k in range(5) for p in S5)
+            and [len(faces[k]) for k in range(5)] == [5, 10, 10, 5, 1],
+        "every boundary is equivariant, L_(k-1)(p) d_k = d_k L_k(p): the simplex's chain complex is a complex of "
+        "S5-modules, with homology the point only, on which S5 acts trivially":
+            all(L[(k - 1, p)] * d[k] == d[k] * L[(k, p)] for k in range(1, 5) for p in S5)
+            and homology == [0, 0, 0, 0] and 5 - d[1].rank() == 1,
+        "the faces of each grade are one orbit, with stabilizers S_(k+1) x S_(4-k) of orders 24, 12, 12, 24, 120; "
+        "the top grade carries the sign, L_4(p) = sgn(p), and complementary grades are sign-twins, "
+        "tr L_k(p) = sgn(p) tr L_(3-k)(p), since Lambda^(k+1) = Lambda^5 x (Lambda^(4-k))^*":
+            [orbits(k) for k in range(5)] == [1, 1, 1, 1, 1] and [stab(k) for k in range(5)] == [24, 12, 12, 24, 120]
+            and all(L[(4, p)] == sp.Matrix([[sgn[p]]]) for p in S5)
+            and all(chi[k][p] == sgn[p] * chi[3 - k][p] for k in range(4) for p in S5),
+        "the grade characters have norms 2, 2, 2, 2, 1: vertices 1 + 4, edges 4 + 6, triangles 4' + 6, tetrahedra "
+        "sgn + 4', body sgn (4' the sign twist of the standard representation, 6 = Lambda^2 4 its own twist), and the "
+        "alternating sum of the grade characters is 1 for every permutation: the Lefschetz number of the point":
+            [inner(chi[k], chi[k]) for k in range(5)] == [2, 2, 2, 2, 1]
+            and inner(chi[0], {p: 1 for p in S5}) == 1 and inner(chi[1], chi[0]) == 1 and inner(chi[2], chi[1]) == 1
+            and inner(chi[1], {p: sgn[p] * chi[1][p] for p in S5}) == 1
+            and all(sum((-1) ** k * chi[k][p] for k in range(5)) == 1 for p in S5),
+    }
+
+
+def join_hodge_simplex():
+    """Along R^8 = R^5 + R^3, Lambda^4 R^8 is the simplex's grades 0..3 with multiplicities 1, 3, 3, 1, and the Hodge
+    star is the complementary face; it conjugates the boundary Laplacian into the coboundary Laplacian, which sum to 5."""
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: k for k, q in enumerate(quads)}
+
+    def sgn(seq):
+        s = 1
+        for i in range(len(seq)):
+            for j in range(i + 1, len(seq)):
+                if seq[i] > seq[j]:
+                    s = -s
+        return s
+    star = np.zeros((70, 70), dtype=np.int64)
+    for q in quads:
+        c = tuple(k for k in range(8) if k not in q)
+        star[idx[c], idx[q]] = sgn(q + c)
+    carrier_part = lambda q: tuple(t for t in q if t < 5)
+    twin_part = lambda q: tuple(t for t in q if t >= 5)
+    block = {k: [q for q in quads if len(carrier_part(q)) == k] for k in range(5)}
+    comp5 = lambda S: tuple(t for t in range(5) if t not in S)
+    faces = {k: list(itertools.combinations(range(5), k + 1)) for k in range(5)}
+
+    def lam4(p8):
+        M = np.zeros((70, 70), dtype=np.int64)
+        for q in quads:
+            im = [p8[i] for i in q]
+            M[idx[tuple(sorted(im))], idx[q]] = sgn(im)
+        return M
+    S5 = [tuple(p) for p in itertools.permutations(range(5))]
+    L4 = {p: lam4(p + (5, 6, 7)) for p in S5}
+
+    def grade(k, p):                                           # the simplex's signed action on grade k
+        M = sp.zeros(len(faces[k]), len(faces[k]))
+        for j, f in enumerate(faces[k]):
+            g = [p[v] for v in f]
+            M[faces[k].index(tuple(sorted(g))), j] = Permutation(sorted(range(len(g)), key=lambda t: g[t])).signature()
+        return M
+    block_trace = lambda M, k: sum(int(M[idx[q], idx[q]]) for q in block[k])
+    blk = np.array([len(carrier_part(q)) for q in quads])
+    offblock = blk[:, None] != blk[None, :]
+    # contraction with u = e0 + ... + e4 on Lambda^* R^8 and its adjoint, the wedge with u, on 3- and 4-forms
+    tris = list(itertools.combinations(range(8), 3))
+    tidx = {t: k for k, t in enumerate(tris)}
+    iota = np.zeros((56, 70), dtype=np.int64)                  # Lambda^4 -> Lambda^3
+    for q in quads:
+        for i, v in enumerate(q):
+            if v < 5:
+                iota[tidx[q[:i] + q[i + 1:]], idx[q]] += (-1) ** i
+    quints = list(itertools.combinations(range(8), 5))
+    fidx = {f: k for k, f in enumerate(quints)}
+    iota5 = np.zeros((70, 56), dtype=np.int64)                 # Lambda^5 -> Lambda^4
+    for f in quints:
+        for i, v in enumerate(f):
+            if v < 5:
+                iota5[idx[f[:i] + f[i + 1:]], fidx[f]] += (-1) ** i
+    wedge = iota.T                                             # Lambda^3 -> Lambda^4, the adjoint of the contraction
+    wedge5 = iota5.T                                           # Lambda^4 -> Lambda^5
+    Lap_d = wedge @ iota                                       # u ^ iota_u on 4-forms
+    Lap_c = iota5 @ wedge5                                     # iota_u u ^ on 4-forms
+    I70 = np.eye(70, dtype=np.int64)
+    star_inv = star.T
+    simplex_boundary = lambda k: sp.Matrix(len(faces[k - 1]), len(faces[k]),
+                                           lambda a, b: sum((-1) ** i for i in range(k + 1)
+                                                            if faces[k][b][:i] + faces[k][b][i + 1:] == faces[k - 1][a]))
+    rank = lambda M: np.linalg.matrix_rank(M.astype(float))
+    return {
+        "a coordinate 4-form e_Q splits as e_S ^ e_T with S = Q meet {0..4} a face of the simplex and T = Q meet "
+        "{5, 6, 7} in the other three directions; |S| = 1, 2, 3, 4 give blocks of 5, 30, 30, 5 forms, the simplex's "
+        "vertices, edges, triangles and tetrahedra with multiplicities C(3, 4 - |S|) = 1, 3, 3, 1: Lambda^4 R^8 = "
+        "sum_k Lambda^k R^5 x Lambda^(4-k) R^3":
+            [len(block[k]) for k in range(5)] == [0, 5, 30, 30, 5]
+            and all(len(block[k]) == len(faces[k - 1]) * comb(3, 4 - k) for k in range(1, 5))
+            and all({carrier_part(q) for q in block[k]} == set(faces[k - 1]) for k in range(1, 5)),
+        "the Hodge star carries e_S ^ e_T to +- e_(S^c) ^ e_(T^c): on the simplex it is the complementary face, "
+        "vertex <-> tetrahedron and edge <-> triangle, so the blocks |S| = k and 5 - k are exchanged and each Hodge "
+        "half is 5 + 30 = 35, the five (vertex, tetrahedron) pairs and three copies of the ten (edge, triangle) pairs":
+            all(star[idx[tuple(sorted(comp5(carrier_part(q)) + tuple(t for t in (5, 6, 7) if t not in q)))], idx[q]] in (1, -1)
+                and np.count_nonzero(star[:, idx[q]]) == 1 for q in quads)
+            and all(carrier_part(quads[int(np.nonzero(star[:, idx[q]])[0][0])]) == comp5(carrier_part(q)) for q in quads)
+            and np.array_equal(star @ star, I70) and rank(I70 + star) == 35 == rank(I70 - star),
+        "the vertex permutations, extended by the identity on the other three directions, keep every block and act "
+        "on the block |S| = k as the simplex's grade k - 1 tensored with Lambda^(4-k) R^3: the block trace of "
+        "Lambda^4(p) is C(3, 4 - k) times the grade's character, for all 120":
+            all(np.all(L4[p][offblock] == 0) for p in S5)
+            and all(block_trace(L4[p], k) == comb(3, 4 - k) * grade(k - 1, p).trace() for p in S5 for k in range(1, 5)),
+        "the contraction iota_u with u = e0 + ... + e4 is the simplex's boundary on every grade (blockwise, for each "
+        "part T in the other three directions), its adjoint u ^ the coboundary, and on Lambda^4 R^8 the two Laplacians u ^ iota_u and iota_u u ^ "
+        "sum to <u, u> = 5 (the filled simplex's interior Laplacians 5I) and are exchanged by the star: "
+        "star (u ^ iota_u) star^-1 = iota_u u ^, both of rank 35":
+            all(sp.Matrix([[int(iota[tidx[tuple(a + T)], idx[tuple(b + T)]]) for b in faces[k - 1]] for a in faces[k - 2]])
+                == simplex_boundary(k - 1) for k in range(2, 5) for T in itertools.combinations((5, 6, 7), 4 - k))
+            and np.array_equal(Lap_d + Lap_c, 5 * I70) and np.array_equal(star @ Lap_d @ star_inv, Lap_c)
+            and rank(Lap_d) == 35 == rank(Lap_c) and np.array_equal(iota @ iota5, np.zeros((56, 56), dtype=np.int64)),
+    }
+
+
+def join_golden_pg25():
+    """The golden companion mod 5 on PG(2,5): B = 3(I + N) with N^2 = 0, since x^2 - x - 1 = (x - 3)^2 over F5 (the
+    golden field is ramified at 5, phi = 1/2 = 3), so through the symmetric square B is a unipotent collineation of
+    order 5 fixing the golden axis 3 on the Veronese conic and its tangent, and nothing else."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    pgl, psl = projective_line()
+    B = sp.Matrix([[1, 1], [1, 0]])
+    mod5 = lambda X: X.applyfunc(lambda e: e % 5)
+    Nm = mod5(2 * (B - 3 * sp.eye(2)))                      # (B - 3I)/3 mod 5
+    x = sp.symbols("x")
+    s = sym2((1, 1, 1, 0))                                     # (x, y) -> (x + y, x) on (x^2, xy, y^2)
+    S = sp.Matrix([[1, 2, 1], [1, 1, 0], [1, 0, 0]])
+
+    def norm(v):
+        v = [int(e) % 5 for e in v]
+        inv = pow(next(e for e in v if e), 3, 5)
+        return tuple(e * inv % 5 for e in v)
+    mobius = tuple(conic[s(label[x])] for x in range(6))
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    kind = lambda q: "conic" if q in conic else ("exterior" if count[q] == 2 else "interior")
+    seen, orbits = set(), []
+    for q in points:
+        if q not in seen:
+            o, r = [], q
+            while r not in o:
+                o.append(r)
+                r = s(r)
+            seen |= set(o)
+            orbits.append(o)
+    pts = lambda L: frozenset(q for q in points if on(L, q))
+    fixed_points = [q for q in points if s(q) == q]
+    fixed_lines = [L for L in points if {s(q) for q in pts(L)} == pts(L)]
+    powers = [sp.eye(3)]
+    for _ in range(5):
+        powers.append(mod5(S * powers[-1]))
+    scalar = lambda X: X[0, 1] == X[0, 2] == X[1, 0] == X[1, 2] == X[2, 0] == X[2, 1] == 0 and X[0, 0] == X[1, 1] == X[2, 2]
+    Bk = [mod5(B ** k) for k in range(21)]
+    pole = lambda a, b: cross(tangent[label[a]], tangent[label[b]])
+    return {
+        "over F5 the golden polynomial is a square, x^2 - x - 1 = (x - 3)^2 with 3 = 1/2 the golden ratio at sqrt5 = 0, "
+        "so B = 3(I + N) mod 5 with N = (B - 3I)/3 = [[1, 2], [2, 4]] nilpotent (N^2 = 0): B has order 20 in GL(2,5) "
+        "(the Pisano period), 4 from the scalar 3 and 5 from the unipotent I + N, with B^4 = I - N and B^5 = 3I":
+            sp.Poly(x ** 2 - x - 1, x, modulus=5) == sp.Poly((x - 3) ** 2, x, modulus=5) and pow(2, -1, 5) == 3
+            and Nm == sp.Matrix([[1, 2], [2, 4]]) and mod5(Nm * Nm).is_zero_matrix and mod5(3 * (sp.eye(2) + Nm)) == mod5(B)
+            and [k for k in range(1, 21) if Bk[k] == sp.eye(2)] == [20] and Bk[4] == mod5(sp.eye(2) - Nm) and Bk[5] == 3 * sp.eye(2),
+        "on the projective line B is x -> (x + 1)/x, in PSL(2,5) (det B = -1 is a square), fixing the golden axis 3 "
+        "alone and turning the other five axes, 0 -> infinity -> 1 -> 2 -> 4 -> 0, in one five-cycle":
+            mobius in psl and mobius == (5, 2, 4, 3, 0, 1) and [v for v in range(6) if mobius[v] == v] == [3],
+        "through the symmetric square B acts on PG(2,5) by the matrix [[1, 2, 1], [1, 1, 0], [1, 0, 0]] on (x^2, xy, "
+        "y^2), which keeps the Veronese conic and is 4 times a single unipotent Jordan block ((S - 4I)^2 != 0 = "
+        "(S - 4I)^3): a collineation of order 5 fixing exactly one point, the conic point of the golden axis, and exactly "
+        "one line, its tangent, with orbits conic 1 + 5, exterior 5 + 5 + 5, interior 5 + 5":
+            all(s(q) == norm(S * sp.Matrix(q)) for q in points) and all(s(c) in conic for c in conic)
+            and mod5((S - 4 * sp.eye(3)) ** 2) != sp.zeros(3) and mod5((S - 4 * sp.eye(3)) ** 3) == sp.zeros(3)
+            and scalar(powers[5]) and not any(scalar(powers[k]) for k in range(1, 5))
+            and fixed_points == [label[3]] and fixed_lines == [tangent[label[3]]]
+            and sorted((kind(o[0]), len(o)) for o in orbits) == [("conic", 1), ("conic", 5), ("exterior", 5), ("exterior", 5),
+                                                                  ("exterior", 5), ("interior", 5), ("interior", 5)],
+        "the Veronese identification is equivariant, s(pole(a, b)) = pole(B a, B b) on the fifteen exterior points, and "
+        "B^k acts trivially on the plane exactly when B^k mod 5 is a scalar, which is when 5 divides F_k, which is when "
+        "5 divides k: the plane reads the golden index mod 5, as the time clock does":
+            all(s(pole(a, b)) == pole(mobius[a], mobius[b]) for a, b in itertools.combinations(range(6), 2))
+            and all((Bk[k][0, 1] == 0) == (sp.fibonacci(k) % 5 == 0) == (k % 5 == 0) for k in range(1, 21))
+            and all((Bk[k][0, 1] == 0) == scalar(mod5(S ** k)) for k in range(1, 21)),
+    }
+
+
+def join_G120_pg25():
+    """The day-Coxeter group on the projective plane: G120 acts on the tick's residue plane F25 = E8/(1 - g)E8 as the
+    unit group F25^x, hence through the symmetric square on PG(2,5), keeping the Veronese conic of the six residue
+    lines, with kernel <g, d^6> and image Z/6 generated by the day, whose orbits are the 801 matrix's."""
+    k = cyclotomic.clocks()
+    c, d, g = (np.rint(k[n]).astype(np.int64) for n in ("c", "day", "g"))
+    G = primes._matrix_group([c, d])
+    points, conic, tangent, cross, on, sym2 = _plane()
+    Lq, lines = cyclotomic.residue()
+    Q = [cyclotomic.on_plane(w) for w in G]
+    collineation = lambda M: sym2((int(M[0, 0]), int(M[0, 1]), int(M[1, 0]), int(M[1, 1])))
+    perm = lambda M: tuple(collineation(M)(q) for q in points)
+    ident = tuple(points)
+    perms = [perm(M) for M in Q]
+    image = set(perms)
+    kernel = [G[i] for i in range(len(G)) if perms[i] == ident]
+    scalar = lambda M: M[0, 1] == 0 and M[1, 0] == 0 and M[0, 0] == M[1, 1]
+    key = lambda M: M.tobytes()
+    d6 = spine.mpow(d, 6)
+    sub = ledger.closure([g, d6])
+    Qd = cyclotomic.on_plane(d)
+    sd = collineation(Qd)
+    conic_of = lambda L: (lambda p: tuple(x % 5 for x in (p[0] * p[0], p[0] * p[1], p[1] * p[1])))(next(iter(L)))
+
+    def norm(v):
+        v = [int(e) % 5 for e in v]
+        inv = pow(next(e for e in v if e), 3, 5)
+        return tuple(e * inv % 5 for e in v)
+    on_conic = [norm(conic_of(L)) for L in lines]
+    turned = cyclotomic.on_lines(Qd)
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    kind = lambda q: "conic" if q in conic else ("exterior" if count[q] == 2 else "interior")
+    seen, orbits = set(), []
+    for q in points:
+        if q not in seen:
+            o, r = [], q
+            while r not in o:
+                o.append(r)
+                r = sd(r)
+            seen |= set(o)
+            orbits.append(o)
+    dpow = [ident]
+    for _ in range(6):
+        dpow.append(tuple(sd(q) for q in dpow[-1]))
+    fixed = [q for q in points if sd(q) == q]
+    Sig = sp.Matrix([[fixed[0][0], fixed[0][1]], [fixed[0][1], fixed[0][2]]]) if len(fixed) == 1 else None
+    Dm = sp.Matrix(Qd.tolist())
+    detd = int(Dm.det()) % 5
+    mod5 = lambda X: X.applyfunc(lambda e: e % 5)
+    aniso = Sig is not None and all((sp.Matrix([a, b]).T * Sig * sp.Matrix([a, b]))[0] % 5 for a in range(5) for b in range(5) if (a, b) != (0, 0))
+    return {
+        "each of the 120 elements of G120 = <c', d> acts on the residue plane F5^2 by a 2 x 2 matrix mod 5 (day_units), "
+        "and v -> v v^T carries the six lines through the origin onto the six points of the Veronese conic: through the "
+        "symmetric square G120 acts on PG(2,5) by collineations keeping the conic, the day's action on the conic being "
+        "its 6-cycle on the residue lines":
+            len(G) == 120 and all(M is not None for M in Q) and set(on_conic) == set(conic) and len(set(on_conic)) == 6
+            and all(sd(on_conic[i]) == on_conic[turned[i]] for i in range(6))
+            and all(collineation(M)(q) in conic for M in Q for q in conic),
+        "the kernel is the twenty elements acting as scalars on F25, the group <g, d^6> (d^6 the scalar 2), the "
+        "stabilizer of the carrier's A4 + A4'; the image is cyclic of order 6, the powers of the day's collineation, "
+        "F25^x / F5^x = Z/6":
+            len(kernel) == 20 and all(scalar(cyclotomic.on_plane(w)) for w in kernel)
+            and {key(w) for w in kernel} == {key(w) for w in sub} and len(sub) == 20
+            and len(image) == 6 and image == set(dpow[:6]) and dpow[6] == ident and all(p != ident for p in dpow[1:6]),
+        "the day turns the 31 points in orbits conic 6, exterior 3 + 6 + 6, interior 1 + 3 + 6, the orbit pattern of the "
+        "801 matrix (another Singer cycle of GL(2,5), conjugate to minus the day): it is the one fixed point that the "
+        "plane adds to the six lines":
+            sorted((kind(o[0]), len(o)) for o in orbits) == [("conic", 6), ("exterior", 3), ("exterior", 6), ("exterior", 6),
+                                                              ("interior", 1), ("interior", 3), ("interior", 6)] and len(fixed) == 1,
+        "the fixed point is interior and, read as a symmetric matrix Sigma, satisfies d Sigma d^T = det(d) Sigma: it is "
+        "the inverse of the norm form of F25/F5, the one quadratic form on the residue plane that the day scales (by its "
+        "norm), anisotropic, so without rational zeros: no tangent of the conic passes through it":
+            kind(fixed[0]) == "interior" and mod5(Dm * Sig * Dm.T) == mod5(detd * Sig) and Sig.det() % 5 != 0 and aniso
+            and detd in (2, 3),
+    }
+
+
+def join_regular_surface():
+    """The regular clocks on the six axes: every regular clock normalizes the tick and so acts on the six residue lines,
+    the surface's axes, through PGL(2,5); those of square determinant on F25 keep the hemi-icosahedron and its
+    complement (the two PSL(2,5)-orbits of triangles), the day and its cube exchange them."""
+    reg = primes.regular()
+    Lq, lines = cyclotomic.residue()
+    Q = {dd: cyclotomic.on_plane(np.rint(w).astype(np.int64)) for dd, w in reg.items()}
+    det = lambda M: int(M[0, 0] * M[1, 1] - M[0, 1] * M[1, 0]) % 5
+    squares = {1, 4}
+    label = {}
+    for i, L in enumerate(lines):
+        for a, b in L:
+            if b == 1:
+                label[i] = a
+            if (a, b) == (1, 0):
+                label[i] = 5
+    index = {x: i for i, x in label.items()}
+    perm = lambda M: tuple(label[cyclotomic.on_lines(M)[index[x]]] for x in range(6))
+    A, Ac = _surface_labels()
+    pgl, psl = projective_line()
+    gl = [np.array(m).reshape(2, 2) for m in itertools.product(range(5), repeat=4) if (m[0] * m[3] - m[1] * m[2]) % 5]
+    image = lambda s, F: {tuple(sorted(s[i] for i in f)) for f in F}
+    cycles = lambda s: tuple(sorted(len(c) for c in Permutation(list(s)).full_cyclic_form))
+    scalar = lambda M: M[0, 1] == 0 and M[1, 0] == 0 and M[0, 0] == M[1, 1]
+    g = reg[5]
+    normalizes = lambda w: any(np.array_equal(w @ g @ spine.inverse(w), spine.mpow(g, j)) for j in range(1, 5))
+    table = {dd: (det(M) in squares, cycles(perm(M)), image(perm(M), A) == A, image(perm(M), A) == Ac) for dd, M in Q.items()}
+    keep = sorted(dd for dd, t in table.items() if t[2])
+    swap = sorted(dd for dd, t in table.items() if t[3])
+    return {
+        "each of the thirteen regular clocks (powers of c', d and v) normalizes the tick, so it acts on the tick's residue "
+        "plane F25 by a matrix mod 5 and on its six lines, labelled by the projective line; the matrices of square "
+        "determinant act on the lines as PSL(2,5) and all of GL(2,5) as PGL(2,5), whose two PSL(2,5)-orbits of triangles "
+        "are the hemi-icosahedron and its complement":
+            all(normalizes(np.rint(w).astype(np.int64)) for w in reg.values()) and all(M is not None for M in Q.values())
+            and sorted(label.values()) == list(range(6))
+            and {perm(M) for M in gl if det(M) in squares} == psl and {perm(M) for M in gl} == pgl
+            and all(image(s, A) == A for s in psl) and all(image(s, A) == Ac for s in pgl - psl),
+        "the clocks of orders 1, 2, 4, 5, 10 (the tick's powers, -1 and d^6 = 2) are scalars on F25 and fix every axis; "
+        "those of orders 3, 6, 12, 15, 30 turn the axes in two 3-cycles and the golden clock (20) is a half-turn "
+        "fixing two axes: all of square determinant, keeping the hemi-icosahedron and its complement":
+            all(scalar(Q[dd]) and cycles(perm(Q[dd])) == (1, 1, 1, 1, 1, 1) for dd in (1, 2, 4, 5, 10))
+            and all(cycles(perm(Q[dd])) == (3, 3) for dd in (3, 6, 12, 15, 30)) and cycles(perm(Q[20])) == (1, 1, 2, 2)
+            and keep == [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30] and all(table[dd][0] for dd in keep),
+        "the day (24), a Singer cycle, turns the six axes in one 6-cycle and its cube (8) in three transpositions; their "
+        "determinants are non-squares, and they exchange the hemi-icosahedron with its complement":
+            swap == [8, 24] and cycles(perm(Q[24])) == (6,) and cycles(perm(Q[8])) == (2, 2, 2)
+            and not table[24][0] and not table[8][0],
+    }
+
+
+def join_S5_surface():
+    """The cone's S5 on the surface: fixing the cone point, the vertex permutations are transitive on the twelve
+    hemi-icosahedra on the six axes, each determined by its link at the cone point, a Hamiltonian cycle of K5; the
+    stabilizer is the pentagon's D5, and the ten doublings carry the hemi-icosahedron to its complement."""
+    A, Ac = _surface_labels()
+    pgl, psl = projective_line()
+    S5 = [tuple(p) + (5,) for p in itertools.permutations(range(5))]
+    S6 = [tuple(p) for p in itertools.permutations(range(6))]
+    image = lambda s, F: frozenset(tuple(sorted(s[i] for i in f)) for f in F)
+    A, Ac = frozenset(A), frozenset(Ac)
+    keep = [p for p in S5 if image(p, A) == A]
+    swap = [p for p in S5 if image(p, A) == Ac]
+    others = [p for p in S5 if image(p, A) not in (A, Ac)]
+    orbit5 = {image(p, A) for p in S5}
+    orbit6 = {image(p, A) for p in S6}
+    affine = lambda a, b: tuple((a * x + b) % 5 for x in range(5)) + (5,)
+    D5 = {affine(a, b) for a in (1, 4) for b in range(5)}
+    F20 = {affine(a, b) for a in (1, 2, 3, 4) for b in range(5)}
+    link = lambda F: frozenset(tuple(sorted(set(f) - {5})) for f in F if 5 in f)
+    ham = {frozenset(tuple(sorted(e)) for e in zip(c, c[1:] + c[:1]))
+           for c in itertools.permutations(range(5)) if c[0] == 0 and c[1] < c[4]}
+    triangles = {t for t in itertools.combinations(range(6), 3)}
+    with_cone = {t for t in triangles if 5 in t}
+    complement = lambda F: frozenset(triangles - set(F))
+    return {
+        "the vertex permutations, extended by fixing the cone point 5 = infinity, act on the surface's 1-skeleton K6 "
+        "and on its 20 triangles in two orbits, the ten through the cone point and the ten of the K5; exactly ten of "
+        "the 120 keep the hemi-icosahedron, the pentagon's D5 = {x -> +-x + b}, and exactly ten carry it onto its "
+        "complement, the doublings x -> 2x + b, 3x + b: S5 meets PSL(2,5) in D5 and PGL(2,5) in F20 = AGL(1,5)":
+            all(image(p, with_cone) == frozenset(with_cone) for p in S5) and len(keep) == 10 and set(keep) == D5
+            and len(swap) == 10 and set(keep) | set(swap) == F20 and len(others) == 100
+            and set(keep) == {p for p in S5 if p in psl} and F20 == {p for p in S5 if p in pgl},
+        "so the hemi-icosahedron's S5-orbit has twelve members, and these are all the hemi-icosahedra on the six "
+        "labelled axes (the S6-orbit, 720/60 = 12): the cone's S5 is transitive on the twelve triangulations, with "
+        "stabilizer D5 of order 10":
+            len(orbit5) == 12 and orbit5 == orbit6 and 720 // 60 == 12 and 120 // len(keep) == 12,
+        "a hemi-icosahedron is determined by its link at the cone point, the five opposite edges of the five faces "
+        "through it, which form a Hamiltonian cycle of K5: the twelve hemi-icosahedra have the twelve Hamiltonian "
+        "cycles as links, bijectively, the hemi-icosahedron's being the pentagram and its complement's the pentagon":
+            {link(F) for F in orbit5} == ham and len({link(F) for F in orbit5}) == 12 and len(ham) == 12
+            and link(A) == frozenset(tuple(sorted((i, (i + 2) % 5))) for i in range(5))
+            and link(Ac) == frozenset(tuple(sorted((i, (i + 1) % 5))) for i in range(5)),
+        "complementation commutes with the action and pairs the twelve in six, each pair's links being a pentagon and "
+        "its pentagram (the same five-cycle with step doubled): the six pairs are the six Sylow five-cycle groups' "
+        "pentagon-pentagram pairs":
+            all(complement(image(p, A)) == image(p, Ac) for p in S5) and all(complement(F) in orbit5 for F in orbit5)
+            and len({frozenset((F, complement(F))) for F in orbit5}) == 6
+            and all(link(complement(F)) == frozenset(tuple(sorted((a, b))) for a, b in
+                                                        {(c[i], c[(i + 2) % 5]) for c in [next(c for c in itertools.permutations(range(5))
+                                                                                                if c[0] == 0 and c[1] < c[4] and frozenset(tuple(sorted(e)) for e in zip(c, c[1:] + c[:1])) == link(F))]
+                                                         for i in range(5)}) for F in orbit5),
+    }
+
+
+def join_S5_cube():
+    """S5 on the four-cube's vertices, the cuts of K5 mod 2: a faithful linear action, S5 inside GL(4,2), with orbits
+    1 + 5 + 10; it permutes the five cube structures on the sixteen cuts (one per star taken as antipode) as it
+    permutes the vertices, and the model's cube is kept exactly by the S4 fixing vertex 0, its coordinate permutations."""
+    E = carrier.edges()
+    cut = lambda S: tuple(int((i in S) != (j in S)) for i, j in E)
+    cube = list(itertools.product((0, 1), repeat=4))
+    f = {x: cut({k + 1 for k in range(4) if x[k]}) for x in cube}
+    back = {v: x for x, v in f.items()}
+    S5 = [tuple(p) for p in itertools.permutations(range(5))]
+    gens = [(1, 0, 2, 3, 4), (1, 2, 3, 4, 0)]
+    compose = lambda p, q: tuple(p[q[i]] for i in range(5))
+    move = lambda p, c: tuple(c[E.index(tuple(sorted((p.index(i), p.index(j)))))] for i, j in E)   # the cut of p(S)
+    act = {p: {x: back[move(p, f[x])] for x in cube} for p in S5}
+    plus = lambda a, b: tuple((s + t) % 2 for s, t in zip(a, b))
+    stars = [cut({i}) for i in range(5)]
+    cube_edges = lambda k: frozenset(frozenset((c, plus(c, stars[j]))) for c in f.values() for j in range(5) if j != k)
+    model_edges = frozenset(frozenset((f[x], f[y])) for x in cube for y in cube if sum(a != b for a, b in zip(x, y)) == 1)
+    on_cuts = lambda p, e: frozenset(move(p, c) for c in e)
+    keep = [p for p in S5 if frozenset(on_cuts(p, e) for e in model_edges) == model_edges]
+    coordperm = lambda p: all(act[p][x] == tuple(x[p.index(k + 1) - 1] for k in range(4)) for x in cube)
+    orbit = lambda x: frozenset(act[p][x] for p in S5)
+    sizes = sorted(len(o) for o in {orbit(x) for x in cube})
+    mats = {p: sp.Matrix([[act[p][tuple(int(k == j) for k in range(4))][i] for j in range(4)] for i in range(4)]) for p in S5}
+    mod2 = lambda X: X.applyfunc(lambda e: e % 2)
+    return {
+        "a vertex permutation carries the cut of S to the cut of p(S), a bijection of the sixteen cuts of K5 mod 2 "
+        "(the cube's vertices) that is linear over F2 and fixes the empty cut: p -> its 4 x 4 matrix mod 2 on the cube's "
+        "coordinates is a faithful homomorphism S5 -> GL(4,2), 120 distinct invertible matrices":
+            all(all(act[p][plus(x, y)] == plus(act[p][x], act[p][y]) for x in cube for y in cube) for p in S5)
+            and all(act[compose(p, q)] == {x: act[p][act[q][x]] for x in cube} for p in gens for q in S5)
+            and len({tuple(mats[p]) for p in S5}) == 120 and all(mats[p].det() % 2 == 1 for p in S5)
+            and all(act[p][(0, 0, 0, 0)] == (0, 0, 0, 0) for p in S5),
+        "the orbits on the vertices are 1 + 5 + 10: the origin, the five vertex stars (the antipode 1111 among them) "
+        "and the ten pair cuts: the fifteen nonzero vertices are the carrier's fifteen atoms as an S5-set":
+            sizes == [1, 5, 10] and orbit(back[stars[1]]) == {back[s] for s in stars} and (1, 1, 1, 1) in orbit(back[stars[1]])
+            and orbit(back[cut({1, 2})]) == {back[cut(set(e))] for e in E},
+        "the sixteen cuts carry five cube structures, cube_k joining c to c + star(j) for the four j != k, the k-th star "
+        "the antipode; the model's cube is cube_0, and a vertex permutation carries cube_k to cube_(p k): S5 permutes "
+        "the five cubes as it permutes the vertices, transitively with stabilizer S4":
+            model_edges == cube_edges(0) and all(len(cube_edges(k)) == 32 for k in range(5))
+            and len({cube_edges(k) for k in range(5)}) == 5
+            and all(frozenset(on_cuts(p, e) for e in cube_edges(k)) == cube_edges(p[k]) for p in S5 for k in range(5)),
+        "so the vertex permutations keeping the four-cube's 32 edges are exactly the 24 fixing vertex 0, acting as the "
+        "coordinate permutations of [0, 1]^4 (the S4 of the hyperoctahedral group that fixes the origin); the "
+        "five-cycle moves the cube's edges onto another cube's":
+            len(keep) == 24 and set(keep) == {p for p in S5 if p[0] == 0} and all(coordperm(p) for p in keep)
+            and frozenset(on_cuts((1, 2, 3, 4, 0), e) for e in model_edges) == cube_edges(1) != model_edges,
+    }
+
+
+def join_hodge_L0():
+    """The Hodge star carries the volume form of the carrier's A4 to the twin's, and their wedge is 5 vol(E8)."""
+    R = glue.roots()
+    quads = list(itertools.combinations(range(8), 4))
+    idx = {q: k for k, q in enumerate(quads)}
+
+    def sign(p):
+        s, p = 1, list(p)
+        for i in range(len(p)):
+            for j in range(i + 1, len(p)):
+                if p[i] > p[j]:
+                    s = -s
+        return s
+    star = sp.zeros(70, 70)                                     # the star of hodge70, in standard coordinates
+    for q in quads:
+        c = tuple(k for k in range(8) if k not in q)
+        star[idx[c], idx[q]] = sign(q + c)
+    rat = lambda v: sp.Matrix([sp.Rational(int(round(2 * x)), 2) for x in v])
+    rows = lambda vs: sp.Matrix.hstack(*[rat(v) for v in vs]).T
+    vol4 = lambda vs: sp.Matrix([rows(vs).extract([0, 1, 2, 3], list(q)).det() for q in quads])
+    a4 = [i for i, r in enumerate(R) if np.allclose(r[5:], 0) and abs(r.sum()) < 1e-9 and np.allclose(r, np.round(r))]
+    a4p = [i for i in range(240) if np.allclose(R[a4] @ R[i], 0)]
+    bA = glue.chain_order(glue.simple_system(R[a4]))
+    bAp = glue.chain_order(glue.simple_system(R[a4p]))
+    vA, vAp = vol4(bA), vol4(bAp)
+    simple = np.array([0.5 * np.array([1, -1, -1, -1, -1, -1, -1, 1]), np.eye(8)[0] + np.eye(8)[1]]
+                      + [np.eye(8)[k + 1] - np.eye(8)[k] for k in range(6)])
+    gramdet = lambda vs: rows(vs) * rows(vs).T
+    return {
+        "the Hodge star on Lambda^4 R^8 is the signed complement of coordinate four-sets, an involution with 35 + 35 "
+        "eigenvalues (hodge70)": star * star == sp.eye(70) and star.trace() == 0,
+        "the carrier's A4 (20 roots) and the twin A4' (the 20 roots orthogonal to it) have Z-bases of four simple roots "
+        "each, with Gram determinant 5; E8 is unimodular (its simple roots have determinant +-1), so e_1 ^ ... ^ e_8 "
+        "is its volume form up to sign": len(a4) == len(a4p) == 20 and gramdet(bA).det() == 5 and gramdet(bAp).det() == 5
+        and abs(rows(simple).det()) == 1,
+        "the volume forms vol(A4) and vol(A4'), the wedges of the Z-bases in Lambda^4 of the lattice, have norm 5, the "
+        "Gram determinants": (vA.T * vA)[0] == 5 and (vAp.T * vAp)[0] == 5,
+        "the Hodge star carries vol(A4) to +-vol(A4')": star * vA in (vAp, -vAp),
+        "and vol(A4) ^ vol(A4') = +-5 e_1 ^ ... ^ e_8: the wedge of the two volume forms is the index of A4 + A4' in "
+        "E8 times E8's volume form": abs(rows(list(bA) + list(bAp)).det()) == 5
+        and abs(sum(sign(q + tuple(k for k in range(8) if k not in q)) * vA[idx[q]]
+                    * vAp[idx[tuple(k for k in range(8) if k not in q)]] for q in quads)) == 5,
+    }
+
+
+def join_hodge_sun():
+    """The area forms of the decad's 4A2 frames in Lambda^4: norm 9, paired by the star, product 9 vol(E8)."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    quads = list(itertools.combinations(range(8), 4))
+    pairs = list(itertools.combinations(range(8), 2))
+    idx = {q: k for k, q in enumerate(quads)}
+
+    def sign(p):
+        s, p = 1, list(p)
+        for i in range(len(p)):
+            for j in range(i + 1, len(p)):
+                if p[i] > p[j]:
+                    s = -s
+        return s
+    star = sp.zeros(70, 70)                                     # the star of hodge70, in standard coordinates
+    for q in quads:
+        c = tuple(k for k in range(8) if k not in q)
+        star[idx[c], idx[q]] = sign(q + c)
+    rat = lambda v: sp.Matrix([sp.Rational(int(round(2 * x)), 2) for x in v])
+    rows = lambda vs: sp.Matrix.hstack(*[rat(v) for v in vs]).T
+    area = lambda vs: {p: rows(vs).extract([0, 1], list(p)).det() for p in pairs}
+
+    def wedge(a, b):
+        out = sp.zeros(70, 1)
+        for p in pairs:
+            for q in pairs:
+                if not set(p) & set(q):
+                    out[idx[tuple(sorted(p + q))]] += sign(p + q) * a[p] * b[q]
+        return out
+    S = primes.sun_geometry()
+    s = primes.regular()[3]
+    Ss = sp.Matrix(8, 8, lambda i, j: sp.nsimplify(spine.to_standard(s)[i, j], rational=True))
+    comp = sp.Matrix(70, 70, lambda a, b: Ss.extract(list(quads[a]), list(quads[b])).det())
+    fixed = sp.Matrix.hstack(*(comp - sp.eye(70)).nullspace())
+    norms, paired, dets, kept, all_forms, a2 = [], [], [], [], [], []
+    for L in S["decad"]:
+        pts = sorted({min(p, tuple((2 * np.array(p)) % 3)) for p in L})
+        bases = []
+        for q in pts:
+            ids = S["over"][q]
+            r0 = ids[0]
+            r1 = next(i for i in ids if int(RB[r0] @ C @ RB[i]) == -1)
+            bases.append([R[r0], R[r1]])
+            a2.append(len(ids) == 6 and rows(bases[-1]).det if False else (rows(bases[-1]) * rows(bases[-1]).T).det() == 3)
+        om = [area(b) for b in bases]
+        forms = {(i, j): wedge(om[i], om[j]) for i, j in itertools.combinations(range(4), 2)}
+        norms += [(f.T * f)[0] for f in forms.values()]
+        paired += [star * f in (forms[kl], -forms[kl]) for (i, j), f in forms.items()
+                   for kl in [tuple(sorted(set(range(4)) - {i, j}))]]
+        dets.append(abs(rows([v for b in bases for v in b]).det()))
+        kept += [comp * f == f for f in forms.values()]
+        all_forms += list(forms.values())
+    return {
+        "each of the decad's ten frames 4A2 is four orthogonal A2 of six roots, each with a Z-basis of two roots at "
+        "product -1 and Gram determinant 3": len(S["decad"]) == 10 and len(a2) == 40 and all(a2),
+        "the six 4-forms omega_i ^ omega_j, wedges of the area forms of two of the frame's A2 (in Lambda^4 of the "
+        "lattice), have norm 9 = 3 x 3, and the Hodge star carries each to +-the form of the complementary pair":
+            len(norms) == 60 and all(n == 9 for n in norms) and all(paired),
+        "the four area forms wedge to +-9 e_1 ^ ... ^ e_8: the frame's index 9 in E8 times E8's volume form":
+            dets == [9] * 10,
+        "the sun s = c'^10 keeps every one of the sixty forms (it turns each A2), commutes with the star and fixes a "
+        "36-dimensional space of 4-forms, 21 self-dual and 15 anti-self-dual, of which the sixty forms span 31":
+            all(kept) and star * comp == comp * star and fixed.shape[1] == 36
+            and ((star + sp.eye(70)) * fixed).rank() == 21 and ((star - sp.eye(70)) * fixed).rank() == 15
+            and sp.Matrix.hstack(*all_forms).rank() == 31,
+    }
+
+
+def join_G120_frame():
+    """The day-Coxeter group acts freely on the 17280 frames: 144 regular orbits."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    I8 = np.eye(8, dtype=np.int64)
+    IP = RB @ C @ RB.T
+    nbr = [set(np.nonzero(IP[i] == 1)[0].tolist()) for i in range(240)]
+    frames = []
+
+    def grow(cl, cand):
+        if len(cl) == 8:
+            frames.append(tuple(cl))
+            return
+        for v in sorted(cand):
+            if v > cl[-1]:
+                grow(cl + [v], cand & nbr[v])
+    for i in range(240):
+        grow([i], nbr[i])
+    F = np.array(frames)
+    key = {tuple(r): i for i, r in enumerate(RB.tolist())}
+    perm = lambda M: np.array([key[tuple((M @ r).tolist())] for r in RB])
+    k = cyclotomic.clocks()
+    cp, d = k["c"], k["day"]
+    G = ledger.closure([cp, d])
+    inv = spine.inverse
+    fixed = [int((np.sort(perm(M)[F], axis=1) == F).all(axis=1).sum()) for M in G]
+    eig1 = [abs(int(round(np.linalg.det((M - I8).astype(float))))) for M in G]
+    powers = {M.tobytes() for M in [spine.mpow(cp, j) for j in range(30)] + [spine.mpow(d, j) for j in range(24)]}
+    conj = [any((x @ M @ inv(x)).tobytes() in powers for x in G) for M in G]
+    sums = {tuple((RB[list(f)].sum(axis=0)).tolist()) for f in frames[:200]}
+    return {
+        "the frames, sets of eight roots with pairwise products 1 (with the origin a maximal 9-clique), number 17280":
+            len(frames) == 17280,
+        "an isometry keeping a frame permutes its eight roots and fixes their sum, a vector of norm 72 (3q): it has "
+        "eigenvalue 1": all(int(np.array(s) @ C @ np.array(s)) == 72 for s in sums),
+        "every element of G120 = <c', d> is conjugate in G120 to a power of c' or of the day, and no element but the "
+        "identity has eigenvalue 1 (det(w - 1) is never 0)": len(G) == 120 and all(conj)
+        and sorted(eig1).count(0) == 1 and eig1[[np.array_equal(M, I8) for M in G].index(True)] == 0,
+        "so G120 acts freely on the frames: the identity fixes all 17280 and no other element fixes one, 144 regular "
+        "orbits of 120": sorted(fixed) == [0] * 119 + [17280] and sum(fixed) == 144 * 120,
+    }
+
+
+def join_S5_frame():
+    """The carrier's S5 keeps 40 frames, each 5 + 1 + 1 + 1 with the five's differences the carrier's roots."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    IP = RB @ C @ RB.T
+    nbr = [set(np.nonzero(IP[i] == 1)[0].tolist()) for i in range(240)]
+    frames = []
+
+    def grow(cl, cand):
+        if len(cl) == 8:
+            frames.append(tuple(cl))
+            return
+        for v in sorted(cand):
+            if v > cl[-1]:
+                grow(cl + [v], cand & nbr[v])
+    for i in range(240):
+        grow([i], nbr[i])
+    key = {tuple(np.rint(2 * r).astype(int)): i for i, r in enumerate(R)}
+    pm = lambda P: np.array([key[tuple(np.rint(2 * (P @ r)).astype(int))] for r in R])
+
+    def coord(sig):
+        P = np.zeros((8, 8))
+        for i in range(8):
+            P[sig[i], i] = 1
+        return P
+    S5 = [pm(coord(list(p) + [5, 6, 7])) for p in itertools.permutations(range(5))]
+    stable = [f for f in frames if all(tuple(sorted(p[list(f)])) == f for p in S5)]
+    a4 = frozenset(i for i, r in enumerate(R) if np.allclose(r[5:], 0) and abs(r.sum()) < 1e-9 and np.allclose(r, np.round(r)))
+    a4p = frozenset(i for i in range(240) if np.allclose(R[list(a4)] @ R[i], 0))
+    diff = lambda i, j: key[tuple(np.rint(2 * (R[i] - R[j])).astype(int))]
+    shape, a8s = [], []
+    for f in stable:
+        orbs = {frozenset(p[i] for p in S5) for i in f}
+        five = next(o for o in orbs if len(o) == 5)
+        ones = {next(iter(o)) for o in orbs if len(o) == 1}
+        pts = [np.zeros(8)] + [R[i] for i in f]
+        a8 = frozenset(key[tuple(np.rint(2 * (p - q)).astype(int))] for p in pts for q in pts if not np.allclose(p, q))
+        shape.append((tuple(sorted(len(o) for o in orbs)), frozenset(diff(i, j) for i in five for j in five if i != j) == a4,
+                      ones <= a4p, len(a8), a4 <= a8, len(a8 & a4p), np.linalg.matrix_rank(R[sorted(a8 & a4p)])))
+    refl = lambda v: np.eye(8) - np.outer(v, v)
+    gens = [pm(refl(v)) for v in glue.simple_system(R[sorted(a4p)])] + [pm(-np.eye(8))]
+    orbit, frontier = {stable[0]}, [stable[0]]
+    while frontier:
+        new = []
+        for f in frontier:
+            for p in gens:
+                y = tuple(sorted(p[list(f)]))
+                if y not in orbit:
+                    orbit.add(y)
+                    new.append(y)
+        frontier = new
+    return {
+        "the carrier's S5 = W(A4), the 120 permutations of the first five coordinates, keeps exactly 40 of the 17280 "
+        "frames": len(frames) == 17280 and len(stable) == 40,
+        "on each it fixes three roots, all in the twin A4', and turns the other five in one orbit whose 20 differences "
+        "are exactly the carrier's A4": all(s[0] == (1, 1, 1, 5) and s[1] and s[2] for s in shape),
+        "so the frame's A8 (the 72 differences of its nine points) holds the carrier's A4 and meets the twin in an A3 "
+        "of 12 roots": all(s[3] == 72 and s[4] and s[5] == 12 and s[6] == 3 for s in shape),
+        "the 40 are one orbit of the twin's W(A4') x {+-1} (which commutes with S5), with stabilizer of order 240/40 = 6":
+            orbit == set(stable) and 240 // 40 == 6,
+    }
+
+
+def join_G120_census():
+    """Fixed momenta of the day-Coxeter group's elements are census points; G120 has 2037 orbits on the census."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    I8 = np.eye(8, dtype=np.int64)
+    k = cyclotomic.clocks()
+    G = ledger.closure([k["c"], k["day"]])
+    fam = handover.critical_census()
+    rows = []
+    for M in G:
+        if np.array_equal(M, I8):
+            continue
+        det1 = abs(int(round(np.linalg.det((M - I8).astype(float)))))
+        Y, n = spine.fixed_momenta(M)
+        types = Counter()
+        for row in Y:
+            xs = B @ (row / n)
+            grad = (np.sin(2 * np.pi * R @ xs)[:, None] * R).sum(axis=0)
+            types[(handover.stabiliser(R, xs)[0], str(240 - spine.band_value(row, n)), bool(np.linalg.norm(grad) < 1e-9))] += 1
+        rows.append((spine.mat_order(M), det1, len(Y), tuple(sorted(types.items()))))
+    tally = Counter((o, dt, n) for o, dt, n, _ in rows)
+    fixed_total = sum(n for _, _, n, _ in rows)
+    kinds = Counter()
+    for o, dt, n, t in rows:
+        kinds[tuple(sorted((typ, eps, c) for (typ, eps, ok), c in t))] += 1
+    total = sum(f["orbit"] for f in fam.values())
+    return {
+        "no element of G120 but the identity has eigenvalue 1, so each fixes finitely many momenta, |det(w - 1)| of "
+        "them, all critical points of the band (the gradient at a fixed momentum is w-fixed, hence zero)":
+            len(G) == 120 and len(rows) == 119 and all(dt == n > 0 for _, dt, n, _ in rows)
+            and all(ok for _, _, _, t in rows for (_, _, ok), _ in t),
+        "the fixed momenta by type: the tick's 1 + 24 (A4 + A4, eps 250), the sun's 1 + 80 (E6 + A2, 243), the "
+        "half-turn's 1 + 120 (E7 + A1, 224) + 135 (D8, 256), d^6's 1 + 15 and d^3's 1 + 3 D8 half-periods, and "
+        "the origin alone for the 82 elements of orders 6, 10, 12, 15, 24 and 30":
+            kinds == Counter({(("A4+A4", "250", 24), ("E8", "0", 1)): 4, (("E6+A2", "243", 80), ("E8", "0", 1)): 2,
+                              (("D8", "256", 135), ("E7+A1", "224", 120), ("E8", "0", 1)): 1,
+                              (("D8", "256", 15), ("E8", "0", 1)): 10, (("D8", "256", 3), ("E8", "0", 1)): 20,
+                              (("E8", "0", 1),): 82})
+            and tally == Counter({(5, 25, 25): 4, (3, 81, 81): 2, (2, 256, 256): 1, (4, 16, 16): 10, (8, 4, 4): 20,
+                                  (6, 1, 1): 2, (10, 1, 1): 4, (12, 1, 1): 20, (15, 1, 1): 8, (24, 1, 1): 40, (30, 1, 1): 8}),
+        "G120 permutes the census's 243600 points (whole W(E8)-orbits), and the orbit count (243600 + 840) / 120 = 2037":
+            total == 243600 and fixed_total == 840 and (total + fixed_total) % 120 == 0 and (total + fixed_total) // 120 == 2037,
+    }
+
+
+def join_regular_D5():
+    """No regular clock of order 3 to 30 keeps a D5: the complement is odd-dimensional."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    x = sp.Symbol("x")
+    d5 = [i for i, r in enumerate(R) if np.allclose(r[5:], 0) and np.allclose(r, np.round(r))]
+    comp = [i for i in range(240) if np.allclose(R[d5] @ R[i], 0)]
+    key = {tuple(r): i for i, r in enumerate(RB.tolist())}
+    perm = lambda M: np.array([key[tuple((M @ r).tolist())] for r in RB])
+    reg = primes.regular()
+    keeps = {d: frozenset(perm(w)[d5]) == frozenset(d5) for d, w in reg.items()}
+    phi = lambda d: sum(1 for j in range(1, d + 1) if gcd(j, d) == 1)
+    cps = {d: sp.Poly(sp.Matrix(w.tolist()).charpoly(x).as_expr(), x) for d, w in reg.items()}
+    return {
+        "the carrier's D5, the 40 roots +-e_i +- e_j of the first five coordinates, spans a 5-dimensional space whose "
+        "complement is 3-dimensional and holds 12 roots (an A3)": len(d5) == 40 and np.linalg.matrix_rank(R[d5]) == 5
+        and len(comp) == 12 and np.linalg.matrix_rank(R[comp]) == 3,
+        "an isometry keeping D5 keeps its span and so the complement, where (3 being odd) it has a real eigenvalue "
+        "+-1; the regular clock of order d has characteristic polynomial Phi_d^(8/phi(d)), with a real root only for "
+        "d = 1, 2": all(cps[d] == sp.Poly(sp.cyclotomic_poly(d, x) ** (8 // phi(d)), x) for d in reg)
+        and all(cps[d].eval(1) != 0 and cps[d].eval(-1) != 0 for d in reg if d > 2)
+        and all(sp.real_roots(sp.cyclotomic_poly(d, x)) == [] for d in reg if d > 2),
+        "so no regular clock of order 3 to 30, nor any conjugate of one, keeps a D5, while the identity and the "
+        "half-turn -1 keep the carrier's: the selected clocks confirm it": keeps == {d: d in (1, 2) for d in reg},
+    }
+
+
+def join_clocks_D5():
+    """The tick's five images of the carrier's D5 are all the D5 through A4; they meet in A4 and cover 120 roots."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    key = {tuple(r): i for i, r in enumerate(RB.tolist())}
+    perm = lambda M: np.array([key[tuple((M @ r).tolist())] for r in RB])
+    k = cyclotomic.clocks()
+    g = k["g"]
+    d5 = frozenset(i for i, r in enumerate(R) if np.allclose(r[5:], 0) and np.allclose(r, np.round(r)))
+    a4 = frozenset(i for i in d5 if abs(R[i].sum()) < 1e-9)
+    a4p = [i for i in range(240) if np.allclose(R[sorted(a4)] @ R[i], 0)]
+    pg = perm(g)
+    images, S = [], d5
+    for _ in range(5):
+        images.append(S)
+        S = frozenset(pg[sorted(S)])
+    basis = []
+    for i in sorted(a4):
+        if np.linalg.matrix_rank(np.array(basis + [R[i]])) == len(basis) + 1:
+            basis.append(R[i])
+    systems = {}
+    for i in range(240):
+        if i in a4:
+            continue
+        Q, _ = np.linalg.qr(np.array(basis + [R[i]]).T)
+        P = Q @ Q.T
+        inside = frozenset(j for j in range(240) if np.allclose(P @ R[j], R[j]))
+        systems[inside] = systems.get(inside, 0) + 1
+    sizes = Counter(len(s) for s in systems)
+    comps = Counter((len(s), tuple(cyclotomic._components(RB[sorted(s)], C))) for s in systems)
+    Pa = np.linalg.pinv(R[sorted(a4)]) @ R[sorted(a4)]
+    Pp = np.linalg.pinv(R[a4p]) @ R[a4p]
+    union = frozenset().union(*images)
+    shadow = lambda i: round(float(R[i] @ Pa @ R[i]), 6)
+    twin_lines = []
+    for S in images:
+        ws = {tuple(np.round(Pp @ R[i], 6)) for i in S - a4}
+        twin_lines.append((len(ws), {round(float(np.array(w) @ np.array(w)), 6) for w in ws},
+                           all(tuple(np.round(-np.array(w), 6)) in ws for w in ws)))
+    G = ledger.closure([k["c"], k["day"]])
+    orbit = {frozenset(perm(M)[sorted(d5)]) for M in G}
+    return {
+        "the tick g = r r' moves the carrier's D5 (the 40 roots of the first five coordinates): its five images are "
+        "distinct and pairwise meet exactly in the carrier's A4, on which g is the rotation r":
+            len(set(images)) == 5 and pg[sorted(a4)].tolist() != sorted(a4) and frozenset(pg[sorted(a4)]) == a4
+            and all(a & b == a4 for a, b in itertools.combinations(images, 2)),
+        "the rank-5 root subsystems through A4 (the roots in the span of A4 and one more root) are five D5 (40 roots), "
+        "ten A5 (30, connected) and ten A4 + A1 (22, the two A1 roots at product -2 apart from a connected 20), and the five D5 are the tick's five images":
+            sizes == Counter({40: 5, 30: 10, 22: 10}) and comps == Counter({(40, (40,)): 5, (30, (30,)): 10, (22, (1, 1, 20)): 10}) and {s for s in systems if len(s) == 40} == set(images),
+        "each D5's 20 roots outside A4 project onto the twin A4' as +-one vertex weight (norm 4/5): the five D5 through "
+        "A4 are the five vertex weights of the twin, which g = r r' turns through the Coxeter element r'":
+            all(t == (2, {0.8}, True) for t in twin_lines),
+        "their union is 120 roots: A4 and the 100 mixed roots whose carrier shadow is an edge weight (norm 6/5); the "
+        "other 120 are the twin and the 100 with vertex shadows (norm 4/5)": len(union) == 120
+        and Counter(shadow(i) for i in union) == Counter({2.0: 20, 1.2: 100})
+        and Counter(shadow(i) for i in frozenset(range(240)) - union) == Counter({0.0: 20, 0.8: 100}),
+        "the whole day-Coxeter group moves the D5 in an orbit of 60, its stabilizer in G120 being {+-1}":
+            len(orbit) == 60 and 120 // len(orbit) == 2,
+    }
+
+
+def join_G120_halfper():
+    """The day swaps the two primes over 2; G120 has 7 orbits on the half-periods."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    k = cyclotomic.clocks()
+    cp, d = k["c"], k["day"]
+    G = ledger.closure([cp, d])
+    cs = sp.Matrix(cp.tolist())
+
+    def kernel(A):
+        ns = sp.polys.matrices.DomainMatrix.from_Matrix(A).convert_to(sp.GF(2)).nullspace().to_Matrix()
+        return np.array([[int(t) % 2 for t in ns.row(i)] for i in range(ns.shape[0])], dtype=np.int64)
+    span = lambda K: {tuple(((np.array(a) @ K) % 2).tolist()) for a in itertools.product(range(2), repeat=4)}
+    P1, P2 = span(kernel(cs ** 4 + cs + sp.eye(8))), span(kernel(cs ** 4 + cs ** 3 + sp.eye(8)))
+    img = lambda M, S: {tuple(((M @ np.array(v)) % 2).tolist()) for v in S}
+    keep = [M for M in G if img(M, P1) == P1]
+    swap = [M for M in G if img(M, P1) == P2]
+    H = ledger.closure([cp, d @ d])
+    pts = np.array(list(itertools.product(range(2), repeat=8)), dtype=np.int64)
+    code = lambda V: (V * (2 ** np.arange(8))).sum(axis=1)
+    index = np.zeros(256, dtype=int)
+    index[code(pts)] = np.arange(256)
+    perms = [index[code((pts @ M.T) % 2)] for M in G]
+    seen, orbits = set(), []
+    for i in range(256):
+        if i not in seen:
+            o = {int(p[i]) for p in perms}
+            seen |= o
+            orbits.append(o)
+    band = lambda v: 240 - sum((-1) ** int(r @ C @ v) for r in RB)
+    desc = sorted((len(o), band(pts[next(iter(o))]), sum(tuple(pts[i].tolist()) in P1 for i in o),
+                   sum(tuple(pts[i].tolist()) in P2 for i in o)) for o in orbits)
+    hperms = [index[code((pts @ M.T) % 2)] for M in H]
+    on_prime = lambda S: {frozenset(int(p[index[code(np.array([v]))][0]]) for p in hperms) for v in S if any(v)}
+    two = sorted({pow(2, j, 15) for j in range(4)})
+    return {
+        "Lambda / 2 Lambda = F16 x F16, the two primes over 2 (the kernels of c'^4 + c' + 1 and c'^4 + c'^3 + 1 mod 2); "
+        "c' keeps both, the day swaps them and d^2 keeps them: 7 is not a power of 2 mod 15 (the decomposition group "
+        "of 2 in Gal(Q(zeta15)/Q) is <2> = {1, 2, 4, 8}) while 7^2 = 4 is": len(P1) == len(P2) == 16 and len(P1 & P2) == 1
+        and img(cp, P1) == P1 and img(d, P1) == P2 and img(d @ d, P1) == P1 and 7 not in two and 49 % 15 in two
+        and two == [1, 2, 4, 8],
+        "so G120 acts on the pair of primes through a character of order 2 with kernel <c', d^2>, of order 60, which "
+        "is transitive on the 15 nonzero points of each prime": len(keep) == 60 and len(swap) == 60 and len(H) == 60
+        and {M.tobytes() for M in H} == {M.tobytes() for M in keep} and len(on_prime(P1)) == 1 and len(on_prime(P2)) == 1,
+        "G120 permutes the 256 half-periods in 7 orbits, 1 + 15 + 30 + 30 + 60 + 60 + 60, refining the types D8 (band "
+        "256: 15 + 30 + 30 + 60) and E7 + A1 (224: 60 + 60); the 30 nonzero points of the two primes are one orbit of "
+        "type D8, and no other orbit meets a prime": len(orbits) == 7 and desc == [
+            (1, 0, 1, 1), (15, 256, 0, 0), (30, 256, 0, 0), (30, 256, 15, 15), (60, 224, 0, 0), (60, 224, 0, 0), (60, 256, 0, 0)],
+    }
+
+
+def join_regular_A4():
+    """A regular clock keeps the carrier's A4 only in the classes 1, 2, 5, 10: Aut(A4) = +-S5 fixes the eigenvalues."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    x = sp.Symbol("x")
+    k = cyclotomic.clocks()
+    g = k["g"]
+    a4 = [i for i, r in enumerate(R) if np.allclose(r[5:], 0) and abs(r.sum()) < 1e-9 and np.allclose(r, np.round(r))]
+    A = R[a4]
+    S = glue.chain_order(glue.simple_system(A))
+    Gm = np.rint(S @ S.T).astype(int)
+    keys = {tuple(np.rint(2 * r).astype(int)) for r in A}
+    Spinv = np.linalg.pinv(S)
+    phi = lambda n: sum(1 for j in range(1, n + 1) if gcd(j, n) == 1)
+    patterns, permute = Counter(), 0
+    for imgs in itertools.permutations(range(20), 4):
+        T = A[list(imgs)]
+        if not np.array_equal(np.rint(T @ T.T).astype(int), Gm):
+            continue
+        M = T.T @ Spinv.T                                       # the isometry of span(A4) with S_i -> T_i
+        permute += all(tuple(np.rint(2 * (M @ r)).astype(int)) in keys for r in A)
+        M4 = np.rint(np.linalg.lstsq(S.T, M @ S.T, rcond=None)[0]).astype(int)
+        cp = sp.Poly(sp.Matrix(M4.tolist()).charpoly(x).as_expr(), x)
+        reg = tuple(n for n in range(1, 61) if 4 % phi(n) == 0 and cp == sp.Poly(sp.cyclotomic_poly(n, x) ** (4 // phi(n)), x))
+        patterns[reg] += 1
+    key = {tuple(r): i for i, r in enumerate(RB.tolist())}
+    perm = lambda M: np.array([key[tuple((M @ r).tolist())] for r in RB])
+    reg = primes.regular()
+    keeps = {n: frozenset(perm(w)[a4]) == frozenset(a4) for n, w in reg.items()}
+    minus_g = frozenset(perm(-g)[a4]) == frozenset(a4)
+    cpg = sp.Poly(sp.Matrix((-g).tolist()).charpoly(x).as_expr(), x)
+    return {
+        "the automorphisms of the carrier's A4 (the isometries of its span sending a simple system to roots with the "
+        "same Cartan matrix) are 240 = |W(A4) x {+-1}|, and each permutes the 20 roots": sum(patterns.values()) == 240
+        and permute == 240,
+        "their eigenvalues on the span are all primitive n-th roots of unity only for the identity (n = 1), -1 (n = 2), "
+        "the 24 five-cycles (n = 5) and their negatives (n = 10); the other 190 have mixed eigenvalues":
+            patterns == Counter({(1,): 1, (2,): 1, (5,): 24, (10,): 24, (): 190}),
+        "an isometry of E8 keeping A4 restricts to one of these, and a regular clock's eigenvalues are all primitive "
+        "d-th roots, so a regular clock keeps the carrier's A4 only in the classes d = 1, 2, 5, 10; the identity, -1, "
+        "the tick g and -g (characteristic polynomial Phi_10^2) do, and the selected clocks of the other nine orders "
+        "do not": keeps == {n: n in (1, 2, 5, 10) for n in reg} and minus_g
+        and cpg == sp.Poly(sp.cyclotomic_poly(10, x) ** 2, x),
+    }
+
+
+def join_golden_L0():
+    """The golden companion keeps A4 and A4' and acts on E8 / L0 = Z/5 as 3, the double root of x^2 - x - 1 mod 5."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    x = sp.Symbol("x")
+    k = cyclotomic.clocks()
+    g = k["g"]
+    X = -(g + spine.inverse(g))
+    Xs = spine.to_standard(X)
+    a4 = [i for i, r in enumerate(R) if np.allclose(r[5:], 0) and abs(r.sum()) < 1e-9 and np.allclose(r, np.round(r))]
+    a4p = [i for i in range(240) if np.allclose(R[a4] @ R[i], 0)]
+    S, Sp = glue.chain_order(glue.simple_system(R[a4])), glue.chain_order(glue.simple_system(R[a4p]))
+    L0 = np.vstack([S, Sp])
+    E8 = B.T
+
+    def coords(v, basis):
+        c = np.linalg.lstsq(basis.T, v, rcond=None)[0]
+        return c if np.allclose(basis.T @ np.rint(c), v) and np.allclose(c, np.rint(c)) else None
+    restrict = lambda basis: sp.Matrix(np.rint(np.array([coords(Xs @ v, basis) for v in basis])).astype(int).T.tolist())
+    XA, XAp = restrict(S), restrict(Sp)
+    golden = sp.Poly((x ** 2 - x - 1) ** 2, x)
+
+    def free_basis(rows, basis, XB):                           # roots a, b with a, X a, b, X b a Z-basis of the factor
+        cs = [np.rint(coords(v, basis)).astype(int) for v in rows]
+        M = np.array(XB.tolist(), dtype=int)
+        return any(abs(round(np.linalg.det(np.column_stack([cs[i], M @ cs[i], cs[j], M @ cs[j]])))) == 1
+                   for i, j in itertools.combinations(range(len(cs)), 2))
+    return {
+        "X = -(g + g^-1) commutes with the tick, which keeps A4 and A4', so X maps the lattice A4 into A4 and A4' into "
+        "A4' (integer matrices on their simple roots)": XA is not None and XAp is not None
+        and all(coords(Xs @ v, S) is not None for v in S) and all(coords(Xs @ v, Sp) is not None for v in Sp),
+        "on each factor X^2 = X + 1 with characteristic polynomial (x^2 - x - 1)^2: A4 and A4' are free Z[phi]-modules "
+        "of rank 2 (each has a Z-basis a, X a, b, X b of roots and their images), and L0 = Z[phi]^2 + Z[phi]^2 "
+        "inside E8 = Z[phi]^4": XA * XA == XA + sp.eye(4)
+        and free_basis(R[a4], S, XA) and free_basis(R[a4p], Sp, XAp)
+        and XAp * XAp == XAp + sp.eye(4) and sp.Poly(XA.charpoly(x).as_expr(), x) == golden
+        and sp.Poly(XAp.charpoly(x).as_expr(), x) == golden,
+        "on the quotient E8 / L0 = Z/5 (det of L0's basis 5) X is the scalar 3, the double root of x^2 - x - 1 mod 5 "
+        "(5 is ramified in Q(sqrt5)): E8 / L0 = Z[phi] / (2 phi - 1), the residue field at the prime over 5, as a "
+        "Z[phi]-module": round(abs(np.linalg.det(L0))) == 5 and all(coords(Xs @ v - 3 * v, L0) is not None for v in E8)
+        and sp.Poly(x ** 2 - x - 1, x).as_expr().subs(x, 3) % 5 == 0 and sp.Poly((x - 3) ** 2 - (x ** 2 - x - 1), x, modulus=5).is_zero
+        and (2 * 3 - 1) % 5 == 0,
+    }
+
+
+def join_G120_walks():
+    """The day-Coxeter group acts freely on E8 \\ 0, so on the closed walks of every length: 120 divides every W_n."""
+    x = sp.symbols("x")
+    _, cp, _, _, g, _ = spine.spine_clock()
+    d = spine.day_clock()
+    G = ledger.closure([cp, d])
+    I8 = np.eye(8, dtype=np.int64)
+    phi = lambda n: sum(1 for k in range(1, n + 1) if gcd(k, n) == 1)
+    charpoly = lambda w: sp.expand(sp.Matrix(w.tolist()).charpoly(x).as_expr())
+    nonid = [w for w in G if not np.array_equal(w, I8)]
+    orders = [spine.mat_order(w) for w in nonid]
+    regular = all(charpoly(w) == sp.expand(sp.cyclotomic_poly(o, x) ** (8 // phi(o))) for w, o in zip(nonid, orders))
+    free = all(sp.Matrix((I8 - w).tolist()).det() != 0 for w in nonid)
+    _, _, _, _, _, RB = spine.frame()
+    key = {tuple(v): i for i, v in enumerate(RB)}
+    seen, orbits = set(), []
+    for i, v in enumerate(RB):
+        if i in seen:
+            continue
+        o = {key[tuple(w @ v)] for w in G}
+        seen |= o
+        orbits.append(len(o))
+    W = recurrence.load_walks()
+    known = [1, 0, 240, 13440, 1260720, 137813760, 17141798400]
+    return {
+        "G120 = <c', d> has 120 elements, every one of them but the identity a regular element of W(E8) (characteristic "
+        "polynomial Phi_d^(8/phi(d)) for its order d), so none has a fixed nonzero vector: det(1 - w) != 0":
+            len(G) == 120 and regular and free and sorted(set(orders)) == [2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30],
+        "hence G120 acts freely on the 240 roots, in two regular orbits of 120": orbits == [120, 120],
+        "a closed walk of length n >= 1 is a root sequence summing to 0, and w fixes it only if w fixes its first root: "
+        "G120 acts freely on the closed walks of every length, so 120 divides every W_n, n >= 1 (W_0..W_90 on file), with "
+        "W_n / 120 = 2, 112, 10506, 1148448, 142848320 orbits for n = 2..6":
+            len(W) == 91 and W[:7] == known and all(W[n] % 120 == 0 for n in range(1, 91))
+            and [W[n] // 120 for n in range(2, 7)] == [2, 112, 10506, 1148448, 142848320],
+        "for odd n the reversal joins in: a palindromic closed walk of odd length would put its middle root in 2 E8 "
+        "(norm 2 against norms 8 k), and (w, reversal) fixes a walk only if w fixes the middle root, so G120 x Z/2 acts "
+        "freely and 240 divides W_n for every odd n (W_3 = 240 x 56, W_5 = 240 x 574224)":
+            all(int(v @ v) == 8 for v in np.rint(2 * glue.roots()).astype(np.int64)) and 2 ** 2 * 2 == 8
+            and all(W[n] % 240 == 0 for n in range(1, 91, 2)) and W[3] == 240 * 56 and W[5] == 240 * 574224,
+    }
+
+
+def join_G120_triangle():
+    """G120 moves the triangle port in a regular orbit of 120 alternating hexagons, all with the triangle's moments."""
+    _, cp, _, _, g, _ = spine.spine_clock()
+    d = spine.day_clock()
+    G = ledger.closure([cp, d])
+    S = spine.to_standard
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    tri = [(0, 1), (1, 2), (2, 0)]
+    pts = [e2[a] - e2[b] for a, b in tri] + [e2[b] - e2[a] for a, b in tri]
+    signs = [1, 1, 1, -1, -1, -1]
+    port = {tuple(p.tolist()): s for p, s in zip(pts, signs)}
+    roots = {tuple(r.tolist()) for r in counts._roots2()}
+
+    def act(w):
+        out = {}
+        for k, s in port.items():
+            v = S(w) @ np.array(k, dtype=float)
+            vi = np.rint(v).astype(np.int64)
+            assert np.allclose(v, vi) and tuple(vi.tolist()) in roots
+            out[tuple(vi.tolist())] = s
+        return out
+    images = {}
+    for w in G:
+        im = act(w)
+        images[frozenset(im.items())] = im
+    minus = {frozenset((k, -s) for k, s in port.items())}
+    touched = sorted({k for im in images.values() for k in im})
+    idx = {k: i for i, k in enumerate(touched)}
+    Mat = sp.zeros(len(images), len(touched))
+    for a, im in enumerate(images.values()):
+        for k, s in im.items():
+            Mat[a, idx[k]] = s
+    gram = Mat * Mat.T
+    values = Counter(gram[i, j] for i in range(gram.rows) for j in range(gram.cols))
+    hexagons = {frozenset(im) for im in images.values()}
+    moments = lambda im: counts.lattice_moments([np.array(k, dtype=np.int64) for k in im], list(im.values()), 3)
+    sample = [list(images.values())[k] for k in (1, 37, 101)]
+    return {
+        "W(E8) acts on the lattice functions, and G120 carries the triangle port (the alternating hexagon on the A2 of "
+        "0-1-2) to 120 distinct ports: its stabilizer in G120 is trivial, so the orbit labels G120, and -1 in G120 gives "
+        "the negative": len(images) == 120 and minus <= set(images),
+        "the orbit lies on 60 alternating hexagons, each taken with both signs, and its roots are all 240":
+            len(hexagons) == 60 and len(touched) == 240,
+        "the 120 ports span 60 dimensions, with Gram entries 6 (itself), -6 (its negative), +-2 (two roots shared) and 0":
+            Mat.rank() == 60 and set(values) == {6, -6, 2, -2, 0} and values[6] == 120 and values[-6] == 120
+            and values[2] == values[-2] == 240,
+        "every port of the orbit has the triangle's moments 1, 242, 58691, 14259954 (per unit norm): G120 lies in W(E8), "
+        "which commutes with the bath": all([v // 6 for v in moments(im)] == [1, 242, 58691, 14259954] for im in sample),
+    }
+
+
+def join_AGL_triangle():
+    """The twenty oriented triangles of K5 are one regular AGL(1,5)-set: the S5 orbit of the triangle port."""
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+
+    def cyc(tri):
+        v = [0] * 10
+        for a, b in zip(tri, tri[1:] + tri[:1]):
+            v[E.index((min(a, b), max(a, b)))] += 1 if a < b else -1
+        return tuple(v)
+    base = cyc([0, 1, 2])
+    affine = [(a, b) for a in (1, 2, 3, 4) for b in range(5)]
+    images = {(a, b): cyc([(a * i + b) % 5 for i in (0, 1, 2)]) for a, b in affine}
+    orbit = set(images.values())
+    s5 = {cyc([p[i] for i in (0, 1, 2)]) for p in itertools.permutations(range(5))}
+    stab = [p for p in itertools.permutations(range(5)) if cyc([p[i] for i in (0, 1, 2)]) == base]
+    shape = lambda tri: tuple(sorted(((sorted(tri)[(i + 1) % 3] - sorted(tri)[i]) % 5) for i in range(3)))
+    rotations = {shape([(i + b) % 5 for i in (0, 1, 2)]) for b in range(5)}
+    doubled = shape([2 * i % 5 for i in (0, 1, 2)])
+    triangles = {frozenset(t) for t in itertools.combinations(range(5), 3)}
+    support = lambda v: frozenset(i for i in range(5) if any(v[E.index((min(i, j), max(i, j)))] for j in range(5) if j != i))
+    rot_orbits = {frozenset(frozenset((i + b) % 5 for i in t) for b in range(5)) for t in triangles}
+    M = sp.Matrix(sorted(orbit))
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    roots = {tuple(r.tolist()) for r in counts._roots2()}
+    perm_in_weyl = all(tuple((np.array(r)[[((a * i + b) % 5 if i < 5 else i) for i in range(8)]]).tolist()) in roots
+                       for a, b in affine for r in roots)
+
+    def port(v):
+        pts, signs = [], []
+        for k, (i, j) in enumerate(E):
+            if v[k]:
+                pts += [e2[j] - e2[i], e2[i] - e2[j]]
+                signs += [v[k], -v[k]]
+        return counts.lattice_moments(pts, signs, 3)
+    return {
+        "AGL(1,5), the twenty maps i -> a i + b of the vertices, carries the oriented triangle 0-1-2 to twenty distinct "
+        "oriented triangles, so it acts freely on the triangle port; they are exactly the S5 orbit of the port, the odd "
+        "S5 port of the parity pair, on which S5 has the stabilizer C3 x S2 (the triangle's rotations and 3 <-> 4)":
+            len(orbit) == 20 and orbit == s5 and len(stab) == 6
+            and {Permutation(list(p)).cycle_structure.get(3, 0) for p in stab} == {0, 1}
+            and all(p[3:] in ((3, 4), (4, 3)) for p in stab),
+        "the rotations keep a triangle's shape (gaps 1, 1, 3: consecutive) and the doubling i -> 2i sends 0-1-2 to "
+        "0-2-4 (gaps 1, 2, 2: skew), so the ten triangles, two rotation orbits of five, are one AGL(1,5) orbit":
+            rotations == {(1, 1, 3)} and doubled == (1, 2, 2) and len(rot_orbits) == 2
+            and {support(v) for v in orbit} == triangles and len(triangles) == 10,
+        "every oriented triangle is a cycle (B v = 0) and the twenty span the six cycles": all((B * sp.Matrix(v)).is_zero_matrix for v in orbit)
+        and M.rank() == 6,
+        "the affine maps permute the 240 roots as coordinate permutations, so they lie in W(E8) and every one of the "
+        "twenty lifted ports has the triangle's moments 1, 242, 58691, 14259954 per unit norm":
+            perm_in_weyl and all([m // 6 for m in port(v)] == [1, 242, 58691, 14259954] for v in orbit),
+    }
+
+
+def join_pgl_sixsite():
+    """The six-site simplex has the affine symmetry S6 inside E8 x| W(E8); PGL(2,5) is its transitive S5."""
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    sites = [e2[i] + e2[5] for i in range(5)] + [0 * e2[0]]           # doubled coordinates; vertex i = the point i, apex = infinity = 5
+    R2 = counts._roots2()
+    roots = {tuple(r.tolist()) for r in R2}
+    I8 = np.eye(8, dtype=np.int64)
+
+    def swap(i, j):                                                 # x -> s_alpha(x) + c alpha, alpha = q - p, c = (|q|^2 - |p|^2)/2
+        p, q = sites[i], sites[j]
+        a2 = q - p
+        c = (int(q @ q) - int(p @ p)) // 8                          # (|q|^2 - |p|^2)/2: 1 from the apex, 0 otherwise
+        Wm = I8 - np.outer(a2, a2) // 4                             # the reflection in the root alpha (a2 = 2 alpha)
+        return Wm, c * a2
+    gens = [swap(i, j) for i, j in itertools.combinations(range(6), 2)]
+    apply = lambda Wt, x2: Wt[0] @ x2 + Wt[1]
+    label = {tuple(x.tolist()): k for k, x in enumerate(sites)}
+    on_sites = lambda Wt: tuple(label[tuple(apply(Wt, x).tolist())] for x in sites)
+    compose = lambda A, Bm: (A[0] @ Bm[0], A[0] @ Bm[1] + A[1])
+    key = lambda Wt: (Wt[0].tobytes(), Wt[1].tobytes())
+    group = {key((I8, 0 * e2[0])): (I8, 0 * e2[0])}
+    frontier = list(group.values())
+    while frontier:
+        new = []
+        for A in frontier:
+            for Bm in gens:
+                Cm = compose(A, Bm)
+                if key(Cm) not in group:
+                    group[key(Cm)] = Cm
+                    new.append(Cm)
+        frontier = new
+    perms = Counter(on_sites(Wt) for Wt in group.values())
+    in_e8 = lambda t2: not (t2 % 2).any() and ((t2 // 2).sum() % 2 == 0) or ((t2 % 2) == 1).all() and (t2.sum() % 4 == 0)
+    lattice = all(all(tuple((Wt[0] @ r).tolist()) in roots for r in R2) and in_e8(Wt[1]) for Wt in group.values())
+
+    def mobius(a, b, c, d):
+        def f(x):
+            if x == 5:
+                return 5 if c == 0 else a * pow(c, 3, 5) % 5
+            den = (c * x + d) % 5
+            return 5 if den == 0 else (a * x + b) * pow(den, 3, 5) % 5
+        return tuple(f(x) for x in range(6))
+    pgl = {mobius(a, b, c, d) for a in range(5) for b in range(5) for c in range(5) for d in range(5) if (a * d - b * c) % 5}
+    realized = {p: next(Wt for Wt in group.values() if on_sites(Wt) == p) for p in pgl}
+    pairs = {(p[i], p[j]) for p in pgl for (i, j) in [(0, 1)]}
+    agl = {p for p in pgl if p[5] == 5}
+    linear = lambda Wt: not Wt[1].any()
+    coord_perm = lambda Wt: all(sorted(Wt[0][:, j].tolist()) == [0] * 7 + [1] for j in range(8)) and np.array_equal(Wt[0][5:, 5:], I8[5:, 5:])
+    moving = [Wt for p, Wt in realized.items() if p[5] != 5]
+    return {
+        "the fifteen affine reflections x -> s_alpha(x) + c alpha in the simplex's roots alpha = q - p (c = 1 from the apex, "
+        "0 between lifted vertices) swap two sites and keep the other four; they generate 720 affine maps, one for each "
+        "permutation of the six sites: the simplex's affine symmetry group is S6":
+            len(gens) == 15 and all(sum(1 for k in range(6) if on_sites(Wt)[k] != k) == 2 for Wt in gens)
+            and len(group) == 720 and len(perms) == 720 and set(perms.values()) == {1},
+        "every one of the 720 has its linear part in W(E8) (it permutes the 240 roots) and its translation in E8, so it "
+        "commutes with the bath Delta = 240 - sum of the root translations": lattice,
+        "with the apex at infinity and the lifted vertex i at the point i of the projective line over F5, the 120 Mobius "
+        "maps are 120 of them: PGL(2,5), transitive and 2-transitive on the six sites": len(pgl) == 120 and len(realized) == 120
+            and len(pairs) == 30 and len({p[5] for p in pgl}) == 6,
+        "its stabilizer of infinity is AGL(1,5), the twenty maps x -> a x + b, realized linearly by the coordinate "
+        "permutations of the carrier (the cone's symmetries), while the hundred maps moving the apex carry a nonzero "
+        "translation": len(agl) == 20 and agl == {mobius(a, b, 0, 1) for a in range(1, 5) for b in range(5)}
+            and all(linear(realized[p]) and coord_perm(realized[p]) for p in agl)
+            and len(moving) == 100 and all(Wt[1].any() for Wt in moving),
+    }
+
+
+def join_golden_goldenport():
+    """The golden companion inside the Golden port's moments: X = -(R + R^-1) on the moving cycles."""
+    x = sp.symbols("x")
+    Hn = _walk_entries()
+    site, sign = _golden_sites()
+    SITE, TWIN = sp.Matrix(assignment.SITE), sp.Matrix(assignment.TWIN)
+    From = sp.Matrix.vstack(SITE, TWIN).T
+    To = sp.Matrix.vstack(SITE[list(range(1, 5)) + [0], :], TWIN[list(range(1, 5)) + [0], :]).T
+    sol = (From * From.T).inv() * From * To.T                       # L^T: least squares, exact since the rows span R^8
+    L = sol.T
+    roots10 = {tuple(int(t) for t in r) for r in assignment.roots10()}
+    E = carrier.edges()
+    Tk, _ = carrier.edge_tick()
+    Tk = sp.Matrix(Tk)
+    imgs = [next(j for j in range(10) if L * sp.Matrix(site[k]) == sp.Matrix(site[j])) for k in range(10)]
+    equivariant = all(Tk[imgs[k], k] * sign[imgs[k]] == sign[k] and sum(abs(t) for t in Tk[:, k]) == 1 for k in range(10))
+    G = {n: sp.Matrix(10, 10, lambda e, f: sign[e] * sign[f] * Hn(site[f] - site[e], n)) for n in range(3)}
+    B = sp.Matrix(carrier.signed_incidence())
+    Cb = sp.Matrix.hstack(*B.nullspace())
+    pull = (Cb.T * Cb).inv() * Cb.T
+    M = {n: pull * G[n] * Cb for n in range(3)}
+    R = pull * Tk * Cb
+    X = -(R + R.inv())
+    I6 = sp.eye(6)
+    Pfix = sum((R ** k for k in range(5)), sp.zeros(6)) / 5
+    Pmov = I6 - Pfix
+    V = M[2] - M[1] ** 2
+    phi = (1 + sp.sqrt(5)) / 2
+    Pplus = ((X - (1 - phi) * I6) * Pmov / (2 * phi - 1)).applyfunc(sp.radsimp)
+    Pminus = ((phi * I6 - X) * Pmov / (2 * phi - 1)).applyfunc(sp.radsimp)
+    zero = lambda Mx: Mx.applyfunc(sp.simplify) == sp.zeros(6)
+    return {
+        "the diagonal five-cycle L (site_k -> site_(k+1), mu_k -> mu_(k+1)) is a lattice isometry permuting the 240 roots, "
+        "of order 5 and outside the normalizer of <c'>, and it permutes the Golden port's ten root sites as the edge tick "
+        "with its signs: L F = F T_k, so the port's site moments G_n = F^T H^n F commute with the edge tick":
+            all(tuple(int(t) for t in L * sp.Matrix([int(t) for t in r])) in roots10 for r in roots10)
+            and L ** 5 == sp.eye(8) and L != sp.eye(8) and equivariant
+            and all(Tk * G[n] * Tk.T == G[n] for n in range(3))
+            and not any(np.allclose(spine.to_standard(w), np.array(L.tolist(), dtype=float)) for _, w in spine.normalizer()),
+        "so the moment matrices M_n = T_G* Delta^n T_G on the six cycles commute with the cycle rotation R (R^5 = I), and on "
+        "the four moving cycles X = -(R + R^-1) is the golden companion, X^2 = X + I, while X = -2 on the rotor plane":
+            R ** 5 == I6 and all(M[n] * R == R * M[n] for n in range(3)) and zero((X * X - X - I6) * Pmov)
+            and zero((X + 2 * I6) * Pfix) and sp.factor(X.charpoly(x).as_expr()) == (x + 2) ** 2 * (x ** 2 - x - 1) ** 2,
+        "there the mean is (1203 - X)/5 and the variance (978 + 31 X)/5: at X = phi they are the Golden channels "
+        "481/2 - sqrt5/10 and (1987 + 31 sqrt5)/10, at X = 1 - phi their conjugates, each on a plane; the rotor plane "
+        "carries the rational channels 239, 241 and 371, 171":
+            zero(M[1] * Pmov - (sp.Rational(1203, 5) * I6 - X / 5) * Pmov) and zero(V * Pmov - (sp.Rational(978, 5) * I6 + sp.Rational(31, 5) * X) * Pmov)
+            and zero(M[1] * Pplus - (sp.Rational(481, 2) - sp.sqrt(5) / 10) * Pplus) and zero(V * Pplus - (sp.Rational(1987, 10) + 31 * sp.sqrt(5) / 10) * Pplus)
+            and zero(M[1] * Pminus - (sp.Rational(481, 2) + sp.sqrt(5) / 10) * Pminus) and zero(V * Pminus - (sp.Rational(1987, 10) - 31 * sp.sqrt(5) / 10) * Pminus)
+            and Pplus.rank() == 2 and (M[1] * Pfix).eigenvals() == {239: 1, 241: 1, 0: 4} and (V * Pfix).eigenvals() == {371: 1, 171: 1, 0: 4},
+    }
+
+
+def join_hodge_waves():
+    """The Hodge star of Lambda^4 R^8 restricted to Lambda^2 A4 (x) Lambda^2 A4' is the light's Hodge star times its
+    twin's: 5 *(f ^ f') = eps Curl f ^ Curl' f' for every carrier cycle f and twin cycle f'."""
+    quads = list(itertools.combinations(range(8), 4))
+    pairs = list(itertools.combinations(range(8), 2))
+    qidx = {q: k for k, q in enumerate(quads)}
+
+    def sign(p):
+        s, p = 1, list(p)
+        for i in range(len(p)):
+            for j in range(i + 1, len(p)):
+                if p[i] > p[j]:
+                    s = -s
+        return s
+    star = sp.zeros(70, 70)                                     # the Hodge 70's star, as hodge70 builds it
+    for q in quads:
+        c = tuple(k for k in range(8) if k not in q)
+        star[qidx[c], qidx[q]] = sign(q + c)
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+    Cb = sp.Matrix.hstack(*B.nullspace())                       # a basis of the cycles (light), 10 x 6
+    Curl = sp.Matrix(waves.complex_ops()[3])
+    X = (Cb.T * Cb).inv() * Cb.T * Curl * Cb                     # Curl on light in that basis: Curl Cb = Cb X
+    site = [sp.Matrix(assignment.SITE[a]) / 10 for a in range(5)]          # the carrier's sites e_a - u
+    twin = [sp.Matrix(assignment.TWIN[a]) / 10 for a in range(5)]          # the twin's sites mu_a
+
+    def bivector(f, V):                                         # sum_(i<j) f_ij V_i ^ V_j in the e_p ^ e_q basis
+        w = sp.zeros(28, 1)
+        for k, (i, j) in enumerate(E):
+            if f[k]:
+                for a, (p, q) in enumerate(pairs):
+                    w[a] += f[k] * (V[i][p] * V[j][q] - V[i][q] * V[j][p])
+        return w
+
+    def wedge22(w1, w2):                                        # Lambda^2 x Lambda^2 -> Lambda^4 in the quad basis
+        out = sp.zeros(70, 1)
+        for a, (p, q) in enumerate(pairs):
+            if w1[a]:
+                for b, (r, s) in enumerate(pairs):
+                    if w2[b] and len({p, q, r, s}) == 4:
+                        out[qidx[tuple(sorted((p, q, r, s)))]] += w1[a] * w2[b] * sign((p, q, r, s))
+        return out
+    light = [bivector(Cb[:, a], site) for a in range(6)]
+    light_twin = [bivector(Cb[:, a], twin) for a in range(6)]
+    W = sp.Matrix.hstack(*[wedge22(light[a], light_twin[b]) for a in range(6) for b in range(6)])     # 70 x 36
+    K = (W.T * W).inv() * W.T * star * W                          # the star on the block, if the block is kept
+    kron = sp.kronecker_product(X, X)
+    eps = sp.sign(K[0, 0] / kron[0, 0]) if kron[0, 0] else None
+    if eps is None:
+        eps = next(sp.sign(K[i, j] / kron[i, j]) for i in range(36) for j in range(36) if kron[i, j])
+    # the other blocks Lambda^p A4 (x) Lambda^(4-p) A4', from integral bases of the two factors
+    basis_a = [site[i] - site[4] for i in range(4)]               # e_i - e_4, Gram determinant 5
+    basis_t = [twin[i] - twin[4] for i in range(4)]               # mu_i - mu_4
+    wedge4 = lambda vs: sp.Matrix([sp.Matrix.hstack(*vs).extract(list(q), list(range(4))).det() for q in quads])
+    blocks = {}
+    for p in range(5):
+        cols = [wedge4([basis_a[i] for i in I] + [basis_t[j] for j in J])
+                for I in itertools.combinations(range(4), p) for J in itertools.combinations(range(4), 4 - p)]
+        blocks[p] = sp.Matrix.hstack(*cols)
+    same_span = lambda U, V: U.rank() == V.rank() == sp.Matrix.hstack(U, V).rank()
+    I36 = sp.eye(36)
+    light_light = sum(((Cb[:, a].T * Cb[:, a])[0] for a in range(6)), 0)
+    return {
+        "a circulation f on the ten edges is the bivector sum f_ij e_i ^ e_j of Lambda^2 R^5, which lies in Lambda^2 of "
+        "the carrier's A4 (zero row sums); with the twin's sites mu_a the 36 wedges f ^ f' of a carrier cycle and a twin "
+        "cycle span the block Lambda^2 A4 (x) Lambda^2 A4' of the Hodge 70": W.rank() == 36
+        and same_span(W, blocks[2]) and blocks[2].shape[1] == 36,
+        "the Hodge star of Lambda^4 R^8 keeps that block and acts on it as the light's Hodge star times its twin's: "
+        "5 *(f ^ f') = eps Curl f ^ Curl' f' for all f, f', with one sign eps for all of them, so * = J_H (x) J_H' there":
+            star * W == W * K and 5 * K == eps * kron and eps in (1, -1),
+        "the block meets the two halves of the 70 in 18 + 18: the pairs of cycles of equal helicity in one half (eps = +1) "
+        "or the other, and the pairs of opposite helicity in the other": (K - I36).rank() == 18 and (K + I36).rank() == 18
+        and K * K == I36,
+        "the star swaps the complementary blocks: Lambda^0 (x) Lambda^4 with Lambda^4 (x) Lambda^0 (1 + 1) and "
+        "Lambda^1 (x) Lambda^3 with Lambda^3 (x) Lambda^1 (16 + 16), so 70 = 1 + 16 + 36 + 16 + 1 with the halves "
+        "35 = 1 + 16 + 18": all(same_span(star * blocks[p], blocks[4 - p]) for p in range(5))
+        and [blocks[p].rank() for p in range(5)] == [1, 16, 36, 16, 1],
+        "the sign is eps = -1 with the carrier's and the twin's sites both in the order 0..4": eps == -1,
+    }
+
+
+def join_s5_gravity():
+    """S5 acts on M4 x F by 1 (x) P_sigma, commuting with D and the grading: every Kaluza-Klein level is an S5-module."""
+    E = carrier.edges()
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    gamma = sp.Matrix(carrier.grading())
+    P = carrier.spectral_projectors()
+    S5 = list(itertools.permutations(range(5)))
+
+    def atoms(p):
+        M = sp.zeros(15, 15)
+        for i in range(5):
+            M[p[i], i] = 1
+        for k, (i, j) in enumerate(E):
+            M[5 + E.index(tuple(sorted((p[i], p[j])))), 5 + k] = 1
+        return M
+    fix_sites = lambda p: sum(p[i] == i for i in range(5))
+    fix_duads = lambda p: sum(tuple(sorted((p[i], p[j]))) == (i, j) for i, j in E)
+    chi32 = {p: fix_duads(p) - fix_sites(p) for p in S5}           # the duads' character minus the sites': [3, 2]
+    chi41 = {p: fix_sites(p) - 1 for p in S5}                       # the standard character [4, 1]
+    commute, characters = True, True
+    for p in S5:
+        M = atoms(p)
+        commute = commute and M * D == D * M and M * gamma == gamma * M
+        characters = characters and [(P[lam] * M).trace() for lam in (0, 3, 8)] == [chi32[p], 2 * chi41[p], 2]
+    irreducible = sum(c * c for c in chi32.values()) == 120 == sum(c * c for c in chi41.values())
+    # the product geometry on an even stand-in for M4's Dirac operator, as the massless tower is checked
+    X = np.array([[1, -2, 0, 3], [2, 1, -1, 0], [0, 3, 1, -2], [-1, 0, 2, 1]])
+    DM = np.block([[np.zeros((4, 4), dtype=int), X], [X.T, np.zeros((4, 4), dtype=int)]])
+    gam = np.diag([1] * 4 + [-1] * 4)
+    DF, GF = np.array(D.tolist(), dtype=int), np.array(gamma.tolist(), dtype=int)
+    m = 2
+    Dp = np.kron(DM, np.eye(15, dtype=int)) + np.kron(gam, m * DF)
+    Gp = np.kron(gam, GF)
+    lift = lambda p: np.kron(np.eye(8, dtype=int), np.array(atoms(p).tolist(), dtype=int))
+    gens = [(1, 0, 2, 3, 4), (1, 2, 3, 4, 0), (0, 2, 1, 4, 3), (2, 0, 1, 4, 3)]
+    product = all(np.array_equal(lift(p) @ Dp, Dp @ lift(p)) and np.array_equal(lift(p) @ Gp, Gp @ lift(p)) for p in gens)
+    mu = np.linalg.eigvalsh((DM @ DM).astype(float))
+    w, V = np.linalg.eigh((Dp @ Dp).astype(float))
+    twisted = lambda p, t: float(np.trace(V.T @ lift(p) @ V @ np.diag(np.exp(-t * w))))
+    finite = lambda p, t: chi32[p] + 2 * chi41[p] * np.exp(-3 * m * m * t) + 2 * np.exp(-8 * m * m * t)
+    heat = all(np.isclose(twisted(p, t), np.exp(-t * mu).sum() * finite(p, t)) for p in gens for t in (0.05, 0.3, 1.0))
+    return {
+        "the 120 vertex permutations act on the 15 atoms commuting with D_F and gamma_F, and on the triple's eigenspaces "
+        "tr(P_lambda P_sigma) = chi_duads - chi_sites, 2 (fix - 1), 2 for D^2 = 0, 3, 8: the five dark modes are the "
+        "irreducible [3, 2], the 3-eigenspace two copies of the standard [4, 1], the 8-eigenspace two trivial":
+            commute and characters and irreducible,
+        "on M4 x F the lift 1 (x) P_sigma commutes with D = D_M (x) 1 + gamma_M (x) m D_F and with the grading "
+        "gamma_M (x) gamma_F (checked exactly on the even stand-in for M4 of the massless tower), so S5 acts on the product "
+        "geometry by automorphisms of its spectral triple and the spectral action is S5-invariant": product,
+        "every Kaluza-Klein level is an S5-module: the tower 0, 3 m^2, 8 m^2 over each level of M4 is [3, 2] + 2 [4, 1] + "
+        "2 [5], and the twisted heat trace factorizes, Tr((1 (x) P_sigma) e^(-t D^2)) = Tr e^(-t D_M^2) (chi_[3,2](sigma) "
+        "+ 2 chi_[4,1](sigma) e^(-3 m^2 t) + 2 e^(-8 m^2 t)); M4 and m stay free": heat
+            and sorted(Counter(np.rint(np.linalg.eigvalsh(np.array(carrier.D2().tolist(), dtype=float))).astype(int).tolist()).items())
+            == [(0, 5), (3, 8), (8, 2)],
+    }
+
+
+def join_s5_readout():
+    """S5 acts on the readout's control system x' = Ax by diag(P, P), and the named readouts' observable spaces are
+    S5-modules (or orbits of them)."""
+    E = carrier.edges()
+    K = sp.Matrix(carrier.D2())
+    A = sp.Matrix(sp.BlockMatrix([[sp.zeros(15, 15), sp.eye(15)], [-K, sp.zeros(15, 15)]]))
+    S5 = list(itertools.permutations(range(5)))
+
+    def atoms(p):
+        M = sp.zeros(15, 15)
+        for i in range(5):
+            M[p[i], i] = 1
+        for k, (i, j) in enumerate(E):
+            M[5 + E.index(tuple(sorted((p[i], p[j])))), 5 + k] = 1
+        return M
+    lift = {p: sp.diag(atoms(p), atoms(p)) for p in S5}
+    fix = lambda p: sum(p[i] == i for i in range(5))
+    fixd = lambda p: sum(tuple(sorted((p[i], p[j]))) == (i, j) for i, j in E)
+    reads = {name: sp.Matrix(np.rint(C).astype(int).tolist()) for name, C in observer.readouts().items()}
+    powers = [sp.eye(30)]
+    for _ in range(29):
+        powers.append(powers[-1] * A)
+    obs = lambda C: sp.Matrix.vstack(*[C * Ak for Ak in powers])              # the Kalman observability matrix
+
+    def projector(O):                                                           # onto the observable space (row space)
+        Q = O.T.columnspace()
+        Q = sp.Matrix.hstack(*Q)
+        return Q * (Q.T * Q).inv() * Q.T
+    Pi = {name: projector(obs(C)) for name, C in reads.items()}
+    dim = {name: Pi[name].rank() for name in reads}
+    invariant = {name: all(Pi[name] * lift[p] == lift[p] * Pi[name] for p in S5) for name in reads}
+    chi = {name: {p: (Pi[name] * lift[p]).trace() for p in S5} for name in reads}
+    stab = {name: [p for p in S5 if Pi[name] * lift[p] == lift[p] * Pi[name]] for name in reads}
+    orbit_span = lambda name: sp.Matrix.hstack(*[lift[p].T * Pi[name] * lift[p] for p in S5]).rank()   # sum of the moved spaces
+    expected = {"vertex positions": lambda p: 2 * fix(p), "edge positions": lambda p: 2 * fixd(p),
+                "Dirac image D psi": lambda p: 4 * fix(p), "all positions": lambda p: 2 * (fix(p) + fixd(p)),
+                "vertex sum (uniform statistic)": lambda p: 2}
+    return {
+        "the 120 vertex permutations lift to the control system as diag(P_sigma, P_sigma) on (position, velocity) and "
+        "commute with its generator A = [[0, I], [-D^2, 0]]: S5 acts on the readout's flow": all(
+            lift[p] * A == A * lift[p] for p in S5),
+        "the vertex positions, the edge positions, the Dirac image, all positions and the vertex sum are S5-invariant "
+        "readouts, so their observable spaces (dimensions 10, 20, 20, 30, 2) are S5-modules, with characters 2 fix = 2 (1 + "
+        "4), 2 fix_duads = 2 (1 + 4 + 5), 4 fix (the complement of the dark [3, 2], twice), 2 (fix + fix_duads) and 2 (the "
+        "trivial isotypic part of positions and velocities)": all(invariant[n] for n in expected)
+        and {n: dim[n] for n in expected} == {"vertex positions": 10, "edge positions": 20, "Dirac image D psi": 20,
+                                              "all positions": 30, "vertex sum (uniform statistic)": 2}
+        and all(chi[n][p] == f(p) for n, f in expected.items() for p in S5),
+        "one vertex and one edge are not invariant: their observable spaces (4 and 6) are kept exactly by the stabilizers "
+        "S4 (24) and S2 x S3 (12), and the sums of their S5-orbits' observable spaces are the vertex positions' and the "
+        "edge positions' (10 and 20)": not invariant["one vertex"] and not invariant["one edge"]
+        and (dim["one vertex"], dim["one edge"]) == (4, 6) and len(stab["one vertex"]) == 24 and len(stab["one edge"]) == 12
+        and all(p[0] == 0 for p in stab["one vertex"]) and all({p[0], p[1]} == {0, 1} for p in stab["one edge"])
+        and orbit_span("one vertex") == 10 and orbit_span("one edge") == 20,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -12765,6 +17664,95 @@ def _checks():
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
         "notes_1751": notes_1751, "notes_1757": notes_1757,
+        "join_circle_grain": join_circle_grain,
+        "join_c27_time": join_c27_time,
+        "join_c27_observer": join_c27_observer,
+        "join_c27_memory": join_c27_memory,
+        "join_coil_vortex": join_coil_vortex,
+        "join_grain_memory": join_grain_memory,
+        "join_atlas_coil": join_atlas_coil,
+        "join_atlas_observer": join_atlas_observer,
+        "join_memory_miss": join_memory_miss,
+        "join_time_hodge": join_time_hodge,
+        "join_observer_hodge": join_observer_hodge,
+        "join_observer_golden": join_observer_golden,
+        "join_miss_AGL": join_miss_AGL,
+        "join_time_petersen": join_time_petersen,
+        "join_time_surface": join_time_surface,
+        "join_time_pg25": join_time_pg25,
+        "join_time_rotor": join_time_rotor,
+        "join_observer_D5": join_observer_D5,
+        "join_time_D5": join_time_D5,
+        "join_observer_A4": join_observer_A4,
+        "join_c27_sun": join_c27_sun,
+        "join_circle_cyclo": join_circle_cyclo,
+        "join_time_literal": join_time_literal,
+        "join_time_datum": join_time_datum,
+        "join_time_pauli": join_time_pauli,
+        "join_time_goldenport": join_time_goldenport,
+        "join_circle_bath": join_circle_bath,
+        "join_time_assignment": join_time_assignment,
+        "join_time_binding": join_time_binding,
+        "join_time_readout": join_time_readout,
+        "join_time_charges": join_time_charges,
+        "join_time_gravity": join_time_gravity,
+        "join_time_cosmology": join_time_cosmology,
+        "join_pg25_simplex": join_pg25_simplex,
+        "join_cube_pg25": join_cube_pg25,
+        "join_petersen_surface": join_petersen_surface,
+        "join_cube_petersen": join_cube_petersen,
+        "join_cube_synthemes": join_cube_synthemes,
+        "join_cube_simplex": join_cube_simplex,
+        "join_rotor_simplex": join_rotor_simplex,
+        "join_surface_synthemes": join_surface_synthemes,
+        "join_simplex_surface": join_simplex_surface,
+        "join_cycles_petersen": join_cycles_petersen,
+        "join_cube_cycles": join_cube_cycles,
+        "join_petersen_pauli": join_petersen_pauli,
+        "join_simplex_pauli": join_simplex_pauli,
+        "join_rotor_source": join_rotor_source,
+        "join_rotor_goldenport": join_rotor_goldenport,
+        "join_E_bath": join_E_bath,
+        "join_surface_triangle": join_surface_triangle,
+        "join_V_kerM": join_V_kerM,
+        "join_cycles_pauli": join_cycles_pauli,
+        "join_S5_hodge": join_S5_hodge,
+        "join_AGL_hodge": join_AGL_hodge,
+        "join_golden_hodge": join_golden_hodge,
+        "join_hodge_regular": join_hodge_regular,
+        "join_G120_hodge": join_G120_hodge,
+        "join_G120_S5": join_G120_S5,
+        "join_S5_clocks": join_S5_clocks,
+        "join_S5_regular": join_S5_regular,
+        "join_G120_regular": join_G120_regular,
+        "join_golden_pgl": join_golden_pgl,
+        "join_S5_V": join_S5_V,
+        "join_S5_petersen": join_S5_petersen,
+        "join_S5_simplex": join_S5_simplex,
+        "join_hodge_simplex": join_hodge_simplex,
+        "join_golden_pg25": join_golden_pg25,
+        "join_G120_pg25": join_G120_pg25,
+        "join_regular_surface": join_regular_surface,
+        "join_S5_surface": join_S5_surface,
+        "join_S5_cube": join_S5_cube,
+        "join_hodge_L0": join_hodge_L0,
+        "join_hodge_sun": join_hodge_sun,
+        "join_G120_frame": join_G120_frame,
+        "join_S5_frame": join_S5_frame,
+        "join_G120_census": join_G120_census,
+        "join_regular_D5": join_regular_D5,
+        "join_clocks_D5": join_clocks_D5,
+        "join_G120_halfper": join_G120_halfper,
+        "join_regular_A4": join_regular_A4,
+        "join_golden_L0": join_golden_L0,
+        "join_G120_walks": join_G120_walks,
+        "join_G120_triangle": join_G120_triangle,
+        "join_AGL_triangle": join_AGL_triangle,
+        "join_pgl_sixsite": join_pgl_sixsite,
+        "join_golden_goldenport": join_golden_goldenport,
+        "join_hodge_waves": join_hodge_waves,
+        "join_s5_gravity": join_s5_gravity,
+        "join_s5_readout": join_s5_readout,
         "golden_cosine": golden_cosine, "golden_galois": golden_galois, "regular_cosines": regular_cosines,
         "torus_places": torus_places,
         "counts.petersen_projectors": counts.petersen_projectors, "counts.rotor_plane": counts.rotor_plane,
