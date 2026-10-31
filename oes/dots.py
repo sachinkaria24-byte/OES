@@ -10022,6 +10022,44 @@ JOINS = [
     ("hodge", "waves", "the product Hodge star", "the Hodge star of Lambda^4 R^8 keeps the block Lambda^2 A4 (x) Lambda^2 A4' (36 of the 70: the wedges of a carrier cycle with a twin cycle) and acts there as J_H (x) J_H', the light's Hodge star times its twin's: 5 *(f ^ f') = -Curl f ^ Curl' f' with both K5's sites in the order 0..4; the halves 35 + 35 meet the block in 18 + 18 (pairs of equal helicity in one half, of opposite helicity in the other) and swap the complementary blocks 1 + 16 and 16 + 1, so 35 = 1 + 16 + 18 (31 Oct)", T, "join_hodge_waves"),
     ("S5", "gravity", "the equivariant tower", "S5 acts on M4 x F by 1 (x) P_sigma, commuting with D = D_M (x) 1 + gamma_M (x) m D_F and with the grading (exact on the massless tower's stand-in for M4), so the spectral action is S5-invariant and every Kaluza-Klein level is an S5-module: the tower 0, 3 m^2, 8 m^2 over each level of M4 is [3, 2] + 2 [4, 1] + 2 [5] (tr P_lambda P_sigma = chi_duads - chi_sites, 2 (fix - 1), 2), and Tr((1 (x) P_sigma) e^(-t D^2)) = Tr e^(-t D_M^2) (chi_[3,2] + 2 chi_[4,1] e^(-3 m^2 t) + 2 e^(-8 m^2 t)); M4 and m stay free (31 Oct)", gates.CONDITIONAL, "join_s5_gravity"),
     ("S5", "readout", "the symmetric readouts", "the 120 vertex permutations lift to the control system as diag(P_sigma, P_sigma) and commute with A = [[0, I], [-D^2, 0]]; the vertex positions, edge positions, Dirac image, all positions and vertex sum are invariant readouts whose observable spaces (10, 20, 20, 30, 2) are S5-modules with characters 2 fix, 2 fix_duads, 4 fix (the complement of the dark [3, 2], twice), 2 (fix + fix_duads) and 2 (the trivial part); one vertex and one edge are kept only by S4 and S2 x S3, and their orbits' observable spaces sum to the vertex and the edge positions' (31 Oct)", T, "join_s5_readout"),
+    ("D5", "binding", "the half-spin", "the 128 half-integer roots of E8 project onto D5's span as the 32 weights (+-1/2)^5, four over each, and W(D5) splits them by the parity of the minus signs into the half-spins 16 and 16' = -16, the stabilizer of u/2 being S5 = W(A4): the 16 is u/2 - e_S over the even subsets S of the sites, the singlet, the ten u/2 - e_a - e_b and the five e_a - u/2, the binding's 5 + Lambda^2 5 at opposite chiralities; the roots act minusculely, A4's inside each piece and +-(e_a + e_b) between them, and the cubic sum vanishes on R^5: B4's A(5) = A(Lambda^2 5) and, at h = u, (125 + 10 - 135)/8 = 0 (31 Oct)", T, "join_D5_binding"),
+    ("census", "charges", "the charges as momenta", "as momenta x in R^8/E8, on the carrier's coordinates, the charges are census points: 2T3 = e3 - e4 is a root, Q has order 3 and Y order 6, and their integral roots have full rank, 128 for T3 (the weak A1 and an E7), 78 for Q (the colour A2 and an E6) and 38 for Y (the colour A2, the weak A1 and an A5 holding the twin A4'), so the band is critical there, at 224, 243 = 240 - 78 + 81 and 251: alcove reduction gives the vertices E7 + A1, E6 + A2 and A5 + A2 + A1 (120, 2240, 80640 points), off every W-conjugate of the principal circle, whose points of order 2, 3, 6 are D8, A8 and A4 + A3 (31 Oct)", T, "join_census_charges"),
+    ("halfper", "triple", "the carrier's A4 mod 2", "the carrier's A4 modulo 2 is a 4-space of 16 half-periods, the even subsets of the sites, and the triple's 15 atoms are its nonzero points (the only S5-equivariant way): a duad at its root class e_a - e_b (type E7 + A1, band 224), a site at the class of the six norm-four vectors of A4 off it (type D8, band 256); the half-period form q = <x, x>/2 mod 2 is 1 on duads and 0 on sites, elliptic, so gamma = (-1)^q, the polar form <x, y> mod 2 is D + D^2 mod 2 (M between sites and duads, M M^T and M^T M inside), and S5 = W(A4) is its whole orthogonal group O^-_4(2) of order 120 (31 Oct)", T, "join_halfper_triple"),
+    ("petersen", "waves", "the signed Petersen graph", "|Curl| is the Petersen adjacency: Curl = *d1 joins an edge e only to the three edges f disjoint from it, with the sign of the permutation (e, f, c), c the fifth vertex, so Curl is a signing of the Petersen graph, of square 5I - B^T B = 5 P_cycle and spectrum +-sqrt5 (three each), 0^4 against the graph's 3, 1^5, (-2)^4; of its twelve pentagons, the Hamiltonian cycles of K5, six are positive and six negative, the pentagon and pentagram of each C5 having opposite signs, and a vertex permutation multiplies every sign by its own: the two A5-orbits (31 Oct)", T, "join_petersen_waves"),
+    ("rotor", "waves", "Curl on the rotor plane", "Curl keeps the rotor plane and acts on (pentagon, pentagram) as [[2, -1], [-1, -2]], trace 0 and square 5, so the plane holds the tick-fixed line of each helicity, pentagon - phi^-3 pentagram at +sqrt5 and pentagon + phi^3 pentagram at -sqrt5, and J_H = Curl/sqrt5 exchanges the golden lines phi pentagon + pentagram and pentagon - phi pentagram, the area forms of the two Penrose planes; on the four moving cycles Curl = -(I + 2(T + T^-1)), a polynomial in the edge tick, which the rotor plane alone escapes (31 Oct)", T, "join_rotor_waves"),
+    ("simplex", "binding", "the anomaly by grade", "a face S is the weight 1_S of Lambda^|S| 5, so the binding's 5 and Lambda^2 5 (weights e_i and e_i + e_j) are the simplex's vertices and edges; for every traceless diagonal charge h the cubic sum of h(S) over grade k is a_k sum h_i^3 with a = 1, 1, -1, -1, 0, the SU(5) anomalies of Lambda^(k+1) 5 (the quadratic sums 1, 3, 3, 1, 0 times sum h_i^2); the complement S -> V - S negates h(S), so the binding's 5 + 10 at opposite chiralities is the edges and tetrahedra at one, and the even faces 1 + 10 + 5b (with the empty face) and the odd faces 5 + 10b + 1 are anomaly-free (31 Oct)", T, "join_simplex_binding"),
+    ("synthemes", "waves", "Lagrangian synthemes", "the fifteen pair commutators C_ij of the six Sylow lines lie in light and are Curl-isotropic, and C^T Curl C is 80 times a signing of the line graph of K6, so the three commutators of each syntheme are pairwise Curl-orthogonal and span an isotropic subspace; for the five special synthemes (the one-factorization) they are orthogonal of square 64 and span a Lagrangian V_s, light = V_s + J_H V_s, the graph of an isometry of helicity +sqrt5 onto -sqrt5, with the five projectors summing to (5/2) P_cycle; for the ten others a signed sum vanishes and they span an isotropic plane (31 Oct)", T, "join_synthemes_waves"),
+    ("petersen", "readout", "the distance partition", "the readout 'one edge' at 01 observes 6 dimensions, the positions and velocities of the functions on the edge atoms constant on the Petersen distance classes of 01: the edge, its three neighbours 23, 24, 34 and the six edges at distance 2. D^2 = A^2 - I on the edges and the graph is distance-regular with intersection array {3, 2; 1, 1}, so the classes are equitable with quotient [[0, 3, 0], [1, 0, 2], [0, 1, 2]] of spectrum 3, 1, -2, and the readout sees D^2 = 8, 0, 3, every frequency; the classes are the orbits of the edge's stabilizer S2 x S3 (31 Oct)", T, "join_petersen_readout"),
+    ("assignment", "triple", "the brackets are D", "a root of (10, 5) at carrier duad e and twin site i and a root of (5b, 10) at carrier site v and twin duad d, i not in d, sum to a root exactly when v lies in e, the root of (5, 10b) at the site e - v and the twin duad opposite {i} u d: so the 30 such 5 x 10 bracket tables are M, the block of the triple's D, and those with i in d are 0; the 10 x 10 tables (i != j) are the Petersen graph I + J - M^T M and the 5b x 5b ones (disjoint duads) M M^T - 4I, so on the carrier labels every bracket among the matter roots is read off D and D^2 (31 Oct)", T, "join_assignment_triple"),
+    ("gravity", "waves", "the acoustic geometry", "the acoustic system p' = -d0^T u, u' = d0 p squares to -D_s^2, D_s = d0 + d0^T = [[0, B], [B^T, 0]], odd on the triple's 15 atoms, D_s^2 = B B^T + B^T B with spectrum 0^7 5^8; Tr D_s^0, D_s^2, D_s^4 = 15, 40, 200 are the carrier's (the Witten index is -5 = 5 - 10 for both), so M4 x F_sound has the heat coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3 of M4 x F: the same G and Lambda_cc for every f, L and m, with 7 massless modes against 5; Tr D_s^6 = 1000 against Tr D^6 = 1240 first separates them, the 60 ordered triangles of K5 counting -1 for B (31 Oct)", gates.CONDITIONAL, "join_gravity_waves"),
+    ("cosmology", "readout", "one dark number", "on a flat FLRW background the dark modes enter the bright equations only through H, and H only through their energy |p|^2/2a^6, p = a^3 P0 psi' conserved: (ln a, H, the bright modes, |P0 psi'|^2) is a closed system, so (cited: uniqueness of solutions) the Dirac readout D psi(t), like a(t), reads the dark sector only through |p|; from the datum a dark shift with p turned in ker M leaves the record unchanged, |p|^2 = 4 -> 9 changes it, and at G = 0 the hidden sector ker M + ker M is hidden again: G makes one dark number observable (31 Oct)", gates.CONDITIONAL, "join_cosmology_readout"),
+    ("binding", "cosmology", "the dark charges", "on every flat FLRW background the dark O(5), the orthogonal part of the commutant's M5 block, and the dark shifts psi -> psi + k (k in ker D) are symmetries with the same a(t); their Noether charges, the momentum p = a^3 P0 psi' in ker D and the angular momentum a^3 P0 psi ^ P0 psi' = P0 psi ^ p in Lambda^2 ker D, are conserved and transform as the binding's 5 and 10; the dark modes move on a line along p, so the bivector is decomposable and contains p, and the checked datum starts at P0 psi0 = 0, so its bivector vanishes (31 Oct)", gates.CONDITIONAL, "join_binding_cosmology"),
+    ("charges", "triple", "D carries the 5's charge to the 10's", "the triple's D carries a charge on the sites to its charge on the duads: D(q, 0) = (0, M^T q), (M^T q)_ij = q_i + q_j, the weights of Lambda^2 5, so Q goes to -2/3, 2/3, -1/3, 1 on the colour, colour-3, colour-4 and weak duads, the charges of u^c, u, d, e^c on the roots; as q is trace-free D(0, M^T q) = (3q, 0), so (sqrt3 q, +-M^T q) are eigenvectors at +-sqrt3 and |M^T q|^2 = 3|q|^2 (4, 5/2, 3/2 for Q, Y, T3): the index ratio of Lambda^2 5 to 5 is D^2 = 3 on the charges (31 Oct)", T, "join_charges_triple"),
+    ("calibration", "triple", "the calibrated triple", "a calibration t = tau u carries the triple to (A, H, D/tau, gamma): the physical generator is the first-order form of (D/tau)^2, with the frequencies omega_hat/tau, and layer 13's physical flow is its closed-form flow; the heat trace becomes Z(beta/tau^2), the zeta function tau^(2s) zeta_D(s), the spectral dimension d_s(beta/tau^2) and the spectral action at cutoff L the native one at tau L, so zeta(0) = 10, the Witten index -5 and the peak spectral dimension are invariant while Tr D^2 = 40 becomes 40/tau^2: the spectral action cannot tell a calibration from a change of cutoff (31 Oct)", T, "join_calibration_triple"),
+    ("readout", "waves", "no orientation keeps the split", "the readout's edge dynamics never keeps the Hodge split: for each of the 2^10 orientations of K5, sound + M^T M sound has dimension 7 (320) or 8 (704), so neither sound nor light is invariant under D^2 on the edges and P (+) P never commutes with A; with the canon's orientation the light reading P_light psi_E observes 18 of the 20 edge dimensions, blind to the line where sound meets the edges' D^2 = 3 space, and the sound reading 14, blind to ker M n light, three dark circulations, in position and velocity (31 Oct)", OB, "join_readout_waves"),
+    ("datum", "readout", "the datum's records", "the datum is a state of the control system, with flow (1, 1, 1, 1, 1) cos(2 sqrt2 t) + c cos(sqrt3 t) on the vertices and M^T c cos(sqrt3 t) + t v0 on the edges, c = (1, -1, 0, 0, 0); of its energy 34 the observable part carries 23 for the vertex positions, 20 for the vertex sum, 11 for the edge positions and 32 for D psi, which sees psi0 whole and misses exactly the zero-mode drift t v0 and its 2; read one edge at a time, 01 and 23 record exactly t and 24 and 34 record 0 (31 Oct)", T, "join_datum_readout"),
+    ("triangle", "assignment", "the colour Weyl denominator", "the port's six roots are the assignment's six gluon roots, with Y = T3 = Q = 0, and the colour Weyl group S3 = Sym{0, 1, 2} permutes them simply transitively with the port as its sign character: port = -sum sgn(w) delta_(w rho_c), rho_c = e_0 - e_2 the colour Weyl vector and the highest gluon root, so its Fourier transform -8i sin(x/2) sin(y/2) sin(z/2), x, y, z = k.(e_0 - e_1), k.(e_1 - e_2), k.(e_2 - e_0), is minus the Weyl denominator of the colour SU(3); of the 12 site permutations keeping Y the port keeps the six of C3 x S2, the kernel of the colour sign (31 Oct)", T, "join_triangle_assignment"),
+    ("pauli", "assignment", "the frame's Clifford factors", "x -> 5x carries the weights of A4 + A4' into E8 and the frame's index 5 is odd, so E8/2E8 is the orthogonal sum of the two factors' sixteen classes and M16(R) = M2(H) (x) M2(H), each factor generated by its five sites: five symmetric site Paulis, pairwise anticommuting, whose ten products are the antisymmetric duad Paulis; a root's Pauli is its pair +-rho, and (24,1), (1,24), (10,5), (5b,10) are duad x 1, 1 x duad', duad x site', site x duad': the 120 particle-antiparticle pairs are exactly the antisymmetric Paulis, decayed at 224 (31 Oct)", T, "join_pauli_assignment"),
+    ("pauli", "triple", "the atoms as so(6)", "vertex a -> X_a, the Pauli of the spoke e_a + e_5, and edge ab -> X_a X_b, +- the Pauli of the rim e_a - e_b, carry H isometrically (trace form / 16) onto a Lie algebra of antisymmetric Paulis: L_a5 -> X_a/2, L_ab -> -X_a X_b/2 is an isomorphism from so(6) = su(4), the edges spanning so(5); -gamma is the involution of the symmetric pair so(6) > so(5), conjugation by a Pauli for exactly eight labels, six of them the family roots meeting the twin duad 34 once (e_5 + e_6 among them); and D_ve != 0 exactly when the two Paulis do not commute (31 Oct)", T, "join_pauli_triple"),
+    ("pauli", "charges", "the hypercharge's Pauli", "the hypercharge's parity is inner: 6Y = (-2, -2, -2, 3, 3, 0, 0, 0) and 2T3 = e_3 - e_4, the W+ root, lie in E8 and differ by 2(-1, -1, -1, 1, 2, 0, 0, 0) in 2E8, so they have one Pauli; (-1)^(6Y.rho) = (-1)^(2T3.rho) on all 240 roots, the Z2 of the Standard Model's Z6, and conjugation by the W+'s Pauli fixes the Paulis of the SU(2) singlets and of W+-, and negates exactly those of the 56 doublet pairs, u, d, e, nu, X and Y (31 Oct)", T, "join_pauli_charges"),
+    ("frame", "halfper", "an F2-basis", "the frame's index 3 is odd, so its eight roots are an F2-basis of the half-periods Lambda / 2 Lambda, and since their Gram is I + J the half-period of a subset S has q = |S|(|S| + 1)/2 mod 2: the 120 nonsingular ones (E7 + A1, band 224) are the subsets of sizes 1, 2, 5, 6 and the 135 of type D8 (256) those of sizes 3, 4, 7, 8; the frame's A8 fills the 36 classes of sizes 1 and 2, two roots each, the other 168 roots those of sizes 5 and 6; the reflections in the r_i - r_j are the frame's S8, permuting the basis with the nine sizes as orbits (31 Oct)", T, "join_frame_halfper"),
+    ("halfper", "rootgraph", "the non-orthogonality graph", "r -> r mod 2 Lambda folds the root graph two to one onto the 120 nonsingular half-periods, joined when B(x, y) = <x, y> mod 2 is 1: a strongly regular graph (120, 56, 28, 24), the non-orthogonality graph of the nonsingular points of the GO8+(2) quadric, of which the root graph is the antipodal double cover (+-r over each class, a perfect matching over each edge); so its spectrum splits into the base's 56, 8^35, -4^84 on even functions and 28^8, -2^112 on odd ones, the signed graph being the classes' Gram minus 2I, with Gram 30 times a projector of rank 8 (31 Oct)", T, "join_halfper_rootgraph"),
+    ("L0", "census", "the family over the conjugates of L0", "a momentum of order 5 has at least 40 integral roots, and exactly 40 at 48384 points, the census's A4 + A4 family (band 250, the roots' residues 40, 50, 50, 50, 50): there the integral roots are two orthogonal A4 spanning a sublattice L_x of index 5 with x a nonzero character of E8 / L_x, and x -> L_x is 4 : 1 onto 12096 sublattices, the fibre over each its characters k x; the carrier's L0 is one, its fibre the tick's four momenta integral on it, so the 12096 are the W(E8)-conjugates of L0, with stabilizer of order 57600 = 4 x 120^2 (31 Oct)", T, "join_L0_census"),
+    ("icosians", "halfper", "I/2I = M2(F4)", "2 is inert in Z[phi] and the icosian algebra splits there: explicit matrix units give Lambda / 2 Lambda = I/2I = M2(F4), F4 = F2[phi], the reduced norm becoming the determinant; as alpha = phi/sqrt5 = phi mod 2, the half-period form is q(x) = Tr_F4/F2(phi det x), so the 120 nonsingular half-periods are det x = 1, the units two over each element of SL(2,4) = 2I/{+-1}, and det x = phi, the phi^-1 u, while the 135 of type D8 are the 75 matrices of rank 1 and the 60 of determinant phi^2 (31 Oct)", T, "join_icosians_halfper"),
+    ("icosians", "sun", "a right multiplication", "under W1 or W2 the Coxeter clock is c' = L_u R_b, q -> u q bbar, u the tick's order-5 unit and b of order 6 (trace 1), unique up to (-u, -b); so the sun c'^10 is R_w, w = b^4 of order 3, and its momenta F81 = E8/(1 - s)E8 are I/I(1 - wbar), N(1 - w) = 3; the 120 left multiplications act there as 120 distinct F9-linear maps of determinant 1, a 2I in SL(2,9), and on the decad as A5 = 2I/{+-1}, transitively with stabilizers of order 12 in 2I, each order-3 unit fixing exactly one F9-line: the ten 4A2 frames are the ten Sylow 3-subgroups of 2I (31 Oct)", T, "join_icosians_sun"),
+    ("icosians", "L0", "the dicyclic cosets", "under W2 (the tick as L_u, trace -phi) the carrier's near roots +-(e_i - e_(i+1)) are a great decagon D = <-u>x of unit icosians, a right coset of the tick's cyclic group of order 10, and its far roots are exactly phi^-1 D, e_i - e_(i+2) = phi^-1 (e_(i+3) - e_(i+4)), whose Galois conjugate is the H2 star's far = phi x near: A4 = D u phi^-1 D; A4' is the same on <-u>tx, t of order 4, so the units of A4 + A4' are N x for the dicyclic normalizer N of <u> (order 20), and the six A4 + A4 of the residue lines are N x u phi^-1 N x over the six right cosets of N in 2I (W1 swaps the scales) (31 Oct)", T, "join_icosians_L0"),
+    ("D5", "residue", "the pentagon's five directions", "on D5 the residue map E8 -> E8/(1 - g)E8 = F25 is x -> (sum x / 2) q + (sum i x_i) p, p and q the points of e_1 - e_0 and 2 e_0, onto: A4 goes onto the carrier line F5 p, the r-pentagon e_(i+k) - e_i over k p, and the ten roots e_i + e_j onto the parallel line q + F5 p, two over each point, i + j = c mod 5: a side of the pentagon and its parallel diagonal, one point per direction, their negatives on -q + F5 p; so D5 meets L0, the pullback of the carrier line, in A4 + Z(2, 2, 2, 2, 2, 0, 0, 0), of index 5, and D5 + L0 = E8 (31 Oct)", T, "join_D5_residue"),
+    ("penrose", "residue", "the index is the carrier line", "the vertex rotation r is the identity on A4' (x) R, and 1 - r maps the scheme's A4* onto A4 (e_i - u/5 -> e_i - e_(i+1)) and A4 onto (1 - r)A4 = A4 n (1 - g)E8, of index Phi_5(1) = 5: so r - 1 carries the scheme's index group A4*/A4 = E8/L0 = Z/5 isomorphically onto A4/(1 - r)A4, the carrier line of the residue plane F25, index sum k going to k p, the point under the r-pentagon e_(i+k) - e_i; on F25, r is the transvection along the carrier line that reads each parallel line (glue class) as this point (31 Oct)", T, "join_penrose_residue"),
+    ("parent", "triangle", "the triangle reader", "with the hexad point a at the site x_a = e_a + e_5 and the apex 5 at 0, the six sites' W(A5) (x_a - x_b -> x_g(a) - x_g(b), root permutations commuting with Delta) lets the parent's A6 carry the triangle port to the forty oriented triangle ports of K6, stabilizer <(012), (345)>; the reader T = [U_g p]_g has rank 10, the odd lift of K6's cycles, and T P10 = 360 T: it reads the chi10 block that O36 is blind to, its r, t-history has ranks 10, 30, 50, 80, 100, O36 and T reach 360, and T* Delta^n T = m_n T* T (Schur, cited), m = 1, 242, 58691 (31 Oct)", T, "join_parent_triangle"),
+    ("literal", "triangle", "the owner's triangle chart", "the owner's adapters chart the triangle ports: Fedge_native_inverse F carries the six native coordinates onto the cycles of K5 (B F = 0, Chi F = I) and Fext_Lambda2_A4 lists the triangles i -> j -> 4; the triangle port's odd lift reads an edge vector as an antisymmetric matrix on the A4 roots, so Hilbert-Schmidt is l2, and T = lift o F has T^T T = 2 F^T F = W_p: the owner's port metric is the triangle-port Gram, with T^T Delta^n T = m_n W_p (Schur on the cycles, cited; m = 1, 242, 58691, 14259954), and 0 -> 1 -> 2 reads (1, 1, 0, 0, 0, -1) natively (31 Oct)", T, "join_literal_triangle"),
+    ("kerM", "parent", "the dark chi5'", "the carrier's A5 = Stab(5) permutes the six Golden lines framing ker M (Gram 12 I - 2 J), without signs, exactly as it permutes the cosets of PSL(2,5) in A6 (one equivariant bijection, PSL(2,5) to the pentagon 0-1-2-3-4), so h_beta(x) -> h_beta(gx) extends it to the parent's A6 with character chi5', the only extension (A6's two 5s and Schur, cited); the dark reader [h_beta(g PSL)]_g has rank 5, lies in the chi5' block outside the blind 126 with history 25, and on the marked A5 it is the hub's Golden adapter B_G (31 Oct)", T, "join_kerM_parent"),
+    ("A4", "pg25", "the root lattice mod 5", "on A4/5A4* = H(F5)/u the form x.x mod 5 is nondegenerate, and the moment map x -> (sum i x_i, sum i^2 x_i, 3 sum i^3 x_i) carries it onto the plane with x.x = -(b^2 - ac): the quadric is the Veronese conic, its six points the classes of the 120 bijections V -> F5 modulo AGL(1,5), the Sylow labels (sign vectors chi(f(j) - f(i))); W(A4) = S5 acts as PGL(2,5) through the symmetric square, r as [[1, 0], [2, 1]]; the root classes are the interior points, each cutting its edge's syntheme, with the Petersen graph as their polarity, and the e_i + e_j - e_k - e_l the exterior points (31 Oct)", T, "join_A4_pg25"),
+    ("penrose", "surface", "the icosahedron in R u + E2", "the surface's six axes are six equiangular lines in R u + E2: the cone point on u, the site i on u + 5 sqrt2 P2 e_i, every two at |cos| = 1/sqrt5, so their twelve unit vectors are a regular icosahedron whose twenty faces are, up to sign, the hemi-icosahedron's ten; sqrt5 (C - I), C their cosines, is the conference matrix [[0, 1], [1, -Q]], Q_ij = chi(i - j) the quadratic character mod 5, a triangle being a face exactly when its entries multiply to +1; on R u + E1 (Galois conjugate) [[0, 1], [1, Q]] gives the complement, and the doubling, swapping E1 and E2, maps one to the other (31 Oct)", T, "join_penrose_surface"),
+    ("icosians", "pg25", "the icosahedron mod sqrt5", "at the prime sqrt5, in the icosians check's chart, u - ubar goes to the traceless 2m - tr(m) I, and [[x, y], [z, -x]] -> (-y, x, z) puts P(sl2(F5)) on the model's plane with det = -(b^2 - ac), conjugation by a unit acting as the symmetric square of its matrix (PSL(2,5)): the six axes of the order-5 units, the icosahedron's vertices, go to the conic, the fifteen of order 4 to the exterior points, each the pole of the two vertex axes it is perpendicular to, and the ten of orders 3 and 6 to the interior points, each face centre to its face's perspector (31 Oct)", T, "join_icosians_pg25"),
+    ("petersen", "rootgraph", "the Petersen roots", "A has least eigenvalue -2, so 2I + A = J + 3I - M^T M is a Gram matrix of rank 6: the roots f_(i,i+1) = e_(i+2) + e_(i+4) and f_(i,i+2) = (e_i + e_(i+1) + e_(i+2) - e_(i+3) - e_(i+4) + e_5 + e_6 + e_7)/2 of E8 have products 1 on the Petersen edges and 0 elsewhere, so the root graph induces the Petersen graph on them, equivariantly for the pentagon's dihedral group; their span meets the 240 roots in an E6 (72 roots, determinant 3), the edge lattice Z^E modulo its integral (-2)-eigenvectors M^T(H) under the form 2I + A (31 Oct)", T, "join_petersen_rootgraph"),
+    ("simplex", "penrose", "the faces as windows", "the face on S is the vertex e_S of the 5-cube on the slice sum x = |S|, its weight e_S - (|S|/5) u in class |S| of A4*/A4; projected into E2 the faces of size k have as convex hull the k-th window of the Penrose vertex sets (cited): the five sites a regular pentagon W1 (squared radius 2/5, turned 144 degrees by r), the far duads the vertices of W2 = -phi W1, P2(e_i + e_(i+2)) = -phi P2 e_(i+1), with the near duads strictly inside, and the complementary faces W3 = -W2 and W4 = -W1 (P2 u = 0) (31 Oct)", T, "join_simplex_penrose"),
+    ("frame", "pauli", "the Clifford algebra of a frame", "the frame's eight roots are an F2-basis of E8/2E8 (Gram I + J, determinant 9) with odd products, so their Paulis A_1..A_8 are eight anticommuting antisymmetric Paulis with A_i^2 = -I and their 256 products are the Paulis up to sign: e_i -> A_i is an isomorphism Cl(0,8) = M16(R); A_S is symmetric exactly for |S| = 0, 3 mod 4, so L is 224 on the grades 1, 2, 5, 6 (the 120 jump operators) and 256 on 3, 4, 7, 8; the volume element, the Pauli of the frame's sum 3q, splits R^16 = 8 + 8, and the -A_i A_j/2 act as so(8) on the halves (31 Oct)", T, "join_frame_pauli"),
+    ("cyclo", "triangle", "polygons isospectral to a triangle", "in the cyclotomic line the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2) cut the 240 roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d of sum 0 without antipodes, so each, as an odd port, has per unit norm the triangle port's signed Gram and meets every root off it with signed count zero; W(E8) is transitive on root pairs of each product, so the mu_d-invariant odd root functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the triangle port's measure (1, 242, 58691, ...): polygons isospectral to a triangle (31 Oct)", T, "join_cyclo_triangle"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
 ]
@@ -16889,6 +16927,3030 @@ def join_s5_readout():
     }
 
 
+# ------------------------------------------------------------------- the join sweep, second round (31 Oct)
+
+def join_D5_binding():
+    """The binding's anomaly-free 5 + Lambda^2 5 (B4), with a singlet, is the half-spin module of D5: the half-integer
+    roots of E8 project onto the span of D5 as the 32 weights (+-1/2)^5, W(D5) splits them into 16 + 16' = 16 - 16, the
+    16 is u/2 - e_S over the even subsets S of the five sites, the 40 roots move it minusculely, and its cubic sum
+    vanishes on all of R^5."""
+    half = Fraction(1, 2)
+    R = [tuple(Fraction(int(round(2 * v)), 2) for v in r) for r in glue.roots()]
+    halfint = [r for r in R if all(x.denominator == 2 for x in r)]
+    over = Counter(r[:5] for r in halfint)
+    d5 = [r[:5] for r in R if all(x.denominator == 1 for x in r) and not any(r[5:])]
+    a4 = [a for a in d5 if sum(a) == 0]
+    ip = lambda x, y: sum((a * b for a, b in zip(x, y)), Fraction(0))
+    e = lambda S: tuple(Fraction(int(i in S)) for i in range(5))
+    u2 = tuple([half] * 5)
+    W = [(p, s) for p in itertools.permutations(range(5)) for s in itertools.product((1, -1), repeat=5)
+         if s.count(-1) % 2 == 0]
+    act = lambda g, w: tuple(g[1][i] * w[g[0][i]] for i in range(5))
+    orbit = {act(g, u2) for g in W}
+    stab = [g for g in W if act(g, u2) == u2]
+    sixteen = {tuple(a - b for a, b in zip(u2, e(S))): len(S) for n in (0, 2, 4) for S in itertools.combinations(range(5), n)}
+    neg = {tuple(-x for x in w) for w in sixteen}
+    pairings = {ip(w, a) for w in sixteen for a in d5}
+    moves = [(sixteen[w], sixteen.get(tuple(x + y for x, y in zip(w, a))), a) for w in sixteen for a in d5 if ip(w, a) == -1]
+    h = sp.symbols("h0:5")
+    cubic = sp.expand(sum(sum(sp.Rational(x.numerator, x.denominator) * hi for x, hi in zip(w, h)) ** 3 for w in sixteen))
+    linear = sp.expand(sum(sum(sp.Rational(x.numerator, x.denominator) * hi for x, hi in zip(w, h)) for w in sixteen))
+    five, ten, _ = binding.su5_weights()
+    hb = [1, 2, 3, 4, -10]
+    A5 = sum(Fraction(sum(int(a) * b for a, b in zip(w, hb))) ** 3 for w in five)
+    A10 = sum(Fraction(sum(int(a) * b for a, b in zip(w, hb))) ** 3 for w in ten)
+    on16 = sum(ip(w, tuple(Fraction(b) for b in hb)) ** 3 for w in sixteen)
+    xu = Counter(ip(w, tuple([Fraction(1)] * 5)) for w in sixteen)
+    return {
+        "the 128 half-integer roots of E8 project onto the span of the carrier's D5 (the first five coordinates, whose "
+        "40 roots +-e_i +- e_j lie in E8) as the 32 weights (+-1/2)^5, four roots over each":
+            len(halfint) == 128 and len(over) == 32 and set(over.values()) == {4} and len(d5) == 40 and len(a4) == 20
+            and all(abs(x) == half for w in over for x in w),
+        "W(D5), the 1920 permutations with even sign changes, splits the 32 into two orbits of 16 by the parity of the "
+        "minus signs, the half-spins 16 and 16' = -16, and the stabilizer of u/2 is exactly the 120 permutations, S5 = W(A4)":
+            len(W) == 1920 and orbit == set(sixteen) and len(sixteen) == 16 and neg == set(over) - set(sixteen)
+            and all(sum(1 for x in w if x < 0) % 2 == 0 for w in sixteen)
+            and len(stab) == 120 and all(set(g[1]) == {1} for g in stab),
+        "the 16 is u/2 - e_S over the even subsets S of the five sites: the singlet u/2, the ten u/2 - e_a - e_b and the "
+        "five e_a - u/2, so on the SU(5) Cartan (h perpendicular to u) its weights are 0, the binding's 5 (e_a) and minus "
+        "its Lambda^2 5 (-(e_a + e_b)): 5 + Lambda^2 5 at opposite chiralities, with a singlet":
+            sorted(Counter(sixteen.values()).items()) == [(0, 1), (2, 10), (4, 5)]
+            and {w for w, n in sixteen.items() if n == 4} == {tuple(a - b for a, b in zip(e([i]), u2)) for i in range(5)},
+        "the 40 roots act minusculely (w.alpha in {0, +-1}, and w + alpha is in the 16 when w.alpha = -1): the 20 roots "
+        "of A4 keep the singlet, the ten and the five, and the 20 roots +-(e_a + e_b) carry 1 -> 10 -> 5 and back":
+            pairings == {-1, 0, 1} and all(t is not None for _, t, _ in moves)
+            and all(s == t for s, t, a in moves if a in a4)
+            and all(abs(s - t) == 2 for s, t, a in moves if a not in a4)
+            and {(s, t) for s, t, a in moves if a not in a4} == {(0, 2), (2, 4), (2, 0), (4, 2)},
+        "the cubic and linear sums over the 16 vanish identically on R^5, the D5 Cartan: at the binding's h = (1, 2, 3, "
+        "4, -10) this is A(5) - A(Lambda^2 5) = -900 + 900 (B4), and at h = u it is (125 + 10 - 135)/8 = 0":
+            cubic == 0 and linear == 0 and on16 == 0 and A5 == A10 == -900 and on16 == A5 - A10
+            and xu == Counter({Fraction(5, 2): 1, half: 10, Fraction(-3, 2): 5})
+            and Fraction(125, 8) + 10 * Fraction(1, 8) + 5 * Fraction(-27, 8) == 0,
+    }
+
+
+def join_census_charges():
+    """Read as momenta on the carrier's coordinates, T3, Q and Y are points of order 2, 3 and 6 of R^8 / E8 whose
+    integral roots have full rank: alcove vertices, critical points of the band in the census families E7 + A1, E6 + A2
+    and A5 + A2 + A1, the colour A2 and the weak A1 inside the centralizers; none lies on a conjugate of the principal
+    circle."""
+    third, half, one, zero = Fraction(1, 3), Fraction(1, 2), Fraction(1), Fraction(0)
+    charges = {"T3": [zero] * 3 + [half, -half] + [zero] * 3,
+               "Q": [-third] * 3 + [one] + [zero] * 4,
+               "Y": [-third] * 3 + [half, half] + [zero] * 3}
+    R = [tuple(Fraction(int(round(2 * v)), 2) for v in r) for r in glue.roots()]
+    ip = lambda x, y: sum((a * b for a, b in zip(x, y)), Fraction(0))
+
+    def in_e8(v):
+        if all(a.denominator == 1 for a in v):
+            return sum(v) % 2 == 0
+        return all(a.denominator == 2 for a in v) and sum(v) % 2 == 0
+
+    def components(S):
+        left, out = set(S), []
+        while left:
+            comp, todo = set(), [left.pop()]
+            while todo:
+                a = todo.pop()
+                comp.add(a)
+                nb = {b for b in left if ip(a, b) != 0}
+                left -= nb
+                todo += list(nb)
+            out.append(comp)
+        return out
+
+    def kind(comp):
+        n, r = len(comp), sp.Matrix([[sp.Rational(a.numerator, a.denominator) for a in v] for v in comp]).rank()
+        name = "A" if n == r * (r + 1) else "D" if r >= 4 and n == 2 * r * (r - 1) else "E" if (r, n) in ((6, 72), (7, 126), (8, 240)) else "?"
+        return f"{name}{r}"
+    e = lambda i: tuple(Fraction(int(k == i)) for k in range(8))
+    sub = lambda a, b: tuple(x - y for x, y in zip(a, b))
+    colour = {sub(e(i), e(j)) for i in range(3) for j in range(3) if i != j}
+    weak = {sub(e(3), e(4)), sub(e(4), e(3))}
+    twin = {tuple(Fraction(int(a), 10) for a in assignment.TWIN[i] - assignment.TWIN[j])
+            for i in range(5) for j in range(5) if i != j}
+    cosv = {Fraction(0): 1, Fraction(1, 6): half, Fraction(1, 3): -half, Fraction(1, 2): -1, Fraction(2, 3): -half, Fraction(5, 6): half}
+    # the fundamental alcove: Bourbaki simple roots, highest root theta = sum of marks times simple roots
+    Bm = spine.frame()[0]
+    simple = [tuple(Fraction(int(round(2 * Bm[k, i])), 2) for k in range(8)) for i in range(8)]
+    marks = [2, 3, 4, 6, 5, 4, 3, 2]
+    theta = tuple(sum((m * s[k] for m, s in zip(marks, simple)), Fraction(0)) for k in range(8))
+    Sinv = sp.Matrix([[sp.Rational(a.numerator, a.denominator) for a in s] for s in simple]).inv()
+    vertex = {i: tuple(Fraction(int(sp.fraction(Sinv[k, i] / marks[i])[0]), int(sp.fraction(Sinv[k, i] / marks[i])[1]))
+                       for k in range(8)) for i in range(8)}
+
+    def reduce(x):
+        x = list(x)
+        while True:
+            a = next((s for s in simple if ip(s, x) < 0), None)
+            if a is not None:
+                c = ip(a, x)
+                x = [xi - c * ai for xi, ai in zip(x, a)]
+                continue
+            c = ip(theta, x)
+            if c > 1:
+                x = [xi - (c - 1) * ti for xi, ti in zip(x, theta)]
+                continue
+            return tuple(x)
+    fam = _census()
+    Rf = handover.e8_roots()
+    out = {}
+    for name, x in charges.items():
+        order = next(n for n in range(1, 13) if in_e8([n * a for a in x]))
+        res = {}
+        for r in R:
+            res.setdefault(ip(r, x) % 1, []).append(r)
+        integral = res[Fraction(0)]
+        comps = components(integral)
+        types = sorted((kind(c), c) for c in comps)
+        lam = sum(cosv[c] * len(v) for c, v in res.items())
+        tot = lambda c: [sum((r[k] for r in res.get(c, [])), Fraction(0)) for k in range(8)]
+        grad = [a + b - c - d for a, b, c, d in zip(tot(Fraction(1, 6)), tot(Fraction(1, 3)), tot(Fraction(2, 3)), tot(Fraction(5, 6)))]
+        y = reduce(x)
+        at = [i for i, v in vertex.items() if v == y]
+        typ = "+".join(sorted((t for t, _ in types), reverse=True))
+        hit = [(k, f) for k, f in fam.items() if k[1] == typ and abs(f["lambda"] - float(lam)) < 1e-9]
+        out[name] = dict(order=order, n=len(integral), types=types, eps=240 - lam, grad=grad, at=at, typ=typ, hit=hit,
+                         rank=sp.Matrix([[sp.Rational(a.numerator, a.denominator) for a in v] for v in integral]).rank(),
+                         stab=handover.stabiliser(Rf, np.array([float(a) for a in y]))[0])
+    comp_of = lambda name, S: [t for t, c in out[name]["types"] if S <= c]
+    rho = principal.weyl_vector()[1]
+    rhoF = [Fraction(int(round(v))) for v in rho]
+    ptype = {}
+    for k, m in ((1, 2), (1, 3), (2, 3), (1, 6), (5, 6)):
+        p = [k * a / m for a in rhoF]
+        I = [r for r in R if ip(r, p).denominator == 1]
+        ptype[(k, m)] = ("+".join(sorted((kind(c) for c in components(I)), reverse=True)),
+                         sp.Matrix([[sp.Rational(a.numerator, a.denominator) for a in v] for v in I]).rank())
+    T, Qd, Yd = out["T3"], out["Q"], out["Y"]
+    return {
+        "2 T3 = e3 - e4 is a root and Q, Y are not half-periods: the charges are points of order 2, 3 and 6 of the "
+        "momentum torus R^8 / E8 (3Q = (-1, -1, -1, 3, 0, 0, 0, 0) and 6Y lie in E8)": (T["order"], Qd["order"], Yd["order"]) == (2, 3, 6)
+            and sub(e(3), e(4)) in set(R) and [2 * a for a in charges["T3"]] == list(sub(e(3), e(4))),
+        "their integral roots (r.x in Z) have full rank 8: 128 for T3, the weak A1 and the E7 orthogonal to it; 78 for Q, "
+        "the colour A2 and an E6; 38 for Y, the colour A2, the weak A1 and an A5 holding the twin's A4'":
+            (T["n"], Qd["n"], Yd["n"]) == (128, 78, 38) and T["rank"] == Qd["rank"] == Yd["rank"] == 8
+            and T["typ"] == "E7+A1" and Qd["typ"] == "E6+A2" and Yd["typ"] == "A5+A2+A1"
+            and comp_of("T3", weak) == ["A1"] and comp_of("Q", colour) == ["A2"] and comp_of("Y", colour) == ["A2"]
+            and comp_of("Y", weak) == ["A1"] and comp_of("Y", twin) == ["A5"] and comp_of("Q", weak) == ["E6"]
+            and comp_of("Q", twin) == ["E6"],
+        "the band eps = 240 - sum cos(2 pi r.x) is 240 - 128 + 112 = 224 at T3, 240 - 78 + 81 = 243 at Q and "
+        "240 - 38 - 36 + 45 + 40 = 251 at Y, and its gradient sum r sin(2 pi r.x) vanishes exactly at each":
+            (T["eps"], Qd["eps"], Yd["eps"]) == (224, 243, 251) and all(not any(v["grad"]) for v in out.values()),
+        "alcove reduction carries each, by affine reflections, to the fundamental alcove's vertex omega_i/m_i of that "
+        "type, of mark 2, 3 and 6: the census families E7 + A1, E6 + A2 and A5 + A2 + A1 of 120, 2240 and 80640 "
+        "points, of Morse index 1, 2 and 5": [len(v["at"]) for v in out.values()] == [1, 1, 1]
+            and [marks[v["at"][0]] for v in (T, Qd, Yd)] == [2, 3, 6] and [v["stab"] for v in (T, Qd, Yd)] == [T["typ"], Qd["typ"], Yd["typ"]]
+            and [len(v["hit"]) for v in (T, Qd, Yd)] == [1, 1, 1]
+            and [(v["hit"][0][1]["orbit"], v["hit"][0][1]["index"]) for v in (T, Qd, Yd)] == [(120, 1), (2240, 2), (80640, 5)],
+        "none lies on the principal circle or a W(E8)-conjugate of it (the type is W- and E8-invariant): its points of "
+        "order 2, 3 and 6 are of types D8, A8 and A4 + A3 (rank 7)": ptype[(1, 2)] == ("D8", 8)
+            and ptype[(1, 3)] == ptype[(2, 3)] == ("A8", 8) and ptype[(1, 6)] == ptype[(5, 6)] == ("A4+A3", 7)
+            and {T["typ"], Qd["typ"], Yd["typ"]}.isdisjoint({"D8", "A8", "A4+A3"}),
+    }
+
+
+def join_halfper_triple():
+    """The carrier's A4 modulo 2 is an elliptic quadratic 4-space inside Lambda / 2 Lambda whose 15 nonzero points are
+    the triple's atoms: a site at the four-set it misses (singular, type D8), a duad at its root (nonsingular, type
+    E7 + A1); gamma = (-1)^q, the polar form is D + D^2 mod 2, and S5 = W(A4) is the whole orthogonal group O^-_4(2)."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    key = lambda v: tuple(int(c) % 2 for c in np.rint(Binv @ np.array(v, float)).astype(np.int64))
+    in_lattice = lambda v: all(int(c) == c for c in v) and int(sum(v)) % 2 == 0
+    e = lambda i: np.eye(8, dtype=np.int64)[i]
+    E = carrier.edges()
+    site_rep = {a: (lambda o: e(o[0]) + e(o[1]) - e(o[2]) - e(o[3]))([c for c in range(5) if c != a]) for a in range(5)}
+    duad_rep = {d: e(d[0]) - e(d[1]) for d in E}
+    atoms = [site_rep[a] for a in range(5)] + [duad_rep[d] for d in E]
+    # the subgroup of Lambda / 2 Lambda generated by the carrier's A4: its four simple roots mod 2
+    simple = [e(i) - e(i + 1) for i in range(4)]
+    span = {}
+    for c in itertools.product((0, 1), repeat=4):
+        v = sum((ci * s for ci, s in zip(c, simple)), np.zeros(8, dtype=np.int64))
+        span[key(v)] = c
+    a4 = [np.array(v, dtype=np.int64) for v in itertools.product((-2, -1, 0, 1, 2), repeat=5) if sum(v) == 0]
+    a4 = [np.r_[v, [0, 0, 0]] for v in a4]
+    norm4 = [v for v in a4 if v @ v == 4 and set(np.abs(v[:5])) <= {0, 1}]
+    q = lambda v: int(v @ v // 2) % 2
+    b = lambda v, w: int(v @ w) % 2
+    keys = [key(v) for v in atoms]
+    Dm = np.array(carrier.dirac(carrier.signless_incidence()), dtype=np.int64)
+    gamma = [int(x) for x in np.diag(np.array(carrier.grading(), dtype=np.int64))]
+    polar = np.array([[b(v, w) for w in atoms] for v in atoms])
+    Rf = handover.e8_roots()
+    types = [handover.stabiliser(Rf, v / 2.0)[0] for v in atoms]
+    R2 = [tuple(int(round(2 * c)) for c in r) for r in glue.roots()]
+    band = [240 - sum((-1) ** ((sum(a * int(c) for a, c in zip(r, v)) // 2) % 2) for r in R2) for v in atoms]
+    integral = all(sum(a * int(c) for a, c in zip(r, v)) % 2 == 0 for r in R2 for v in atoms)
+    # isometries of q on F2^4 (coordinates in the simple-root classes)
+    basis_q = [q(s) for s in simple]
+    basis_b = [[b(s, t) for t in simple] for s in simple]
+    qf = lambda c: (sum(ci * qi for ci, qi in zip(c, basis_q)) + sum(c[i] * c[j] * basis_b[i][j] for i in range(4)
+                                                                         for j in range(i + 1, 4))) % 2
+    vecs = list(itertools.product((0, 1), repeat=4))
+    img = lambda M, c: tuple(sum(M[i][j] * c[j] for j in range(4)) % 2 for i in range(4))
+    iso = 0
+    for flat in itertools.product((0, 1), repeat=16):
+        M = [flat[4 * i:4 * i + 4] for i in range(4)]
+        ims = [img(M, c) for c in vecs]
+        if len(set(ims)) == 16 and all(qf(c) == qf(t) for c, t in zip(vecs, ims)):
+            iso += 1
+    perm_act = set()
+    for p in itertools.permutations(range(5)):
+        P = np.eye(8, dtype=np.int64)
+        P[:5, :5] = np.eye(5, dtype=np.int64)[list(p)].T
+        perm_act.add(tuple(key(P @ s) for s in simple))
+    # the identification is forced: for each atom, the points of its kind fixed by its stabilizer in S5
+    perm8 = {p: np.eye(8, dtype=np.int64)[list(p) + [5, 6, 7]].T for p in itertools.permutations(range(5))}
+    def fixed_by_stab(i):
+        stab = [P for P in perm8.values() if key(P @ atoms[i]) == keys[i]]
+        kind = range(5) if i < 5 else range(5, 15)
+        return [j for j in kind if all(key(P @ atoms[j]) == keys[j] for P in stab)]
+    forced = all(fixed_by_stab(i) == [i] for i in range(15))
+    equiv = all(key(np.eye(8, dtype=np.int64)[list(p) + [5, 6, 7]].T @ site_rep[a]) == key(site_rep[p[a]])
+                for p in itertools.permutations(range(5)) for a in range(5)) and all(
+        key(perm8[p] @ duad_rep[d]) == key(duad_rep[tuple(sorted((p[d[0]], p[d[1]])))])
+        for p in itertools.permutations(range(5)) for d in E)
+    return {
+        "x -> x mod 2 E8 is injective on A4 / 2 A4: the carrier's A4 gives a 4-space F2^4 of 16 half-periods, the even "
+        "subsets of the five sites; its 15 nonzero points are the ten root classes +-(e_a - e_b) and five classes of "
+        "norm-four vectors, each holding the six e_b + e_c - e_d - e_e off one site a (30 in all)":
+            len(span) == 16 and set(keys) == set(span) - {key(np.zeros(8, dtype=np.int64))} and len(set(keys)) == 15
+            and all(in_lattice(v) for v in atoms) and len(norm4) == 30
+            and all(key(v) == keys[next(a for a in range(5) if v[a] == 0)] for v in norm4)
+            and all(key(-duad_rep[d]) == key(duad_rep[d]) for d in E),
+        "the half-period form q(x) = <x, x>/2 mod 2 is 0 on the five site classes and 1 on the ten duad classes, so it "
+        "is elliptic (five singular points, an ovoid of PG(3, 2)), and the triple's grading is gamma = (-1)^q: +1 on the "
+        "sites, -1 on the duads; the sites are half-periods of type D8 (band 256) and the duads of type E7 + A1 (224)":
+            [q(v) for v in atoms] == [0] * 5 + [1] * 10 and gamma == [(-1) ** q(v) for v in atoms]
+            and sum(1 for c in vecs if any(c) and qf(c) == 0) == 5
+            and types == ["D8"] * 5 + ["E7+A1"] * 10 and integral and band == [256] * 5 + [224] * 10,
+        "the polar form <x, y> mod 2 on the 15 atoms is D + D^2 mod 2: between a site and a duad it is the incidence M "
+        "(D), among the sites M M^T = 3I + J and among the duads M^T M = 2I + A (D^2), all mod 2":
+            np.array_equal(polar, (Dm + Dm @ Dm) % 2),
+        "S5 = W(A4) permutes the 16 classes as the sites and duads (so the identification is S5-equivariant, and the "
+        "only such one: each atom's stabilizer fixes no other point of its kind), and it is the whole orthogonal group "
+        "of q: the invertible q-isometries of F2^4 are exactly 120, O^-_4(2), and the 120 permutations act as 120 of them":
+            iso == 120 and len(perm_act) == 120 and equiv and forced,
+    }
+
+
+def join_petersen_waves():
+    """Curl = *d1 is a signing of the Petersen graph; its pentagons split six and six by sign."""
+    E = carrier.edges()
+    d0, d1, star, curl = waves.complex_ops()
+    A = sp.Matrix(carrier.petersen())
+    B = sp.Matrix(carrier.signed_incidence())
+    fifth = lambda e, f: (set(range(5)) - set(e) - set(f)).pop()
+    sgn = lambda e, f: Permutation([e[0], e[1], f[0], f[1], fifth(e, f)]).signature()
+    Pc = sp.eye(10) - B.T * B / 5
+    adj = {a: [b for b in range(10) if A[a, b]] for a in range(10)}
+    pent = set()
+    for c in itertools.permutations(range(10), 5):
+        if c[0] == min(c) and c[1] < c[4] and all(A[c[k], c[(k + 1) % 5]] for k in range(5)):
+            pent.add(c)
+    sign = {frozenset(c): sp.prod([curl[c[k], c[(k + 1) % 5]] for k in range(5)]) for c in pent}
+
+    def hamiltonian(S):
+        deg = Counter(v for k in S for v in E[k])
+        if set(deg.values()) != {2} or len(deg) != 5:
+            return False
+        seen, stack = {0}, [0]
+        while stack:
+            v = stack.pop()
+            for k in S:
+                if v in E[k]:
+                    w = E[k][0] + E[k][1] - v
+                    if w not in seen:
+                        seen.add(w)
+                        stack.append(w)
+        return len(seen) == 5
+    ham = {frozenset(S) for S in itertools.combinations(range(10), 5) if hamiltonian(S)}
+    S5 = list(itertools.permutations(range(5)))
+    image = lambda p, P: frozenset(E.index(tuple(sorted((p[E[k][0]], p[E[k][1]])))) for k in P)
+    c5 = {}
+    for p in S5:
+        if Permutation(list(p)).order() == 5:
+            c5.setdefault(frozenset(tuple((Permutation(list(p)) ** k).array_form) for k in range(5)), p)
+    step = lambda p, s: frozenset(E.index(tuple(sorted((i, (Permutation(list(p)) ** s).array_form[i])))) for i in range(5))
+    a5 = [p for p in S5 if Permutation(list(p)).is_even]
+    pos = frozenset(P for P, s in sign.items() if s == 1)
+    return {
+        "|Curl| is the Petersen adjacency: Curl = *d1 joins an edge e only to the three edges f disjoint from it, with "
+        "Curl_ef = sgn(e, f, c), the sign of the permutation (e, f, c) with c the fifth vertex; it is symmetric":
+            curl.applyfunc(abs) == A and curl == curl.T
+            and all(curl[a, b] == (sgn(E[a], E[b]) if not set(E[a]) & set(E[b]) else 0) for a in range(10) for b in range(10)),
+        "its square is 5I - B^T B = 5 P_cycle, so the signed graph has spectrum +-sqrt5 (three each) and 0^4, against the "
+        "graph's 3, 1^5, (-2)^4": curl * curl == 5 * sp.eye(10) - B.T * B == 5 * Pc
+            and curl.eigenvals() == {sp.sqrt(5): 3, -sp.sqrt(5): 3, 0: 4} and A.eigenvals() == {3: 1, 1: 5, -2: 4},
+        "the Petersen graph has twelve pentagons, exactly the Hamiltonian cycles of K5; six have Curl-sign +1 and six -1, "
+        "and for each of the six C5s its pentagon (step 1) and pentagram (step 2) have opposite signs":
+            len(pent) == 12 and set(sign) == ham and len(ham) == 12 and Counter(sign.values()) == Counter({1: 6, -1: 6})
+            and len(c5) == 6 and all(sign[step(p, 1)] == -sign[step(p, 2)] for p in c5.values()),
+        "a vertex permutation multiplies every pentagon's sign by its own sign, so the positive six and the negative six are "
+        "the two orbits of A5, swapped by every odd permutation": all(sign[image(p, P)] == Permutation(list(p)).signature() * s
+                                                                    for p in S5 for P, s in sign.items())
+            and {image(p, next(iter(pos))) for p in a5} == pos,
+    }
+
+
+def join_rotor_waves():
+    """Curl on the rotor plane: [[2, -1], [-1, -2]] in (pentagon, pentagram); off it, minus the helicity operator."""
+    d0, d1, star, curl = waves.complex_ops()
+    B = sp.Matrix(carrier.signed_incidence())
+    T = compound2(sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5)))
+    p, s = counts._oriented_cycle(1), counts._oriented_cycle(2)
+    R = sp.Matrix.hstack(p, s)
+    X = sp.Matrix([[2, -1], [-1, -2]])
+    phi = (1 + sp.sqrt(5)) / 2
+    Pc = sp.eye(10) - B.T * B / 5
+    Prot = R * (R.T * R).inv() * R.T
+    Pm = Pc - Prot
+    K = sp.eye(10) + 2 * (T + T.T)
+    fixed = (T - sp.eye(10)).nullspace()
+    zero = lambda M: M.applyfunc(sp.simplify).is_zero_matrix
+    hp, hm = p - (sp.sqrt(5) - 2) * s, p + (sp.sqrt(5) + 2) * s
+    g1, g2 = phi * p + s, p - phi * s
+    E = carrier.edges()
+    r5 = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))
+    H = sp.eye(5) - sp.ones(5, 5) / 5
+
+    def plane(c):
+        N = (r5 + r5.T - c * sp.eye(5)).applyfunc(sp.nsimplify)
+        V = sp.Matrix.hstack(*[v for v in N.nullspace(simplify=True)])
+        return (V * (V.T * V).inv() * V.T).applyfunc(sp.simplify)
+    wedge = lambda a, b: sp.Matrix([a[i] * b[j] - a[j] * b[i] for i, j in E])
+    P1, P2 = plane(phi - 1), plane(-phi)
+    area = lambda P: wedge(P * sp.eye(5)[:, 0], P * sp.eye(5)[:, 1]).applyfunc(sp.simplify)
+    par = lambda v, w: sp.Matrix.hstack(v, w).applyfunc(sp.simplify).rank(simplify=True) == 1
+    return {
+        "the rotor plane is the whole fixed space of the edge tick, spanned by the oriented pentagon and pentagram (Gram "
+        "5I), and lies in light": len(fixed) == 2 and sp.Matrix.hstack(*fixed, p, s).rank() == 2
+            and R.T * R == 5 * sp.eye(2) and (B * R).is_zero_matrix,
+        "Curl keeps it and acts on (pentagon, pentagram) as [[2, -1], [-1, -2]], symmetric with trace 0 and square 5I":
+            curl * R == R * X and X * X == 5 * sp.eye(2) and X.trace() == 0,
+        "so the plane holds one line of each helicity, the tick-fixed ones: pentagon - phi^-3 pentagram at +sqrt5 and "
+        "pentagon + phi^3 pentagram at -sqrt5": zero(curl * hp - sp.sqrt(5) * hp) and zero(curl * hm + sp.sqrt(5) * hm)
+            and sp.simplify(phi ** -3 - (sp.sqrt(5) - 2)) == 0 and sp.simplify(phi ** 3 - (sp.sqrt(5) + 2)) == 0,
+        "J_H = Curl/sqrt5 exchanges the golden lines phi pentagon + pentagram and pentagon - phi pentagram (the area forms "
+        "of the two Penrose planes, 72 and 144 degrees)": zero(curl * g1 - sp.sqrt(5) * g2) and zero(curl * g2 - sp.sqrt(5) * g1)
+            and sp.simplify((g1.T * g2)[0]) == 0 and zero(P1 * P2) and zero(P1 + P2 - H)
+            and par(area(P1), g1) and par(area(P2), g2),
+        "on the four moving cycles Curl = -(I + 2(T + T^-1)), a polynomial in the edge tick, while on the rotor plane "
+        "T = I and I + 2(T + T^-1) = 5: the rotor plane is exactly where the tick does not determine Curl":
+            Pm.rank() == 4 and zero(curl * Pm + K * Pm) and zero(K * Prot - 5 * Prot) and zero(T * Prot - Prot)
+            and not zero(curl * Prot - 5 * Prot) and not zero(curl * Prot + 5 * Prot),
+    }
+
+
+def join_simplex_binding():
+    """The binding's 5 + Lambda^2 5 are the simplex's grades 0 and 1, and the SU(5) anomaly is a function of the grade."""
+    h = sp.symbols("h0:4")
+    hv = list(h) + [-sum(h)]
+    faces = {k: list(itertools.combinations(range(5), k + 1)) for k in range(5)}
+    w = lambda S: sum((hv[i] for i in S), sp.Integer(0))
+    p2 = sp.expand(sum(x ** 2 for x in hv))
+    p3 = sp.expand(sum(x ** 3 for x in hv))
+    cubic = {k: sp.expand(sum(w(S) ** 3 for S in faces[k])) for k in range(5)}
+    quad = {k: sp.expand(sum(w(S) ** 2 for S in faces[k])) for k in range(5)}
+    lin = {k: sp.expand(sum(w(S) for S in faces[k])) for k in range(5)}
+    a, b = (1, 1, -1, -1, 0), (1, 3, 3, 1, 0)
+    five, ten, _ = binding.su5_weights()
+    ind = lambda S: tuple(1 if i in S else 0 for i in range(5))
+    comp = lambda S: tuple(i for i in range(5) if i not in S)
+    hn = (1, 2, 3, 4, -10)
+    anom = lambda ws: sum(sum(int(a) * b for a, b in zip(v, hn)) ** 3 for v in ws)
+    tetra = [ind(S) for S in faces[3]]
+    even = sp.expand(0 + cubic[1] + cubic[3])
+    odd = sp.expand(cubic[0] + cubic[2] + cubic[4])
+    return {
+        "a face S is the weight 1_S of Lambda^|S| 5: the binding's weights e_i of the 5 and e_i + e_j of Lambda^2 5 are "
+        "exactly the indicator vectors of the simplex's vertices and edges":
+            sorted(tuple(int(a) for a in v) for v in five) == sorted(ind(S) for S in faces[0])
+            and sorted(tuple(int(a) for a in v) for v in ten) == sorted(ind(S) for S in faces[1]),
+        "for every traceless diagonal charge h the cubic sum of h(S) over the faces of grade k is a_k sum h_i^3 with "
+        "a = 1, 1, -1, -1, 0, the SU(5) anomalies of Lambda^(k+1) 5; the linear sums vanish and the quadratic ones are "
+        "1, 3, 3, 1, 0 times sum h_i^2": all(sp.expand(cubic[k] - a[k] * p3) == 0 for k in range(5)) and p3 != 0
+            and all(lin[k] == 0 for k in range(5)) and all(sp.expand(quad[k] - b[k] * p2) == 0 for k in range(5)),
+        "the complement S -> V - S negates h(S) for every traceless h, carrying grade k to grade 3 - k: the tetrahedra "
+        "carry the 5b, the conjugate of the vertices, and the triangles the 10b": all(
+            sp.expand(w(S) + w(comp(S))) == 0 for k in range(4) for S in faces[k])
+            and anom(tetra) == -anom(five) != 0,
+        "so the binding's 5 (chirality -) + 10 (chirality +) is the edges plus the tetrahedra at one chirality, anomaly "
+        "1 - 1 = 0, and the even faces 1 + 10 + 5b and the odd faces 5 + 10b + 1 are each anomaly-free for every h":
+            sp.expand(cubic[1] + cubic[3]) == 0 and even == 0 and odd == 0
+            and anom(ten) - anom(five) == 0,
+    }
+
+
+def join_synthemes_waves():
+    """Each syntheme of the six Sylow labels spans a Curl-isotropic subspace of light; the special five are Lagrangian."""
+    H, sig, S5, sgn, U = _six_lines()
+    pairs, C, rho, Pcut, Pbr, Pdk = _pairs15()
+    curl = sp.Matrix(waves.complex_ops()[3])
+    B = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - B.T * B / 5
+    SY = _matchings(range(6))
+    move = lambda p, m: frozenset(frozenset(sig[p][y] for y in pr) for pr in m)
+    special = {m for m in SY if len({move(p, m) for p in S5}) == 5}
+    cols = lambda m: [pairs.index(tuple(sorted(pr))) for pr in m]
+    G, K = C.T * C, C.T * curl * C
+    meet = lambda a, b: len(set(pairs[a]) & set(pairs[b]))
+    Hp = (Pc + curl / sp.sqrt(5)) / 2
+    span = {m: C[:, cols(m)] for m in SY}
+    Pspan = {m: span[m] * (span[m].T * span[m]).inv() * span[m].T for m in special}
+
+    def signed_zero(V):
+        return any((V * sp.Matrix(s)).is_zero_matrix for s in itertools.product((1, -1), repeat=3))
+    return {
+        "the fifteen pair commutators C_ij of the six Sylow lines lie in light and are Curl-isotropic, and C^T Curl C is 80 "
+        "times a signing of the line graph of K6: two commutators are Curl-orthogonal exactly when their duads are equal "
+        "or disjoint": (B * C).is_zero_matrix and all(K[a, a] == 0 for a in range(15))
+            and all(abs(K[a, b]) == (80 if meet(a, b) == 1 else 0) for a in range(15) for b in range(15)),
+        "so the three commutators of each of the fifteen synthemes are pairwise Curl-orthogonal and span a Curl-isotropic "
+        "subspace of light": len(SY) == 15 and all((span[m].T * curl * span[m]).is_zero_matrix for m in SY),
+        "for the five special synthemes (the one-factorization of the exceptional S5) they are orthogonal of square 64, "
+        "and their span V_s is Lagrangian for the Hodge form: dimension 3, light = V_s + J_H V_s, so sqrt2 P_+ maps V_s "
+        "isometrically onto the helicity +sqrt5 and V_s is the graph of an isometry of one helicity onto the other; the "
+        "five projectors sum to (5/2) P_cycle": len(special) == 5
+            and all(span[m].T * span[m] == 64 * sp.eye(3) for m in special)
+            and all(sp.Matrix.hstack(span[m], curl * span[m]).rank() == 6 for m in special)
+            and all(sp.simplify(2 * (Hp * span[m]).T * (Hp * span[m]) - span[m].T * span[m]).is_zero_matrix for m in special)
+            and sum(Pspan.values(), sp.zeros(10)) == sp.Rational(5, 2) * Pc,
+        "for the ten other synthemes the three are dependent, a signed sum vanishing, with Gram 64 and +-32, and span an "
+        "isotropic plane": all(span[m].rank() == 2 and signed_zero(span[m])
+                               and {abs(x) for x in span[m].T * span[m]} == {64, 32} for m in SY if m not in special),
+    }
+
+
+def join_petersen_readout():
+    """The readout 'one edge' observes the Petersen distance partition of its edge."""
+    E = carrier.edges()
+    A = sp.Matrix(carrier.petersen())
+    D2 = sp.Matrix(carrier.D2())
+    M = sp.Matrix(carrier.signless_incidence())
+    Z, I15 = sp.zeros(15), sp.eye(15)
+    Asys = sp.Matrix(sp.BlockMatrix([[Z, I15], [-D2, Z]]))
+    Cn = np.array(observer.readouts()["one edge"], float)
+    C = sp.Matrix(1, 30, lambda _, j: int(j == 5))
+    rows, R = [], C
+    for _ in range(30):
+        rows.append(R)
+        R = R * Asys
+    O = sp.Matrix.vstack(*rows)
+    e = 0                                                    # atom 5 is the edge (0, 1)
+    dist = {b: 0 if b == e else 1 if A[e, b] else 2 for b in range(10)}
+    ind = lambda k: sp.Matrix([0] * 5 + [int(dist[b] == k) for b in range(10)])
+    W = sp.Matrix.hstack(*[sp.Matrix.vstack(ind(k), sp.zeros(15, 1)) for k in range(3)],
+                         *[sp.Matrix.vstack(sp.zeros(15, 1), ind(k)) for k in range(3)])
+    stab = [p for p in itertools.permutations(range(5)) if {p[0], p[1]} == {0, 1}]
+    orbits = {frozenset(E.index(tuple(sorted((p[i], p[j])))) for p in stab) for i, j in E}
+    rep = [next(a for a in range(10) if dist[a] == k) for k in range(3)]
+
+    def quotient(v):
+        dv = {b: 0 if b == v else 1 if A[v, b] else 2 for b in range(10)}
+        return {tuple(sum(A[a, b] for b in range(10) if dv[b] == l) for l in range(3)) + (dv[a],) for a in range(10)}
+    drg = all(quotient(v) == {(0, 3, 0, 0), (1, 0, 2, 1), (0, 1, 2, 2)} for v in range(10))
+    Qm = sp.Matrix(3, 3, lambda k, l: sum(A[rep[k], b] for b in range(10) if dist[b] == l))
+    Pw = sp.Matrix.hstack(*[ind(k)[5:, :] for k in range(3)])
+    D2w = (Pw.T * Pw).inv() * Pw.T * D2[5:, 5:] * Pw
+    return {
+        "the named readout 'one edge' reads the position of the edge atom 01, and its observable space has dimension 6":
+            np.array_equal(Cn, np.array(C.tolist(), float)) and O.rank() == 6 and E[e] == (0, 1),
+        "it is spanned by the positions and the velocities of the indicators of the Petersen distance classes of 01: "
+        "the edge itself, its three neighbours (the disjoint edges 23, 24, 34) and the six edges at distance 2":
+            sp.Matrix.vstack(O, W.T).rank() == 6 and W.rank() == 6 and [sum(1 for b in dist if dist[b] == k) for k in range(3)] == [1, 3, 6]
+            and {E[b] for b in range(10) if dist[b] == 1} == {(2, 3), (2, 4), (3, 4)},
+        "because D^2 = A^2 - I on the edges and the Petersen graph is distance-regular with intersection array "
+        "{3, 2; 1, 1}: the classes are an equitable partition with quotient [[0, 3, 0], [1, 0, 2], [0, 1, 2]], of spectrum "
+        "3, 1, -2, so the readout sees D^2 = 8, 0, 3, every frequency 0, sqrt3, sqrt8": D2[5:, 5:] == A * A - sp.eye(10)
+            and M.T * M == A * A - sp.eye(10)
+            and Qm == sp.Matrix([[0, 3, 0], [1, 0, 2], [0, 1, 2]]) and drg
+            and all((A * ind(k)[5:, :]) == sum((Qm[l, k] * ind(l)[5:, :] for l in range(3)), sp.zeros(10, 1)) for k in range(3))
+            and Qm.eigenvals() == {3: 1, 1: 1, -2: 1} and D2w.eigenvals() == {8: 1, 0: 1, 3: 1},
+        "the classes are the orbits of the edge's stabilizer S2 x S3 (order 12), so the observable space is exactly the "
+        "stabilizer's fixed space on the edge positions and velocities": len(stab) == 12
+            and orbits == {frozenset(b for b in range(10) if dist[b] == k) for k in range(3)},
+    }
+
+
+def join_assignment_triple():
+    """The root brackets among the matter multiplets are read off the triple's D and D^2."""
+    roots = {tuple(r) for r in assignment.roots10()}
+    ten, fiveb = assignment.multiplets()
+    info = {tuple(r): (k, cl, tl) for r, k, cl, tl in assignment.classify()}
+    E = carrier.edges()
+    M = np.array(carrier.signless_incidence(), dtype=int)
+    Pt = np.array(carrier.petersen(), dtype=int)
+    D = np.array(carrier.dirac(carrier.signless_incidence()), dtype=int)
+    I5, J5, I10, J10 = np.eye(5, dtype=int), np.ones((5, 5), dtype=int), np.eye(10, dtype=int), np.ones((10, 10), dtype=int)
+    clab = lambda r: assignment.label(assignment.carrier_part(r), assignment.SITE, assignment.DUAD)[1]
+    # 10 x 5b: rows the 5b's carrier site (a vertex atom), columns the 10's carrier duad (an edge atom)
+    t105, sums_ok, nbr = {}, True, 0
+    for i in range(5):
+        for d in assignment.DUADS:
+            T = np.zeros((5, 10), dtype=int)
+            for a in ten[i]:
+                e = clab(a)
+                for b in fiveb[d]:
+                    v = clab(b)
+                    s = tuple(a + b)
+                    if s in roots:
+                        T[v, E.index(e)] = 1
+                        nbr += 1
+                        k, cl, tl = info[s]
+                        rest = set(e) - {v}
+                        sums_ok &= (k == "(5,10b)" and len(rest) == 1 and cl[1] == rest.pop()
+                                    and tl[1] == tuple(sorted(set(range(5)) - {i} - set(d))))
+            t105[(i, d)] = T
+    t1010 = {}
+    for i in range(5):
+        for j in range(5):
+            T = np.zeros((10, 10), dtype=int)
+            for a in ten[i]:
+                for b in ten[j]:
+                    if tuple(a + b) in roots:
+                        T[E.index(clab(a)), E.index(clab(b))] = 1
+            t1010[(i, j)] = T
+    t55 = {}
+    for d in assignment.DUADS:
+        for dp in assignment.DUADS:
+            T = np.zeros((5, 5), dtype=int)
+            for a in fiveb[d]:
+                for b in fiveb[dp]:
+                    if tuple(a + b) in roots:
+                        T[clab(a), clab(b)] = 1
+            t55[(d, dp)] = T
+    return {
+        "a root of (10, 5) at carrier duad e and twin site i and a root of (5b, 10) at carrier site v and twin duad d with i "
+        "not in d sum to a root exactly when v lies in e, and the sum is the root of (5, 10b) at the carrier site e - v and "
+        "the twin duad opposite {i} u d (600 brackets)": sums_ok and nbr == 600,
+        "so each of the 30 such 5 x 10 bracket tables is the signless incidence M, the off-diagonal block of the triple's "
+        "D = [[0, M], [M^T, 0]], and the 20 tables with i in d are 0":
+            all(np.array_equal(T, M) for (i, d), T in t105.items() if i not in d)
+            and all(not T.any() for (i, d), T in t105.items() if i in d)
+            and sum(1 for (i, d) in t105 if i not in d) == 30 and np.array_equal(D[:5, 5:], M),
+        "the 10 x 10 bracket tables at twin sites i != j are the Petersen graph I + J - M^T M, from the edge block of "
+        "D^2, and at i = j they are 0": all(np.array_equal(T, Pt) for (i, j), T in t1010.items() if i != j)
+        and all(not T.any() for (i, j), T in t1010.items() if i == j) and np.array_equal(Pt, I10 + J10 - M.T @ M)
+        and np.array_equal((D @ D)[5:, 5:], M.T @ M),
+        "the 5b x 5b tables at disjoint twin duads are J - I = M M^T - 4I, from the vertex block of D^2, and 0 when the "
+        "duads meet": all(np.array_equal(T, J5 - I5) for (d, dp), T in t55.items() if not set(d) & set(dp))
+        and all(not T.any() for (d, dp), T in t55.items() if set(d) & set(dp))
+        and np.array_equal(J5 - I5, M @ M.T - 4 * I5) and np.array_equal((D @ D)[:5, :5], M @ M.T),
+    }
+
+
+def join_gravity_waves():
+    """The acoustic Dirac operator of the edge complex gives M4 x F the same heat coefficients as the carrier (conditional)."""
+    d0, _, _, _ = waves.complex_ops()
+    B, M = carrier.signed_incidence(), carrier.signless_incidence()
+    Ds = sp.zeros(15, 15)
+    Ds[:5, 5:], Ds[5:, :5] = d0.T, d0
+    D = sp.Matrix(carrier.dirac(M))
+    g = sp.Matrix(carrier.grading())
+    S2 = Ds * Ds
+    Gs = sp.zeros(15, 15)
+    Gs[:5, 5:], Gs[5:, :5] = -d0.T, d0                      # the acoustic system p' = -d0^T u, u' = d0 p
+    spec = S2.eigenvals()
+    mom = spectral.moments(3)
+    t, R, m = sp.symbols("t R m", positive=True)
+    ZF = sum(mult * sp.exp(-t * m ** 2 * lam) for lam, mult in spec.items())
+    co = sp.Poly(sp.expand(sp.series((4 - t * R / 3) * ZF, t, 0, 3).removeO()), t).all_coeffs()[::-1]
+    c0, (t0, R0, m0) = gravity.product_heat_coefficients()
+    co = [c.subs({t: t0, R: R0, m: m0}) for c in co]
+    ker = S2.nullspace()
+    Kb = sp.Matrix.hstack(*ker)
+    Pk = Kb * (Kb.T * Kb).inv() * Kb.T
+    tri = sum(1 for u, v, w in itertools.permutations(range(5), 3))
+    X, Y = M * M.T, B * B.T
+    cyc = lambda Z: sum(Z[u, v] * Z[v, w] * Z[w, u] for u, v, w in itertools.permutations(range(5), 3))
+    return {
+        "the acoustic system p' = -d0^T u, u' = d0 p squares to -D_s^2, with D_s = d0 + d0^T = [[0, B], [B^T, 0]] on the "
+        "triple's 15 atoms, odd for its grading, and D_s^2 = B B^T + B^T B has spectrum 0^7 5^8 (the carrier's D^2: 0^5 "
+        "3^8 8^2); D_s and D have the same entries up to sign": Gs * Gs == -S2 and Ds[:5, 5:] == B
+            and (g * Ds + Ds * g).is_zero_matrix and S2 == sp.diag(B * B.T, B.T * B)
+            and spec == {0: 7, 5: 8} and D.applyfunc(lambda x: x ** 2) == Ds.applyfunc(lambda x: x ** 2),
+        "Tr D_s^0, D_s^2, D_s^4 = 15, 40, 200 are the carrier's moments, so (4 - tR/3) Tr exp(-t m^2 D_s^2) has the "
+        "coefficients 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3 of M4 x F: for every f, L and m the two product "
+        "geometries have the same G and Lambda_cc": [(Ds ** (2 * k)).trace() for k in range(3)] == [mom[k] for k in range(3)]
+        and all(sp.simplify(a - b) == 0 for a, b in zip(co, c0)) and len(co) == len(c0) == 3,
+        "and the same Witten index: ker D_s^2 is the uniform vertex line plus the six cycles, Tr(gamma on ker D_s^2) = 1 - 6 "
+        "= -5, against the carrier's 0 - 5, so the massless towers have 7 modes against 5":
+            len(ker) == 7 and (g * Pk).trace() == -5 and (B.T * sp.ones(5, 1)).is_zero_matrix
+            and (Pk[5:, 5:]).rank() == 6 and len(D.nullspace()) == 5,
+        "Tr D^6 = 1240 and Tr D_s^6 = 1000 first separate them: the off-diagonal entries of M M^T and B B^T are +1 and -1, "
+        "so the 60 ordered triangles of K5 count +1 and -1 on each side, 2 x 2 x 60 = 240":
+            (D ** 6).trace() == 1240 == mom[3] and (Ds ** 6).trace() == 1000 and tri == 60
+            and cyc(X) == 60 and cyc(Y) == -60 and (X ** 3).trace() - (Y ** 3).trace() == 120
+            and (D ** 6).trace() - (Ds ** 6).trace() == 2 * 2 * tri,
+    }
+
+
+def join_cosmology_readout():
+    """On FLRW the Dirac readout sees the hidden sector through one number, the norm of the dark momentum (conditional).
+    The reduction is proved exactly on the vector field; only the separation 4 -> 9 is numerical (gap 5e-3 against
+    integration tolerances 1e-11)."""
+    U, _, (G, Lcc, m, psi0, v0) = _flrw()
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    P0 = sp.Matrix(carrier.spectral_projectors()[0])
+    Q0 = sp.eye(15) - P0
+    K = sp.Matrix(carrier.D2())
+    # the vector field of layer 7 on a symbolic state: (ln a)' = H, H' = -4 pi G |v|^2, psi' = v, v' = -3 H v - m^2 D^2 psi
+    x = sp.Matrix(sp.symbols("x0:15"))
+    y = sp.Matrix(sp.symbols("y0:15"))
+    H, g, mm, lam = sp.symbols("H g m Lambda")
+    vdot = -3 * H * y - mm ** 2 * K * x
+    Hdot = -4 * sp.pi * g * (y.T * y)[0]
+    s = (y.T * P0 * y)[0]                                               # |P0 v|^2
+    rho = (y.T * y)[0] / 2 + mm ** 2 * (x.T * K * x)[0] / 2
+    zero = lambda e: sp.expand(e) == 0
+    exact = (P0 == P0.T and P0 * P0 == P0 and (D * P0).is_zero_matrix and (K * P0).is_zero_matrix
+             and P0.rank() == 5 and (D * K - K * D).is_zero_matrix)
+    closed = (zero(Hdot + 4 * sp.pi * g * ((Q0 * y).T * (Q0 * y))[0] + 4 * sp.pi * g * s)
+              and (sp.expand(Q0 * vdot - (-3 * H * Q0 * y - mm ** 2 * K * Q0 * x))).is_zero_matrix
+              and (sp.expand(P0 * vdot + 3 * H * P0 * y)).is_zero_matrix
+              and zero(2 * (y.T * P0 * vdot)[0] + 6 * H * s)
+              and zero(rho - ((Q0 * y).T * (Q0 * y))[0] / 2 - s / 2 - mm ** 2 * ((Q0 * x).T * K * (Q0 * x))[0] / 2)
+              and (D * x - D * Q0 * x).is_zero_matrix)
+    H0 = sp.sqrt(8 * sp.pi * g / 3 * rho + lam / 3)                    # the initial H from the Friedmann constraint
+    decouple = zero(Hdot.subs(g, 0)) and not any(H0.subs(g, 0).has(t) for t in list(x) + list(y))
+    # the datum and its dark variants, exactly
+    p0v = sp.Matrix([sp.Integer(int(round(c))) for c in psi0]), sp.Matrix([sp.Integer(int(round(c))) for c in v0])
+    ps, vs = p0v
+    p0 = P0 * vs
+    n = sp.Matrix(carrier.signless_incidence()).nullspace()
+    nv = sp.Matrix.vstack(sp.zeros(5, 1), n[0] + 2 * n[1] - n[3])
+    w = p0 - 2 * (p0.T * nv)[0] / (nv.T * nv)[0] * nv                  # p0 reflected inside ker M: same norm, new direction
+    k = sp.Matrix.vstack(sp.zeros(5, 1), n[0] - 3 * n[2] + n[4])          # a dark position shift
+    ps2, vs2 = ps + k, vs - p0 + w
+    vs3 = vs + p0 / 2
+    same = ((P0 * ps).is_zero_matrix and (p0.T * p0)[0] == 4 and (w.T * w)[0] == 4 and w != p0 and (P0 * w) == w
+            and Q0 * ps2 == Q0 * ps and Q0 * vs2 == Q0 * vs and (vs2.T * P0 * vs2)[0] == (vs.T * P0 * vs)[0]
+            and ((P0 * vs3).T * (P0 * vs3))[0] == 9 and Q0 * vs3 == Q0 * vs)
+    # numerical: |p|^2 = 4 -> 9 separates the records (gap about 5e-3 against tolerances 1e-11)
+    Dn = np.array(D.tolist(), float)
+    T, npts = 20.0, 201
+
+    def record(psi, v):
+        sol = cosmology.FLRW(G, Lcc, m).evolve(psi, v, T, n=npts)
+        return sol.y[0], Dn @ sol.y[2:17]
+    a1, r1 = record(psi0, v0)
+    a3, r3 = record(psi0, np.array([float(c) for c in vs3]))
+    return {
+        "the dark modes enter the bright equations only through H, and H only through |P0 psi'|^2: P0 is the orthogonal "
+        "projector onto ker D, D^2 P0 = 0, so the bright part of v' is -3 H (1 - P0) v - m^2 D^2 (1 - P0) psi, the dark "
+        "part is -3 H P0 v, H' = -4 pi G (|(1 - P0) v|^2 + |P0 v|^2), |P0 v|^2 obeys s' = -6 H s, rho splits the same "
+        "way and D psi = D (1 - P0) psi: (ln a, H, the bright modes, s) is a closed system": exact and closed,
+        "so (by uniqueness of solutions, cited) the Dirac readout D psi(t) and a(t) read the dark sector only through "
+        "|p|^2 = s a^6, p = a^3 P0 psi' conserved; from the datum (|p|^2 = 4, P0 psi0 = 0), a dark shift k in ker M with "
+        "p reflected inside ker M has the same bright data and the same |p|, hence the same record": same,
+        "while |p|^2 = 4 -> 9 changes both (the records differ by more than 1e-3, the integration tolerances being "
+        "1e-11): gravity makes one dark number observable": np.abs(r1 - r3).max() > 1e-3 and np.abs(a1 - a3).max() > 1e-3,
+        "and at G = 0, H' = 0 and the bright equations do not contain s: the readout's hidden sector ker M + ker M is "
+        "hidden again": decouple,
+    }
+
+
+def join_binding_cosmology():
+    """The dark O(5) of the commutant and the dark shifts act on the cosmos; their charges lie in the binding's 5 and 10.
+    Everything is proved exactly on layer 7's vector field, for symbolic G, Lambda_cc and m: an X that is the identity
+    off ker D satisfies X D^2 = D^2 X = D^2 because D^2 P0 = P0 D^2 = 0, and an exact rational rotation of ker D
+    (two reflections) is the worked instance."""
+    _, _, (_, _, _, psi0, v0) = _flrw()
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    K = sp.Matrix(carrier.D2())
+    P0 = sp.Matrix(carrier.spectral_projectors()[0])
+    I = sp.eye(15)
+    N = sp.Matrix.hstack(*D.nullspace())                                # a basis of ker D (5 columns)
+    refl = lambda n: I - 2 * n * n.T / (n.T * n)[0]
+    n1, n2 = N * sp.Matrix([1, 0, 2, -1, 0]), N * sp.Matrix([0, 1, 1, 0, -3])
+    X = refl(n1) * refl(n2)                                             # a rational rotation of ker D, det +1
+    R = refl(n1)                                                        # and a reflection, det -1
+    x = sp.Matrix(sp.symbols("x0:15"))
+    y = sp.Matrix(sp.symbols("y0:15"))
+    a, H, g, mm = sp.symbols("a H g m", positive=True)
+    rhs = lambda psi, v: (H, -4 * sp.pi * g * (v.T * v)[0], v, -3 * H * v - mm ** 2 * K * psi)
+    rho = lambda psi, v: (v.T * v)[0] / 2 + mm ** 2 * (psi.T * K * psi)[0] / 2
+    zero = lambda e: sp.expand(e) == 0
+    zm = lambda E: sp.expand(E).is_zero_matrix
+    f = rhs(x, y)
+
+    def keeps(Z):
+        fZ = rhs(Z * x, Z * y)
+        return (Z.T * Z == I and Z * D == D * Z and Z * P0 == P0 * Z and (I - P0) * (Z - I) == sp.zeros(15)
+                and zero(fZ[1] - f[1]) and zm(fZ[2] - Z * f[2]) and zm(fZ[3] - Z * f[3]) and zero(rho(Z * x, Z * y) - rho(x, y)))
+    k = N * sp.Matrix(sp.symbols("k0:5"))
+    fk = rhs(x + k, y)
+    p = a ** 3 * P0 * y
+    L = a ** 3 * (P0 * x * (P0 * y).T - P0 * y * (P0 * x).T)
+    vdot = f[3]
+    dp = 3 * a ** 3 * H * P0 * y + a ** 3 * P0 * vdot                 # d/dt with a' = a H, psi' = v
+    dL = (3 * a ** 3 * H * (P0 * x * (P0 * y).T - P0 * y * (P0 * x).T)
+          + a ** 3 * (P0 * y * (P0 * y).T - P0 * y * (P0 * y).T + P0 * x * (P0 * vdot).T - P0 * vdot * (P0 * x).T))
+    # P0 Z = Z P0 gives p(Z psi, Z v) = Z p and, as (Z u)(Z w)^T = Z u w^T Z^T, L(Z psi, Z v) = Z L Z^T
+    tr = lambda Z: P0 * Z == Z * P0 and zm(a ** 3 * P0 * Z * y - Z * p)
+    ps, vs = (sp.Matrix([sp.Integer(int(round(t))) for t in w]) for w in (psi0, v0))
+    return {
+        "an orthogonal X that is the identity off ker D lies in the commutant's M5 block (D^2 P0 = P0 D^2 = 0 gives "
+        "X D^2 = D^2 X = D^2), so the dark O(5) commutes with D; with the dark shifts psi -> psi + k, k in ker D, it keeps "
+        "the flat FLRW vector field and rho for symbolic G, Lambda_cc and m, so solutions go to solutions with the same "
+        "a(t) (worked on an exact rotation and an exact reflection of ker D)":
+            (D * N).is_zero_matrix and N.rank() == 5 and P0 == P0.T and P0 * P0 == P0 and (K * P0).is_zero_matrix
+            and (P0 * K).is_zero_matrix and X.det() == 1 and R.det() == -1 and X != I and keeps(X) and keeps(R)
+            and fk[1] == f[1] and zm(fk[3] - f[3]) and zero(rho(x + k, y) - rho(x, y)),
+        "their charges, the momentum p = a^3 P0 psi' in ker D and the angular momentum a^3 P0 psi ^ P0 psi' in "
+        "Lambda^2 ker D, are conserved along the flow, and the dark O(5) acts on them as on the binding's 5 and 10: "
+        "p -> X p, L -> X L X^T": zm(dp) and zm(dL) and tr(X) and tr(R),
+        "since P0 psi' = p/a^3 with p constant, the dark modes move on the line through P0 psi(0) along p and the "
+        "bivector is P0 psi(0) ^ p, decomposable and containing p": zm(P0 * y - p / a ** 3),
+        "the datum starts at P0 psi0 = 0 with |P0 v0|^2 = 4, so its dark angular momentum vanishes and only p, "
+        "|p|^2 = 4, remains": (P0 * ps).is_zero_matrix and ((P0 * vs).T * (P0 * vs))[0] == 4,
+    }
+
+
+def join_charges_triple():
+    """The triple's D carries a charge on the five sites to its charge on the ten duads, and back to 3 times itself."""
+    M = sp.Matrix(carrier.signless_incidence())
+    D = sp.Matrix(carrier.dirac(M))
+    E = carrier.edges()
+    third, half = sp.Rational(1, 3), sp.Rational(1, 2)
+    Q = sp.Matrix([-third] * 3 + [1, 0])
+    Y = sp.Matrix([-third] * 3 + [half, half])
+    T3 = sp.Matrix([0, 0, 0, half, -half])
+    up = lambda c: sp.Matrix.vstack(c, sp.zeros(10, 1))
+    dn = lambda w: sp.Matrix.vstack(sp.zeros(5, 1), w)
+    duad = lambda c: sp.Matrix([c[i] + c[j] for i, j in E])
+    MQ = M.T * Q
+    kind = lambda e: "colour" if set(e) <= {0, 1, 2} else "colour-3" if 3 in e and 4 not in e else \
+        "colour-4" if 4 in e and 3 not in e else "weak"
+    by = {}
+    for k, e in enumerate(E):
+        by.setdefault(kind(e), set()).add(MQ[k])
+    rows = assignment.table()
+    on_roots = all(x["Q"] == Fraction(int(sp.numer(MQ[E.index(x["carrier"][1])])), int(sp.denom(MQ[E.index(x["carrier"][1])])))
+                   for x in rows if x["class"] == "(10,5)")
+    names = {kind(x["carrier"][1]): x["particle"] for x in rows if x["class"] == "(10,5)" and x["particle"] in ("u^c", "e^c")}
+    names.update({kind(x["carrier"][1]): x["particle"] for x in rows if x["class"] == "(10,5)" and x["particle"] in ("u", "d")})
+    s3 = sp.sqrt(3)
+    E5 = sp.eye(5)
+    second = sum(((E5[:, i] + E5[:, j]) * (E5[:, i] + E5[:, j]).T for i, j in E), sp.zeros(5, 5))
+    return {
+        "D(q, 0) = (0, M^T q) with (M^T q)_ij = q_i + q_j, the weights of Lambda^2 5, for Q, Y and T3":
+            all(D * up(c) == dn(M.T * c) and M.T * c == duad(c) for c in (Q, Y, T3)),
+        "Q goes to -2/3, 2/3, -1/3 and 1 on the colour, colour-3, colour-4 and weak duads, and these are the charges of "
+        "u^c, u, d and e^c on the 50 roots of (10, 5)": by == {"colour": {-2 * third}, "colour-3": {2 * third},
+                                                                 "colour-4": {-third}, "weak": {1}}
+        and on_roots and names == {"colour": "u^c", "colour-3": "u", "colour-4": "d", "weak": "e^c"},
+        "as each charge is trace-free, D(0, M^T q) = (3q, 0): (sqrt3 q, +-M^T q) are eigenvectors of D at +-sqrt3, and the "
+        "charge plane spanned by Y and T3 lies in D^2 = 3 on the vertex atoms":
+            all(sum(c) == 0 and D * dn(M.T * c) == up(3 * c) for c in (Q, Y, T3))
+            and all(sp.simplify(D * sp.Matrix.vstack(s3 * c, sg * M.T * c) - sg * s3 * sp.Matrix.vstack(s3 * c, sg * M.T * c))
+                    == sp.zeros(15, 1) for c in (Q, Y, T3) for sg in (1, -1))
+            and all(D * D * up(c) == 3 * up(c) for c in (Y, T3)) and Q == Y + T3,
+        "|M^T q|^2 = 3 |q|^2 (4 = 3 x 4/3 for Q, 5/2 = 3 x 5/6 for Y, 3/2 = 3 x 1/2 for T3): the second moment of the ten "
+        "duad weights is M M^T = 3I + J, the triple's vertex block, so the quadratic index of Lambda^2 5 is 3 times that "
+        "of 5 on every trace-free charge, the eigenvalue h(D5) - h(A4) = 8 - 5":
+            [((M.T * c).T * (M.T * c))[0] for c in (Q, Y, T3)] == [4, sp.Rational(5, 2), sp.Rational(3, 2)]
+            and all(((M.T * c).T * (M.T * c))[0] == 3 * (c.T * c)[0] for c in (Q, Y, T3))
+            and second == M * M.T == 3 * E5 + sp.ones(5, 5) and (D * D)[:5, :5] == M * M.T,
+    }
+
+
+def join_calibration_triple():
+    """A calibration carries the triple to (A, H, D/tau, gamma); its spectral data move by beta -> beta/tau^2.
+    All exact (sympy, symbolic tau): the physical flow exp(t A_phys) is identified with the closed form by the ODE
+    Phi(0) = I, Phi' = A_phys Phi."""
+    s, b, tau, L, t = sp.symbols("s beta tau L t", positive=True)
+    f = sp.Function("f")
+    SPEC = spectral.SPEC
+    Dm = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    g = sp.Matrix(carrier.grading())
+    K = Dm * Dm
+    Dt = Dm / tau
+    I15, Z15 = sp.eye(15), sp.zeros(15)
+    A_phys = sp.Matrix(sp.BlockMatrix([[Z15, I15], [-K / tau ** 2, Z15]]))
+    Z = lambda x: sum(mu * sp.exp(-lam * x) for lam, mu in SPEC.items())
+    zt = sum(mu * (sp.Integer(lam) / tau ** 2) ** (-s) for lam, mu in SPEC.items() if lam)
+    Zt = sum(mu * sp.exp(-lam * b / tau ** 2) for lam, mu in SPEC.items())
+    ds = lambda ZZ: sp.simplify(-2 * b * sp.diff(sp.log(ZZ), b))
+    Pex = {lam: sp.Matrix(P) for lam, P in carrier.spectral_projectors().items()}
+
+    def blk(c, sn, ms, P):
+        return sp.Matrix(sp.BlockMatrix([[c * P, sn * P], [ms * P, c * P]]))
+    Phi = sp.zeros(30)
+    for lam, P in Pex.items():
+        w = sp.sqrt(lam) / tau
+        Phi += blk(1, t, 0, P) if lam == 0 else blk(sp.cos(w * t), sp.sin(w * t) / w, -w * sp.sin(w * t), P)
+    flow = (Phi.subs(t, 0) == sp.eye(30)
+            and (sp.diff(Phi, t) - A_phys * Phi).applyfunc(sp.simplify).is_zero_matrix)
+    law = all(sp.simplify(gatework.Calibration(tau).frequency(sp.sqrt(lam)) - sp.sqrt(lam / tau ** 2)) == 0 for lam in (3, 8))
+    return {
+        "the calibrated triple (A, H, D/tau, gamma) is again odd for gamma, and the physical generator [[0, I], [-D^2/tau^2, "
+        "0]] is the first-order form of (D/tau)^2: its square is -((D/tau)^2 + (D/tau)^2), its frequencies are the readout "
+        "law omega_hat/tau, and layer 13's physical flow exp(t A_phys) is the closed-form flow of D/tau, for every tau":
+            (g * Dt + Dt * g).is_zero_matrix and A_phys * A_phys == -sp.diag(Dt * Dt, Dt * Dt)
+            and Dt * Dt == K / tau ** 2 and K.eigenvals() == SPEC == {0: 5, 3: 8, 8: 2} and law and flow,
+        "its heat trace is Z(beta/tau^2), its zeta function tau^(2s) zeta_D(s), its spectral dimension d_s(beta/tau^2) and "
+        "its spectral action Tr f((D/tau)^2/L^2) the native one at cutoff tau L, for every f":
+            sp.simplify(Zt - Z(b / tau ** 2)) == 0 and sp.simplify(zt - tau ** (2 * s) * spectral.zeta(s)) == 0
+            and sp.simplify(ds(Zt) - ds(Z(b)).subs(b, b / tau ** 2)) == 0
+            and sp.simplify(sum(mu * f(lam / tau ** 2 / L ** 2) for lam, mu in SPEC.items())
+                            - sum(mu * f(lam / (tau * L) ** 2) for lam, mu in SPEC.items())) == 0,
+        "so zeta(0) = 10 = rank D^2, the Witten index -5 and the peak spectral dimension (the supremum of a "
+        "reparametrized d_s) are calibration-invariant, while Tr D^2 = 40 becomes 40/tau^2: only dimensionless spectral "
+        "numbers survive, and the triple's spectral action cannot tell a calibration from a change of cutoff":
+            zt.subs(s, 0) == 10 == spectral.zeta(0) == K.rank()
+            and sp.simplify(sum(sp.exp(-b * lam / tau ** 2) * (g * Pl).trace() for lam, Pl in Pex.items()) + 5) == 0
+            and len((Dt * Dt).nullspace()) == 5
+            and sp.simplify(ds(Zt) - ds(Z(b)).subs(b, b / tau ** 2)) == 0
+            and sp.simplify((Dt * Dt).trace() - 40 / tau ** 2) == 0,
+    }
+
+
+def join_readout_waves():
+    """No orientation of K5 makes the Hodge split invariant under the readout's edge dynamics; the sound and light readings."""
+    M, B = sp.Matrix(carrier.signless_incidence()), sp.Matrix(carrier.signed_incidence())
+    K = M.T * M                                                    # D^2 on the edge atoms
+    ranks = Counter()
+    for signs in itertools.product((1, -1), repeat=10):
+        T = sp.diag(*signs) * B.T                                  # the cuts (sound) of this orientation
+        ranks[sp.Matrix.hstack(T, K * T).rank()] += 1
+    d0, _, _, curl = waves.complex_ops()
+    cyc = sp.Matrix.hstack(*B.nullspace())
+    Pl = cyc * (cyc.T * cyc).inv() * cyc.T
+    Ps = sp.eye(10) - Pl
+    n = 15
+    A = sp.Matrix(sp.BlockMatrix([[sp.zeros(n), sp.eye(n)], [-sp.Matrix(carrier.D2()), sp.zeros(n)]]))
+    ext = lambda P: sp.diag(sp.zeros(5), P)
+    PE = {lam: Pl_[5:, 5:] for lam, Pl_ in carrier.spectral_projectors().items()}
+    hull = lambda X: [(PE[lam] * X).rank() for lam in (0, 3, 8)]
+    kerM = sp.Matrix.hstack(*M.nullspace())
+    E3 = M.T * sp.Matrix([[1, 0, 0, 0], [-1, 1, 0, 0], [0, -1, 1, 0], [0, 0, -1, 1], [0, 0, 0, -1]])
+    meet = lambda U, V: U.shape[1] + V.shape[1] - sp.Matrix.hstack(U, V).rank()
+    reading = lambda P: sp.Matrix.hstack(sp.zeros(10, 5), P, sp.zeros(10, 15))
+
+    def kalman(C):                                                   # exact observability matrix, 30 steps
+        rows, R = [], C
+        for _ in range(30):
+            rows.append(R)
+            R = R * A
+        return sp.Matrix.vstack(*rows)
+    obs_l, obs_s = kalman(reading(Pl)), kalman(reading(Ps))
+    inter = sp.Matrix.hstack(kerM, -cyc).nullspace()
+    dc = sp.Matrix.hstack(*[kerM * v[:5, :] for v in inter])                          # ker M n light, three vectors
+    cuts = d0[:, :4]                                                                 # a basis of sound = im d0
+    line = sp.Matrix.hstack(E3, -cuts).nullspace()
+    ln = E3 * line[0][:4, :]                                                         # E3 n sound, one vector
+    lift = lambda X: sp.Matrix.vstack(sp.zeros(5, 2 * X.shape[1]), sp.Matrix.hstack(X, sp.zeros(*X.shape)),
+                                      sp.zeros(5, 2 * X.shape[1]), sp.Matrix.hstack(sp.zeros(*X.shape), X))
+    DC, LN = lift(dc), lift(ln)
+    return {
+        "for each of the 2^10 orientations of K5, sound + M^T M sound has dimension 7 (320 orientations) or 8 (704), never "
+        "4: neither sound nor its complement light is invariant under the carrier's edge block D^2|_E = M^T M, whatever "
+        "the orientation": ranks == Counter({8: 704, 7: 320}) and K == sp.Matrix(carrier.D2())[5:, 5:],
+        "so for the canon's orientation the Hodge projectors do not commute with the readout's generator: P (+) P, with P "
+        "the sound or the light projector on the edge atoms, does not commute with A = [[0, I], [-D^2, 0]], and Curl does "
+        "not commute with M^T M": all(sp.diag(ext(P), ext(P)) * A != A * sp.diag(ext(P), ext(P)) for P in (Ps, Pl))
+        and K * curl != curl * K and Pl == sp.eye(10) - d0 * (d0.T * d0).pinv() * d0.T,
+        "the light reading P_light psi_E meets the edge eigenspaces 0, 3, 8 in ranks 5, 3, 1 and observes 18 of the 20 "
+        "edge dimensions, blind to the line E3 n sound of the 3-space; the sound reading meets them in 2, 4, 1 and observes "
+        "14, blind to ker M n light, three dark circulations, in position and velocity":
+            hull(Pl) == [5, 3, 1] and hull(Ps) == [2, 4, 1] and obs_l.rank() == 18 and obs_s.rank() == 14
+            and cuts.rank() == 4 and meet(E3, cuts) == 1 and meet(kerM, cyc) == 3 and len(inter) == 3 and len(line) == 1
+            and (obs_s * DC).is_zero_matrix and DC.rank() == 6
+            and (obs_l * LN).is_zero_matrix and LN.rank() == 2
+            and (M * dc).is_zero_matrix and (B * dc).is_zero_matrix,
+    }
+
+
+def join_datum_readout():
+    """The datum as the initial state of the readout's control system: closed-form flow and what each readout sees."""
+    psi0, v0 = carrier.canon_initial_datum()
+    p0 = sp.Matrix([int(round(x)) for x in psi0])
+    w0 = sp.Matrix([int(round(x)) for x in v0])
+    K = sp.Matrix(carrier.D2())
+    M = sp.Matrix(carrier.signless_incidence())
+    A = sp.Matrix(observer.system_matrix().astype(int))
+    E = carrier.edges()
+    t = sp.symbols("t", real=True)
+    c = sp.Matrix([1, -1, 0, 0, 0])
+    one = sp.ones(5, 1)
+    psi = sp.Matrix.vstack(one * sp.cos(2 * sp.sqrt(2) * t) + c * sp.cos(sp.sqrt(3) * t),
+                           (M.T * c) * sp.cos(sp.sqrt(3) * t) + w0[5:, 0] * t)
+    x = sp.Matrix.vstack(psi, psi.diff(t))
+    energy = lambda p, w: (w.T * w)[0] / 2 + (p.T * K * p)[0] / 2
+    R = observer.readouts()
+    names = {"vertex positions": 23, "vertex sum (uniform statistic)": 20, "edge positions": 11,
+             "Dirac image D psi": 32, "all positions": 34}
+    seen, blind_ok, dirac_split = {}, True, False
+    for name in names:
+        C = R[name]
+        Cp = sp.Matrix(np.rint(C[:, :15]).astype(int))
+        assert not np.any(C[:, 15:])
+        S = sp.Matrix.hstack(*[K ** k * Cp.T for k in range(4)])
+        B = sp.Matrix.hstack(*S.columnspace())
+        P = B * (B.T * B).inv() * B.T                       # projector onto the observable positions (K-invariant)
+        po, wo = P * p0, P * w0
+        seen[name] = energy(po, wo)
+        if name == "Dirac image D psi":                          # psi0 is wholly observable, v0 wholly hidden
+            dirac_split = po == p0 and wo == sp.zeros(15, 1)
+        # the record from the hidden part vanishes identically: C K^k (1 - P) = 0
+        blind_ok = blind_ok and all((Cp * K ** k * (sp.eye(15) - P)).is_zero_matrix for k in range(4)) \
+            and P * K == K * P and energy(po, wo) + energy(p0 - po, w0 - wo) == energy(p0, w0)
+    edge = lambda i, j: 5 + E.index((i, j))
+    return {
+        "the datum is an initial state of the readout's control system x' = A x, A = [[0, I], [-D^2, 0]], and its flow is "
+        "psi = 1 cos(2 sqrt2 t) + c cos(sqrt3 t) on the vertices and M^T c cos(sqrt3 t) + t v0 on the edges, "
+        "c = (1, -1, 0, 0, 0): x(0) = (psi0, v0) and x' = A x exactly":
+            x.subs(t, 0) == sp.Matrix.vstack(p0, w0) and sp.simplify(x.diff(t) - A * x) == sp.zeros(30, 1)
+            and p0[:5, 0] == one + c and p0[5:, 0] == M.T * c,
+        "the observable part of the datum carries energy 23 for the vertex positions, 20 for the vertex sum, 11 = 9 + 2 "
+        "for the edge positions, 32 for the Dirac image D psi and all 34 for all positions; the hidden part's record "
+        "vanishes and the energy splits": blind_ok and seen == names and energy(p0, w0) == 34,
+        "the Dirac readout misses exactly the velocity's 2: D psi(t) is the record of (psi0, 0), the zero-mode drift "
+        "t v0 lying in ker D": dirac_split and sp.Matrix(carrier.dirac(carrier.signless_incidence())) * sp.Matrix.vstack(sp.zeros(5, 1), w0[5:, 0]) == sp.zeros(15, 1)
+            and energy(sp.zeros(15, 1), w0) == 2,
+        "read at one edge, edges 01 and 23 record exactly t, the drift, and edges 24 and 34 record 0 for all t":
+            sp.simplify(psi[edge(0, 1)] - t) == 0 and sp.simplify(psi[edge(2, 3)] - t) == 0
+            and psi[edge(2, 4)] == 0 and psi[edge(3, 4)] == 0,
+    }
+
+
+def join_triangle_assignment():
+    """The triangle port is the sign character of the colour Weyl group on the assignment's gluon roots."""
+    e = np.eye(8, dtype=np.int64)
+    tri = [(0, 1), (1, 2), (2, 0)]
+    port = {}
+    for a, b in tri:                                            # the port of layer 22: +1 on the oriented A4 roots
+        port[tuple((e[a] - e[b]).tolist())] = 1
+        port[tuple((e[b] - e[a]).tolist())] = -1
+    rows = assignment.table()
+    gluons = {tuple((x["root"] // 10).tolist()): x for x in rows if x["particle"] == "gluon"}
+    colour = assignment.COLOUR
+    S3 = list(itertools.permutations(colour))
+    sgn = lambda p: Permutation([p[i] if i < 3 else i for i in range(3)]).signature()
+
+    def act(p, v):                                              # coordinate permutation i -> p(i) on the colour sites
+        w = list(v)
+        for i in range(3):
+            w[p[i]] = v[i]
+        return tuple(w)
+    rho_c = tuple((e[0] - e[2]).tolist())
+    weyl = Counter()
+    for p in S3:
+        weyl[act(p, rho_c)] += sgn(p)
+    # the line of sign functions on the six roots: f(w r) = sgn(w) f(r), simply transitive action
+    orbit = {act(p, rho_c) for p in S3}
+    # Fourier transform as a Laurent polynomial: X = e^{i k.(e0 - e1)/2}, Y = e^{i k.(e1 - e2)/2}, so for r in A2
+    # k.r = r0 k.(e0 - e1) + (r0 + r1) k.(e1 - e2) and e^{i k.r} = X^(2 r0) Y^(2 (r0 + r1))
+    X, Yv = sp.symbols("X Y")
+    ft = sum(s * X ** (2 * r[0]) * Yv ** (2 * (r[0] + r[1])) for r, s in port.items())
+    denom = (X - 1 / X) * (Yv - 1 / Yv) * (X * Yv - 1 / (X * Yv))      # prod over e0-e1, e1-e2, e0-e2 of (e^{a/2} - e^{-a/2})
+    keepY = [p for p in itertools.permutations(range(5))
+             if all(assignment.Y[p[i]] == assignment.Y[i] for i in range(5))]
+    perm_port = lambda p: {tuple(int(v) for v in np.array(r)[np.argsort(list(p) + [5, 6, 7])]): s for r, s in port.items()}
+    keep_port = [p for p in keepY if perm_port(p) == port]
+    return {
+        "the triangle port's six roots are exactly the assignment's six gluon roots, and they carry no hypercharge, "
+        "isospin or charge (colour weight nonzero)": set(port) == set(gluons) and len(gluons) == 6
+        and all(x["Y"] == 0 and x["T3"] == 0 and x["Q"] == 0 and any(x["colour"]) for x in gluons.values()),
+        "the colour Weyl group S3 = Sym{0, 1, 2} permutes them simply transitively and the port is its sign character: "
+        "port(w r) = sgn(w) port(r), the only such line": len(orbit) == 6 and orbit == set(port)
+        and all(port[act(p, r)] == sgn(p) * port[r] for p in S3 for r in port),
+        "port = -sum_w sgn(w) delta_(w rho_c), rho_c = e_0 - e_2 the colour Weyl vector (half the sum of e_0 - e_1, "
+        "e_1 - e_2, e_0 - e_2) and itself the highest gluon root": dict(weyl) == {r: -s for r, s in port.items()}
+        and tuple(sum((e[a] - e[b]) for a, b in ((0, 1), (1, 2), (0, 2))) // 2) == rho_c and rho_c in gluons,
+        "so its Fourier transform, -8i sin(x/2) sin(y/2) sin(z/2), is minus the Weyl denominator of the colour SU(3): "
+        "sum port(r) e^(i k.r) = -prod_(a > 0) (e^(i k.a/2) - e^(-i k.a/2))": sp.expand(ft + denom) == 0,
+        "of the 12 site permutations keeping Y (S3 x S2), the 6 keeping the port are C3 x S2, the kernel of the colour "
+        "sign": len(keepY) == 12 and len(keep_port) == 6
+        and all(sgn(p[:3]) == 1 for p in keep_port) and all(sgn(p[:3]) == -1 for p in keepY if p not in keep_port),
+    }
+
+
+def join_pauli_assignment():
+    """The frame A4 + A4' factors the Pauli algebra into two Clifford algebras of five sites, and the assignment's
+    120 particle-antiparticle pairs are the 120 antisymmetric Paulis, class by class."""
+    alpha2 = np.array(counts.SIMPLE_ROOTS_X2, dtype=np.int64)
+    inv = np.linalg.inv(alpha2.astype(float))
+    single = counts._letters()
+    dyn = [functools.reduce(np.kron, [single[counts.LETTERS.index(a)] for a in w])
+           for w in ["".join(counts.LETTERS[a] for a in w) for w in counts.dynkin_paulis()]]
+    I16 = np.eye(16, dtype=np.int64)
+    zero = (0,) * 8
+
+    def lab(x2):                                    # a lattice vector in doubled coordinates -> its class in E8/2E8
+        c = np.rint(np.asarray(x2, float) @ inv).astype(np.int64)
+        assert np.array_equal(c @ alpha2, np.asarray(x2, dtype=np.int64))
+        return tuple(int(v) for v in c % 2)
+    add = lambda x, y: tuple((a + b) % 2 for a, b in zip(x, y))
+    phi = lambda l: functools.reduce(lambda a, b: a @ b, [dyn[i] for i in range(8) if l[i]], I16)
+    sym = lambda X: np.array_equal(X.T, X)
+    skew = lambda X: np.array_equal(X.T, -X)
+    anti = lambda a, b: np.array_equal(a @ b, -b @ a)
+    comm = lambda a, b: np.array_equal(a @ b, b @ a)
+    # 10 x weight = doubled coordinates of 5 x weight: x -> 5x carries the factors' weights into E8
+    S, T = assignment.SITE, assignment.TWIN
+    site = [lab(S[a]) for a in range(5)]
+    twin = [lab(T[a]) for a in range(5)]
+    duad = {d: add(site[d[0]], site[d[1]]) for d in assignment.DUADS}
+    tduad = {d: add(twin[d[0]], twin[d[1]]) for d in assignment.DUADS}
+
+    def span(gens):
+        out = {zero}
+        for g in gens:
+            out |= {add(s, g) for s in out}
+        return out
+    A, Ap = span(site), span(twin)
+    _, F1, F2 = glue.a4_pair()
+    simple = np.vstack([glue.simple_system(F1), glue.simple_system(F2)])
+    index = sp.sqrt(sp.Matrix(np.rint(2 * simple).astype(int)).det() ** 2 / 2 ** 16)    # Gram det of A4 + A4' = 25
+    e = np.eye(8, dtype=np.int64)
+    a4_roots = {lab(2 * (e[a] - e[b])) for a, b in assignment.DUADS}
+    ap_roots = {lab((T[a] - T[b]) // 5) for a, b in assignment.DUADS}         # mu_a - mu_b, doubled
+    twin_diff_ok = all(not ((T[a] - T[b]) % 5).any() for a, b in assignment.DUADS)
+
+    def clifford(gen, pairs):
+        P = [phi(g) for g in gen]
+        return (all(sym(x) and np.array_equal(x @ x, I16) for x in P)
+                and all(anti(P[i], P[j]) for i in range(5) for j in range(i + 1, 5))
+                and all(skew(phi(pairs[d])) and np.array_equal(phi(pairs[d]) @ phi(pairs[d]), -I16) for d in pairs))
+
+    def quaternion_times_m2(gen, pairs, full):      # H = <colour duads>, its centralizer M2(R) = <weak sites>
+        H = [zero, pairs[(0, 1)], pairs[(1, 2)], add(pairs[(0, 1)], pairs[(1, 2)])]
+        C = [zero, gen[3], gen[4], add(gen[3], gen[4])]
+        i, j = phi(H[1]), phi(H[2])
+        quat = anti(i, j) and skew(i) and skew(j) and skew(i @ j) and np.array_equal(i @ i, -I16)
+        cent = all(comm(phi(h), phi(c)) for h in H for c in C) and sym(phi(gen[3])) \
+            and np.array_equal(phi(gen[3]) @ phi(gen[3]), I16)                      # a nonscalar involution: M2(R)
+        return quat and cent and {add(h, c) for h in H for c in C} == full
+    # the classes of the roots
+    rows = assignment.classify()
+    by_class, types_ok = {}, True
+    for r, k, cl, tl in rows:
+        lam = assignment.carrier_part(r)
+        l = lab(r // 5)
+        types_ok &= l == add(lab(lam), lab(r - lam))            # 5 rho = 5 lambda + 5 mu, and 5 rho = rho mod 2 E8
+        want = {"(24,1)": lambda: (duad[tuple(sorted(cl[1]))], zero), "(1,24)": lambda: (zero, tduad[tuple(sorted(tl[1]))]),
+                "(10,5)": lambda: (duad[cl[1]], twin[tl[1]]), "(10b,5b)": lambda: (duad[cl[1]], twin[tl[1]]),
+                "(5b,10)": lambda: (site[cl[1]], tduad[tl[1]]), "(5,10b)": lambda: (site[cl[1]], tduad[tl[1]])}[k]()
+        types_ok &= l == add(*want)
+        by_class.setdefault(k, set()).add(l)
+    labels = set().union(*by_class.values())
+    allL = [tuple(c) for c in itertools.product((0, 1), repeat=8)]
+    antisym = {l for l in allL if skew(phi(l))}
+    symm = {l for l in allL if l != zero and sym(phi(l))}
+    kind = lambda x, sites: "1" if x == zero else ("site" if x in sites else "duad")
+    split = {l: next((a, b) for a in A for b in Ap if add(a, b) == l) for l in allL}
+    sym_types = Counter((kind(split[l][0], site), kind(split[l][1], twin)) for l in symm)
+    rate = lambda l: Fraction(int(counts._generator(phi(l))[np.nonzero(phi(l))][0]), int(phi(l)[np.nonzero(phi(l))][0]))
+    return {
+        "x -> 5x carries the weights of A4 + A4' into E8 and the frame has odd index 5, so E8/2E8 is the orthogonal sum "
+        "of the carrier's sixteen classes and the twin's sixteen: their Paulis commute with each other and their "
+        "products are the 256 Paulis, each once": index == 5 and len(A) == len(Ap) == 16 and A & Ap == {zero}
+        and {add(a, b) for a in A for b in Ap} == set(allL) and all(comm(phi(a), phi(b)) for a in A for b in Ap)
+        and a4_roots <= A and ap_roots <= Ap and twin_diff_ok,
+        "in each factor the five site Paulis are symmetric, square to I and pairwise anticommute, and the ten duad "
+        "Paulis, their products, are antisymmetric and are the factor's root classes e_a - e_b": clifford(site, duad)
+        and clifford(twin, tduad) and set(duad.values()) == a4_roots and set(tduad.values()) == ap_roots,
+        "each factor is M2(H): the colour duads 01, 12 give quaternion units and the weak sites 3, 4 their commutant "
+        "M2(R), so M16(R) = M2(H) (x) M2(H)": quaternion_times_m2(site, duad, A) and quaternion_times_m2(twin, tduad, Ap),
+        "a root's Pauli is its pair +-rho, and the classes are tensor types: (24,1) duad x 1, (1,24) 1 x duad', "
+        "(10,5) and (10b,5b) duad x site', (5b,10) and (5,10b) site x duad', with the root's own duads and sites":
+            types_ok and by_class["(10,5)"] == by_class["(10b,5b)"] and by_class["(5b,10)"] == by_class["(5,10b)"]
+            and [len(by_class[c]) for c in ("(24,1)", "(1,24)", "(10,5)", "(5b,10)")] == [10, 10, 50, 50],
+        "so the 120 particle-antiparticle pairs are exactly the 120 antisymmetric Paulis, all decayed by L at 224, and "
+        "the 135 symmetric ones (site x 1, 1 x site', site x site', duad x duad': 5, 5, 25, 100) are no root's":
+            labels == antisym and len(labels) == 120 and {rate(l) for l in labels} == {224}
+            and sym_types == Counter({("site", "1"): 5, ("1", "site"): 5, ("site", "site"): 25, ("duad", "duad"): 100})
+            and {rate(l) for l in symm} == {256},
+    }
+
+
+def join_pauli_triple():
+    """The triple's Hilbert space, through the atoms' Paulis, is the Lie algebra so(6) with -gamma the involution of
+    the symmetric pair so(6) > so(5), realized in M16(R) by conjugation with a Pauli, and D the bracket incidence."""
+    alpha2 = np.array(counts.SIMPLE_ROOTS_X2, dtype=np.int64)
+    inv = np.linalg.inv(alpha2.astype(float))
+    single = counts._letters()
+    dyn = [functools.reduce(np.kron, [single[counts.LETTERS.index(a)] for a in w])
+           for w in ["".join(counts.LETTERS[a] for a in w) for w in counts.dynkin_paulis()]]
+    I16 = np.eye(16, dtype=np.int64)
+
+    def lab(x2):
+        c = np.rint(np.asarray(x2, float) @ inv).astype(np.int64)
+        assert np.array_equal(c @ alpha2, np.asarray(x2, dtype=np.int64))
+        return tuple(int(v) for v in c % 2)
+    phi = lambda l: functools.reduce(lambda a, b: a @ b, [dyn[i] for i in range(8) if l[i]], I16)
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    E = carrier.edges()
+    X = [phi(lab(e2[a] + e2[5])) for a in range(5)]                    # the spokes e_a + e_5, the six-site port's bonds
+    rim = [phi(lab(e2[a] - e2[b])) for a, b in E]
+    Ed = [X[a] @ X[b] for a, b in E]
+    atoms = X + Ed                                                       # H = l2(V u E) -> antisymmetric Paulis
+    br = lambda a, b: a @ b - b @ a
+    # so(6) with L_ij = E_ij - E_ji (apex = 5) and psi'(L_a5) = X_a, psi'(L_ab) = -X_a X_b  (psi = psi'/2)
+    L = {}
+    for a in range(5):
+        L[(a, 5)] = X[a]
+    for k, (a, b) in enumerate(E):
+        L[(a, b)] = -Ed[k]
+
+    def so6(i, j):
+        Z = sp.zeros(6, 6)
+        Z[i, j], Z[j, i] = 1, -1
+        return Z
+    keys = list(L)
+    basis = {k: so6(*k) for k in keys}
+
+    def coords(Z):                                                       # expand an so(6) element in the L_ij
+        return {k: Z[k[0], k[1]] for k in keys if Z[k[0], k[1]] != 0}
+    hom = all(np.array_equal(br(L[x], L[y]), 2 * functools.reduce(np.add, [int(c) * L[k] for k, c in
+                                                                         coords(basis[x] * basis[y] - basis[y] * basis[x]).items()],
+                                                                  np.zeros((16, 16), dtype=np.int64)))
+              for x in keys for y in keys)
+    gram = np.array([[np.trace(a.T @ b) for b in atoms] for a in atoms])
+    # labels z with Ad phi(z) = -gamma on the atoms
+    labs = [tuple(c) for c in itertools.product((0, 1), repeat=8)]
+    conj = lambda Z, A: Z @ A @ Z.T
+    gam = [1] * 5 + [-1] * 10
+    inner = [z for z in labs if all(np.array_equal(conj(phi(z), A), -g * A) for A, g in zip(atoms, gam))]
+    root_labels = {lab(r) for r in counts._roots2()}
+    fam = lab(e2[5] + e2[6])
+    T = assignment.TWIN                                                  # 10 x the twin sites mu_a
+    once = {lab((T[a] - T[b]) // 5) for a in range(5) for b in range(5) if a != b and len({a, b} & {3, 4}) == 1}
+    D = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    nc = sp.Matrix(15, 15, lambda i, j: int(not np.array_equal(br(atoms[i], atoms[j]), 0 * I16)))
+    return {
+        "vertex a -> X_a, the Pauli of the spoke e_a + e_5, and edge ab -> X_a X_b, which is +- the Pauli of the rim "
+        "e_a - e_b, map H = l2(V u E) isometrically (trace form / 16) onto fifteen antisymmetric Paulis":
+            all(np.array_equal(r, p) or np.array_equal(r, -p) for r, p in zip(rim, Ed))
+            and np.array_equal(gram, 16 * np.eye(15, dtype=np.int64)) and all(np.array_equal(A.T, -A) for A in atoms),
+        "their span is closed under the commutator and L_a5 -> X_a / 2, L_ab -> -X_a X_b / 2 is a Lie algebra "
+        "isomorphism from so(6) = su(4); the edges span the so(5) fixing the apex": hom,
+        "-gamma, +1 on the edges and -1 on the vertices, is the involution of the symmetric pair so(6) > so(5), and in "
+        "M16(R) it is conjugation Ad phi(z) by a Pauli for exactly "
+        "eight labels z, six of them roots, the family roots mu_a - mu_b meeting the twin duad 34 once (e_5 + e_6 among "
+        "them)":
+            len(inner) == 8 and {z for z in inner if z in root_labels} == once and len(once) == 6 and fam in once
+            and all(any(np.array_equal(br(x, y), c * A) for A in atoms for c in (-2, 0, 2))
+                    for x in atoms for y in atoms),
+        "D_ve != 0 exactly when the vertex's and the edge's Paulis do not commute, so D is the vertex-edge block of the "
+        "bracket": all(D[i, j] == nc[i, j] for i in range(5) for j in range(5, 15))
+            and all(D[i, j] == 0 for i in range(15) for j in range(15) if (i < 5) == (j < 5)),
+    }
+
+
+def join_pauli_charges():
+    """The hypercharge's Z2 is inner in the Pauli algebra: 6Y and 2T3 have one Pauli, the W+'s."""
+    alpha2 = np.array(counts.SIMPLE_ROOTS_X2, dtype=np.int64)
+    inv = np.linalg.inv(alpha2.astype(float))
+    single = counts._letters()
+    dyn = [functools.reduce(np.kron, [single[counts.LETTERS.index(a)] for a in w])
+           for w in ["".join(counts.LETTERS[a] for a in w) for w in counts.dynkin_paulis()]]
+    I16 = np.eye(16, dtype=np.int64)
+
+    def coords(x2):                                  # simple-root coordinates of a vector given doubled; None off E8
+        c = np.rint(np.asarray(x2, float) @ inv).astype(np.int64)
+        return c if np.array_equal(c @ alpha2, np.asarray(x2, dtype=np.int64)) else None
+    lab = lambda x2: tuple(int(v) for v in coords(x2) % 2)
+    phi = lambda l: functools.reduce(lambda a, b: a @ b, [dyn[i] for i in range(8) if l[i]], I16)
+    Y, T3 = assignment.Y, assignment.T3
+    six_y = [int(6 * y) for y in Y]
+    two_t3 = [int(2 * t) for t in T3]
+    diff = [(a - b) // 2 for a, b in zip(six_y, two_t3)]
+    dbl = lambda v: np.array([2 * x for x in v], dtype=np.int64)
+    rows = assignment.table()
+    wplus = [x for x in rows if x["particle"] == "W+"][0]["root"] // 10
+    Pz = phi(lab(dbl(six_y)))
+    doublets = {"u", "d", "e", "nu", "X", "Y"}
+    name = lambda x: x["particle"].rstrip("~")
+    odd = [x for x in rows if (6 * x["Y"]).denominator == 1 and int(6 * x["Y"]) % 2]
+    sign_ok = all(((6 * x["Y"]) - (2 * x["T3"])).denominator == 1 and int(6 * x["Y"] - 2 * x["T3"]) % 2 == 0
+                  for x in rows)
+    conj_ok = all(np.array_equal(Pz @ phi(lab(x["root"] // 5)) @ Pz.T,
+                                 (-1 if name(x) in doublets else 1) * phi(lab(x["root"] // 5))) for x in rows)
+    return {
+        "6Y = (-2, -2, -2, 3, 3, 0, 0, 0) and 2T3 = e_3 - e_4, the W+ root, are lattice vectors of E8, and they differ by "
+        "2 (-1, -1, -1, 1, 2, 0, 0, 0) in 2 E8, so they have one Pauli":
+            coords(dbl(six_y)) is not None and coords(dbl(two_t3)) is not None and coords(dbl(diff)) is not None
+            and diff == [-1, -1, -1, 1, 2, 0, 0, 0] and two_t3 == [int(v) for v in wplus]
+            and lab(dbl(six_y)) == lab(dbl(two_t3)),
+        "so (-1)^(6Y.rho) = (-1)^(2T3.rho) on all 240 roots: the Z2 of the Standard Model's Z6 (every root's 6Y is an "
+        "integer)": sign_ok and all((6 * x["Y"]).denominator == 1 for x in rows),
+        "conjugation by the W+'s Pauli fixes the Paulis of the singlets (gluons, W, u^c, d^c, e^c, family) and negates "
+        "exactly those of the 56 doublet pairs, u, d, e, nu, X and Y with their conjugates":
+            conj_ok and len(odd) == 112 and {name(x) for x in odd} == doublets
+            and len({lab(x["root"] // 5) for x in odd}) == 56,
+    }
+
+
+def join_frame_halfper():
+    """The frame's eight roots are an F2-basis of the half-periods Lambda / 2 Lambda (the index 3 is odd), and since their
+    Gram is I + J the half-period form of a subset depends only on its size."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    Cm = sp.Matrix(C.tolist())
+    B2 = sp.Matrix([[int(round(2 * v)) for v in row] for row in B])          # 2B: doubled simple roots as columns
+    e2 = lambda i: [2 * int(j == i) for j in range(8)]
+    F2 = [[-a - b for a, b in zip(e2(0), e2(i))] for i in range(1, 8)] + [[-1] * 8]   # the frame, doubled
+    FB = (B2.inv() * sp.Matrix(F2).T).T                                       # rows: root-basis coordinates
+    integral = all(v.is_integer for v in FB)
+    FBi = np.array(FB.tolist(), dtype=np.int64)
+    gram = FB * Cm * FB.T
+    det = FB.det()
+    roots = [tuple(r) for r in RB.tolist()]
+    rootset = set(roots)
+    IP = RB @ C @ RB.T
+
+    def kind(y):
+        """(q, band, component sizes of the roots integral at the half-period y/2) for an integer lift y."""
+        y = np.asarray(y, dtype=np.int64)
+        q = (int(y @ C @ y) // 2) % 2
+        par = (RB @ C @ y) % 2
+        band = 240 - int(((-1) ** par).sum())
+        idx = list(np.nonzero(par == 0)[0])
+        seen, sizes = set(), []
+        for s in idx:
+            if s in seen:
+                continue
+            comp, stack = {s}, [s]
+            while stack:
+                a = stack.pop()
+                for b in idx:
+                    if b not in comp and IP[a, b] != 0:
+                        comp.add(b)
+                        stack.append(b)
+            seen |= comp
+            sizes.append(len(comp))
+        return q, band, tuple(sorted(sizes, reverse=True))
+    subsets = list(itertools.product((0, 1), repeat=8))
+    lifts = {S: np.array(S, dtype=np.int64) @ FBi for S in subsets}
+    classes = {S: tuple((lifts[S] % 2).tolist()) for S in subsets}
+    tally = Counter()
+    by_size_ok = True
+    for S in subsets:
+        n = sum(S)
+        q, band, sizes = kind(lifts[S])
+        by_size_ok &= q == (n * (n + 1) // 2) % 2
+        tally[(n, q, band, sizes)] += 1
+    expected = Counter({(0, 0, 0, (240,)): 1, (1, 1, 224, (126, 2)): 8, (2, 1, 224, (126, 2)): 28,
+                        (3, 0, 256, (112,)): 56, (4, 0, 256, (112,)): 70, (5, 1, 224, (126, 2)): 56,
+                        (6, 1, 224, (126, 2)): 28, (7, 0, 256, (112,)): 8, (8, 0, 256, (112,)): 1})
+    # the roots over each class, by subset size, and the frame's A8 (+-r_i and r_i - r_j)
+    Finv2 = np.array(sp.Matrix(FBi.T.tolist()).inv_mod(2).tolist(), dtype=np.int64)
+    size_of = lambda r: int(((Finv2 @ (np.array(r) % 2)) % 2).sum())
+    a8 = {tuple(s * FBi[i]) for i in range(8) for s in (1, -1)} | {tuple(FBi[i] - FBi[j]) for i in range(8) for j in range(8)
+                                                                    if i != j}
+    per_class = Counter(tuple((np.array(r) % 2).tolist()) for r in roots)
+    root_sizes = Counter(size_of(r) for r in roots)
+    a8_sizes = Counter(size_of(r) for r in a8)
+    # the frame's S8: reflections in the differences r_i - r_j (roots of norm 2), acting on the half-periods
+    refl = lambda a: np.eye(8, dtype=np.int64) - np.outer(a, a @ C)            # x -> x - <x, a> a in the root basis
+    S_ij = {(i, j): refl(FBi[i] - FBi[j]) for i in range(8) for j in range(i + 1, 8)}
+    transposes = all(tuple(M @ FBi[k]) == tuple(FBi[j] if k == i else FBi[i] if k == j else FBi[k]) for (i, j), M in S_ij.items()
+                     for k in range(8))
+    gens = [S_ij[(i, i + 1)] for i in range(7)]
+    key = lambda c: tuple(int(t) % 2 for t in c)
+    orbits, seen = [], set()
+    for S in subsets:
+        c = classes[S]
+        if c in seen:
+            continue
+        orb, stack = {c}, [c]
+        while stack:
+            a = stack.pop()
+            for M in gens:
+                b = key(M @ np.array(a))
+                if b not in orb:
+                    orb.add(b)
+                    stack.append(b)
+        seen |= orb
+        orbits.append(orb)
+    inv_class = {classes[S]: S for S in subsets}
+    orbit_sizes = sorted(len(o) for o in orbits)
+    orbits_by_size = all(len({sum(inv_class[c]) for c in o}) == 1 for o in orbits)
+    return {
+        "the frame's eight roots (-e1 - e_i and -(1, ..., 1)/2) have integer root-basis coordinates with Gram I + J and "
+        "determinant 3 (the index), odd: so they are an F2-basis of Lambda / 2 Lambda, the 256 subset sums being distinct "
+        "half-periods":
+            integral and gram == sp.eye(8) + sp.ones(8, 8) and abs(det) == 3 and len(set(classes.values())) == 256
+            and all(r in rootset for r in map(tuple, FBi.tolist())),
+        "the half-period of a subset S has q = <y, y>/2 = |S|(|S| + 1)/2 mod 2 (the Gram is I + J), so the 120 nonsingular "
+        "half-periods are the subsets of sizes 1, 2, 5, 6, with band 224 and integral roots E7 + A1 (126 + 2), and the 135 "
+        "singular ones the subsets of sizes 3, 4, 7, 8, with band 256 and integral roots D8 (112); the sum of all eight, "
+        "3q = q mod 2, is a D8 half-period":
+            by_size_ok and tally == expected
+            and sum(comb(8, k) for k in (1, 2, 5, 6)) == 120 and sum(comb(8, k) for k in (3, 4, 7, 8)) == 135,
+        "every nonsingular class holds two roots, +-r; the frame's A8 (its 72 roots +-r_i and r_i - r_j) fills the 8 + 28 "
+        "classes of sizes 1 and 2, and the other 168 roots the 56 + 28 of sizes 5 and 6":
+            set(per_class.values()) == {2} and len(per_class) == 120 and len(a8) == 72 and a8 <= rootset
+            and a8_sizes == Counter({1: 16, 2: 56}) and root_sizes == Counter({1: 16, 2: 56, 5: 112, 6: 56}),
+        "the reflection in r_i - r_j swaps r_i and r_j and fixes the other six, so the reflections in the differences "
+        "generate the frame's S8 (the Weyl group of the A7 they span), which permutes the F2-basis: its orbits on the 256 "
+        "half-periods are the nine subset sizes, 1, 8, 28, 56, 70, 56, 28, 8, 1":
+            transposes and orbits_by_size and orbit_sizes == sorted(comb(8, k) for k in range(9)),
+    }
+
+
+def join_halfper_rootgraph():
+    """Reduction mod 2 folds the root graph onto the non-orthogonality graph of the quadric's nonsingular points: the
+    root graph is its antipodal double cover, and the spectrum splits into the base's and the signed graph's."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    IP = RB @ C @ RB.T
+    A = (IP == 1).astype(np.int64)                                     # the root graph
+    fib = {}
+    for i, r in enumerate(RB):
+        fib.setdefault(tuple((r % 2).tolist()), []).append(i)
+    keys = sorted(fib)
+    K = np.array(keys, dtype=np.int64)
+    q = lambda c: (int(c @ C @ c) // 2) % 2
+    antipodal = all(len(v) == 2 and IP[v[0], v[1]] == -2 for v in fib.values())
+    Ab = (K @ C @ K.T) % 2                                              # B(x, y) = <x, y> mod 2
+    np.fill_diagonal(Ab, 0)
+    n = len(keys)
+    I, J = np.eye(n, dtype=np.int64), np.ones((n, n), dtype=np.int64)
+    srg = np.array_equal(Ab @ Ab, 56 * I + 28 * Ab + 24 * (J - I - Ab)) and set(Ab.sum(1).tolist()) == {56}
+    # the cover: a perfect matching between the fibres over each edge, nothing over a non-edge
+    cover = all(
+        (sorted(A[np.ix_(fib[keys[a]], fib[keys[b]])].sum(0).tolist()) == [1, 1]
+         and sorted(A[np.ix_(fib[keys[a]], fib[keys[b]])].sum(1).tolist()) == [1, 1]) if Ab[a, b]
+        else not A[np.ix_(fib[keys[a]], fib[keys[b]])].any()
+        for a in range(n) for b in range(n))
+    # even and odd lifts: A pi = pi Ab and A sigma = sigma S with S = Gram(reps) - 2I
+    reps = np.array([RB[fib[k][0]] for k in keys], dtype=np.int64)
+    pi = np.zeros((240, n), dtype=np.int64)
+    sigma = np.zeros((240, n), dtype=np.int64)
+    for c, k in enumerate(keys):
+        i0, i1 = fib[k]
+        pi[i0, c] = pi[i1, c] = 1
+        sigma[i0, c], sigma[i1, c] = 1, -1
+    G = reps @ C @ reps.T
+    S = G - 2 * I
+    lifts = (np.array_equal(A @ pi, pi @ Ab) and np.array_equal(A @ sigma, sigma @ S)
+             and not (pi.T @ sigma).any() and np.array_equal(pi.T @ pi, 2 * I) and np.array_equal(sigma.T @ sigma, 2 * I))
+    signed = np.array_equal(np.abs(S), Ab)
+    # spectra, exactly: Ab^2 - 4 Ab - 32 I = 24 J, Ab J = 56 J, trace 0; G^2 = 30 G with trace 240
+    xs = sp.Symbol("x")
+    roots_q = sorted(sp.solve(xs ** 2 - 4 * xs - 32, xs))
+    f_, g_ = sp.symbols("f g")
+    mult = sp.solve([f_ + g_ - (n - 1), 56 + 8 * f_ - 4 * g_], [f_, g_])
+    base_spec = (np.array_equal(Ab @ Ab - 4 * Ab - 32 * I, 24 * J) and np.array_equal(Ab @ J, 56 * J)
+                 and int(np.trace(Ab)) == 0 and roots_q == [-4, 8] and mult == {f_: 35, g_: 84})
+    odd_spec = np.array_equal(G @ G, 30 * G) and int(np.trace(G)) == 240 and 240 // 30 == 8
+    return {
+        "r -> r mod 2 Lambda maps the 240 roots two to one, +-r over each class, onto the 120 nonsingular half-periods "
+        "(q = 1)": antipodal and len(keys) == 120 and all(q(k) == 1 for k in K),
+        "joining two classes when B(x, y) = <x, y> mod 2 is 1 gives a strongly regular graph (120, 56, 28, 24), the "
+        "non-orthogonality graph of the nonsingular points of the half-period quadric of GO8+(2)": srg,
+        "the root graph is its antipodal double cover: over each edge of the base the two fibres are joined by a perfect "
+        "matching (<r, s> = 1 or -1 picks the signs), over each non-edge not at all": cover,
+        "so the root graph's adjacency is block diagonal on even and odd functions (pi, sigma, orthogonal, together a "
+        "basis): on even functions it is the base graph, on odd ones the signed graph, whose matrix is the Gram of the 120 "
+        "class representatives minus 2I": lifts and signed,
+        "the base has spectrum 56, 8^35, -4^84 (Ab^2 - 4 Ab - 32 I = 24 J, trace 0), and the Gram satisfies G^2 = 30 G "
+        "(sum r r^T = 60 I over the 240 roots, halved over the classes) with trace 240, so the signed graph has 28^8, -2^112: the root graph's eigenvalues "
+        "56, 28, 8, -2, -4 split as 56, 8, -4 from the half-periods and 28, -2 from the lattice's eight directions":
+            base_spec and odd_spec,
+    }
+
+
+def join_L0_census():
+    """The census's A4 + A4 family is fibred over the A4 + A4 sublattices: each of its 48384 points is a nonzero character
+    of E8 / L for exactly one L, the span of the roots integral there, and the 12096 sublattices are the W(E8)-conjugates
+    of the carrier's L0."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    RC = (RB @ C).astype(np.int64)                         # <r, B c / 5> = (RC c) / 5
+    allc = np.array(list(itertools.product(range(5), repeat=8)), dtype=np.int64)
+    counts = Counter()
+    rows, res = [], []
+    for lo in range(0, len(allc), 50000):
+        Mo = (allc[lo:lo + 50000] @ RC.T) % 5
+        z = (Mo == 0).sum(axis=1)
+        counts.update(z.tolist())
+        w = np.nonzero(z == 40)[0]
+        rows.append(lo + w)
+        res.append(Mo[w])
+    idx, Mo = np.concatenate(rows), np.concatenate(res)
+    nonzero_min = min(k for k in counts if k != 240)
+    residues = {tuple(int((m == k).sum()) for k in range(5)) for m in Mo}
+    cos_sum = sp.nsimplify(sum(sp.cos(2 * sp.pi * k / 5) for k in range(1, 5)))
+    band = 240 - (40 + 50 * cos_sum)
+    groups = {}
+    for i, m in zip(idx.tolist(), Mo):
+        groups.setdefault((m == 0).tobytes(), []).append(i)
+    as_vec = lambda i: allc[i]
+    fibres_ok = all(len(v) == 4 and {tuple(((k * as_vec(v[0])) % 5).tolist()) for k in range(1, 5)}
+                    == {tuple(as_vec(i).tolist()) for i in v} for v in groups.values())
+    # every root set: two orthogonal irreducible components of 20 roots (so A4 + A4: n(n + 1) = 20 is A4, and no D or E
+    # has 20 roots)
+    IPnz = (RB @ C @ RB.T) != 0
+    sets = np.array([np.nonzero(np.frombuffer(k, dtype=bool))[0] for k in groups], dtype=np.int64)
+    adj = IPnz[sets[:, :, None], sets[:, None, :]]
+    def closure(start):
+        reach = adj[np.arange(len(sets)), start, :].copy()
+        reach[np.arange(len(sets)), start] = True
+        for _ in range(6):
+            reach = reach | np.any(reach[:, :, None] & adj, axis=1)
+        return reach
+    first = closure(np.zeros(len(sets), dtype=np.int64))
+    other_start = np.argmax(~first, axis=1)
+    second = closure(other_start)
+    two_a4 = (np.all(first.sum(axis=1) == 20) and np.all(second.sum(axis=1) == 20) and not np.any(first & second)
+              and not np.any(adj & first[:, :, None] & second[:, None, :]))
+    only_a4 = ([n for n in range(1, 9) if n * (n + 1) == 20] == [4] and not [n for n in range(4, 9) if 2 * n * (n - 1) == 20]
+               and 20 not in (72, 126, 240))
+    a4_cartan = sp.Matrix(4, 4, lambda i, j: 2 if i == j else (-1 if abs(i - j) == 1 else 0))
+    index5 = a4_cartan.det() ** 2 == 25
+    # the carrier's L0 and the tick's momenta
+    _, A, Ap = glue.a4_pair()
+    toRB = lambda V: {tuple(v) for v in np.rint(np.asarray(V) @ Binv.T).astype(np.int64).tolist()}
+    L0 = toRB(np.vstack([A, Ap]))
+    L0_key = np.array([tuple(r) in L0 for r in RB.tolist()], dtype=bool).tobytes()
+    g = cyclotomic.clocks()["g"]
+    Y, n = spine.fixed_momenta(g)
+    tick = {tuple((y % 5).tolist()) for y in Y}
+    L0_mask = np.frombuffer(L0_key, dtype=bool)
+    tick_on_L0 = {t for t in tick if any(t) and not ((RC[L0_mask] @ np.array(t)) % 5).any()}
+    L0_fibre = {tuple(as_vec(i).tolist()) for i in groups.get(L0_key, [])}
+    # the census: the family of type A4 + A4 is the W(E8)-orbit of the alcove vertex omega_5 / 5 (mark 5)
+    fam = next(f for (_, t), f in handover.critical_census().items() if t == "A4+A4")
+    c5 = tuple((Cinv[:, 4] % 5).tolist())
+    c5_in = c5 in {tuple(as_vec(i).tolist()) for i in idx.tolist()}
+    W = handover.WE8
+    return {
+        "a momentum of order 5 (x = B c / 5, c in (Z/5)^8) has at least 40 integral roots (<r, x> in Z), and exactly 40 "
+        "at 48384 points; there the roots' residues 5<r, x> mod 5 are 40, 50, 50, 50, 50, so the band is 240 - 40 - "
+        "50 sum cos(2 pi k/5) = 250":
+            nonzero_min == 40 and counts[40] == 48384 and counts[240] == 1 and sum(counts.values()) == 5 ** 8
+            and residues == {(40, 50, 50, 50, 50)} and cos_sum == -1 and band == 250,
+        "these 48384 points are the census's A4 + A4 family: it is the W(E8)-orbit of the alcove vertex omega_5/5 (mark 5), "
+        "of size |W(E8)| / |W(A4 + A4)| = 696729600 / 14400 = 48384, which lies among them, and the set is W(E8)-invariant":
+            fam["orbit"] == 48384 == W // 14400 and c5_in and round(240 - fam["lambda"]) == 250,
+        "at each, the 40 integral roots are two orthogonal irreducible systems of 20 roots, so A4 + A4 (only A4 has 20 "
+        "roots), spanning a sublattice L_x of determinant 25, index 5 in the unimodular E8, on which x is integral: x is "
+        "a nonzero character of E8 / L_x = Z/5":
+            two_a4 and only_a4 and index5,
+        "x -> L_x is 4 : 1 onto 12096 sublattices, the fibre over each being its four nonzero characters k x, k = 1, ..., 4":
+            len(groups) == 12096 and fibres_ok and 4 * 12096 == 48384,
+        "the carrier's L0 = A4 + A4' is one of them, and its fibre is the four nonzero momenta of the tick that are "
+        "integral on L0 (layer 23's characters of E8 / L0); since the family is one W(E8)-orbit, the 12096 are the "
+        "W(E8)-conjugates of L0 and its stabilizer has 696729600 / 12096 = 57600 = 4 x 120^2 elements":
+            L0_key in groups and n == 5 and len(tick) == 25 and len(tick_on_L0) == 4 and L0_fibre == tick_on_L0
+            and W % 12096 == 0 and W // 12096 == 57600 == 4 * 120 ** 2,
+    }
+
+
+def join_icosians_halfper():
+    """The half-periods are the icosian ring modulo 2: I/2I = M2(F4), with the reduced norm the determinant and the
+    half-period form q(x) = Tr(phi det x)."""
+    # ---- the icosian ring, as in the icosians check: Z[phi] pairs, quaternions with coordinates (a + b phi)/2
+    zmul = lambda p, q: (p[0] * q[0] + p[1] * q[1], p[0] * q[1] + p[1] * q[0] + p[1] * q[1])
+    zadd = lambda p, q: (p[0] + q[0], p[1] + q[1])
+    PHI_INV = (-1, 1)
+    HAM = (((1, 0, 0), (-1, 1, 1), (-1, 2, 2), (-1, 3, 3)), ((1, 0, 1), (1, 1, 0), (1, 2, 3), (-1, 3, 2)),
+           ((1, 0, 2), (-1, 1, 3), (1, 2, 0), (1, 3, 1)), ((1, 0, 3), (1, 1, 2), (-1, 2, 1), (1, 3, 0)))
+    co = lambda q: ((q[0], q[1]), (q[2], q[3]), (q[4], q[5]), (q[6], q[7]))
+
+    def qmul(p, q):
+        P, Q = co(p), co(q)
+        out = []
+        for terms in HAM:
+            s0 = s1 = 0
+            for sgn, a, b in terms:
+                m = zmul(P[a], Q[b])
+                s0 += sgn * m[0]
+                s1 += sgn * m[1]
+            if s0 % 2 or s1 % 2:
+                return None
+            out += [s0 // 2, s1 // 2]
+        return tuple(out)
+    qscal = lambda z, q: tuple(t for P in co(q) for t in zmul(z, P))
+
+    def pair_sum(p, q):
+        s = (0, 0)
+        for P, Q in zip(co(p), co(q)):
+            s = zadd(s, zmul(P, Q))
+        return s
+    qN4 = lambda q: pair_sum(q, q)                        # 4 N(q) in Z[phi]
+    ip2 = lambda p, q: sum(pair_sum(p, q))                # twice <p, q> = 2 Tr(alpha Re(p qbar))
+    ONE = (2, 0, 0, 0, 0, 0, 0, 0)
+    U = []
+    for i in range(4):
+        for s in (2, -2):
+            q = [0] * 8
+            q[2 * i] = s
+            U.append(tuple(q))
+    for signs in itertools.product((1, -1), repeat=4):
+        U.append(tuple(t for s in signs for t in (s, 0)))
+    vals = ((0, 0), (1, 0), (0, 1), (-1, 1))
+    for perm in itertools.permutations(range(4)):
+        if Permutation(list(perm)).is_even:
+            for signs in itertools.product((1, -1), repeat=3):
+                q = [0] * 8
+                sg = (1,) + signs
+                for m in range(4):
+                    q[2 * perm[m]], q[2 * perm[m] + 1] = sg[m] * vals[m][0], sg[m] * vals[m][1]
+                U.append(tuple(q))
+    M240 = U + [qscal(PHI_INV, u) for u in U]
+    G240 = np.array([[ip2(p, q) for q in M240] for p in M240], dtype=np.int64) // 2
+    B_, Binv_, C, Cinv, R, RB = spine.frame()
+    ordr = [0, 2, 3, 1, 4, 5, 6, 7]
+
+    def search(k, chosen):
+        if k == 8:
+            return chosen
+        for v in range(240):
+            if all(G240[v, chosen[j]] == C[ordr[k], ordr[j]] for j in range(k)):
+                res = search(k + 1, chosen + [v])
+                if res is not None:
+                    return res
+        return None
+    sel = search(0, [])
+    simple = [None] * 8
+    for k, v in enumerate(sel):
+        simple[ordr[k]] = M240[v]
+    A = np.array(simple, dtype=np.int64).T
+
+    def coords_a(v):
+        b = np.array([ip2(a, v) for a in simple], dtype=np.int64)
+        if (b % 2).any():
+            return None
+        c = Cinv @ (b // 2)
+        return c if np.array_equal(A @ c, np.array(v, dtype=np.int64)) else None
+    gram_ok = np.array_equal(np.array([[ip2(a, b) for b in simple] for a in simple]) // 2, C)
+    roots_ok = {tuple(coords_a(v).tolist()) for v in M240} == {tuple(r) for r in RB.tolist()}
+
+    # ---- I/2I by structure constants on the eight icosians (= the model's root basis)
+    T = np.array([[coords_a(qmul(a, b)) for b in simple] for a in simple], dtype=np.int64) % 2      # T[i, j] = s_i s_j
+    Xphi = np.array([coords_a(qscal((0, 1), a)) for a in simple], dtype=np.int64).T % 2
+    cls = np.array(list(itertools.product((0, 1), repeat=8)), dtype=np.int64)
+    code = lambda v: int(sum(int(t) << (7 - k) for k, t in enumerate(v)))          # the index of v in cls
+    prod = np.einsum("ai,bj,ijk->abk", cls, cls, T) % 2
+    mul = lambda a, b: prod[code(a), code(b)]
+    zero, one = np.zeros(8, dtype=np.int64), coords_a(ONE) % 2
+
+    def N2(c):
+        n4 = qN4(tuple(int(t) for t in A @ c))
+        return (n4[0] // 4 % 2, n4[1] // 4 % 2) if n4[0] % 4 == 0 and n4[1] % 4 == 0 else None
+    Nc = [N2(c) for c in cls]
+    q = [(int(c @ C @ c) // 2) % 2 for c in cls]
+    # matrix units: an idempotent e11, e12 with e11 e12 = e12, e12 e11 = 0, and e21 = e22 m e11 with e12 m = e11, m e12 = e22
+    found = None
+    for e11 in cls:
+        if not any(e11) or np.array_equal(e11, one) or not np.array_equal(mul(e11, e11), e11):
+            continue
+        e22 = (one + e11) % 2
+        for n in cls:
+            if any(n) and np.array_equal(mul(e11, n), n) and not mul(n, e11).any():
+                m = next((m for m in cls if np.array_equal(mul(n, m), e11) and np.array_equal(mul(m, n), e22)), None)
+                if m is not None:
+                    found = (e11, n, mul(mul(e22, m), e11), e22)
+                    break
+        if found is not None:
+            break
+    E11, E12, E21, E22 = found
+    F4 = [(0, 0), (1, 0), (0, 1), (1, 1)]                  # a + b phi, phi^2 = phi + 1
+    f4mul = lambda x, y: ((x[0] * y[0] + x[1] * y[1]) % 2, (x[0] * y[1] + x[1] * y[0] + x[1] * y[1]) % 2)
+    f4add = lambda x, y: ((x[0] + y[0]) % 2, (x[1] + y[1]) % 2)
+    scal = lambda z, v: (z[0] * v + z[1] * (Xphi @ v)) % 2
+    img = {}
+    for cf in itertools.product(F4, repeat=4):
+        v = sum(scal(z, Eij) for z, Eij in zip(cf, (E11, E12, E21, E22))) % 2
+        img[code(v)] = cf
+    matmul = lambda a, b: (f4add(f4mul(a[0], b[0]), f4mul(a[1], b[2])), f4add(f4mul(a[0], b[1]), f4mul(a[1], b[3])),
+                           f4add(f4mul(a[2], b[0]), f4mul(a[3], b[2])), f4add(f4mul(a[2], b[1]), f4mul(a[3], b[3])))
+    iso = len(img) == 256 and all(img[code(mul(a, b))] == matmul(img[code(a)], img[code(b)]) for a in cls for b in cls)
+    det = lambda cf: f4add(f4mul(cf[0], cf[3]), f4mul(cf[1], cf[2]))
+    det_is_norm = all(det(img[code(c)]) == Nc[code(c)] for c in cls)
+    rank1 = sum(1 for c in cls if any(c) and det(img[code(c)]) == (0, 0))
+    form = all(q[code(c)] == (Nc[code(c)][0] + Nc[code(c)][1]) % 2 for c in cls)       # q = Tr_F4/F2(phi N)
+    tr_phi = all((f4mul((0, 1), z)[1]) % 2 == (z[0] + z[1]) % 2 for z in F4)              # Tr(t) = coefficient of phi
+    by_norm = Counter((Nc[code(c)], q[code(c)]) for c in cls)
+    # the units and the phi^-1 units modulo 2
+    red = lambda v: code(coords_a(v) % 2)
+    units = Counter(red(u) for u in U)
+    shorts = Counter(red(qscal(PHI_INV, u)) for u in U)
+    unit_cls = set(units)
+    closed = all(code(mul(cls[a], cls[b])) in unit_cls for a in unit_cls for b in unit_cls)
+    return {
+        "the icosian ring is the model's E8 (eight icosians with the Cartan Gram, the 240 minimal icosians onto the 240 "
+        "roots), so Lambda / 2 Lambda = I/2I, coordinates mod 2 in the eight icosians; 2 is inert in Z[phi] (x^2 - x - 1 "
+        "has no root mod 2), F4 = Z[phi]/2 acting by multiplication by phi":
+            sel is not None and gram_ok and roots_ok and all((a * a - a - 1) % 2 for a in range(2)),
+        "explicit matrix units E11 (an idempotent), E12, E21, E22 make the F4-linear map M2(F4) -> I/2I a ring "
+        "isomorphism, under which the reduced norm N(x) = x xbar mod 2 is the determinant":
+            iso and det_is_norm,
+        "since alpha = phi/sqrt5 = phi mod 2, the half-period form is q(x) = <x, x>/2 = Tr_F4/F2(phi det x): q = 1 exactly "
+        "for det in {1, phi}, 60 + 60 = 120 nonsingular half-periods, and q = 0 for det in {0, phi^2}, 76 + 60 = 136, the "
+        "zero and 135 of type D8, of which 75 are the matrices of rank 1":
+            form and tr_phi and by_norm == Counter({((0, 0), 0): 76, ((1, 0), 1): 60, ((0, 1), 1): 60, ((1, 1), 0): 60})
+            and rank1 == 75 == (16 - 1) * (16 - 1) // 3,
+        "the 120 unit icosians fall two to one (u and -u) onto the 60 classes of determinant 1, a group under the product, "
+        "SL(2,4) = 2I/{+-1} = A5, and the 120 phi^-1 u two to one onto the 60 of determinant phi = phi^-2 mod 2: these "
+        "are the root classes, +-r over each nonsingular half-period":
+            set(units.values()) == {2} and len(units) == 60 and all(Nc[c] == (1, 0) for c in units) and closed
+            and set(shorts.values()) == {2} and len(shorts) == 60 and all(Nc[c] == (0, 1) for c in shorts)
+            and not (unit_cls & set(shorts)),
+    }
+
+
+def join_icosians_sun():
+    """Under the icosian folding the Coxeter clock is q -> u q bbar, so the sun c'^10 is a right multiplication by an
+    order-3 unit w, its momenta F81 are I/I(1 - wbar), the left multiplications act as a 2I in SL(2,9), and the decad's
+    ten F9-lines are the ten Sylow 3-subgroups of 2I."""
+    # ---- the icosian ring, as in the icosians check
+    zmul = lambda p, q: (p[0] * q[0] + p[1] * q[1], p[0] * q[1] + p[1] * q[0] + p[1] * q[1])
+    zadd = lambda p, q: (p[0] + q[0], p[1] + q[1])
+    PHI_INV = (-1, 1)
+    HAM = (((1, 0, 0), (-1, 1, 1), (-1, 2, 2), (-1, 3, 3)), ((1, 0, 1), (1, 1, 0), (1, 2, 3), (-1, 3, 2)),
+           ((1, 0, 2), (-1, 1, 3), (1, 2, 0), (1, 3, 1)), ((1, 0, 3), (1, 1, 2), (-1, 2, 1), (1, 3, 0)))
+    co = lambda q: ((q[0], q[1]), (q[2], q[3]), (q[4], q[5]), (q[6], q[7]))
+
+    def qmul(p, q):
+        P, Q = co(p), co(q)
+        out = []
+        for terms in HAM:
+            s0 = s1 = 0
+            for sgn, a, b in terms:
+                m = zmul(P[a], Q[b])
+                s0 += sgn * m[0]
+                s1 += sgn * m[1]
+            if s0 % 2 or s1 % 2:
+                return None
+            out += [s0 // 2, s1 // 2]
+        return tuple(out)
+    qconj = lambda q: (q[0], q[1]) + tuple(-t for t in q[2:])
+    qscal = lambda z, q: tuple(t for P in co(q) for t in zmul(z, P))
+    qsub = lambda p, q: tuple(a - b for a, b in zip(p, q))
+
+    def pair_sum(p, q):
+        s = (0, 0)
+        for P, Q in zip(co(p), co(q)):
+            s = zadd(s, zmul(P, Q))
+        return s
+    qN4 = lambda q: pair_sum(q, q)
+    ip2 = lambda p, q: sum(pair_sum(p, q))
+    ONE = (2, 0, 0, 0, 0, 0, 0, 0)
+    U = []
+    for i in range(4):
+        for s in (2, -2):
+            q = [0] * 8
+            q[2 * i] = s
+            U.append(tuple(q))
+    for signs in itertools.product((1, -1), repeat=4):
+        U.append(tuple(t for s in signs for t in (s, 0)))
+    vals = ((0, 0), (1, 0), (0, 1), (-1, 1))
+    for perm in itertools.permutations(range(4)):
+        if Permutation(list(perm)).is_even:
+            for signs in itertools.product((1, -1), repeat=3):
+                q = [0] * 8
+                sg = (1,) + signs
+                for m in range(4):
+                    q[2 * perm[m]], q[2 * perm[m] + 1] = sg[m] * vals[m][0], sg[m] * vals[m][1]
+                U.append(tuple(q))
+    nU = len(U)
+    index = {u: i for i, u in enumerate(U)}
+    table = [[index.get(qmul(a, b)) for b in U] for a in U]
+    e = index[ONE]
+
+    def order(i):
+        k, p = 1, i
+        while p != e:
+            p, k = table[p][i], k + 1
+        return k
+    ords = [order(i) for i in range(nU)]
+    trace = lambda i: (U[i][0], U[i][1])                  # u + ubar = a + b phi
+    invs = [next(j for j in range(nU) if table[i][j] == e) for i in range(nU)]
+    M240 = U + [qscal(PHI_INV, u) for u in U]
+    G240 = np.array([[ip2(p, q) for q in M240] for p in M240], dtype=np.int64) // 2
+    B_, Binv_, C, Cinv, R, RB = spine.frame()
+    ordr = [0, 2, 3, 1, 4, 5, 6, 7]
+
+    def search(k, chosen):
+        if k == 8:
+            return chosen
+        for v in range(240):
+            if all(G240[v, chosen[j]] == C[ordr[k], ordr[j]] for j in range(k)):
+                res = search(k + 1, chosen + [v])
+                if res is not None:
+                    return res
+        return None
+    sel = search(0, [])
+    simple = [None] * 8
+    for k, v in enumerate(sel):
+        simple[ordr[k]] = M240[v]
+    A = np.array(simple, dtype=np.int64).T
+
+    def coords_a(v):
+        b = np.array([ip2(a, v) for a in simple], dtype=np.int64)
+        if (b % 2).any():
+            return None
+        c = Cinv @ (b // 2)
+        return c if np.array_equal(A @ c, np.array(v, dtype=np.int64)) else None
+    mat = lambda T: np.array([coords_a(T(a)) for a in simple], dtype=np.int64).T
+    Lm = [mat(lambda q, u=u: qmul(u, q)) for u in U]
+    Rm = [mat(lambda q, u=u: qmul(q, qconj(u))) for u in U]          # R_b: q -> q bbar
+    roots_ok = {tuple(coords_a(v).tolist()) for v in M240} == {tuple(r) for r in RB.tolist()}
+
+    # ---- the clocks, carried over by W1 and W2 (the tick to L_u1 and to L_u2)
+    k = cyclotomic.clocks()
+    g, cp = k["g"], k["c"]
+    inv, mp = spine.inverse, spine.mpow
+    s = mp(cp, 10)
+    five = [i for i in range(nU) if ords[i] == 5]
+    u1 = next(i for i in five if trace(i) == (-1, 1))
+    u2 = table[u1][u1]
+    Sg = primes.sun_geometry()
+    phi, decad = Sg["phi"], Sg["decad"]
+    three = [i for i in range(nU) if ords[i] == 3]
+    sylow = {frozenset((e, x, table[x][x])) for x in three}
+    out = {}
+    for name, u in (("W1", u1), ("W2", u2)):
+        W = spine.conjugator(g, Lm[u])
+        Wi = inv(W)
+        Cp = W @ cp @ Wi
+        pairs = [(a, b) for a in range(nU) for b in range(nU) if np.array_equal(Lm[a] @ Rm[b], Cp)]
+        b0 = next((b for a, b in pairs if a == u), None)
+        minus = index[tuple(-t for t in ONE)]
+        fact = (spine.is_weyl(W) and np.array_equal(W @ g @ Wi, Lm[u]) and len(pairs) == 2 and b0 is not None
+                and {(a, b) for a, b in pairs} == {(u, b0), (table[minus][u], table[minus][b0])}
+                and ords[b0] == 6 and trace(b0) == (1, 0))
+        w = b0
+        for _ in range(9):
+            w = table[w][b0]                                  # w = b0^10 = b0^4
+        sun = (np.array_equal(W @ s @ Wi, Rm[w]) and ords[w] == 3 and trace(w) == (-1, 0)
+               and qN4(qsub(ONE, qconj(U[w]))) == (12, 0) and np.array_equal(s, primes.regular()[3])
+               and [smith_normal_form(sp.Matrix((np.eye(8, dtype=np.int64) - Rm[w]).tolist()), domain=sp.ZZ)[i, i]
+                    for i in range(8)] == [1] * 4 + [3] * 4)
+        # the left multiplications on the sun's momenta
+        Q = primes.on_sun(np.array([Wi @ Lm[x] @ W for x in range(nU)]))
+        linear = (len({q.tobytes() for q in Q}) == 120 and all(np.array_equal((q @ phi) % 3, (phi @ q) % 3) for q in Q)
+                  and set(primes._f9_dets(Q, phi)) == {(1, 0)}
+                  and all(np.array_equal(Wi @ Lm[x] @ W @ s, s @ Wi @ Lm[x] @ W) for x in range(nU)))
+        line_of = lambda p: next(i for i, L in enumerate(decad) if tuple(int(t) for t in p) in L)
+        perms = [tuple(line_of((q @ np.array(next(iter(L)))) % 3) for L in decad) for q in Q]
+        stabs = [[x for x in range(nU) if perms[x][l] == l] for l in range(10)]
+        fixes = {x: [l for l in range(10) if perms[x][l] == l] for x in range(nU)}
+        line_of_P = {P: fixes[next(iter(P - {e}))] for P in sylow}
+        normalizer = lambda P: sorted(b for b in range(nU) if {table[table[b][p]][invs[b]] for p in P} == set(P))
+        decad_ok = (len(set(perms)) == 60 and all(perms[x] == perms[table[minus][x]] for x in range(nU))
+                    and len({perms[x][0] for x in range(nU)}) == 10 and all(len(S_) == 12 for S_ in stabs)
+                    and all(len(fixes[x]) == 1 for x in three) and all(len(fixes[x]) == 0 for x in five)
+                    and len(sylow) == 10 and all(len(v) == 1 for v in line_of_P.values())
+                    and sorted(v[0] for v in line_of_P.values()) == list(range(10))
+                    and all(normalizer(P) == sorted(stabs[line_of_P[P][0]]) for P in sylow)
+                    and all(line_of_P[frozenset(table[table[b][p]][invs[b]] for p in P)][0] == perms[b][line_of_P[P][0]]
+                            for P in sylow for b in range(nU)))
+        out[name] = (fact, sun, linear, decad_ok)
+    return {
+        "the icosian ring is the model's E8 (the 240 minimal icosians onto the roots), and under W1 and W2 (the tick to "
+        "the left multiplication by an order-5 unit u) the Coxeter clock is c' = L_u R_b, q -> u q bbar, with b of order "
+        "6 and trace 1: exactly two such factorizations, (u, b) and (-u, -b)":
+            sel is not None and roots_ok and out["W1"][0] and out["W2"][0],
+        "so the sun s = c'^10 is the right multiplication R_w, q -> q wbar, by w = b^10 = b^4 of order 3 (trace -1), and "
+        "E8/(1 - s)E8 = F81 (Smith form 1^4 3^4) is I/I(1 - wbar), with N(1 - w) = 2 - (w + wbar) = 3":
+            out["W1"][1] and out["W2"][1],
+        "the 120 left multiplications commute with s and act on its momenta as 120 distinct maps commuting with phi, so "
+        "F9-linear on F81 = F9^2, all of F9-determinant 1: a 2I inside SL(2,9)":
+            out["W1"][2] and out["W2"][2],
+        "on the decad (the ten F9-lines, ten 4A2 frames) they act as A5 = 2I/{+-1}, transitively, the stabilizer of each "
+        "line of order 12, the normalizer of a Sylow 3-subgroup; each order-3 unit fixes exactly one line, and P -> the "
+        "line its elements fix is a 2I-equivariant bijection from the ten Sylow 3-subgroups onto the ten lines":
+            out["W1"][3] and out["W2"][3],
+    }
+
+
+def join_icosians_L0():
+    """Under the icosian folding the carrier's A4 is a great decagon of unit icosians and phi^-1 times it, and the six
+    A4 + A4 of the tick's residue lines are the six right cosets of the dicyclic normalizer of the tick's unit, at both
+    scales."""
+    # ---- the icosian ring, as in the icosians check
+    zmul = lambda p, q: (p[0] * q[0] + p[1] * q[1], p[0] * q[1] + p[1] * q[0] + p[1] * q[1])
+    zadd = lambda p, q: (p[0] + q[0], p[1] + q[1])
+    PHI_INV = (-1, 1)
+    HAM = (((1, 0, 0), (-1, 1, 1), (-1, 2, 2), (-1, 3, 3)), ((1, 0, 1), (1, 1, 0), (1, 2, 3), (-1, 3, 2)),
+           ((1, 0, 2), (-1, 1, 3), (1, 2, 0), (1, 3, 1)), ((1, 0, 3), (1, 1, 2), (-1, 2, 1), (1, 3, 0)))
+    co = lambda q: ((q[0], q[1]), (q[2], q[3]), (q[4], q[5]), (q[6], q[7]))
+
+    def qmul(p, q):
+        P, Q = co(p), co(q)
+        out = []
+        for terms in HAM:
+            s0 = s1 = 0
+            for sgn, a, b in terms:
+                m = zmul(P[a], Q[b])
+                s0 += sgn * m[0]
+                s1 += sgn * m[1]
+            if s0 % 2 or s1 % 2:
+                return None
+            out += [s0 // 2, s1 // 2]
+        return tuple(out)
+    qconj = lambda q: (q[0], q[1]) + tuple(-t for t in q[2:])
+    qscal = lambda z, q: tuple(t for P in co(q) for t in zmul(z, P))
+    qsub = lambda p, q: tuple(a - b for a, b in zip(p, q))
+
+    def pair_sum(p, q):
+        s = (0, 0)
+        for P, Q in zip(co(p), co(q)):
+            s = zadd(s, zmul(P, Q))
+        return s
+    qN4 = lambda q: pair_sum(q, q)
+    ip2 = lambda p, q: sum(pair_sum(p, q))
+    ONE = (2, 0, 0, 0, 0, 0, 0, 0)
+    U = []
+    for i in range(4):
+        for s in (2, -2):
+            q = [0] * 8
+            q[2 * i] = s
+            U.append(tuple(q))
+    for signs in itertools.product((1, -1), repeat=4):
+        U.append(tuple(t for s in signs for t in (s, 0)))
+    vals = ((0, 0), (1, 0), (0, 1), (-1, 1))
+    for perm in itertools.permutations(range(4)):
+        if Permutation(list(perm)).is_even:
+            for signs in itertools.product((1, -1), repeat=3):
+                q = [0] * 8
+                sg = (1,) + signs
+                for m in range(4):
+                    q[2 * perm[m]], q[2 * perm[m] + 1] = sg[m] * vals[m][0], sg[m] * vals[m][1]
+                U.append(tuple(q))
+    nU = len(U)
+    index = {u: i for i, u in enumerate(U)}
+    table = [[index.get(qmul(a, b)) for b in U] for a in U]
+    e = index[ONE]
+
+    def order(i):
+        k, p = 1, i
+        while p != e:
+            p, k = table[p][i], k + 1
+        return k
+    ords = [order(i) for i in range(nU)]
+    trace = lambda i: (U[i][0], U[i][1])                  # u + ubar = a + b phi
+    invs = [next(j for j in range(nU) if table[i][j] == e) for i in range(nU)]
+    M240 = U + [qscal(PHI_INV, u) for u in U]
+    G240 = np.array([[ip2(p, q) for q in M240] for p in M240], dtype=np.int64) // 2
+    B_, Binv_, C, Cinv, R, RB = spine.frame()
+    ordr = [0, 2, 3, 1, 4, 5, 6, 7]
+
+    def search(k, chosen):
+        if k == 8:
+            return chosen
+        for v in range(240):
+            if all(G240[v, chosen[j]] == C[ordr[k], ordr[j]] for j in range(k)):
+                res = search(k + 1, chosen + [v])
+                if res is not None:
+                    return res
+        return None
+    sel = search(0, [])
+    simple = [None] * 8
+    for k, v in enumerate(sel):
+        simple[ordr[k]] = M240[v]
+    A = np.array(simple, dtype=np.int64).T
+
+    def coords_a(v):
+        b = np.array([ip2(a, v) for a in simple], dtype=np.int64)
+        if (b % 2).any():
+            return None
+        c = Cinv @ (b // 2)
+        return c if np.array_equal(A @ c, np.array(v, dtype=np.int64)) else None
+    mat = lambda T: np.array([coords_a(T(a)) for a in simple], dtype=np.int64).T
+    Lm = [mat(lambda q, u=u: qmul(u, q)) for u in U]
+    Rm = [mat(lambda q, u=u: qmul(q, qconj(u))) for u in U]          # R_b: q -> q bbar
+    roots_ok = {tuple(coords_a(v).tolist()) for v in M240} == {tuple(r) for r in RB.tolist()}
+
+    # ---- the carrier, carried over by W1 and W2 (the tick to L_u1 and to L_u2)
+    k = cyclotomic.clocks()
+    g = k["g"]
+    inv = spine.inverse
+    five = [i for i in range(nU) if ords[i] == 5]
+    u1 = next(i for i in five if trace(i) == (-1, 1))
+    u2 = table[u1][u1]
+    minus = index[tuple(-t for t in ONE)]
+    coordsM = [tuple(coords_a(v).tolist()) for v in M240]
+    pos = {c: i for i, c in enumerate(coordsM)}
+    toRB = lambda v: np.rint(np.asarray(v, dtype=float) @ Binv_.T).astype(np.int64)
+    ev = lambda i: np.eye(8)[i % 5]
+    near_std = [s * (ev(i) - ev(i + 1)) for i in range(5) for s in (1, -1)]
+    far_std = [s * (ev(i) - ev(i + 2)) for i in range(5) for s in (1, -1)]
+    _, A4, A4p = glue.a4_pair()
+    Lq, lines = cyclotomic.residue()
+    s5 = sp.sqrt(5)
+    real = lambda q: [sp.Rational(q[2 * m], 2) + sp.Rational(q[2 * m + 1], 2) * (1 + s5) / 2 for m in range(4)]
+    # the model identity behind the pairing: (X - I)(e_(i+3) - e_(i+4)) = e_i - e_(i+2), X = -(g + g^-1)
+    Xm = -(g + inv(g))
+    pairing_model = all(np.array_equal((Xm - np.eye(8, dtype=np.int64)) @ toRB(ev(i + 3) - ev(i + 4)), toRB(ev(i) - ev(i + 2)))
+                        for i in range(5))
+    out = {}
+    for name, u in (("W1", u1), ("W2", u2)):
+        W = spine.conjugator(g, Lm[u])
+        Wi = inv(W)
+        idx = lambda v: pos[tuple((W @ toRB(v)).tolist())]
+        near, far = [idx(v) for v in near_std], [idx(v) for v in far_std]
+        cyc = {e}
+        p = table[minus][u]
+        x = p
+        while x != e:
+            cyc.add(x)
+            x = table[x][p]
+        coset = lambda x0: {table[c][x0] for c in cyc}
+        N = [b for b in range(nU) if {table[table[b][c]][invs[b]] for c in cyc} == cyc]
+        if name == "W2":
+            D = sorted(near)
+            scales = all(i < 120 for i in near) and {i - 120 for i in far if i >= 120} == set(near) and all(i >= 120 for i in far)
+            pairing = all(qscal(PHI_INV, M240[idx(ev(i + 3) - ev(i + 4))]) == M240[idx(ev(i) - ev(i + 2))] for i in range(5))
+        else:
+            D = sorted(far)
+            scales = all(i < 120 for i in far) and {i - 120 for i in near if i >= 120} == set(far) and all(i >= 120 for i in near)
+            pairing = True
+        decagon = (len(cyc) == 10 and set(D) == coset(D[0])
+                   and sp.Matrix([real(U[i]) for i in D]).rank(simplify=True) == 2)
+        a4 = [idx(v) for v in A4]
+        a4p = [idx(v) for v in A4p]
+        units_a4 = {i for i in a4 if i < 120}
+        units_a4p = {i for i in a4p if i < 120}
+        x0 = min(units_a4)
+        t = next(b for b in N if ords[b] == 4)
+        dicyclic = (len(N) == 20 and Counter(ords[b] for b in N) == Counter({1: 1, 2: 1, 4: 10, 5: 4, 10: 4})
+                    and set(N) == cyc | {table[c][t] for c in cyc})
+        a4_ok = (units_a4 == set(D) and {i - 120 for i in a4 if i >= 120} == units_a4
+                 and units_a4p == {table[t][y] for y in units_a4} and {i - 120 for i in a4p if i >= 120} == units_a4p
+                 and units_a4 | units_a4p == {table[n][x0] for n in N})
+        pts = [tuple(int(v) for v in (Lq @ (Wi @ np.array(c))) % 5) for c in coordsM]
+        cosets = set()
+        lines_ok = True
+        for L in lines:
+            ids = [i for i in range(240) if pts[i] in L]
+            un, sh = {i for i in ids if i < 120}, {i - 120 for i in ids if i >= 120}
+            lines_ok &= len(ids) == 40 and un == sh and un == {table[n][min(un)] for n in N}
+            cosets.add(frozenset(un))
+        lines_ok &= len(cosets) == 6 and set().union(*cosets) == set(range(nU))
+        carrier_line = frozenset(units_a4 | units_a4p) in cosets
+        out[name] = (scales and pairing, decagon, dicyclic and a4_ok, lines_ok and carrier_line)
+    return {
+        "the icosian ring is the model's E8, and under W2 (the tick to L_u, trace -phi) the carrier's ten near roots "
+        "+-(e_i - e_(i+1)) are unit icosians and its ten far roots +-(e_i - e_(i+2)) are exactly phi^-1 times them, "
+        "e_i - e_(i+2) = phi^-1 (e_(i+3) - e_(i+4)), the image of (X - I)(e_(i+3) - e_(i+4)) = e_i - e_(i+2) for "
+        "X = -(g + g^-1) = phi; under W1 (trace phi^-1) the scales swap, the near roots being phi^-1 times the far":
+            sel is not None and roots_ok and pairing_model and out["W1"][0] and out["W2"][0],
+        "the ten unit roots of A4 are a right coset D = <-u>x of the tick's cyclic group of order 10, lying in one plane "
+        "of H = R^4 (rank 2 over the reals): a great decagon of the 600-cell, and A4 = D u phi^-1 D":
+            out["W1"][1] and out["W2"][1],
+        "the normalizer N of <u> in 2I is dicyclic of order 20 (<-u> and ten elements of order 4), and the units of "
+        "A4 + A4' are the right coset N x: D for A4, <-u>tx for A4' (t of order 4), each at both scales":
+            out["W1"][2] and out["W2"][2],
+        "the six A4 + A4 of the tick's residue lines (pulled back from the six F5-lines of E8/(1 - g)E8) are N x u "
+        "phi^-1 N x for the six right cosets N x of N in 2I, the carrier's A4 + A4' among them":
+            out["W1"][3] and out["W2"][3],
+    }
+
+
+def join_D5_residue():
+    """The tick's residue map restricted to D5: onto F25, with A4 on the carrier line and the ten roots e_i + e_j two over
+    each point of one parallel line, a side of the pentagon and its parallel diagonal."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    Lq, lines = cyclotomic.residue()
+    toRB = lambda v: np.rint(np.asarray(v, dtype=float) @ Binv.T).astype(np.int64)
+    pt = lambda v: tuple(int(t) for t in (Lq @ toRB(v)) % 5)
+    add = lambda a, b: tuple((x + y) % 5 for x, y in zip(a, b))
+    mul = lambda k, a: tuple((k * x) % 5 for x in a)
+    ev = lambda i: np.eye(8)[i % 5]
+    p = pt(ev(1) - ev(0))
+    q = add(pt(ev(0) + ev(1)), mul(4, p))                       # point(e_0 + e_1) - p
+    f = lambda x: add(mul(int(round(x[:5].sum())) // 2, q), mul(int(round(sum(i * x[i] for i in range(5)))), p))
+    d5 = [s * (ev(i) - ev(j)) for i in range(5) for j in range(5) if i < j for s in (1, -1)] \
+        + [s * (ev(i) + ev(j)) for i in range(5) for j in range(5) if i < j for s in (1, -1)]
+    formula = all(pt(x) == f(x) for x in d5)
+    onto = (p[0] * q[1] - p[1] * q[0]) % 5 != 0
+    carrier = {mul(k, p) for k in range(5)}
+    _, A4, A4p = glue.a4_pair()
+    L0_on_line = all(pt(v) in carrier for v in np.vstack([A4, A4p]))
+    pentagons = all({pt(ev(i + k) - ev(i)) for i in range(5)} == {mul(k, p)} for k in range(1, 5))
+    over = {}
+    for i, j in itertools.combinations(range(5), 2):
+        over.setdefault(pt(ev(i) + ev(j)), []).append((i, j))
+    sides_diagonals = (set(over) == {add(q, mul(c, p)) for c in range(5)} and all(len(v) == 2 for v in over.values())
+                       and all({(i + j) % 5 for i, j in v} == {(c) % 5} for c in range(5)
+                               for key, v in over.items() if key == add(q, mul(c, p)))
+                       and all(not set(v[0]) & set(v[1]) and sorted(min((j - i) % 5, (i - j) % 5) for i, j in v) == [1, 2]
+                               for v in over.values()))
+    negatives = {pt(-(ev(i) + ev(j))) for i, j in itertools.combinations(range(5), 2)} == {add(mul(4, q), mul(c, p)) for c in range(5)}
+    n_points = len({pt(x) for x in d5}) == 14 and (0, 0) not in {pt(x) for x in d5}
+    # D5 n L0 = A4 + Z 2u: the kernel of x -> sum x / 2 mod 5 on D5 (L0 is the pullback of the carrier line)
+    two_u = 2 * np.r_[np.ones(5), np.zeros(3)]
+    a4_cartan = sp.Matrix(4, 4, lambda i, j: 2 if i == j else (-1 if abs(i - j) == 1 else 0))
+    d5_cartan = sp.Matrix([[2, -1, 0, 0, 0], [-1, 2, -1, 0, 0], [0, -1, 2, -1, -1], [0, 0, -1, 2, 0], [0, 0, -1, 0, 2]])
+    det_sub = a4_cartan.det() * int(two_u @ two_u)              # A4 + Z 2u, orthogonal sum
+    meet = (pt(two_u) == (0, 0) and det_sub == 100 and d5_cartan.det() == 4 and sp.sqrt(sp.Rational(det_sub, 4)) == 5
+            and pt(ev(0) + ev(1)) not in carrier)
+    return {
+        "on D5 the residue map E8 -> E8/(1 - g)E8 = F25 is x -> (sum x / 2) q + (sum_i i x_i) p, with p the point of "
+        "e_1 - e_0 and q off the carrier line F5 p, so D5 maps onto F25 (checked on all 40 roots, which span D5)":
+            formula and onto,
+        "A4 goes onto the carrier line, the pullback of which is L0 = A4 + A4', the r-pentagon e_(i+k) - e_i lying over "
+        "k p":
+            L0_on_line and pentagons,
+        "the ten roots e_i + e_j lie over the five points q + c p of a parallel line, two over each, those with "
+        "i + j = c mod 5: disjoint, a side of the pentagon and its parallel diagonal, one point for each of the "
+        "pentagon's five directions; their negatives lie over -q + F5 p, so the 40 roots of D5 cover 4 + 5 + 5 points":
+            sides_diagonals and negatives and n_points,
+        "so D5 n L0 is the kernel of x -> sum x / 2 mod 5, A4 + Z(2, 2, 2, 2, 2, 0, 0, 0) (determinant 5 x 20 = 100 "
+        "against 4 for D5: index 5), and D5 + L0 = E8, D5 meeting every glue class":
+            meet,
+    }
+
+
+def join_penrose_residue():
+    """r - 1 carries the cut-and-project index group A4*/A4 isomorphically onto the carrier line A4/(1 - r)A4 of the tick's
+    residue plane: on F25 the vertex rotation is the transvection that reads each glue class as a point of the line."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    Lq, lines = cyclotomic.residue()
+    k = cyclotomic.clocks()
+    g, r = k["g"], k["r"]
+    I8 = np.eye(8, dtype=np.int64)
+    toRB = lambda v: np.rint(np.asarray(v, dtype=float) @ Binv.T).astype(np.int64)
+    pt = lambda x: tuple(int(t) for t in (Lq @ x) % 5)
+    ev = lambda i: np.eye(8)[i % 5]
+    # exact: r e_i = e_(i+1) on the first five coordinates; A4* = <e_i - u/5>, A4 = <e_i - e_(i+1)>
+    F = Fraction
+    e5 = lambda i: [F(int(j == i % 5)) for j in range(5)]
+    w = lambda i: [a - F(1, 5) for a in e5(i)]                                  # the vertex weight e_i - u/5
+    rot = lambda x: [x[(j - 1) % 5] for j in range(5)]                          # (r x)_(j) = x_(j - 1)
+    one_minus_r = lambda x: [a - b for a, b in zip(x, rot(x))]
+    onto = all(one_minus_r(w(i)) == [a - b for a, b in zip(e5(i), e5(i + 1))] for i in range(5))
+    Mr = sp.Matrix(4, 4, lambda a, b: 0)                                        # 1 - r on A4 in the basis e_i - e_(i+1)
+    basis = [[int(j == i) - int(j == i + 1) for j in range(5)] for i in range(4)]
+    Bm = sp.Matrix(basis).T
+    for b, v in enumerate(basis):
+        img = sp.Matrix(one_minus_r([F(t) for t in v]))
+        Mr[:, b] = Bm.solve_least_squares(img)
+    det_ok = all(t.is_integer for t in Mr) and abs(Mr.det()) == 5 == sp.cyclotomic_poly(5, 1)
+    # the residue map on A4: e_i - e_j over (i - j) p, kernel (1 - r)A4 = A4 n (1 - g)E8
+    p = pt(toRB(ev(1) - ev(0)))
+    mul = lambda kk, a: tuple((kk * x) % 5 for x in a)
+    a4_line = all(pt(toRB(ev(i) - ev(j))) == mul(i - j, p) for i in range(5) for j in range(5) if i != j) and any(p)
+    g_is_r = all(np.array_equal(g @ toRB(ev(i) - ev(i + 1)), r @ toRB(ev(i) - ev(i + 1))) for i in range(5))
+    kernel = all(pt((I8 - r) @ toRB(ev(i) - ev(i + 1))) == (0, 0) for i in range(5))
+    # r fixes A4' (x) R pointwise
+    _, A4, A4p = glue.a4_pair()
+    fixes_twin = all(np.array_equal(r @ toRB(v), toRB(v)) for v in A4p)
+    # the scheme's index (index sum mod 5 of the A4 shadow) of every root, and the point of (r - 1)x
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    index = lambda X: ((int(X[:5].sum()) + (5 if X[0] % 2 else 0)) // 2) % 5
+    L0 = {tuple(v) for v in np.rint(2 * np.vstack([A4, A4p])).astype(np.int64).tolist()}
+    glue_ok = all((index(X) == 0) == (tuple(X.tolist()) in L0) for X in R2)
+    counts = Counter(index(X) for X in R2)
+    reads = all(pt((r - I8) @ toRB(X / 2)) == mul(index(X), p) for X in R2)
+    def shadow(X):                                                              # P1 x, exactly
+        x = [F(int(t), 2) for t in X[:5]]
+        m = sum(x) / 5
+        return tuple(a - m for a in x)
+    vw = {tuple(w(i)): 1 for i in range(5)}
+    ew = {tuple(a + b - F(2, 5) for a, b in zip(e5(i), e5(j))): 2 for i in range(5) for j in range(5) if i < j}
+    named = {**vw, **ew, **{tuple(-a for a in s): 4 for s in vw}, **{tuple(-a for a in s): 3 for s in ew}}
+    vertex = all(index(X) == named[shadow(X)] for X in R2 if tuple(X.tolist()) not in L0)
+    # on F25: r is the transvection along the carrier line
+    Q = cyclotomic.on_plane(r)
+    D = (Q - np.eye(2, dtype=np.int64)) % 5
+    carrier = {mul(t, p) for t in range(5)}
+    image = {tuple(int(t) for t in (D @ np.array(v)) % 5) for v in itertools.product(range(5), repeat=2)}
+    kerD = {v for v in itertools.product(range(5), repeat=2) if not ((D @ np.array(v)) % 5).any()}
+    transvection = D.any() and not ((D @ D) % 5).any() and image == carrier and kerD == carrier
+    return {
+        "1 - r maps the vertex weights e_i - u/5, which generate A4*, onto the simple roots e_i - e_(i+1), so "
+        "(1 - r)A4* = A4, and on A4 it has determinant Phi_5(1) = 5: (1 - r)A4 has index 5 in A4":
+            onto and det_ok,
+        "the residue map sends e_i - e_j to (i - j)p, p the point of e_1 - e_0, so A4 goes onto the carrier line F5 p "
+        "(the r-pentagon e_(i+k) - e_i over k p) with kernel (1 - r)A4 = (1 - g)A4 = A4 n (1 - g)E8, g being r on A4":
+            a4_line and g_is_r and kernel,
+        "r is the identity on A4' (x) R, so (r - 1)x = (r - 1)P1 x sees only the A4 shadow, and for every root the point of "
+        "(r - 1)x is k p, k the scheme's index of its shadow (the index sum mod 5, 1 for a vertex weight): the index is 0 "
+        "exactly on the 40 roots of L0 and takes each other value 50 times, and E8/L0 = A4*/A4 -> A4/(1 - r)A4 = F5 p is "
+        "an isomorphism":
+            fixes_twin and glue_ok and reads and vertex and counts == Counter({0: 40, 1: 50, 2: 50, 3: 50, 4: 50}),
+        "on F25 the vertex rotation acts as the transvection along the carrier line: (Q - I)^2 = 0, with kernel and image "
+        "the carrier line, so x -> (r - 1)x reads each parallel line (glue class) as one point of the carrier line":
+            transvection,
+    }
+
+
+def join_parent_triangle():
+    """The parent's A6 acts on the lattice through the simplex's Weyl group W(A5) and carries the triangle port to the
+    forty oriented triangle ports of K6; read on Q[A6] they are exactly the chi10 block that O36 does not see."""
+    A = _a6()
+    Gr, mul, inv, right, r, t, perm = A["G"], A["mul"], A["inv"], A["right"], A["r"], A["t"], A["perm"]
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    X = [e2[i] + e2[5] for i in range(5)] + [0 * e2[0]]          # hexad point a -> site x_a (doubled), apex 5 -> 0
+    Xs = sp.Matrix([list(x) for x in X[:5]]).T
+    Cb = sp.Matrix.hstack(*Xs.T.nullspace())
+    Bm = sp.Matrix.hstack(Xs, Cb)
+
+    def lin(g):                                                    # x_a - x_b -> x_g(a) - x_g(b), identity off the A5
+        img = sp.Matrix.hstack(*[sp.Matrix(list(X[g[a]] - X[g[5]])) for a in range(5)])
+        return sp.Matrix.hstack(img, Cb) * Bm.inv()
+    Ls = {g: lin(g) for g in Gr}
+    Ln = {g: np.array(Lg.tolist(), dtype=np.int64) for g, Lg in Ls.items()}
+    R2 = counts._roots2()
+    roots = {tuple(x) for x in R2.tolist()}
+    a5 = [(a, b) for a in range(6) for b in range(6) if a != b]
+    pos = {tuple((X[a] - X[b]).tolist()): k for k, (a, b) in enumerate(a5)}
+    tri = [(0, 1), (1, 2), (2, 0)]
+
+    def port(g):
+        v = np.zeros(30, dtype=np.int64)
+        for a, b in tri:
+            p = Ln[g] @ (X[a] - X[b])
+            v[pos[tuple(p.tolist())]] += 1
+            v[pos[tuple((-p).tolist())]] -= 1
+        return v
+    T = np.array([port(g) for g in Gr]).T                         # 30 x 360: column g = U_g p
+    ident = tuple(range(6))
+    p0 = port(ident)
+    hexagon = {tuple((X[a] - X[b]).tolist()): 1 for a, b in tri} | {tuple((X[b] - X[a]).tolist()): -1 for a, b in tri}
+    tp = {tuple(x.tolist()): 1 for x in [e2[0] - e2[1], e2[1] - e2[2], e2[2] - e2[0]]} | {
+        tuple(x.tolist()): -1 for x in [e2[1] - e2[0], e2[2] - e2[1], e2[0] - e2[2]]}
+    stab = [g for g in Gr if np.array_equal(port(g), p0)]
+    # K6's cycles, lifted oddly onto the 30 A5 roots
+    K6 = list(itertools.combinations(range(6), 2))
+    B6 = sp.Matrix(6, 15, lambda v, e: (1 if v == K6[e][1] else -1 if v == K6[e][0] else 0))
+    cyc = B6.nullspace()
+    lift = np.zeros((30, len(cyc)), dtype=np.int64)
+    for k, c in enumerate(cyc):
+        c = c * sp.lcm([x.q for x in c])
+        for e, (i, j) in enumerate(K6):
+            lift[pos[tuple((X[i] - X[j]).tolist())], k] += int(c[e])
+            lift[pos[tuple((X[j] - X[i]).tolist())], k] -= int(c[e])
+    cent = lambda ch, d: np.array([[d * ch[mul(inv(g), h)] for h in Gr] for g in Gr], dtype=np.int64)
+    P10, P5 = cent(A["chi10"], 10), cent(A["chi5"], 5)
+    step = lambda B: np.vstack([right(B, r), right(B, t)])
+    words, front, hist = [ident], [ident], []
+    for _ in range(6):
+        hist.append(_exact_rank(np.vstack([right(T, g) for g in words])))
+        front = [mul(w, g) for w in front for g in (r, t)]
+        words = list(dict.fromkeys(words + front))
+    joint = _word_ranks(np.vstack([A["O36"], T]), step, 7)
+    # moments of Delta between the 30 A5 roots (exact, sparse)
+    rc = counts._roots2() @ counts._W
+    pw = []
+    for a, b in a5:
+        u = (counts._code([X[a] - X[b]]), np.array([1], dtype=np.int64))
+        L = [u]
+        for _ in range(2):
+            L.append(counts._delta(*L[-1], rc))
+        pw.append(L)
+    To = T.astype(object)
+    Gram = To.T.dot(To)
+    m = [1, 242, 58691, 14259954, 3470101592]
+    mom_ok = True
+    for n in range(5):
+        j = n // 2
+        Gn = np.array([[counts._dot(pw[i][j], pw[k][n - j]) for k in range(30)] for i in range(30)], dtype=object)
+        mom_ok &= bool(np.array_equal(To.T.dot(Gn).dot(To), m[n] * Gram))
+    return {
+        "with the hexad point a at the site x_a = e_a + e_5 (a = 0..4) and the apex 5 at the origin, each g in the "
+        "parent's A6 gives the integer orthogonal map x_a - x_b -> x_g(a) - x_g(b) (identity off the simplex's A5), "
+        "which permutes the 240 roots, so U_g delta_x = delta_(A_g x) commutes with Delta; g -> A_g is a homomorphism":
+            all(Lg.T * Lg == sp.eye(8) and all(x.q == 1 for x in Lg) for Lg in Ls.values())
+            and all({tuple((Ln[g] @ x).tolist()) for x in R2} == roots for g in Gr)
+            and all(Ls[mul(a, g)] == Ls[a] * Ls[g] for a in (r, t) for g in Gr)
+            and all(np.array_equal(Ln[g] @ (X[a] - X[b]), X[g[a]] - X[g[b]]) for g in Gr for a, b in a5),
+        "the triangle port (A4 roots e_0 - e_1, e_1 - e_2, e_2 - e_0 with +1, their negatives with -1) is the odd lift of "
+        "the oriented triangle x_0 -> x_1 -> x_2, and A6 carries it to 40 distinct ports, the 20 triangles of K6 with "
+        "both orientations, its stabilizer the 9 elements of <(012), (345)>":
+            hexagon == tp and len({tuple(T[:, k]) for k in range(360)}) == 40
+            and len({frozenset(np.flatnonzero(T[:, k]).tolist()) for k in range(360)}) == 20 and len(stab) == 9
+            and set(stab) == set(A["closure"]([perm((0, 1, 2)), perm((3, 4, 5))]))
+            and np.array_equal(right(T, perm((0, 1, 2))), T) and np.array_equal(right(T, perm((3, 4, 5))), T),
+        "the reader T = [U_g p]_g on Q[A6] has rank 10 and its columns span the odd lift of K6's cycle space "
+        "(dimension 10): the irreducible chi10 = Lambda^2 chi5; T P10 = 360 T, while T kills the constants and the "
+        "chi5 block (T J = 0, T P5 = 0)": np.linalg.matrix_rank(T) == 10 and len(cyc) == 10
+            and np.linalg.matrix_rank(lift) == 10 and np.linalg.matrix_rank(np.hstack([T, lift])) == 10
+            and np.array_equal(T @ P10, 360 * T) and not T.sum(axis=1).any() and not (T @ P5).any(),
+        "O36 is blind to it (O36 P10 = 0): under the right action of r and t the triangle reader's history has exact "
+        "ranks 10, 30, 50, 80, 100 by word length (the whole chi10 block), and O36 with T reaches 360 (static rank 46)":
+            not (A["O36"] @ P10).any() and hist == [10, 30, 50, 80, 100, 100] and joint[0] == 46 and joint[-1] == 360,
+        "the bath reads the reader as the triangle: T* Delta^n T = m_n T* T for n <= 4, m = 1, 242, 58691, 14259954, "
+        "3470101592 (Schur: chi10 is absolutely irreducible and Delta commutes with A6)": mom_ok,
+    }
+
+
+def join_literal_triangle():
+    """The owner's saved adapters chart the triangle ports: the native and exterior coordinates are cycles of K5, and the
+    triangle port's odd lift turns the owner's port metric W_p into the bath Gram, with the triangle's moments."""
+    d = literal.load()
+    E = carrier.edges()
+    B = sp.Matrix(carrier.signed_incidence())
+    F, Chi, Wp = d["Fedge_native_inverse"], d["Chi_native_port"], d["Wp_source_HS"]
+    Fx, Gx, Ax = d["Fext_Lambda2_A4"], d["Gext_A4"], d["Adapter_exterior_to_native"]
+    pairs = [tuple(p) for p in d["exterior_A4_wedge_order"]]
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    a4 = [(i, j) for i in range(5) for j in range(5) if i != j]
+    pos = {(i, j): k for k, (i, j) in enumerate(a4)}
+
+    def lift(x):                      # the odd lift: edge ij (i < j) with x -> x delta(e_i - e_j) - x delta(e_j - e_i)
+        v = sp.zeros(20, 1)
+        for k, (i, j) in enumerate(E):
+            v[pos[(i, j)]] += x[k]
+            v[pos[(j, i)]] -= x[k]
+        return v
+
+    def antisym(x):
+        Xm = sp.zeros(5, 5)
+        for k, (i, j) in enumerate(E):
+            Xm[i, j], Xm[j, i] = x[k], -x[k]
+        return Xm
+    tri = sp.zeros(10, 1)
+    for a, b in [(0, 1), (1, 2), (2, 0)]:
+        tri[E.index((min(a, b), max(a, b)))] += 1 if a < b else -1
+    port = lift(tri)
+    tp = {(0, 1): 1, (1, 2): 1, (2, 0): 1, (1, 0): -1, (2, 1): -1, (0, 2): -1}
+    Tn = sp.Matrix.hstack(*[lift(F[:, k]) for k in range(6)])
+    Te = sp.Matrix.hstack(*[lift(Fx[:, k]) for k in range(6)])
+    # Delta^n between the 20 A4 roots, exact on the lattice
+    rc = counts._roots2() @ counts._W
+    pw = []
+    for i, j in a4:
+        u = (counts._code([e2[i] - e2[j]]), np.array([1], dtype=np.int64))
+        L = [u]
+        for _ in range(2):
+            L.append(counts._delta(*L[-1], rc))
+        pw.append(L)
+    Gn = [sp.Matrix(20, 20, lambda a, b: counts._dot(pw[a][n // 2], pw[b][n - n // 2])) for n in range(5)]
+    m = [1, 242, 58691, 14259954, 3470101592]
+    rnd = [sp.Matrix([3, -1, 4, 1, -5, 9, 2, -6, 5, 3]), sp.Matrix([2, 7, 1, -8, 2, 8, 1, -8, 2, 8])]
+    return {
+        "the owner's Fedge_native_inverse F carries the six native coordinates onto the cycles of K5 (B F = 0, rank 6, "
+        "Chi_native_port F = I), and Fext_Lambda2_A4 lists the six oriented triangles i -> j -> 4 in the file's wedge "
+        "order, with Gext_A4 = Fext^T Fext and Chi Fext = Adapter_exterior_to_native":
+            (B * F).is_zero_matrix and F.rank() == 6 and Chi * F == sp.eye(6) and (B * Fx).is_zero_matrix
+            and all(Fx[:, k] == sp.Matrix([(1 if e == (i, j) else -1 if e == (i, 4) else 1 if e == (j, 4) else 0)
+                                           for e in E]) for k, (i, j) in enumerate(pairs))
+            and Gx == Fx.T * Fx and Chi * Fx == Ax,
+        "the odd lift reads an edge vector as the antisymmetric matrix X on the A4 roots (e_i - e_j -> X_ij), so its "
+        "Gram is the Hilbert-Schmidt form, 2 |x|^2; the triangle port is the odd lift of 0 -> 1 -> 2, which the file "
+        "reads as (1, 1, 0, 0, 0, -1) natively and (1, -1, 0, 1, 0, 0) exteriorly":
+            all((lift(x).T * lift(x))[0] == (antisym(x).T * antisym(x)).trace() == 2 * (x.T * x)[0] for x in rnd)
+            and {a4[k]: port[k] for k in range(20) if port[k]} == tp and Chi * tri == sp.Matrix([1, 1, 0, 0, 0, -1])
+            and F * Chi * tri == tri and Fx * sp.Matrix([1, -1, 0, 1, 0, 0]) == tri,
+        "so the owner's port metric is the triangle-port Gram: T = odd lift o F has T^T T = 2 F^T F = W_p, and the "
+        "exterior chart gives 2 Gext; the triangle's native W_p-norm is 6 = |p|^2":
+            Tn.T * Tn == Wp == 2 * F.T * F and Te.T * Te == 2 * Gx
+            and (sp.Matrix([1, 1, 0, 0, 0, -1]).T * Wp * sp.Matrix([1, 1, 0, 0, 0, -1]))[0] == 6 == (port.T * port)[0],
+        "and the bath compresses to the triangle's moments in both charts: T^T Delta^n T = m_n W_p and m_n 2 Gext for "
+        "n <= 4, m = 1, 242, 58691, 14259954, 3470101592":
+            all(Tn.T * Gn[n] * Tn == m[n] * Wp and Te.T * Gn[n] * Te == 2 * m[n] * Gx for n in range(5))
+            and (port.T * Gn[2] * port)[0] == 6 * 58691,
+    }
+
+
+def join_kerM_parent():
+    """The five dark modes are the parent's chi5': the carrier's A5 permutes the six Golden lines as it permutes
+    A6/PSL(2,5), which extends it to A6; the resulting reader is the hub's Golden adapter on the marked A5. Cited:
+    Schur's lemma (an absolutely irreducible restriction fixes the extension)."""
+    A = _a6()
+    Gr, mul, inv, right, r, t, perm, closure, cosets = (A[k] for k in ("G", "mul", "inv", "right", "r", "t", "perm",
+                                                                          "closure", "cosets"))
+    H, sig, S5, sgn, U = _six_lines()
+    M = sp.Matrix(carrier.signless_incidence())
+    psl = closure([perm((0, 1, 2, 3, 4)), perm((0, 5), (1, 4))])
+    six = cosets(psl)                                              # A6 / PSL(2,5): the second hexad
+    x0 = next(k for k, c in enumerate(six) if tuple(range(6)) in c)
+    act = lambda g, k: six.index(frozenset(mul(g, h) for h in six[k]))
+    stab5 = [g for g in Gr if g[5] == 5]
+    as5 = lambda g: tuple(g[:5])                                   # Stab(5) as vertex permutations of K5
+    # the Stab(5)-equivariant bijection beta: cosets -> line indices (searched over all 720)
+    gens = [perm((0, 1, 2, 3, 4)), perm((0, 1, 2))]
+    betas = [b for b in itertools.permutations(range(6))
+             if all(b[act(a, k)] == sig[as5(a)][b[k]] for a in gens for k in range(6))]
+    beta = betas[0]
+    Hm = sp.Matrix.hstack(*H)
+    # rho(g): the linear map h_beta(x) -> h_beta(gx), well defined since sum h_i = 0 is the only relation
+    rho = {g: Hm * sp.Matrix(6, 6, lambda i, j: int(beta[act(g, beta.index(j))] == i)) * Hm.T / 12 for g in Gr}
+    Pk = Hm * Hm.T / 12
+    G = np.array(sp.Matrix.hstack(*[H[beta[act(g, x0)]] for g in Gr]).tolist(), dtype=np.int64)    # 10 x 360
+    cent = lambda ch, d: np.array([[d * ch[mul(inv(g), h)] for h in Gr] for g in Gr], dtype=np.int64)
+    chi5b = {g: sum(1 for k in range(6) if act(g, k) == k) - 1 for g in Gr}
+    P5b, P5 = cent(chi5b, 5), cent(A["chi5"], 5)
+    Pb = np.ones((360, 360), dtype=np.int64) + P5 + cent(A["chi10"], 10)
+    step = lambda B: np.vstack([right(B, r), right(B, t)])
+    # the hub's Golden adapter: column g is the Golden line of the pentagon (g(0), ..., g(4)) when g(5) = 5, else 0
+    E = carrier.edges()
+
+    def golden(g):
+        if g[5] != 5:
+            return [0] * 10
+        o = list(g[:5])
+        return [1 if (o.index(j) - o.index(i)) % 5 in (1, 4) else -1 for i, j in E]
+    BG = np.array([golden(g) for g in Gr], dtype=np.int64).T
+    char = lambda g: (rho[g] * Pk).trace()
+    return {
+        "the six Golden lines (pentagon minus pentagram, Gram 12 I - 2 J) frame ker M, and the carrier's A5 = Stab(5) "
+        "permutes them, without signs, exactly as it permutes the six cosets of PSL(2,5) in the parent's A6: the "
+        "equivariant bijection is unique, sending the coset PSL(2,5) to the line of the pentagon 0-1-2-3-4":
+            all((M * h).is_zero_matrix for h in H) and Hm.T * Hm == 12 * sp.eye(6) - 2 * sp.ones(6, 6)
+            and Pk * Pk == Pk and Pk.rank() == 5 and len(betas) == 1 and beta[x0] == 0
+            and all(U[as5(a)] * H[beta[k]] == H[beta[act(a, k)]] for a in stab5 for k in range(6)),
+        "so rho(g) h_beta(x) = h_beta(gx) is an action of A6 on the five dark modes extending the carrier's A5 "
+        "(rho(a) = U(a) on ker M for every a in Stab(5)), by orthogonal maps, with character chi5' = (fixed cosets of "
+        "PSL(2,5)) - 1; ker M is absolutely irreducible under A5 while chi5 restricted to Stab(5) is not, so (A6's two 5s and Schur, "
+        "cited) this is the only extension; t = (23)(45) fixes two of the six lines and moves the pentagon 0-1-2-3-4's":
+            all(rho[mul(a, g)] == rho[a] * rho[g] for a in (r, t) for g in Gr)
+            and all(rho[a] * Pk == U[as5(a)] * Pk for a in stab5)
+            and all(rho[g].T * rho[g] * Pk == Pk for g in (r, t)) and all(char(g) == chi5b[g] for g in Gr)
+            and sum(chi5b[g] ** 2 for g in stab5) == 60 and sum(A["chi5"][g] ** 2 for g in stab5) == 120
+            and sum(1 for k in range(6) if act(t, k) == k) == 2 and act(t, x0) != x0,
+        "the dark reader G = [h_beta(g PSL)]_g on Q[A6] has rank 5 and G P5' = 360 G: it lies in the chi5' block, "
+        "outside the blind 126 (G P_blind = 0), and its r, t-history reaches 25, the whole block":
+            np.linalg.matrix_rank(G) == 5 and np.array_equal(G @ P5b, 360 * G) and not (G @ Pb).any()
+            and _word_ranks(G, step, 6)[-1] == 25,
+        "on the marked A5 it is the hub's Golden adapter: B_G = G restricted to the 60 elements fixing 5 (zero "
+        "elsewhere), so B_G is the restriction of an A6-equivariant reader, and the dark modes sit in the Golden30's "
+        "234, complementary to the simplex's 126":
+            np.array_equal(BG, G * np.array([[int(g[5] == 5) for g in Gr]], dtype=np.int64))
+            and not (A["F30"] @ Pb).any(),
+    }
+
+
+def join_A4_pg25():
+    """A4 -> PG(2,5): the root lattice modulo 5. On A4/5A4* = H(F5)/u the form x.x is a nondegenerate ternary
+    quadratic form, and the moment map x -> (sum i x_i, sum i^2 x_i, 3 sum i^3 x_i) carries it onto the model's plane
+    with x.x = -(b^2 - ac): the quadric is the Veronese conic, W(A4) = S5 acts as PGL(2,5) through the symmetric
+    square, the conic points are the six Sylow labels, the root classes the interior points and the classes
+    e_i + e_j - e_k - e_l the exterior points, compatibly with the synthemes dot's bridge."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    label = {x: c for c, x in conic.items()}
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    exterior = {q for q in points if q not in conic and count[q] == 2}
+    interior = {q for q in points if q not in conic and count[q] == 0}
+    E = carrier.edges()
+
+    def norm(v):
+        v = [int(t) % 5 for t in v]
+        k = next((t for t in v if t), None)
+        return None if k is None else tuple(t * pow(k, 3, 5) % 5 for t in v)
+    raw = lambda x: (sum(i * x[i] for i in range(5)) % 5, sum(i * i * x[i] for i in range(5)) % 5,
+                     3 * sum(i ** 3 * x[i] for i in range(5)) % 5)
+    mu = lambda x: norm(raw(x))
+    H5 = [x for x in itertools.product(range(5), repeat=5) if sum(x) % 5 == 0]
+    Q = lambda x: sum(t * t for t in x) % 5
+    bil = lambda x, y: sum(a * b for a, b in zip(x, y)) % 5
+    disc = lambda v: (v[1] * v[1] - v[0] * v[2]) % 5
+    e = lambda i: tuple(int(k == i) for k in range(5))
+    lin = lambda *terms: tuple(sum(c * v[k] for c, v in terms) for k in range(5))
+
+    # (1) A4 / 5 A4* = H(F5)/u: the Cartan matrix mod 5 has rank 3, its kernel the simple-root vector (1, 2, 3, 4) = u - 5 e_4
+    C = sp.Matrix(4, 4, lambda a, b: 2 if a == b else (-1 if abs(a - b) == 1 else 0))
+    simple = [lin((1, e(k)), (-1, e(k + 1))) for k in range(4)]
+    w = lin(*[(k + 1, simple[k]) for k in range(4)])
+    Cmod = sp.polys.matrices.DomainMatrix.from_Matrix(C).convert_to(sp.GF(5))
+    ker_mu = [x for x in H5 if raw(x) == (0, 0, 0)]
+
+    # (2) the isotropic points and the bijections V -> F5
+    bij = list(itertools.permutations(range(5)))
+    iso = {mu(x) for x in H5 if any(raw(x)) and Q(x) == 0}
+    classes = Counter(mu(f) for f in bij)
+    affine = lambda f: {tuple((a * t + b) % 5 for t in f) for a in range(1, 5) for b in range(5)}
+    cube_map = tuple(pow(i, 3, 5) for i in range(5))
+
+    # (3) the vertex permutations on the 31 points
+    def act(p, x):                                         # (p x)_(p(i)) = x_i
+        y = [0] * 5
+        for i in range(5):
+            y[p[i]] = x[i]
+        return tuple(y)
+    pre = {}
+    for x in H5:
+        if any(raw(x)):
+            pre.setdefault(mu(x), x)
+    det = lambda m: (m[0] * m[3] - m[1] * m[2]) % 5
+    gl = [m for m in itertools.product(range(5), repeat=4) if det(m)]
+    on_points = lambda f: tuple(f(q) for q in points)
+    symperm = {}
+    for m in gl:
+        symperm.setdefault(on_points(sym2(m)), m)
+    perm_of = lambda p: on_points(lambda q: mu(act(p, pre[q])))
+    theta = {p: symperm.get(perm_of(p)) for p in bij}
+    r, t01 = (1, 2, 3, 4, 0), (1, 0, 2, 3, 4)
+    transpositions = [p for p in bij if sum(p[i] != i for i in range(5)) == 2]
+
+    # (4) roots, double transpositions, polarity
+    roots = {(i, j): mu(lin((1, e(i)), (-1, e(j)))) for i, j in E}
+    dt = {}
+    for m in range(5):
+        rest = [k for k in range(5) if k != m]
+        for b in rest[1:]:
+            c, d = [k for k in rest if k not in (rest[0], b)]
+            dt[(m, b)] = lin((1, e(rest[0])), (1, e(b)), (-1, e(c)), (-1, e(d)))
+    dt_pts = {key: mu(x) for key, x in dt.items()}
+    triangles = {m: [x for (mm, _), x in dt.items() if mm == m] for m in range(5)}
+
+    # (5) the Sylow labels and the synthemes dot's bridge
+    Hs, sig, S5, sgn, U = _six_lines()
+    chi = lambda a: 1 if a % 5 in (1, 4) else -1
+    sign_vector = lambda f: [chi(f[j] - f[i]) for i, j in E]
+    lab = {}
+    for k, h in enumerate(Hs):
+        hl = list(h)
+        lab[k] = {conic[mu(f)] for f in bij if sign_vector(f) in (hl, [-s for s in hl])}
+    lab_ok = all(len(v) == 1 for v in lab.values()) and len({min(v) for v in lab.values()}) == 6
+    lab = {k: min(v) for k, v in lab.items()}
+    SY = _matchings(range(6))
+    move = lambda p, m: frozenset(frozenset(sig[p][y] for y in pr) for pr in m)
+    special = {m for m in SY if len({move(p, m) for p in S5}) == 5}
+    v = {i: next(m for m in special if all(move(p, m) == m for p in S5 if p[i] == i)) for i in range(5)}
+    edge = {tuple(i for i in range(5) if not v[i] & m): m for m in SY if m not in special}
+    secant = {frozenset(pr): cross(label[pr[0]], label[pr[1]]) for pr in itertools.combinations(range(6), 2)}
+    through = lambda q: [pr for pr, L in secant.items() if on(L, q)]
+    pole = {cross(tangent[label[a]], tangent[label[b]]): frozenset((a, b)) for a, b in itertools.combinations(range(6), 2)}
+    to_conic = lambda m: frozenset(frozenset(lab[y] for y in pr) for pr in m)
+
+    return {
+        "A4/5A4* is H(F5)/u: the Cartan matrix of A4 has rank 3 mod 5 and its kernel is the simple-root vector "
+        "(1, 2, 3, 4) = u - 5 e_4, so x.x mod 5 is a nondegenerate form on the 125 classes; the moment map "
+        "x -> (sum i x_i, sum i^2 x_i, 3 sum i^3 x_i) is linear on H(F5) with kernel exactly the multiples of u":
+            Cmod.rank() == 3 and C.det() == 5 and w == lin((1, (1, 1, 1, 1, 1)), (-5, e(4)))
+            and all((sp.Matrix([1, 2, 3, 4]).T * C)[k] % 5 == 0 for k in range(4))
+            and len(H5) == 625 and sorted(ker_mu) == [tuple([a] * 5) for a in range(5)]
+            and all(Q(tuple((a + s) % 5 for a in x)) == Q(x) for x in H5 for s in range(5)),
+        "for every x in H(F5), x.x = -(b^2 - ac) at (a, b, c) = mu(x): the moment map is an isometry up to sign onto "
+        "the model's PG(2,5) with its discriminant, so the quadric of the root lattice mod 5 is the Veronese conic":
+            all(Q(x) == (-disc(raw(x))) % 5 for x in H5) and iso == set(conic) and len(iso) == 6,
+        "the six isotropic points are the classes of the 120 bijections f: V -> F5, twenty each, the AGL(1,5)-cosets "
+        "a f + b (the Sylow 5-subgroups): the ramp (0, 1, 2, 3, 4) of the vertex rotation goes to the conic point 0 and "
+        "i -> i^3 to infinity":
+            set(classes) == set(conic) and set(classes.values()) == {20}
+            and all({mu(g) for g in affine(f)} == {mu(f)} and len(affine(f)) == 20 for f in bij)
+            and conic[mu((0, 1, 2, 3, 4))] == 0 and conic[mu(cube_map)] == 5,
+        "they are the synthemes dot's six Sylow labels: the bijections over each conic point have sign vectors "
+        "+-chi(f(j) - f(i)) on the edges (chi the quadratic character mod 5; pentagon minus pentagram for the ramp) "
+        "equal to one Sylow sign line, and the induced labelling carries the exceptional sigma_p to the action of p":
+            lab_ok and all(lab[sig[p][k]] == conic[mu(act(p, pre[label[lab[k]]]))] for p in S5 for k in range(6)),
+        "every vertex permutation acts on the 31 points as the symmetric square of one element of PGL(2,5), "
+        "injectively and onto: W(A4) = S5 is PGL(2,5) on the plane; the vertex rotation is [[1, 0], [2, 1]] "
+        "(z -> z/(2z + 1), fixing the ramp's point 0) and every transposition an involution with no fixed conic point":
+            all(theta[p] is not None for p in bij) and len({perm_of(p) for p in bij}) == 120 == len(symperm)
+            and perm_of(r) == on_points(sym2((1, 0, 2, 1)))
+            and [c for c in conic if sym2((1, 0, 2, 1))(c) == c] == [label[0]]
+            and all(perm_of(p) != on_points(lambda q: q) and all(mu(act(p, pre[c])) != c for c in conic)
+                    for p in transpositions)
+            and len(transpositions) == 10 and t01 in transpositions,
+        "the ten root classes +-(e_i - e_j) are the ten interior points, two of them conjugate (orthogonal mod 5) "
+        "exactly when their edges are disjoint: the polarity on the roots is the Petersen graph; the fifteen classes "
+        "e_i + e_j - e_k - e_l are the fifteen exterior points, the three avoiding a vertex m a self-polar triangle":
+            set(roots.values()) == interior and len(set(roots.values())) == 10
+            and all((bil(lin((1, e(i)), (-1, e(j))), lin((1, e(k)), (-1, e(l)))) == 0) == (not {i, j} & {k, l})
+                    for (i, j) in E for (k, l) in E if (i, j) != (k, l))
+            and set(dt_pts.values()) == exterior and len(set(dt_pts.values())) == 15
+            and all(bil(x, y) == 0 for m in range(5) for x, y in itertools.combinations(triangles[m], 2)),
+        "and with the Sylow labels the plane is the synthemes dot's bridge: the three secants through the root point of "
+        "the edge ij cut the conic in the syntheme of ij, and the self-polar triangle at m gives the special syntheme "
+        "of the vertex m":
+            all(frozenset(through(roots[pr])) == to_conic(edge[pr]) for pr in E)
+            and all(frozenset(through(q) + [pole[q]]) == to_conic(v[m]) for (m, _), q in dt_pts.items()),
+    }
+
+
+def join_penrose_surface():
+    """Penrose planes -> surface: the six axes of K6 as six equiangular lines in R u + E2. The cone point goes to u and
+    the site i to u + 5 sqrt2 P2 e_i; every two lines meet at |cos| = 1/sqrt5, the twelve unit vectors on them are a
+    regular icosahedron, and its faces, up to sign, are the hemi-icosahedron's. The Seidel matrix is the
+    quadratic-residue conference matrix of order 6 with the character negated on the sites; on R u + E1 the same recipe gives the
+    complement, and the doubling, which swaps E1 and E2, carries one to the other. Exact over Q(sqrt2, sqrt5)."""
+    s5, s2 = sp.sqrt(5), sp.sqrt(2)
+    phi = (1 + s5) / 2
+    phi_inv = (s5 - 1) / 2
+    ex = lambda t: sp.expand(sp.radsimp(t))
+    I5, J5 = sp.eye(5), sp.ones(5, 5)
+    PH = I5 - J5 / 5
+    u = sp.ones(5, 1)
+    r = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))                # e_i -> e_(i+1)
+    Y = r + r.T
+    P1 = ((Y + phi * I5) * PH / s5).applyfunc(ex)                          # the 72-degree plane (penrose_planes)
+    P2 = ((phi_inv * I5 - Y) * PH / s5).applyfunc(ex)                      # the 144-degree plane
+    delta = sp.Matrix(5, 5, lambda a, b: int(a == 2 * b % 5))              # the doubling i -> 2i
+    e = lambda i: _e(i % 5)
+    A, Ac = _surface_labels()                                              # the hemi-icosahedron and its complement, infinity = 5
+    chi = lambda a: 1 if a % 5 in (1, 4) else (-1 if a % 5 else 0)
+
+    def config(P):
+        vecs = [u + 5 * s2 * P * e(i) for i in range(5)] + [u]            # labels 0..4 the sites, 5 the cone point
+        return [v.applyfunc(ex) for v in vecs]
+
+    def gram(vecs):
+        return sp.Matrix(6, 6, lambda a, b: ex((vecs[a].T * vecs[b])[0]))
+
+    def unit_cos(G):
+        return sp.Matrix(6, 6, lambda a, b: ex(G[a, b] / sp.sqrt(G[a, a] * G[b, b])))
+
+    def faces(C):
+        sign = lambda t: 1 if t.is_positive else -1
+        return {T for T in itertools.combinations(range(6), 3)
+                if sign(C[T[0], T[1]]) * sign(C[T[1], T[2]]) * sign(C[T[0], T[2]]) > 0}
+
+    def icosahedron(C):
+        """The twelve unit vectors +-v_a: their nearest neighbours (|cos| = 1/sqrt5 with the sign +) and triangles."""
+        pts = [(a, s) for a in range(6) for s in (1, -1)]
+        dot = lambda p, q: (C[p[0], q[0]] * p[1] * q[1]) if p[0] != q[0] else (1 if p[1] == q[1] else -1)
+        near = {(p, q) for p in pts for q in pts if p != q and dot(p, q) == 1 / s5}
+        degree = Counter(p for p, q in near)
+        tri = [T for T in itertools.combinations(pts, 3) if all((T[x], T[y]) in near for x, y in ((0, 1), (1, 2), (0, 2)))]
+        return degree, len(near) // 2, tri
+
+    V2, V1 = config(P2), config(P1)
+    G2, G1 = gram(V2), gram(V1)
+    C2, C1 = unit_cos(G2), unit_cos(G1)
+    S2 = ((C2 - sp.eye(6)) * s5).applyfunc(ex)
+    S1 = ((C1 - sp.eye(6)) * s5).applyfunc(ex)
+    qr = sp.Matrix(6, 6, lambda a, b: 0 if a == b else (1 if 5 in (a, b) else chi(a - b)))
+    deg2, ne2, tri2 = icosahedron(C2)
+    faces_mod_sign = {tuple(sorted(p[0] for p in T)) for T in tri2}
+    dbl = lambda F: {tuple(sorted(5 if x == 5 else 2 * x % 5 for x in T)) for T in F}
+
+    return {
+        "the six vectors lie in the 3-space R u + E2 (P2 projects onto the 144-degree plane, P2 u = 0) and have "
+        "squared lengths 25 (sites) and 5 (cone point); every two of the six lines meet at |cos| = 1/sqrt5: six "
+        "equiangular lines, cos(cone, site) = 1/sqrt5 and cos(i, j) = 1/5 + (4/5) cos(144 (i - j)) = -+1/sqrt5":
+            all(ex((P2 * P2 - P2)[k]) == 0 for k in range(25)) and (P2 * u).is_zero_matrix and P2.rank() == 2
+            and all(G2[a, a] == 25 for a in range(5)) and G2[5, 5] == 5 and all(G2[a, 5] == 5 for a in range(5))
+            and all(ex(G2[a, b] / 25 - sp.Rational(1, 5) - sp.Rational(4, 5) * sp.cos(4 * sp.pi * (a - b) / 5)) == 0
+                    for a in range(5) for b in range(5))
+            and all(ex(C2[a, b] ** 2) == sp.Rational(1, 5) for a in range(6) for b in range(6) if a != b)
+            and sp.Matrix.hstack(*V2).rank() == 3,
+        "the twelve unit vectors on them are a regular icosahedron: each has exactly five neighbours at the "
+        "nearest distance (cos = 1/sqrt5), thirty edges and twenty triangular faces, and the faces up to sign are "
+        "exactly the ten faces of the hemi-icosahedron on the six axes (the cone point at infinity = 5)":
+            set(deg2.values()) == {5} and len(deg2) == 12 and ne2 == 30 and len(tri2) == 20
+            and faces_mod_sign == A and len(faces_mod_sign) == 10,
+        "S = sqrt5 (Gram of unit vectors - I) is the symmetric conference matrix [[0, 1], [1, -Q]] (cone point last) with "
+        "Q_ij = chi(i - j) the quadratic character mod 5, S^2 = 5I: a triangle is a face of the hemi-icosahedron exactly when "
+        "the product of its three entries is +1, so the cone point's link is the pentagram (P2 turns the sites by 144 "
+        "degrees) and the faces in V the consecutive triples":
+            S2 == sp.Matrix(6, 6, lambda a, b: qr[a, b] if 5 in (a, b) else -qr[a, b])
+            and (S2 * S2).applyfunc(ex) == 5 * sp.eye(6) and faces(C2) == A
+            and {T for T in A if 5 in T} == {(i, (i + 2) % 5, 5) if i < (i + 2) % 5 else ((i + 2) % 5, i, 5) for i in range(5)}
+            and {T for T in A if 5 not in T} == {tuple(sorted((a, (a + 1) % 5, (a + 2) % 5))) for a in range(5)},
+        "on R u + E1 the same recipe gives the Galois conjugate configuration (its Gram matrix is that of R u + E2 under "
+        "sqrt5 -> -sqrt5), with Seidel matrix [[0, 1], [1, Q]] itself, whose positive triangles are the complement (link "
+        "the pentagon); the doubling, an isometry of "
+        "R^5 with delta P2 delta^-1 = P1, carries the line of site i on R u + E2 to the line of site 2i on R u + E1 "
+        "and so the hemi-icosahedron onto its complement, as PGL(2,5) outside PSL(2,5) does":
+            S1 == qr and G1 == G2.subs(s5, -s5).applyfunc(ex) and G1 != G2 and faces(C1) == Ac
+            and (delta * P2 * delta.T - P1).applyfunc(ex).is_zero_matrix and delta * delta.T == I5
+            and all((delta * V2[i] - V1[2 * i % 5]).applyfunc(ex).is_zero_matrix for i in range(5))
+            and delta * u == u and dbl(A) == Ac,
+    }
+
+
+def join_icosians_pg25():
+    """Icosians -> PG(2,5): the icosahedron modulo sqrt5. In the icosians check's chart at the prime (sqrt5), the pure
+    parts u - ubar of the 120 unit icosians go to traceless 2 x 2 matrices over F5, and [[x, y], [z, -x]] -> (-y, x, z)
+    puts the projective plane of sl2(F5) on the model's PG(2,5) with det = -(b^2 - ac); conjugation by a unit is the
+    symmetric square of its matrix. The vertex axes of the icosahedron (order-5 units) go to the six conic points,
+    the two-fold axes (order 4) to the fifteen exterior points, each the pole of the two vertex axes it is perpendicular
+    to, and the three-fold axes (orders 3 and 6) to the ten interior points, each face centre to its face's
+    perspector. All arithmetic exact in Z[phi] and F5."""
+    points, conic, tangent, cross, on, sym2 = _plane()
+    count = {q: sum(on(L, q) for L in tangent.values()) for q in points}
+    exterior = {q for q in points if q not in conic and count[q] == 2}
+    interior = {q for q in points if q not in conic and count[q] == 0}
+    A, Ac = _surface_labels()
+
+    # ---- the unit icosians, as in the icosians check: 8-tuples, coordinate k = (t[2k] + t[2k+1] phi)/2
+    zmul = lambda p, q: (p[0] * q[0] + p[1] * q[1], p[0] * q[1] + p[1] * q[0] + p[1] * q[1])
+    HAM = (((1, 0, 0), (-1, 1, 1), (-1, 2, 2), (-1, 3, 3)), ((1, 0, 1), (1, 1, 0), (1, 2, 3), (-1, 3, 2)),
+           ((1, 0, 2), (-1, 1, 3), (1, 2, 0), (1, 3, 1)), ((1, 0, 3), (1, 1, 2), (-1, 2, 1), (1, 3, 0)))
+    co = lambda q: ((q[0], q[1]), (q[2], q[3]), (q[4], q[5]), (q[6], q[7]))
+
+    def qmul(p, q):
+        P, Q = co(p), co(q)
+        out = []
+        for terms in HAM:
+            s0 = s1 = 0
+            for sgn, a, b in terms:
+                m = zmul(P[a], Q[b])
+                s0, s1 = s0 + sgn * m[0], s1 + sgn * m[1]
+            if s0 % 2 or s1 % 2:
+                return None
+            out += [s0 // 2, s1 // 2]
+        return tuple(out)
+    U = []
+    for i in range(4):
+        for s in (2, -2):
+            q = [0] * 8
+            q[2 * i] = s
+            U.append(tuple(q))
+    for signs in itertools.product((1, -1), repeat=4):
+        U.append(tuple(t for s in signs for t in (s, 0)))
+    vals = ((0, 0), (1, 0), (0, 1), (-1, 1))
+    for perm in itertools.permutations(range(4)):
+        if Permutation(list(perm)).is_even:
+            for signs in itertools.product((1, -1), repeat=3):
+                q = [0] * 8
+                sg = (1,) + signs
+                for m in range(4):
+                    q[2 * perm[m]], q[2 * perm[m] + 1] = sg[m] * vals[m][0], sg[m] * vals[m][1]
+                U.append(tuple(q))
+    index = {u: i for i, u in enumerate(U)}
+    table = [[index.get(qmul(a, b)) for b in U] for a in U]
+    closed = len(index) == 120 and all(t is not None for row in table for t in row)
+    if not closed:
+        return {"the 120 unit icosians are closed under the Hamilton product": False}
+    one = index[(2, 0, 0, 0, 0, 0, 0, 0)]
+    inv = [row.index(one) for row in table]
+
+    def order(i):
+        k, p = 1, i
+        while p != one:
+            p, k = table[p][i], k + 1
+        return k
+    ords = [order(i) for i in range(120)]
+
+    # ---- the reduction at sqrt5: phi -> 3, 1/2 -> 3, and the icosians check's images of 1, i, j, k
+    red = lambda P: (3 * (P[0] + 3 * P[1])) % 5
+    I2 = sp.eye(2)
+    Qi, Qj, Qk = sp.Matrix([[2, 0], [0, 3]]), sp.Matrix([[0, 1], [4, 0]]), sp.Matrix([[0, 2], [2, 0]])
+    mod5 = lambda M: M.applyfunc(lambda t: t % 5)
+    img = [mod5(sum((red(P) * Mq for P, Mq in zip(co(u), (I2, Qi, Qj, Qk))), sp.zeros(2, 2))) for u in U]
+    hom = all(mod5(img[a] * img[b]) == img[table[a][b]] for a in range(120) for b in range(120))
+
+    def norm(v):
+        v = [int(t) % 5 for t in v]
+        k = next((t for t in v if t), None)
+        return None if k is None else tuple(t * pow(k, 3, 5) % 5 for t in v)
+    to_plane = lambda T: norm((-T[0, 1], T[0, 0], T[1, 0]))                 # [[x, y], [z, -x]] -> (-y, x, z)
+    pure = lambda i: tuple(2 * t if k >= 2 else 0 for k, t in enumerate(U[i]))   # u - ubar = 2 Im u
+    traceless = [mod5(img[i] - img[inv[i]]) for i in range(120)]
+    P = {i: to_plane(traceless[i]) for i in range(120)}
+    sl2 = [sp.Matrix([[x, y], [z, (-x) % 5]]) for x, y, z in itertools.product(range(5), repeat=3)]
+    disc = lambda v: (v[1] * v[1] - v[0] * v[2]) % 5
+    flat = lambda M: tuple(int(t) % 5 for t in M)
+    conj = lambda a, b: table[table[a][b]][inv[a]]
+    collineations = {tuple(sym2(flat(img[a]))(q) for q in points) for a in range(120)}
+
+    # ---- exact geometry of the imaginary parts in Z[phi]: dot4(a, b) = 4 Im a . Im b
+    dot4 = lambda a, b: tuple(sum(zmul(co(U[a])[k], co(U[b])[k])[c] for k in (1, 2, 3)) for c in (0, 1))
+    trace_inv_phi = lambda i: (U[i][0], U[i][1]) == (-1, 1)                  # u + ubar = phi^-1
+    verts = [i for i in range(120) if ords[i] == 5 and trace_inv_phi(i)]
+    adj = {(a, b) for a in verts for b in verts if a != b and dot4(a, b) == (0, 1)}       # 4 Im a . Im b = phi
+    faces = [T for T in itertools.combinations(verts, 3) if all((T[x], T[y]) in adj for x, y in ((0, 1), (1, 2), (0, 2)))]
+    pole = lambda p, q: cross(tangent[p], tangent[q])
+
+    def perspector(T):
+        a, b, c = T
+        lines = [cross(a, pole(b, c)), cross(b, pole(a, c)), cross(c, pole(a, b))]
+        X = cross(lines[0], lines[1])
+        return X if on(lines[2], X) else None
+    sub4 = lambda a, b, c: tuple(x - y for x, y in zip(dot4(c, a), dot4(c, b)))
+    two_fold = {(a, b): [c for c in range(120) if ords[c] == 4 and dot4(c, a) == (0, 0) and dot4(c, b) == (0, 0)]
+                for a, b in adj}
+    three_fold = {T: [c for c in range(120) if ords[c] == 6 and sub4(T[0], T[1], c) == (0, 0) and sub4(T[1], T[2], c) == (0, 0)]
+                  for T in faces}
+    kinds = {o: {P[i] for i in range(120) if ords[i] == o} for o in set(ords)}
+
+    return {
+        "reduced at the prime sqrt5 in the icosians check's chart (phi -> 3, 1/2 -> 3; 1, i, j, k -> I, diag(2, 3), "
+        "[[0, 1], [4, 0]], [[0, 2], [2, 0]]) the 120 units go multiplicatively to 120 distinct matrices of "
+        "determinant 1 (2I = SL(2,5)), and the pure part u - ubar to the traceless matrix 2m - tr(m) I":
+            closed and hom and len({flat(m) for m in img}) == 120 and all(m.det() % 5 == 1 for m in img)
+            and all(traceless[i] == mod5(2 * img[i] - img[i].trace() * I2) for i in range(120))
+            and all(mod5(sum((red(Pp) * Mq for Pp, Mq in zip(co(pure(i)), (I2, Qi, Qj, Qk))), sp.zeros(2, 2))) == traceless[i]
+                    for i in range(120)),
+        "[[x, y], [z, -x]] -> (-y, x, z) is a linear bijection of sl2(F5) onto F5^3 with det = -(b^2 - ac), so its "
+        "projective plane is the model's PG(2,5) with the nilpotent lines as the Veronese conic; conjugation by every "
+        "unit acts on it as the symmetric square of the unit's matrix, the 120 units giving the 60 collineations of "
+        "PSL(2,5) (kernel +-1)":
+            len({norm((-T[0, 1], T[0, 0], T[1, 0])) for T in sl2 if any(T)}) == 31
+            and all(T.det() % 5 == (-disc((-T[0, 1], T[0, 0], T[1, 0]))) % 5 for T in sl2)
+            and all(P[conj(a, b)] == sym2(flat(img[a]))(P[b]) for a in range(120) for b in range(120) if P[b] is not None)
+            and len(collineations) == 60,
+        "the 24 units of orders 5 and 10 go to exactly the six conic points (the six Sylow axes, each unit's point the "
+        "fixed point of its unipotent image on the projective line), the 30 of order 4 to the fifteen exterior points "
+        "and the 40 of orders 3 and 6 to the ten interior points; +-1 go to 0":
+            kinds[5] == kinds[10] == set(conic) and kinds[4] == exterior and kinds[3] == kinds[6] == interior
+            and kinds[1] == kinds[2] == {None}
+            and all([c for c in conic if sym2(flat(img[i]))(c) == c] == [P[i]] for i in range(120) if ords[i] == 5),
+        "the imaginary parts of the twelve units of trace phi^-1 are a regular icosahedron (4 Im a . Im b = phi for "
+        "five neighbours each: 30 edges, 20 faces); for every edge the two-fold axis perpendicular to both vertex axes "
+        "goes to the pole of their secant, where the tangents at the two conic points meet, and the three-fold axis "
+        "through every face centre to the perspector of the face's three conic points; the faces, up to sign, go to the "
+        "ten triangles of one triangulation of the six conic labels (in this chart the complement of the "
+        "hemi-icosahedron)":
+            len(verts) == 12 and Counter(a for a, b in adj) == Counter({a: 5 for a in verts}) and len(adj) == 60
+            and len(faces) == 20 and all(len(c) == 2 and all(P[x] == pole(P[a], P[b]) for x in c) for (a, b), c in two_fold.items())
+            and all(len(c) == 2 and all(P[x] == perspector([P[v] for v in T]) for x in c) for T, c in three_fold.items())
+            and {tuple(sorted(conic[P[v]] for v in T)) for T in faces} == Ac,
+    }
+
+
+def join_petersen_rootgraph():
+    """Petersen -> root graph: the Petersen graph is an induced subgraph of the root graph, on ten roots spanning an E6.
+    Its least eigenvalue is -2, so 2I + A = J + 3I - M^T M is a Gram matrix of rank 6; the ten roots
+    f_(i,i+1) = e_(i+2) + e_(i+4) and f_(i,i+2) = (e_i + e_(i+1) + e_(i+2) - e_(i+3) - e_(i+4) + e_5 + e_6 + e_7)/2 of the
+    model's E8 realize it, equivariantly for the pentagon's dihedral group, and their span meets the 240 roots in an E6:
+    the edge lattice modulo its integral (-2)-eigenvectors, with the form 2I + A, is E6."""
+    E = carrier.edges()
+    A = sp.Matrix(carrier.petersen())
+    M = sp.Matrix(carrier.signless_incidence())
+    I10, J10 = sp.eye(10), sp.ones(10, 10)
+    G = 2 * I10 + A
+    roots = glue.roots()
+    key = lambda v: tuple(int(round(2 * float(t))) for t in v)
+    root_keys = {key(r) for r in roots}
+
+    def f(e):
+        i, j = e
+        if (j - i) % 5 in (1, 4):                                   # a near edge {i, i+1}
+            a = i if (j - i) % 5 == 1 else j
+            v = [0] * 8
+            v[(a + 2) % 5] += 1
+            v[(a + 4) % 5] += 1
+            return sp.Matrix(v)
+        a = i if (j - i) % 5 == 2 else j                            # a far edge {a, a+2}
+        v = [sp.Rational(1, 2) if k in ((a) % 5, (a + 1) % 5, (a + 2) % 5) else -sp.Rational(1, 2) for k in range(5)]
+        return sp.Matrix(v + [sp.Rational(1, 2)] * 3)
+    F = sp.Matrix.hstack(*[f(e) for e in E])
+    Gf = F.T * F
+    H = sp.Matrix.hstack(*[_e(i) - _e(4) for i in range(4)])            # the sum-zero hyperplane
+    D10 = [tuple((a * x + b) % 5 for x in range(5)) for a in (1, 4) for b in range(5)]
+
+    def act(p, v):
+        w = list(v)
+        for i in range(5):
+            w[p[i]] = v[i]
+        return sp.Matrix(w)
+    span_roots = [r for r in roots if sp.Matrix.hstack(F, sp.Matrix([sp.nsimplify(t) for t in r])).rank() == 6]
+    basis = None
+    for S in itertools.combinations(range(10), 6):
+        if (F[:, list(S)].T * F[:, list(S)]).det() == 3:
+            basis = F[:, list(S)]
+            break
+    coords = lambda v: (basis.T * basis).inv() * basis.T * v
+    snf = smith_normal_form(G, domain=sp.ZZ)
+
+    return {
+        "the Petersen graph has spectrum 3, 1^5, (-2)^4, so 2I + A = J + 3I - M^T M is positive semidefinite of rank 6; "
+        "its kernel is M^T(H), the (-2)-eigenspace, and its Smith invariants are 1^5 3":
+            A.eigenvals() == {3: 1, 1: 5, -2: 4} and G == J10 + 3 * I10 - M.T * M and G.rank() == 6
+            and (G * M.T * H).is_zero_matrix and (M.T * H).rank() == 4
+            and [snf[k, k] for k in range(10)] == [1, 1, 1, 1, 1, 3, 0, 0, 0, 0],
+        "the ten vectors f_(i,i+1) = e_(i+2) + e_(i+4) (the D5 root of the far edge on the near edge's spoke) and "
+        "f_(i,i+2) = (e_i + e_(i+1) + e_(i+2) - e_(i+3) - e_(i+4) + e_5 + e_6 + e_7)/2 are roots of the model's E8 with "
+        "Gram matrix exactly 2I + A: products 1 on the Petersen edges (disjoint K5 edges) and 0 on all other pairs, so the "
+        "root graph induces the Petersen graph on them":
+            all(key(f(e)) in root_keys for e in E) and len({key(f(e)) for e in E}) == 10 and Gf == G,
+        "the map is equivariant for the dihedral group of the pentagon, x -> +-x + b on the carrier's coordinates "
+        "(the tick r and the reflection), acting on the edges as Petersen automorphisms":
+            all(act(p, f(e)) == f(tuple(sorted((p[e[0]], p[e[1]])))) for p in D10 for e in E),
+        "their span meets the 240 roots in 72 roots, all integer combinations of six of the ten whose Gram determinant is "
+        "3: the span's lattice is E6 (rank 6, 72 roots, determinant 3), the image of the edge lattice Z^E with the form "
+        "2I + A, whose kernel is the integral (-2)-eigenvectors":
+            len(span_roots) == 72 and basis is not None and F.rank() == 6
+            and all(all(t.is_integer for t in coords(sp.Matrix([sp.nsimplify(x) for x in r]))) for r in span_roots)
+            and all(all(t.is_integer for t in coords(F[:, k])) for k in range(10)),
+    }
+
+
+def join_simplex_penrose():
+    """Simplex -> Penrose planes: the faces as the windows. The face on S of the 4-simplex is the vertex e_S of the
+    5-cube, on the slice sum x = |S|, and its weight e_S - (|S|/5) u lies in class |S| of A4*/A4. Projected into the
+    internal plane E2 the faces of size k span the k-th window of the Penrose vertex sets (cited): the five sites a
+    regular pentagon W1, the far duads the vertices of W2 = -phi W1 (P2(e_i + e_(i+2)) = -phi P2 e_(i+1)) with the
+    near duads strictly inside, and W3 = -W2, W4 = -W1 from the complementary faces. Exact over Q(sqrt5)."""
+    s5 = sp.sqrt(5)
+    phi = (1 + s5) / 2
+    phi_inv = (s5 - 1) / 2
+    ex = lambda t: sp.expand(sp.radsimp(t))
+    I5, J5 = sp.eye(5), sp.ones(5, 5)
+    PH = I5 - J5 / 5
+    u = sp.ones(5, 1)
+    r = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))
+    Y = r + r.T
+    P2 = ((phi_inv * I5 - Y) * PH / s5).applyfunc(ex)                      # the 144-degree plane (penrose_planes)
+    e = lambda i: _e(i % 5)
+    eS = lambda S: sum((e(i) for i in S), sp.zeros(5, 1))
+    p = lambda S: (P2 * eS(S)).applyfunc(ex)
+    ip = lambda a, b: ex((a.T * b)[0])
+    faces = {k: [S for S in itertools.combinations(range(5), k)] for k in range(1, 5)}
+    weight = lambda S: eS(S) - sp.Rational(len(S), 5) * u
+    in_A4 = lambda v: all(t.is_integer for t in v) and sum(v) == 0
+    R2 = sp.Rational(2, 5)                                                   # |P2 e_i|^2
+    W1 = [p((i,)) for i in range(5)]
+    far = [((i) % 5, (i + 2) % 5) for i in range(5)]
+    near = [((i) % 5, (i + 1) % 5) for i in range(5)]
+
+    def regular_pentagon(V, R2v):
+        """five vectors of squared length R2v, the angular neighbours of V[i] being V[i +- 2] (144-degree steps), at
+        inner product R2v cos 72: a regular pentagon centred at 0."""
+        c72 = (s5 - 1) / 4
+        return (all(ip(v, v) == ex(R2v) for v in V)
+                and all(ip(V[i], V[(i + 2) % 5]) == ex(R2v * c72) for i in range(5)))
+
+    def strictly_inside(q, V, R2v):
+        """inside the regular pentagon on V (circumradius^2 R2v): q . (v + w) < 2 R2v cos^2 36 on each edge vw."""
+        c36sq = ex(((1 + s5) / 4) ** 2)
+        return all(ex(2 * R2v * c36sq - ip(q, V[i] + V[(i + 2) % 5])).is_positive for i in range(5))
+    W2 = [p(S) for S in far]
+    return {
+        "the face on S is the vertex e_S of the 5-cube on the slice sum x = |S| (the hypersimplex of the size-|S| faces), "
+        "and its weight e_S - (|S|/5) u lies in A4*, the faces of one size in one class of A4*/A4 (their differences in "
+        "A4), the size mod 5 being the class, the Penrose index sum (penrose -> L0)":
+            all(sum(eS(S)) == len(S) for k in faces for S in faces[k])
+            and all(in_A4(weight(S) - weight(T)) for k in faces for S in faces[k] for T in faces[k])
+            and all(not in_A4(weight(S) - weight(T)) for k in faces for l in faces if k != l
+                    for S in faces[k][:1] for T in faces[l][:1])
+            and all(sum(weight(S)) == 0 for k in faces for S in faces[k]),
+        "projected into E2 (P2 u = 0) the five sites are a regular pentagon W1 of squared radius 2/5, consecutive sites "
+        "at cos 144 = -phi/2 (r, commuting with P2, turns E2 by 144 degrees), and the complementary faces of size 4 give "
+        "W4 = -W1": regular_pentagon(W1, R2)
+            and ex(ip(P2 * u, P2 * u)) == 0 and all(ip(W1[i], W1[(i + 1) % 5]) == ex(-R2 * phi / 2) for i in range(5))
+            and all((r * e(i) - e(i + 1)).is_zero_matrix for i in range(5))
+            and all((p(tuple(sorted(set(range(5)) - {i}))) + W1[i]).applyfunc(ex).is_zero_matrix for i in range(5))
+            and (r * P2 - P2 * r).applyfunc(ex).is_zero_matrix,
+        "the far duads give P2(e_i + e_(i+2)) = -phi P2 e_(i+1), the vertices of the pentagon W2 = -phi W1 (squared "
+        "radius 2 phi^2/5), and the near duads P2(e_i + e_(i+1)), of squared radius 2/(5 phi^2), lie strictly inside it: "
+        "the ten faces of size 2 span W2, and their complements W3 = -W2":
+            all((p(far[i]) + phi * W1[(i + 1) % 5]).applyfunc(ex).is_zero_matrix for i in range(5))
+            and regular_pentagon(W2, R2 * phi ** 2)
+            and all(ip(p(S), p(S)) == ex(R2 / phi ** 2) for S in near)
+            and all(strictly_inside(p(S), W2, R2 * phi ** 2) for S in near)
+            and all((p(tuple(sorted(set(range(5)) - set(S)))) + p(S)).applyfunc(ex).is_zero_matrix for S in faces[2]),
+    }
+
+
+def join_frame_pauli():
+    """frame -> pauli: the frame's eight roots generate the Pauli algebra as the Clifford algebra Cl(0,8) = M16(R)."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    e = np.eye(8)
+    F = np.array([-e[0] - e[i] for i in range(1, 8)] + [-0.5 * np.ones(8)])          # eight_roots' frame
+    roots = {tuple(np.rint(2 * r).astype(int)) for r in glue.roots()}
+    G = np.rint(F @ F.T).astype(np.int64)
+    I8, J8 = np.eye(8, dtype=np.int64), np.ones((8, 8), dtype=np.int64)
+    lab = [np.rint(Binv @ f).astype(np.int64) % 2 for f in F]                         # half-period labels (Dynkin c mod 2)
+    single = counts._letters()
+    gens = [functools.reduce(np.kron, [single[counts.LETTERS.index(a)] for a in w])
+            for w in ["".join(counts.LETTERS[a] for a in w) for w in counts.dynkin_paulis()]]
+    I16 = np.eye(16, dtype=np.int64)
+    phi = lambda c: functools.reduce(lambda a, b: a @ b, [gens[i] for i in range(8) if c[i]], I16)   # layer 22's map
+    A = [phi(c) for c in lab]
+    roots2 = counts._roots2()
+    subsets = list(itertools.product((0, 1), repeat=8))
+    mono = {S: functools.reduce(lambda a, b: a @ b, [A[i] for i in range(8) if S[i]], I16) for S in subsets}
+    labels = {S: tuple(int(t) for t in sum(S[i] * lab[i] for i in range(8)) % 2) for S in subsets}
+    eps = {S: counts._band_at_half_period(labels[S], roots2) for S in subsets}
+    grade = lambda S: sum(S)
+    sym_rule = lambda k: (k * (k + 1) // 2) % 2 == 0                                   # (-1)^(k(k+1)/2) = +1
+    rate = lambda k: 0 if k == 0 else (256 if sym_rule(k) else 224)
+    stack = np.array([mono[S].ravel() for S in subsets], dtype=np.int64)
+    omega = mono[(1,) * 8]
+    q = F.sum(axis=0) / 3
+    q_lab = tuple(int(t) for t in np.rint(Binv @ F.sum(axis=0)).astype(np.int64) % 2)
+    biv = {(i, j): A[i] @ A[j] for i in range(8) for j in range(8) if i != j}
+    d = lambda a, b: int(a == b)
+    so8 = all(np.array_equal(biv[i, j] @ biv[k, l] - biv[k, l] @ biv[i, j],
+                             -2 * (d(j, k) * biv.get((i, l), 0 * I16) - d(i, k) * biv.get((j, l), 0 * I16)
+                                   - d(j, l) * biv.get((i, k), 0 * I16) + d(i, l) * biv.get((j, k), 0 * I16)))
+              for (i, j) in biv for (k, l) in biv)
+    return {
+        "the frame's eight roots (-e1 - e_i and -(1, ..., 1)/2, eight_roots) have Gram I + J of determinant 9, odd, so "
+        "their classes are an F2-basis of E8/2E8: the 256 subset sums are the 256 half-periods":
+            all(tuple(np.rint(2 * f).astype(int)) in roots for f in F) and np.array_equal(G, I8 + J8)
+            and round(np.linalg.det(G.astype(float))) == 9 and len(set(labels.values())) == 256
+            and np.array_equal(np.array(counts.SIMPLE_ROOTS_X2), np.rint(2 * B.T).astype(np.int64)),
+        "under layer 22's Pauli map their Paulis A_1..A_8 are antisymmetric with A_i^2 = -I and pairwise anticommute "
+        "(products 1 are odd): eight anticommuting complex structures on R^16":
+            all(np.array_equal(a.T, -a) and np.array_equal(a @ a, -I16) for a in A)
+            and all(np.array_equal(A[i] @ A[j], -A[j] @ A[i]) for i in range(8) for j in range(8) if i != j),
+        "the 256 ordered products A_S are, up to sign, the Paulis of the half-periods sum_(i in S) r_i, all distinct, and "
+        "orthogonal for the trace form (tr A_S^T A_T = 16 delta_ST), so they are a basis of M16(R): e_i -> A_i maps the "
+        "256-dimensional Clifford algebra Cl(0,8) (e_i^2 = -1, e_i e_j = -e_j e_i) onto M16(R), an isomorphism":
+            all(np.array_equal(mono[S], phi(labels[S])) or np.array_equal(mono[S], -phi(labels[S])) for S in subsets)
+            and np.array_equal(stack @ stack.T, 16 * np.eye(256, dtype=np.int64)),
+        "A_S^T = (-1)^(k(k+1)/2) A_S for k = |S|, so the 136 symmetric Paulis are the grades 0, 3, 4, 7, 8 (1 + 56 + 70 + 8 "
+        "+ 1) and the 120 antisymmetric ones, the jump operators of the GKSL generator, the grades 1, 2, 5, 6 (8 + 28 + 56 "
+        "+ 28); L(A_S) = eps A_S with eps the band at the half-period: 0 at grade 0, 224 at grades 1, 2, 5, 6 and 256 at "
+        "grades 3, 4, 7, 8, so L is a function of the Clifford grade (|sum r_i|^2/2 = k(k + 1)/2)":
+            all(np.array_equal(mono[S].T, (1 if sym_rule(grade(S)) else -1) * mono[S]) for S in subsets)
+            and all(eps[S] == rate(grade(S)) for S in subsets)
+            and all(np.array_equal(counts._generator(mono[S]), eps[S] * mono[S]) for S in subsets)
+            and sum(1 for S in subsets if sym_rule(grade(S))) == 136
+            and all(int(np.rint(sum(S[i] * F[i] for i in range(8)) @ sum(S[i] * F[i] for i in range(8)))) // 2
+                    == grade(S) * (grade(S) + 1) // 2 for S in subsets),
+        "the volume element omega = A_1 ... A_8 is the Pauli of the frame's sum 3q (q = (-5/2, -1/2, ..., -1/2), norm 8, "
+        "at the band top 256): symmetric, omega^2 = I, trace 0, anticommuting with every A_i, so R^16 = 8 + 8, its two "
+        "eigenspaces, exchanged by each A_i":
+            (np.array_equal(omega, phi(q_lab)) or np.array_equal(omega, -phi(q_lab))) and np.allclose(q, [-2.5] + [-0.5] * 7)
+            and np.array_equal(omega.T, omega) and np.array_equal(omega @ omega, I16) and np.trace(omega) == 0
+            and all(np.array_equal(omega @ a, -a @ omega) for a in A) and eps[(1,) * 8] == 256,
+        "the 28 bivectors -A_i A_j / 2 satisfy the relations of so(8), [b_ij, b_kl] = delta_jk b_il - delta_ik b_jl - "
+        "delta_jl b_ik + delta_il b_jk, are 28 independent antisymmetric Paulis at the rate 224 and commute with omega: "
+        "the spin representation of so(8) on the two halves 8 + 8":
+            so8 and all(np.array_equal(b @ omega, omega @ b) for b in biv.values())
+            and np.array_equal(np.array([[int(np.trace(biv[a].T @ biv[b])) for b in sorted(k for k in biv if k[0] < k[1])]
+                                         for a in sorted(k for k in biv if k[0] < k[1])]), 16 * np.eye(28, dtype=np.int64))
+            and all(np.array_equal(b.T, -b) for b in biv.values()),
+    }
+
+
+def join_cyclo_triangle():
+    """cyclo -> triangle: the roots of unity of odd order in Z[zeta30] cut the roots into zero-sum polygons, each an odd
+    port isospectral to the triangle port; the invariant odd root functions are ports with scalar moment forms."""
+    RB, C, look, IP = primes._roots()
+    B, Binv, *_ = spine.frame()
+    cp = cyclotomic.clocks()["c"]                                            # c' = zeta30 on the cyclotomic line
+    idx = lambda v: look[tuple(int(t) for t in v)]
+    negi = np.array([idx(-r) for r in RB], dtype=np.int64)
+
+    # ---- (Delta^n)_(rho, sigma) between roots depends only on <rho, sigma>, for every n
+    refl = lambda a: np.array([idx(r - (r @ C @ a) * a) for r in RB], dtype=np.int64)
+
+    def orbits(perms):
+        seen, out = set(), []
+        for i in range(240):
+            if i in seen:
+                continue
+            orb, stack = {i}, [i]
+            while stack:
+                j = stack.pop()
+                for p in perms:
+                    t = int(p[j])
+                    if t not in orb:
+                        orb.add(t)
+                        stack.append(t)
+            seen |= orb
+            out.append(frozenset(orb))
+        return out
+    stab = [refl(a) for a in RB if int(RB[0] @ C @ a) == 0]
+    classes = {frozenset(np.nonzero(IP[0] == c)[0].tolist()) for c in (-2, -1, 0, 1, 2)}
+    transitive = len(orbits([refl(a) for a in RB])) == 1 and set(orbits(stab)) == classes
+
+    # ---- the triangle port's signed Gram distribution per unit norm
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    tri = [np.rint(Binv @ ((e2[a] - e2[b]) / 2)).astype(np.int64) for a, b in ((0, 1), (1, 2), (2, 0))]
+    tsite, tsign = [idx(t) for t in tri] + [idx(-t) for t in tri], [1, 1, 1, -1, -1, -1]
+    dist = lambda sites, signs: [Fraction(sum(a * b for i, a in zip(sites, signs) for j, b in zip(sites, signs)
+                                               if IP[i, j] == c), len(sites)) for c in (-2, -1, 0, 1, 2)]
+    dtri = dist(tsite, tsign)
+    Hn = _walk_entries()
+    X10 = np.rint(10 * (RB @ B.T)).astype(np.int64)
+    mom = lambda S1, w1, S2, w2, n: sum(a * b * Hn(X10[j] - X10[i], n) for i, a in zip(S1, w1) for j, b in zip(S2, w2))
+    m_tri = [mom(tsite, tsign, tsite, tsign, n) // 6 for n in range(5)]
+
+    out = {}
+    for d in (3, 5, 15):
+        w = spine.mpow(cp, 30 // d)
+        perm = np.array([idx(w @ r) for r in RB], dtype=np.int64)
+        polys, seen = [], set()
+        for i in range(240):
+            if i not in seen:
+                P, j = [], i
+                while j not in P:
+                    P.append(j)
+                    j = int(perm[j])
+                seen |= set(P)
+                polys.append(P)
+        reps, used = [], set()
+        for P in polys:
+            if P[0] not in used:
+                reps.append(P)
+                used |= set(P) | {int(negi[i]) for i in P}
+        sites = [P + [int(negi[i]) for i in P] for P in reps]
+        signs = [[1] * d + [-1] * d for P in reps]
+        Fm = np.zeros((len(reps), 240), dtype=np.int64)
+        for k, (S, sg) in enumerate(zip(sites, signs)):
+            Fm[k, S] = sg
+        within = Counter(int(t) for P in polys for t in IP[np.ix_(P, P)][~np.eye(d, dtype=bool)])
+        polys_ok = (len(polys) == 240 // d and all(len(P) == d for P in polys) and all(not RB[P].sum(axis=0).any() for P in polys)
+                    and all(not set(P) & {int(negi[i]) for i in P} for P in polys) and len(reps) == 120 // d)
+        iso = np.array_equal(Fm @ Fm.T, 2 * d * np.eye(len(reps), dtype=np.int64))
+        invariant = all(np.array_equal(v[perm], v) and np.array_equal(v[negi], -v) for v in Fm)
+        off_zero = all(not any(int(Fm[k, S] @ (IP[S, j] == c)) for c in (-2, -1, 0, 1, 2))
+                       for k, S in enumerate(sites) for j in range(240) if j not in S)
+        same = all(dist(S, sg) == dtri for S, sg in zip(sites, signs))
+        m0 = [mom(sites[0], signs[0], sites[0], signs[0], n) // (2 * d) for n in range(5)]
+        x01 = [mom(sites[0], signs[0], sites[1], signs[1], n) for n in range(5)]
+        out[d] = dict(ok=polys_ok and iso and invariant and off_zero and same and m0 == m_tri and x01 == [0] * 5,
+                      within=within, channels=len(reps), dim=np.linalg.matrix_rank(Fm.astype(float)))
+    return {
+        "W(E8) is transitive on the roots and a root's stabilizer on each class of products 2, 1, 0, -1, -2, so "
+        "(Delta^n)_(rho, sigma) between roots depends only on <rho, sigma>, for every n and every function of Delta":
+            transitive,
+        "multiplication by the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2 on Z[zeta30]) cuts the 240 "
+        "roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d, each of sum 0 and without antipodes (the "
+        "fifteen-gons meet themselves at 1 as well as at 0 and -1)":
+            all(out[d]["ok"] for d in (3, 5, 15)) and out[3]["within"] == Counter({-1: 480})
+            and out[5]["within"] == Counter({0: 480, -1: 480}) and set(out[15]["within"]) == {1, 0, -1},
+        "so each polygon, as the odd port +1 on rho mu_d and -1 on -rho mu_d, has per unit norm the triangle port's signed "
+        "Gram and meets every root off it with signed count zero at each inner product: the mu_d-invariant odd root "
+        "functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the "
+        "triangle port's spectral measure":
+            [out[d]["channels"] for d in (3, 5, 15)] == [40, 24, 8] and [out[d]["dim"] for d in (3, 5, 15)] == [40, 24, 8],
+        "its moments per unit norm, from the model's walk entries, are the triangle port's 1, 242, 58691, 14259954, "
+        "3470101592 on every polygon, with zero cross moments through n = 4":
+            m_tri == [1, 242, 58691, 14259954, 3470101592],
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -17664,6 +20726,44 @@ def _checks():
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
         "notes_1751": notes_1751, "notes_1757": notes_1757,
+        "join_D5_binding": join_D5_binding,
+        "join_census_charges": join_census_charges,
+        "join_halfper_triple": join_halfper_triple,
+        "join_petersen_waves": join_petersen_waves,
+        "join_rotor_waves": join_rotor_waves,
+        "join_simplex_binding": join_simplex_binding,
+        "join_synthemes_waves": join_synthemes_waves,
+        "join_petersen_readout": join_petersen_readout,
+        "join_assignment_triple": join_assignment_triple,
+        "join_gravity_waves": join_gravity_waves,
+        "join_cosmology_readout": join_cosmology_readout,
+        "join_binding_cosmology": join_binding_cosmology,
+        "join_charges_triple": join_charges_triple,
+        "join_calibration_triple": join_calibration_triple,
+        "join_readout_waves": join_readout_waves,
+        "join_datum_readout": join_datum_readout,
+        "join_triangle_assignment": join_triangle_assignment,
+        "join_pauli_assignment": join_pauli_assignment,
+        "join_pauli_triple": join_pauli_triple,
+        "join_pauli_charges": join_pauli_charges,
+        "join_frame_halfper": join_frame_halfper,
+        "join_halfper_rootgraph": join_halfper_rootgraph,
+        "join_L0_census": join_L0_census,
+        "join_icosians_halfper": join_icosians_halfper,
+        "join_icosians_sun": join_icosians_sun,
+        "join_icosians_L0": join_icosians_L0,
+        "join_D5_residue": join_D5_residue,
+        "join_penrose_residue": join_penrose_residue,
+        "join_parent_triangle": join_parent_triangle,
+        "join_literal_triangle": join_literal_triangle,
+        "join_kerM_parent": join_kerM_parent,
+        "join_A4_pg25": join_A4_pg25,
+        "join_penrose_surface": join_penrose_surface,
+        "join_icosians_pg25": join_icosians_pg25,
+        "join_petersen_rootgraph": join_petersen_rootgraph,
+        "join_simplex_penrose": join_simplex_penrose,
+        "join_frame_pauli": join_frame_pauli,
+        "join_cyclo_triangle": join_cyclo_triangle,
         "join_circle_grain": join_circle_grain,
         "join_c27_time": join_c27_time,
         "join_c27_observer": join_c27_observer,
