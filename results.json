@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.54,
-  "2-spectral": 0.0,
-  "3-spacetime": 5.69,
-  "4-native": 74.43,
-  "5-observer": 0.22,
-  "6-gravity": 4.53,
-  "7-cosmology": 1.36,
-  "8-frontier": 32.6,
-  "9-joins": 6.93,
-  "10-literal": 33.58,
-  "11-glue": 0.16,
+  "1-carrier": 0.57,
+  "2-spectral": 0.01,
+  "3-spacetime": 6.76,
+  "4-native": 78.32,
+  "5-observer": 0.25,
+  "6-gravity": 4.32,
+  "7-cosmology": 1.52,
+  "8-frontier": 33.09,
+  "9-joins": 7.66,
+  "10-literal": 35.01,
+  "11-glue": 0.13,
   "12-binding": 0.03,
-  "13-gates": 0.11,
-  "14-recurrence": 34.79,
-  "15-court": 1.53,
-  "16-handover": 1.03,
-  "17-waves": 0.56,
-  "18-snapshot": 0.79,
-  "19-spine": 3.54,
-  "20-canon": 5.69,
-  "21-ledger": 37.75,
-  "22-counts": 17.72,
-  "23-dots": 428.84,
-  "24-assignment": 2.68,
-  "25-unify": 3.84,
-  "26-primes": 3.54,
-  "27-places": 1.49,
-  "28-principal": 2.04
+  "13-gates": 0.1,
+  "14-recurrence": 35.65,
+  "15-court": 1.44,
+  "16-handover": 0.9,
+  "17-waves": 0.47,
+  "18-snapshot": 0.89,
+  "19-spine": 3.33,
+  "20-canon": 5.25,
+  "21-ledger": 34.06,
+  "22-counts": 21.42,
+  "23-dots": 456.14,
+  "24-assignment": 2.69,
+  "25-unify": 3.61,
+  "26-primes": 3.37,
+  "27-places": 1.51,
+  "28-principal": 1.92
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 939,
-   "total": 939
+   "passed": 940,
+   "total": 940
   },
   "OBSTRUCTION": {
    "passed": 74,
@@ -11714,6 +11714,20 @@
   },
   {
    "layer": "23-dots",
+   "name": "cycles -> synthemes: a flag (i, {j, k}) of K5 reads half the flow out of i towards j and k; on the cycles zero divergence makes the complementary flag (i, {l, m}) read minus it, so the 30 flags are 15 antipodal pairs, one per syntheme {i6, jk, lm} of the five vertices and the cone point; S5 acts on the cycles as the irreducible [3, 1, 1], the squared readings span the 15-dimensional syntheme permutation module [5] + [4, 1] + [3, 2] + [2, 2, 1] inside Sym^2 (rank 15 of 21), the blind part is exactly [1^5] + [3, 2], and six cross terms complete it (det -5^35/2^26); phase retrieval fails (g, h with equal squares at all 30 flags) while the linear readings separate them (the hub's FOAM court, 1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the FOAM six-port is the cycle space: the six triangles through vertex 0 span ker of the incidence (rank 6, inc Bt = 0), the source's coordinates C have det 3125, and a flag (i, {j, k}) reads half the flow out of i towards j and k; F (30 x 6) has rank 6 and Gram F^T F equal to the source's [[55, -20, 5, 5, -20, 0], ...] with det 5^13; zero divergence makes the complementary flag (i, {l, m}) read minus it, so the 30 flags fall into 15 antipodal pairs, one for each syntheme {i6, jk, lm} of the five vertices and the cone point; F G^-1 F^T is a projector with constant diagonal 1/5 and 1^T F = 0 (the hub's 021 x 120 x FOAM court, 1 Nov)": true,
+    "S5 permuting the vertices acts on the cycles with character 6, 0, -2, 0, 0, 0, 1, the irreducible [3, 1, 1] (its commutant is the scalars), and F intertwines it with the flag permutation; Sym^2 has character 21, 3, 5, 0, 0, -1, 1 = [5] + [1^5] + [4, 1] + 2[3, 2] + [2, 2, 1], with no [3, 1, 1], so no quadratic equivariant channel returns the six-port linearly": true,
+    "the squared readings see 15 of the 21 quadratic directions: one per antipodal pair, the 15 x 21 coefficient matrix has rank 15, its image is the permutation module on the 15 synthemes (15, 3, 3, 0, 0, 1, 0 = [5] + [4, 1] + [3, 2] + [2, 2, 1]) and the blind kernel is exactly [1^5] + [3, 2] (6, 0, 2, 0, 0, -2, 1); the six cross terms (0,1), (0,2), (0,7), (1,2), (1,6), (2,6) complete it to rank 21 with det = -5^35/2^26 in the source's row order": true,
+    "phase retrieval fails and the linear readings repair it: g = (-1, 0, 1, 1, 0, 2) and h = (0, -1, 0, 0, -1, 1) are neither equal nor opposite, yet (Fg)_x^2 = (Fh)_x^2 at all 30 flags and g^T G g = h^T G h = 125; the linear law p_x = 1/30 + alpha (Fg)_x with alpha = 1/150 (|alpha| 5 sqrt5 = sqrt5/30) gives 1/20 and 1/60 at (0, {1, 2}); merging complementary flags gives 1/15 whatever g is; the decoder error has mean square [1/(5 alpha^2) - g^T G g]/n per n draws and the Fisher matrix at g = 0 is 30 n alpha^2 G": true,
+    "the 120-frame: the flags are one S5 orbit with fixed counts 30, 6, 2, 0, 0, 0, 0, so averaging over the frame gives 1/30 for every g (no information without the reference), the orbits on N-tuples number d_N = (30^N + 10 6^N + 15 2^N)/120 (1, 11, 244 for N = 1, 2, 3, the 11 counted directly), and gluing d_(m+n) = sum_lambda m_(m,lambda) m_(n,lambda); the six-site corner 241I - J (235 once, 241 five times) is not scalar, so by Schur it cannot commute with the irreducible six-port: the model's obstruction Hom_A5(cycles, site6) = 0 again": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -11777,7 +11791,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 468 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 469 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12165,7 +12179,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 425,
+    "THEOREM": 426,
     "OBSTRUCTION": 20,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 13
@@ -14610,7 +14624,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 331 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 332 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
