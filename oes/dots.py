@@ -10123,6 +10123,12 @@ JOINS = [
     ("E8", "parent", "parent on the sun's frames", "The sun's A6 on the ten 4A2 frames (from the 2160 isometries commuting with the sun and phi) acts regularly on each of the two orbits of ordered frame triples, so Q[A6] is the permutation module of either orbit (left and right actions as frame action and base change). For each of the ten isomorphisms with r -> c', O90 reads ordered pairs of frames (phi(C4) is a pair stabilizer) and O36 reads the 36 conjugates of the Coxeter clock, 36 distinct pentagon pairs. (1 Nov)", T, "join_e8_parent"),
     ("E8", "walks", "local limit of closed walks", "E8 is unimodular and its roots are a spherical 7-design but not an 8-design (power sums 60, 36, 30 |theta|^2k), so W_n = (16/pi^4)(240^n/n^4)(1 - 2/n + 23/(15n^2) - 26/(75n^3) + O(n^-4)), with 16/pi^4 = (2pi)^-4 det(Sigma)^-1/2 for Sigma = I/4. The file's W_30..W_90 agree with it to within 1/(5n^4), exactly (pi^4 bracketed by rationals). (1 Nov)", T, "join_e8_walks"),
     ("kerM", "readout", "the Plucker residual", "ker M is the S5 irreducible [3,2] with determinant 1, so Lambda^4 ker M = ker M, and a source x in Lambda^2 ker M is simple exactly when x ^ x = 0; the rational 30 x 5 matrix U = C G^-1 eps on the flag outcomes (C^T C = 2G, U^T U = Lambda^4 G / 81) embeds Lambda^4 ker M, after scaling by 9, isometrically as the one [3,2] of the 42-outcome codec's 20-dimensional residual, orthogonal to the root columns, so the quadratic x ^ x reads beside the linear signal; reading the signal and its whole quadratic independently needs one more [3,2], which the ten edge labels supply (52 outcomes, the least orbit that can) (the separate model's N44 extension, 1 Nov)", T, "notes_1222"),
+    ("cycles", "measure", "the currents' spectral measure", "the six odd currents on the cycles have walk moments 1, 242, 58691, 14259954, 3470101592, a spectral measure of the bath with Hankel minors 1, 127, 15930273 and Jacobi coefficients 242, 127, 25998/127, 15930273/16129; the fourth moment exceeds its Hankel floor by 15930273/127 (the packet of 1 Nov)", T, "notes_1340"),
+    ("cube", "halfper", "two cube quadrics", "the four-cube's weight quadric q (nonzero on the ten vectors of weight 2 and 3) doubled, q(x) + q(y) on F2^4 + F2^4, and the bilinear dot x.y are plus-type quadrics with 120 nonsingular points, so both are isometric to E8's half-period quadric, whose nonsingular points are the 120 root classes; each gives the band 0, 224 (120), 256 (135), and the two 120-sets share 56 points, not 96 (the packet of 1 Nov)", T, "notes_1340"),
+    ("halfper", "moments", "the straight pairs", "the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 over the torus and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion: the gap of 240 is the straight pairs r + r = 2r; the two-step kernel meets 9361 sites with squared mass 1260720 (the packet of 1 Nov)", T, "notes_1340"),
+    ("time", "cyclo", "the tick over F_241", "241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock have eight distinct eigenvalues each, and the tick's are 98, 205, 87, 91, the powers of the packet's 98; the circle's steps 931, 241, 541 are units 1 mod 5, fixing the time coordinate, with differences of orders 144, 72, 144 in the miss set (1 Nov)", T, "notes_1340"),
+    ("time", "residue", "the Weyl lift of GL(2,5)", "the tick's normalizer (2400) acts on the residue plane F25 through all of GL(2, F5) with kernel <g>, conjugating g to g^det, and it splits: SL(2,5) = [C_W(g), C_W(g)] and one element of determinant 2 generate a complement of order 480, so N_W(<g>) = <g> x| GL(2,5) inside W(E8) (the packet of 1 Nov had only the abstract count)", T, "notes_1340"),
+    ("time", "calibration", "a symmetry, not a step", "the tick commutes with D and with every native flow but is a step of none: the carrier flow exp(uX) has finite order for no u != 0 (the five dark modes drift, exp(uX)(0, k) = (u k, k), and sqrt3 : sqrt8 is irrational), so no internal datum makes a tick an interval of native time; TIME_BIND needs its one external datum (1 Nov)", OB, "notes_1340"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -26006,6 +26012,179 @@ def notes_1222():
     }
 
 
+# ------------------------------------------------------------------- the packet of 1 Nov (13:40)
+
+def notes_1340():
+    """The packet of 1 Nov (13:40), which keeps several numbers apart on purpose: the ones with a definition recomputed
+    from the model, and joined where they land. The rotor prefix is the six currents' spectral measure; the two 120-sets
+    on F2^4 + F2^4 are both plus-type quadrics, isometric to E8's half-periods (their overlap is 56, not the packet's
+    96); the 240 between the torus and its 2-torsion is the straight pairs; the packet's 98 is the tick's eigenvalue
+    over F_241, the least prime splitting every clock; the tick's normalizer is <g> x| GL(2,5) inside W(E8); and the
+    tick, a symmetry of every native flow, is no time step of any of them, so it fixes no time unit."""
+    # the rotor prefix: the odd-current walk moments replayed in notes_0204
+    m = [1, 242, 58691, 14259954, 3470101592]
+    hank = [sp.Matrix(k + 1, k + 1, lambda i, j: m[i + j]).det() for k in range(3)]
+    x = sp.symbols("x")
+    Lf = lambda p: sum(c * m[e[0]] for e, c in sp.Poly(p, x).terms())
+    p1 = x - m[1]
+    b1 = Lf(p1 ** 2)
+    a1 = Lf(x * p1 ** 2) / b1
+    p2 = sp.expand((x - a1) * p1 - b1)
+    b2 = Lf(p2 ** 2) / b1
+    m4 = sp.symbols("m4")
+    floor4 = sp.solve(sp.Matrix([[m[0], m[1], m[2]], [m[1], m[2], m[3]], [m[2], m[3], m4]]).det(), m4)[0]
+    # two quadrics on F2^4 + F2^4, and E8's half-periods
+    pts = list(itertools.product((0, 1), repeat=8))
+    z4 = (0, 0, 0, 0)
+    qdot = lambda v: sum(v[i] * v[4 + i] for i in range(4)) % 2
+    q4 = lambda u: sum(u[i] * u[j] for i, j in itertools.combinations(range(4), 2)) % 2      # the cube's weight quadric
+    qw = lambda v: (q4(v[:4]) + q4(v[4:])) % 2
+    polar = lambda q: (lambda u, v: (q(tuple((a + b) % 2 for a, b in zip(u, v))) + q(u) + q(v)) % 2)
+    def band(q):
+        S, B = [v for v in pts if q(v)], polar(q)
+        return S, {w: 240 - 2 * sum((-1) ** B(s, w) for s in S) for w in pts}
+    S1, e1 = band(qdot)
+    S2, e2 = band(qw)
+    cls = lambda vs: sorted(Counter((v[:4] == z4, v[4:] == z4, q4(v[:4]), q4(v[4:])) for v in vs).values())
+    sing2 = [v for v in pts if any(v) and not qw(v)]
+    spec = lambda S, e: sorted(Counter((e[w], w in S) for w in pts).items())
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    def in_e8(t):                                    # t = 2v, rows; v in E8 = D8 u (D8 + 1/2)
+        t = np.asarray(t)
+        even = (t % 2 == 0).all(axis=-1) & ((t // 2).sum(axis=-1) % 2 == 0)
+        odd = (t % 2 == 1).all(axis=-1) & ((t.sum(axis=-1) // 2) % 2 == 0)
+        return even | odd
+    diff = (R2[:, None, :] - R2[None, :, :])
+    same_class = (diff % 2 == 0).all(axis=-1) & in_e8(diff // 2)
+    root_classes = len({int(np.nonzero(same_class[i])[0].min()) for i in range(240)})
+    pair_sum = (R2[:, None, :] + R2[None, :, :])
+    in2E8 = ((pair_sum % 2 == 0).all(axis=-1) & in_e8(pair_sum // 2)).sum()
+    zero_sum = (pair_sum == 0).all(axis=-1).sum()
+    # the two-step kernel
+    u, cnt = np.unique(pair_sum.reshape(-1, 8), axis=0, return_counts=True)
+    norm = (u * u).sum(axis=1) // 4
+    by_norm = {int(n): sorted(set(cnt[norm == n].tolist())) for n in np.unique(norm)}
+    sites_by_norm = {int(n): int((norm == n).sum()) for n in np.unique(norm)}
+    # the clock steps and the prime 241
+    from math import gcd
+    steps = (931, 241, 541)
+    k = cyclotomic.clocks()
+    roots241 = lambda name: sorted(int(r) % 241 for r in sp.Poly(sp.Matrix(k[name].tolist()).charpoly(x).as_expr(), x,
+                                                                   modulus=241).ground_roots())
+    split = lambda name: sum(sp.Poly(sp.Matrix(k[name].tolist()).charpoly(x).as_expr(), x, modulus=241)
+                             .ground_roots().values())
+    tick_eigs = sorted(int(r) % 241 for r in sp.Poly(sp.Matrix(k["g"].tolist()).charpoly(x).as_expr(), x,
+                                                     modulus=241).ground_roots())
+    # the tick's normalizer acting on the residue plane F25
+    g, day = k["g"], k["day"]
+    Lq, _ = cyclotomic.residue()
+    L5 = np.array(Lq) % 5
+    cols = next([a, b] for a in range(8) for b in range(a + 1, 8) if round(np.linalg.det(L5[:, [a, b]])) % 5)
+    Minv = np.array(sp.Matrix(L5[:, cols].tolist()).inv_mod(5).tolist(), dtype=np.int64)
+    def on_plane(W):
+        LW = (L5 @ W) % 5
+        A = (LW[:, cols] @ Minv) % 5
+        return A if np.array_equal((A @ L5) % 5, LW) else None
+    cent = cyclotomic.centralizer()
+    normW = [W @ spine.mpow(day, j) for W in cent for j in range(4)]
+    planes = [on_plane(W) for W in normW]
+    images = {A.tobytes() for A in planes if A is not None}
+    gpow = {spine.mpow(g, j).tobytes() for j in range(5)}
+    kernel = {W.tobytes() for W, A in zip(normW, planes) if A is not None and np.array_equal(A, np.eye(2, dtype=np.int64))}
+    inv = lambda W: np.rint(np.linalg.inv(W)).astype(np.int64)
+    det5 = lambda A: int(round(np.linalg.det(A))) % 5
+    I8 = np.eye(8, dtype=np.int64)
+    comms = [cent[i] @ cent[j] @ inv(cent[i]) @ inv(cent[j]) for i in range(0, 600, 37) for j in range(5, 600, 53)][:40]
+    K, new = {I8.tobytes(): I8}, [I8]
+    while new:
+        nxt = []
+        for M_ in new:
+            for G_ in comms:
+                P_ = M_ @ G_
+                if P_.tobytes() not in K:
+                    K[P_.tobytes()] = P_
+                    nxt.append(P_)
+        new = nxt
+    h = next(W for W, A in zip(normW, planes) if det5(A) == 2 and (W @ W @ W @ W).tobytes() in K)
+    Hset = {(kM @ spine.mpow(h, j)).tobytes() for kM in K.values() for j in range(4)}
+    Hl = [np.frombuffer(b, dtype=np.int64).reshape(8, 8) for b in Hset]
+    H_images = {on_plane(W).tobytes() for W in Hl}
+    conj_det = all(np.array_equal(W @ g @ inv(W), spine.mpow(g, det5(A))) for W, A in zip(normW, planes))
+    gens_closed = all((A_ @ B_).tobytes() in Hset for A_ in Hl[::11] for B_ in Hl[::13])
+    # the tick against the native flows
+    Dm = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    edges5 = carrier.edges()
+    sig = [1, 2, 3, 4, 0]
+    Pt = sp.zeros(15, 15)
+    for i in range(5):
+        Pt[sig[i], i] = 1
+    for n_, (a_, b_) in enumerate(edges5):
+        Pt[5 + edges5.index(tuple(sorted((sig[a_], sig[b_])))), 5 + n_] = 1
+    D2 = Dm * Dm
+    kerD = sp.Matrix.hstack(*D2.nullspace())
+    X = sp.Matrix(sp.BlockMatrix([[sp.zeros(15), sp.eye(15)], [-D2, sp.zeros(15)]]))
+    u_ = sp.symbols("u", positive=True)
+    kvec = sp.Matrix.vstack(sp.zeros(15, 1), kerD[:, 0])
+    flow_on_k = sp.Matrix.vstack(u_ * kerD[:, 0], kerD[:, 0])          # exp(uX) on (0, k), as X^2 (0, k) = 0
+    eig = sorted(set(sp.Matrix(D2).eigenvals()))
+    return {
+        "the packet's rotor prefix 1, 242, 58691, 14259954, 3470101592 is the six currents' walk moments (notes_0204), "
+        "so it is a spectral measure, <f, Delta^n f>/<f, f> of the bath at the current field: its Hankel minors are 1, "
+        "127, 15930273, the Jacobi coefficients a0 = 242, b1^2 = 127, a1 = 25998/127, b2^2 = 15930273/16129, and the "
+        "fourth moment exceeds its Hankel floor by 15930273/127 (the packet's numbers, joined)":
+            hank == [1, 127, 15930273] and b1 == 127 and a1 == sp.Rational(25998, 127)
+            and b2 == sp.Rational(15930273, 16129) and b2 == hank[2] / hank[1] ** 2
+            and m[4] - floor4 == sp.Rational(15930273, 127) and 10 * m[4] == 34701015920,
+        "on F2^4 + F2^4 the bilinear dot x.y and the sum of the four-cube's weight quadrics q(x) + q(y) (q = sum over "
+        "pairs x_i x_j, nonzero on the ten vectors of weight 2 and 3) each have 120 nonsingular points, the second in "
+        "classes 10 + 10 + 50 + 50 and its 135 singular ones in 5 + 5 + 25 + 100; both have 136 zeros (plus type), as "
+        "E8's half-period quadric <v, v>/2 mod 2 does, whose nonsingular points are the 120 root classes +-r, so all "
+        "three are isometric; read through its own polar form each gives the band 0 once, 224 on its 120 and 256 on the "
+        "other 135 (mean 240, second moment 58080, variance 480); the two 120-sets share 56 points, not the packet's 96":
+            len(S1) == len(S2) == 120 and cls(S2) == [10, 10, 50, 50] and cls(sing2) == [5, 5, 25, 100]
+            and sum(1 for v in pts if not qdot(v)) == 136 == sum(1 for v in pts if not qw(v))
+            and root_classes == 120 and same_class.sum() == 480
+            and spec(S1, e1) == spec(S2, e2) == [((0, False), 1), ((224, True), 120), ((256, False), 135)]
+            and sum(e1.values()) == 240 * 256 and sum(v * v for v in e1.values()) == 58080 * 256
+            and len(set(S1) & set(S2)) == 56,
+        "the two-step sum of the 240 roots meets 9361 sites (1 + 240 + 2160 + 6720 + 240 of norm 0, 2, 4, 6, 8, hit "
+        "240, 56, 14, 2 and 1 times), so its squared mass is 1260720, the closed four-walks; the band's second moment "
+        "is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 = lcm(240, 241) over the torus R^8/E8 and 240^2 + #{r1 + r2 in "
+        "2E8} = 58080 over its 2-torsion, so the packet's gap of 240 is an identity of the two measures: the 240 straight "
+        "pairs r + r = 2r in 2E8":
+            len(u) == 9361 and sites_by_norm == {0: 1, 2: 240, 4: 2160, 6: 6720, 8: 240}
+            and by_norm == {0: [240], 2: [56], 4: [14], 6: [2], 8: [1]} and int((cnt.astype(np.int64) ** 2).sum()) == 1260720
+            and 240 ** 2 + zero_sum == 57840 == 240 * 241 == sp.ilcm(240, 241)
+            and 240 ** 2 + in2E8 == 58080 and in2E8 - zero_sum == 240,
+        "the circle's steps 931, 241 and 541 are units of Z/4320 and all 1 mod 5, so they fix the time coordinate; their "
+        "differences 690, 300 and 390 lie in the miss set with orders 144, 72 and 144, and 142, 145, 136 are not units; "
+        "241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock each have eight "
+        "distinct eigenvalues, and the tick's are 98, 98^2 = 205, 98^3 = 87, 98^4 = 91: the packet's 98 (order 5, its "
+        "powers summing to 0) is the tick's eigenvalue, and 22^2 = 2 puts sqrt2 in F_241 too":
+            all(gcd(s, 4320) == 1 and s % 5 == 1 for s in steps)
+            and [4320 // gcd(d, 4320) for d in (931 - 241, 541 - 241, 931 - 541)] == [144, 72, 144]
+            and all((d % 5) == 0 for d in (690, 300, 390)) and all(gcd(s, 4320) > 1 for s in (142, 145, 136))
+            and next(p for p in range(2, 1000) if sp.isprime(p) and p % 240 == 1) == 241
+            and all(len(roots241(c_)) == 8 and split(c_) == 8 for c_ in ("c", "day", "golden"))
+            and tick_eigs == sorted(pow(98, j, 241) for j in range(1, 5)) == [87, 91, 98, 205]
+            and pow(98, 5, 241) == 1 and sum(pow(98, j, 241) for j in range(5)) % 241 == 0 and 22 * 22 % 241 == 2,
+        "the tick's normalizer N_W(<g>) (2400) acts on the residue plane F25 = E8/(1 - g)E8 through all 480 elements of "
+        "GL(2, F5) with kernel exactly <g>, conjugating g to g^det; with K = [C_W(g), C_W(g)] = SL(2,5) (120) and an "
+        "element h of determinant 2 whose fourth power lies in K, H = K<h> has order 480, meets <g> trivially and maps "
+        "onto GL(2,5): N_W(<g>) = <g> x| GL(2,5) inside W(E8), the Weyl lift the packet's count of 2400 lacked":
+            len(normW) == 2400 and all(A is not None for A in planes) and len(images) == 480 and kernel == gpow
+            and conj_det and len(K) == 120 and not (set(K) & gpow - {I8.tobytes()})
+            and len(Hset) == 480 and not (Hset & gpow - {I8.tobytes()}) and len(H_images) == 480 and gens_closed,
+        "the tick is a symmetry of every native flow, not a step of any: the five-cycle commutes with D (P D = D P) and "
+        "the carrier flow exp(uX), X = [[0, I], [-D^2, 0]], has finite order for no u != 0, since on the five dark "
+        "modes it drifts, exp(uX)(0, k) = (u k, k), and the moving frequencies sqrt3 and sqrt8 are incommensurate; so "
+        "no internal datum makes one tick an interval of native time, and TIME_BIND needs its one external datum":
+            Pt * Dm == Dm * Pt and kerD.shape[1] == 5 and X * kvec == sp.Matrix.vstack(kerD[:, 0], sp.zeros(15, 1))
+            and X * X * kvec == sp.zeros(30, 1) and (sp.eye(30) + u_ * X) * kvec == flow_on_k and flow_on_k != kvec
+            and eig == [0, 3, 8] and not sp.sqrt(sp.Rational(8, 3)).is_rational,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -26531,6 +26710,7 @@ LEDGER_ROWS = [
     ("the hub's all-dots integration (1 Nov 02:18-02:22: integration, 031/130 continuation, N41 x FOAM, FOAM x E8 clock, summary)", "W: Lambda^2 P5 -> L6 rank 6 kernel 4, three phases 30 -> 18; the D15 clock A = rho(g) x c, R = rho(t) x r; FOAM ranks 6, 12, 18 / 12, 18 / 18; MF = 0; Fisher tr I^-1 = 4/(375 n alpha^2), tr G^-1 = 8/25; d_N = 1, 11, 244, 6860 with d_(N+3) = 38 d_(N+2) - 252 d_(N+1) + 360 d_N; Sym^2 kernels 34 and 294; the CRT clock j = 2241 (j mod 160) + 2080 (j mod 27); W_0..W_6; K = F E rank 6, kernel splits 32/88/30/84; P8 from 57/2 to 39; the Golden port's four channels (variances 371, 171, 1987/10 -+ 31 sqrt5/10; Hankel 357276603, 36798947, 116537713/2 -+ 90769773 sqrt5/50); dark-repair probes; a 124-dimensional Poisson fixture; boundary entropy", "replayed exactly (notes_0258), five statements: the D15 clock joins the stages to the cycles (a stage moves the cycles exactly when it lands on the time clock), and the Golden port's four channels come from the model's five root-shell sector sequences, two of them (graph 28 and -4) newly stated; the dark-repair probes, the Poisson fixture and the entropy are N44's or recorded", T, "23"),
     ("the star at the seed (join all dots, 1 Nov)", "38 new direct checked joins from E8: one to each of the 37 dots that had none and a THEOREM one to the circle, which had only a selected reference (32 THEOREM, 1 OBSTRUCTION, 2 SELECTED_REFERENCE, 3 CONDITIONAL); with the 35 dots joined before (33 by THEOREM, the circle by a selected reference, the memory clock by an obstruction) every dot but E8 now meets the seed directly", "constructed from the 240 roots, the Weyl group, the principal torus and the residue rings (join_e8_*); an independent review revised 22 of them and rejected one (a torus realization of the memory clock, which reaches only Z/90, not its 120 states); unify.star checks the star", T, "23, 25"),
     ("the 52-outcome extension and the Plucker residual (separate model's N44 addendum, 1 Nov 12:22)", "S5 multiplicities: signal 21 = 2[5] + [4,1] + [3,2] + [3,1,1] + [2,1,1,1], quadratic 21 = [5] + [1^5] + [4,1] + 2[3,2] + [2,2,1], 42 outcomes = 4[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + [2,2,1] + [3,1,1], residual 20 = [5] + [1^5] + 2[4,1] + [3,2] + [2,2,1]; equivariant ranks 10 (S5), 11 (A5), 21 (C5), quadratic into residual 16; one [3,2] short, supplied by the ten edge labels (52 outcomes, leftover [5] + 2[4,1]), ten minimal; the 30 x 5 Plucker matrix U with U^T U = G4/81; the sign channel of norm 10; J = h r with J^2 = -I and the icosahedral traces phi, 1 - phi", "replayed exactly from the model's carriers (notes_1222, four statements); the 30 x 5 matrix is rebuilt entry for entry (det G = 162, so the isometry is 9U); joined as kerM -> readout; the Schur sandwich b/(s + 256) <= Sigma(s) <= b/s with b = (2117, 389, 127, 83) uses the boundary variances already replayed (N42, N44)", T, "23"),
+    ("the packet of 1 Nov (13:40): numbers kept apart on purpose", "rotor prefix Hankel 15930273 and Jacobi 242, 127, 25998/127, 15930273/16129; two 120-sets on F2^4 + F2^4 with the same spectrum, said to agree on 96 points; 9361 sites and squared mass 1260720; m2 = 58080 periodic against 57840 = lcm(240, 241); steps 931, 241, 541 = 1 mod 5; 22^2 = 2 and 98 of order 5 mod 241; GL(2,5) 480, SL 120, an abstract 2400; the quartic a r^2 - (40/9) r^4 with zeros r^2 = 9a/40", "replayed (notes_1340, six statements): all hold except the overlap, which is 56, not 96; the rotor prefix is the six currents' spectral measure; both quadrics are E8's half-period quadric up to isometry; the gap 240 is an identity of two measures (the straight pairs); 98 is the tick's eigenvalue over F_241; the 2400 is <g> x| GL(2,5) inside W(E8); the tick fixes no time unit (an obstruction). The quartic's zero moves with a, a DYN_BIND operand; the infrared interval, the hbar thresholds and the saddle bound are not replayed", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -26799,7 +26979,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,

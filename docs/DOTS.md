@@ -615,12 +615,18 @@ flowchart TB
     E8 -->|"parent on the sun's frames"| parent
     E8 -->|"local limit of closed walks"| walks
     kerM -->|"the Plucker residual"| readout
+    cycles -->|"the currents' spectral measure"| measure
+    cube -->|"two cube quadrics"| halfper
+    halfper -->|"the straight pairs"| moments
+    time -->|"the tick over F_241"| cyclo
+    time -->|"the Weyl lift of GL(2,5)"| residue
+    time -.->|"a symmetry, not a step"| calibration
     cycles -->|"the one quadratic"| golden
     rotor -->|"the Golden measurement channel"| rootgraph
     AGL -->|"the five-cycle's golden companion"| golden
 ```
 
-73 dots and 529 joins: 478 THEOREM, 12 SELECTED_REFERENCE, 16 CONDITIONAL and 23 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
+73 dots and 535 joins: 483 THEOREM, 12 SELECTED_REFERENCE, 16 CONDITIONAL and 24 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
 
 ## Levels
 
@@ -628,8 +634,8 @@ flowchart TB
 |---|---|---|---|---|
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 41 | 12 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 26 | 22 |
-| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 25 | 21 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle, icosians, Penrose planes | 46 | 46 |
+| 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 25 | 22 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle, icosians, Penrose planes | 46 | 47 |
 | 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 38 | 30 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 17 | - |
 
@@ -639,11 +645,11 @@ The maps that join each pair of levels directly.
 
 | | number | symmetry | combinatorics | lattice | operator | physics |
 |---|---|---|---|---|---|---|
-| number | - | 12 | 8 | 28 | 8 | 8 |
+| number | - | 12 | 8 | 30 | 8 | 8 |
 | symmetry | 12 | - | 22 | 48 | 17 | 10 |
-| combinatorics | 8 | 22 | - | 21 | 27 | 12 |
-| lattice | 28 | 48 | 21 | - | 46 | 16 |
-| operator | 8 | 17 | 27 | 46 | - | 30 |
+| combinatorics | 8 | 22 | - | 22 | 28 | 12 |
+| lattice | 30 | 48 | 22 | - | 47 | 16 |
+| operator | 8 | 17 | 28 | 47 | - | 30 |
 | physics | 8 | 10 | 12 | 16 | 30 | - |
 
 ## Dots
@@ -1254,6 +1260,12 @@ The maps that join each pair of levels directly.
 | E8 | 360 parent | The sun's A6 on the ten 4A2 frames (from the 2160 isometries commuting with the sun and phi) acts regularly on each of the two orbits of ordered frame triples, so Q[A6] is the permutation module of either orbit (left and right actions as frame action and base change). For each of the ten isomorphisms with r -> c', O90 reads ordered pairs of frames (phi(C4) is a pair stabilizer) and O36 reads the 36 conjugates of the Coxeter clock, 36 distinct pentagon pairs. (1 Nov) | THEOREM | `join_e8_parent` |
 | E8 | closed walks | E8 is unimodular and its roots are a spherical 7-design but not an 8-design (power sums 60, 36, 30 \|theta\|^2k), so W_n = (16/pi^4)(240^n/n^4)(1 - 2/n + 23/(15n^2) - 26/(75n^3) + O(n^-4)), with 16/pi^4 = (2pi)^-4 det(Sigma)^-1/2 for Sigma = I/4. The file's W_30..W_90 agree with it to within 1/(5n^4), exactly (pi^4 bracketed by rationals). (1 Nov) | THEOREM | `join_e8_walks` |
 | zero modes | readout | ker M is the S5 irreducible [3,2] with determinant 1, so Lambda^4 ker M = ker M, and a source x in Lambda^2 ker M is simple exactly when x ^ x = 0; the rational 30 x 5 matrix U = C G^-1 eps on the flag outcomes (C^T C = 2G, U^T U = Lambda^4 G / 81) embeds Lambda^4 ker M, after scaling by 9, isometrically as the one [3,2] of the 42-outcome codec's 20-dimensional residual, orthogonal to the root columns, so the quadratic x ^ x reads beside the linear signal; reading the signal and its whole quadratic independently needs one more [3,2], which the ten edge labels supply (52 outcomes, the least orbit that can) (the separate model's N44 extension, 1 Nov) | THEOREM | `notes_1222` |
+| cycles | spectral measures | the six odd currents on the cycles have walk moments 1, 242, 58691, 14259954, 3470101592, a spectral measure of the bath with Hankel minors 1, 127, 15930273 and Jacobi coefficients 242, 127, 25998/127, 15930273/16129; the fourth moment exceeds its Hankel floor by 15930273/127 (the packet of 1 Nov) | THEOREM | `notes_1340` |
+| four-cube | half-periods | the four-cube's weight quadric q (nonzero on the ten vectors of weight 2 and 3) doubled, q(x) + q(y) on F2^4 + F2^4, and the bilinear dot x.y are plus-type quadrics with 120 nonsingular points, so both are isometric to E8's half-period quadric, whose nonsingular points are the 120 root classes; each gives the band 0, 224 (120), 256 (135), and the two 120-sets share 56 points, not 96 (the packet of 1 Nov) | THEOREM | `notes_1340` |
+| half-periods | moments | the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 over the torus and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion: the gap of 240 is the straight pairs r + r = 2r; the two-step kernel meets 9361 sites with squared mass 1260720 (the packet of 1 Nov) | THEOREM | `notes_1340` |
+| time clock | cyclotomic line | 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock have eight distinct eigenvalues each, and the tick's are 98, 205, 87, 91, the powers of the packet's 98; the circle's steps 931, 241, 541 are units 1 mod 5, fixing the time coordinate, with differences of orders 144, 72, 144 in the miss set (1 Nov) | THEOREM | `notes_1340` |
+| time clock | residue plane | the tick's normalizer (2400) acts on the residue plane F25 through all of GL(2, F5) with kernel <g>, conjugating g to g^det, and it splits: SL(2,5) = [C_W(g), C_W(g)] and one element of determinant 2 generate a complement of order 480, so N_W(<g>) = <g> x\| GL(2,5) inside W(E8) (the packet of 1 Nov had only the abstract count) | THEOREM | `notes_1340` |
+| time clock | calibration | the tick commutes with D and with every native flow but is a step of none: the carrier flow exp(uX) has finite order for no u != 0 (the five dark modes drift, exp(uX)(0, k) = (u k, k), and sqrt3 : sqrt8 is irrational), so no internal datum makes a tick an interval of native time; TIME_BIND needs its one external datum (1 Nov) | OBSTRUCTION | `notes_1340` |
 | cycles | golden companion | the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct) | THEOREM | `one_quadratic` |
 | rotor plane | root graph | the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct) | THEOREM | `notes_1751` |
 | AGL(1,5) | golden companion | on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct) | THEOREM | `notes_1250` |
