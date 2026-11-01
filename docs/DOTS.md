@@ -627,12 +627,19 @@ flowchart TB
     kerM -->|"generator rigidity"| binding
     bath -.->|"the quartic is a choice"| binding
     pgl -->|"the six Sylow labels"| readout
+    source -->|"the free history's rank ladder"| cycles
+    source -->|"four samples a period"| readout
+    source -.->|"the energy-matched shear"| binding
+    source -->|"the causal jet"| bath
+    L0 -->|"the quartic-null port"| darkport
+    darkport -->|"the moment line"| moments
+    darkport -->|"the infrared exponent"| calibration
     cycles -->|"the one quadratic"| golden
     rotor -->|"the Golden measurement channel"| rootgraph
     AGL -->|"the five-cycle's golden companion"| golden
 ```
 
-73 dots and 541 joins: 486 THEOREM, 12 SELECTED_REFERENCE, 17 CONDITIONAL and 26 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
+73 dots and 548 joins: 490 THEOREM, 12 SELECTED_REFERENCE, 19 CONDITIONAL and 27 OBSTRUCTION. With the obstructions left out, the joins that hold connect every dot: the diagram is one piece. Every dot lies on at least three maps, and neither two maps nor two dots hold it together: removing any two maps, or any two dots with their maps, leaves the rest connected. THEOREM joins alone connect every dot but the product geometry and FLRW. Those two need an external 4-manifold, cutoff and mass scale, so they attach through CONDITIONAL joins: the heat coefficients (J10), the massless tower, the Friedmann flow, the stiff sector, the dark momentum and the cosmos's calibration. The memory clock is reached by the circle's 24 maps onto it, all conjugate under its symmetry, without the selection. No one or two THEOREM maps, and no one or two dots, hold the THEOREM diagram together, and THEOREM maps join every pair of levels at least twice.
 
 ## Levels
 
@@ -641,8 +648,8 @@ flowchart TB
 | 1. number | the circle and its clocks | circle, time clock, observer clock, 27-clock, atlas, coil, grain, vortex, miss set, stages, memory clock | 41 | 12 |
 | 2. symmetry | groups, their actions and modules | W(E8) clocks, day-Coxeter group, AGL(1,5), S5, PGL(2,5), golden companion, Hodge 70, 801 matrix, fifteen words, regular clocks | 26 | 22 |
 | 3. combinatorics | graphs, complexes and the cube | K5 vertices, K5 edges, cycles, rotor plane, Petersen, four-cube, surface, 4-simplex, PG(2,5), synthemes | 25 | 22 |
-| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle, icosians, Penrose planes | 46 | 47 |
-| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 38 | 32 |
+| 4. lattice | roots, lattices and tori | A4, D5, E8, A4 + A4', eight-root frame, tick momenta, half-periods, critical census, nine-torus, root graph, cyclotomic line, residue plane, sun's decad, principal circle, icosians, Penrose planes | 46 | 48 |
+| 5. operator | spaces with operators, ports and moments | carrier, zero modes, datum, source, literal operands, bath, closed walks, moments, spectral measures, triangle port, six-site port, Pauli algebra, GKSL, Golden port, root-wedge port, dark ports, 360 parent | 40 | 34 |
 | 6. physics | geometry, readout, waves, binding and the conditional cosmos | spectral triple, readout, sound and light, binding, calibration, product geometry, FLRW, five-site charges, root assignment | 17 | - |
 
 ## Level pairs
@@ -653,10 +660,10 @@ The maps that join each pair of levels directly.
 |---|---|---|---|---|---|---|
 | number | - | 12 | 8 | 31 | 8 | 8 |
 | symmetry | 12 | - | 22 | 48 | 17 | 11 |
-| combinatorics | 8 | 22 | - | 22 | 28 | 12 |
-| lattice | 31 | 48 | 22 | - | 47 | 16 |
-| operator | 8 | 17 | 28 | 47 | - | 32 |
-| physics | 8 | 11 | 12 | 16 | 32 | - |
+| combinatorics | 8 | 22 | - | 22 | 29 | 12 |
+| lattice | 31 | 48 | 22 | - | 48 | 16 |
+| operator | 8 | 17 | 29 | 48 | - | 34 |
+| physics | 8 | 11 | 12 | 16 | 34 | - |
 
 ## Dots
 
@@ -1278,6 +1285,13 @@ The maps that join each pair of levels directly.
 | zero modes | binding | a generator on Lambda^2 ker M keeping every simple source simple is induced from gl(5) (constraint rank 75, nullity 25); the symmetric generators on ker M have commutants 25, 5, 2, 1 under no symmetry, C5, F20, S5 (metric-skew 10, 2, 0, 0), so the source stiffness has two free numbers under F20 and one, a scale, under S5: DYN_BIND's source-level freedom (1 Nov) | THEOREM | `notes_1512` |
 | bath | binding | a r^2 - (40/9) r^4 falls without bound for every a, and eliminating a wedge bath mode (core 242) coupled by g gives a r^2 - (g^2/484) r^4: the coefficient 40/9 is matched only by choosing g^2 = 19360/9, so no symmetry fixes the quartic or its zero r^2 = 9a/40 (1 Nov) | OBSTRUCTION | `notes_1512` |
 | PGL(2,5) | readout | Hermitian operators on the six currents are Sym^2 + Lambda^2 of [3,1,1], one [2,2,1] more than the 42 outcomes hold; the six Sylow-five subgroups, the exceptional action's six points ([5] + [2,2,1]), supply it, making 48 outcomes with 4[5] + 2[4,1] left over; the 52 outcomes count d_N = 1, 5, 54, 1445 and carry a rank-43 integer encoder (1 Nov) | THEOREM | `notes_1512` |
+| source | cycles | for the free source q'' + 4q = 0 on two lanes, the commutator port's whole history (frequencies 0 and 4) has rank 17 on the 20 initial coordinates, blind exactly to the constant SL(2) lane mixings (g is alternating bilinear); the second lane's cubic (frequencies 2 and 6) adds 2, leaving the shear, and the one context cubic U closes 20; in jets 6, 12, 17, 18, 19, 20 with 20 x 20 minor -74402280593927700480 (the hub's K5 temporal join) | THEOREM | `notes_1725` |
+| source | readout | sampled at t = k pi/8, k = 0..3, the commutator port and the cubic read back exactly (tight frames, Grams diag(4, 2, 2) and 2 I4), while quarter-period samples alias (ranks 2 and 2); the samples obey a third-order recurrence and the cubic is antiperiodic under t -> t + pi/2 | THEOREM | `notes_1725` |
+| source | binding | the lane shear (a, b) -> (a + b, b) keeps the port history, the cubic and the Noether charge 15/2 but moves the energy 74 -> 164; the shear by -47/43 keeps the energy 74 too, so g, eta, Q and E together leave the state open and only the context cubic (-152/3 against -7328288/238521) separates it: the free invariants do not bind the dynamics | OBSTRUCTION | `notes_1725` |
+| source | bath | if the initial bath data are known and equal and the boundary Gram is the selected G6 = 183 I + 52 J (det 183^5 x 495), the boundary jets (y'', y''', y'''') are block lower triangular in (g, g', g'') with G6 on the diagonal, so they keep the source's rank 17, and 20 with the cubic jets and U, whatever the coupling | CONDITIONAL | `notes_1725` |
+| A4 + A4' | dark ports | on the 1200 norm-four sites the two dark ports' moment tensors vanish below degree 4; the quartic has rank 4 on their 8-dimensional span, with kernel exactly D_flat = B4 - D_A R, the part orthogonal to the triple wedge (Gram (187/5) B4^T B4); the triple wedge is even, so the quintic is injective on D_flat: every dark direction starts at order 4 or 5, and exactly one four-dimensional subspace at 5 (the hub's quintic note, 30 Oct) | THEOREM | `notes_1725` |
+| dark ports | moments | the mixed moments of D_flat with the triple wedge vanish to second order, so D_theta = cos B + sin F has m1 = 232 + (2256/187) sin^2, m2 = 54150 + (1026480/187) sin^2, all on m2 - 455 m1 + 51410 = 0 through the A port (q = 1); the flat port sits at q = 192/187, beyond A and outside [0, 1] | THEOREM | `notes_1725` |
+| dark ports | calibration | the root sum rho rho^T = 60 I makes the bath symbol 30 \|k\|^2 at its zero; under the standard Fourier asymptotics a port starting at order l has density ~ E^(3 + l) and heat return ~ tau^-(4 + l): E^7, tau^-8 for a generic dark port and E^8, tau^-9 for the quartic-null one, an exponent a calibrated dark measurement could test | CONDITIONAL | `notes_1725` |
 | cycles | golden companion | the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct) | THEOREM | `one_quadratic` |
 | rotor plane | root graph | the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct) | THEOREM | `notes_1751` |
 | AGL(1,5) | golden companion | on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct) | THEOREM | `notes_1250` |
