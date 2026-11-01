@@ -10083,6 +10083,7 @@ JOINS = [
     ("E8", "coil", "the band on the coil", "Through the principal circle k -> k rho/4320, the coil <8> is the 540-torsion m rho/540, and the adjoint character at a point of order d | 540 is 8 + sum_r zeta_d^ht(r). Reduced mod Phi_d it is an integer exactly for the eleven regular numbers of E8 that divide 540 (band 0 at d = 1 and 248 - 8 mu(d)/phi(d) for d > 1). At the thirteen other orders (9, 18, 27, 36, 45, 54, 60, 90, 108, 135, 180, 270, 540) its Galois conjugates take exactly phi(d)/2 distinct values, so the band generates Q(zeta_d)^+. The band is therefore rational at exactly 44 coil points (the grain's points of order dividing 60, other than 60) and irrational at every coil point with a nonzero vortex coordinate.", T, "join_e8_coil"),
     ("E8", "cube", "the cells by lattice parity", "Rescaled to [-1, 1]^4 on the first four coordinates, a cell of the four-cube has centre in {-1, 0, 1}^4, and that centre is a point of E8 exactly when the cell has even dimension: the 41 even cells are E8's points there (the 24 squares are the roots of the D4 inside E8, the 16 vertices are twice the four-coordinate shadows of the half roots, eight over each, the solid is the origin) and the 40 odd cells the other D4 coset; so the Euler characteristic 1 = 41 - 40 is the lattice's parity count, a boundary step moves a centre by a unit vector and two steps by a D4 root.", T, "join_e8_cube"),
     ("E8", "source", "the dark four off the roots", "the kernel of the source port a ^ b -> [A(a), A(b)] (the dark four of Lambda^2 ker M) is the sign-twisted standard representation of S5, which occurs neither among the 240 roots under the coordinate S5 nor among the 32 FOAM outcomes; it lives on the free orbit of eta = (-2, -1, 0, 1, 2, 0, 0, 0) (norm 10) with walk moments 1, 243, 59132, 14407126, 3514086413, while the six bright directions are odd currents on the twenty A4 roots with the triangle port's cubic-sector moments 1, 242, 58691, ...; ten oriented vertex outcomes complete a 42-outcome codec (the separate model's N44)", T, "notes_0204"),
+    ("stages", "cycles", "a stage moves the cycles when it lands", "the five-cycle on the cycles times the three-position word clock, A = rho(g) x c, has order 15 and with the mirror R = rho(t) x r (R A R = A^-1) a dihedral group of order 30; the fifteen stages are its powers A^k, and a stage moves the cycles (rho(g)^k != I) exactly when it lands on the time clock: the stages 0, 5 and 10 that never land are those whose power fixes the cycle factor; read at the 30 FOAM flags the clocked cycles have observability ranks 6, 12, 18 at one position (the hub's all-dots integration)", T, "notes_0258"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -22695,6 +22696,174 @@ def notes_0204():
     }
 
 
+def notes_0258():
+    """The hub's all-dots integration (1 Nov, 02:18-02:22): the five-cycle on the cycles times the three-position word
+    clock is a clock of order 15 whose powers are the fifteen stages, with a dihedral mirror; the FOAM readout of it, the
+    FOAM statistics, the finite counts, the root-to-flag kernel and the Golden port's four memory channels."""
+    V5 = range(5)
+    edges = list(itertools.combinations(V5, 2))
+    eidx = {e: n for n, e in enumerate(edges)}
+    Bs = sp.Matrix(5, 10, lambda v, n: int(v == edges[n][1]) - int(v == edges[n][0]))
+    L = sp.Matrix.hstack(*Bs.nullspace())                                        # the cycles, 10 x 6
+    Lp = (L.T * L).inv() * L.T
+    sgn = lambda a, b: 1 if a < b else -1
+    def flow_perm(p):
+        M = sp.zeros(10, 10)
+        for n, (a, b) in enumerate(edges):
+            M[eidx[(min(p[a], p[b]), max(p[a], p[b]))], n] = sgn(p[a], p[b])
+        return M
+    rho = lambda p: Lp * flow_perm(p) * L
+    g, t = [1, 2, 3, 4, 0], [0, 4, 3, 2, 1]                                       # the five-cycle and the pentagon mirror
+    c = sp.Matrix(3, 3, lambda i, j: int(i == (j + 1) % 3))
+    r = sp.Matrix(3, 3, lambda i, j: int(i == 2 - j))
+    kron = lambda X, Y: sp.Matrix(sp.BlockMatrix([[X[i, j] * Y for j in range(X.cols)] for i in range(X.rows)]))
+    A = kron(rho(g), c)
+    R = kron(rho(t), r)
+    R0 = kron(sp.eye(6), r)
+    rg = rho(g)
+    moves = [k for k in range(15) if rg ** k != sp.eye(6)]
+    lands = [k for k in range(15) if any((m * k) % 4320 in (864, 1728, 2592, 3456) for m in range(1, 4321))]
+    # the FOAM flag reader on the cycles, read at one, two or three positions
+    flags = [(i, j, k) for i in V5 for j, k in itertools.combinations([a for a in V5 if a != i], 2)]
+    Fe = sp.Matrix(30, 10, lambda n, e: sp.Rational(sum(sgn(flags[n][0], o) for o in flags[n][1:]
+                                                        if tuple(sorted((flags[n][0], o))) == edges[e]), 2))
+    F = Fe * L
+    e_ = lambda i: sp.Matrix(1, 3, lambda _, j: int(j == i))
+    def ladder(C, steps=3):
+        out, Ob = [], sp.zeros(0, 18)
+        for s in range(steps):
+            Ob = sp.Matrix.vstack(Ob, C * A ** s)
+            out.append(Ob.rank())
+        return out
+    one = kron(F, e_(0))
+    pair = sp.Matrix.vstack(kron(F, e_(0)), kron(F, e_(2)))
+    allp = sp.Matrix.vstack(*[kron(F, e_(i)) for i in range(3)])
+    comp = [flags.index((i, *sorted(set(V5) - {i, j, k}))) for i, j, k in flags]
+    merged = sp.Matrix.vstack(*[F.row(n) + F.row(comp[n]) for n in range(30) if n < comp[n]])
+    # the FOAM statistics in the source coordinates
+    Cs = sp.Matrix([[0, 0, 5, 0, 0, 0], [3, -2, -2, 3, -2, 1], [-3, 2, -3, 2, 2, -1],
+                    [0, 5, 0, 0, 0, 0], [-2, -2, 3, -2, 3, 1], [5, 0, 0, 0, 0, 0]])
+    Fs = F * Cs
+    Gs = Fs.T * Fs
+    n_, al, Rr = sp.symbols("n alpha R", positive=True)
+    crb = (Gs.inv() / (30 * n_ * al ** 2)).trace()
+    Km = Fs * (Gs.inv() ** 2) * Fs.T
+    X1 = sp.Matrix(6, 6, lambda i, j: (i * 3 + j * 5) % 7 - 3)
+    X2 = sp.Matrix(6, 6, lambda i, j: (i * 2 + j * j) % 5 - 2)
+    lift = lambda Xm: Fs * Xm * Fs.T
+    # the finite counts and the CRT clock
+    dN = lambda N: sp.Rational(30 ** N + 10 * 6 ** N + 15 * 2 ** N, 120)
+    P5 = sp.Matrix.hstack(*sp.Matrix(5, 10, lambda v, nn: int(v in edges[nn])).nullspace())
+    Xm = lambda w: sp.Matrix(5, 5, lambda i, j: 0 if i == j else w[eidx[(min(i, j), max(i, j))]])
+    skew = lambda K: sp.Matrix([K[i, j] for i, j in edges])
+    pairs = list(itertools.combinations(range(5), 2))
+    Wm = sp.Matrix.hstack(*[Lp * skew(Xm(P5[:, a]) * Xm(P5[:, b]) - Xm(P5[:, b]) * Xm(P5[:, a])) for a, b in pairs])
+    def sym2(M):                                                 # Sym^2 of a linear map, on monomial bases
+        mi = list(itertools.combinations_with_replacement(range(M.cols), 2))
+        mo = list(itertools.combinations_with_replacement(range(M.rows), 2))
+        return sp.Matrix(len(mo), len(mi), lambda o, i: (M[mo[o][0], mi[i][0]] * M[mo[o][1], mi[i][1]]
+                                                         + (M[mo[o][0], mi[i][1]] * M[mo[o][1], mi[i][0]]
+                                                            if mi[i][0] != mi[i][1] else 0)))
+    W3 = kron(Wm, sp.eye(3))
+    walks = _walks()[0]
+    # the root-to-flag map K = F E through the A4 chart
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    index = {tuple(rr): i for i, rr in enumerate(R2)}
+    U = sp.Matrix(5, 4, lambda a, b: int(a == b + 1) - int(a == 0))
+    Qm = (U.T * U).inv() * U.T
+    C4 = Qm * sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5)) * U
+    Wd = list(itertools.combinations(range(4), 2))
+    X = [Qm * sp.Matrix([sp.Rational(int(v), 2) for v in rr[:5]]) for rr in R2]
+    E = sp.Matrix([[x[a] * (C4 * x)[b] - x[b] * (C4 * x)[a] for a, b in Wd] for x in X]).T
+    L2U = sp.Matrix(10, 6, lambda e, cc: U[edges[e][0], Wd[cc][0]] * U[edges[e][1], Wd[cc][1]]
+                    - U[edges[e][1], Wd[cc][0]] * U[edges[e][0], Wd[cc][1]])
+    K = Fe * L2U * E
+    den = int(sp.ilcm(*[sp.fraction(v)[1] for v in K]))
+    Ki = np.array((den * K).tolist(), dtype=np.int64)
+    Pp = np.zeros((240, 240), dtype=np.int64)
+    Nn = np.zeros((240, 240), dtype=np.int64)
+    for i, rr in enumerate(R2):
+        Pp[index[tuple(np.r_[np.roll(rr[:5], 1), rr[5:]])], i] = 1
+        Nn[index[tuple(-rr)], i] = 1
+    S5c = sum(np.linalg.matrix_power(Pp, k) for k in range(5))
+    I240 = np.eye(240, dtype=np.int64)
+    rk = lambda M: np.linalg.matrix_rank(M.astype(float))
+    blocks = {(par, fx): (I240 + par * Nn) @ (S5c if fx else 5 * I240 - S5c) for par in (1, -1) for fx in (True, False)}
+    ker_split = {key: rk(Bm) - rk(Ki @ Bm) for key, Bm in blocks.items()}
+    m8 = lambda u: sp.Rational(int(sum(int(rr @ u) ** 8 for rr in R2)), int(u @ u) ** 4 * 256)  # doubled roots
+    # the Golden port's four channels from the five root-shell sector sequences
+    R10, Vw, Ww, Bww, Gw, hw, Hc = _wedge()
+    cnt = {tt: int((Gw[0] == tt).sum()) for tt in range(-2, 3)}
+    Pk = {0: lambda tt: sp.Rational(1, 240), 1: lambda tt: sp.Rational(tt, 60), 2: lambda tt: sp.Rational(2 * tt * tt - 1, 48),
+          3: lambda tt: sp.Rational(5 * tt ** 3 - 6 * tt, 60)}
+    Pk[4] = lambda tt: int(tt == 2) - sum(Pk[k](tt) for k in range(4))
+    lam = {k: [sum(cnt[tt] * hw[tt][nn] * Pk[k](tt) for tt in range(-2, 3)) / Pk[k](2) for nn in range(5)] for k in range(5)}
+    s5 = sp.sqrt(5)
+    wts = [[sp.Rational(1, 24), 0, sp.Rational(1, 8), sp.Rational(1, 2), sp.Rational(1, 3)],
+           [0, 0, sp.Rational(1, 6), sp.Rational(1, 2), sp.Rational(1, 3)],
+           [0, sp.Rational(1, 60), sp.Rational(1, 6) - s5 / 120, sp.Rational(29, 60), sp.Rational(1, 3) + s5 / 120],
+           [0, sp.Rational(1, 60), sp.Rational(1, 6) + s5 / 120, sp.Rational(29, 60), sp.Rational(1, 3) - s5 / 120]]
+    chan = [[sp.expand(sum(w[k] * lam[k][nn] for k in range(5))) for nn in range(5)] for w in wts]
+    hank = [sp.expand(sp.Matrix(3, 3, lambda i, j: m[i + j]).det()) for m in chan]
+    var = [sp.expand(m[2] - m[1] ** 2) for m in chan]
+    return {
+        "a clock of order 15 on the cycles: with the five-cycle g and the pentagon mirror t acting on the cycles and the "
+        "three-position cycle c and reversal r (r c r = c^-1), A = rho(g) x c and R = rho(t) x r on cycles x positions "
+        "have A^15 = I, R^2 = I and R A R = A^-1, a dihedral group of order 30, while reversing the positions alone, I x "
+        "r, does not invert A; the fifteen stages are the powers A^k, and a stage moves the cycles exactly when it lands "
+        "on the time clock: the stages 0, 5 and 10, which never land, are the ones whose power fixes the cycle factor "
+        "(the hub's all-dots integration, 1 Nov)":
+            A ** 15 == sp.eye(18) and A ** 5 != sp.eye(18) and A ** 3 != sp.eye(18) and R ** 2 == sp.eye(18)
+            and R * A * R == A.inv() and R0 * A * R0 != A.inv() and r * c * r == c.inv()
+            and moves == lands == [k for k in range(15) if k % 5] and [k for k in range(15) if k not in moves] == [0, 5, 10],
+        "the FOAM reader sees the clocked cycles in two or three ticks: reading the 30 flags at one position, the "
+        "observability ranks are 6, 12, 18; at the two mirrored positions 12, 18; at all three 18 at once; the 15 merged "
+        "flag pairs read nothing (M F = 0), the Fisher bound at zero source is tr I^-1 = tr(G^-1)/(30 n alpha^2) = "
+        "4/(375 n alpha^2) with tr G^-1 = 8/25 (48 R^2/(25 n) at alpha R = sqrt5/30), and lifting X -> F X F^T turns "
+        "the flag product Y * Z = Y F G^-2 F^T Z into the six-port product":
+            ladder(one) == [6, 12, 18] and ladder(pair, 2) == [12, 18] and ladder(allp, 1) == [18]
+            and merged == sp.zeros(15, 6) and (Gs.inv()).trace() == sp.Rational(8, 25)
+            and sp.simplify(crb - sp.Rational(4, 375) / (n_ * al ** 2)) == 0
+            and sp.simplify(crb.subs(al, s5 / (30 * Rr)) - 48 * Rr ** 2 / (25 * n_)) == 0
+            and lift(X1) * Km * lift(X2) == lift(X1 * X2),
+        "finite counts: the 30-flag singlets d_N = (30^N + 10 6^N + 15 2^N)/120 run 1, 11, 244, 6860 and obey d_(N+3) = "
+        "38 d_(N+2) - 252 d_(N+1) + 360 d_N; the source commutator W (rank 6) and its three-position copy (rank 18) are "
+        "onto, so Sym^2 W has kernel 55 - 21 = 34; the circle is rebuilt from its residues mod 160 and 27 by j = 2241 (j "
+        "mod 160) + 2080 (j mod 27) mod 4320, while residues mod 36 and 15 see only lcm 180 classes of 24; the root-step "
+        "closed walks are 1, 0, 240, 13440, 1260720, 137813760, 17141798400":
+            [dN(N) for N in range(1, 5)] == [1, 11, 244, 6860]
+            and all(dN(N + 3) == 38 * dN(N + 2) - 252 * dN(N + 1) + 360 * dN(N) for N in range(1, 7))
+            and Wm.rank() == 6 and W3.rank() == 18 and sym2(Wm).rank() == 21 and 55 - 21 == 34
+            and all((2241 * (j % 160) + 2080 * (j % 27)) % 4320 == j for j in range(4320))
+            and len({(j % 36, j % 15) for j in range(4320)}) == 180 and 4320 // 180 == 24
+            and list(walks[:7]) == [1, 0, 240, 13440, 1260720, 137813760, 17141798400],
+        "the root-to-flag map K = F E (30 x 240, N41's features read at the flags through the A4 chart) has rank 6 and "
+        "kernel 234, splitting by the antipode and the five-cycle as odd fixed 32, odd moving 88, even fixed 30, even "
+        "moving 84, the whole odd part in the kernel; the eighth root moments run from 57/2 along an axis to 39 along a "
+        "root, the sharp ends of N41's bounds":
+            rk(Ki) == 6 and 240 - rk(Ki) == 234
+            and ker_split == {(-1, True): 32, (-1, False): 88, (1, True): 30, (1, False): 84}
+            and m8(np.array([2, 0, 0, 0, 0, 0, 0, 0])) == sp.Rational(57, 2)
+            and m8(np.array([2, 2, 0, 0, 0, 0, 0, 0])) == 39,
+        "the Golden port's four memory channels (pentagon + pentagram, pentagon - pentagram and the two moving Golden "
+        "pairs) come from the five root-shell sector sequences, whose order-four moments are 1, 184, 35973, 7355136, "
+        "1556789920 (graph 56), 1, 212, 45911, 10102764, 2251088672 (28), 1, 232, 54213, 12740592, 3008062816 (8), 1, "
+        "242, 58691, 14259954, 3470101592 (-2) and 1, 244, 59613, 14580876, 3569950960 (-4): the channels' boundary "
+        "variances are 371, 171 and 1987/10 -+ 31 sqrt5/10, the least 171, and their 3 x 3 Hankel determinants are "
+        "357276603, 36798947 and 116537713/2 -+ 90769773 sqrt5/50, as the hub states":
+            lam[0] == [1, 184, 35973, 7355136, 1556789920] and lam[1] == [1, 212, 45911, 10102764, 2251088672]
+            and lam[2] == [1, 232, 54213, 12740592, 3008062816] and lam[3] == [1, 242, 58691, 14259954, 3470101592]
+            and lam[4] == [1, 244, 59613, 14580876, 3569950960]
+            and all(sum(w) == 1 for w in wts)
+            and var[0] == 371 and var[1] == 171
+            and sp.simplify(var[2] - (sp.Rational(1987, 10) - 31 * s5 / 10)) == 0
+            and sp.simplify(var[3] - (sp.Rational(1987, 10) + 31 * s5 / 10)) == 0
+            and hank[0] == 357276603 and hank[1] == 36798947
+            and sp.simplify(hank[2] - (sp.Rational(116537713, 2) - 90769773 * s5 / 50)) == 0
+            and sp.simplify(hank[3] - (sp.Rational(116537713, 2) + 90769773 * s5 / 50)) == 0,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -23217,6 +23386,7 @@ LEDGER_ROWS = [
     ("the 021 x 120 x FOAM quadratic court (hub, 1 Nov 00:08)", "the native six-port read at the 30 flags of K5 (F = J B C, det C = 3125, det F^T F = 5^13); Sym^2 [3, 1, 1] = [5] + [1^5] + [4, 1] + 2[3, 2] + [2, 2, 1]; the 15 squared intensities have rank 15, blind [1^5] + [3, 2]; six cross terms give rank 21, det -5^35/2^26; the witness g, h with equal squares everywhere and G-norm 125; linear repair, mean-square error [1/(5 alpha^2) - |g|_G^2]/n, Fisher 30 n alpha^2 G at 0; the 120-frame averages to 1/30; gluing d_N = (30^N + 10 6^N + 15 2^N)/120; the six-site corner 241I - J is not S5-equivariant; a Gaussian information budget min(log 30, 3 log(1 + 32 E/(705 hbar)))", "replayed exactly (notes_0030), five statements, in the model's own edge flows: the six-port is the cycle space and the 15 antipodal flag pairs are the 15 synthemes; the bath point repeats the model's obstruction Hom_A5(cycles, site6) = 0; the Gaussian information budget rests on the source's own energy bound and is recorded, not replayed", T, "23"),
     ("all-level symmetry, memory and foam (separate model's N43, 1 Nov 00:53)", "N41's six centered features fail S5 (rank-5 defect per adjacent transposition); the ten edge readings (alpha_i - alpha_j)^2 - 1/2 are the smallest S5-invariant completion, [5] + [4, 1] + [3, 2], 7 -> 11 readings, kernel 229; P8 = (2(alpha.beta)^2 - 1)/48; G11(s) = diag(g_q I10, g_m), core diag(232 I10, 184), covariance diag(389 I10, 2117); walk moments to order four, Hankel 14357066531 and 219823907, beta2 > 0; block Krylov rank 7n and 11n at every depth; variational resolvent bounds lower_n <= g <= upper_n; heat/wave Taylor enclosures; the 32 x 11 codec T with two anchors, [F, T] rank 17; the A4-to-source bridge R; 266 and (32^N + 10 8^N + 15 4^N + 94 2^N)/120; a 43-node dependency registry", "replayed exactly (notes_0101), five statements, from the model's own roots and edges; it corrects any reading of N41's wedge features as an S5 module (they are a five-cycle module) and finds the half-outflow flag reader an isometry of the cycles, det B^T B = 125 being the spanning trees of K5; the all-depth Krylov rank and the no-finite-closure theorem follow from the model's absolutely continuous port measures (free_chain); the convergence rates, the heat/wave enclosures and the registry are recorded", T, "23"),
     ("the native A4 source and FOAM completion (separate model's N44, 1 Nov 01:48)", "W: Lambda^2 ker M -> cycles by commutators, rank 6, dark kernel 4 = sign x standard, absent from the 240 roots and the 32 outcomes; six odd currents on the twenty A4 roots (Sg^T Sg = 2 Gp, relations 1, -2, 0, 2, -1, moments 1, 242, 58691, 14259954, 3470101592, core 242, variance 127); the transported Hodge Hg (Hg^2 = 5, Gp-selfadjoint, odd under transpositions); the dark four on the free orbit of (-2, -1, 0, 1, 2, 0, 0, 0) (norm 10; moments 1, 243, 59132, 14407126, 3514086413, core 243, variance 83); 21 readings on 360 sites, four memory channels; a 42-outcome codec with ten oriented vertices (minimal under S5), d_N = (42^N + 10 8^N + 35 6^N + 74 2^N)/120 = 1, 4, 33, 728; a dynamic Hodge lift; the 031/130 fixtures and a 54-node registry", "replayed exactly (notes_0204), four statements, from the model's own K5, roots and FOAM coordinates; the commutator map is the model's source port W_AS, and the six currents' channel is the triangle port's cubic sector; joined as E8 -> source; the dynamic Hodge lift, the 031/130 fixtures and the registry are recorded", T, "23"),
+    ("the hub's all-dots integration (1 Nov 02:18-02:22: integration, 031/130 continuation, N41 x FOAM, FOAM x E8 clock, summary)", "W: Lambda^2 P5 -> L6 rank 6 kernel 4, three phases 30 -> 18; the D15 clock A = rho(g) x c, R = rho(t) x r; FOAM ranks 6, 12, 18 / 12, 18 / 18; MF = 0; Fisher tr I^-1 = 4/(375 n alpha^2), tr G^-1 = 8/25; d_N = 1, 11, 244, 6860 with d_(N+3) = 38 d_(N+2) - 252 d_(N+1) + 360 d_N; Sym^2 kernels 34 and 294; the CRT clock j = 2241 (j mod 160) + 2080 (j mod 27); W_0..W_6; K = F E rank 6, kernel splits 32/88/30/84; P8 from 57/2 to 39; the Golden port's four channels (variances 371, 171, 1987/10 -+ 31 sqrt5/10; Hankel 357276603, 36798947, 116537713/2 -+ 90769773 sqrt5/50); dark-repair probes; a 124-dimensional Poisson fixture; boundary entropy", "replayed exactly (notes_0258), five statements: the D15 clock joins the stages to the cycles (a stage moves the cycles exactly when it lands on the time clock), and the Golden port's four channels come from the model's five root-shell sector sequences, two of them (graph 28 and -4) newly stated; the dark-repair probes, the Poisson fixture and the entropy are N44's or recorded", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -23485,7 +23655,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,

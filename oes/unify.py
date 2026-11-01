@@ -298,7 +298,7 @@ DEEP_INPUTS = {"air801": T, "coil": T, "datum": T, "memory": OB}
 def deepest_dots(held=None):
     """The deepest dots joined to the seed (1 Nov): every dot of the derivation's last two generations has a direct
     THEOREM join to E8, the deepest of the canon's inputs meet E8 directly, and every dot but the product geometry and
-    FLRW is within three THEOREM joins of the seed (two but for the stages and the memory clock). held: check name ->
+    FLRW is within three THEOREM joins of the seed (two but for the memory clock). held: check name ->
     bool, from dots.check_results() when None."""
     if held is None:
         held = {k: all(bool(v) for v in res.values()) for k, res in dots.check_results().items()}
@@ -319,10 +319,10 @@ def deepest_dots(held=None):
         "clock by an OBSTRUCTION (no Weyl clock of order 45)":
             all(direct(d, st) for d, st in DEEP_INPUTS.items()),
         "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within three "
-        "THEOREM joins of the seed, and within two except the stages and the memory clock: both hang from the time "
-        "clock, a critical step of the principal circle; the memory clock meets the seed directly only as an "
-        "obstruction, and the stages have no direct map that does not pass through the circle":
-            all(d in dist and dist[d] <= 3 for d in rest) and sorted(d for d in rest if dist[d] == 3) == ["memory", "stages"]
+        "THEOREM joins of the seed, and within two except the memory clock, which hangs from the time clock and meets the "
+        "seed directly only as an obstruction; the stages are two joins out, through the D15 clock on the cycles":
+            all(d in dist and dist[d] <= 3 for d in rest) and [d for d in rest if dist[d] == 3] == ["memory"]
+            and dist["stages"] == 2
             and "gravity" not in dist and "cosmology" not in dist,
     }
 
@@ -493,8 +493,8 @@ def unified_page():
               "The derivation is a tree of depth 8, but the dots of its last two generations are each joined to E8 "
               "directly by a checked THEOREM map (`deepest_dots`), and so are the deepest of the canon's inputs (the "
               "memory clock by an obstruction). Every dot but the product geometry and FLRW is within three THEOREM "
-              "joins of the seed, and within two except the stages and the memory clock, which hang from the time "
-              "clock.", "", "| dot | depth | its direct join to E8 | check |", "|---|---|---|---|"]
+              "joins of the seed, and within two except the memory clock, which hangs from the time clock; the stages "
+              "reach it through the D15 clock on the cycles (`notes_0258`).", "", "| dot | depth | its direct join to E8 | check |", "|---|---|---|---|"]
     for d in sorted([d for d, k in depth.items() if k >= 7], key=lambda d: (-depth[d], d)) + list(DEEP_INPUTS):
         for j in dots.JOINS:
             if {j[0], j[1]} == {SEED, d} and j[4] in (T, OB):

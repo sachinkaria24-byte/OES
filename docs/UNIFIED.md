@@ -229,7 +229,7 @@ flowchart TB
 
 ## The deepest dots, one join from the seed (1 Nov)
 
-The derivation is a tree of depth 8, but the dots of its last two generations are each joined to E8 directly by a checked THEOREM map (`deepest_dots`), and so are the deepest of the canon's inputs (the memory clock by an obstruction). Every dot but the product geometry and FLRW is within three THEOREM joins of the seed, and within two except the stages and the memory clock, which hang from the time clock.
+The derivation is a tree of depth 8, but the dots of its last two generations are each joined to E8 directly by a checked THEOREM map (`deepest_dots`), and so are the deepest of the canon's inputs (the memory clock by an obstruction). Every dot but the product geometry and FLRW is within three THEOREM joins of the seed, and within two except the memory clock, which hangs from the time clock; the stages reach it through the D15 clock on the cycles (`notes_0258`).
 
 | dot | depth | its direct join to E8 | check |
 |---|---|---|---|
