@@ -731,7 +731,8 @@ def test_the_four_places():
 
 def test_the_principal_circle():
     for check in (principal.circle, principal.regular_steps, principal.band_on_circle, principal.critical_steps,
-                  principal.clock_lattice, principal.principal_uniqueness):
+                  principal.clock_lattice, principal.principal_uniqueness, principal.singular_primary,
+                  principal.stage_frame, principal.decad_stabilizer, principal.no_order_36):
         out = check()
         assert all(out.values()), out
     import numpy as np
@@ -745,12 +746,13 @@ def test_the_principal_circle():
     from oes import handover, spine
     R = spine.frame()[4]
     assert handover.stabiliser(R, rs * 720 / 4320)[0] == "A4+A3"
-    # the circle and the derivation: the circle stays an input (for its cofactor 36 and its stages), its interface the
-    # embedding k -> k rho/4320; the time clock, the observer clock and the grain hang from the principal circle
+    # the circle and the derivation: the circle stays an input (for its 2-part 2^5 and its stages), its interface the
+    # embedding k -> k rho/4320; the time clock, the observer clock and the grain hang from the principal circle, and
+    # since 1 Nov so do the 27-clock (the singular 3-primary points <rho/27>), the vortex and the coil
     assert unify.DERIVATION["principal"] == ("E8", "principal.circle") and "circle" in unify.INPUTS
     assert unify.INPUTS["circle"][1:] == ("principal", "principal.circle")
-    assert all(unify._root(d, unify.DERIVATION)[0] == "E8" for d in ("time", "observer", "grain"))
-    assert set(unify.FROM_INPUTS) == {"c27", "coil", "miss", "atlas", "vortex", "assignment", "cosmology"}
+    assert all(unify._root(d, unify.DERIVATION)[0] == "E8" for d in ("time", "observer", "grain", "c27", "vortex", "coil"))
+    assert set(unify.FROM_INPUTS) == {"miss", "atlas", "assignment", "cosmology"}
     assert 4320 // gcd(144, 4320) == 30 and 4320 // gcd(864, 4320) == 5
 
 
