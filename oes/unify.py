@@ -298,8 +298,8 @@ DEEP_INPUTS = {"air801": T, "coil": T, "datum": T, "memory": OB}
 def deepest_dots(held=None):
     """The deepest dots joined to the seed (1 Nov): every dot of the derivation's last two generations has a direct
     THEOREM join to E8, the deepest of the canon's inputs meet E8 directly, and every dot but the product geometry and
-    FLRW is within three THEOREM joins of the seed (two but for the memory clock). held: check name ->
-    bool, from dots.check_results() when None."""
+    FLRW is within two THEOREM joins of the seed (`star` sharpens this). held: check name -> bool, from
+    dots.check_results() when None."""
     if held is None:
         held = {k: all(bool(v) for v in res.values()) for k, res in dots.check_results().items()}
     depth = {d: len(_root(d, DERIVATION)[1]) - 1 for d in DERIVATION}
@@ -318,12 +318,74 @@ def deepest_dots(held=None):
         "the coil (the band on its 540 points) and the datum (three roots of the A4) by THEOREM joins, and the memory "
         "clock by an OBSTRUCTION (no Weyl clock of order 45)":
             all(direct(d, st) for d, st in DEEP_INPUTS.items()),
-        "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within three "
-        "THEOREM joins of the seed, and within two except the memory clock, which hangs from the time clock and meets the "
-        "seed directly only as an obstruction; the stages are two joins out, through the D15 clock on the cycles":
-            all(d in dist and dist[d] <= 3 for d in rest) and [d for d in rest if dist[d] == 3] == ["memory"]
-            and dist["stages"] == 2
-            and "gravity" not in dist and "cosmology" not in dist,
+        "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within two "
+        "THEOREM joins of the seed; the star at the seed (`star`) brings all but five of them within one":
+            all(d in dist and dist[d] <= 2 for d in rest) and "gravity" not in dist and "cosmology" not in dist,
+    }
+
+
+# the dots that meet the seed directly only by an obstruction, through the owner's selected operand file, or through a
+# binding the model does not supply (1 Nov, the star at the seed)
+STAR_OBSTRUCTED = ("torus", "memory")
+STAR_SELECTED = ("literal", "words")
+STAR_CONDITIONAL = ("calibration", "gravity", "cosmology")
+
+
+def _theorem_graph(held):
+    adj = {d: set() for d in dots.DOTS}
+    for j in dots.JOINS:
+        if j[4] == T and held[j[5]]:
+            adj[j[0]].add(j[1])
+            adj[j[1]].add(j[0])
+    return adj
+
+
+def _bfs(adj, s):
+    dist, frontier = {s: 0}, [s]
+    while frontier:
+        nxt = []
+        for u in frontier:
+            for v in adj[u]:
+                if v not in dist:
+                    dist[v] = dist[u] + 1
+                    nxt.append(v)
+        frontier = nxt
+    return dist
+
+
+def star(held=None):
+    """Every dot joined directly to the seed (1 Nov, "join all dots"): each of the other 72 dots has a direct join to
+    E8 whose check holds, by THEOREM for all but seven: the nine-torus and the memory clock (obstructions), the owner's
+    operand file and the fifteen words (selected references) and the three dots that need a binding (conditional). held: check name -> bool,
+    from dots.check_results() when None."""
+    if held is None:
+        held = {k: all(bool(v) for v in res.values()) for k, res in dots.check_results().items()}
+    others = [d for d in dots.DOTS if d != SEED]
+    direct = {d: {j[4] for j in dots.JOINS if {j[0], j[1]} == {SEED, d} and held[j[5]]} for d in others}
+    theorem = [d for d in others if T in direct[d]]
+    rest = sorted(d for d in others if T not in direct[d])
+    adj = _theorem_graph(held)
+    dist = _bfs(adj, SEED)
+    reach = sorted(dist)
+    ecc = {d: max(_bfs(adj, d).values()) for d in reach}
+    return {
+        f"each of the {len(others)} other dots has a direct join to the seed whose check holds: {len(theorem)} by "
+        "THEOREM; the nine-torus (no periodic lattice E8/mE8 carries its two non-integral frequencies) and the memory "
+        "clock (no Weyl clock of order 45) by OBSTRUCTIONS; the owner's operand file and the fifteen words (E8 fixes "
+        "their frames, not which digit goes where) by SELECTED_REFERENCES; and the calibration, the product geometry "
+        "and FLRW by CONDITIONAL joins that name the binding still missing":
+            all(direct[d] for d in others) and len(others) == 72 and len(theorem) == 65
+            and rest == sorted(STAR_OBSTRUCTED + STAR_SELECTED + STAR_CONDITIONAL)
+            and all(OB in direct[d] for d in STAR_OBSTRUCTED) and all(SR in direct[d] for d in STAR_SELECTED)
+            and all(gates.CONDITIONAL in direct[d] for d in STAR_CONDITIONAL),
+        "so the THEOREM joins make a star at the seed: 65 dots one join from E8, and the nine-torus, the memory clock, "
+        "the operand file, the words and the calibration two (the seed's eccentricity in the THEOREM graph is 2)":
+            all(dist[d] == 1 for d in theorem)
+            and sorted(d for d in dist if dist[d] == 2) == sorted(STAR_OBSTRUCTED + STAR_SELECTED + ("calibration",))
+            and ecc[SEED] == 2,
+        f"the THEOREM joins reach {len(reach)} of the 73 dots, any two of them at most {max(ecc.values())} joins apart "
+        "(the diameter), and the product geometry and FLRW meet the seed only through CONDITIONAL joins":
+            len(reach) == 71 and max(ecc.values()) == 3 and "gravity" not in dist and "cosmology" not in dist,
     }
 
 
@@ -492,13 +554,25 @@ def unified_page():
     lines += ["", "## The deepest dots, one join from the seed (1 Nov)", "",
               "The derivation is a tree of depth 8, but the dots of its last two generations are each joined to E8 "
               "directly by a checked THEOREM map (`deepest_dots`), and so are the deepest of the canon's inputs (the "
-              "memory clock by an obstruction). Every dot but the product geometry and FLRW is within three THEOREM "
-              "joins of the seed, and within two except the memory clock, which hangs from the time clock; the stages "
-              "reach it through the D15 clock on the cycles (`notes_0258`).", "", "| dot | depth | its direct join to E8 | check |", "|---|---|---|---|"]
+              "memory clock by an obstruction). Since the star at the seed (next section) every dot but the product "
+              "geometry and FLRW is within two THEOREM joins of the seed.", "", "| dot | depth | its direct join to E8 | check |", "|---|---|---|---|"]
     for d in sorted([d for d, k in depth.items() if k >= 7], key=lambda d: (-depth[d], d)) + list(DEEP_INPUTS):
         for j in dots.JOINS:
             if {j[0], j[1]} == {SEED, d} and j[4] in (T, OB):
                 lines.append(f"| {name(d)} | {depth.get(d, 'input')} | {j[2]} ({j[4]}) | `{j[5]}` |")
+    lines += ["", "## Every dot one join from the seed (1 Nov)", "",
+              "Each of the other 72 dots has a direct checked join to E8 (`star`): 65 by THEOREM, the nine-torus and the "
+              "memory clock by obstructions, the owner's operand file and the fifteen words by selected references, and the calibration, the "
+              "product geometry and FLRW by conditional joins that name the binding still missing. In the THEOREM graph "
+              "the seed has eccentricity 2.", "", "| level | dot | its direct join to E8 | status | check |",
+              "|---|---|---|---|---|"]
+    for lv, _, members in dots.LEVELS:
+        for d in members:
+            if d == SEED:
+                continue
+            for j in dots.JOINS:
+                if {j[0], j[1]} == {SEED, d}:
+                    lines.append(f"| {lv} | {name(d)} | {j[2]} | {j[4]} | `{j[5]}` |")
     lines += ["", "## The canon's inputs", "", "| input | what the canon supplies | it meets | status | why it stays an input |",
               "|---|---|---|---|---|"]
     for d, (what, m, ck) in INPUTS.items():
@@ -524,6 +598,8 @@ def run():
     for name, ok in uniqueness().items():
         rep.add(name, T, ok)
     for name, ok in deepest_dots(held).items():
+        rep.add(name, T, ok)
+    for name, ok in star(held).items():
         rep.add(name, T, ok)
     rep.add("cited: E8 is the unique even unimodular lattice of rank 8; Coxeter elements are conjugate; a transitive "
             "A5 on six points is the icosahedral action on the axes", gates.SELECTED_REFERENCE, True)

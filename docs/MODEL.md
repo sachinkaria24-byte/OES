@@ -2138,6 +2138,47 @@ New here:
 - **The separate model's moments and band** (`notes_1757`). The roots' eighth moments are 57/2, 39, 179/6 and 179/6 along the axis, a root, the charge (1, 1, 1, 0, −3, 0, 0, 0) and the color (1, 1, 1, 0, …). Twice the color and the charge have one dominant representative, so a Weyl element of E8 explains their equal profiles. The band's Taylor remainder after degree 8 lies in [0, q⁵/30240]. Its critical values are 224 (layer 22's E7 + A1 saddle), 256 (D8-type maxima, Hessian −4I) and 250 (the tick's fixed momenta).
 - **Recorded (REPORTED).** The canon's N36 adds the Level Join and Degree Moment tabs and N37 the dispersion tabs (3770 and 3725 sheets), keeping every prior cell; its pending claims K04, X01 and X02 stay unformed. The separate model's reconciled branches (4242 artifacts, 682 relationships), N37 source integration and source aliases add no new mathematics. The claim ledgers' cubic-node, syntheme and two-snapshot rows need the hub's definitions of the trace cubic and the snapshot maps, which the notes do not give, and stay reported.
 
+**Join all dots: the star at the seed (1 Nov).** Every dot was already connected, but 37 of the other 72 had no direct join to E8 and the circle had only a selected reference. Each now has a direct join (38 new ones), built from E8's roots, its Weyl group, its principal torus or its residue rings, so every dot but the seed meets E8 in one step (`star` in `oes/unify.py`). Of the 72 direct joins, 65 are THEOREM. The nine-torus and the memory clock meet E8 only by obstructions, and the owner's operand file and the fifteen words by selected references. The calibration, the product geometry and FLRW meet it by conditional joins that check what E8 supplies and name the binding still missing. In the THEOREM graph the seed's eccentricity is 2 and the diameter 3. The new joins, by level:
+- **The number level.**
+  - The circle's 4320 points fall into 2137 conjugacy classes of E8, so of its 1152 unit maps E8 realizes only ±1.
+  - The time clock ρ/5 has a W-orbit of 48384 points, with stabilizer W(A4 + A4), and the observer class realizes its doubling.
+  - The observer ρ/4 grades E8 as (so10 + sl4) + (16,4) + (10,6) + (16′,4′).
+  - The 27-clock's subgroups are exactly the kernels on the height chain E8 > A8 > A3 + A2 + A1 > A1.
+  - The vortex is the 27-clock as the sun's sl(9) sees it.
+  - The atlas is ρ/36 after multiplying by 120, the lcm of E8's regular numbers.
+  - The miss set meets the regular points exactly in the day's ⟨180⟩.
+  - Each stage's landing is the first critical point on its walk.
+  - The grain ⟨ρ/60⟩ carries every adjoint character but j = 30.
+- **The symmetry level.**
+  - The 240 clocks normalizing c′ are 210 regular elements and 30 products of four orthogonal reflections.
+  - G120 is the 120 clocks commuting with the sun.
+  - AGL(1,5) × ±1 is the tick's normalizer acting on the carrier, with the tick's Galois exponent as its multiplier.
+  - S5 × ±1 is the centralizer of W(A4′), and its fixed lattice is the twin root lattice.
+  - PGL(2,5) is N_W(⟨g⟩) acting on the six A4 + A4 blocks. It contains no A5, so the exceptional S5 is a quotient there, not a subgroup.
+  - The golden companion is X = −(g + g⁻¹), with ⟨x, Xⁿx⟩ = 2F(n±1) on the roots.
+  - The regular centralizers are reflection groups whose fixed-space census is ∏(1 + (dᵢ − 1)t).
+  - The sun's 40 hexagons and the tick's six residue lines are the reflections generating C_W(s) (order 155520) and C_W(g) (order 600).
+- **Combinatorics and lattices.**
+  - L0 = E8 ∩ σE8 for the twin negation σ.
+  - The hemi-icosahedron and its complement are the two classes of triples of residue lines, sorted by the quadratic character of the symplectic form.
+  - PG(2,5) is the quadratic forms w(x, hx) on the residue plane.
+  - The fifteen synthemes are the quaternion structures commuting with the tick: 30 Weyl elements with J² = −1, of which the five Q8 are C_W(g)'s Sylow 2-subgroups.
+  - The carrier's D² is 8 minus the reflection Laplacian of W(A4).
+  - The triple's grading is the Gauss sum of the class character.
+  - The Pauli algebra's Clifford lifts (I + A)/√2 of the reflections generate W(E8)/±1 = GO8+(2), of order 348364800, computed rather than cited.
+  - The nine-torus is an obstruction: on every E8/mE8 the bath is an integer matrix, so its two non-integral frequencies never occur.
+- **Operators and physics.**
+  - The GKSL Kraus weights are the heat kernel of E8's root walk on E8/2E8.
+  - The one-site moments m₀ to m₄ are exact quadratures over the 2-, 3- and 5-torsion, and each misses at n = p by exactly 240(−1)^p.
+  - W_n has the local limit (16/π⁴)·240ⁿ/n⁴ with corrections 2, 23/15 and 26/75, because the roots form a 7-design.
+  - The sector measures have explicit densities at both band edges.
+  - The dark port folds onto the band top, an eigenvector at 256.
+  - The 360 parent is the sun's A6 acting on ordered frame triples.
+  - The charges have explicit spectra on the roots, and degree 8 is the first trace that tells Q from T3.
+  - Conditional joins: the GKSL rate ratio 8/7 needs no calibration. The heat coefficients 15, 40, 200 are walk counts on the mixed roots. All 600 E8 initial data start FLRW at w = (1 − 16m²)/(1 + 16m²).
+
+An independent review revised 21 of the 38 and rejected one. The rejected join realized the memory clock's order-90 stepping on E8's principal torus, but it reaches only the cyclic group Z/90, not the 120 states, and is the circle's map onto memory in disguise. The memory clock keeps its obstruction (no Weyl clock of order 45) and reaches E8 in two THEOREM steps. The review also demoted the words to a selected reference: E8 fixes their 15 frames and the D3 action, but none of the 72 equivariant bijections from words to frames.
+
 **The 02:35 check (1 Nov).** New on Drive: the hub's all-dots integration (02:18 to 02:22: an integration text, a 031/130 continuation, an N41 × FOAM join, a FOAM × E8 clock note and a summary), copies of N44 and re-filed notes of 21 and 22 Oct. Most of it re-derives what the model holds (the source commutator, the FOAM adapter, N41, N44). Its new content replays exactly (`notes_0258`) and joins the stages to the cycles. The five-cycle on the cycles times the three-position word clock has order 15, and with the mirror it generates a dihedral group of order 30; the fifteen stages are its powers, and a stage moves the cycles exactly when it lands on the time clock, so the stages 0, 5 and 10 that never land are those whose power fixes the cycle factor. That brings the stages within two joins of the seed, leaving only the memory clock at three. Read at the 30 FOAM flags, the clocked cycles have observability ranks 6, 12, 18. The Golden port's four memory channels come from the model's five root-shell sector sequences, two of them newly stated (1, 212, 45911, 10102764, 2251088672 on the graph's 28-sector and 1, 244, 59613, 14580876, 3569950960 on its −4-sector), and their boundary variances (least 171) and Hankel determinants match the hub's exactly. The FOAM Fisher bound 4/(375 n α²), the singlet recurrence, the CRT clock, the walks W₀ to W₆ and the parity split of the root-to-flag kernel hold as stated.
 
 **Join all deepest dots (1 Nov).** The derivation from the seed is a tree of depth 8, and its last two generations held the dots furthest from E8: the vertices, edges' zero modes, Petersen graph, simplex, four-cube, sound and light, the cycles and rotor, the six-site, triangle, Golden and root-wedge ports, the source, the readout and the binding. Each now has a direct checked map from E8 (`deepest_dots` in `oes/unify.py`), and so do the deepest of the canon's inputs. Every dot but the product geometry and FLRW is within three THEOREM joins of the seed, and within two except the stages and the memory clock, which hang from the time clock. The joins, all read in the coordinate frame where S5 permutes the first five coordinates inside W(E8):
