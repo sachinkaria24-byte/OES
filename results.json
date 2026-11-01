@@ -57,44 +57,44 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.67,
-  "2-spectral": 0.18,
-  "3-spacetime": 9.3,
-  "4-native": 91.66,
-  "5-observer": 0.64,
-  "6-gravity": 5.1,
-  "7-cosmology": 1.6,
-  "8-frontier": 36.14,
-  "9-joins": 7.91,
-  "10-literal": 35.49,
-  "11-glue": 0.16,
+  "1-carrier": 0.6,
+  "2-spectral": 0.01,
+  "3-spacetime": 9.95,
+  "4-native": 100.13,
+  "5-observer": 0.21,
+  "6-gravity": 4.85,
+  "7-cosmology": 1.47,
+  "8-frontier": 34.57,
+  "9-joins": 8.06,
+  "10-literal": 34.86,
+  "11-glue": 0.14,
   "12-binding": 0.03,
-  "13-gates": 0.09,
-  "14-recurrence": 41.32,
-  "15-court": 1.37,
-  "16-handover": 0.96,
-  "17-waves": 0.62,
-  "18-snapshot": 0.67,
-  "19-spine": 2.92,
-  "20-canon": 6.93,
-  "21-ledger": 36.65,
-  "22-counts": 19.75,
-  "23-dots": 564.35,
-  "24-assignment": 3.74,
-  "25-unify": 3.7,
-  "26-primes": 3.58,
-  "27-places": 1.55,
-  "28-principal": 2.03
+  "13-gates": 0.1,
+  "14-recurrence": 36.41,
+  "15-court": 1.33,
+  "16-handover": 0.91,
+  "17-waves": 0.48,
+  "18-snapshot": 0.97,
+  "19-spine": 3.29,
+  "20-canon": 5.5,
+  "21-ledger": 33.66,
+  "22-counts": 19.27,
+  "23-dots": 596.76,
+  "24-assignment": 3.22,
+  "25-unify": 4.06,
+  "26-primes": 3.67,
+  "27-places": 1.77,
+  "28-principal": 2.0
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 999,
-   "total": 999
+   "passed": 1004,
+   "total": 1004
   },
   "OBSTRUCTION": {
-   "passed": 77,
-   "total": 77
+   "passed": 78,
+   "total": 78
   },
   "REMOVED": {
    "passed": 2,
@@ -12495,6 +12495,96 @@
   },
   {
    "layer": "23-dots",
+   "name": "cycles -> spectral measures: the six odd currents on the cycles have walk moments 1, 242, 58691, 14259954, 3470101592, a spectral measure of the bath with Hankel minors 1, 127, 15930273 and Jacobi coefficients 242, 127, 25998/127, 15930273/16129; the fourth moment exceeds its Hankel floor by 15930273/127 (the packet of 1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the packet's rotor prefix 1, 242, 58691, 14259954, 3470101592 is the six currents' walk moments (notes_0204), so it is a spectral measure, <f, Delta^n f>/<f, f> of the bath at the current field: its Hankel minors are 1, 127, 15930273, the Jacobi coefficients a0 = 242, b1^2 = 127, a1 = 25998/127, b2^2 = 15930273/16129, and the fourth moment exceeds its Hankel floor by 15930273/127 (the packet's numbers, joined)": true,
+    "on F2^4 + F2^4 the bilinear dot x.y and the sum of the four-cube's weight quadrics q(x) + q(y) (q = sum over pairs x_i x_j, nonzero on the ten vectors of weight 2 and 3) each have 120 nonsingular points, the second in classes 10 + 10 + 50 + 50 and its 135 singular ones in 5 + 5 + 25 + 100; both have 136 zeros (plus type), as E8's half-period quadric <v, v>/2 mod 2 does, whose nonsingular points are the 120 root classes +-r, so all three are isometric; read through its own polar form each gives the band 0 once, 224 on its 120 and 256 on the other 135 (mean 240, second moment 58080, variance 480); the two 120-sets share 56 points, not the packet's 96": true,
+    "the two-step sum of the 240 roots meets 9361 sites (1 + 240 + 2160 + 6720 + 240 of norm 0, 2, 4, 6, 8, hit 240, 56, 14, 2 and 1 times), so its squared mass is 1260720, the closed four-walks; the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 = lcm(240, 241) over the torus R^8/E8 and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion, so the packet's gap of 240 is an identity of the two measures: the 240 straight pairs r + r = 2r in 2E8": 1.0,
+    "the circle's steps 931, 241 and 541 are units of Z/4320 and all 1 mod 5, so they fix the time coordinate; their differences 690, 300 and 390 lie in the miss set with orders 144, 72 and 144, and 142, 145, 136 are not units; 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock each have eight distinct eigenvalues, and the tick's are 98, 98^2 = 205, 98^3 = 87, 98^4 = 91: the packet's 98 (order 5, its powers summing to 0) is the tick's eigenvalue, and 22^2 = 2 puts sqrt2 in F_241 too": true,
+    "the tick's normalizer N_W(<g>) (2400) acts on the residue plane F25 = E8/(1 - g)E8 through all 480 elements of GL(2, F5) with kernel exactly <g>, conjugating g to g^det; with K = [C_W(g), C_W(g)] = SL(2,5) (120) and an element h of determinant 2 whose fourth power lies in K, H = K<h> has order 480, meets <g> trivially and maps onto GL(2,5): N_W(<g>) = <g> x| GL(2,5) inside W(E8), the Weyl lift the packet's count of 2400 lacked": true,
+    "the tick is a symmetry of every native flow, not a step of any: the five-cycle commutes with D (P D = D P) and the carrier flow exp(uX), X = [[0, I], [-D^2, 0]], has finite order for no u != 0, since on the five dark modes it drifts, exp(uX)(0, k) = (u k, k), and the moving frequencies sqrt3 and sqrt8 are incommensurate; so no internal datum makes one tick an interval of native time, and TIME_BIND needs its one external datum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "four-cube -> half-periods: the four-cube's weight quadric q (nonzero on the ten vectors of weight 2 and 3) doubled, q(x) + q(y) on F2^4 + F2^4, and the bilinear dot x.y are plus-type quadrics with 120 nonsingular points, so both are isometric to E8's half-period quadric, whose nonsingular points are the 120 root classes; each gives the band 0, 224 (120), 256 (135), and the two 120-sets share 56 points, not 96 (the packet of 1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the packet's rotor prefix 1, 242, 58691, 14259954, 3470101592 is the six currents' walk moments (notes_0204), so it is a spectral measure, <f, Delta^n f>/<f, f> of the bath at the current field: its Hankel minors are 1, 127, 15930273, the Jacobi coefficients a0 = 242, b1^2 = 127, a1 = 25998/127, b2^2 = 15930273/16129, and the fourth moment exceeds its Hankel floor by 15930273/127 (the packet's numbers, joined)": true,
+    "on F2^4 + F2^4 the bilinear dot x.y and the sum of the four-cube's weight quadrics q(x) + q(y) (q = sum over pairs x_i x_j, nonzero on the ten vectors of weight 2 and 3) each have 120 nonsingular points, the second in classes 10 + 10 + 50 + 50 and its 135 singular ones in 5 + 5 + 25 + 100; both have 136 zeros (plus type), as E8's half-period quadric <v, v>/2 mod 2 does, whose nonsingular points are the 120 root classes +-r, so all three are isometric; read through its own polar form each gives the band 0 once, 224 on its 120 and 256 on the other 135 (mean 240, second moment 58080, variance 480); the two 120-sets share 56 points, not the packet's 96": true,
+    "the two-step sum of the 240 roots meets 9361 sites (1 + 240 + 2160 + 6720 + 240 of norm 0, 2, 4, 6, 8, hit 240, 56, 14, 2 and 1 times), so its squared mass is 1260720, the closed four-walks; the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 = lcm(240, 241) over the torus R^8/E8 and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion, so the packet's gap of 240 is an identity of the two measures: the 240 straight pairs r + r = 2r in 2E8": 1.0,
+    "the circle's steps 931, 241 and 541 are units of Z/4320 and all 1 mod 5, so they fix the time coordinate; their differences 690, 300 and 390 lie in the miss set with orders 144, 72 and 144, and 142, 145, 136 are not units; 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock each have eight distinct eigenvalues, and the tick's are 98, 98^2 = 205, 98^3 = 87, 98^4 = 91: the packet's 98 (order 5, its powers summing to 0) is the tick's eigenvalue, and 22^2 = 2 puts sqrt2 in F_241 too": true,
+    "the tick's normalizer N_W(<g>) (2400) acts on the residue plane F25 = E8/(1 - g)E8 through all 480 elements of GL(2, F5) with kernel exactly <g>, conjugating g to g^det; with K = [C_W(g), C_W(g)] = SL(2,5) (120) and an element h of determinant 2 whose fourth power lies in K, H = K<h> has order 480, meets <g> trivially and maps onto GL(2,5): N_W(<g>) = <g> x| GL(2,5) inside W(E8), the Weyl lift the packet's count of 2400 lacked": true,
+    "the tick is a symmetry of every native flow, not a step of any: the five-cycle commutes with D (P D = D P) and the carrier flow exp(uX), X = [[0, I], [-D^2, 0]], has finite order for no u != 0, since on the five dark modes it drifts, exp(uX)(0, k) = (u k, k), and the moving frequencies sqrt3 and sqrt8 are incommensurate; so no internal datum makes one tick an interval of native time, and TIME_BIND needs its one external datum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> moments: the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 over the torus and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion: the gap of 240 is the straight pairs r + r = 2r; the two-step kernel meets 9361 sites with squared mass 1260720 (the packet of 1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the packet's rotor prefix 1, 242, 58691, 14259954, 3470101592 is the six currents' walk moments (notes_0204), so it is a spectral measure, <f, Delta^n f>/<f, f> of the bath at the current field: its Hankel minors are 1, 127, 15930273, the Jacobi coefficients a0 = 242, b1^2 = 127, a1 = 25998/127, b2^2 = 15930273/16129, and the fourth moment exceeds its Hankel floor by 15930273/127 (the packet's numbers, joined)": true,
+    "on F2^4 + F2^4 the bilinear dot x.y and the sum of the four-cube's weight quadrics q(x) + q(y) (q = sum over pairs x_i x_j, nonzero on the ten vectors of weight 2 and 3) each have 120 nonsingular points, the second in classes 10 + 10 + 50 + 50 and its 135 singular ones in 5 + 5 + 25 + 100; both have 136 zeros (plus type), as E8's half-period quadric <v, v>/2 mod 2 does, whose nonsingular points are the 120 root classes +-r, so all three are isometric; read through its own polar form each gives the band 0 once, 224 on its 120 and 256 on the other 135 (mean 240, second moment 58080, variance 480); the two 120-sets share 56 points, not the packet's 96": true,
+    "the two-step sum of the 240 roots meets 9361 sites (1 + 240 + 2160 + 6720 + 240 of norm 0, 2, 4, 6, 8, hit 240, 56, 14, 2 and 1 times), so its squared mass is 1260720, the closed four-walks; the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 = lcm(240, 241) over the torus R^8/E8 and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion, so the packet's gap of 240 is an identity of the two measures: the 240 straight pairs r + r = 2r in 2E8": 1.0,
+    "the circle's steps 931, 241 and 541 are units of Z/4320 and all 1 mod 5, so they fix the time coordinate; their differences 690, 300 and 390 lie in the miss set with orders 144, 72 and 144, and 142, 145, 136 are not units; 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock each have eight distinct eigenvalues, and the tick's are 98, 98^2 = 205, 98^3 = 87, 98^4 = 91: the packet's 98 (order 5, its powers summing to 0) is the tick's eigenvalue, and 22^2 = 2 puts sqrt2 in F_241 too": true,
+    "the tick's normalizer N_W(<g>) (2400) acts on the residue plane F25 = E8/(1 - g)E8 through all 480 elements of GL(2, F5) with kernel exactly <g>, conjugating g to g^det; with K = [C_W(g), C_W(g)] = SL(2,5) (120) and an element h of determinant 2 whose fourth power lies in K, H = K<h> has order 480, meets <g> trivially and maps onto GL(2,5): N_W(<g>) = <g> x| GL(2,5) inside W(E8), the Weyl lift the packet's count of 2400 lacked": true,
+    "the tick is a symmetry of every native flow, not a step of any: the five-cycle commutes with D (P D = D P) and the carrier flow exp(uX), X = [[0, I], [-D^2, 0]], has finite order for no u != 0, since on the five dark modes it drifts, exp(uX)(0, k) = (u k, k), and the moving frequencies sqrt3 and sqrt8 are incommensurate; so no internal datum makes one tick an interval of native time, and TIME_BIND needs its one external datum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> cyclotomic line: 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock have eight distinct eigenvalues each, and the tick's are 98, 205, 87, 91, the powers of the packet's 98; the circle's steps 931, 241, 541 are units 1 mod 5, fixing the time coordinate, with differences of orders 144, 72, 144 in the miss set (1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the packet's rotor prefix 1, 242, 58691, 14259954, 3470101592 is the six currents' walk moments (notes_0204), so it is a spectral measure, <f, Delta^n f>/<f, f> of the bath at the current field: its Hankel minors are 1, 127, 15930273, the Jacobi coefficients a0 = 242, b1^2 = 127, a1 = 25998/127, b2^2 = 15930273/16129, and the fourth moment exceeds its Hankel floor by 15930273/127 (the packet's numbers, joined)": true,
+    "on F2^4 + F2^4 the bilinear dot x.y and the sum of the four-cube's weight quadrics q(x) + q(y) (q = sum over pairs x_i x_j, nonzero on the ten vectors of weight 2 and 3) each have 120 nonsingular points, the second in classes 10 + 10 + 50 + 50 and its 135 singular ones in 5 + 5 + 25 + 100; both have 136 zeros (plus type), as E8's half-period quadric <v, v>/2 mod 2 does, whose nonsingular points are the 120 root classes +-r, so all three are isometric; read through its own polar form each gives the band 0 once, 224 on its 120 and 256 on the other 135 (mean 240, second moment 58080, variance 480); the two 120-sets share 56 points, not the packet's 96": true,
+    "the two-step sum of the 240 roots meets 9361 sites (1 + 240 + 2160 + 6720 + 240 of norm 0, 2, 4, 6, 8, hit 240, 56, 14, 2 and 1 times), so its squared mass is 1260720, the closed four-walks; the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 = lcm(240, 241) over the torus R^8/E8 and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion, so the packet's gap of 240 is an identity of the two measures: the 240 straight pairs r + r = 2r in 2E8": 1.0,
+    "the circle's steps 931, 241 and 541 are units of Z/4320 and all 1 mod 5, so they fix the time coordinate; their differences 690, 300 and 390 lie in the miss set with orders 144, 72 and 144, and 142, 145, 136 are not units; 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock each have eight distinct eigenvalues, and the tick's are 98, 98^2 = 205, 98^3 = 87, 98^4 = 91: the packet's 98 (order 5, its powers summing to 0) is the tick's eigenvalue, and 22^2 = 2 puts sqrt2 in F_241 too": true,
+    "the tick's normalizer N_W(<g>) (2400) acts on the residue plane F25 = E8/(1 - g)E8 through all 480 elements of GL(2, F5) with kernel exactly <g>, conjugating g to g^det; with K = [C_W(g), C_W(g)] = SL(2,5) (120) and an element h of determinant 2 whose fourth power lies in K, H = K<h> has order 480, meets <g> trivially and maps onto GL(2,5): N_W(<g>) = <g> x| GL(2,5) inside W(E8), the Weyl lift the packet's count of 2400 lacked": true,
+    "the tick is a symmetry of every native flow, not a step of any: the five-cycle commutes with D (P D = D P) and the carrier flow exp(uX), X = [[0, I], [-D^2, 0]], has finite order for no u != 0, since on the five dark modes it drifts, exp(uX)(0, k) = (u k, k), and the moving frequencies sqrt3 and sqrt8 are incommensurate; so no internal datum makes one tick an interval of native time, and TIME_BIND needs its one external datum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> residue plane: the tick's normalizer (2400) acts on the residue plane F25 through all of GL(2, F5) with kernel <g>, conjugating g to g^det, and it splits: SL(2,5) = [C_W(g), C_W(g)] and one element of determinant 2 generate a complement of order 480, so N_W(<g>) = <g> x| GL(2,5) inside W(E8) (the packet of 1 Nov had only the abstract count)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the packet's rotor prefix 1, 242, 58691, 14259954, 3470101592 is the six currents' walk moments (notes_0204), so it is a spectral measure, <f, Delta^n f>/<f, f> of the bath at the current field: its Hankel minors are 1, 127, 15930273, the Jacobi coefficients a0 = 242, b1^2 = 127, a1 = 25998/127, b2^2 = 15930273/16129, and the fourth moment exceeds its Hankel floor by 15930273/127 (the packet's numbers, joined)": true,
+    "on F2^4 + F2^4 the bilinear dot x.y and the sum of the four-cube's weight quadrics q(x) + q(y) (q = sum over pairs x_i x_j, nonzero on the ten vectors of weight 2 and 3) each have 120 nonsingular points, the second in classes 10 + 10 + 50 + 50 and its 135 singular ones in 5 + 5 + 25 + 100; both have 136 zeros (plus type), as E8's half-period quadric <v, v>/2 mod 2 does, whose nonsingular points are the 120 root classes +-r, so all three are isometric; read through its own polar form each gives the band 0 once, 224 on its 120 and 256 on the other 135 (mean 240, second moment 58080, variance 480); the two 120-sets share 56 points, not the packet's 96": true,
+    "the two-step sum of the 240 roots meets 9361 sites (1 + 240 + 2160 + 6720 + 240 of norm 0, 2, 4, 6, 8, hit 240, 56, 14, 2 and 1 times), so its squared mass is 1260720, the closed four-walks; the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 = lcm(240, 241) over the torus R^8/E8 and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion, so the packet's gap of 240 is an identity of the two measures: the 240 straight pairs r + r = 2r in 2E8": 1.0,
+    "the circle's steps 931, 241 and 541 are units of Z/4320 and all 1 mod 5, so they fix the time coordinate; their differences 690, 300 and 390 lie in the miss set with orders 144, 72 and 144, and 142, 145, 136 are not units; 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock each have eight distinct eigenvalues, and the tick's are 98, 98^2 = 205, 98^3 = 87, 98^4 = 91: the packet's 98 (order 5, its powers summing to 0) is the tick's eigenvalue, and 22^2 = 2 puts sqrt2 in F_241 too": true,
+    "the tick's normalizer N_W(<g>) (2400) acts on the residue plane F25 = E8/(1 - g)E8 through all 480 elements of GL(2, F5) with kernel exactly <g>, conjugating g to g^det; with K = [C_W(g), C_W(g)] = SL(2,5) (120) and an element h of determinant 2 whose fourth power lies in K, H = K<h> has order 480, meets <g> trivially and maps onto GL(2,5): N_W(<g>) = <g> x| GL(2,5) inside W(E8), the Weyl lift the packet's count of 2400 lacked": true,
+    "the tick is a symmetry of every native flow, not a step of any: the five-cycle commutes with D (P D = D P) and the carrier flow exp(uX), X = [[0, I], [-D^2, 0]], has finite order for no u != 0, since on the five dark modes it drifts, exp(uX)(0, k) = (u k, k), and the moving frequencies sqrt3 and sqrt8 are incommensurate; so no internal datum makes one tick an interval of native time, and TIME_BIND needs its one external datum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "time clock -> calibration: the tick commutes with D and with every native flow but is a step of none: the carrier flow exp(uX) has finite order for no u != 0 (the five dark modes drift, exp(uX)(0, k) = (u k, k), and sqrt3 : sqrt8 is irrational), so no internal datum makes a tick an interval of native time; TIME_BIND needs its one external datum (1 Nov)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the packet's rotor prefix 1, 242, 58691, 14259954, 3470101592 is the six currents' walk moments (notes_0204), so it is a spectral measure, <f, Delta^n f>/<f, f> of the bath at the current field: its Hankel minors are 1, 127, 15930273, the Jacobi coefficients a0 = 242, b1^2 = 127, a1 = 25998/127, b2^2 = 15930273/16129, and the fourth moment exceeds its Hankel floor by 15930273/127 (the packet's numbers, joined)": true,
+    "on F2^4 + F2^4 the bilinear dot x.y and the sum of the four-cube's weight quadrics q(x) + q(y) (q = sum over pairs x_i x_j, nonzero on the ten vectors of weight 2 and 3) each have 120 nonsingular points, the second in classes 10 + 10 + 50 + 50 and its 135 singular ones in 5 + 5 + 25 + 100; both have 136 zeros (plus type), as E8's half-period quadric <v, v>/2 mod 2 does, whose nonsingular points are the 120 root classes +-r, so all three are isometric; read through its own polar form each gives the band 0 once, 224 on its 120 and 256 on the other 135 (mean 240, second moment 58080, variance 480); the two 120-sets share 56 points, not the packet's 96": true,
+    "the two-step sum of the 240 roots meets 9361 sites (1 + 240 + 2160 + 6720 + 240 of norm 0, 2, 4, 6, 8, hit 240, 56, 14, 2 and 1 times), so its squared mass is 1260720, the closed four-walks; the band's second moment is 240^2 + #{r1 + r2 = 0} = 57840 = 240 x 241 = lcm(240, 241) over the torus R^8/E8 and 240^2 + #{r1 + r2 in 2E8} = 58080 over its 2-torsion, so the packet's gap of 240 is an identity of the two measures: the 240 straight pairs r + r = 2r in 2E8": 1.0,
+    "the circle's steps 931, 241 and 541 are units of Z/4320 and all 1 mod 5, so they fix the time coordinate; their differences 690, 300 and 390 lie in the miss set with orders 144, 72 and 144, and 142, 145, 136 are not units; 241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock each have eight distinct eigenvalues, and the tick's are 98, 98^2 = 205, 98^3 = 87, 98^4 = 91: the packet's 98 (order 5, its powers summing to 0) is the tick's eigenvalue, and 22^2 = 2 puts sqrt2 in F_241 too": true,
+    "the tick's normalizer N_W(<g>) (2400) acts on the residue plane F25 = E8/(1 - g)E8 through all 480 elements of GL(2, F5) with kernel exactly <g>, conjugating g to g^det; with K = [C_W(g), C_W(g)] = SL(2,5) (120) and an element h of determinant 2 whose fourth power lies in K, H = K<h> has order 480, meets <g> trivially and maps onto GL(2,5): N_W(<g>) = <g> x| GL(2,5) inside W(E8), the Weyl lift the packet's count of 2400 lacked": true,
+    "the tick is a symmetry of every native flow, not a step of any: the five-cycle commutes with D (P D = D P) and the carrier flow exp(uX), X = [[0, I], [-D^2, 0]], has finite order for no u != 0, since on the five dark modes it drifts, exp(uX)(0, k) = (u k, k), and the moving frequencies sqrt3 and sqrt8 are incommensurate; so no internal datum makes one tick an interval of native time, and TIME_BIND needs its one external datum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -12558,7 +12648,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 529 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 535 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12818,7 +12908,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 21, lattice-operator 46, operator-physics 30 joins",
+   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 22, lattice-operator 47, operator-physics 30 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12881,6 +12971,7 @@
      "E8 -> pg25",
      "E8 -> surface",
      "E8 -> synthemes",
+     "cube -> halfper",
      "rotor -> rootgraph"
     ],
     [
@@ -12929,7 +13020,8 @@
      "E8 -> measure",
      "E8 -> moments",
      "E8 -> parent",
-     "E8 -> walks"
+     "E8 -> walks",
+     "halfper -> moments"
     ],
     [
      "carrier -> triple",
@@ -12972,8 +13064,8 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 478,
-    "OBSTRUCTION": 23,
+    "THEOREM": 483,
+    "OBSTRUCTION": 24,
     "SELECTED_REFERENCE": 12,
     "CONDITIONAL": 16
    },
@@ -12992,13 +13084,13 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 8, number-lattice 28, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 48, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 21, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 46, lattice-physics 16, operator-physics 30",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 8, number-lattice 30, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 48, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 22, combinatorics-operator 28, combinatorics-physics 12, lattice-operator 47, lattice-physics 16, operator-physics 30",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "(2, 3)": 21,
-    "(3, 4)": 46,
-    "(2, 4)": 27,
+    "(2, 3)": 22,
+    "(3, 4)": 47,
+    "(2, 4)": 28,
     "(1, 3)": 48,
     "(1, 2)": 22,
     "(0, 1)": 12,
@@ -13007,7 +13099,7 @@
     "(4, 5)": 30,
     "(2, 5)": 12,
     "(3, 5)": 16,
-    "(0, 3)": 28,
+    "(0, 3)": 30,
     "(0, 4)": 8,
     "(0, 5)": 8,
     "(1, 5)": 10
@@ -15417,7 +15509,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 373 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 378 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
