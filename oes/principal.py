@@ -38,16 +38,21 @@ group E8, the band is eps = 248 - chi with chi its adjoint character, and the ci
     the regular class 4, the day's sixth power d^6. The seed names the orders 5, 4, 60 and 120 (the critical types,
     the lcm of the critical orders, the lcm of the regular orders): the time clock, the observer clock and the grain are
     the seed's. The orders 27, 32, 540 and 864 and the quotient sizes 36 and 9 come from factoring the canon's
-    4320 = 2^5 3^3 5 and do not divide 120: the 27-clock, the coil, the miss set, the atlas and the vortex are built
-    from the circle's cofactor 36 = 4320/120 = 2^2 3^2 through this lattice. None of the generators 72, 36, 160, 8, 5
+    4320 = 2^5 3^3 5 and do not divide 120. But the 27-clock is the seed's too (1 Nov, singular_primary): the
+    principal points of 3-power order that fix a root are exactly <rho/27>, so the 27-clock, the vortex (its image
+    on the sun's A8) and the coil (<rho/60> + <rho/27>) are derived; only the miss set and the atlas need the
+    circle's 2-part 32 = 2^5, the cofactor's 2^2 over the seam's 2^3. None of the generators 72, 36, 160, 8, 5
     is critical, and |<36>| = 120 = |G120| only numerically.
 (f) Uniqueness. The Weyl vector is the half-sum of the positive roots and is regular, so it determines its positive
     system; W(E8) permutes the positive systems transitively (cited) and keeps the band, so every conjugate circle
     k -> k w rho / 4320 has the same band values and the same critical steps and types: the principal circle is
     unique up to W(E8). A positive system and its opposite give the same circle (w = -1 sends k -> -k); otherwise
     the conjugate circles are different subsets of the torus.
-What stays the canon's: the sampling of the circle at 4320 points, that is the cofactor 36 over the seam Z/120 that the
-regular steps generate, and the stage indices. The circle's Coxeter step, its critical steps and the grain are the seed's.
+What stays the canon's: the 2-part 32 = 2^5 of the sampling at 4320 points (the 3-part is the seed's <rho/27>, the
+5-part its critical 5; no single rule of the seed gives 2^5 3^3 5), and the stage indices with their orientation
+(stage_frame: the labelling k -> k rho/4320 is the seed's, the one-sided segment {0..14} is not). The seed's group of
+order 4320 (the decad's stabilizer in C_W(s)) and the absence of a Weyl clock of order 36 are recorded as
+obstructions (decad_stabilizer, no_order_36). The circle's Coxeter step, its critical steps and the grain are the seed's.
 """
 
 import functools
@@ -359,12 +364,329 @@ def principal_uniqueness():
     }
 
 
+def _alcove_points(M, ks):
+    """Exact reduction of the points k rho/M (k in ks) to E8's closed fundamental alcove, as integer vectors scaled by M
+    in root coordinates (affine Weyl moves); two points are conjugate under W(E8) and the lattice iff they reduce alike."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, _, ht = weyl_vector()
+    theta = RB[int(np.argmax(ht))]
+    tC = theta @ C
+    Y = np.array([(k % M) * rho for k in ks], dtype=np.int64)
+    while True:
+        CY = Y @ C
+        neg = (CY < 0).any(axis=1)
+        over = ~neg & (Y @ tC > M)
+        if not neg.any() and not over.any():
+            return Y
+        rows = np.nonzero(neg)[0]
+        i = np.argmax(CY[rows] < 0, axis=1)
+        Y[rows, i] -= CY[rows, i]
+        rows0 = np.nonzero(over)[0]
+        Y[rows0] -= (Y[rows0] @ tC - M)[:, None] * theta[None, :]
+
+
+def singular_primary():
+    """Cofactor-free: the principal points of p-power order that fix a root. For a prime p they form <rho/p^a>, p^a the
+    largest p-power dividing a root height: 16, 27, 25 for p = 2, 3, 5. Sing_3 = <rho/27> is the 27-clock (Galois-dual to
+    the chain E8 > A8 > A3 + A2 + A1 > A1), Sing_3/<rho/3> acts faithfully on the sun's A8 (the vortex), and the grain
+    <rho/60> plus Sing_3 is <rho/540> (the coil): three dots of the circle's cofactor 36 come from the seed. The circle's
+    p-parts are 32, 27, 5; only its 3-part is Sing_3, and its 2-part 32 = 2^5 is the one factor the seed does not name."""
+    from fractions import Fraction
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = weyl_vector()
+    Qz = lambda den: frozenset(Fraction(j, den) for j in range(den))
+    add = lambda A, Bs: frozenset((a + b) % 1 for a in A for b in Bs)
+    singular = lambda M, k: any((k * int(h)) % M == 0 for h in ht if h > 0)
+    sing = {p: max(b for b in range(8) if all(singular(p ** b, k) for k in range(p ** b))) for p in (2, 3, 5)}
+    fix = {m: [i for i in range(240) if all((Fraction(k, m) * int(ht[i])) % 1 == 0 for k in range(m))] for m in (1, 3, 9, 27)}
+    a8 = [i for i in range(240) if int(ht[i]) % 3 == 0]
+    act = lambda t: tuple((t * int(ht[i])) % 1 for i in a8)
+
+    def fusion(M):
+        units = [u for u in range(1, M + 1) if gcd(u, M) == 1]
+        Y = _alcove_points(M, units)
+        return [u for u, y in zip(units, Y) if np.array_equal(y, Y[0])]
+    limit = {p: max([1] + [p ** b for b in range(1, {2: 9, 3: 6, 5: 4}[p]) if len(fusion(p ** b)) > 2]) for p in (2, 3, 5)}
+    return {
+        "the principal points of 3-power order that fix a root are exactly <rho/27> (every point of order 81 is "
+        "regular), 27 the largest power of 3 dividing a root height; likewise <rho/16> and <rho/25> for 2 and 5":
+            {p: p ** a for p, a in sing.items()} == {2: 16, 3: 27, 5: 25} and not singular(81, 1)
+            and {p: max(sp.multiplicity(p, int(h)) for h in ht if h > 0) for p in (2, 3, 5)} == sing,
+        "the subgroup of <rho/27> of order 3^a fixes exactly the roots of height divisible by 3^a, of types E8, A8, "
+        "A3 + A2 + A1 and A1 (240, 72, 20 and 2 roots): the 27-clock with no reference to 4320":
+            all(fix[m] == [i for i in range(240) if int(ht[i]) % m == 0] for m in fix)
+            and [len(fix[m]) for m in (1, 3, 9, 27)] == [240, 72, 20, 2]
+            and [handover.stabiliser(R, rs / m)[0] for m in (1, 3, 9, 27)] == ["E8", "A8", "A3+A2+A1", "A1"],
+        "Sing_3 acts on the root spaces of the sun's A8 with kernel exactly <rho/3>: the vortex Z/9 = Sing_3/<rho/3>":
+            sorted(t for t in Qz(27) if all(v == 0 for v in act(t))) == sorted(Qz(3)) and len({act(t) for t in Qz(27)}) == 9,
+        "the grain <rho/60> (the group of the critical steps) plus Sing_3 is <rho/540>, meeting it in <rho/3>: the coil, "
+        "with no reference to 4320":
+            add(Qz(60), Qz(27)) == Qz(540) and Qz(60) & Qz(27) == Qz(3),
+        "the circle's p-parts are 32, 27 and 5; Sing_p gives 16, 27, 25, the first regular p-power orders are 32, 81, 125, "
+        "and the last p-power orders at which E8 fuses principal points beyond +-1 are 32, none and 25: only the 3-part is "
+        "Sing_3, and no one rule gives 2^5 3^3 5":
+            {p: p ** sp.multiplicity(p, N) for p in (2, 3, 5)} == {2: 32, 3: 27, 5: 5}
+            and [min(p ** b for b in range(1, 6) if not singular(p ** b, 1)) for p in (2, 3, 5)] == [32, 81, 125]
+            and limit == {2: 32, 3: 1, 5: 25}
+            and 16 * 27 * 25 != N and 32 * 81 * 125 != N and 32 * 25 != N,
+        "with Sing_3 the cofactor 36 = (32/8)(27/3) keeps one external factor, 4 = 32/8, the circle's 2-part over the "
+        "seam's: the miss set (864 = 32 x 27) and the atlas (the circle modulo the seam) need it, while Sing_2 + Sing_3 "
+        "has only 432 points":
+            N // 120 == 36 == (32 // 8) * (27 // 3) and len(add(Qz(16), Qz(27))) == 432 and 32 * 27 == 864,
+    }
+
+
+@functools.lru_cache(maxsize=None)
+def stage_frame():
+    """The circle's labeling is the seed's, and the stages fix an orientation. E8 conjugacy on the principal circle has
+    2137 classes, each closed under k -> -k, and realizes only u = +-1 on a generator; rho/4320 is, up to sign, the
+    generator of least band. The stage set {0, ..., 14} is not closed under w = -1: it fixes the orientation (a positive
+    system) and is then the fifteen least-band points of the half-circle; the seed's own fifteen least-band points are
+    {-7, ..., 7}, and its order-15 subgroup <rho/15> meets the stages only in 0."""
+    from . import counts
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = weyl_vector()
+    Y = _alcove_points(N, range(N))
+    cls = {}
+    for k in range(N):
+        cls.setdefault(Y[k].tobytes(), set()).add(k)
+    of = {k: frozenset(c_) for c_ in cls.values() for k in c_}
+    units = [u for u in range(1, N) if gcd(u, N) == 1]
+    stages = set(range(15))
+    closure = set().union(*[of[k] for k in stages])
+    fixed = lambda k: frozenset(i for i in range(240) if (k * int(ht[i])) % N == 0)
+    x = sp.Symbol("x")
+    heights = Counter(int(h) for h in ht)
+
+    def chi(d, u):
+        a = [0] * d
+        a[0] += 8
+        for h, m_ in heights.items():
+            a[(u * h) % d] += m_
+        return sp.rem(sp.Poly(list(reversed(a)), x), sp.Poly(sp.cyclotomic_poly(d, x), x))
+    galois = all((sp.rem(sp.Poly(chi(d, 1).as_expr().subs(x, x ** u), x), sp.Poly(sp.cyclotomic_poly(d, x), x))
+                  - chi(d, u)).is_zero for d in (9, 27, 32, 36, 540) for u in [u for u in range(2, d) if gcd(u, d) == 1][:4])
+    crit = [864, 1080, 1440, 1728, 2160, 2592, 2880, 3240, 3456]
+    band = [_band(rs * k / N) for k in range(N)]
+    gen_by_band = sorted(units, key=lambda u: band[u])
+    low = sorted(range(N), key=lambda k: band[k])[:15]
+    c_ = np.rint(cyclotomic.clocks()["c"]).astype(np.int64)
+    fl = counts.first_landing
+    return {
+        "E8 conjugacy on the principal circle has 2137 classes, each closed under k -> -k (w = -1), and realizes only the "
+        "units +-1 on a generator":
+            len(cls) == 2137 and all({(-k) % N for k in c_s} == c_s for c_s in cls.values())
+            and sorted(u for u in units if u in of[1]) == [1, N - 1],
+        "the labeling k -> k rho/4320 is the seed's: rho/4320 and its negative are the two generators of least band, and "
+        "the band rises strictly along k = 0, ..., 29; a relabeling k -> u k (u not +-1) keeps the roots fixed at every "
+        "point and the nine critical steps but sends the band to its Galois conjugate sigma_u (exact in Z[zeta_d] for "
+        "d = 9, 27, 32, 36, 540), which no conjugation of E8 does":
+            sorted(gen_by_band[:2]) == [1, N - 1] and band[gen_by_band[2]] > band[1] + 1
+            and all(band[i] < band[i + 1] for i in range(29))
+            and all(fixed((u * k) % N) == fixed(k) for u in units[:40] for k in range(0, N, 7))
+            and all({(u * k) % N for k in crit} == set(crit) for u in units) and galois,
+        "the stage set {0, ..., 14} is not closed under w = -1 (its E8 closure is {-14, ..., 14}, 29 points): it fixes "
+        "the orientation, a positive system, and is then the fifteen least-band points of the half-circle 0..2160; the "
+        "seed's own fifteen least-band points are {-7, ..., 7}, and its order-15 subgroup <rho/15> = <288> meets the "
+        "stages only in 0: the count fifteen and the one-sided segment are the canon's":
+            closure == set(range(15)) | {N - j for j in range(1, 15)}
+            and sorted(k if k < N // 2 else k - N for k in low) == list(range(-7, 8))
+            and sorted(sorted(range(N // 2 + 1), key=lambda k: band[k])[:15]) == list(range(15))
+            and min(band[15:N // 2 + 1]) > band[14] and set(range(0, N, 288)) & stages == {0},
+        "the stages' landing pattern is the seed's: c'^2 = s^2 g^2, a stage k lands exactly when the tick part g^(2k) is "
+        "not 1 (5 does not divide k), and under k -> u k the first landings go (m, level) -> (m, u level)":
+            np.array_equal(spine.mpow(c_, 2), spine.mpow(c_, 20) @ spine.mpow(c_, 12))
+            and [k for k in range(15) if counts.STAGE_LANDINGS[k] is not None] == [k for k in range(15) if k % 5]
+            and all(fl((u * k) % N) == (None if fl(k) is None else (fl(k)[0], (u * fl(k)[1]) % N))
+                    for u in units[:50] for k in range(15)),
+    }
+
+
+@functools.lru_cache(maxsize=None)
+def _decad_data():
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = weyl_vector()
+    theta = RB[int(np.argmax(ht))]
+    I8 = np.eye(8, dtype=np.int64)
+    E = primes.elements(3).astype(np.int64)
+    Q = primes.sun_matrices()
+    S = primes.sun_geometry()
+    phi, decad, over = S["phi"], S["decad"], S["over"]
+    I4 = np.eye(4, dtype=np.int64)
+    QP = (Q @ phi) % 3
+    lin = np.all(QP == (phi @ Q) % 3, axis=(1, 2))
+    anti = np.all(QP == (((I4 - phi) % 3) @ Q) % 3, axis=(1, 2))
+    proj_of = lambda v: min(tuple(v), tuple(((2 * np.array(v)) % 3).tolist()))
+    frames = [frozenset(i for q in {proj_of(x) for x in L} for i in over[q]) for L in decad]
+    fr_of = np.zeros(240, dtype=np.int64)
+    for j, F in enumerate(frames):
+        fr_of[list(F)] = j
+    key = {tuple(r): i for i, r in enumerate(RB.tolist())}
+    perm = lambda M: np.array([key[tuple(r)] for r in (RB @ M.T).tolist()])
+    keeps = lambda M: all(len(set(fr_of[perm(M)[list(F)]].tolist())) == 1 for F in frames)
+    return E, Q, lin, anti, frames, fr_of, perm, keeps
+
+
+@functools.lru_cache(maxsize=None)
+def decad_stabilizer(full=False):
+    """The seed's group of order 4320, and why it is not the circle. G = the elements of the sun's centralizer
+    C_W(s) that keep the decad (equivalently, F9-semilinear on the sun's momenta, F9 = F3[c' + c'^-1]): 4320 elements,
+    index 36 in C_W(s); it holds G120 = <c', d> with index 36; its image on the ten frames is S6 with kernel <c'^5>.
+    The whole stabilizer of the decad in W(E8) has 8640 elements, all normalizing <s>, and holds N(<c'>) with index 36.
+    But G has exponent 120, no element above order 30, abelianization of order at most 6 and Sylow 3-subgroups of
+    exponent 3: every homomorphism from Z/4320 to G kills <120> and has at most 30 points of image."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = weyl_vector()
+    theta = RB[int(np.argmax(ht))]
+    I8 = np.eye(8, dtype=np.int64)
+    E, Q, lin, anti, frames, fr_of, perm, keeps = _decad_data()
+    G = E[lin | anti]
+    keyM = lambda M: M.tobytes()
+    Gk = {keyM(M) for M in G}
+    k = cyclotomic.clocks()
+    c, d, v, m = (np.rint(k[n]).astype(np.int64) for n in ("c", "day", "golden", "mirror"))
+    G120 = primes._matrix_group([c, d])
+    NC = primes._matrix_group([c, d, v])
+    fperm = lambda M: tuple(int(fr_of[perm(M)[next(iter(F))]]) for F in frames)
+    img = {fperm(M) for M in G[:: 1]}
+    kern = [M for M in G if fperm(M) == tuple(range(10))]
+    orders = Counter(spine.mat_order(M) for M in G)
+    rng = np.random.default_rng(1)
+    comm = [a @ b @ spine.inverse(a) @ spine.inverse(b) for a, b in
+            ((G[rng.integers(len(G))], G[rng.integers(len(G))]) for _ in range(300))]
+    D = primes._matrix_group(list({keyM(M): M for M in comm}.values())[:40])
+    out = {
+        "the elements of C_W(s) (155520) that are F9-linear or F9-antilinear on the sun's momenta are 2160 + 2160 = 4320, "
+        "exactly those that keep the decad of ten 4A2 frames; index 36 in C_W(s), whose orbit of the decad has 36 members":
+            int(lin.sum()) == 2160 == int(anti.sum()) and len(G) == 4320 == N
+            and all(keeps(M) for M in G[::97]) and len(E) // len(G) == 36,
+        "G holds G120 = <c', d> (the Coxeter clock and the day) with index 36 = 4320/120, and acts on the ten frames as "
+        "S6 (720 permutations) with kernel <c'^5>, G120 as AGL(1,5) (20)":
+            len(G120) == 120 and all(keyM(M) in Gk for M in G120) and len(G) // len(G120) == 36
+            and len(img) == 720 and {keyM(M) for M in kern} == {keyM(spine.mpow(c, 5 * j)) for j in range(6)}
+            and len({fperm(M) for M in G120}) == 20,
+        "but G is not the circle: its element orders are 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30, its exponent is 120, "
+        "it has no element of order 9 or 27 (its Sylow 3-subgroups have exponent 3) and its commutators generate a "
+        "subgroup of order at least 720 (abelianization at most 6): every homomorphism Z/4320 -> G kills <120> "
+        "(36 points) and has image of order at most 30":
+            sorted(orders) == [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30]
+            and functools.reduce(lcm, orders) == 120 and 9 not in orders and len(D) >= 720 and len(G) // len(D) <= 6,
+    }
+    if full:
+        # all of Stab_W(decad): enumerate N_W(F0) through the 4A2 simple systems of frame F0, keep the decad, x 10
+        IP = RB @ C @ RB.T
+        F0 = sorted(frames[0])
+        comps, left = [], set(F0)
+        while left:
+            i = left.pop(); comp, stack = {i}, [i]
+            while stack:
+                u = stack.pop()
+                for w in list(left):
+                    if IP[u, w] != 0:
+                        left.discard(w); comp.add(w); stack.append(w)
+            comps.append(sorted(comp))
+        base, pairs = [], []
+        for comp in comps:
+            a = comp[0]; b = next(j for j in comp if IP[a, j] == -1)
+            base += [a, b]
+            pairs.append([(x, y) for x in comp for y in comp if IP[x, y] == -1])
+        X = RB[base].T
+        det = round(np.linalg.det(X.astype(float)))
+        adj = np.rint(np.linalg.inv(X.astype(float)) * det).astype(np.int64)
+        nF0, stab = 0, []
+        for pi in __import__('itertools').permutations(range(4)):
+            for ch in __import__('itertools').product(range(12), repeat=4):
+                cols = [t for i in range(4) for t in pairs[pi[i]][ch[i]]]
+                W = RB[cols].T @ adj
+                if (W % det).any():
+                    continue
+                W //= det
+                nF0 += 1
+                if keeps(W):
+                    stab.append(W)
+        s = spine.mpow(c, 10)
+        normal = all(any(np.array_equal(W @ s @ spine.inverse(W), spine.mpow(s, j)) for j in (1, 2)) for W in stab)
+        out["the whole stabilizer of the decad in W(E8) has 10 x 864 = 8640 elements (N_W(F0) has 62208), all "
+            "normalizing <s>: G is its half that commutes with the sun, and N(<c'>) = <c', d, v> (240) sits in it with "
+            "index 36 too; so 36 is canonical (the clocks' index in the decad's symmetry, at both levels) and 4320 is the "
+            "order at the centralizer level only"] = (
+            nF0 == 62208 and len(stab) == 864 and normal and len(NC) == 240 and all(keeps(M) for M in NC)
+            and keeps(m) and 10 * len(stab) // len(NC) == 36)
+    return out
+
+
+@functools.lru_cache(maxsize=None)
+def no_order_36():
+    """The atlas obstruction: GL8(Z) has elements of order 36 (Phi4 Phi9, Phi4 Phi18; psi(36) = 8) but W(E8) has
+    none. w of order 36 has w^4 of characteristic polynomial Phi9 Phi1^2; that class (E6(a1), here c7^2) fixes an A2
+    with E6 orthogonal; w keeps both, acting on A2 with order 1, 2, 3 or 6 and on E6 inside <x> x <-1> (order | 18).
+    Cited: Steinberg (pointwise stabilizers are reflection subgroups), E6 is unique in E8 up to W."""
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = weyl_vector()
+    theta = RB[int(np.argmax(ht))]
+    I8 = np.eye(8, dtype=np.int64)
+    x = sp.Symbol("x")
+    ds = [d for d in range(1, 61) if sp.totient(d) <= 8]
+
+    def combos(budget, start, acc):
+        if budget == 0:
+            yield acc
+            return
+        for i in range(start, len(ds)):
+            f = int(sp.totient(ds[i]))
+            if f <= budget:
+                yield from combos(budget - f, i, acc + [ds[i]])
+    polys = [cmb for cmb in combos(8, 0, []) if functools.reduce(lcm, cmb, 1) == 36]
+    refl = lambda i: I8 - np.outer(I8[i], C[i])
+    perp = [i for i in range(8) if int(I8[i] @ C @ theta) == 0]
+    X = spine.mpow(functools.reduce(lambda a, b: a @ b, [refl(i) for i in perp], I8), 2)
+    fixed_roots = [i for i in range(240) if np.array_equal(X @ RB[i], RB[i])]
+    a1 = RB[fixed_roots[0]]
+    a2 = next(RB[i] for i in fixed_roots if int(a1 @ C @ RB[i]) == -1)
+    G2 = np.array([[a1 @ C @ a1, a1 @ C @ a2], [a2 @ C @ a1, a2 @ C @ a2]])
+    auts = [np.array(t).reshape(2, 2) for t in __import__('itertools').product(range(-2, 3), repeat=4)
+            if np.array_equal(np.array(t).reshape(2, 2).T @ G2 @ np.array(t).reshape(2, 2), G2)]
+    o2 = lambda T: next(j for j in range(1, 13) if np.array_equal(np.linalg.matrix_power(T, j), np.eye(2, dtype=np.int64)))
+    orth = [i for i in range(240) if int(RB[i] @ C @ a1) == 0 and int(RB[i] @ C @ a2) == 0]
+    pos = [RB[i] for i in orth if ht[i] > 0]
+    pset = {tuple(r) for r in pos}
+    simple = [r for r in pos if not any(tuple(r - s_) in pset for s_ in pos)]
+    W6 = primes._matrix_group([I8 - np.outer(r, r @ C) for r in simple])
+    keyM = lambda M: M.tobytes()
+    cpk = lambda M: tuple(np.rint(np.poly(M.astype(float))).astype(int).tolist())
+    same = {keyM(M) for M in W6 if cpk(M) == cpk(X)}
+    cls = {keyM(g @ X @ spine.inverse(g)) for g in W6}
+    cent = [M for M in W6 if np.array_equal(M @ X, X @ M)]
+    W_orders = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 18, 20, 24, 30}
+    return {
+        "the degree-8 products of cyclotomic polynomials of order 36 are Phi4 Phi9 and Phi4 Phi18 (psi(36) = 8), so "
+        "GL8(Z) has elements of order 36; for both, w^4 has Phi9 Phi1^2":
+            polys == [[4, 9], [4, 18]],
+        "x = c7^2 (order 9, Phi9 Phi1^2) fixes exactly six roots, an A2 (Gram [[2, -1], [-1, 2]]), and the 72 roots "
+        "orthogonal to it are an E6; the A2 lattice has 12 isometries, of orders 1, 2, 3, 6":
+            spine.mat_order(X) == 9 and sp.expand(sp.Matrix(X.tolist()).charpoly(x).as_expr()
+                                                  - sp.cyclotomic_poly(9, x) * (x - 1) ** 2) == 0
+            and len(fixed_roots) == 6 and G2.tolist() == [[2, -1], [-1, 2]] and len(orth) == 72
+            and handover.stabiliser(R[orth], np.zeros(8))[0] == "E6"
+            and len(auts) == 12 and sorted({o2(T) for T in auts}) == [1, 2, 3, 6],
+        "in W(E6) (51840) the elements with x's characteristic polynomial are one class of 5760, with centralizer <x> "
+        "of order 9, and -1 is not in W(E6): an element commuting with x acts on E6 inside <x> x <-1> and on A2 by an "
+        "isometry, so its order divides 18, and W(E8) has no element of order 36 (the atlas Z/36 is no Weyl clock); "
+        "of the 19 divisors of 4320 that GL8(Z) allows, 16, 36, 40 and 60 are not orders of W(E8) (cited list)":
+            len(W6) == 51840 and same == cls and len(cls) == 5760 and len(cent) == 9
+            and keyM(-I8) not in {keyM(M) for M in W6}
+            and [d for d in spine.divisors() if sum(int(sp.totient(p ** e)) for p, e in sp.factorint(d).items())
+                 - (1 if d % 4 == 2 else 0) <= 8 and d not in W_orders] == [16, 36, 40, 60],
+    }
+
+
 def run():
     from . import gates
     from .record import Report
     rep = Report("28-principal")
     T = gates.THEOREM
-    for fn in (circle, regular_steps, band_on_circle, critical_steps, clock_lattice, principal_uniqueness):
+    for fn in (circle, regular_steps, band_on_circle, critical_steps, clock_lattice, principal_uniqueness,
+               singular_primary, stage_frame, decad_stabilizer, no_order_36):
         for name, ok in fn().items():
             rep.add(name, T, ok)
     rep.add("cited: the principal element exp(2 pi i rho/h) is conjugate in the compact group to a lift of the Coxeter "

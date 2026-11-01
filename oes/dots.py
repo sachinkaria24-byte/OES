@@ -10142,6 +10142,38 @@ JOINS = [
     ("L0", "darkport", "the quartic-null port", "on the 1200 norm-four sites the two dark ports' moment tensors vanish below degree 4; the quartic has rank 4 on their 8-dimensional span, with kernel exactly D_flat = B4 - D_A R, the part orthogonal to the triple wedge (Gram (187/5) B4^T B4); the triple wedge is even, so the quintic is injective on D_flat: every dark direction starts at order 4 or 5, and exactly one four-dimensional subspace at 5 (the hub's quintic note, 30 Oct)", T, "notes_1725"),
     ("darkport", "moments", "the moment line", "the mixed moments of D_flat with the triple wedge vanish to second order, so D_theta = cos B + sin F has m1 = 232 + (2256/187) sin^2, m2 = 54150 + (1026480/187) sin^2, all on m2 - 455 m1 + 51410 = 0 through the A port (q = 1); the flat port sits at q = 192/187, beyond A and outside [0, 1]", T, "notes_1725"),
     ("darkport", "calibration", "the infrared exponent", "the root sum rho rho^T = 60 I makes the bath symbol 30 |k|^2 at its zero; under the standard Fourier asymptotics a port starting at order l has density ~ E^(3 + l) and heat return ~ tau^-(4 + l): E^7, tau^-8 for a generic dark port and E^8, tau^-9 for the quartic-null one, an exponent a calibrated dark measurement could test", gates.CONDITIONAL, "notes_1725"),
+    ("principal", "c27", "the singular 3-primary points", "the principal points of 3-power order that fix a root are exactly <rho/27> (rho/81 is regular; 27 is the largest power of 3 dividing a root height), and its subgroups of order 1, 3, 9, 27 fix the roots of type E8, A8, A3 + A2 + A1, A1: the 27-clock is the seed's, with no reference to 4320 (1 Nov)", T, "principal.singular_primary"),
+    ("c27", "vortex", "the sun's view of the 27-clock", "<rho/27> acts on the root spaces of the sun's A8 with kernel exactly <rho/3>, so the vortex Z/9 is the 27-clock modulo the sun, cofactor-free (1 Nov)", T, "principal.singular_primary"),
+    ("grain", "coil", "the grain plus the 27-clock", "<rho/60> + <rho/27> = <rho/540>, meeting in <rho/3>: the coil is the critical steps' group plus the singular 3-primary points, cofactor-free (1 Nov)", T, "principal.singular_primary"),
+    ("principal", "circle", "the canonical labelling", "rho/4320 and its negative are the two generators of least band and E8 conjugacy realizes only +-1 on a generator (2137 classes, each closed under k -> -k): the labelling k -> k rho/4320 is the seed's, and any other unit Galois-conjugates the band (1 Nov)", T, "principal.stage_frame"),
+    ("E8", "stages", "no frame-free stage set", "every E8 class on the principal circle is closed under k -> -k, but the stages {0..14} are not (their closure has 29 points): they fix an orientation; the seed's own fifteen least-band points are {-7..7} and <rho/15> meets the stages only in 0 (1 Nov)", OB, "principal.stage_frame"),
+    ("sun", "circle", "the decad's 4320-group, only numerically", "the elements of C_W(s) that keep the decad (F9-semilinear on the sun's momenta) number 2160 + 2160 = 4320 and hold G120 with index 36, but this group has exponent 120 and no element of order 9, so no map from Z/4320 to it has more than 30 points of image: the circle is not a group the seed builds (1 Nov)", OB, "principal.decad_stabilizer"),
+    ("E8", "atlas", "no Weyl clock of order 36", "GL8(Z) has elements of order 36 (Phi4 Phi9, Phi4 Phi18) but W(E8) has none: a fourth power would be of class E6(a1), whose centralizer acts with order dividing 18 (in W(E6) a class of 5760 with centralizer of order 9, and -1 not in W(E6)) (1 Nov)", OB, "principal.no_order_36"),
+    ("E8", "memory", "the memory clock off the root lines", "A^10 fixes 111 of the memory's 120 states while a hyperplane holds at most 63 of E8's 120 root lines, so no Weyl action on the root lines carries it; the sun's 90 hyperbolic D4 lines carry clock orbits 5^18 and 10^3 20^3, no 90-cycle (1 Nov)", OB, "memory_not_seed"),
+    ("darkport", "readout", "two F20 contexts at one frequency", "with the model's six F20 mixers (the hub's are their negatives) at the coupling t = 1/2, one to six contexts read ranks 4, 7, 9, 10, 10, 10 of the source bivectors; every pair's centre misses Gr(2,5), so two contexts chart the decomposable cone locally but globally with degree 5 (the hub's quintic, three real branches), triples collide (a rational witness) and four contexts recover all ten (1 Nov)", T, "notes_1931"),
+    ("source", "readout", "the covariance completion", "C2(a a^T + b b^T) = (a ^ b)(a ^ b)^T, so the real source covariance plus any two calibrated F20 contexts recover the signed bivector, w = C2(Sigma) H^T y/(y^T y), for every noncollinear source and the five K4 dark rays (1 Nov)", T, "notes_1931"),
+    ("darkport", "calibration", "the blind coupling", "at the other positive coupling t = 1 every pair of F20 contexts has a nonzero simple bivector it reads as zero: which sources are observable depends on the coupling, which nothing internal fixes (1 Nov)", OB, "notes_1931"),
+    ("darkport", "moments", "the signed coupling family", "D(t) = (D_B' + t D_A)/sqrt(1 + 2 alpha t + t^2) (alpha^2 = 5/192) has moments 232 + (47/4) q and 54150 + (21385/4) q, q = t^2/(1 + 2 alpha t + t^2); over real t, q is largest, 192/187, at t = -1/alpha, the quartic-null port, of least innovation 2513510/34969 (1 Nov)", T, "notes_1931"),
+    ("words", "darkport", "source records do not fix the dark coupling", "the K4 source (0, -1, -1, 0, 1) ^ (1, -1, -1, 1, 0) has word preimages under T6 and |a ^ b|^2 = 12 while the two dark ports give it raw moments 2925, 713955 and 2784, 649800: word and atlas data cannot select the dark coupling (1 Nov)", OB, "notes_1931"),
+    ("time", "golden", "the golden gram on every five-cycle", "Gamma(U) = (U^2 + U^3) - (U + U^4), minus the Gauss sum, has Gamma^2 = 5I - (I + U + ... + U^4) whenever U^5 = I; the tick carries it on the vertices (the signed Laplacian 5I - J), edges, atoms and cycles, and the root spin (20 fixed roots, 44 five-cycles) on the 240 roots (the canon's snapshot, 1 Nov)", T, "notes_2055"),
+    ("E", "cycles", "Agni is five times the cycle projector", "A = 5I - B^T B = 5 P_cycle (A^2 = 5A, trace 30, rank 6), commuting with the signed edge gram; golden Agni and Soma are one operator, and the rotor plane is killed by the edge gram and scaled by 5 by A (1 Nov)", T, "notes_2055"),
+    ("circle", "time", "the four yugas", "the yuga lengths 1728, 1296, 864, 432 are 4, 3, 2, 1 times 432, sum 4320, all 0 mod 27, and read the four nonzero time phases 3, 1, 4, 2 mod 5; Satya + Kali = Treta + Dvapara = 2160 (1 Nov)", T, "notes_2055"),
+    ("datum", "cycles", "the action's three terms", "the datum's energy 34 = 20 (the constant mode under the signless Laplacian) + 12 (the contrast sector) + 2 (the velocity); the signed form on a contrast is 10 and Agni's form on the velocity's edges is 12, the same integer as the contrast term, not the same term (1 Nov)", T, "notes_2055"),
+    ("time", "golden", "the golden gram's Hankel law", "on every five-cycle the gram's moments are n, 0, 5d, 0, 25d, so its 3 x 3 moment Hankel determinant is 125 d^2 f: 8000 (coordinate cycle), 2000 (vertices), 54000 (atoms), 16000 (edges), 4000 (six sites, cycles), 0 (standard four) (the canon's three-layer snapshot, 1 Nov)", T, "notes_2137"),
+    ("rootgraph", "golden", "the root spin's golden spectrum", "the root spin's gram on the 240 root lines has spectrum 0^64 (sqrt5)^88 (-sqrt5)^88 (rank 176), not the shell list 1, 8, 35, 112, 84; c'^6 carries the gram on R^8 with four of each sign and no zero (1 Nov)", T, "notes_2137"),
+    ("petersen", "E", "the golden Petersen operator", "K = 3I - P on the ten edges (P the disjointness graph) has K(K - 2I)(K - 5I) = 0, trace 30 and square-trace 120 and commutes with the edge rotation, whose gram has square-trace 40 (the canon's full join, 1 Nov)", T, "notes_2137"),
+    ("V", "time", "the cycle Laplacian's golden quadratic", "L = 2I - U - U^-1 has golden eigenvalues (5 +- sqrt5)/2 and (I + L)^2 - 7(I + L) + 11I = J, so M M^T = (I + L)^2 - 7(I + L) + 14I and (2L - 5I)^2 = Gamma^2 + 5J (1 Nov)", T, "notes_2137"),
+    ("waves", "rotor", "the golden time line", "the near and far cycles span the rotor plane, where the light operator Curl is R = [[2, -1], [-1, -2]] (R^2 = 5I); on Lambda^2 of the standard four (Q6 = Lambda^2(I + J), det 125) the Hodge operator H6 = K Q6 acts on the tick's fixed plane by the same R, and its negative line N + phi^3 F gives a reflector of signature (5, 1) and det -125 (the separate model's golden edge-time join, 1 Nov)", T, "notes_2137"),
+    ("rotor", "calibration", "the arrow is one marked bit", "the two Hodge branches of the rotor plane carry identical unmarked spectral measures, the inversion keeps the line and reverses its ray, and the doubling exchanges the branches: the time arrow is a marked datum that unmarked moments cannot select (1 Nov)", OB, "notes_2137"),
+    ("bath", "rootgraph", "the root-site compression", "compressed to the 240 root sites the bath is P_R H P_R = 240 I - B_R (a root difference s - r is a root exactly when r.s = 1), so the root graph's sectors 56, 28, 8, -2, -4 of ranks 1, 8, 35, 112, 84 are the bath's compressed means 184, 212, 232, 242, 244 (the separate model's master model, 2 Nov)", T, "master_readout"),
+    ("carrier", "rootgraph", "the source-marked atom isometry", "J15 sends vertex i to <site_i, alpha>/sqrt60 + (|P_A4 alpha|^2 - 1)/sqrt240 and edge ij to <nu_i + nu_j, alpha>/sqrt180 + T2/sqrt4800000 + alpha^T A(P_kerM e_ij) alpha/sqrt48 (integer readings times scales; nu the twin's sites in the tick's order): an isometry with B_R J = J (28 P3 + 8 (P0 + P8)), so H_K = 10 I - J^T B_R J/4 - 8 P0, the mark P0 being needed because the root graph gives P0 + P8 the single value 8; J15 U15 = P_g J15 carries the tick on the atoms to g on the roots; the vertex and edge linear parts must be orthogonal, which the twin duads are and the carrier duads are not (the subspace is forced, the twin frame in it is our choice); the model's fibre and cone maps are not J15 (Tr J^T B_R J = 70 and 0 against 280); built here, the separate model's own J15 being absent (2 Nov)", SR, "master_readout"),
+    ("bath", "readout", "the 45 channels", "mass 1, linear 8 (four carrier and four twin sites), quadratic 26 (ten centred carrier quadratics, spanning exactly N43's ten edge readings (alpha_i - alpha_j)^2 - 1/2, and sixteen mixed A4 x A4'), six odd A4 cycle currents and N44's four dark currents sign(x)(x_j^3 - x_j)/6 on the 120-site orbit of norm 10 are independent, with mutually orthogonal blocks of means 184, 212, 232, 242, 243 and second moments 35973, 45911, 54213, 58691, 59132 computed on the lattice, so BB* = 2117 I1 + 967 I8 + 389 I26 + 127 I6 + 83 I4 (rank 45, trace 21061, least 83), extending N44's diag(2117, 389 I10, 127 I6, 83 I4); the dark mean 243 is no root-graph sector mean (2 Nov)", T, "master_readout"),
+    ("bath", "binding", "the atoms' hidden coupling", "through J15 the bath couples the atoms to the rest of the lattice by J^T H Q H J = 967 P3 + 389 (P0 + P8), with J^T H J = 212 P3 + 232 (P0 + P8): functions of D^2, in the commutant of D; with spec H = [0, 256] (the band edge) the atoms' self-energy B (s + C)^-1 B* lies between BB*/(s + 256) and BB*/s for every s > 0 (spectral theorem); through the J15 built here (2 Nov)", SR, "master_readout"),
+    ("readout", "moments", "the five fingerprints", "the 45 channels' gain-free fingerprints 1 + b/a^2 are the moment ratios m2/m1^2 = 35973/33856, 45911/44944, 54213/53824, 58691/58564, 59132/59049, distinct, decreasing and above 1: the linear channel's 45911/44944 (variance 967) is the new one (2 Nov)", T, "master_readout"),
+    ("carrier", "bath", "the Schur-completed reference action", "K = H + eps I + Y V Y^T with V = K_g + X - A15 - eps I, X = B C_eps^-1 B^T, has static Schur complement K_g and K = L diag(K_g, C_eps) L^T, so <q, K_g q> + |C_eps^(1/2) h + C_eps^(-1/2) B^T q|^2 >= 0 with ker K_g lifted; the update leaves Q K Y = Q H Y and the Krylov spaces; S_K^-1 - S_0^-1 = V, G_K = G_0 - C V [I + S_0 V]^-1 C^T (rank 15) and Tr[G_K - G_0] = Tr((I + V S_0)^-1 V S_0'): general identities, replayed exactly on the root-site compression with the atoms on the six-site port's 15 bond roots and K_g = H_K (2 Nov)", T, "master_response"),
+    ("time", "calibration", "one model time", "r and r' commute and have principal skew logarithms Omega_A, Omega_A' (polynomials in r, r' with angles 2 pi/5 and 4 pi/5), so S(t) = exp(t (Omega_A + Omega_A')) is a one-parameter rotation group with S(1) = r r' = g and S(5) = I; a calibration (kappa, tau) -> (a^2 kappa, a tau) fixes rho = tau/sqrt(kappa) and so the response; which physical interval S(1) is stays TIME_BIND's external datum (2 Nov)", gates.CONDITIONAL, "master_response"),
+    ("time", "carrier", "the co-rotating field", "the tick U15 on the atoms commutes with H_K and its principal pieces pass the logarithm checks, so S15(s) = exp(s Omega_15) is orthogonal and commutes with H_K: it carries each solution of Phi'' + H_K Phi = 0 to a solution of the same energy (e.g. energy 5 for a = e_v0, b = e_01), and S15(1) = U15 (2 Nov)", T, "master_response"),
+    ("readout", "bath", "timed observability", "with BB*'s least eigenvalue 83 and the band edge M = 256, the timed readout F(delta) = Y* cos(delta sqrt H) Q H Y (BB*)^(-1/2) has sigma_min F(delta) >= sqrt83 delta^2/2 - M^2 delta^4/24 (from 0 <= cos x - 1 + x^2/2 <= x^4/24 and the spectral theorem), largest 249/(2 M^2) at delta* = sqrt(6 sqrt83)/M, and positive at delta = 1/36 (sqrt83/2592 - 32/19683): at that step the readout separates the 45-dimensional first hidden layer (2 Nov; F is our reading of the note's)", gates.CONDITIONAL, "master_response"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -26634,6 +26666,976 @@ def notes_1725():
     }
 
 
+# ------------------------------------------------------------------- the seed closure (1 Nov): the memory clock against the seed
+
+def memory_not_seed():
+    """The memory clock against the seed. Its group Z/90 is, as an abstract group, <rho/9> + <rho/10> (the vortex's
+    9-torsion and the regular class 10); but its 120 states are the canon's: A^10 (order 9) fixes 111 states, and a
+    W(E8) element fixing 111 of the 120 root lines fixes a spanning set up to sign (a hyperplane holds at most 63 root
+    lines), so has order at most 2; no element of W(E8) has order 90; and the seed's own 90-set (the 90 hyperbolic lines
+    of the sun's W(3,3), each the roots of an s-stable D4) carries clock orbits 5^18 and 10^3 20^3, no 90-cycle."""
+    from fractions import Fraction
+    perm, cycles, P = _memory()
+    B, Binv, C, Cinv, R, RB = spine.frame()
+    rho, rs, ht = principal.weyl_vector()
+    I8 = np.eye(8, dtype=np.int64)
+    IP = RB @ C @ RB.T
+    lines = [i for i in range(240) if ht[i] > 0]
+    Qz = lambda den: frozenset(Fraction(j, den) for j in range(den))
+    S = primes.sun_geometry()
+    proj, iso, over = S["proj"], S["iso"], S["over"]
+
+    def span(a, b):
+        return frozenset(min(tuple(((i * np.array(a) + j * np.array(b)) % 3).tolist()),
+                             tuple(((2 * i * np.array(a) + 2 * j * np.array(b)) % 3).tolist()))
+                         for i in range(3) for j in range(3) if (i, j) != (0, 0))
+    hyp = [L for L in {span(a, b) for a, b in itertools.combinations(proj, 2)} if L not in iso]
+    k = cyclotomic.clocks()
+    qc, qd = (primes.on_sun(np.rint(k[n]).astype(np.int64)[None])[0] for n in ("c", "day"))
+    img = lambda M, L: frozenset(min(tuple(((M @ np.array(p)) % 3).tolist()), tuple(((2 * (M @ np.array(p))) % 3).tolist())) for p in L)
+
+    def orbs(gens):
+        seen, out = set(), []
+        for L in hyp:
+            if L in seen:
+                continue
+            o, new = {L}, [L]
+            while new:
+                new = [y for z in new for g in gens for y in [img(g, z)] if y not in o and not o.add(y)]
+            seen |= o
+            out.append(len(o))
+        return sorted(out)
+    hyper = max(sum(1 for j in lines if int(RB[j] @ I8[i]) == 0) for i in range(8))
+    return {
+        "the memory's order-9 part A^10 fixes 111 of its 120 states and its order-10 part A^9 fixes 10":
+            sum(1 for z in range(120) if P[10][z] == z) == 111 and sum(1 for z in range(120) if P[9][z] == z) == 10,
+        "a hyperplane holds at most 63 of E8's 120 root lines (the maximal parabolic subsystems; E7 = r-perp holds 63), "
+        "so any 111 root lines span, and a Weyl element fixing 111 root lines has order at most 2: no W(E8) action on the "
+        "root lines (or on the 120 nonsingular half-periods) carries A^10, nor A":
+            hyper == 63 and Counter(sum(1 for j in lines if IP[i, j] == 0) for i in lines) == Counter({63: 120}),
+        "as an abstract group <A> = Z/90 is <rho/9> + <rho/10> on the principal line, the vortex's 9-torsion and the "
+        "regular class 10, and no element of W(E8) has order 90 (psi(90) = 10 > 8)":
+            frozenset((a + b) % 1 for a in Qz(9) for b in Qz(10)) == Qz(90)
+            and sum(int(sp.totient(p ** e)) for p, e in sp.factorint(90).items()) - 1 == 10,
+        "the sun's 90 hyperbolic lines, each the roots of an s-stable D4, carry <c'>-orbits 5^18 and <c', d>-orbits "
+        "10^3 20^3: the seed's own 90-set has no cyclic order-90 action":
+            len(hyp) == 90 and orbs([qc]) == [5] * 18 and orbs([qc, qd]) == [10, 10, 10, 20, 20, 20]
+            and Counter(handover.stabiliser(R[sorted(i for q in L for i in over[q])], np.zeros(8))[0] for L in hyp) == Counter({"D4": 90}),
+    }
+
+
+# ------------------------------------------------------------------- the hub's re-filed 30 Oct notes (1 Nov 18:19-19:18): dark couplings, F20 Plucker, 252 cells
+
+def notes_1931():
+    """The hub's 30 Oct notes, re-filed on 1 Nov (18:19-19:18, folder PAGE_0003): the dark-coupling non-identification
+    (the signed family of dark couplings, whose extreme member is the quartic-null port), the two-F20-context Plucker
+    theorem (single-frequency recovery, its degree-five ambiguity, the three-context collision, four-context recovery,
+    the covariance completion and the blind coupling) and the 252-cell low-gain code's coefficient norms."""
+    E, N5, sym, F, _, _ = _source()
+    G = N5.T * N5
+    G2 = sp.Matrix(10, 10, lambda r, c: G[E[r][0], E[c][0]] * G[E[r][1], E[c][1]] - G[E[r][0], E[c][1]] * G[E[r][1], E[c][0]])
+    e5 = [sp.eye(5).col(i) for i in range(5)]
+    W = sp.Matrix.hstack(*[F(N5 * e5[i], N5 * e5[j]) for i, j in E])
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    P5 = sp.eye(5) - sp.ones(5, 5) / 5
+    wedge = lambda a, b: sp.Matrix([a[i] * b[j] - a[j] * b[i] for i, j in E])
+    L = G.inv() * N5.T
+    P = []
+    for r in range(5):
+        vs = [i for i in range(5) if i != r]
+        mats = []
+        for z in vs[1:]:
+            f = sp.zeros(10, 1)
+            for e in (tuple(sorted((vs[0], z))), tuple(sorted(u for u in vs if u not in (vs[0], z)))):
+                f[E.index(e)] = 1
+            mats.append(f)
+        P.append(wedge(L * (mats[0] - mats[2]), L * (mats[2] - mats[1])))
+    PD = sp.Matrix.hstack(*P) * sp.diag(-1, 1, -1, 1, -1)
+    C = PD.T * G2 / 3
+    Xh = [-x for x in _mixers()[0]]                     # the hub's mixers are minus the model's
+    half = sp.Rational(1, 2)
+    Y = lambda i, t: C - t * Xh[i].T * W
+    stack = lambda S, t: sp.Matrix.vstack(*[Y(i, t) for i in S])
+    z = sp.symbols("z0:3")
+
+    def plucker(w):
+        return [w[E.index((i, j))] * w[E.index((k, l))] - w[E.index((i, k))] * w[E.index((j, l))]
+                + w[E.index((i, l))] * w[E.index((j, k))] for i, j, k, l in itertools.combinations(range(5), 4)]
+
+    def misses(t):
+        out = []
+        for S in itertools.combinations(range(6), 2):
+            K = sp.Matrix.hstack(*stack(S, t).nullspace())
+            out.append(sp.groebner(plucker(K * sp.Matrix(z)), *z, order="lex").is_zero_dimensional)
+        return out
+    ranks = {k: {stack(S, half).rank() for S in itertools.combinations(range(6), k)} for k in range(1, 7)}
+
+    def skew_rank(v):
+        A = sp.zeros(5)
+        for x, (i, j) in zip(v, E):
+            A[i, j], A[j, i] = x, -x
+        return A.rank()
+    triples = {(stack(S, half).rank(), skew_rank(stack(S, half).nullspace()[0])) for S in itertools.combinations(range(6), 3)}
+    wA = wedge(sp.Matrix([1, 0, 0, 0, sp.Rational(1, 4)]), sp.Matrix([0, -4, 4, 0, -1]))
+    wB = wedge(sp.Matrix([0, 0, -1, 0, 0]), sp.Matrix([0, 0, 0, 0, 6]))
+    a1, b1 = sp.Matrix([1, 2, -1, 3, 0]), sp.Matrix([0, 1, 1, -2, 4])
+    K01 = sp.Matrix.hstack(*stack((0, 1), half).nullspace())
+    GB = sp.groebner(plucker(wedge(a1, b1) + K01 * sp.Matrix(z)), *z, order="lex")
+    uni = [g.as_expr() for g in GB.polys if g.as_expr().free_symbols <= {z[2]}]
+    quint = sp.Poly(z[2] * (64 * z[2] ** 4 + 1264 * z[2] ** 3 + 25857 * z[2] ** 2 + 602519 * z[2] + 3681993), z[2])
+    one = sp.Integer(1)
+    wblind = sp.Matrix.hstack(*stack((0, 1), one).nullspace()) * sp.Matrix([-1, -1, 1])
+    srcs = [(a1, b1), (sp.Matrix([-1, -1, -2, 1, -1]), sp.Matrix([-1, -2, -1, -2, 0])),
+            (sp.Matrix([2, 5, 0, -3, -1]), sp.Matrix([1, 0, -2, 3, 7]))]
+    tangent = lambda a, b: sp.Matrix.hstack(*[wedge(e, b) for e in e5], *[wedge(a, e) for e in e5])
+    C2 = lambda S: sp.Matrix(10, 10, lambda r, c: S[E[r][0], E[c][0]] * S[E[r][1], E[c][1]] - S[E[r][0], E[c][1]] * S[E[r][1], E[c][0]])
+
+    def recovers(H, w, Q):
+        y = H * w
+        return (y.T * y)[0] > 0 and Q * H.T * y / (y.T * y)[0] == w
+    complete = all(recovers(stack(S, half), wedge(a, b), C2(a * a.T + b * b.T)) and C2(a * a.T + b * b.T) == wedge(a, b) * wedge(a, b).T
+                   for S in itertools.combinations(range(6), 2) for a, b in srcs) \
+        and all(recovers(stack(S, half), PD[:, r], PD[:, r] * PD[:, r].T)
+                for S in itertools.combinations(range(6), 2) for r in range(5))
+    qa = 1 / (sp.sqrt(6) - 1)
+    # the dark-coupling family, from the two dark ports' pairings
+    D1, D2 = _two_dark()
+    L1, L2 = _shift_sum(D1), _shift_sum(D2)
+    s4 = sp.Integer(10 ** 4)
+    Nk = [_pairing(D1, D1), _pairing(D1, L1), _pairing(L1, L1)]
+    Ck = [_pairing(D1, D2) / s4, _pairing(D1, L2) / s4, _pairing(L1, L2) / s4]
+    Mk = [_pairing(D2, D2) / s4 ** 2, _pairing(D2, L2) / s4 ** 2, _pairing(L2, L2) / s4 ** 2]
+    al = sp.sqrt(15) / 24
+    Xa = (Mk[0] / 7200 ** 2) * Ck[0].T / (sp.sqrt(600) * al)          # D_B^align = D2 Xa = P_B D_A / alpha
+    t = sp.Symbol("t", real=True)
+    den = 1 + 2 * al * t + t ** 2
+    q = t ** 2 / den
+    fam = [(Xa.T * Mk[k] * Xa + t * (Xa.T * Ck[k].T + Ck[k] * Xa) / sp.sqrt(600) + t ** 2 * Nk[k] / 600) / den for k in range(3)]
+    mt = [sp.simplify(f[0, 0] / P5[0, 0]) for f in fam]
+    Q_ = sp.Symbol("q")
+    V = 326 - sp.Rational(423, 4) * Q_ - sp.Rational(2209, 16) * Q_ ** 2
+    a4, b4 = sp.Matrix([0, -1, -1, 0, 1]), sp.Matrix([1, -1, -1, 1, 0])
+    T6 = _word_adapter()
+    u6 = sp.Matrix([0, -5, -4, 1, 5, 0]) / 3
+    v6 = sp.Matrix([0, -2, -1, 1, 2, 0]) / 3
+    sizes = [5, 7, 4, 5, 5, 5, 5]
+    n_i = [m for m in sizes for _ in range(m)]
+    record = 7 * sum(sp.Rational(1, 7 * n_i[i]) * (2 * comb(35, i) * 7 * n_i[i]) ** 2 for i in range(36))
+    A = [sym(N5 * e) for e in e5]
+    Np = [sum((T6[k, p] * A[k] for k in range(5)), sp.zeros(5)) for p in range(6)]
+    g_norm = sum(((Np[p] * Np[r] - Np[r] * Np[p])[E[i][0], E[i][1]]) ** 2 for i in range(4, 10) for p in range(6) for r in range(6))
+    q_norm = sum(((Np[p] * Np[r] * Np[s_]).trace() / 2) ** 2 for p in range(6) for r in range(6) for s_ in range(6))
+    x = sp.Symbol("x")
+    return {
+        "the native source's exterior square: W (the commutator on Lambda^2 ker M) has rank 6 and W G2^-1 W^T = (10/9) "
+        "P_cycle; the five coherently oriented K4 dark bivectors span ker W with Gram 15 delta - 3; with C = P^T G2/3 "
+        "(rank 4) the stack [W; C] has rank 10 and G2 = (9/10) W^T W + (3/5) C^T C, an isometric bright-six plus dark-four "
+        "embedding of the source bivectors":
+            W.rank() == 6 and W * G2.inv() * W.T == sp.Rational(10, 9) * Pc and (W * PD).is_zero_matrix
+            and PD.T * G2 * PD == 15 * sp.eye(5) - 3 * sp.ones(5, 5) and C.rank() == 4 and W.col_join(C).rank() == 10
+            and sp.Rational(9, 10) * W.T * W + sp.Rational(3, 5) * C.T * C == G2,
+        "one frequency, F20 contexts (the hub's mixers are minus the model's six F20 mixers, X_i^T X_i = P_A4): at the "
+        "selected coupling q a(s) = 1/(sqrt6 - 1), t = (q a/(1 + q a)) sqrt(3/2) = 1/2, the readings Y_i = C - t X_i^T W of "
+        "1, 2, 3, 4, 5, 6 contexts have rank 4, 7, 9, 10, 10, 10; every pair's 3-dimensional kernel meets the Plucker cone "
+        "of Gr(2,5) only at 0 (exact Groebner bases), and every pair has tangent rank 7 on the decomposable cone at three "
+        "rational sources: two contexts chart the prepared bivectors locally":
+            sp.simplify(qa / (1 + qa) * sp.sqrt(sp.Rational(3, 2))) == half
+            and ranks == {1: {4}, 2: {7}, 3: {9}, 4: {10}, 5: {10}, 6: {10}} and all(misses(half))
+            and all((stack(S, half) * tangent(a, b)).rank() == 7 for S in itertools.combinations(range(6), 2) for a, b in srcs),
+        "but not globally: projection from a centre missing Gr(2,5) is finite of degree deg Gr(2,5) = 5, and at the source "
+        "a = (1, 2, -1, 3, 0), b = (0, 1, 1, -2, 4) contexts 1 and 2 leave the square-free quintic z(64z^4 + 1264z^3 + "
+        "25857z^2 + 602519z + 3681993) with three real roots: three real prepared bivectors give one record; every triple "
+        "has rank 9 with a kernel of skew rank 4 (a sum of two simple bivectors), and the rational pair (1, 0, 0, 0, 1/4) ^ "
+        "(0, -4, 4, 0, -1), (0, 0, -1, 0, 0) ^ (0, 0, 0, 0, 6) collides on contexts 1, 2, 3; four contexts recover all ten "
+        "coordinates":
+            len(uni) == 1 and sp.Poly(64 * uni[0], z[2]) == quint and sp.gcd(quint, quint.diff()).degree() == 0
+            and quint.count_roots(-sp.oo, sp.oo) == 3 and triples == {(9, 4)}
+            and wA != wB and all((Y(i, half) * (wA - wB)).is_zero_matrix for i in range(3))
+            and list(wA - wB) == [-4, 4, 0, -1, 0, 0, 1, 0, 5, 0],
+        "the covariance completion: the second compound of Sigma = a a^T + b b^T is (a ^ b)(a ^ b)^T, and with any two "
+        "contexts' calibrated record y = H w the signed bivector is w = C2(Sigma) H^T y/(y^T y), for the three sources and "
+        "for all five K4 dark rays on every pair; so the real covariance plus two contexts fix the Hermitian dyad up to "
+        "its U(1) phase":
+            complete,
+        "the blind coupling: at the other positive setting t = 1 (q a(s) = 1/(sqrt(3/2) - 1)) every pair's centre meets "
+        "Gr(2,5), and contexts 1 and 2 both read zero on the nonzero simple bivector (0, -1, 1, 0, -1, 1, 0, 0, -1, 1): "
+        "observability depends on the coupling, which nothing internal fixes":
+            not any(misses(one)) and wblind != sp.zeros(10, 1) and all(f == 0 for f in plucker(wblind))
+            and (stack((0, 1), one) * wblind).is_zero_matrix and list(wblind) == [0, -1, 1, 0, -1, 1, 0, 0, -1, 1],
+        "the dark-coupling family: alpha^2 = 5/192 is the squared principal cosine, D_B' = P_B D_A/alpha is an isometry with "
+        "D_A^T D_B' = alpha P_A4, and D(t) = (D_B' + t D_A)/sqrt(1 + 2 alpha t + t^2) has scalar moments m1 = 232 + (47/4) q, "
+        "m2 = 54150 + (21385/4) q with q = t^2/(1 + 2 alpha t + t^2) and innovation 326 - (423/4) q - (2209/16) q^2 (from "
+        "1315/16 to 326 on q in [0, 1]); over real t, dq/dt = 2t(1 + alpha t)/den^2, so q is largest at t = -1/alpha, where "
+        "q = 1/(1 - alpha^2) = 192/187, the quartic-null port, of least innovation 2513510/34969 in the family":
+            sp.simplify(Xa.T * Mk[0] * Xa - P5).is_zero_matrix and sp.simplify(Xa.T * Ck[0].T / sp.sqrt(600) - al * P5).is_zero_matrix
+            and all(sp.simplify(fam[k] - mt[k] * P5).is_zero_matrix for k in range(3)) and sp.simplify(mt[0] - 1) == 0
+            and sp.simplify(mt[1] - 232 - sp.Rational(47, 4) * q) == 0 and sp.simplify(mt[2] - 54150 - sp.Rational(21385, 4) * q) == 0
+            and sp.simplify(mt[2] - mt[1] ** 2 - V.subs(Q_, q)) == 0
+            and [V.subs(Q_, 0), V.subs(Q_, 1), V.subs(Q_, sp.Rational(192, 187))] == [326, sp.Rational(1315, 16), sp.Rational(2513510, 34969)]
+            and sp.simplify(sp.diff(q, t) - 2 * t * (1 + al * t) / den ** 2) == 0
+            and sp.simplify(q.subs(t, -1 / al) - sp.Rational(192, 187)) == 0 and sp.Rational(192, 187) == 1 / (1 - al ** 2),
+        "source-only data do not fix the dark coupling: the K4 source a = (0, -1, -1, 0, 1), b = (1, -1, -1, 1, 0) has "
+        "W_AS(a ^ b) = 0, norms 4, 4, product 2 (so |a ^ b|^2 = 12) and word preimages u = (0, -5, -4, 1, 5, 0)/3, "
+        "v = (0, -2, -1, 1, 2, 0)/3 under T6, while the two dark ports give it raw moments 2925, 713955 and 2784, 649800 "
+        "(differences 141 and 64155); the 252-cell record at U = e0 has weighted norm 106339974811663945919840 x 10^360 "
+        "at gain 10^180, and the low-gain code's coefficient tensors have squared norms 3264 (commutator) and 84144 (cubic), "
+        "with source metric polynomial t(t - 12)(t^2 - 60t + 27)^2":
+            F(N5 * a4, N5 * b4).is_zero_matrix and [(a4.T * G * a4)[0], (b4.T * G * b4)[0], (a4.T * G * b4)[0]] == [4, 4, 2]
+            and 4 * 4 - 2 ** 2 == 12 and T6 * u6 == a4 and T6 * v6 == b4
+            and [12 * sp.Rational(975, 4), 12 * sp.Rational(237985, 4), 12 * 232, 12 * 54150] == [2925, 713955, 2784, 649800]
+            and record == 106339974811663945919840 and (g_norm, q_norm) == (3264, 84144)
+            and sp.expand((T6.T * G * T6).charpoly(x).as_expr() - x * (x - 12) * (x ** 2 - 60 * x + 27) ** 2) == 0,
+    }
+
+
+# ------------------------------------------------------------------- the canon snapshot of 20:55 (1 Nov): golden gram, Agni, rosebud, three terms
+
+def notes_2055():
+    """The canon snapshot OES_20261102_GOLDEN_GRAM_AGNI_LAYERS (filed 1 Nov 20:55 with the auditor joinAllDots.ts, read
+    as data): the golden gram on every five-cycle, the four yuga lengths, Agni as five times the cycle projector, the
+    rosebud on the projective line over F5, and the datum's three action terms with the coincidences the note keeps
+    apart."""
+    x = sp.Symbol("x")
+    gram = lambda U: (U ** 2 + U ** 3) - (U + U ** 4)
+    rhs = lambda U, n: 5 * sp.eye(n) - sum((U ** k for k in range(5)), sp.zeros(n))
+    # the identity holds for every U with U^5 = I: as polynomials it is a multiple of x^5 - 1
+    poly_ok = sp.rem(sp.expand((x ** 2 + x ** 3 - x - x ** 4) ** 2 - (5 - sum(x ** k for k in range(5)))), x ** 5 - 1, x) == 0
+    p = [1, 2, 3, 4, 0]
+    P = sp.Matrix(5, 5, lambda i, j: int(i == p[j]))
+    Eu = _edge_perm(p)
+    Es = compound2(P)
+    atoms = sp.diag(P, Eu)
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Z = sp.Matrix.hstack(*Bs.nullspace())
+    Zl = (Z.T * Z).inv() * Z.T
+    Cy = Zl * Es * Z                                   # the tick on the six cycles
+    carriers = {"vertices": P, "edges (unsigned)": Eu, "edges (signed)": Es, "the fifteen atoms": atoms, "the six cycles": Cy}
+    on_carriers = all(U ** 5 == sp.eye(U.shape[0]) and gram(U) ** 2 == rhs(U, U.shape[0]) for U in carriers.values())
+    c, cp, r, rp, g, w = spine.spine_clock()
+    B_, Binv, C, Cinv, R, RB = spine.frame()
+    key = {tuple(v): i for i, v in enumerate(RB.tolist())}
+    perm = [key[tuple((r @ v).tolist())] for v in RB]
+    Rr = sp.SparseMatrix(240, 240, {(perm[j], j): 1 for j in range(240)})
+    fixed = [i for i in range(240) if perm[i] == i]
+    lengths = Counter()
+    seen = set()
+    for i in range(240):
+        if i not in seen:
+            j, L = i, 0
+            while j not in seen:
+                seen.add(j)
+                j, L = perm[j], L + 1
+            lengths[L] += 1
+    Gr = gram(Rr)
+    root_ok = (Rr ** 5 == sp.eye(240) and Gr ** 2 == rhs(Rr, 240) and all(Gr[:, i].is_zero_matrix for i in fixed))
+    q = [0, 2, 4, 1, 3]
+    D = sp.Matrix(5, 5, lambda i, j: int(i == q[j]))
+    yugas = [1728, 1296, 864, 432]
+    G = Bs.T * Bs
+    A = 5 * sp.eye(10) - G
+    Pc = sp.eye(10) - G / 5
+    rot = sp.Matrix.hstack(*[Z * v for v in (Cy - sp.eye(6)).nullspace()])
+    Rb = sp.Matrix([[1, 4], [1, 2]])
+    mod5 = lambda M: M.applyfunc(lambda t: t % 5)
+    pw = lambda k: mod5(Rb ** k)
+    key_pt = lambda pt: (1, 0) if pt[1] % 5 == 0 else (int(pt[0] * pow(pt[1], -1, 5)) % 5, 1)
+    orbit, cur = [], (1, 0)
+    for _ in range(6):
+        orbit.append(cur)
+        cur = key_pt(tuple(int(t) % 5 for t in Rb * sp.Matrix(cur)))
+    M = sp.Matrix(carrier.signless_incidence())
+    psi, v0 = (sp.Matrix([sp.nsimplify(t) for t in z]) for z in carrier.canon_initial_datum())
+    u = sp.ones(5, 1)
+    rr = sp.Matrix([1, -1, 0, 0, 0])
+    ve = v0[5:, 0]
+    agni_v = (ve.T * A * ve)[0]
+    return {
+        "the golden gram Gamma(U) = (U^2 + U^3) - (U + U^4), minus the quadratic Gauss sum of U, has Gamma(U)^2 = 5I - "
+        "(I + U + U^2 + U^3 + U^4) for every U with U^5 = I ((x^2 + x^3 - x - x^4)^2 - (5 - sum x^k) is a multiple of "
+        "x^5 - 1), and the tick's five-cycle carries it on the vertices, the edges (unsigned and signed), the fifteen "
+        "atoms and the six cycles; on the vertices Gamma^2 = 5I - J is the signed Laplacian B B^T and Gamma kills the "
+        "constant mode":
+            poly_ok and on_carriers and gram(P) ** 2 == Bs * Bs.T and (gram(P) * u).is_zero_matrix,
+        "the root spin r (one A4 factor's coordinate five-cycle) fixes 20 roots and moves the other 220 in 44 five-cycles, "
+        "carries the gram on the 240 root lines and has Gamma = 0 on every fixed root; the doubling i -> 2i has order 4 "
+        "and does not carry it (Gamma(D)^2 differs from 5I - (I + D + D^2 + D^3 + D^4))":
+            dict(lengths) == {1: 20, 5: 44} and root_ok and D ** 4 == sp.eye(5) and D ** 2 != sp.eye(5)
+            and gram(D) ** 2 != rhs(D, 5),
+        "the four yuga lengths 1728, 1296, 864, 432 are 4, 3, 2, 1 times 432 and sum to 4320; they are 0 mod 27, 0, 16, 0, "
+        "16 mod 32 and 3, 1, 4, 2 mod 5 (the four nonzero time phases); Satya + Kali = Treta + Dvapara = 2160, the count "
+        "of the norm-four shell (a count, not the same set); and gcd(260, 4320) = 20, lcm = 56160":
+            yugas == [432 * k for k in (4, 3, 2, 1)] and sum(yugas) == N and all(y % 27 == 0 for y in yugas)
+            and [y % 32 for y in yugas] == [0, 16, 0, 16] and [y % 5 for y in yugas] == [3, 1, 4, 2]
+            and yugas[0] + yugas[3] == yugas[1] + yugas[2] == 2160 == len(_norm_four()[0])
+            and (gcd(260, N), lcm(260, N)) == (20, 56160),
+        "golden Agni and golden Soma are one operator on the ten edges, A = 5I - G with G = B^T B: A = 5 P_cycle, so "
+        "A^2 = 5A, trace 30, rank 6, while G has trace 20 and rank 4 and A + G = 5I; A commutes with the signed edge "
+        "cycle's golden gram, and the rotor plane (the cycles the tick fixes) is killed by that gram and multiplied by 5 "
+        "by A":
+            A == 5 * Pc and A * A == 5 * A and A.trace() == 30 and A.rank() == 6 and G.trace() == 20 and G.rank() == 4
+            and A * gram(Es) == gram(Es) * A and rot.shape[1] == 2 and (gram(Es) * rot).is_zero_matrix and A * rot == 5 * rot,
+        "the rosebud [[1, 4], [1, 2]] over F5 has R^6 = 3I, R^12 = -I and R^24 = I (order 24), and turns the six points of "
+        "the projective line in one 6-cycle; 4320/24 = 180":
+            pw(6) == 3 * sp.eye(2) and pw(12) == mod5(-sp.eye(2)) and pw(24) == sp.eye(2)
+            and all(pw(k) != sp.eye(2) for k in (1, 2, 3, 4, 6, 8, 12)) and len(set(orbit)) == 6 and cur == (1, 0)
+            and N // 24 == 180,
+        "the datum's energy 34 is three terms: the constant mode u under the signless Laplacian (u^T M M^T u/2 = 8 x 5/2 "
+        "= 20), the contrast sector (12) and the velocity (|v0|^2/2 = 2); the signed form on a contrast r = e0 - e1 is "
+        "r^T B B^T r = 10 (signed 5, signless 3), not 12, and Agni's form on the velocity's edges is 12, the same integer "
+        "as the contrast term but not the same term; none of 20, 12, 2 is a root-graph eigenvalue (56, 28, 8, -2, -4 with "
+        "multiplicities 1, 8, 35, 112, 84)":
+            (u.T * M * M.T * u)[0] / 2 == 20 and (M * M.T * u) == 8 * u and (v0.T * v0)[0] / 2 == 2
+            and (psi.T * sp.Matrix(carrier.D2()) * psi)[0] / 2 == 32 and 20 + 12 + 2 == 34
+            and (rr.T * Bs * Bs.T * rr)[0] == 10 and Bs * Bs.T * rr == 5 * rr and M * M.T * rr == 3 * rr
+            and agni_v == 12 and not {20, 12, 2} & {56, 28, 8, -2, -4} and 1 + 8 + 35 + 112 + 84 == 240,
+    }
+
+
+# ------------------------------------------------------------------- the canon snapshots of 21:27 and 21:37 and the golden time line (1 Nov)
+
+def notes_2137():
+    """The canon snapshots OES_20261102_THREE_LAYER_UNIFICATION (21:27) and OES_20261102_FULL_JOIN (21:37) and the
+    separate model's golden edge-time join (21:19), read as data: the golden gram's moment Hankel law on every five-cycle,
+    the cycle Laplacian's golden quadratic, the golden Petersen operator, the non-identifications, and the golden time
+    line, the model's light operator on the near/far rotor plane with its anti-selfdual line and Lorentzian reflector."""
+    from sympy.combinatorics import Permutation as Perm
+    gram = lambda U: (U ** 2 + U ** 3) - (U + U ** 4)
+
+    def hankel(U):
+        G = gram(U)
+        mu = [(G ** k).trace() for k in range(5)]
+        return sp.Matrix(3, 3, lambda i, j: mu[i + j]).det()
+
+    def split(U):
+        n = U.shape[0]
+        f = (U - sp.eye(n)).rank()
+        return n - f, f                                 # fixed dimension, moving dimension
+    p = [1, 2, 3, 4, 0]
+    P = sp.Matrix(5, 5, lambda i, j: int(i == p[j]))
+    Eu, Es = _edge_perm(p), compound2(P)
+    atoms = sp.diag(P, Eu)
+    coord = sp.diag(P, sp.eye(3))                         # the coordinate five-cycle on R^8
+    six = sp.diag(P, sp.eye(1))                           # the five vertices and the cone point
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Z = sp.Matrix.hstack(*Bs.nullspace())
+    cyc = (Z.T * Z).inv() * Z.T * Es * Z
+    Fb = sp.Matrix.hstack(*[sp.eye(5)[:, i] - sp.eye(5)[:, 4] for i in range(4)])
+    U4 = (Fb.T * Fb).inv() * Fb.T * P * Fb                # the standard four
+    carriers = {"coordinate": coord, "vertices": P, "atoms": atoms, "edges": Eu, "six sites": six, "cycles": cyc, "standard": U4}
+    hk = {k: hankel(U) for k, U in carriers.items()}
+    law = all(hk[k] == 125 * split(U)[1] ** 2 * split(U)[0] for k, U in carriers.items())
+    avg = lambda U: sum((U ** k for k in range(5)), sp.zeros(U.shape[0])) / 5
+    stoch = lambda A: all(x >= 0 for x in A) and all(sum(A.row(i)) == 1 for i in range(A.rows)) and A * A == A
+    c, cp, r, rp, g, w = spine.spine_clock()
+    B_, Binv, C, Cinv, R_, RB = spine.frame()
+    key = {tuple(v): i for i, v in enumerate(RB.tolist())}
+    perm = [key[tuple((r @ v).tolist())] for v in RB]
+    Rr = sp.SparseMatrix(240, 240, {(perm[j], j): 1 for j in range(240)})
+    Gr = gram(Rr)
+    c6 = sp.Matrix((spine.mpow(np.rint(cyclotomic.clocks()["c"]).astype(np.int64), 6)).tolist())
+    Gc = gram(c6)
+    x = sp.Symbol("x")
+    L = 2 * sp.eye(5) - P - P.T
+    M = sp.Matrix(carrier.signless_incidence())
+    J5 = sp.ones(5, 5)
+    E = carrier.edges()
+    Pet = sp.Matrix(10, 10, lambda a, b: int(not set(E[a]) & set(E[b])))
+    K = 3 * sp.eye(10) - Pet
+    fib = [sp.fibonacci(k) for k in range(1, 12)]
+    fh = [sp.Matrix(n, n, lambda i, j: fib[i + j]).det() for n in range(1, 6)]
+    Bc = sp.Matrix([[1, 1], [1, 0]])
+    D2 = sp.Matrix(carrier.D2())
+    # the golden time line: near and far cycles, the light operator, the Hodge operator on Lambda^2 of the standard four
+    Nv = sp.Matrix([1, 0, 0, -1, 1, 0, 0, 1, 0, 1])
+    Fv = sp.Matrix([0, 1, -1, 0, 0, 1, -1, 0, 1, 0])
+    NF = sp.Matrix.hstack(Nv, Fv)
+    Curl = sp.Matrix(waves.complex_ops()[3])
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    R = sp.Matrix([[2, -1], [-1, -2]])
+    pr = list(itertools.combinations(range(4), 2))
+    G4 = sp.eye(4) + sp.ones(4, 4)
+    lam2 = lambda A: sp.Matrix(6, 6, lambda a, b: A.extract(list(pr[a]), list(pr[b])).det())
+    Q6 = lam2(G4)
+    K6 = sp.Matrix(6, 6, lambda a, b: Perm(list(pr[a] + pr[b])).signature() if set(pr[a]) | set(pr[b]) == {0, 1, 2, 3} else 0)
+    H6 = K6 * Q6
+    X = sp.Matrix.hstack(*[v.extract([E.index(q) for q in pr], [0]) for v in (Nv, Fv)])
+    U6 = lam2(U4)
+    r5 = sp.sqrt(5)
+    phi = (1 + r5) / 2
+    vm = X * sp.Matrix([1, phi ** 3])
+    nv = sp.expand((vm.T * Q6 * vm)[0])
+    gL = Q6 - 2 * (Q6 * vm) * (Q6 * vm).T / nv
+    perp = (vm.T * Q6).nullspace()
+    q = [0, 2, 4, 1, 3]
+    Dd = compound2(sp.Matrix(5, 5, lambda i, j: int(i == q[j])))
+    Dm = (NF.T * NF).inv() * NF.T * Dd * NF
+    Pm = (sp.eye(2) - R / r5) / 2
+    mu = [1, 242, 58691, 14259954, 3470101592]
+    return {
+        "on every five-cycle the golden gram Gamma has spectrum in {0, +-sqrt5} and moments n, 0, 5d, 0, 25d (d the moving "
+        "dimension), so its 3 x 3 moment Hankel determinant is 125 d^2 f (f the fixed dimension): 8000 on the coordinate "
+        "five-cycle of R^8, 2000 on the vertices, 54000 on the fifteen atoms, 16000 on the edges, 4000 on the six sites "
+        "and on the six cycles, 0 on the standard four; the average (I + U + ... + U^4)/5 is a doubly stochastic idempotent "
+        "on the coordinate cycle, the vertices and the atoms, and the golden energy of the constant vertex mode is 0":
+            law and [hk[k] for k in ("coordinate", "vertices", "atoms", "edges", "six sites", "cycles", "standard")]
+            == [8000, 2000, 54000, 16000, 4000, 4000, 0]
+            and all(stoch(avg(carriers[k])) for k in ("coordinate", "vertices", "atoms"))
+            and (gram(P) * sp.ones(5, 1)).is_zero_matrix,
+        "the root spin's gram on the 240 root lines has rank 176, trace 0 and Gamma^2 trace 880, so its spectrum is 0^64 "
+        "(sqrt5)^88 (-sqrt5)^88, not the shell list 1, 8, 35, 112, 84; the Coxeter element has order 30 and trace -1, and "
+        "its sixth power carries the gram on R^8 with no zero eigenvalue (Gamma^2 = 5I), four of each sign (trace 0), and "
+        "is not the coordinate five-cycle":
+            Gr.rank() == 176 and Gr.trace() == 0 and (Gr * Gr).trace() == 880
+            and spine.mat_order(np.rint(cyclotomic.clocks()["c"]).astype(np.int64)) == 30
+            and int(np.trace(np.rint(cyclotomic.clocks()["c"]))) == -1 and c6 ** 5 == sp.eye(8)
+            and Gc * Gc == 5 * sp.eye(8) and Gc.trace() == 0 and not np.array_equal(np.array(c6.tolist(), dtype=np.int64), r),
+        "on the five vertices the cycle Laplacian L = 2I - U - U^-1 has golden eigenvalues (5 +- sqrt5)/2 and (I + L)^2 - "
+        "7(I + L) + 11I = J, so M M^T = (I + L)^2 - 7(I + L) + 14I; Gamma^2 = 5I - J and (2L - 5I)^2 = Gamma^2 + 5J":
+            sp.factor(L.charpoly(x).as_expr()) == sp.factor(x * (x ** 2 - 5 * x + 5) ** 2)
+            and (sp.eye(5) + L) ** 2 - 7 * (sp.eye(5) + L) + 11 * sp.eye(5) == J5
+            and M * M.T == (sp.eye(5) + L) ** 2 - 7 * (sp.eye(5) + L) + 14 * sp.eye(5)
+            and gram(P) ** 2 == 5 * sp.eye(5) - J5 and (2 * L - 5 * sp.eye(5)) ** 2 == gram(P) ** 2 + 5 * J5,
+        "the golden Petersen operator K = 3I - P (P the disjointness graph of the ten edges) has K(K - 2I)(K - 5I) = 0, "
+        "trace 30 and square-trace 120, commutes with the edge rotation, whose gram has square-trace 40; the companion "
+        "square [[2, 1], [1, 1]] = B^2 has determinant 1 and trace 3, the Petersen degree, by count only":
+            K * (K - 2 * sp.eye(10)) * (K - 5 * sp.eye(10)) == sp.zeros(10) and K.trace() == 30 and (K * K).trace() == 120
+            and K * Eu == Eu * K and (gram(Eu) ** 2).trace() == 40 and Bc ** 2 == sp.Matrix([[2, 1], [1, 1]])
+            and (Bc ** 2).det() == 1 and (Bc ** 2).trace() == 3 == sum(Pet.row(0)),
+        "what is not identified: the action 20 + 12 + 2 = 34 is not the Coxeter order 30 or the vortex sum 27; the "
+        "stiffness traces of D^2 are 40, 200, 1240; the Fibonacci Hankel determinants are 1, 1, 0, 0, 0 and the companion's "
+        "row sums are 2 and 1 (not Markov); the four memory channels' Hankel determinants 14357066531, 219823907, 15930273 "
+        "and 4115587 all exceed 54000; the quartic mean 244 = 240 - (-4) is not the dark mean 243; and 1 + 8 + 26 + 6 + 4 = "
+        "45, 45 + 21 + 1 = 67":
+            34 not in (30, 27) and [(D2 ** k).trace() for k in (1, 2, 3)] == [40, 200, 1240] and fh == [1, 1, 0, 0, 0]
+            and [sum(Bc.row(i)) for i in range(2)] == [2, 1]
+            and min(14357066531, 219823907, 15930273, 4115587) > 54000 and 240 - (-4) == 244 != 243
+            and 1 + 8 + 26 + 6 + 4 == 45 and 45 + 21 + 1 == 67,
+        "the golden time line: the near and far cycles N = sum [i, i+1] and F = sum [i, i+2] lie in ker B with Gram 5I and "
+        "span the rotor plane, and on them the model's light operator Curl (Curl^2 = 5 P_cycle) is R = [[2, -1], [-1, -2]]; "
+        "on Lambda^2 of the standard four (Gram G4 = I + J, det 5; Q6 = Lambda^2 G4, det 125) the Hodge operator H6 = K Q6 has "
+        "H6^2 = 5I, is Q6-symmetric, has eigenvalues +-sqrt5 three times each, commutes with the tick, whose fixed space is "
+        "exactly the span of N and F, and acts there by R":
+            (Bs * NF).is_zero_matrix and NF.T * NF == 5 * sp.eye(2) and Curl * Curl == 5 * Pc and Curl * NF == NF * R
+            and G4.det() == 5 and Q6.det() == 125 and H6 * H6 == 5 * sp.eye(6) and H6.T * Q6 == Q6 * H6
+            and (H6 - r5 * sp.eye(6)).rank() == 3 and (H6 + r5 * sp.eye(6)).rank() == 3
+            and U4 ** 5 == sp.eye(4) and U6 * H6 == H6 * U6 and U6 * X == X and len((U6 - sp.eye(6)).nullspace()) == 2
+            and X.T * Q6 * X == 5 * sp.eye(2) and H6 * X == X * R,
+        "its negative line is v- = N + phi^3 F (R (1, phi^3) = -sqrt5 (1, phi^3), Q6-norm 50 + 20 sqrt5), and the reflector "
+        "g = Q6 (I - 2 P_t) has g v- = -Q6 v- and g = Q6 on the Q6-complement, so signature (5, 1) and det -125; the "
+        "doubling acts on (N, F) by [[0, -1], [1, 0]], squares to -I and exchanges the branches (D R D^-1 = -R), so the "
+        "inversion keeps the line and reverses its ray; with a scalar wedge response mu_n (1, 242, 58691, 14259954, "
+        "3470101592) the two branches P+- = (I +- R/sqrt5)/2 carry identical unmarked measures (trace mu_n each): unmarked "
+        "data cannot select the arrow":
+            _zero(R * sp.Matrix([1, phi ** 3]) + r5 * sp.Matrix([1, phi ** 3])) and _zero(nv - 50 - 20 * r5)
+            and _zero(gL * vm + Q6 * vm) and all(_zero(gL * u - Q6 * u) for u in perp) and len(perp) == 5
+            and all(m > 0 for m in [Q6[:k, :k].det() for k in range(1, 7)]) and _zero(gL.det() + 125)
+            and Dm == sp.Matrix([[0, -1], [1, 0]]) and Dd * NF == NF * Dm and Dm ** 2 == -sp.eye(2) and Dm * R * Dm.inv() == -R
+            and _zero(Pm * Pm - Pm) and all(_zero((m * Pm).trace() - m) and _zero((m * (sp.eye(2) - Pm)).trace() - m) for m in mu),
+    }
+
+
+# ------------------------------------------------------------------- the separate model's master model (2 Nov): 45 channels, Schur action, Feshbach law, model time
+
+@functools.lru_cache(maxsize=None)
+def _master_shell():
+    """The 240 roots (doubled coordinates), the root graph B_R, its five sector projectors scaled to integers, and the
+    bath H = 240 - A and H^2 = 240^2 - 480 A + A^2 between the 360 sites of the root shell and the dark orbit (the 120
+    coordinate permutations of (-2, -1, 0, 1, 2, 0, 0, 0)); (A^2)_(x, y) counts the ordered root pairs summing to y - x."""
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    G = R2 @ R2.T // 4
+    A = (G == 1).astype(np.int64)
+    I, J = np.eye(240, dtype=np.int64), np.ones((240, 240), dtype=np.int64)
+    Pint = [J, G, 2 * G * G - 1, 5 * G ** 3 - 6 * G]
+    Pint.append(240 * I - J - 4 * G - 5 * Pint[2] - 4 * Pint[3])
+    O2 = np.array([list(p) + [0, 0, 0] for p in itertools.permutations((-4, -2, 0, 2, 4))], dtype=np.int64)
+    X = np.vstack([R2, O2])
+    base = np.array([64 ** k for k in range(8)], dtype=np.int64)
+    key = lambda V: (V + 32) @ base
+    sums, cnt = np.unique(key((R2[:, None, :] + R2[None, :, :]).reshape(-1, 8)), return_counts=True)
+    rk = np.sort(key(R2))
+    dk = key((X[None, :, :] - X[:, None, :]).reshape(-1, 8))
+    p = np.minimum(np.searchsorted(sums, dk), len(sums) - 1)
+    A2 = np.where(sums[p] == dk, cnt[p], 0).reshape(360, 360)
+    p = np.minimum(np.searchsorted(rk, dk), len(rk) - 1)
+    Ab = (rk[p] == dk).astype(np.int64).reshape(360, 360)
+    H = 240 * np.eye(360, dtype=np.int64) - Ab
+    H2 = 57600 * np.eye(360, dtype=np.int64) - 480 * Ab + A2
+    return R2, G, A, Pint, (240, 60, 48, 60, 240), O2 // 2, Ab, H, H2
+
+
+def master_readout():
+    """The separate model's master model (2 Nov), part one: the root-site compression of the bath, the carrier's atoms
+    as root functions (a source-marked isometry J15 built here from the glue), and the 45 readout channels with their
+    boundary covariance, all from the lattice."""
+    R2, G, A, Pint, sc, O, Ab, H, H2 = _master_shell()
+    I = np.eye(240, dtype=np.int64)
+    E = carrier.edges()
+    # (1) the root-site compression and the five sectors
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    proj = (all(np.array_equal(P @ P, s * P) for P, s in zip(Pint, sc))
+            and all(not (Pint[k] @ Pint[l]).any() for k in range(5) for l in range(k + 1, 5))
+            and np.array_equal(sum(P * (240 // s) for P, s in zip(Pint, sc)), 240 * I)
+            and all(np.array_equal(A @ P, l * P) for P, l in zip(Pint, lam)))
+    ranks = [int(np.trace(P)) // s for P, s in zip(Pint, sc)]
+    # (2) the carrier's H_K = D^2
+    D2 = sp.Matrix(carrier.D2())
+    P = carrier.spectral_projectors()
+    t = sp.symbols("t", positive=True)
+    heat = sum(sp.exp(-l * t) * m for l, m in D2.eigenvals().items())
+    # (2) J15 from the glue: raw integer readings on the roots (times the stated scales)
+    R10 = 5 * R2
+    _, _, _, rp, g, _ = spine.spine_clock()
+    gs, rps = spine.to_standard(g), spine.to_standard(rp)
+    TW = assignment.TWIN
+    step = [int(np.flatnonzero([np.allclose(rps @ TW[i], TW[k]) for k in range(5)])[0]) for i in range(5)]
+    order = [0]
+    while len(order) < 5:
+        order.append(step[order[-1]])
+    s = R10 @ assignment.SITE.T // 10                                   # 10 <site_i, alpha>
+    tw = R10 @ TW[order].T // 10                                         # 10 <nu_i, alpha>, nu in the tick's order
+    cp = 5 * R2[:, :5] - R2[:, :5].sum(1)[:, None]                       # 10 P_A4 alpha
+    M = sp.Matrix(carrier.signless_incidence())
+    N5 = sp.Matrix.hstack(*M.nullspace())
+    N5 = N5 * sp.ilcm(*[sp.fraction(v)[1] for v in N5])
+    Qk = np.array([R2[:, i] * R2[:, j] for i, j in E]).T @ np.array(N5.tolist(), dtype=np.int64)   # 2 alpha^T A(a) alpha
+    raw = np.hstack([s, np.array([tw[:, i] + tw[:, j] for i, j in E]).T, ((cp * cp).sum(1) - 100)[:, None],
+                     (s * tw).sum(1)[:, None], Qk])
+    grp = [0] * 5 + [1] * 10 + [2, 3] + [4] * 5
+    sq = [sp.Rational(1, 6000), sp.Rational(1, 18000), sp.Rational(1, 2400000), sp.Rational(1, 4800000),
+          sp.Rational(1, 192)]                                            # the squared scales of the five groups
+    coef = (N5.T * N5).inv() * N5.T
+    Cr = sp.zeros(22, 15)
+    for i in range(5):
+        Cr[i, i] = Cr[15, i] = 1
+    for e in range(10):
+        Cr[5 + e, 5 + e] = Cr[16, 5 + e] = 1
+        Cr[17:22, 5 + e] = coef[:, e]
+
+    def jform(Mraw):                                                     # J^T X J from raw^T X raw (group-diagonal)
+        W = sp.Matrix(22, 22, lambda a, b: int(Mraw[a, b]) * sq[grp[a]] if grp[a] == grp[b] else 0)
+        return Cr.T * W * Cr, all(Mraw[a, b] == 0 for a in range(22) for b in range(22) if grp[a] != grp[b])
+    JJ, okJ = jform(raw.T @ raw)
+    JBJ, okB = jform(raw.T @ A @ raw)
+    JB2J, okB2 = jform((A @ raw).T @ (A @ raw))
+    lam_raw = np.array([28] * 15 + [8] * 7)
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    Pg = np.zeros((240, 240), dtype=np.int64)
+    for k, r in enumerate(R2):
+        Pg[idx[tuple(np.rint(gs @ r).astype(np.int64))], k] = 1         # (P_g f)(g alpha) = f(alpha)
+    JPJ, okP = jform(raw.T @ Pg @ raw)
+    R5 = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))
+    U15 = sp.diag(R5, compound2(R5).applyfunc(abs))
+    # the carrier duads e_i + e_j - 2u meet the sites; the twin duads do not
+    cdu = np.array([s[:, i] + s[:, j] for i, j in E]).T
+    tdu = np.array([tw[:, i] + tw[:, j] for i, j in E]).T
+    rk_tdu = sp.Matrix((tdu.T @ tdu).tolist()).rank()
+    rk_lin = sp.Matrix((np.hstack([s, tdu]).T @ np.hstack([s, tdu])).tolist()).rank()
+    # the model's own atom-to-root maps: the fibres over the atom weights (join_e8_carrier) and the cone's bonds
+    shadow = [tuple(int(5 * r[i] - r[:5].sum()) for i in range(5)) for r in R2]
+    e5 = np.eye(5, dtype=np.int64)
+    wts = [tuple(10 * e5[i] - 2) for i in range(5)] + [tuple(10 * (e5[i] + e5[j]) - 4) for i, j in E]
+    fib = [[n for n in range(240) if shadow[n] == w] for w in wts]
+    tr_fib = sum(Fraction(int(A[np.ix_(f, f)].sum()), len(f)) for f in fib)
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    cone = [idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in E]
+    # J15's lattice coupling BB* = J^T H^2 J - (J^T H J)^2 (Q = 1 - J J^T on l2(E8))
+    JHJ, okH = jform(raw.T @ (240 * I - A) @ raw)
+    JH2J, okH2 = jform(raw.T @ H2[:240, :240] @ raw)
+    BBJ = JH2J - JHJ ** 2
+    Dm = sp.Matrix(carrier.dirac(carrier.signless_incidence()))
+    sv, dv = sp.symbols("s d", positive=True)
+    # (3) the 45 readout channels on the 360 sites
+    z120 = np.zeros(120, dtype=np.int64)
+    cols, grp45 = [np.r_[np.ones(240, dtype=np.int64), z120]], [0]
+    sA = R10 @ assignment.SITE[:4].T // 10
+    sB = R10 @ TW[:4].T // 10
+    for i in range(4):
+        cols.append(np.r_[sA[:, i], z120])
+        grp45.append(1)
+    for i in range(4):
+        cols.append(np.r_[sB[:, i], z120])
+        grp45.append(1)
+    for i, j in E:
+        f = cp[:, i] * cp[:, j]
+        cols.append(np.r_[240 * f - f.sum(), z120])
+        grp45.append(2)
+    for i in range(4):
+        for j in range(4):
+            cols.append(np.r_[sA[:, i] * sB[:, j], z120])
+            grp45.append(2)
+    cyc = sp.Matrix.hstack(*sp.Matrix(carrier.signed_incidence()).nullspace())
+    for c in range(6):
+        f = np.zeros(360, dtype=np.int64)
+        for n, (i, j) in enumerate(E):
+            f[idx[tuple(e2[i] - e2[j])]], f[idx[tuple(e2[j] - e2[i])]] = int(cyc[n, c]), -int(cyc[n, c])
+        cols.append(f)
+        grp45.append(3)
+    sgn = lambda x: Permutation([int(v) + 2 for v in x[:5]]).signature()
+    for j in range(4):
+        cols.append(np.r_[np.zeros(240, dtype=np.int64), [sgn(x) * (int(x[j]) ** 3 - int(x[j])) // 6 for x in O]])
+        grp45.append(4)
+    Y = np.array(cols, dtype=np.int64).T.astype(object)
+    G45 = sp.Matrix((Y.T @ Y).tolist())
+    F1 = sp.Matrix((Y.T @ (H.astype(object) @ Y)).tolist())
+    F2 = sp.Matrix((Y.T @ (H2.astype(object) @ Y)).tolist())
+    blocks = [[i for i in range(45) if grp45[i] == k] for k in range(5)]
+    first = [b[0] for b in blocks]
+    a45 = [F1[i, i] / G45[i, i] for i in first]
+    m45 = [F2[i, i] / G45[i, i] for i in first]
+    b45 = [m - a ** 2 for m, a in zip(m45, a45)]
+    diag_ok = all((G45[i, j] == 0 and F1[i, j] == 0 and F2[i, j] == 0) or grp45[i] == grp45[j]
+                  for i in range(45) for j in range(45))
+    scal_ok = all(F1.extract(b, b) == a * G45.extract(b, b) and F2.extract(b, b) == m * G45.extract(b, b)
+                  for b, a, m in zip(blocks, a45, m45))
+    q10 = blocks[2][:10]
+    q16 = blocks[2][10:]
+    split_q = G45.extract(q10, q16).is_zero_matrix
+    nonsing = all(G45.extract(b, b).det() != 0 for b in blocks[:2] + [q10, q16] + blocks[3:])
+    BB = F2 - F1 * G45.inv() * F1
+    sizes = [len(b) for b in blocks]
+    # the ten against N43's edge readings 4 q_ij = (r_i - r_j)^2 - 2 in doubled coordinates (notes_0101)
+    E10 = np.array([[(int(r[i]) - int(r[j])) ** 2 - 2 for r in R2] for i, j in E], dtype=np.int64).T
+    QE = np.hstack([Y[:240, q10].astype(np.int64), E10])
+    span10 = sp.Matrix((QE.T @ QE).tolist()).rank() == 10
+    # N44's dark reader Sd(p eta) = ell QD(p^-1), replayed (notes_0204), against the four functions used here
+    eidx = {e: n for n, e in enumerate(E)}
+    Pm = sp.Matrix.hstack(*M.nullspace())
+    Lc = sp.Matrix.hstack(*sp.Matrix(carrier.signed_incidence()).nullspace())
+    Xm = lambda w: sp.Matrix(5, 5, lambda i, j: 0 if i == j else w[eidx[(min(i, j), max(i, j))]])
+    Lp = (Lc.T * Lc).inv() * Lc.T
+    Wm = sp.Matrix.hstack(*[Lp * sp.Matrix([(Xm(Pm[:, a]) * Xm(Pm[:, b]) - Xm(Pm[:, b]) * Xm(Pm[:, a]))[i, j]
+                                            for i, j in E]) for a, b in E])
+    w2 = lambda X_: sp.Matrix(10, 10, lambda r, c: X_[E[r][0], E[c][0]] * X_[E[r][1], E[c][1]]
+                              - X_[E[r][1], E[c][0]] * X_[E[r][0], E[c][1]])
+    G10i = w2(Pm.T * Pm).inv()
+    PiD = sp.eye(10) - G10i * Wm.T * (Wm * G10i * Wm.T).inv() * Wm
+    Pp = (Pm.T * Pm).inv() * Pm.T
+
+    def rhoP(q):
+        Mq = sp.zeros(10, 10)
+        for n, (a, b) in enumerate(E):
+            Mq[eidx[(min(q[a], q[b]), max(q[a], q[b]))], n] = 1
+        return Pp * Mq * Pm
+    D4 = PiD.extract([0, 1, 5, 7], list(range(10)))
+    JD = PiD * D4.T * (D4 * PiD * D4.T).inv()
+    QD = lambda q: D4 * w2(rhoP(q)) * JD
+    IQ = sp.eye(4) - QD([4, 3, 2, 1, 0])
+    ell = next(IQ.row(i) for i in range(4) if any(IQ.row(i)))
+    Sd = sp.Matrix([list(ell * QD([int(v) + 2 for v in x[:5]])) for x in O])
+    ours = sp.Matrix(Y[240:, blocks[4]].tolist())
+    return {
+        "the bath H = 240 - (sum of the 240 root translations) compressed to the 240 root sites is 240 I - B_R: a root "
+        "difference s - r is a root exactly when r.s = 1; B_R has the five sector projectors J/240, t/60, (2t^2 - 1)/48, "
+        "(5t^3 - 6t)/60 and the rest (t = r.s), orthogonal idempotents of ranks 1, 8, 35, 112, 84 with eigenvalues 56, "
+        "28, 8, -2, -4, so the compressed sector means are 184, 212, 232, 242, 244":
+            np.array_equal(Ab[:240, :240], A) and proj and ranks == [1, 8, 35, 112, 84]
+            and lam == [56, 28, 8, -2, -4] and [240 - l for l in lam] == [184, 212, 232, 242, 244],
+        "H_K = D^2 on the carrier's 15 atoms has spectrum 0^5 3^8 8^2, its spectral projectors P0, P3, P8 have traces 5, "
+        "8, 2, Tr H_K, Tr H_K^2, Tr H_K^3 = 40, 200, 1240, and its heat trace is 5 + 8 e^(-3t) + 2 e^(-8t)":
+            D2.eigenvals() == {0: 5, 3: 8, 8: 2} and [P[l].trace() for l in (0, 3, 8)] == [5, 8, 2]
+            and [(D2 ** n).trace() for n in (1, 2, 3)] == [40, 200, 1240]
+            and sp.simplify(heat - 5 - 8 * sp.exp(-3 * t) - 2 * sp.exp(-8 * t)) == 0
+            and sum(P.values(), sp.zeros(15, 15)) == sp.eye(15) and D2 == 3 * P[3] + 8 * P[8],
+        "a source-marked 15-atom isometry J15 into the root functions exists, built from the glue: vertex i goes to the "
+        "linear reading <site_i, alpha>/sqrt60 plus (|P_A4 alpha|^2 - 1)/sqrt240, edge ij to <nu_i + nu_j, alpha>/sqrt180 "
+        "(nu the twin's sites) plus T2/sqrt4800000 plus the quadratic reading alpha^T A(a) alpha/sqrt48 of a = P_kerM e_ij "
+        "(T2 = 100 sum_i <site_i, alpha><nu_i, alpha>); it is integer readings times these scales, the readings are root "
+        "graph eigenvectors (28 on the linear, 8 on the quadratic ones), and J^T J = I15, J^T B_R J = M = 28 P3 + 8(P0 + "
+        "P8) and J^T B_R^2 J = M^2, so |B_R J - J M|^2 = 0: B_R J = J M, and H_K = 10 I15 - (1/4) J^T B_R J - 8 P0; "
+        "the root graph gives P0 + P8 the one eigenvalue 8 while H_K is 0 and 8 there, so the mark P0 cannot be "
+        "dropped":
+            np.array_equal(A @ raw, raw * lam_raw) and okJ and okB and JJ == sp.eye(15)
+            and JBJ == 28 * P[3] + 8 * (P[0] + P[8]) and okB2 and JB2J == JBJ ** 2
+            and 10 * sp.eye(15) - JBJ / 4 - 8 * P[0] == D2
+            and JBJ * (P[0] + P[8]) == 8 * (P[0] + P[8]) and D2 * (P[0] + P[8]) != 8 * (P[0] + P[8])
+            and (P[0] + P[8]).trace() == 7,
+        "why the twin, and the tick: P3 has no vertex-edge block, so J15's vertex and edge linear parts must be "
+        "orthogonal; the vertex readings 10<site_i, alpha> have Gram 6000(I - J/5), the twin-duad readings are orthogonal "
+        "to them and span (rank 4) the rest of the 8-dimensional linear sector, while the carrier-duad readings (e_i + e_j "
+        "- 2u, the same Gram as the twin duads) meet them; so with the vertices on the carrier's sites the edges' linear "
+        "parts lie in the twin's span (the subspace is forced; the twin frame in it is our choice); with the twin "
+        "sites taken in the tick's order (0, 2, 3, 4, 1 in assignment's labels) J^T P_g J = U15, which with J^T J = I "
+        "means J15 U15 = P_g J15: the tick on the "
+        "atoms (vertex rotation, edge permutation) is carried to the tick g = r r' permuting the 240 roots":
+            sp.Matrix(5, 5, lambda i, j: int(s[:, i] @ s[:, j])) == 6000 * (sp.eye(5) - sp.ones(5, 5) / 5)
+            and not (s.T @ tdu).any() and (s.T @ cdu).any() and np.array_equal(cdu.T @ cdu, tdu.T @ tdu)
+            and rk_tdu == 4 and rk_lin == 8
+            and order == [0, 2, 3, 4, 1] and okP and JPJ == U15
+            and sorted(Pg.sum(0).tolist()) == [1] * 240 and sorted(Pg.sum(1).tolist()) == [1] * 240,
+        "the model's own atom-to-root maps are not J15: the fibre map (normalized indicators of the 10 mixed roots over "
+        "each vertex weight and the 5 over each edge weight) and the cone map (deltas at the six-site port's bonds "
+        "e_i + e_5, e_i - e_j) are isometries with Tr J^T B_R J = 70 and 0, while Tr(28 P3 + 8(P0 + P8)) = 280":
+            [len(f) for f in fib] == [10] * 5 + [5] * 10 and len({n for f in fib for n in f}) == 100
+            and tr_fib == 70 and len(set(cone)) == 15 and int(np.trace(A[np.ix_(cone, cone)])) == 0
+            and (28 * P[3] + 8 * (P[0] + P[8])).trace() == 280,
+        "J15's coupling to the rest of the lattice is J^T H Q H J = J^T H^2 J - (J^T H J)^2 = 967 P3 + 389 (P0 + P8), "
+        "with J^T H J = 212 P3 + 232 (P0 + P8): a function of D^2, so it commutes with D; spec H = [0, 256] (band.edge), so "
+        "spec C lies in [0, 256] (C = Q H Q), and by the spectral theorem with the scalar identities 1/(s + d) - 1/(s + "
+        "256) = (256 - d)/((s + d)(s + 256)) and 1/s - 1/(s + d) = d/(s(s + d)), both >= 0 for d in [0, 256], the "
+        "self-energy Sigma(s) = B (s + C)^-1 B* lies between BB*/(s + 256) and BB*/s for every s > 0 (the operator "
+        "inequality itself is not computed)":
+            okH and okH2 and JHJ == 212 * P[3] + 232 * (P[0] + P[8]) and BBJ == 967 * P[3] + 389 * (P[0] + P[8])
+            and BBJ * Dm == Dm * BBJ and all(band.edge().values())
+            and sp.simplify(1 / (sv + dv) - 1 / (sv + 256) - (256 - dv) / ((sv + dv) * (sv + 256))) == 0
+            and sp.simplify(1 / sv - 1 / (sv + dv) - dv / (sv * (sv + dv))) == 0,
+        "the 45 readout channels (mass 1; linear 8 = four carrier sites and four twin sites; quadratic 26 = ten centred "
+        "carrier quadratics (P_A4 alpha)_i (P_A4 alpha)_j minus their mean and sixteen mixed <site_i, alpha><nu_j, "
+        "alpha> (i, j < 4, nu the twin's sites); six odd A4 cycle currents; four dark currents on the 120-site orbit) are "
+        "independent with Gram blocks orthogonal between groups (and between the 10 and the 16), the ten spanning exactly "
+        "N43's ten edge readings (alpha_i - alpha_j)^2 - 1/2 (notes_0101); on each group Y^T H Y = a G and Y^T H^2 Y = "
+        "m2 G with a = 184, 212, 232, 242, 243 and m2 = 35973, 45911, 54213, 58691, 59132 (from the lattice), so in orthonormal "
+        "coordinates BB* = 2117 I1 + 967 I8 + 389 I26 + 127 I6 + 83 I4: rank 45, trace 21061, least eigenvalue 83 (N44's "
+        "native 21 alone: trace 7101)":
+            sizes == [1, 8, 26, 6, 4] and diag_ok and scal_ok and split_q and nonsing and span10
+            and a45 == [184, 212, 232, 242, 243] and m45 == [35973, 45911, 54213, 58691, 59132]
+            and b45 == [2117, 967, 389, 127, 83]
+            and all(BB.extract(b, c) == (bk * G45.extract(b, b) if b == c else sp.zeros(len(b), len(c)))
+                    for b, bk in zip(blocks, b45) for c in blocks)
+            and sum(n * b for n, b in zip(sizes, b45)) == 21061 and min(b45) == 83
+            and b45[0] + len(q10) * b45[2] + sizes[3] * b45[3] + sizes[4] * b45[4] == 7101,
+        "the dark channel is off the root shell: its 120 sites have norm 10, no root step joins them to the 240 roots "
+        "(the bath's root-orbit block is zero), its four functions sign(x)(x_j^3 - x_j)/6 (j < 4) span exactly N44's dark "
+        "reader Sd(p eta) = ell QD(p^-1) (replayed), and its mean 243 is no compressed root-sector mean (240 - 243 = -3 "
+        "is no root-graph eigenvalue)":
+            all(int(x @ x) == 10 for x in O) and len({tuple(x) for x in O}) == 120 and not Ab[:240, 240:].any()
+            and Sd.rank() == 4 and ours.rank() == 4 and sp.Matrix.hstack(Sd, ours).rank() == 4
+            and 240 - 243 not in lam,
+        "the five channel fingerprints 1 + b/a^2 are m2/m1^2 = 35973/33856, 45911/44944, 54213/53824, 58691/58564, "
+        "59132/59049: distinct, decreasing, all above 1":
+            [1 + b / a ** 2 for a, b in zip(a45, b45)] == [m / a ** 2 for a, m in zip(a45, m45)]
+            == [sp.Rational(35973, 33856), sp.Rational(45911, 44944), sp.Rational(54213, 53824),
+                sp.Rational(58691, 58564), sp.Rational(59132, 59049)]
+            and all(x > y > 1 for x, y in zip([m / a ** 2 for a, m in zip(a45, m45)],
+                                               [m / a ** 2 for a, m in zip(a45, m45)][1:])),
+        "the counts: 45 = 1 + 8 + 26 + 6 + 4 channels, of which N44's native 21 = 1 + 10 + 6 + 4 (the extension adds the "
+        "8 linear and 16 mixed), and 67 = 45 + 21 + 1 (the arithmetic only; the last 1 is not identified here)":
+            sum(sizes) == 45 and 1 + len(q10) + sizes[3] + sizes[4] == 21 and sizes[1] + len(q16) == 24
+            and sum(sizes) + 21 + 1 == 67,
+    }
+
+
+def master_response():
+    """The separate model's master model (2 Nov), part two: the response laws. The self-energy bounds, the
+    Schur-completed reference action and the Feshbach/Woodbury source law are general identities, replayed exactly on
+    a finite rational instance built from the model's operators (the root-site compression H_R = 240 I - B_R, the
+    carrier's atoms on the six-site port's 15 bond roots, K_g = H_K); one model time is the tick's principal skew
+    logarithm; the timed-observability bound is checked in its scalar parts."""
+    R2, G, A, Pint, sc, *_ = _master_shell()
+    I = np.eye(240, dtype=np.int64)
+    E = carrier.edges()
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    mu = [240 - l for l in lam]
+    proj = (all(np.array_equal(P @ P, s * P) for P, s in zip(Pint, sc))
+            and all(not (Pint[k] @ Pint[l]).any() for k in range(5) for l in range(k + 1, 5))
+            and np.array_equal(sum(P * (240 // s) for P, s in zip(Pint, sc)), 240 * I)
+            and all(np.array_equal(A @ P, l * P) for P, l in zip(Pint, lam)))
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    vis = [idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in E]
+    hid = [k for k in range(240) if k not in set(vis)]
+    HR = 240 * I - A
+    HRo = HR.astype(object)
+    mat = lambda a: sp.Matrix(a.tolist())
+
+    def res(w):                                                          # (w + H_R)^-1 = Gi/d from the sectors
+        cs = [sp.Rational(1, s) / (w + m) for s, m in zip(sc, mu)]
+        d = int(sp.ilcm(*[sp.fraction(c)[1] for c in cs]))
+        return sum((int(c * d) * P.astype(object) for c, P in zip(cs, Pint)), np.zeros((240, 240), dtype=object)), d
+
+    def scaled(Mx):                                                      # rational sympy matrix -> (integers, den)
+        d = int(sp.ilcm(*[sp.fraction(v)[1] for v in Mx]))
+        return np.array((Mx * d).tolist(), dtype=object), d
+
+    eps, z = 1, 1
+    Gi, d = res(eps)
+    Gvv = mat(Gi[np.ix_(vis, vis)]) / d
+    Ghv = mat(Gi[np.ix_(hid, vis)]) / d
+    Bo = HRo[np.ix_(vis, hid)]
+    B = mat(Bo)
+    Ce = (HR + eps * I)[np.ix_(hid, hid)].astype(object)
+    W = mat(Gi[np.ix_(hid, hid)] @ Bo.T) / d - Ghv * Gvv.inv() * (Ghv.T * B.T)    # (eps + C)^-1 B^T, block inverse
+    Wi, dw = scaled(W)
+    CW = np.array_equal(Ce @ Wi, dw * Bo.T)
+    X = B * W                                                            # Sigma(eps), the static self-energy
+    BBt = B * B.T
+    A15 = mat(HRo[np.ix_(vis, vis)])
+    Kg = sp.Matrix(carrier.D2())
+    V = Kg + X - A15 - eps * sp.eye(15)
+    # K = H_R + eps I + Y V Y^T on the 240 root sites
+    Kvv = A15 + eps * sp.eye(15) + V
+    Ko = (HR + eps * I).astype(object)
+    Vi, dv = scaled(V)
+    Kd = Ko * dv
+    Kd[np.ix_(vis, vis)] += Vi                                           # dv K, exact
+    q = sp.Matrix([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    h = sp.Matrix([1 if k % 7 == 0 else 0 for k in range(225)])
+    v = np.zeros(240, dtype=object)
+    v[vis], v[hid] = list(q), list(h)
+    lhs = sp.Rational(int(v @ Kd @ v), dv)
+    hw = h + W * q
+    hwi, dh = scaled(hw)
+    rhs = (q.T * Kg * q)[0] + sp.Rational(int(hwi.ravel() @ Ce @ hwi.ravel()), dh ** 2)
+    ker = Kg.nullspace()
+    lifts = []
+    for kv in ker:
+        full = sp.zeros(240, 1)
+        wq = -W * kv
+        for c, k in enumerate(vis):
+            full[k] = kv[c]
+        for c, k in enumerate(hid):
+            full[k] = wq[c]
+        fi, df = scaled(full)
+        lifts.append(not (Kd @ fi).any())
+    kern = len(ker) == 5 and all(lifts)
+    # the finite-rank update: Q K Y = Q H Y, and K^2 Y = H^2 Y + H Y (2 eps + V) + Y (V A15 + (eps + V)^2)
+    hidden_same = np.array_equal(Kd[hid, :], dv * Ko[hid, :])
+    Yd = np.zeros((240, 15), dtype=object)
+    for c, k in enumerate(vis):
+        Yd[k, c] = 1
+    Nn = eps * sp.eye(15) + V
+    KY = Kd @ Yd                                                         # dv K Y
+    K2Y = Kd @ KY                                                        # dv^2 K^2 Y
+    HY = HRo @ Yd
+    H2Y = HRo @ HY
+    C1, d1 = scaled(Nn + eps * sp.eye(15))
+    C2, d2 = scaled(V * A15 + Nn ** 2)
+    krylov = (np.array_equal(KY, dv * (HY + eps * Yd) + Yd @ Vi)
+              and np.array_equal(K2Y * d1 * d2, dv ** 2 * (H2Y * d1 * d2 + (HY @ C1) * d2 + (Yd @ C2) * d1)))
+    # the Feshbach/Woodbury source law at z = 1
+    Gz, dz = res(z + eps)
+    C0 = mat(Gz[:, vis]) / dz
+    S0 = C0.extract(vis, list(range(15)))
+    U = C0 - C0 * V * (sp.eye(15) + S0 * V).inv() * S0
+    Ui, du = scaled(U)
+    zK = Kd + z * dv * np.eye(240, dtype=np.int64).astype(object)       # dv (z + K)
+    woodbury = np.array_equal(zK @ Ui, dv * du * Yd)
+    SK = U.extract(vis, list(range(15)))
+    C0i, dc = scaled(C0)
+    rhs0, dr = scaled(sp.eye(15) + V * S0)
+    feshbach_cols = np.array_equal((zK @ C0i) * dr, dv * dc * (Yd @ rhs0))
+    w = sp.symbols("w")
+    S0w = sum((mat(P[np.ix_(vis, vis)]) / (s * (w + eps + m)) for P, s, m in zip(Pint, sc, mu)), sp.zeros(15, 15))
+    dS0 = sp.diff(S0w, w).subs(w, z)
+    CtC = C0.T * C0
+    Vp = V * (sp.eye(15) + S0 * V).inv()
+    tr_diff = -(Vp * CtC).trace()
+    tr_res = -(V * sp.Matrix((C0i.T @ Ui).tolist()) / (dc * du)).trace()     # -Tr(V C0^T G_K Y)
+    jac = ((sp.eye(15) + V * S0).inv() * V * dS0).trace()
+    # (7) one model time
+    Bf = spine.frame()[0]
+    Bm = sp.Matrix(8, 8, lambda i, j: sp.Rational(int(round(2 * Bf[i, j])), 2))
+    c_, cp_, r_, rp_, g_, w_ = spine.spine_clock()
+    std = lambda Mr: Bm * sp.Matrix(Mr.tolist()) * Bm.inv()
+    UA, UB, Ug = std(r_), std(rp_), std(g_)
+
+    def logpieces(U, c1, c2):
+        cosv = {1: c1, 2: c2}
+        n = U.rows
+        P0 = sum((U ** j for j in range(5)), sp.zeros(n, n)) / 5
+        Pm = {m: sum((2 * sp.cos(2 * sp.pi * m * j / 5) * U ** j for j in range(5)), sp.zeros(n, n)) / 5 for m in (1, 2)}
+        Z = lambda Mx: Mx.applyfunc(sp.expand).is_zero_matrix
+        S = U - U.T
+        ok = (Z(P0 + Pm[1] + Pm[2] - sp.eye(n)) and all(Z(Q * Q - Q) and Z(Q - Q.T) for Q in (P0, Pm[1], Pm[2]))
+              and Z(Pm[1] * Pm[2]) and Z(P0 * Pm[1]) and Z(U * P0 - P0) and U.T * U == sp.eye(n)
+              and all(Z((U + U.T) * Pm[m] - 2 * cosv[m] * Pm[m]) and Z(S * S * Pm[m] + 4 * (1 - cosv[m] ** 2) * Pm[m])
+                      and Z((S * Pm[m]).T + S * Pm[m]) for m in (1, 2)))
+        return ok, P0, Pm
+    okA, P0A, PmA = logpieces(UA, sp.cos(2 * sp.pi / 5), sp.cos(4 * sp.pi / 5))
+    okB, P0B, PmB = logpieces(UB, sp.cos(2 * sp.pi / 5), sp.cos(4 * sp.pi / 5))
+    commute = all((X1 * X2 - X2 * X1).applyfunc(sp.expand).is_zero_matrix
+                  for X1 in (P0A, PmA[1], PmA[2]) for X2 in (P0B, PmB[1], PmB[2]))
+    ranksA = [sp.simplify(Q.trace()) for Q in (P0A, PmA[1], PmA[2])]
+    ranksB = [sp.simplify(Q.trace()) for Q in (P0B, PmB[1], PmB[2])]
+    # the co-rotating field on the finite K = H_K, with the tick U15 on the atoms
+    R5 = sp.Matrix(5, 5, lambda a, b: int(a == (b + 1) % 5))
+    U15 = sp.diag(R5, compound2(R5).applyfunc(abs))
+    ok15, P015, Pm15 = logpieces(U15, sp.cos(2 * sp.pi / 5), sp.cos(4 * sp.pi / 5))
+    Pk = carrier.spectral_projectors()
+    t = sp.symbols("t", real=True)
+    a0, b0 = sp.eye(15)[:, 0], sp.eye(15)[:, 5]
+    Phi = Pk[0] * (a0 + t * b0) + sum((Pk[l] * (sp.cos(sp.sqrt(l) * t) * a0 + sp.sin(sp.sqrt(l) * t) / sp.sqrt(l) * b0)
+                                       for l in (3, 8)), sp.zeros(15, 1))
+    ode = (sp.diff(Phi, t, 2) + Kg * Phi).applyfunc(sp.simplify).is_zero_matrix
+    En = sp.simplify((sp.diff(Phi, t).T * sp.diff(Phi, t) + Phi.T * Kg * Phi)[0])
+    # (8) timed observability and the response scaling
+    x, dl, Mv = sp.symbols("x delta M", positive=True)
+    gc = sp.cos(x) - 1 + x ** 2 / 2
+    hc = x ** 4 / 24 - gc
+    f = sp.sqrt(83) * dl ** 2 / 2 - Mv ** 2 * dl ** 4 / 24
+    dstar = sp.sqrt(6 * sp.sqrt(83)) / Mv
+    f36 = f.subs({Mv: 256, dl: sp.Rational(1, 36)})
+    kap, tau, a_, u = sp.symbols("kappa tau a u", positive=True)
+    ms = sp.symbols("m0:5")
+    rho = tau / sp.sqrt(kap)
+    Ru = sum((-1) ** n * rho ** (2 * n) * ms[n] * u ** (2 * n + 1) / sp.factorial(2 * n + 1) for n in range(5))
+    return {
+        "a finite instance (general identity, model operators): H_R = 240 I - B_R has spectrum {184, 212, 232, 242, "
+        "244} (H_R - 184 I is a nonnegative combination of the five sector projectors), the atoms sit on the six-site "
+        "port's 15 bond roots e_i + e_5, e_i - e_j (Y = their deltas), and the 225 other roots are hidden, so C = H_R on "
+        "them has spectrum in [184, 244] inside [0, 256]; the exact self-energy Sigma(1) = B (1 + C)^-1 B^T (C W = B^T "
+        "checked) satisfies BB^T/257 <= Sigma(1) <= BB^T, and even BB^T/245 <= Sigma(1) <= BB^T/185":
+            proj and mu == [184, 212, 232, 242, 244] and len(set(vis)) == 15 and len(hid) == 225 and CW
+            and (X - BBt / 257).is_positive_semidefinite and (BBt - X).is_positive_semidefinite
+            and (X - BBt / 245).is_positive_semidefinite and (BBt / 185 - X).is_positive_semidefinite
+            and X == X.T,
+        "the Schur-completed reference action on it (eps = 1, K_g = H_K): with X = B C_eps^-1 B^T and V = K_g + X - A15 "
+        "- eps I, K = H_R + eps I + Y V Y^T has static Schur complement K_vv - B C_eps^-1 B^T = K_g, X = A15 + eps - "
+        "(Y^T (H_R + eps)^-1 Y)^-1, the quadratic form at (q, h) = (e_v0, every seventh hidden root) equals <q, K_g q> + "
+        "<h + W q, C_eps (h + W q)> = <q, K_g q> + |C_eps^(1/2) h + C_eps^(-1/2) B^T q|^2, and K kills (q, -W q) for q in "
+        "ker K_g (5 of them); with C_eps W = B^T and X symmetric this is K = L diag(K_g, C_eps) L^T, L = [[I, W^T], [0, "
+        "I]], so K >= 0 (K_g has eigenvalues 0, 3, 8, and C_eps >= 185 as a compression of H_R + eps, whose least sector "
+        "value is 185) with exactly the lifted kernel of K_g":
+            CW and X == X.T and Kvv - X == Kg and X == A15 + eps * sp.eye(15) - Gvv.inv() and lhs == rhs and kern
+            and all(l >= 0 for l in Kg.eigenvals()) and min(mu) + eps == 185,
+        "the finite-rank update is invisible to the hidden side: K and H_R + eps I agree on every hidden row, so Q K Y = "
+        "Q H Y and Y^T K Q K Y = Y^T H Q H Y = B B^T; and K Y = H Y + Y(eps + V), K^2 Y = H^2 Y + H Y (2 eps + V) + Y (V "
+        "A15 + (eps + V)^2) exactly, so K_n(K, Y) = K_n(H, Y) (checked for n <= 3)":
+            hidden_same and krylov,
+        "the Feshbach/Woodbury source law at z = 1: with S_0 = Y^T (z + H_R + eps)^-1 Y from the sector expansion and C0 "
+        "= (z + H_R + eps)^-1 Y, U = C0 - C0 V (I + S_0 V)^-1 S_0 solves (z + K) U = Y exactly, so S_K = Y^T U and S_K^-1 "
+        "- S_0^-1 = V; (z + K) C0 = Y (I + V S_0), so G_K = G_0 - C0 V [I + S_0 V]^-1 C0^T, a difference of rank 15; and "
+        "Tr[G_K - G_0] = -Tr(V C0^T U) (the resolvent identity G_K - G_0 = -G_K Y V Y^T G_0, G_K Y = U) = "
+        "-Tr(V [I + S_0 V]^-1 C0^T C0) = Tr((I + V S_0)^-1 V S_0'(z)) with S_0' = -C0^T C0 from the sector "
+        "expansion, which is d/dz log det(I + V S_0(z)) by Jacobi's formula":
+            woodbury and SK.inv() - S0.inv() == V and feshbach_cols and S0.det() != 0 and V.det() != 0
+            and (sp.eye(15) + S0 * V).det() != 0 and dS0 == -CtC and tr_res == tr_diff and tr_diff == jac,
+        "one model time: r and r' (spine_clock) are commuting orthogonal rotations of order 5 with r r' = g; for each, "
+        "P0 = (1/5) sum U^j and P_m = (1/5) sum 2 cos(2 pi m j/5) U^j (m = 1, 2) are orthogonal projectors of ranks 4, 2, 2 "
+        "summing to I, U P0 = P0, (U + U^T) P_m = 2 cos(2 pi m/5) P_m and (U - U^T)^2 P_m = -4 sin^2(2 pi m/5) P_m, so "
+        "Omega_U = sum_m (2 pi m/5) (U - U^T) P_m/(2 sin(2 pi m/5)) is a skew logarithm with angles 2 pi/5, 4 pi/5 in (0, "
+        "pi) (principal) and exp(Omega_U) = U; the pieces of r and r' commute, so Omega = Omega_A + Omega_A' gives S(t) "
+        "= exp(t Omega) with S(1) = r r' = g and S(5) = I, and P0(r) P0(r') = 0 (g fixes no vector)":
+            okA and okB and commute and UA * UB == UB * UA and UA * UB == Ug and UA ** 5 == sp.eye(8)
+            and UB ** 5 == sp.eye(8) and ranksA == [4, 2, 2] and ranksB == [4, 2, 2]
+            and (P0A * P0B).applyfunc(sp.expand).is_zero_matrix,
+        "the co-rotating field on a finite K: on the atoms K = H_K commutes with the tick U15, whose principal pieces "
+        "pass the same checks; Phi(t) = P0 (a + t b) + sum_(l = 3, 8) P_l (cos(sqrt(l) t) a + sin(sqrt(l) t) b/sqrt(l)) "
+        "with a = e_v0, b = e_01 solves Phi'' + K Phi = 0 with energy |Phi'|^2 + <Phi, K Phi> = 5 for all t, and since "
+        "S15(s) = exp(s Omega_15) is orthogonal and commutes with K (S15(1) = U15), S15(s) Phi(t) is again a solution "
+        "with the same energy":
+            ok15 and U15 * Kg == Kg * U15 and ode and En == 5
+            and all((Q * Kg - Kg * Q).applyfunc(sp.expand).is_zero_matrix for Q in (P015, Pm15[1], Pm15[2])),
+        "timed observability, in its scalar parts: g = cos x - 1 + x^2/2 vanishes at 0 with g', g'', and g'' = 1 - cos "
+        "x >= 0; h = x^4/24 - g vanishes at 0 with h', h'', h''', and h'''' = 1 - cos x >= 0; so 0 <= cos x - 1 + x^2/2 "
+        "<= x^4/24, which with the spectral theorem gives, for F(delta) = Y* cos(delta sqrt H) Q H Y (BB*)^(-1/2) (our "
+        "reading of the note's F; Y* Q = 0, Y* H Q H Y = BB* of least eigenvalue 83, 0 <= H <= M), sigma_min F(delta) "
+        ">= sqrt83 delta^2/2 - M^2 delta^4/24; this is largest at delta* = sqrt(6 sqrt83)/M with value 249/(2 M^2), and "
+        "at M = 256 the step delta = 1/36 gives sqrt83/2592 - 32/19683 > 0, a certified positive separation":
+            all(sp.diff(gc, x, k).subs(x, 0) == 0 for k in range(3)) and sp.simplify(sp.diff(gc, x, 2) - 1 + sp.cos(x)) == 0
+            and all(sp.diff(hc, x, k).subs(x, 0) == 0 for k in range(5))
+            and sp.simplify(sp.diff(hc, x, 4) - 1 + sp.cos(x)) == 0
+            and sp.simplify(sp.diff(f, dl).subs(dl, dstar)) == 0 and sp.simplify(f.subs(dl, dstar) - sp.Rational(249, 2) / Mv ** 2) == 0
+            and sp.simplify(sp.diff(f, dl, 2).subs(dl, dstar)) < 0
+            and sp.simplify(f36 - (sp.sqrt(83) / 2592 - sp.Rational(32, 19683))) == 0 and f36 > 0
+            and sp.Integer(83) * 19683 ** 2 > (32 * 2592) ** 2,
+        "the response scaling: rho = tau/sqrt(kappa) is fixed by (kappa, tau) -> (a^2 kappa, a tau), so the response "
+        "R(u) = sum_n (-1)^n rho^(2n) m_n u^(2n + 1)/(2n + 1)! (u = t/tau, n <= 4, any channel moments m_n) is unchanged":
+            sp.simplify(rho.subs({kap: a_ ** 2 * kap, tau: a_ * tau}, simultaneous=True) - rho) == 0
+            and sp.expand(Ru.subs({kap: a_ ** 2 * kap, tau: a_ * tau}, simultaneous=True) - Ru) == 0,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -27163,6 +28165,22 @@ LEDGER_ROWS = [
     ("the binding route (separate model, 1 Nov 14:25-15:13)", "four bath channels with Jacobi data and BB* = diag(2117, 389, 127, 83); a visible-only no-go; tau^2 = -a R1/R3 (derivatives at 0) per channel with falsifiers m_k/a^k; the finite clock exp(-ihH) of order 4320 on E8/2E8 and no rank-8 lattice automorphism of that order; generator rigidity on Lambda^2 ker M (rank 75, nullity 25) with commutants 25, 5, 2, 1; the quartic matched by g^2 = 19360/9; the 48-outcome quantum observer with six Sylow labels; the 52-outcome counts and a 52 x 43 integer encoder; and the claim that two 120-sets overlap in 96", "replayed (notes_1512, six statements, six joins), all exact, the encoder stored as data/n44_52_encoder.json; corrected: no two quadric 120-sets on F2^8 can share 96 points (their symmetric difference is the support of a quadratic form, of weight 0, 128 or 128 +- 2^(7 - h), never 48); the pair x.y, q(x) + q(y) shares 56", T, "23"),
     ("the K5 temporal join (hub, re-filed 1 Nov 17:25)", "free source q'' + 4q = 0 on two lanes: port history at frequencies 0 and 4, cubic at 2 and 6 (-15/2, -17/2, 55/2, -33/2); four samples at k pi/8 tight (diag(4, 2, 2), 2 I4), quarter periods alias; ranks 17, 19, 20 (minors 48128, 145539072; jets 6, 12, 17, 18, 19, 20, minor -74402280593927700480); F20 invariance; the shear and the energy alias -47/43 (U = -7328288/238521); the causal jet with G6 = 183 I + 52 J", "replayed (notes_1725), all exact; the three blind directions are exactly the constant SL(2) lane mixings (g alternating bilinear); the F20 invariance holds for all of S5; the causal jet is CONDITIONAL on known bath data and the selected Gram", T, "23"),
     ("the quintic dark port (hub, 30 Oct, re-filed 1 Nov 17:24)", "the two dark ports share their quartic image; the residual kills all fourth-order components, starts at a rank-4 quintic (witness det -6561 x 10^18), density E^8 and heat tau^-9 against E^7 and tau^-8; G_flat = (187/5) G_B4; m1, m2 on m2 - 455 m1 + 51410 = 0 at q = 192/187; K4 witness innovations 3945/4, 3912, 30162120/34969", "replayed (notes_1725) from the model's two dark ports: the vanishing below degree 4, the quartic rank 4 with kernel D_flat, the injective quintic and rank 8, the Gram ratio, the moment line and the innovations; the witness determinant is chart-dependent and not rerun; the infrared exponents are CONDITIONAL on the standard asymptotics and the normalization constants (1/83776, 1/2035756800000, 1/50490000) are recorded", T, "23"),
+    ("the seed closure, circle side (unification survey, 1 Nov)", "which of the circle's parts the seed builds: the 27-clock, vortex and coil from the singular 3-primary points; the labelling; the stage orientation; the decad's 4320-group; Weyl elements of order 36; the memory clock on the root lines", "replayed (principal.singular_primary, stage_frame, decad_stabilizer, no_order_36; memory_not_seed): c27, vortex and coil move into the derivation; the cofactor shrinks to the 2-part 2^5; three new obstructions", T, "25"),
+    ("the dark-coupling non-identification (hub, 30 Oct, re-filed 1 Nov 18:20)", "the family D(t), its moments on m2 - 455 m1 + 51410 = 0 and innovation 326 - (423/4)q - (2209/16)q^2; the K4 witness 2925/2784, 713955/649800; the record norm 106339974811663945919840 x 10^360", "replayed (notes_1931); the family's real extreme q = 192/187 at t = -1/alpha is the quartic-null port (new)", T, "23"),
+    ("the F20 Plucker global join (hub, 30 Oct, re-filed 1 Nov 18:20-19:16)", "native identities W G2^-1 W^T = (10/9) P, G2 = (9/10) W^T W + (3/5) C^T C; ranks 4, 7, 9, 10 at t = 1/2; degree-5 fibres, the quintic with three real roots, the three-context collision, four-context recovery, covariance completion, t = 1 blind source", "replayed (notes_1931) with the model's own mixers (the hub's are their negatives), all exact, the hub's quintic reproduced verbatim", T, "23"),
+    ("the 252-cell low-gain note (hub, 30 Oct, re-filed 1 Nov 19:17)", "Singleton 241, coefficient norms 3264 and 84144, Lagrange bound, contraction 0.0863674692, metric polynomial t(t - 12)(t^2 - 60t + 27)^2", "the norms and polynomial replayed (notes_1931); the bound arithmetic was already in notes_2256", T, "23"),
+    ("the canon snapshot GOLDEN_GRAM_AGNI_LAYERS (1 Nov 20:55)", "golden gram on every five-cycle, root spin 20 + 44, yugas, Agni = 5I - G, the rosebud of order 24, the action terms 20 + 12 + 2", "replayed (notes_2055), the auditor joinAllDots.ts read as data and not run; the 69120 phase lattice and the 260-fiber's fourfold ambiguity are not defined there and stay recorded", T, "23"),
+    ("the canon snapshots THREE_LAYER_UNIFICATION and FULL_JOIN (1 Nov 21:27, 21:37)", "Hankel law 125 d^2 f (8000, 2000, 54000, 16000, 4000, 0), root golden multiplicities 64/88/88, c'^6, cycle Laplacian identity, golden Petersen K, non-identifications", "replayed (notes_2137)", T, "23"),
+    ("the separate model's golden edge-time join (2 Nov, filed 1 Nov 21:19)", "near/far cycles, Q6/H6 with H6^2 = 5I, R on the fixed plane, v- = N + phi^3 F, reflector (5, 1) det -125, doubling D with D R D^-1 = -R, marked moments", "replayed (notes_2137); R is the model's own Curl on the rotor plane (new identification); the marked-moment contract is recorded", T, "23"),
+    ("the root-site compression (separate model's master model, 2 Nov)", "P_R H P_R = 240 I - B_R, B_R spectrum 56^1 28^8 8^35 (-2)^112 (-4)^84; compressed means 184, 212, 232, 242, 244", "replayed exactly on the lattice: a root difference is a root exactly at inner product 1; the five sector projectors are integer polynomials in the inner product (master_readout)", T, "23"),
+    ("the source-marked J15 (master model, 2 Nov)", "an isometry J15 of the 15 atoms into root sites with J15^T B_R J15 = 28 P3 + 8 (P0 + P8) and H_K = 10 I15 - (1/4) J15^T B_R J15 - 8 P0; the mark P0 is needed", "the repository has no such map: its own atom-to-root maps, the fibres over the atom weights and the six-site port's bond roots, give Tr J^T B_R J = 70 and 0 against 280. One was built from the glue (carrier sites for the vertices, twin duads for the edges, ker M quadratics for P0, two invariant quadratics for P8); it is a scaled map, integer readings times 1/(10 sqrt60), 1/(10 sqrt180), 1/sqrt2400000, 1/sqrt4800000 and 1/sqrt192, an exact isometry satisfying the identity (B_R J = J M checked directly), and it carries the tick when the twin is labelled in the tick's order; the vertex/edge orthogonality forced by P3 puts the edges' linear parts in the twin's span (the carrier duads fail; the twin frame within that span is a choice). The mark is needed: J^T B_R J is 8 on all of P0 + P8. The separate model's own J15 is not in the repository and may differ on the P8 block (two invariant quadratics, an O(2) choice): a selected reference", SR, "23"),
+    ("N44's 45 channels (master model, 2 Nov)", "21 native directions plus 8 root-linear and 16 mixed A4 x A4': multiplicities (1, 8, 26, 6, 4), means (184, 212, 232, 242, 243), BB* = 2117 I1 + 967 I8 + 389 I26 + 127 I6 + 83 I4, rank 45, trace 21061, least 83; the dark mean 243 is no root-graph eigenvalue", "replayed on the lattice (H and H^2 between the 360 sites of the root shell and the dark orbit): the blocks are mutually orthogonal and the means and second moments are scalar on each, so BB* is exactly as stated; the four dark functions span N44's dark reader (replayed); the ten centred carrier quadratics span exactly N43's ten edge readings (alpha_i - alpha_j)^2 - 1/2 (notes_0101), and BB* is basis-free on each span; the 8 linear (the whole linear sector) and 16 mixed (A4 x A4') directions are fixed as subspaces by the A4 + A4' marking", T, "23"),
+    ("the self-energy bounds (master model, 2 Nov)", "BB*/(s + 256) <= Sigma(s) <= BB*/s for s > 0, spec C in [0, 256]", "a general operator inequality; checked for J15 on the lattice with the band edge (BB* = 967 P3 + 389 (P0 + P8)) and exactly on the finite root-site instance at s = 1, where even BB^T/245 <= Sigma(1) <= BB^T/185", T, "23"),
+    ("the Schur-completed reference action (master model, 2 Nov)", "K = H + eps I + J V J* with V = K_g + X - A15 - eps I has static Schur complement K_g, quadratic form <q, K_g q> + |C_eps^(1/2) h + C_eps^(-1/2) B* q|^2 >= 0, and leaves Y* K Q K Y and the Krylov spaces unchanged", "general identities, replayed exactly on a finite rational instance from the model's operators (H_R = 240 I - B_R, the atoms on the six-site port's 15 bond roots, K_g = H_K, eps = 1); Krylov equality checked to K_3", T, "23"),
+    ("the Feshbach/Woodbury source law (master model, 2 Nov)", "S_K(z)^-1 - S_0(z)^-1 = V, G_K = G_0 - C V [I + S_0 V]^-1 C* (rank <= 15), Tr[G_K - G_0] = d/dz log det(I + V S_0(z))", "general identities, replayed exactly at z = 1 on the same finite instance (the difference has rank exactly 15); the last step is Jacobi's formula, with S_0' = -C^T C checked against the sector expansion", T, "23"),
+    ("one model time (master model, 2 Nov)", "U_A, U_A' commuting order-5 rotations with principal skew logs; Omega = Omega_A + Omega_A', exp(Omega) = U_A U_A' = the tick; co-rotating field Phi'' + K Phi = 0 with conserved energy", "exact for spine_clock's r, r' and g (the logarithms are polynomials in r, r'; angles 2 pi/5, 4 pi/5); the co-rotating field is read as the clock acting on solutions of Phi'' + K Phi = 0 for a finite K commuting with it (K = H_K, the tick U15 on the atoms): solution and energy conservation exact; the note's own definition of the co-rotating field is not in the repository", T, "23"),
+    ("timed observability and the response scaling (master model, 2 Nov)", "sigma_min F(delta) >= sqrt83 delta^2/2 - M^2 delta^4/24, optimum delta* = sqrt(6 sqrt83)/M with 249/(2 M^2), delta = 1/36 positive at M = 256; (kappa, tau) -> (a^2 kappa, a tau) keeps rho and the response; fingerprints 1 + b_j/a_j^2", "the optimum, its value and the positivity at M = 256, delta = 1/36 (sqrt83/2592 - 32/19683) are exact; the bound follows from 0 <= cos x - 1 + x^2/2 <= x^4/24 (checked) and the spectral theorem for our reading F(delta) = Y* cos(delta sqrt H) Q H Y (BB*)^(-1/2); the scaling and the five fingerprints (= m2/m1^2) are exact", gates.CONDITIONAL, "23"),
+    ("the master model's counts (2 Nov)", "45 = 1 + 8 + 26 + 6 + 4; 67 = 45 + 21 + 1", "the arithmetic holds and 45 and 21 are the channel counts built here (21 = 1 + 10 + 6 + 4 native); the final 1 of 67 is not identified", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -27431,7 +28449,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,

@@ -20,8 +20,8 @@ The derivation (DERIVATION) builds 55 dots from the seed, each by one THEOREM jo
     unique up to W(E8), which keeps the band;
   - the number level (30 Oct): the time clock and the observer clock are the principal circle's critical steps of
     order 5 and 4, and the grain is the subgroup the critical steps generate (order 60), inside the seam Z/120 that
-    the regular steps generate; the 27-clock, the coil, the miss set, the atlas and the vortex are the circle's
-    subgroup lattice over the canon's cofactor 36 and stay built from the circle;
+    the regular steps generate; the 27-clock is the seed's singular 3-primary points <rho/27> and gives the vortex and
+    the coil (1 Nov); the miss set and the atlas stay built from the circle's 2-part 2^5;
   - the lattice's harmonic analysis: the bath, the walks, the moments and measures, the half-periods with the Pauli
     algebra and GKSL, the Hodge 70, the momenta, the census and its torus, the root graph and its frame;
   - the carrier: the shadows of the mixed roots, then the triple, the readout, the binding, sound and light, the
@@ -35,8 +35,8 @@ is unique (30 Oct).
 
 The inputs (INPUTS) are ten: the circle Z/4320 with its stages and memory clock, the datum, the literal operands, the
 words, the integers of the 801 matrix, the Standard-Model split of the five sites, the time unit and the product
-geometry. Seven more dots are built from them (FROM_INPUTS): the 27-clock, the coil, the miss set, the atlas and the
-vortex from the circle's cofactor 36 (their orders 27, 540, 864 and quotient sizes 36, 9 do not divide 120), the root
+geometry. Four more dots are built from them (FROM_INPUTS): the miss set and the atlas from the circle's 2-part 2^5
+(the 27-clock, the vortex and the coil, once built from the cofactor 36, are derived since 1 Nov), the root
 assignment from the split and FLRW from the product geometry. Two of the inputs meet the seed exactly: the circle is
 the principal circle k -> k rho/4320, sampled at 4320 = 36 x 120 points, and mod 5 the 801 matrix is minus the day.
 The memory clock meets the circle through the circle's 24 maps onto it, all conjugate under its symmetry, so its
@@ -86,6 +86,8 @@ DERIVATION = {
     "icosians": ("E8", "icosians"), "penrose": ("A4", "penrose_planes"),
     "time": ("principal", "principal.critical_steps"), "observer": ("principal", "principal.critical_steps"),
     "grain": ("principal", "grain_steps"),
+    "c27": ("principal", "principal.singular_primary"), "vortex": ("c27", "principal.singular_primary"),
+    "coil": ("grain", "principal.singular_primary"),
 }
 
 # input: (what the canon supplies, the derived dot it meets, the check of that interface join)
@@ -112,11 +114,17 @@ WHY = {
     "circle": "psi(4320) = 38 > 8, so no lattice clock runs Z/4320 (layer 27); but it is the principal circle k -> k rho/4320 "
               "of the seed's momenta, whose step 144 is the Coxeter clock's lift, whose steps of order 2 to 5 are the "
               "band's critical vertices (the time and observer clocks) and whose regular steps generate the seam Z/120; "
-              "only the cofactor 36 = 4320/120 (the 27-clock, the coil, the miss set, the atlas and the vortex) and the "
+              "only the 2-part 32 = 2^5 of the sampling (the cofactor's 2^2 over the seam's 2^3; the miss set and the atlas need "
+              "it; the 3-part is the seed's singular 3-primary points <rho/27>, which build the 27-clock, the vortex and the coil, "
+              "and no single rule of the seed gives 2^5 3^3 5) and the orientation fixed by the "
               "stage indices are the canon's (layer 28, 30 Oct)",
-    "stages": "the canon's fifteen indices on the circle",
-    "memory": "order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27); 90 = 2 x 3^2 x 5 does not "
-              "divide 120, so like the 27-clock it needs the canon's 3^2",
+    "stages": "the count fifteen and the one-sided segment: every E8 class on the circle is closed under k -> -k, so the "
+              "stages fix an orientation; given it they are the fifteen least-band points of the half-circle, and their landing "
+              "pattern is the seed's (stage_frame, 1 Nov)",
+    "memory": "order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27); its group Z/90 = <rho/9> + "
+              "<rho/10> is the seed's, but its 120 states are the canon's: A^10 fixes 111 of them, and no Weyl action on the 120 "
+              "root lines can (a hyperplane holds at most 63), nor does the seed's own 90-set, the sun's hyperbolic D4 lines "
+              "(memory_not_seed, 1 Nov)",
     "datum": "the relative position of an A4 root and a 4-cycle of K5, chosen by the canon; its S5-orbit is regular (layer 23)",
     "literal": "the owner's matrices; they match the derived source up to an explicit isometry (layer 10)",
     "words": "the canon's words; isometric to the oriented duads of K6 only over Q(sqrt2) (layer 23)",
@@ -128,8 +136,7 @@ WHY = {
 
 # dot built from an input: (the dot it is built from, the check of the join that builds it)
 FROM_INPUTS = {
-    "c27": ("circle", "primary_split"), "atlas": ("circle", "atlas"), "coil": ("circle", "coil"),
-    "vortex": ("atlas", "vortex"), "miss": ("circle", "tick_miss"), "assignment": ("charges", "assignment.standard_model"),
+    "atlas": ("circle", "atlas"), "miss": ("circle", "tick_miss"), "assignment": ("charges", "assignment.standard_model"),
     "cosmology": ("gravity", "friedmann"),
 }
 
@@ -167,7 +174,7 @@ def derivation(held=None):
         f"the {len(dots.DOTS)} dots split into the seed, {len(DERIVATION)} derived dots, {len(INPUTS)} canon inputs and "
         f"{len(FROM_INPUTS)} dots built from the inputs, with no dot left over or counted twice":
             set.union(*names) == set(dots.DOTS) and sum(len(n) for n in names) == len(dots.DOTS)
-            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (55, 10, 7),
+            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (58, 10, 4),
         "every derived dot is built by a THEOREM join of layer 23 whose check holds, and its parents lead back to E8 "
         "without a cycle":
             all(j is not None and j[4] == T and held[j[5]] for j in edges.values())
@@ -181,12 +188,14 @@ def derivation(held=None):
             and faces["circle"][4] == T and faces["air801"][4] == T,
         "the time clock, the observer clock and the grain are the seed's, at depth 2: the principal circle's points of order "
         "5, of order 4, and the subgroup its critical steps generate, inside the seam <36> = Z/120 that the thirteen regular "
-        "steps generate (their gcd is 36); the five dots still built from the circle need its cofactor 36 = 4320/120, since "
-        "their orders 27, 540 and 864 and quotient sizes 36 and 9 do not divide 120":
+        "steps generate (their gcd is 36); the 27-clock is the seed's singular 3-primary points <rho/27> at depth 2, with "
+        "the vortex (its image on the sun's A8) and the coil (<rho/60> + <rho/27>) at depth 3; only the miss set (864 = "
+        "32 x 27 points) and the atlas (36 = (32/8)(27/3)) are still built from the circle, needing its 2-part 32 = 2^5":
             functools.reduce(gcd, [4320 // d for d in primes.regular()]) == 36 and len(S(36)) == 120
-            and all(120 % len(S(x)) == 0 for x in (864, 1080, 72)) and all(120 % n for n in (27, 540, 864, 36, 9))
-            and {d: depth[d] for d in ("time", "observer", "grain")} == {"time": 2, "observer": 2, "grain": 2}
-            and set(FROM_INPUTS) == {"c27", "coil", "miss", "atlas", "vortex", "assignment", "cosmology"},
+            and all(120 % len(S(x)) == 0 for x in (864, 1080, 72)) and all(120 % n for n in (864, 36))
+            and {d: depth[d] for d in ("time", "observer", "grain", "c27", "vortex", "coil")}
+            == {"time": 2, "observer": 2, "grain": 2, "c27": 2, "vortex": 3, "coil": 3}
+            and set(FROM_INPUTS) == {"miss", "atlas", "assignment", "cosmology"} and 36 == (32 // 8) * (27 // 3),
         f"the trunk E8 -> cyclotomic line -> clocks -> residue plane -> A4 + A4' -> A4 -> K5 edges -> zero modes -> "
         f"source has depth {depth['source']}, and no dot is deeper than {max(depth.values())}":
             roots["source"][1] == ["source", "kerM", "E", "A4", "L0", "residue", "clocks", "cyclo", "E8"]
@@ -292,7 +301,7 @@ def _theorem_distance(held):
 
 
 # the canon's inputs (and dots built from them) that sat three THEOREM joins from the seed, with their direct joins
-DEEP_INPUTS = {"air801": T, "coil": T, "datum": T, "memory": OB}
+DEEP_INPUTS = {"air801": T, "datum": T, "memory": OB}
 
 
 def deepest_dots(held=None):
@@ -314,9 +323,9 @@ def deepest_dots(held=None):
             len(deep) == 15 and max(depth.values()) == 8 and all(direct(d, T) for d in deep),
         "so every derived dot is within two THEOREM joins of the seed, and the deepest within one":
             max(dist[d] for d in DERIVATION) <= 2 and all(dist[d] == 1 for d in deep),
-        "the deepest of the canon's inputs meet the seed directly: AIR_801 (its lattice lifts in the tick's normalizer), "
-        "the coil (the band on its 540 points) and the datum (three roots of the A4) by THEOREM joins, and the memory "
-        "clock by an OBSTRUCTION (no Weyl clock of order 45)":
+        "the deepest of the canon's inputs meet the seed directly: AIR_801 (its lattice lifts in the tick's normalizer) "
+        "and the datum (three roots of the A4) by THEOREM joins, and the memory clock by an OBSTRUCTION (no Weyl clock of "
+        "order 45); the coil, once among them, is now derived (1 Nov)":
             all(direct(d, st) for d, st in DEEP_INPUTS.items()),
         "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within two "
         "THEOREM joins of the seed; the star at the seed (`star`) brings all but five of them within one":
@@ -517,10 +526,13 @@ def unified_page():
              "of order lcm(30, 24, 20) = 120, so the atlas ℤ/36 is the circle modulo the regular steps. The 27-clock ⟨160⟩ is "
              "the Sylow 3-subgroup, holding the sun's step ρ/3; the coil ⟨8⟩ is the grain plus the 27-clock; the miss set ⟨5⟩ "
              "is the kernel of the time coordinate; the vortex ℤ/9 is the 27-clock modulo the sun. The seed names the orders "
-             "5, 4, 60 and 120, so the time clock, the observer clock and the grain are derived; 27, 32, 540, 864 and the "
-             "quotient sizes 36 and 9 come from the canon's 4320 = 2⁵3³5 and do not divide 120, so the other five clocks "
-             "stay built from the circle's cofactor 36. |⟨36⟩| = 120 = |G120| only numerically: G120 has no element of "
-             "order 20 or 120.",
+             "5, 4, 60 and 120, so the time clock, the observer clock and the grain are derived. The 27-clock is the seed's "
+             "too (1 Nov): the principal points of 3-power order that fix a root are exactly ⟨ρ/27⟩, Galois-dual to E8 > A8 > "
+             "A3 + A2 + A1 > A1, so the 27-clock, the vortex (its image on the sun's A8) and the coil (⟨ρ/60⟩ + ⟨ρ/27⟩ = "
+             "⟨ρ/540⟩) are derived. Only the miss set (864 = 32 × 27) and the atlas still need the circle, through its 2-part "
+             "32 = 2⁵, which no rule of the seed names. |⟨36⟩| = 120 = |G120| only numerically: G120 has no element of order "
+             "20 or 120, the seed's group of order 4320 (the decad's stabilizer in C_W(s)) has exponent 120, and W(E8) has no "
+             "element of order 36.",
              "- **Unique up to W(E8).** The Weyl vector is the half-sum of the positive roots and is regular, so it determines its "
              "positive system. W(E8) permutes the positive systems transitively (cited) and keeps the band, so every conjugate "
              "circle k ↦ kwρ/4320 has the same band values, critical steps and types.", "",
