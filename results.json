@@ -57,44 +57,44 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.6,
+  "1-carrier": 0.57,
   "2-spectral": 0.01,
-  "3-spacetime": 9.95,
-  "4-native": 100.13,
+  "3-spacetime": 6.65,
+  "4-native": 86.35,
   "5-observer": 0.21,
-  "6-gravity": 4.85,
-  "7-cosmology": 1.47,
-  "8-frontier": 34.57,
-  "9-joins": 8.06,
-  "10-literal": 34.86,
-  "11-glue": 0.14,
+  "6-gravity": 4.71,
+  "7-cosmology": 1.37,
+  "8-frontier": 34.28,
+  "9-joins": 7.5,
+  "10-literal": 32.5,
+  "11-glue": 0.17,
   "12-binding": 0.03,
-  "13-gates": 0.1,
-  "14-recurrence": 36.41,
-  "15-court": 1.33,
-  "16-handover": 0.91,
-  "17-waves": 0.48,
-  "18-snapshot": 0.97,
-  "19-spine": 3.29,
-  "20-canon": 5.5,
-  "21-ledger": 33.66,
-  "22-counts": 19.27,
-  "23-dots": 596.76,
-  "24-assignment": 3.22,
-  "25-unify": 4.06,
-  "26-primes": 3.67,
-  "27-places": 1.77,
-  "28-principal": 2.0
+  "13-gates": 0.02,
+  "14-recurrence": 35.27,
+  "15-court": 1.42,
+  "16-handover": 0.92,
+  "17-waves": 0.51,
+  "18-snapshot": 0.69,
+  "19-spine": 3.71,
+  "20-canon": 5.48,
+  "21-ledger": 32.92,
+  "22-counts": 18.62,
+  "23-dots": 514.2,
+  "24-assignment": 3.2,
+  "25-unify": 4.09,
+  "26-primes": 3.47,
+  "27-places": 1.61,
+  "28-principal": 2.04
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 1004,
-   "total": 1004
+   "passed": 1007,
+   "total": 1007
   },
   "OBSTRUCTION": {
-   "passed": 78,
-   "total": 78
+   "passed": 80,
+   "total": 80
   },
   "REMOVED": {
    "passed": 2,
@@ -113,8 +113,8 @@
    "total": 24
   },
   "CONDITIONAL": {
-   "passed": 35,
-   "total": 35
+   "passed": 36,
+   "total": 36
   },
   "REPORTED": {
    "passed": 155,
@@ -12585,6 +12585,96 @@
   },
   {
    "layer": "23-dots",
+   "name": "bath -> calibration: if a bath channel's measured response is R(t) = gamma tau k(t / tau), k the retarded kernel's moment series, then tau^2 = -a R'(0)/R'''(0) in each of the four channels (mass 184, quadratic 232, wedge 242, dark 243): three cross-channel constraints on one shared tau, with gain- and scale-free falsifiers m2/a^2, m3/a^3, m4/a^4 (I2 = 35973/33856, 54213/53824, 58691/58564, 59132/59049); how TIME_BIND would be read off a response (1 Nov)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "the four native bath channels (mass, the ten edge quadratics, the six wedge currents, the four dark; moments replayed in N42 and notes_0204) have Jacobi data (a0, b1^2, a1, b2^2) = (184, 2117, 346576/2117, 14357066531/4481689), (232, 389, 72928/389, 219823907/151321), (242, 127, 25998/127, 15930273/16129), (243, 83, 17881/83, 4115587/6889), every 3 x 3 Hankel positive, so no channel is a two-point measure; the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21, trace 7101 and least eigenvalue 83, so every readout direction v has a hidden state QHJv that reads zero but moves the readout at rate BB* v: no autonomous law on the 21 readouts alone (the separate model's binding route, 1 Nov)": true,
+    "how TIME_BIND would be read off a measured response: if a channel's response is R(t) = gamma tau k(t / tau) with k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)! (the retarded kernel J*(sin(u sqrt H)/sqrt H)J), then tau^2 = -a R'(0) / R'''(0) in every channel (three cross-channel constraints for one shared tau), and the gain- and scale-free invariants R5 R1 / R3^2 = m2/a^2, R7 R1^2 / R3^3 = m3/a^3, R9 R1^3 / R3^4 = m4/a^4 are falsifiers; the four I2 are 35973/33856, 54213/53824, 58691/58564, 59132/59049, all distinct and above 1 (CONDITIONAL on a measured, calibrated response; the identity is exact)": true,
+    "the finite clock aligns with the periodic generator but with no lattice: 931, 241, 541 have residues 3, 1, 5 mod 8 (no divisor of 4320 below 8 separates them), 3, 17, 29 mod 32 and 13, 25, 1 mod 27; j = (2241 (j mod 160) + 2080 (j mod 27)) mod 4320 inverts the CRT; j -> 98^(j mod 5) in F_241 has kernel the miss set <5> (864 points) and sends all three to 98; at h = 2 pi/(32 x 4320) the 2-torsion generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 give exp(-ihH) order exactly 4320, yet no integral automorphism of a rank-8 lattice has an order divisible by 27 or 32 (phi(27) = 18, phi(32) = 16 > 8), so the clock is no lattice symmetry": true,
+    "DYN_BIND's source-level freedom (generator rigidity): a linear generator L on Lambda^2 ker M (100 coefficients) keeping every simple source simple (x ^ Lx = 0) is induced, L(a ^ b) = Aa ^ b + a ^ Ab with A in gl(5): the constraints from the 105 simple sources e ^ e' (e, e' among the e_i and e_i + e_j) have rank 75 and kill all 25 induced generators, which are independent; the symmetric generators on ker M have commutants of dimension 25, 5, 2, 1 under no symmetry, the five-cycle, F20 and S5, and metric-skew ones 10, 2, 0, 0; an F20-equivariant G-self-adjoint stiffness is k0 P0 + k1 (I - P0) (P0 the C5 average, rank 1, G-orthogonal): two free numbers under F20 and one, a scale, under S5": true,
+    "the quartic is a choice: V_a(r) = a r^2 - (40/9) r^4 falls without bound for every a, and coupling the source amplitude r^2 to a wedge bath mode of core 242 by g, V = a r^2 + 121 y^2 - g r^2 y, gives on eliminating y the effective a r^2 - (g^2/484) r^4, which matches 40/9 only by choosing g^2 = 19360/9: no symmetry fixes it": true,
+    "the observers: Herm(C^6) of the six currents [3,1,1] is Sym^2 + Lambda^2 = [5] + [1^5] + [4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], so full traceless tomography (35) needs one more [2,2,1] than the centred 42 outcomes give; the six Sylow-five subgroups ([5] + [2,2,1]) supply it, the 48 outcomes are 5[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], leaving 4[5] + 2[4,1] (12); the 52 outcomes have fixed counts 52, 12, 8, 7, 3, 2 on 1, 10, 15, 20, 20, 54 permutations, d_N = 1, 5, 54, 1445, and the separate model's 52 x 43 integer encoder (data/n44_52_encoder.json) has rank 43 mod two primes, hence over Q, with its 42 signal columns summing to zero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "readout -> bath: the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21 (trace 7101, least 83), so each readout direction has a hidden state that reads zero but moves the readout: no autonomous law on the 21 readouts alone, and the four channels' Hankel minors are all positive (no two-point channel) (1 Nov)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the four native bath channels (mass, the ten edge quadratics, the six wedge currents, the four dark; moments replayed in N42 and notes_0204) have Jacobi data (a0, b1^2, a1, b2^2) = (184, 2117, 346576/2117, 14357066531/4481689), (232, 389, 72928/389, 219823907/151321), (242, 127, 25998/127, 15930273/16129), (243, 83, 17881/83, 4115587/6889), every 3 x 3 Hankel positive, so no channel is a two-point measure; the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21, trace 7101 and least eigenvalue 83, so every readout direction v has a hidden state QHJv that reads zero but moves the readout at rate BB* v: no autonomous law on the 21 readouts alone (the separate model's binding route, 1 Nov)": true,
+    "how TIME_BIND would be read off a measured response: if a channel's response is R(t) = gamma tau k(t / tau) with k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)! (the retarded kernel J*(sin(u sqrt H)/sqrt H)J), then tau^2 = -a R'(0) / R'''(0) in every channel (three cross-channel constraints for one shared tau), and the gain- and scale-free invariants R5 R1 / R3^2 = m2/a^2, R7 R1^2 / R3^3 = m3/a^3, R9 R1^3 / R3^4 = m4/a^4 are falsifiers; the four I2 are 35973/33856, 54213/53824, 58691/58564, 59132/59049, all distinct and above 1 (CONDITIONAL on a measured, calibrated response; the identity is exact)": true,
+    "the finite clock aligns with the periodic generator but with no lattice: 931, 241, 541 have residues 3, 1, 5 mod 8 (no divisor of 4320 below 8 separates them), 3, 17, 29 mod 32 and 13, 25, 1 mod 27; j = (2241 (j mod 160) + 2080 (j mod 27)) mod 4320 inverts the CRT; j -> 98^(j mod 5) in F_241 has kernel the miss set <5> (864 points) and sends all three to 98; at h = 2 pi/(32 x 4320) the 2-torsion generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 give exp(-ihH) order exactly 4320, yet no integral automorphism of a rank-8 lattice has an order divisible by 27 or 32 (phi(27) = 18, phi(32) = 16 > 8), so the clock is no lattice symmetry": true,
+    "DYN_BIND's source-level freedom (generator rigidity): a linear generator L on Lambda^2 ker M (100 coefficients) keeping every simple source simple (x ^ Lx = 0) is induced, L(a ^ b) = Aa ^ b + a ^ Ab with A in gl(5): the constraints from the 105 simple sources e ^ e' (e, e' among the e_i and e_i + e_j) have rank 75 and kill all 25 induced generators, which are independent; the symmetric generators on ker M have commutants of dimension 25, 5, 2, 1 under no symmetry, the five-cycle, F20 and S5, and metric-skew ones 10, 2, 0, 0; an F20-equivariant G-self-adjoint stiffness is k0 P0 + k1 (I - P0) (P0 the C5 average, rank 1, G-orthogonal): two free numbers under F20 and one, a scale, under S5": true,
+    "the quartic is a choice: V_a(r) = a r^2 - (40/9) r^4 falls without bound for every a, and coupling the source amplitude r^2 to a wedge bath mode of core 242 by g, V = a r^2 + 121 y^2 - g r^2 y, gives on eliminating y the effective a r^2 - (g^2/484) r^4, which matches 40/9 only by choosing g^2 = 19360/9: no symmetry fixes it": true,
+    "the observers: Herm(C^6) of the six currents [3,1,1] is Sym^2 + Lambda^2 = [5] + [1^5] + [4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], so full traceless tomography (35) needs one more [2,2,1] than the centred 42 outcomes give; the six Sylow-five subgroups ([5] + [2,2,1]) supply it, the 48 outcomes are 5[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], leaving 4[5] + 2[4,1] (12); the 52 outcomes have fixed counts 52, 12, 8, 7, 3, 2 on 1, 10, 15, 20, 20, 54 permutations, d_N = 1, 5, 54, 1445, and the separate model's 52 x 43 integer encoder (data/n44_52_encoder.json) has rank 43 mod two primes, hence over Q, with its 42 signal columns summing to zero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "circle -> half-periods: on E8/2E8 the generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 make exp(-ihH) at h = 2 pi/(32 x 4320) of order exactly 4320, aligned with the circle (CRT j = 2241 (j mod 160) + 2080 (j mod 27)), but no integral automorphism of a rank-8 lattice has order divisible by 27 or 32: the clock aligns with the periodic generator, not with any lattice symmetry; steps 931, 241, 541 are 3, 1, 5 mod 8 (1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the four native bath channels (mass, the ten edge quadratics, the six wedge currents, the four dark; moments replayed in N42 and notes_0204) have Jacobi data (a0, b1^2, a1, b2^2) = (184, 2117, 346576/2117, 14357066531/4481689), (232, 389, 72928/389, 219823907/151321), (242, 127, 25998/127, 15930273/16129), (243, 83, 17881/83, 4115587/6889), every 3 x 3 Hankel positive, so no channel is a two-point measure; the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21, trace 7101 and least eigenvalue 83, so every readout direction v has a hidden state QHJv that reads zero but moves the readout at rate BB* v: no autonomous law on the 21 readouts alone (the separate model's binding route, 1 Nov)": true,
+    "how TIME_BIND would be read off a measured response: if a channel's response is R(t) = gamma tau k(t / tau) with k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)! (the retarded kernel J*(sin(u sqrt H)/sqrt H)J), then tau^2 = -a R'(0) / R'''(0) in every channel (three cross-channel constraints for one shared tau), and the gain- and scale-free invariants R5 R1 / R3^2 = m2/a^2, R7 R1^2 / R3^3 = m3/a^3, R9 R1^3 / R3^4 = m4/a^4 are falsifiers; the four I2 are 35973/33856, 54213/53824, 58691/58564, 59132/59049, all distinct and above 1 (CONDITIONAL on a measured, calibrated response; the identity is exact)": true,
+    "the finite clock aligns with the periodic generator but with no lattice: 931, 241, 541 have residues 3, 1, 5 mod 8 (no divisor of 4320 below 8 separates them), 3, 17, 29 mod 32 and 13, 25, 1 mod 27; j = (2241 (j mod 160) + 2080 (j mod 27)) mod 4320 inverts the CRT; j -> 98^(j mod 5) in F_241 has kernel the miss set <5> (864 points) and sends all three to 98; at h = 2 pi/(32 x 4320) the 2-torsion generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 give exp(-ihH) order exactly 4320, yet no integral automorphism of a rank-8 lattice has an order divisible by 27 or 32 (phi(27) = 18, phi(32) = 16 > 8), so the clock is no lattice symmetry": true,
+    "DYN_BIND's source-level freedom (generator rigidity): a linear generator L on Lambda^2 ker M (100 coefficients) keeping every simple source simple (x ^ Lx = 0) is induced, L(a ^ b) = Aa ^ b + a ^ Ab with A in gl(5): the constraints from the 105 simple sources e ^ e' (e, e' among the e_i and e_i + e_j) have rank 75 and kill all 25 induced generators, which are independent; the symmetric generators on ker M have commutants of dimension 25, 5, 2, 1 under no symmetry, the five-cycle, F20 and S5, and metric-skew ones 10, 2, 0, 0; an F20-equivariant G-self-adjoint stiffness is k0 P0 + k1 (I - P0) (P0 the C5 average, rank 1, G-orthogonal): two free numbers under F20 and one, a scale, under S5": true,
+    "the quartic is a choice: V_a(r) = a r^2 - (40/9) r^4 falls without bound for every a, and coupling the source amplitude r^2 to a wedge bath mode of core 242 by g, V = a r^2 + 121 y^2 - g r^2 y, gives on eliminating y the effective a r^2 - (g^2/484) r^4, which matches 40/9 only by choosing g^2 = 19360/9: no symmetry fixes it": true,
+    "the observers: Herm(C^6) of the six currents [3,1,1] is Sym^2 + Lambda^2 = [5] + [1^5] + [4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], so full traceless tomography (35) needs one more [2,2,1] than the centred 42 outcomes give; the six Sylow-five subgroups ([5] + [2,2,1]) supply it, the 48 outcomes are 5[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], leaving 4[5] + 2[4,1] (12); the 52 outcomes have fixed counts 52, 12, 8, 7, 3, 2 on 1, 10, 15, 20, 20, 54 permutations, d_N = 1, 5, 54, 1445, and the separate model's 52 x 43 integer encoder (data/n44_52_encoder.json) has rank 43 mod two primes, hence over Q, with its 42 signal columns summing to zero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> binding: a generator on Lambda^2 ker M keeping every simple source simple is induced from gl(5) (constraint rank 75, nullity 25); the symmetric generators on ker M have commutants 25, 5, 2, 1 under no symmetry, C5, F20, S5 (metric-skew 10, 2, 0, 0), so the source stiffness has two free numbers under F20 and one, a scale, under S5: DYN_BIND's source-level freedom (1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the four native bath channels (mass, the ten edge quadratics, the six wedge currents, the four dark; moments replayed in N42 and notes_0204) have Jacobi data (a0, b1^2, a1, b2^2) = (184, 2117, 346576/2117, 14357066531/4481689), (232, 389, 72928/389, 219823907/151321), (242, 127, 25998/127, 15930273/16129), (243, 83, 17881/83, 4115587/6889), every 3 x 3 Hankel positive, so no channel is a two-point measure; the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21, trace 7101 and least eigenvalue 83, so every readout direction v has a hidden state QHJv that reads zero but moves the readout at rate BB* v: no autonomous law on the 21 readouts alone (the separate model's binding route, 1 Nov)": true,
+    "how TIME_BIND would be read off a measured response: if a channel's response is R(t) = gamma tau k(t / tau) with k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)! (the retarded kernel J*(sin(u sqrt H)/sqrt H)J), then tau^2 = -a R'(0) / R'''(0) in every channel (three cross-channel constraints for one shared tau), and the gain- and scale-free invariants R5 R1 / R3^2 = m2/a^2, R7 R1^2 / R3^3 = m3/a^3, R9 R1^3 / R3^4 = m4/a^4 are falsifiers; the four I2 are 35973/33856, 54213/53824, 58691/58564, 59132/59049, all distinct and above 1 (CONDITIONAL on a measured, calibrated response; the identity is exact)": true,
+    "the finite clock aligns with the periodic generator but with no lattice: 931, 241, 541 have residues 3, 1, 5 mod 8 (no divisor of 4320 below 8 separates them), 3, 17, 29 mod 32 and 13, 25, 1 mod 27; j = (2241 (j mod 160) + 2080 (j mod 27)) mod 4320 inverts the CRT; j -> 98^(j mod 5) in F_241 has kernel the miss set <5> (864 points) and sends all three to 98; at h = 2 pi/(32 x 4320) the 2-torsion generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 give exp(-ihH) order exactly 4320, yet no integral automorphism of a rank-8 lattice has an order divisible by 27 or 32 (phi(27) = 18, phi(32) = 16 > 8), so the clock is no lattice symmetry": true,
+    "DYN_BIND's source-level freedom (generator rigidity): a linear generator L on Lambda^2 ker M (100 coefficients) keeping every simple source simple (x ^ Lx = 0) is induced, L(a ^ b) = Aa ^ b + a ^ Ab with A in gl(5): the constraints from the 105 simple sources e ^ e' (e, e' among the e_i and e_i + e_j) have rank 75 and kill all 25 induced generators, which are independent; the symmetric generators on ker M have commutants of dimension 25, 5, 2, 1 under no symmetry, the five-cycle, F20 and S5, and metric-skew ones 10, 2, 0, 0; an F20-equivariant G-self-adjoint stiffness is k0 P0 + k1 (I - P0) (P0 the C5 average, rank 1, G-orthogonal): two free numbers under F20 and one, a scale, under S5": true,
+    "the quartic is a choice: V_a(r) = a r^2 - (40/9) r^4 falls without bound for every a, and coupling the source amplitude r^2 to a wedge bath mode of core 242 by g, V = a r^2 + 121 y^2 - g r^2 y, gives on eliminating y the effective a r^2 - (g^2/484) r^4, which matches 40/9 only by choosing g^2 = 19360/9: no symmetry fixes it": true,
+    "the observers: Herm(C^6) of the six currents [3,1,1] is Sym^2 + Lambda^2 = [5] + [1^5] + [4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], so full traceless tomography (35) needs one more [2,2,1] than the centred 42 outcomes give; the six Sylow-five subgroups ([5] + [2,2,1]) supply it, the 48 outcomes are 5[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], leaving 4[5] + 2[4,1] (12); the 52 outcomes have fixed counts 52, 12, 8, 7, 3, 2 on 1, 10, 15, 20, 20, 54 permutations, d_N = 1, 5, 54, 1445, and the separate model's 52 x 43 integer encoder (data/n44_52_encoder.json) has rank 43 mod two primes, hence over Q, with its 42 signal columns summing to zero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> binding: a r^2 - (40/9) r^4 falls without bound for every a, and eliminating a wedge bath mode (core 242) coupled by g gives a r^2 - (g^2/484) r^4: the coefficient 40/9 is matched only by choosing g^2 = 19360/9, so no symmetry fixes the quartic or its zero r^2 = 9a/40 (1 Nov)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the four native bath channels (mass, the ten edge quadratics, the six wedge currents, the four dark; moments replayed in N42 and notes_0204) have Jacobi data (a0, b1^2, a1, b2^2) = (184, 2117, 346576/2117, 14357066531/4481689), (232, 389, 72928/389, 219823907/151321), (242, 127, 25998/127, 15930273/16129), (243, 83, 17881/83, 4115587/6889), every 3 x 3 Hankel positive, so no channel is a two-point measure; the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21, trace 7101 and least eigenvalue 83, so every readout direction v has a hidden state QHJv that reads zero but moves the readout at rate BB* v: no autonomous law on the 21 readouts alone (the separate model's binding route, 1 Nov)": true,
+    "how TIME_BIND would be read off a measured response: if a channel's response is R(t) = gamma tau k(t / tau) with k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)! (the retarded kernel J*(sin(u sqrt H)/sqrt H)J), then tau^2 = -a R'(0) / R'''(0) in every channel (three cross-channel constraints for one shared tau), and the gain- and scale-free invariants R5 R1 / R3^2 = m2/a^2, R7 R1^2 / R3^3 = m3/a^3, R9 R1^3 / R3^4 = m4/a^4 are falsifiers; the four I2 are 35973/33856, 54213/53824, 58691/58564, 59132/59049, all distinct and above 1 (CONDITIONAL on a measured, calibrated response; the identity is exact)": true,
+    "the finite clock aligns with the periodic generator but with no lattice: 931, 241, 541 have residues 3, 1, 5 mod 8 (no divisor of 4320 below 8 separates them), 3, 17, 29 mod 32 and 13, 25, 1 mod 27; j = (2241 (j mod 160) + 2080 (j mod 27)) mod 4320 inverts the CRT; j -> 98^(j mod 5) in F_241 has kernel the miss set <5> (864 points) and sends all three to 98; at h = 2 pi/(32 x 4320) the 2-torsion generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 give exp(-ihH) order exactly 4320, yet no integral automorphism of a rank-8 lattice has an order divisible by 27 or 32 (phi(27) = 18, phi(32) = 16 > 8), so the clock is no lattice symmetry": true,
+    "DYN_BIND's source-level freedom (generator rigidity): a linear generator L on Lambda^2 ker M (100 coefficients) keeping every simple source simple (x ^ Lx = 0) is induced, L(a ^ b) = Aa ^ b + a ^ Ab with A in gl(5): the constraints from the 105 simple sources e ^ e' (e, e' among the e_i and e_i + e_j) have rank 75 and kill all 25 induced generators, which are independent; the symmetric generators on ker M have commutants of dimension 25, 5, 2, 1 under no symmetry, the five-cycle, F20 and S5, and metric-skew ones 10, 2, 0, 0; an F20-equivariant G-self-adjoint stiffness is k0 P0 + k1 (I - P0) (P0 the C5 average, rank 1, G-orthogonal): two free numbers under F20 and one, a scale, under S5": true,
+    "the quartic is a choice: V_a(r) = a r^2 - (40/9) r^4 falls without bound for every a, and coupling the source amplitude r^2 to a wedge bath mode of core 242 by g, V = a r^2 + 121 y^2 - g r^2 y, gives on eliminating y the effective a r^2 - (g^2/484) r^4, which matches 40/9 only by choosing g^2 = 19360/9: no symmetry fixes it": true,
+    "the observers: Herm(C^6) of the six currents [3,1,1] is Sym^2 + Lambda^2 = [5] + [1^5] + [4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], so full traceless tomography (35) needs one more [2,2,1] than the centred 42 outcomes give; the six Sylow-five subgroups ([5] + [2,2,1]) supply it, the 48 outcomes are 5[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], leaving 4[5] + 2[4,1] (12); the 52 outcomes have fixed counts 52, 12, 8, 7, 3, 2 on 1, 10, 15, 20, 20, 54 permutations, d_N = 1, 5, 54, 1445, and the separate model's 52 x 43 integer encoder (data/n44_52_encoder.json) has rank 43 mod two primes, hence over Q, with its 42 signal columns summing to zero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "PGL(2,5) -> readout: Hermitian operators on the six currents are Sym^2 + Lambda^2 of [3,1,1], one [2,2,1] more than the 42 outcomes hold; the six Sylow-five subgroups, the exceptional action's six points ([5] + [2,2,1]), supply it, making 48 outcomes with 4[5] + 2[4,1] left over; the 52 outcomes count d_N = 1, 5, 54, 1445 and carry a rank-43 integer encoder (1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the four native bath channels (mass, the ten edge quadratics, the six wedge currents, the four dark; moments replayed in N42 and notes_0204) have Jacobi data (a0, b1^2, a1, b2^2) = (184, 2117, 346576/2117, 14357066531/4481689), (232, 389, 72928/389, 219823907/151321), (242, 127, 25998/127, 15930273/16129), (243, 83, 17881/83, 4115587/6889), every 3 x 3 Hankel positive, so no channel is a two-point measure; the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21, trace 7101 and least eigenvalue 83, so every readout direction v has a hidden state QHJv that reads zero but moves the readout at rate BB* v: no autonomous law on the 21 readouts alone (the separate model's binding route, 1 Nov)": true,
+    "how TIME_BIND would be read off a measured response: if a channel's response is R(t) = gamma tau k(t / tau) with k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)! (the retarded kernel J*(sin(u sqrt H)/sqrt H)J), then tau^2 = -a R'(0) / R'''(0) in every channel (three cross-channel constraints for one shared tau), and the gain- and scale-free invariants R5 R1 / R3^2 = m2/a^2, R7 R1^2 / R3^3 = m3/a^3, R9 R1^3 / R3^4 = m4/a^4 are falsifiers; the four I2 are 35973/33856, 54213/53824, 58691/58564, 59132/59049, all distinct and above 1 (CONDITIONAL on a measured, calibrated response; the identity is exact)": true,
+    "the finite clock aligns with the periodic generator but with no lattice: 931, 241, 541 have residues 3, 1, 5 mod 8 (no divisor of 4320 below 8 separates them), 3, 17, 29 mod 32 and 13, 25, 1 mod 27; j = (2241 (j mod 160) + 2080 (j mod 27)) mod 4320 inverts the CRT; j -> 98^(j mod 5) in F_241 has kernel the miss set <5> (864 points) and sends all three to 98; at h = 2 pi/(32 x 4320) the 2-torsion generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 give exp(-ihH) order exactly 4320, yet no integral automorphism of a rank-8 lattice has an order divisible by 27 or 32 (phi(27) = 18, phi(32) = 16 > 8), so the clock is no lattice symmetry": true,
+    "DYN_BIND's source-level freedom (generator rigidity): a linear generator L on Lambda^2 ker M (100 coefficients) keeping every simple source simple (x ^ Lx = 0) is induced, L(a ^ b) = Aa ^ b + a ^ Ab with A in gl(5): the constraints from the 105 simple sources e ^ e' (e, e' among the e_i and e_i + e_j) have rank 75 and kill all 25 induced generators, which are independent; the symmetric generators on ker M have commutants of dimension 25, 5, 2, 1 under no symmetry, the five-cycle, F20 and S5, and metric-skew ones 10, 2, 0, 0; an F20-equivariant G-self-adjoint stiffness is k0 P0 + k1 (I - P0) (P0 the C5 average, rank 1, G-orthogonal): two free numbers under F20 and one, a scale, under S5": true,
+    "the quartic is a choice: V_a(r) = a r^2 - (40/9) r^4 falls without bound for every a, and coupling the source amplitude r^2 to a wedge bath mode of core 242 by g, V = a r^2 + 121 y^2 - g r^2 y, gives on eliminating y the effective a r^2 - (g^2/484) r^4, which matches 40/9 only by choosing g^2 = 19360/9: no symmetry fixes it": true,
+    "the observers: Herm(C^6) of the six currents [3,1,1] is Sym^2 + Lambda^2 = [5] + [1^5] + [4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], so full traceless tomography (35) needs one more [2,2,1] than the centred 42 outcomes give; the six Sylow-five subgroups ([5] + [2,2,1]) supply it, the 48 outcomes are 5[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + 2[2,2,1] + [3,1,1], leaving 4[5] + 2[4,1] (12); the 52 outcomes have fixed counts 52, 12, 8, 7, 3, 2 on 1, 10, 15, 20, 20, 54 permutations, d_N = 1, 5, 54, 1445, and the separate model's 52 x 43 integer encoder (data/n44_52_encoder.json) has rank 43 mod two primes, hence over Q, with its 42 signal columns summing to zero": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -12648,7 +12738,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 535 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 541 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12908,7 +12998,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 22, lattice-operator 47, operator-physics 30 joins",
+   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 22, lattice-operator 47, operator-physics 32 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -13053,7 +13143,9 @@
      "pauli -> assignment",
      "pauli -> triple",
      "pauli -> charges",
-     "kerM -> readout"
+     "kerM -> readout",
+     "bath -> calibration",
+     "kerM -> binding"
     ]
    ],
    "note": ""
@@ -13064,10 +13156,10 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 483,
-    "OBSTRUCTION": 24,
+    "THEOREM": 486,
+    "OBSTRUCTION": 26,
     "SELECTED_REFERENCE": 12,
-    "CONDITIONAL": 16
+    "CONDITIONAL": 17
    },
    "note": ""
   },
@@ -13084,7 +13176,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 8, number-lattice 30, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 48, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 22, combinatorics-operator 28, combinatorics-physics 12, lattice-operator 47, lattice-physics 16, operator-physics 30",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 8, number-lattice 31, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 48, symmetry-operator 17, symmetry-physics 11, combinatorics-lattice 22, combinatorics-operator 28, combinatorics-physics 12, lattice-operator 47, lattice-physics 16, operator-physics 32",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -13096,13 +13188,13 @@
     "(0, 1)": 12,
     "(0, 2)": 8,
     "(1, 4)": 17,
-    "(4, 5)": 30,
+    "(4, 5)": 32,
     "(2, 5)": 12,
     "(3, 5)": 16,
-    "(0, 3)": 30,
+    "(0, 3)": 31,
     "(0, 4)": 8,
     "(0, 5)": 8,
-    "(1, 5)": 10
+    "(1, 5)": 11
    },
    "note": ""
   },
@@ -15509,7 +15601,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 378 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 380 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
