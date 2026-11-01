@@ -335,11 +335,13 @@ def test_every_pair_of_levels_and_no_two_maps(monkeypatch):
         out = check()
         assert all(out.values()), out
     # both checks can fail: drop the maps between symmetry and physics, and that pair has none;
-    # drop the 801 matrix's maps to the surface and from the residue plane, and two maps cut the matrix off
+    # drop the 801 matrix's maps to the surface, from the residue plane and from the seed (its lattice lifts, 1 Nov),
+    # and two maps cut the matrix off
     joins = dots.JOINS
     monkeypatch.setattr(dots, "JOINS", [j for j in joins if {dots.LEVEL_OF[j[0]], dots.LEVEL_OF[j[1]]} != {1, 5}])
     assert dots.level_pairs()[(1, 5)] == 0
-    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] not in (("air801", "surface"), ("residue", "air801"))])
+    monkeypatch.setattr(dots, "JOINS", [j for j in joins if j[:2] not in (("air801", "surface"), ("residue", "air801"),
+                                                                         ("E8", "air801"))])
     assert not all(dots.no_two_maps().values())
 
 
@@ -661,7 +663,7 @@ def test_the_one_object():
                   dots.notes_2325, dots.notes_2356, dots.six_lines, dots.notes_0032,
                   dots.petersen_sequence, dots.notes_0117, dots.notes_0844,
                   dots.notes_0912, dots.notes_0951, dots.notes_1004, dots.notes_1411, dots.notes_1441, dots.notes_1504, dots.notes_1611,
-                  dots.notes_0936, dots.notes_1009, dots.notes_1112, dots.icosians, dots.penrose_planes, dots.notes_1250, dots.notes_1751, dots.notes_1757, dots.notes_2122, dots.notes_2154, dots.one_quadratic, dots.notes_2256, dots.notes_2327, dots.notes_0030, dots.notes_0101,
+                  dots.notes_0936, dots.notes_1009, dots.notes_1112, dots.icosians, dots.penrose_planes, dots.notes_1250, dots.notes_1751, dots.notes_1757, dots.notes_2122, dots.notes_2154, dots.one_quadratic, dots.notes_2256, dots.notes_2327, dots.notes_0030, dots.notes_0101, dots.notes_0204,
                   dots.golden_cosine, dots.golden_galois, dots.regular_cosines, dots.torus_places, unify.levels_unified):
         out = check()
         assert all(out.values()), out

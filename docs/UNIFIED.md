@@ -50,7 +50,7 @@ No lattice clock runs the canon's circle, but a circle of the seed's momenta doe
 - **The number level is rooted in the principal circle.** Its derived dots are the time clock, the observer clock and the grain, joined inside the level by the golden step (⟨864⟩ + ⟨1080⟩ = ⟨216⟩) and the sum of the three small clocks (⟨864⟩ + ⟨1080⟩ + ⟨1440⟩ = ⟨72⟩); the observer clock is the regular class 4, the day's sixth power.
 - **The golden companion is joined inside the symmetry level.** It is the tick's negative cosine X = −(g + g⁻¹), with X² = X + I and characteristic polynomial (x² − x − 1)⁴; E8 has a basis of four roots and their images in which X is four Fibonacci blocks, so E8 = ℤ[φ]⁴. The day conjugates X to I − X (the Galois conjugation of Q(√5)), G120 acts on ℤ[X] through Gal(Q(√5)/Q) with kernel ⟨g, d²⟩, and X lies in a regular clock's cosine ring ℤ[w + w⁻¹] exactly for the orders divisible by 5.
 - **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them.
-- **The structure** (`levels_unified`). Every level holds derived dots (3 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 4 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 56 derived dots are connected by the 333 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
+- **The structure** (`levels_unified`). Every level holds derived dots (3 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 4 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 56 derived dots are connected by the 347 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
 
 ## The derivation
 
@@ -226,6 +226,34 @@ flowchart TB
 | source | zero modes | q = (a, b) | `source_port` | 8 |
 | triangle port | cycles | odd lift | `triangle_port` | 8 |
 | root-wedge port | cycles | an S5-isometry | `wedge_port` | 8 |
+
+## The deepest dots, one join from the seed (1 Nov)
+
+The derivation is a tree of depth 8, but the dots of its last two generations are each joined to E8 directly by a checked THEOREM map (`deepest_dots`), and so are the deepest of the canon's inputs (the memory clock by an obstruction). Every dot but the product geometry and FLRW is within three THEOREM joins of the seed, and within two except the stages and the memory clock, which hang from the time clock.
+
+| dot | depth | its direct join to E8 | check |
+|---|---|---|---|
+| Golden port | 8 | ten roots that generate E8 (THEOREM) | `join_e8_goldenport` |
+| rotor plane | 8 | Gram 10I (THEOREM) | `counts.rotor_plane` |
+| six-site port | 8 | the unique A5 simplex (THEOREM) | `join_e8_sixsite` |
+| source | 8 | the even reading of the source (THEOREM) | `join_e8_source` |
+| source | 8 | the dark four off the roots (THEOREM) | `notes_0204` |
+| triangle port | 8 | the cubic root harmonic (THEOREM) | `join_e8_triangle` |
+| root-wedge port | 8 | the unique quadratic S5 copy (THEOREM) | `join_e8_wedgeport` |
+| K5 vertices | 7 | the vertices as vector shadows (THEOREM) | `join_e8_V` |
+| binding | 7 | the SU(5) x SU(5)' classes (THEOREM) | `join_e8_binding` |
+| binding | 7 | no chirality from the roots (OBSTRUCTION) | `join_e8_binding_chirality` |
+| four-cube | 7 | the cells by lattice parity (THEOREM) | `join_e8_cube` |
+| cycles | 7 | the quadratic clock feature (THEOREM) | `notes_2256` |
+| zero modes | 7 | readings the vertices cannot see (THEOREM) | `join_e8_kerM` |
+| Petersen | 7 | anticorrelated edge readings (THEOREM) | `join_e8_petersen` |
+| readout | 7 | the twin-blind root dynamics (THEOREM) | `join_e8_readout` |
+| 4-simplex | 7 | the faces as spinor shadows (THEOREM) | `join_e8_simplex` |
+| sound and light | 7 | linear sound, quadratic light (THEOREM) | `join_e8_waves` |
+| 801 matrix | input | the lattice lifts of AIR_801 (THEOREM) | `join_e8_air801` |
+| coil | input | the band on the coil (THEOREM) | `join_e8_coil` |
+| datum | input | three roots of the A4 (THEOREM) | `join_e8_datum` |
+| memory clock | input | no Weyl clock of order 45 (OBSTRUCTION) | `join_e8_memory` |
 
 ## The canon's inputs
 

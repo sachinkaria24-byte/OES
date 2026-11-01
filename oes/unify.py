@@ -272,6 +272,61 @@ def levels_unified(held=None):
     }
 
 
+def _theorem_distance(held):
+    """THEOREM-join distance from the seed over the joins whose checks hold."""
+    adj = {d: set() for d in dots.DOTS}
+    for j in dots.JOINS:
+        if j[4] == T and held[j[5]]:
+            adj[j[0]].add(j[1])
+            adj[j[1]].add(j[0])
+    dist, frontier = {SEED: 0}, [SEED]
+    while frontier:
+        nxt = []
+        for u in frontier:
+            for v in adj[u]:
+                if v not in dist:
+                    dist[v] = dist[u] + 1
+                    nxt.append(v)
+        frontier = nxt
+    return dist
+
+
+# the canon's inputs (and dots built from them) that sat three THEOREM joins from the seed, with their direct joins
+DEEP_INPUTS = {"air801": T, "coil": T, "datum": T, "memory": OB}
+
+
+def deepest_dots(held=None):
+    """The deepest dots joined to the seed (1 Nov): every dot of the derivation's last two generations has a direct
+    THEOREM join to E8, the deepest of the canon's inputs meet E8 directly, and every dot but the product geometry and
+    FLRW is within three THEOREM joins of the seed (two but for the stages and the memory clock). held: check name ->
+    bool, from dots.check_results() when None."""
+    if held is None:
+        held = {k: all(bool(v) for v in res.values()) for k, res in dots.check_results().items()}
+    depth = {d: len(_root(d, DERIVATION)[1]) - 1 for d in DERIVATION}
+    deep = sorted(d for d, k in depth.items() if k >= 7)
+    direct = lambda d, status: [j for j in dots.JOINS if {j[0], j[1]} == {SEED, d} and j[4] == status and held[j[5]]]
+    dist = _theorem_distance(held)
+    rest = [d for d in dots.DOTS if d not in ("gravity", "cosmology")]
+    names = ", ".join(dots.DOTS[d][0] for d in deep)
+    return {
+        f"the {len(deep)} dots of the derivation's last two generations (depth 7 and 8: {names}) each have a direct "
+        "THEOREM join to the seed whose check holds":
+            len(deep) == 15 and max(depth.values()) == 8 and all(direct(d, T) for d in deep),
+        "so every derived dot is within two THEOREM joins of the seed, and the deepest within one":
+            max(dist[d] for d in DERIVATION) <= 2 and all(dist[d] == 1 for d in deep),
+        "the deepest of the canon's inputs meet the seed directly: AIR_801 (its lattice lifts in the tick's normalizer), "
+        "the coil (the band on its 540 points) and the datum (three roots of the A4) by THEOREM joins, and the memory "
+        "clock by an OBSTRUCTION (no Weyl clock of order 45)":
+            all(direct(d, st) for d, st in DEEP_INPUTS.items()),
+        "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within three "
+        "THEOREM joins of the seed, and within two except the stages and the memory clock: both hang from the time "
+        "clock, a critical step of the principal circle; the memory clock meets the seed directly only as an "
+        "obstruction, and the stages have no direct map that does not pass through the circle":
+            all(d in dist and dist[d] <= 3 for d in rest) and sorted(d for d in rest if dist[d] == 3) == ["memory", "stages"]
+            and "gravity" not in dist and "cosmology" not in dist,
+    }
+
+
 def uniqueness():
     """Each choice on the trunk, and each stepping of an input by the circle, is unique up to symmetry."""
     lines = cyclotomic.tick_normalizer()
@@ -433,6 +488,17 @@ def unified_page():
     for d, (p, ck) in sorted(DERIVATION.items(), key=lambda kv: (len(_root(kv[0], DERIVATION)[1]), kv[0])):
         j = _join(d, p, ck)
         lines.append(f"| {name(d)} | {name(p)} | {j[2]} | `{ck}` | {len(_root(d, DERIVATION)[1]) - 1} |")
+    depth = {d: len(_root(d, DERIVATION)[1]) - 1 for d in DERIVATION}
+    lines += ["", "## The deepest dots, one join from the seed (1 Nov)", "",
+              "The derivation is a tree of depth 8, but the dots of its last two generations are each joined to E8 "
+              "directly by a checked THEOREM map (`deepest_dots`), and so are the deepest of the canon's inputs (the "
+              "memory clock by an obstruction). Every dot but the product geometry and FLRW is within three THEOREM "
+              "joins of the seed, and within two except the stages and the memory clock, which hang from the time "
+              "clock.", "", "| dot | depth | its direct join to E8 | check |", "|---|---|---|---|"]
+    for d in sorted([d for d, k in depth.items() if k >= 7], key=lambda d: (-depth[d], d)) + list(DEEP_INPUTS):
+        for j in dots.JOINS:
+            if {j[0], j[1]} == {SEED, d} and j[4] in (T, OB):
+                lines.append(f"| {name(d)} | {depth.get(d, 'input')} | {j[2]} ({j[4]}) | `{j[5]}` |")
     lines += ["", "## The canon's inputs", "", "| input | what the canon supplies | it meets | status | why it stays an input |",
               "|---|---|---|---|---|"]
     for d, (what, m, ck) in INPUTS.items():
@@ -456,6 +522,8 @@ def run():
     for name, ok in levels_unified(held).items():
         rep.add(name, T, ok)
     for name, ok in uniqueness().items():
+        rep.add(name, T, ok)
+    for name, ok in deepest_dots(held).items():
         rep.add(name, T, ok)
     rep.add("cited: E8 is the unique even unimodular lattice of rank 8; Coxeter elements are conjugate; a transitive "
             "A5 on six points is the icosahedral action on the axes", gates.SELECTED_REFERENCE, True)
