@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.52,
+  "1-carrier": 0.53,
   "2-spectral": 0.0,
-  "3-spacetime": 5.49,
-  "4-native": 74.57,
-  "5-observer": 0.19,
-  "6-gravity": 4.0,
-  "7-cosmology": 1.4,
-  "8-frontier": 31.42,
-  "9-joins": 7.44,
-  "10-literal": 30.15,
-  "11-glue": 0.12,
-  "12-binding": 0.02,
-  "13-gates": 0.09,
-  "14-recurrence": 33.87,
-  "15-court": 1.4,
-  "16-handover": 0.91,
-  "17-waves": 0.52,
-  "18-snapshot": 0.82,
-  "19-spine": 3.03,
-  "20-canon": 4.89,
-  "21-ledger": 29.74,
-  "22-counts": 17.21,
-  "23-dots": 430.54,
-  "24-assignment": 2.68,
-  "25-unify": 3.49,
-  "26-primes": 3.06,
-  "27-places": 1.49,
-  "28-principal": 1.89
+  "3-spacetime": 5.66,
+  "4-native": 79.2,
+  "5-observer": 0.23,
+  "6-gravity": 4.59,
+  "7-cosmology": 1.79,
+  "8-frontier": 31.35,
+  "9-joins": 7.89,
+  "10-literal": 30.55,
+  "11-glue": 0.14,
+  "12-binding": 0.03,
+  "13-gates": 0.03,
+  "14-recurrence": 33.07,
+  "15-court": 1.36,
+  "16-handover": 0.88,
+  "17-waves": 0.44,
+  "18-snapshot": 0.74,
+  "19-spine": 2.99,
+  "20-canon": 4.84,
+  "21-ledger": 30.48,
+  "22-counts": 16.88,
+  "23-dots": 439.27,
+  "24-assignment": 2.67,
+  "25-unify": 3.42,
+  "26-primes": 3.29,
+  "27-places": 1.75,
+  "28-principal": 1.96
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 962,
-   "total": 962
+   "passed": 963,
+   "total": 963
   },
   "OBSTRUCTION": {
    "passed": 76,
@@ -12000,6 +12000,20 @@
   },
   {
    "layer": "23-dots",
+   "name": "stages -> cycles: the five-cycle on the cycles times the three-position word clock, A = rho(g) x c, has order 15 and with the mirror R = rho(t) x r (R A R = A^-1) a dihedral group of order 30; the fifteen stages are its powers A^k, and a stage moves the cycles (rho(g)^k != I) exactly when it lands on the time clock: the stages 0, 5 and 10 that never land are those whose power fixes the cycle factor; read at the 30 FOAM flags the clocked cycles have observability ranks 6, 12, 18 at one position (the hub's all-dots integration)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "a clock of order 15 on the cycles: with the five-cycle g and the pentagon mirror t acting on the cycles and the three-position cycle c and reversal r (r c r = c^-1), A = rho(g) x c and R = rho(t) x r on cycles x positions have A^15 = I, R^2 = I and R A R = A^-1, a dihedral group of order 30, while reversing the positions alone, I x r, does not invert A; the fifteen stages are the powers A^k, and a stage moves the cycles exactly when it lands on the time clock: the stages 0, 5 and 10, which never land, are the ones whose power fixes the cycle factor (the hub's all-dots integration, 1 Nov)": true,
+    "the FOAM reader sees the clocked cycles in two or three ticks: reading the 30 flags at one position, the observability ranks are 6, 12, 18; at the two mirrored positions 12, 18; at all three 18 at once; the 15 merged flag pairs read nothing (M F = 0), the Fisher bound at zero source is tr I^-1 = tr(G^-1)/(30 n alpha^2) = 4/(375 n alpha^2) with tr G^-1 = 8/25 (48 R^2/(25 n) at alpha R = sqrt5/30), and lifting X -> F X F^T turns the flag product Y * Z = Y F G^-2 F^T Z into the six-port product": true,
+    "finite counts: the 30-flag singlets d_N = (30^N + 10 6^N + 15 2^N)/120 run 1, 11, 244, 6860 and obey d_(N+3) = 38 d_(N+2) - 252 d_(N+1) + 360 d_N; the source commutator W (rank 6) and its three-position copy (rank 18) are onto, so Sym^2 W has kernel 55 - 21 = 34; the circle is rebuilt from its residues mod 160 and 27 by j = 2241 (j mod 160) + 2080 (j mod 27) mod 4320, while residues mod 36 and 15 see only lcm 180 classes of 24; the root-step closed walks are 1, 0, 240, 13440, 1260720, 137813760, 17141798400": true,
+    "the root-to-flag map K = F E (30 x 240, N41's features read at the flags through the A4 chart) has rank 6 and kernel 234, splitting by the antipode and the five-cycle as odd fixed 32, odd moving 88, even fixed 30, even moving 84, the whole odd part in the kernel; the eighth root moments run from 57/2 along an axis to 39 along a root, the sharp ends of N41's bounds": true,
+    "the Golden port's four memory channels (pentagon + pentagram, pentagon - pentagram and the two moving Golden pairs) come from the five root-shell sector sequences, whose order-four moments are 1, 184, 35973, 7355136, 1556789920 (graph 56), 1, 212, 45911, 10102764, 2251088672 (28), 1, 232, 54213, 12740592, 3008062816 (8), 1, 242, 58691, 14259954, 3470101592 (-2) and 1, 244, 59613, 14580876, 3569950960 (-4): the channels' boundary variances are 371, 171 and 1987/10 -+ 31 sqrt5/10, the least 171, and their 3 x 3 Hankel determinants are 357276603, 36798947 and 116537713/2 -+ 90769773 sqrt5/50, as the hub states": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -12063,7 +12077,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 489 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 490 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12464,7 +12478,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 444,
+    "THEOREM": 445,
     "OBSTRUCTION": 22,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 13
@@ -12484,7 +12498,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 19, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 40, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 18, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 37, lattice-physics 11, operator-physics 29",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 8, number-lattice 19, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 40, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 18, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 37, lattice-physics 11, operator-physics 29",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -12494,7 +12508,7 @@
     "(1, 3)": 40,
     "(1, 2)": 22,
     "(0, 1)": 12,
-    "(0, 2)": 7,
+    "(0, 2)": 8,
     "(1, 4)": 17,
     "(4, 5)": 29,
     "(2, 5)": 12,
@@ -15013,7 +15027,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within three THEOREM joins of the seed, and within two except the stages and the memory clock: both hang from the time clock, a critical step of the principal circle; the memory clock meets the seed directly only as an obstruction, and the stages have no direct map that does not pass through the circle",
+   "name": "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within three THEOREM joins of the seed, and within two except the memory clock, which hangs from the time clock and meets the seed directly only as an obstruction; the stages are two joins out, through the D15 clock on the cycles",
    "status": "THEOREM",
    "passed": true,
    "value": null,
