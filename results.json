@@ -59,38 +59,38 @@
  "timing_s": {
   "1-carrier": 0.54,
   "2-spectral": 0.0,
-  "3-spacetime": 5.88,
-  "4-native": 76.74,
-  "5-observer": 0.15,
-  "6-gravity": 4.08,
-  "7-cosmology": 1.32,
-  "8-frontier": 31.07,
-  "9-joins": 5.99,
-  "10-literal": 28.42,
-  "11-glue": 0.12,
-  "12-binding": 0.02,
+  "3-spacetime": 5.69,
+  "4-native": 74.43,
+  "5-observer": 0.22,
+  "6-gravity": 4.53,
+  "7-cosmology": 1.36,
+  "8-frontier": 32.6,
+  "9-joins": 6.93,
+  "10-literal": 33.58,
+  "11-glue": 0.16,
+  "12-binding": 0.03,
   "13-gates": 0.11,
-  "14-recurrence": 32.77,
-  "15-court": 1.36,
-  "16-handover": 0.94,
-  "17-waves": 0.41,
-  "18-snapshot": 0.6,
-  "19-spine": 3.02,
-  "20-canon": 4.85,
-  "21-ledger": 31.99,
-  "22-counts": 17.22,
-  "23-dots": 407.05,
-  "24-assignment": 2.85,
-  "25-unify": 3.56,
-  "26-primes": 3.63,
-  "27-places": 1.45,
-  "28-principal": 1.93
+  "14-recurrence": 34.79,
+  "15-court": 1.53,
+  "16-handover": 1.03,
+  "17-waves": 0.56,
+  "18-snapshot": 0.79,
+  "19-spine": 3.54,
+  "20-canon": 5.69,
+  "21-ledger": 37.75,
+  "22-counts": 17.72,
+  "23-dots": 428.84,
+  "24-assignment": 2.68,
+  "25-unify": 3.84,
+  "26-primes": 3.54,
+  "27-places": 1.49,
+  "28-principal": 2.04
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 938,
-   "total": 938
+   "passed": 939,
+   "total": 939
   },
   "OBSTRUCTION": {
    "passed": 74,
@@ -11698,6 +11698,22 @@
   },
   {
    "layer": "23-dots",
+   "name": "bath -> cycles: N41's wedge feature E, completed by the shell sum to E7 = [E; 1^T] (the smallest root-graph-invariant row space holding it, E B = 8E + 12 tau 1^T), reads the bath's root-shell resolvent K(s) = R (sI + Delta)^-1 R* through two scalar Green functions only: E7 K(s) J7 = g_mass Pi_mass + g_quad Pi_centered with g_mass = u0 + 56u2 + 126u4 + 56u6 + u8 and g_quad = u0 + 8u2 - 18u4 + 8u6 + u8, because the eight simple reflections leave five pair orbits; the shell bath reads diag(232 I6, 184) after centering, E7 P = diag(C6, 1) E7, the boundary covariance is 2117 Pi_mass + 389 Pi_centered and every channel leaks (Delta delta_(2 alpha) reads -delta_alpha), so the readout needs memory (the separate model's N42)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the root graph (alpha.beta = 1) on the 240 roots is 56-regular with classes 1, 56, 126, 56, 1 at alpha.beta = 2 to -2 and eigenvalues 56, 28, 8, -2, -4 of multiplicities 1, 8, 35, 112, 84; the eight simple reflections cut the 57600 ordered pairs into exactly five orbits, 240, 13440, 30240, 13440, 240, so anything they commute with is a polynomial in the five relations (the separate model's N42)": true,
+    "the bath's sharp cap is a 241-point Gram: with M00 = 1, M0a = Maa = 1/16 and 1/64 on graph edges, the root block (B + 4I)/64 is positive semidefinite (nullity 84), the uniform Schur complement is 0, rank 156; difference counting gives v(theta)* M v(theta) = 16 + sum_alpha e^(i theta.alpha) exactly, so sum_alpha e^(ik.alpha) >= -16 and Delta = 240 - sum T_alpha has spectrum [0, 256], the top reached at k = pi e0 (112 integer roots +1, 128 half roots -1)": true,
+    "the minimum shell completion of N41: with tau = (1,0,0,1,0,1), E 1 = 60 tau, E B = 8E + 12 tau 1^T and 1^T B = 56 1^T, so E7 = [E; 1^T] (rank 7) is the smallest B-invariant row space holding E; Ec = E - (tau/4) 1^T has Ec 1 = 0 and Ec B = 8 Ec; the kernel (233) splits 61 fixed + 172 moving under the five-cycle; the shell bath 240I - B reads A7 = [[232 I6, -12 tau], [0, 184]], diag(232 I6, 184) after centering, while the uncompleted compression has 192 once and 232 five times; det E7 E7^T = 358318080 and A7 is self-adjoint and positive in the section metric K7^-1; E7 P = diag(C6, 1) E7 with fixed and moving ranks 3 and 4": true,
+    "centering fixes the Hodge join but not the metric: diag(H6, 0) does not commute with A7 (H6 tau != 0), the centered lift W^-1 diag(H6, 0) W commutes with A7 and with diag(C6, 1); H6^T Kc^-1 - Kc^-1 H6 has rank 2 and vanishes on the moving four-space; the induced section metrics K^-1 and Kc^-1 are not multiples of the saved G6 (the 23:09 layer-31 release's root-label limit)": true,
+    "the infinite native response reads down to two scalar Green functions: for each of the five relations E7 A_k J7 = lambda_mass Pi_mass + lambda_quad Pi_centered (1, 56, 126, 56, 1 and 1, 8, -18, 8, 1), so for K(s) = R (sI + Delta)^-1 R* = sum_k u_k A_k, E7 K(s) J7 = g_mass Pi_mass + g_quad Pi_centered with g_mass = u0 + 56u2 + 126u4 + 56u6 + u8, g_quad = u0 + 8u2 - 18u4 + 8u6 + u8; Pi_mass (last column (tau/4, 1)) and Pi_centered are complementary projectors of ranks 1 and 6": true,
+    "memory is necessary and its first coefficients are exact: Delta delta_(2 alpha) reads -delta_alpha on the root shell for all 240 roots, so every channel leaks; the 9361 two-step sites have shells 1, 240, 2160, 6720, 240 at norms 0 to 8 with 240, 56, 14, 2, 1 decompositions; the boundary covariance is exactly 2117 Pi_mass + 389 Pi_centered, the block moment Hankel is positive of rank 14, and the moments are m1 = 184, m2 = 35973 (mass) and m1 = 232, m2 = 54213 (centered), so Sigma_j(s) = b_j/s + O(s^-2) with b_j/(s + 256) <= Sigma_j <= min(a_j, b_j/s)": true,
+    "three exact moments give rational enclosures: for (a, b) = (184, 2117) and (232, 389), the endpoint quadratures (nodes 0, m2/a; weights b/m2, a^2/m2) and (nodes a - b/d, 256; weights d^2/(d^2 + b), b/(d^2 + b)), d = 256 - a, reproduce 1, a, a^2 + b with nodes in [0, 256] (0 < b < a(256 - a)); the interpolants at 0 (or 256) and a double node t satisfy p(x) - 1/(s + x) = x(x - t)^2/[s(s + t)^2(s + x)] and (x - 256)(x - t)^2/[(s + 256)(s + t)^2(s + x)], so each Green channel lies between the two quadratures for every s > 0": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -11761,7 +11777,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 467 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 468 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12149,7 +12165,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 424,
+    "THEOREM": 425,
     "OBSTRUCTION": 20,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 13
@@ -12169,13 +12185,13 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 13, combinatorics-operator 26, combinatorics-physics 12, lattice-operator 29, lattice-physics 8, operator-physics 29",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 13, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 29, lattice-physics 8, operator-physics 29",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 13,
     "(3, 4)": 29,
-    "(2, 4)": 26,
+    "(2, 4)": 27,
     "(1, 3)": 39,
     "(1, 2)": 22,
     "(0, 1)": 12,
@@ -14594,7 +14610,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 330 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 331 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
