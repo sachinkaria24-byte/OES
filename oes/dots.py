@@ -10062,6 +10062,7 @@ JOINS = [
     ("cyclo", "triangle", "polygons isospectral to a triangle", "in the cyclotomic line the roots of unity of odd order d = 3, 5, 15 (c'^10, c'^6, c'^2) cut the 240 roots into 80 triangles, 48 pentagons and 16 fifteen-gons rho mu_d of sum 0 without antipodes, so each, as an odd port, has per unit norm the triangle port's signed Gram and meets every root off it with signed count zero; W(E8) is transitive on root pairs of each product, so the mu_d-invariant odd root functions are isometric ports of 40, 24 and 8 channels with T* F(Delta) T = mu(F) I for every F, mu the triangle port's measure (1, 242, 58691, ...): polygons isospectral to a triangle (31 Oct)", T, "join_cyclo_triangle"),
     ("E8", "cycles", "the quadratic clock feature", "the coordinate five-cycle fixes 20 roots and turns 220 in 44 pentagons, so on the 240 root labels L = 2I - P - P^-1 obeys the one quadratic L^2 - 5L + 5B = 0 (eigenvalues 0 sixty-four times and (5 -+ sqrt5)/2 eighty-eight times each); the wedge feature alpha -> x ^ C4 x of the A4 part x carries the roots onto the cycles Lambda^2 A4 with E P = C6 E, rank 6 and det(E E^T) = 8957952, vanishing on the 20 fixed roots and even in alpha, so E L = L6 E and the whole-catalogue return reads down exactly to the six-clock's (the separate model's N41, 31 Oct)", T, "notes_2256"),
     ("bath", "cycles", "the two memory channels", "N41's wedge feature E, completed by the shell sum to E7 = [E; 1^T] (the smallest root-graph-invariant row space holding it, E B = 8E + 12 tau 1^T), reads the bath's root-shell resolvent K(s) = R (sI + Delta)^-1 R* through two scalar Green functions only: E7 K(s) J7 = g_mass Pi_mass + g_quad Pi_centered with g_mass = u0 + 56u2 + 126u4 + 56u6 + u8 and g_quad = u0 + 8u2 - 18u4 + 8u6 + u8, because the eight simple reflections leave five pair orbits; the shell bath reads diag(232 I6, 184) after centering, E7 P = diag(C6, 1) E7, the boundary covariance is 2117 Pi_mass + 389 Pi_centered and every channel leaks (Delta delta_(2 alpha) reads -delta_alpha), so the readout needs memory (the separate model's N42)", T, "notes_2327"),
+    ("cycles", "synthemes", "the flag court", "a flag (i, {j, k}) of K5 reads half the flow out of i towards j and k; on the cycles zero divergence makes the complementary flag (i, {l, m}) read minus it, so the 30 flags are 15 antipodal pairs, one per syntheme {i6, jk, lm} of the five vertices and the cone point; S5 acts on the cycles as the irreducible [3, 1, 1], the squared readings span the 15-dimensional syntheme permutation module [5] + [4, 1] + [3, 2] + [2, 2, 1] inside Sym^2 (rank 15 of 21), the blind part is exactly [1^5] + [3, 2], and six cross terms complete it (det -5^35/2^26); phase retrieval fails (g, h with equal squares at all 30 flags) while the linear readings separate them (the hub's FOAM court, 1 Nov)", T, "notes_0030"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -20473,6 +20474,163 @@ def notes_2327():
     }
 
 
+def notes_0030():
+    """The hub's 021 x 120 x FOAM court (1 Nov, 00:08): the cycles read through the 30 flags of K5. The six-port is the
+    cycle space, a flag (i, {j, k}) reads half the flow out of i towards j and k, its 15 antipodal pairs are the 15
+    synthemes, and the squared readings see 15 of the 21 quadratic directions."""
+    V = range(5)
+    edges = list(itertools.combinations(V, 2))
+    eid = {e: n for n, e in enumerate(edges)}
+    tri = [(0, 1, 2), (0, 1, 3), (0, 1, 4), (0, 2, 3), (0, 2, 4), (0, 3, 4)]
+    Bt = sp.zeros(10, 6)                                         # the six triangles through 0, a cycle basis
+    for k, (i, j, l) in enumerate(tri):
+        Bt[eid[(i, j)], k] += 1
+        Bt[eid[(j, l)], k] += 1
+        Bt[eid[(i, l)], k] -= 1
+    inc = sp.Matrix(5, 10, lambda v, n: int(v == edges[n][1]) - int(v == edges[n][0]))
+    C = sp.Matrix([[0, 0, 5, 0, 0, 0], [3, -2, -2, 3, -2, 1], [-3, 2, -3, 2, 2, -1],
+                   [0, 5, 0, 0, 0, 0], [-2, -2, 3, -2, 3, 1], [5, 0, 0, 0, 0, 0]])   # the source's coordinates
+    S = Bt * C
+    flags = [(i, j, k) for i in V for j, k in itertools.combinations([a for a in V if a != i], 2)]
+    sgn = lambda a, b: 1 if a < b else -1
+    flow = lambda a, b: sp.Matrix(1, 10, lambda _, n: sgn(a, b) * int(n == eid[tuple(sorted((a, b)))]))
+    Fe = sp.Matrix.vstack(*[(flow(i, j) + flow(i, k)) / 2 for i, j, k in flags])   # on edge flows
+    F = Fe * S                                                   # 30 x 6 in the source's coordinates
+    G = F.T * F
+    Gsrc = sp.Matrix([[55, -20, 5, 5, -20, 0], [-20, 55, -20, 5, 5, 0], [5, -20, 55, -20, 5, 0],
+                      [5, 5, -20, 55, -20, 0], [-20, 5, 5, -20, 55, 0], [0, 0, 0, 0, 0, 5]])
+    comp = {n: flags.index((i, *sorted(set(V) - {i, j, k}))) for n, (i, j, k) in enumerate(flags)}
+    synth = {n: frozenset([frozenset((i, 5)), frozenset((j, k)), frozenset(set(V) - {i, j, k})])
+             for n, (i, j, k) in enumerate(flags)}
+    reps = sorted({min(n, comp[n]) for n in range(30)})
+    Pi = F * G.inv() * F.T
+    # S5 on edge flows (signed edge permutations), and on the source's six coordinates
+    def perm_edges(s):
+        M = sp.zeros(10, 10)
+        for n, (a, b) in enumerate(edges):
+            M[eid[tuple(sorted((s[a], s[b])))], n] = sgn(s[a], s[b])
+        return M
+    Sp = (S.T * S).inv() * S.T
+    rho = lambda s: Sp * perm_edges(s) * S
+    def perm_of(cycles_):
+        s = list(range(5))
+        for cyc in cycles_:
+            for a, b in zip(cyc, cyc[1:] + cyc[:1]):
+                s[a] = b
+        return s
+    reps_cls = [perm_of(c) for c in ([], [(0, 1)], [(0, 1), (2, 3)], [(0, 1, 2)], [(0, 1, 2), (3, 4)],
+                                     [(0, 1, 2, 3)], [(0, 1, 2, 3, 4)])]
+    sizes = [1, 10, 15, 20, 20, 30, 24]
+    table = {"5": [1, 1, 1, 1, 1, 1, 1], "1^5": [1, -1, 1, 1, -1, -1, 1], "4,1": [4, 2, 0, 1, -1, 0, -1],
+             "2,1^3": [4, -2, 0, 1, 1, 0, -1], "3,2": [5, 1, 1, -1, 1, -1, 0], "2,2,1": [5, -1, 1, -1, -1, 1, 0],
+             "3,1,1": [6, 0, -2, 0, 0, 0, 1]}
+    ip = lambda a, b: sp.Rational(sum(z * x * y for z, x, y in zip(sizes, a, b)), 120)
+    decomp = lambda ch: {k: ip(ch, v) for k, v in table.items() if ip(ch, v) != 0}
+    chi6 = [rho(s).trace() for s in reps_cls]
+    gens = [perm_of([(0, 1)]), perm_of([(0, 1, 2, 3, 4)])]
+    Xs = sp.Matrix(6, 6, lambda a, b: sp.Symbol(f"x{a}{b}"))
+    eqs = [e for s in gens for e in (rho(s) * Xs - Xs * rho(s))]
+    commutant = 36 - sp.Matrix([[sp.diff(e, v) for v in Xs] for e in eqs]).rank()
+    # the quadratic intensity court on Sym^2 of the six coordinates
+    mons = list(itertools.combinations_with_replacement(range(6), 2))
+    Q = sp.Matrix([[F[n, a] * F[n, b] * (2 if a != b else 1) for a, b in mons] for n in reps])
+    ker = Q.nullspace()
+    symm = lambda v: sp.Matrix(6, 6, lambda a, b: v[mons.index((min(a, b), max(a, b)))])
+    vec = lambda T: sp.Matrix([T[a, b] for a, b in mons])
+    Kb = sp.Matrix.hstack(*ker)
+    def chi_ker(s):
+        r = rho(s)
+        img = sp.Matrix.hstack(*[vec(r * symm(v) * r.T) for v in ker])
+        return (Kb.pinv() * img).trace()                         # the kernel is invariant, so this is its character
+    def chi_sym2(s):
+        r = rho(s)
+        basis = [sp.Matrix(6, 6, lambda a, b: int((a, b) in ((p, q), (q, p)))) for p, q in mons]
+        return sum((sp.Matrix(vec(r * Bm * r.T)).T * sp.Matrix(vec(Bm)))[0] / (sp.Matrix(vec(Bm)).T * sp.Matrix(vec(Bm)))[0]
+                   for Bm in basis)
+    chi_k = [chi_ker(s) for s in reps_cls]
+    chi_s = [chi_sym2(s) for s in reps_cls]
+    ext = lambda s_: list(s_) + [5]
+    moves = lambda s_, syn: frozenset(frozenset(ext(s_)[a] for a in d) for d in syn)
+    chi15 = [sum(1 for syn in set(synth.values()) if moves(s_, syn) == syn) for s_ in reps_cls]
+    # the phase-retrieval witness and the linear repair
+    g = sp.Matrix([-1, 0, 1, 1, 0, 2])
+    h = sp.Matrix([0, -1, 0, 0, -1, 1])
+    al = sp.Rational(1, 150)
+    x0 = flags.index((0, 1, 2))
+    # the six cross terms
+    cross = [(0, 1), (0, 2), (0, 7), (1, 2), (1, 6), (2, 6)]
+    Qx = sp.Matrix.vstack(Q, sp.Matrix([[F[a, c] * F[b, d] + (F[a, d] * F[b, c] if c != d else 0) for c, d in mons]
+                                        for a, b in cross]))
+    gs = sp.Matrix(sp.symbols("g0:6"))
+    pvec = sp.ones(30, 1) / 30 + al * F * gs
+    err = sp.expand((Pi * (sp.diag(*pvec) - pvec * pvec.T)).trace())
+    # flag orbits: fixed flags per class, Burnside and gluing
+    fix = [sum(1 for (i, j, k) in flags if s[i] == i and {s[j], s[k]} == {j, k}) for s in reps_cls]
+    dN = lambda N: sp.Rational(sum(z * f ** N for z, f in zip(sizes, fix)), 120)
+    act = lambda s, f: (s[f[0]], *sorted((s[f[1]], s[f[2]])))
+    fidx = {f: n for n, f in enumerate(flags)}
+    allS5 = [list(p) for p in itertools.permutations(range(5))]
+    orbits2 = len({min((fidx[act(s, a)], fidx[act(s, b)]) for s in allS5)
+                   for a in flags for b in flags})
+    mult = lambda m: {k: ip([f ** m for f in fix], v) for k, v in table.items()}
+    corner = 241 * sp.eye(6) - sp.ones(6, 6)
+    return {
+        "the FOAM six-port is the cycle space: the six triangles through vertex 0 span ker of the incidence (rank 6, "
+        "inc Bt = 0), the source's coordinates C have det 3125, and a flag (i, {j, k}) reads half the flow out of i "
+        "towards j and k; F (30 x 6) has rank 6 and Gram F^T F equal to the source's [[55, -20, 5, 5, -20, 0], ...] "
+        "with det 5^13; zero divergence makes the complementary flag (i, {l, m}) read minus it, so the 30 flags fall into "
+        "15 antipodal pairs, one for each syntheme {i6, jk, lm} of the five vertices and the cone point; F G^-1 F^T "
+        "is a projector with constant diagonal 1/5 and 1^T F = 0 (the hub's 021 x 120 x FOAM court, 1 Nov)":
+            Bt.rank() == 6 and inc * Bt == sp.zeros(5, 6) and C.det() == 3125 and F.rank() == 6
+            and G == Gsrc and G.det() == 5 ** 13 and all(F[comp[n], :] == -F[n, :] for n in range(30))
+            and len({synth[n] for n in range(30)}) == 15 and all(synth[n] == synth[comp[n]] for n in range(30))
+            and Pi ** 2 == Pi and all(Pi[n, n] == sp.Rational(1, 5) for n in range(30))
+            and sp.ones(1, 30) * F == sp.zeros(1, 6),
+        "S5 permuting the vertices acts on the cycles with character 6, 0, -2, 0, 0, 0, 1, the irreducible [3, 1, 1] "
+        "(its commutant is the scalars), and F intertwines it with the flag permutation; Sym^2 has character 21, 3, 5, "
+        "0, 0, -1, 1 = [5] + [1^5] + [4, 1] + 2[3, 2] + [2, 2, 1], with no [3, 1, 1], so no quadratic equivariant "
+        "channel returns the six-port linearly":
+            chi6 == [6, 0, -2, 0, 0, 0, 1] and commutant == 1 and decomp(chi6) == {"3,1,1": 1}
+            and all(F * rho(s) == sp.Matrix.vstack(*[F[flags.index(act([s.index(a) for a in range(5)], f)), :]
+                                                     for f in flags]) for s in gens)
+            and chi_s == [21, 3, 5, 0, 0, -1, 1]
+            and decomp(chi_s) == {"5": 1, "1^5": 1, "4,1": 1, "3,2": 2, "2,2,1": 1},
+        "the squared readings see 15 of the 21 quadratic directions: one per antipodal pair, the 15 x 21 coefficient "
+        "matrix has rank 15, its image is the permutation module on the 15 synthemes (15, 3, 3, 0, 0, 1, 0 = [5] + [4, 1] "
+        "+ [3, 2] + [2, 2, 1]) and the blind kernel is exactly [1^5] + [3, 2] (6, 0, 2, 0, 0, -2, 1); the six cross "
+        "terms (0,1), (0,2), (0,7), (1,2), (1,6), (2,6) complete it to rank 21 with det = -5^35/2^26 in the source's row order":
+            Q.rank() == 15 and len(ker) == 6 and chi15 == [15, 3, 3, 0, 0, 1, 0]
+            and decomp(chi15) == {"5": 1, "4,1": 1, "3,2": 1, "2,2,1": 1}
+            and chi_k == [6, 0, 2, 0, 0, -2, 1] and decomp(chi_k) == {"1^5": 1, "3,2": 1}
+            and [a - b for a, b in zip(chi_s, chi15)] == chi_k
+            and Qx.rank() == 21 and Qx.det() == -sp.Rational(5 ** 35, 2 ** 26),
+        "phase retrieval fails and the linear readings repair it: g = (-1, 0, 1, 1, 0, 2) and h = (0, -1, 0, 0, -1, 1) "
+        "are neither equal nor opposite, yet (Fg)_x^2 = (Fh)_x^2 at all 30 flags and g^T G g = h^T G h = 125; the linear "
+        "law p_x = 1/30 + alpha (Fg)_x with alpha = 1/150 (|alpha| 5 sqrt5 = sqrt5/30) gives 1/20 and 1/60 at (0, {1, 2}); "
+        "merging complementary flags gives 1/15 whatever g is; the decoder error has mean square [1/(5 alpha^2) - "
+        "g^T G g]/n per n draws and the Fisher matrix at g = 0 is 30 n alpha^2 G":
+            g != h and g != -h and F * g != F * h and F * g != -(F * h)
+            and all((F * g)[n] ** 2 == (F * h)[n] ** 2 for n in range(30))
+            and (g.T * G * g)[0] == (h.T * G * h)[0] == 125
+            and (F * g)[x0] == sp.Rational(5, 2) and (F * h)[x0] == -sp.Rational(5, 2)
+            and sp.Rational(1, 30) + al * (F * g)[x0] == sp.Rational(1, 20)
+            and sp.Rational(1, 30) + al * (F * h)[x0] == sp.Rational(1, 60)
+            and al * 5 * sp.sqrt(5) == sp.sqrt(5) / 30
+            and all(sp.expand(pvec[n] + pvec[comp[n]]) == sp.Rational(1, 15) for n in range(30))
+            and sp.expand(err - (sp.Rational(1, 5) - al ** 2 * (gs.T * G * gs)[0])) == 0
+            and al ** 2 * F.T * sp.diag(*([30] * 30)) * F == 30 * al ** 2 * G,
+        "the 120-frame: the flags are one S5 orbit with fixed counts 30, 6, 2, 0, 0, 0, 0, so averaging over the frame "
+        "gives 1/30 for every g (no information without the reference), the orbits on N-tuples number d_N = (30^N + "
+        "10 6^N + 15 2^N)/120 (1, 11, 244 for N = 1, 2, 3, the 11 counted directly), and gluing d_(m+n) = sum_lambda "
+        "m_(m,lambda) m_(n,lambda); the six-site corner 241I - J (235 once, 241 five times) is not scalar, so by Schur it "
+        "cannot commute with the irreducible six-port: the model's obstruction Hom_A5(cycles, site6) = 0 again":
+            fix == [30, 6, 2, 0, 0, 0, 0] and [dN(N) for N in (1, 2, 3)] == [1, 11, 244] and orbits2 == 11
+            and all(dN(m + n) == sum(mult(m)[k] * mult(n)[k] for k in table) for m in (1, 2) for n in (1, 2, 3))
+            and all(ip(table[a], table[b]) == int(a == b) for a in table for b in table)
+            and sorted(corner.eigenvals().items()) == [(235, 1), (241, 5)] and commutant == 1,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -20992,6 +21150,7 @@ LEDGER_ROWS = [
     ("all 240 roots through the A4 clock (separate model's N41, 31 Oct 22:46, dated 1 Nov)", "the coordinate five-cycle: 20 fixed roots and 44 pentagons; L = 2I - P - P^-1 on the 240 labels with L^2 - 5L + 5B = 0, ranks 64 and 176, K^2 = 5B; the wedge feature E: E P = C6 E, rank 6, det(E E^T) = 8957952, Gram 12[tr Q_i tr Q_j + 2 tr Q_i Q_j]; E L = L6 E and the return reads down; the reflection's twisted law D6 = -(Lambda^2 R4) C6^-1; sharp bounds (57/2)q^4 <= P8 <= 39q^4 and (225/8)q^5 <= P10 <= (135/2)q^5 with the certificate (5/588)(t - 21/2)(t - 315/2)", "replayed exactly (notes_2256) and joined (E8 -> cycles); the sharp lower bound 57/2, attained along all 2160 norm-four directions, sharpens notes_2154's strict 132/5; the directional Taylor constant runs from 1/129024 to 1/53760; the note credits the sharp bounds to the canon's older reports", T, "23"),
     ("two native memory channels (separate model's N42, 31 Oct 23:21, dated 1 Nov)", "the root graph's five relations and spectrum 56, 28, 8, -2, -4 (1, 8, 35, 112, 84), five reflection orbits on pairs; the 241-point Gram (B + 4I)/64 with v* M v = 16 + sum e^(ik.alpha), so the bath's spectrum is [0, 256]; E7 = [E; 1^T] with E B = 8E + 12 tau 1^T, A7 = [[232 I6, -12 tau], [0, 184]], det K7 = 358318080, kernel 61 + 172; the centered Hodge lift commutes, the metric defect has rank 2 and vanishes on the moving four-space; E7 K(s) J7 = g_mass Pi_mass + g_quad Pi_centered; 9361 two-step sites, boundary covariance 2117 Pi_mass + 389 Pi_centered, moments (184, 35973) and (232, 54213), Hankel rank 14; Radau enclosures; no finite autonomous intertwiner in L2", "replayed exactly (notes_2327), all seven statements; the cap's Gram certificate is a one-line proof of the 256 cap the model already proves; the no-intertwiner theorem follows from the absolutely continuous port measures (free_chain); the landing in the separate model's source31 clock (Z31, T7, S7) stays in its zip", T, "23"),
     ("the separate model's 31st reference layer (23:09 release and certificate)", "a 79 MB seven-part archive: 31 mathematical layers, 924 new matrix presentations, 135 new typed relationships, no new canon matrix IDs or active summands, parameters unassigned; limits: the root-label section metric differs from the saved G6, and the selected 480-bounded pencils have terminal Rayleigh values above 256 so they are not compressions of the unchanged bath", "recorded (REPORTED): the manifest and certificate were read as data; the metric limit is checked (notes_2327: K^-1 and Kc^-1 are not multiples of G6) and the pencil limit is the 256 cap (a compression of Delta has its Rayleigh values in [0, 256]); the archive itself was not opened", RP, "23"),
+    ("the 021 x 120 x FOAM quadratic court (hub, 1 Nov 00:08)", "the native six-port read at the 30 flags of K5 (F = J B C, det C = 3125, det F^T F = 5^13); Sym^2 [3, 1, 1] = [5] + [1^5] + [4, 1] + 2[3, 2] + [2, 2, 1]; the 15 squared intensities have rank 15, blind [1^5] + [3, 2]; six cross terms give rank 21, det -5^35/2^26; the witness g, h with equal squares everywhere and G-norm 125; linear repair, mean-square error [1/(5 alpha^2) - |g|_G^2]/n, Fisher 30 n alpha^2 G at 0; the 120-frame averages to 1/30; gluing d_N = (30^N + 10 6^N + 15 2^N)/120; the six-site corner 241I - J is not S5-equivariant; a Gaussian information budget min(log 30, 3 log(1 + 32 E/(705 hbar)))", "replayed exactly (notes_0030), five statements, in the model's own edge flows: the six-port is the cycle space and the 15 antipodal flag pairs are the 15 synthemes; the bath point repeats the model's obstruction Hom_A5(cycles, site6) = 0; the Gaussian information budget rests on the source's own energy bound and is recorded, not replayed", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -21260,7 +21419,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
