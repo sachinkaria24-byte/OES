@@ -10129,6 +10129,12 @@ JOINS = [
     ("time", "cyclo", "the tick over F_241", "241 is the least prime 1 mod 240, so over F_241 the Coxeter clock, the day and the golden clock have eight distinct eigenvalues each, and the tick's are 98, 205, 87, 91, the powers of the packet's 98; the circle's steps 931, 241, 541 are units 1 mod 5, fixing the time coordinate, with differences of orders 144, 72, 144 in the miss set (1 Nov)", T, "notes_1340"),
     ("time", "residue", "the Weyl lift of GL(2,5)", "the tick's normalizer (2400) acts on the residue plane F25 through all of GL(2, F5) with kernel <g>, conjugating g to g^det, and it splits: SL(2,5) = [C_W(g), C_W(g)] and one element of determinant 2 generate a complement of order 480, so N_W(<g>) = <g> x| GL(2,5) inside W(E8) (the packet of 1 Nov had only the abstract count)", T, "notes_1340"),
     ("time", "calibration", "a symmetry, not a step", "the tick commutes with D and with every native flow but is a step of none: the carrier flow exp(uX) has finite order for no u != 0 (the five dark modes drift, exp(uX)(0, k) = (u k, k), and sqrt3 : sqrt8 is irrational), so no internal datum makes a tick an interval of native time; TIME_BIND needs its one external datum (1 Nov)", OB, "notes_1340"),
+    ("bath", "calibration", "the four-channel clock", "if a bath channel's measured response is R(t) = gamma tau k(t / tau), k the retarded kernel's moment series, then tau^2 = -a R'(0)/R'''(0) in each of the four channels (mass 184, quadratic 232, wedge 242, dark 243): three cross-channel constraints on one shared tau, with gain- and scale-free falsifiers m2/a^2, m3/a^3, m4/a^4 (I2 = 35973/33856, 54213/53824, 58691/58564, 59132/59049); how TIME_BIND would be read off a response (1 Nov)", gates.CONDITIONAL, "notes_1512"),
+    ("readout", "bath", "no autonomous visible law", "the boundary covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21 (trace 7101, least 83), so each readout direction has a hidden state that reads zero but moves the readout: no autonomous law on the 21 readouts alone, and the four channels' Hankel minors are all positive (no two-point channel) (1 Nov)", OB, "notes_1512"),
+    ("circle", "halfper", "the clock of the periodic generator", "on E8/2E8 the generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 make exp(-ihH) at h = 2 pi/(32 x 4320) of order exactly 4320, aligned with the circle (CRT j = 2241 (j mod 160) + 2080 (j mod 27)), but no integral automorphism of a rank-8 lattice has order divisible by 27 or 32: the clock aligns with the periodic generator, not with any lattice symmetry; steps 931, 241, 541 are 3, 1, 5 mod 8 (1 Nov)", T, "notes_1512"),
+    ("kerM", "binding", "generator rigidity", "a generator on Lambda^2 ker M keeping every simple source simple is induced from gl(5) (constraint rank 75, nullity 25); the symmetric generators on ker M have commutants 25, 5, 2, 1 under no symmetry, C5, F20, S5 (metric-skew 10, 2, 0, 0), so the source stiffness has two free numbers under F20 and one, a scale, under S5: DYN_BIND's source-level freedom (1 Nov)", T, "notes_1512"),
+    ("bath", "binding", "the quartic is a choice", "a r^2 - (40/9) r^4 falls without bound for every a, and eliminating a wedge bath mode (core 242) coupled by g gives a r^2 - (g^2/484) r^4: the coefficient 40/9 is matched only by choosing g^2 = 19360/9, so no symmetry fixes the quartic or its zero r^2 = 9a/40 (1 Nov)", OB, "notes_1512"),
+    ("pgl", "readout", "the six Sylow labels", "Hermitian operators on the six currents are Sym^2 + Lambda^2 of [3,1,1], one [2,2,1] more than the 42 outcomes hold; the six Sylow-five subgroups, the exceptional action's six points ([5] + [2,2,1]), supply it, making 48 outcomes with 4[5] + 2[4,1] left over; the 52 outcomes count d_N = 1, 5, 54, 1445 and carry a rank-43 integer encoder (1 Nov)", T, "notes_1512"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -26185,6 +26191,233 @@ def notes_1340():
     }
 
 
+# ------------------------------------------------------------------- the separate model's binding route (1 Nov)
+
+def notes_1512():
+    """The separate model's binding route (1 Nov, 14:25-15:13): the four bath channels as a clock with three
+    cross-channel constraints and gain-free falsifiers (how TIME_BIND would be read off a measured response), the
+    visible-only no-go, the finite clock that aligns with the periodic generator but with no lattice automorphism,
+    the rigidity of tangent generators on Lambda^2 ker M (DYN_BIND's source-level freedom), the quartic as a choice,
+    and the 48- and 52-outcome observers."""
+    t, tau, gam, lam, u = sp.symbols("t tau gamma lam u", positive=True)
+    chans = {"mass": [1, 184, 35973, 7355136, 1556789920], "quadratic": [1, 232, 54213, 12740592, 3008062816],
+             "wedge": [1, 242, 58691, 14259954, 3470101592], "dark": [1, 243, 59132, 14407126, 3514086413]}
+    mult = {"mass": 1, "quadratic": 10, "wedge": 6, "dark": 4}
+    x = sp.symbols("x")
+    def jacobi(m):
+        Lf = lambda p: sum(c * m[e[0]] for e, c in sp.Poly(p, x).terms())
+        p1 = x - m[1]
+        b1 = Lf(p1 ** 2)
+        a1 = Lf(x * p1 ** 2) / b1
+        p2 = sp.expand((x - a1) * p1 - b1)
+        return m[1], b1, a1, Lf(p2 ** 2) / b1, sp.Matrix(3, 3, lambda i, j: m[i + j]).det()
+    J = {k: jacobi(m) for k, m in chans.items()}
+    expect = {"mass": (184, 2117, sp.Rational(346576, 2117), sp.Rational(14357066531, 4481689), 14357066531),
+              "quadratic": (232, 389, sp.Rational(72928, 389), sp.Rational(219823907, 151321), 219823907),
+              "wedge": (242, 127, sp.Rational(25998, 127), sp.Rational(15930273, 16129), 15930273),
+              "dark": (243, 83, sp.Rational(17881, 83), sp.Rational(4115587, 6889), 4115587)}
+    BB = [J[k][1] for k in chans for _ in range(mult[k])]
+    # the response clock: R(t) = gamma tau k(t / tau), k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)!
+    kern = sp.series(sp.sin(u * sp.sqrt(lam)) / sp.sqrt(lam), u, 0, 11).removeO()
+    kern_ok = sp.expand(kern - sum((-1) ** n * lam ** n * u ** (2 * n + 1) / sp.factorial(2 * n + 1) for n in range(5))) == 0
+    def response(m):
+        R = gam * tau * sum((-1) ** n * m[n] * (t / tau) ** (2 * n + 1) / sp.factorial(2 * n + 1) for n in range(5))
+        d = [sp.diff(R, t, k).subs(t, 0) for k in range(10)]
+        return d
+    inv = {}
+    for k, m in chans.items():
+        d = response(m)
+        inv[k] = (sp.simplify(-m[1] * d[1] / d[3]), sp.simplify(d[5] * d[1] / d[3] ** 2),
+                  sp.simplify(d[7] * d[1] ** 2 / d[3] ** 3), sp.simplify(d[9] * d[1] ** 3 / d[3] ** 4))
+    I2 = {k: inv[k][1] for k in chans}
+    # the finite clock
+    from math import gcd
+    steps = (931, 241, 541)
+    divs = [d for d in range(2, 8) if 4320 % d == 0]
+    crt_ok = all((2241 * (j % 160) + 2080 * (j % 27)) % 4320 == j for j in range(4320))
+    to241 = lambda j: pow(98, j % 5, 241)
+    kernel241 = [j for j in range(4320) if to241(j) == 1]
+    eig_order = sp.ilcm(4320 // gcd(7, 4320), 4320 // gcd(8, 4320))
+    small = [d for d in range(1, 61) if sp.totient(d) <= 8]
+    def achievable(budget, start=0):
+        out = {1}
+        for i in range(start, len(small)):
+            c = int(sp.totient(small[i]))
+            if c <= budget:
+                for l in achievable(budget - c, i + 1):
+                    out.add(int(sp.ilcm(l, small[i])))
+        return out
+    orders8 = achievable(8)
+    # rigidity of tangent generators on Lambda^2 V, V = ker M (dimension 5)
+    pr = list(itertools.combinations(range(5), 2))
+    quads = list(itertools.combinations(range(5), 4))
+    w4tab = [[(pr.index(p1), pr.index(p2), sp.combinatorics.Permutation([list(q).index(s_) for s_ in (*p1, *p2)]).signature())
+              for p1 in pr for p2 in pr if set(p1) | set(p2) == set(q) and len(set(p1) | set(p2)) == 4] for q in quads]
+    w4 = lambda a, b: [sum(sg * a[i1] * b[i2] for i1, i2, sg in tab) for tab in w4tab]   # a ^ b in Lambda^4
+    wedge2 = lambda a, b: [a[i] * b[j] - a[j] * b[i] for i, j in pr]
+    E = [[int(i == k) for k in range(5)] for i in range(5)]
+    vecs = E + [[E[i][k] + E[j][k] for k in range(5)] for i, j in pr]
+    pairs = list(itertools.combinations(vecs, 2))
+    rows = []
+    for a, b in pairs:
+        xw = wedge2(a, b)
+        for qi in range(5):
+            # x ^ Lx is linear in L: the coefficient of L[r_, c_] is xw[c_] (x ^ e_r)_q
+            rows.append([xw[c_] * sum(sg * xw[i1] for i1, i2, sg in w4tab[qi] if i2 == r_)
+                         for r_ in range(10) for c_ in range(10)])
+    def rank_mod(M, p=1000003):
+        A = [[v % p for v in r] for r in M]
+        rk = 0
+        for c in range(len(A[0])):
+            piv = next((i for i in range(rk, len(A)) if A[i][c]), None)
+            if piv is None:
+                continue
+            A[rk], A[piv] = A[piv], A[rk]
+            iv = pow(A[rk][c], p - 2, p)
+            A[rk] = [v * iv % p for v in A[rk]]
+            for i in range(len(A)):
+                if i != rk and A[i][c]:
+                    f = A[i][c]
+                    A[i] = [(v - f * w) % p for v, w in zip(A[i], A[rk])]
+            rk += 1
+        return rk
+    def induced(Am):                                                # L_A(a ^ b) = Aa ^ b + a ^ Ab, as a 10 x 10 matrix
+        L = []
+        for i, j in pr:
+            ei, ej = E[i], E[j]
+            Aei = [Am[r][i] for r in range(5)]
+            Aej = [Am[r][j] for r in range(5)]
+            v = [s + t_ for s, t_ in zip(wedge2(Aei, ej), wedge2(ei, Aej))]
+            L.append(v)
+        return [[L[c][r] for c in range(10)] for r in range(10)]       # rows r, columns c
+    gl5 = [[[int((r, c) == (i, j)) for c in range(5)] for r in range(5)] for i in range(5) for j in range(5)]
+    Lvecs = [[v for row in induced(Am) for v in row] for Am in gl5]
+    kills = all(sum(rw[k] * Lv[k] for k in range(100)) == 0 for rw in rows for Lv in Lvecs)
+    # commutants on ker M (the model's basis) and the metric G
+    edges = list(itertools.combinations(range(5), 2))
+    Ms = sp.Matrix(5, 10, lambda v, n: int(v in edges[n]))
+    P = sp.Matrix.hstack(*Ms.nullspace())
+    G = P.T * P
+    Pp = G.inv() * P.T
+    def rhoP(p):
+        Mp = sp.zeros(10, 10)
+        for n, (a, b) in enumerate(edges):
+            Mp[edges.index(tuple(sorted((p[a], p[b])))), n] = 1
+        return Pp * Mp * P
+    c5 = [1, 2, 3, 4, 0]
+    m2 = [0, 2, 4, 1, 3]
+    adj = [[1, 0, 2, 3, 4], [0, 2, 1, 3, 4], [0, 1, 3, 2, 4], [0, 1, 2, 4, 3]]
+    Asym = sp.Matrix(5, 5, sp.symbols("A0:25"))
+    def comm_dim(gens, skew=False):
+        eqs = [e for g_ in gens for e in (Asym * rhoP(g_) - rhoP(g_) * Asym)]
+        if skew:
+            eqs += list(Asym.T * G + G * Asym)
+        return 25 - sp.Matrix([[sp.diff(e, s_) for s_ in Asym] for e in eqs]).rank() if eqs else 25
+    R = rhoP(c5)
+    P0 = (sp.eye(5) + R + R ** 2 + R ** 3 + R ** 4) / 5
+    # the quartic
+    r_, y_, a_, g_ = sp.symbols("r y a g", real=True)
+    V = a_ * r_ ** 2 + sp.Rational(242, 2) * y_ ** 2 - g_ * r_ ** 2 * y_
+    ystar = sp.solve(sp.diff(V, y_), y_)[0]
+    Veff = sp.expand(V.subs(y_, ystar))
+    # the 48- and 52-outcome observers
+    allS5 = [list(q) for q in itertools.permutations(range(5))]
+    sign = lambda p: sp.combinatorics.Permutation(p).signature()
+    fix = lambda p: sum(1 for i in range(5) if p[i] == i)
+    sq = lambda p: [p[p[i]] for i in range(5)]
+    efix = lambda p: sum(1 for a, b in edges if {p[a], p[b]} == {a, b})
+    irr = [lambda p: 1, sign, lambda p: fix(p) - 1, lambda p: sign(p) * (fix(p) - 1),
+           lambda p: efix(p) - fix(p), lambda p: sign(p) * (efix(p) - fix(p)),
+           lambda p: sp.Rational((fix(p) - 1) ** 2 - (fix(sq(p)) - 1), 2)]
+    mults = lambda chi: [sp.Rational(sum(chi(p) * x_(p) for p in allS5), 120) for x_ in irr]
+    W6 = irr[6]
+    sym2 = lambda p: sp.Rational(W6(p) ** 2 + W6(sq(p)), 2)
+    alt2 = lambda p: sp.Rational(W6(p) ** 2 - W6(sq(p)), 2)
+    flags = [(i, j, k) for i in range(5) for j, k in itertools.combinations([a for a in range(5) if a != i], 2)]
+    act = lambda p, f: (p[f[0]], *sorted((p[f[1]], p[f[2]])))
+    fix42 = lambda p: sum(1 for f in flags if act(p, f) == f) + 2 + (2 * fix(p) if sign(p) == 1 else 0)
+    compose = lambda a, b: [a[b[i]] for i in range(5)]
+    def cyc(q):
+        out, cur = [list(range(5))], q
+        while cur != list(range(5)):
+            out.append(cur)
+            cur = compose(q, cur)
+        return frozenset(tuple(e) for e in out)
+    fives = {cyc(q) for q in allS5 if fix(q) == 0 and len(cyc(q)) == 5}
+    inv_ = lambda p: [p.index(i) for i in range(5)]
+    syl_fix = lambda p: sum(1 for H in fives if frozenset(tuple(compose(compose(p, list(h)), inv_(p))) for h in H) == H)
+    m48 = mults(lambda p: fix42(p) + syl_fix(p))
+    herm0 = [a + b - (1 if n == 0 else 0) for n, (a, b) in enumerate(zip(mults(sym2), mults(alt2)))]
+    fix52 = Counter(fix42(p) + efix(p) for p in allS5)
+    dN = [sp.Rational(sum((fix42(p) + efix(p)) ** N for p in allS5), 120) for N in range(4)]
+    import json
+    from pathlib import Path
+    enc = json.loads((Path(__file__).resolve().parent.parent / "data" / "n44_52_encoder.json").read_text())["rows"]
+    return {
+        "the four native bath channels (mass, the ten edge quadratics, the six wedge currents, the four dark; moments "
+        "replayed in N42 and notes_0204) have Jacobi data (a0, b1^2, a1, b2^2) = (184, 2117, 346576/2117, "
+        "14357066531/4481689), (232, 389, 72928/389, 219823907/151321), (242, 127, 25998/127, 15930273/16129), (243, 83, "
+        "17881/83, 4115587/6889), every 3 x 3 Hankel positive, so no channel is a two-point measure; the boundary "
+        "covariance BB* = diag(2117, 389 I10, 127 I6, 83 I4) has rank 21, trace 7101 and least eigenvalue 83, so every "
+        "readout direction v has a hidden state QHJv that reads zero but moves the readout at rate BB* v: no autonomous "
+        "law on the 21 readouts alone (the separate model's binding route, 1 Nov)":
+            all(J[k] == expect[k] for k in chans) and all(J[k][4] > 0 for k in chans)
+            and len(BB) == 21 and sum(BB) == 7101 and min(BB) == 83 and all(b > 0 for b in BB),
+        "how TIME_BIND would be read off a measured response: if a channel's response is R(t) = gamma tau k(t / tau) with "
+        "k(u) = sum (-1)^n m_n u^(2n+1)/(2n+1)! (the retarded kernel J*(sin(u sqrt H)/sqrt H)J), then tau^2 = -a R'(0) / "
+        "R'''(0) in every channel (three cross-channel constraints for one shared tau), and the gain- and scale-free "
+        "invariants R5 R1 / R3^2 = m2/a^2, R7 R1^2 / R3^3 = m3/a^3, R9 R1^3 / R3^4 = m4/a^4 are falsifiers; the four I2 "
+        "are 35973/33856, 54213/53824, 58691/58564, 59132/59049, all distinct and above 1 (CONDITIONAL on a measured, "
+        "calibrated response; the identity is exact)":
+            kern_ok and all(inv[k][0] == tau ** 2 for k in chans)
+            and all(inv[k][1:] == tuple(sp.Rational(chans[k][n], chans[k][1] ** n) for n in (2, 3, 4)) for k in chans)
+            and [I2[k] for k in chans] == [sp.Rational(35973, 33856), sp.Rational(54213, 53824),
+                                           sp.Rational(58691, 58564), sp.Rational(59132, 59049)]
+            and len(set(I2.values())) == 4 and all(v > 1 for v in I2.values()),
+        "the finite clock aligns with the periodic generator but with no lattice: 931, 241, 541 have residues 3, 1, 5 mod 8 "
+        "(no divisor of 4320 below 8 separates them), 3, 17, 29 mod 32 and 13, 25, 1 mod 27; j = (2241 (j mod 160) + "
+        "2080 (j mod 27)) mod 4320 inverts the CRT; j -> 98^(j mod 5) in F_241 has kernel the miss set <5> (864 points) and sends all three to "
+        "98; at h = 2 pi/(32 x 4320) the 2-torsion generator's eigenvalues 224 = 32 x 7 and 256 = 32 x 8 give "
+        "exp(-ihH) order exactly 4320, yet no integral automorphism of a rank-8 lattice has an order divisible by 27 or "
+        "32 (phi(27) = 18, phi(32) = 16 > 8), so the clock is no lattice symmetry":
+            [s % 8 for s in steps] == [3, 1, 5] and all(len({s % d for s in steps}) < 3 for d in divs)
+            and [s % 32 for s in steps] == [3, 17, 29] and [s % 27 for s in steps] == [13, 25, 1]
+            and crt_ok and kernel241 == list(range(0, 4320, 5)) and len(kernel241) == 864 and {to241(s) for s in steps} == {98}
+            and eig_order == 4320 and all(o % 27 and o % 32 for o in orders8),
+        "DYN_BIND's source-level freedom (generator rigidity): a linear generator L on Lambda^2 ker M (100 coefficients) "
+        "keeping every simple source simple (x ^ Lx = 0) is induced, L(a ^ b) = Aa ^ b + a ^ Ab with A in gl(5): the "
+        "constraints from the 105 simple sources e ^ e' (e, e' among the e_i and e_i + e_j) have rank 75 and kill all 25 induced generators, which are independent; the "
+        "symmetric generators on ker M have commutants of dimension 25, 5, 2, 1 under no symmetry, the five-cycle, F20 "
+        "and S5, and metric-skew ones 10, 2, 0, 0; an F20-equivariant G-self-adjoint stiffness is k0 P0 + k1 (I - P0) "
+        "(P0 the C5 average, rank 1, G-orthogonal): two free numbers under F20 and one, a scale, under S5":
+            rank_mod(rows) == 75 and kills and rank_mod(Lvecs) == 25
+            and [comm_dim([]), comm_dim([c5]), comm_dim([c5, m2]), comm_dim(adj)] == [25, 5, 2, 1]
+            and [comm_dim([], True), comm_dim([c5], True), comm_dim([c5, m2], True), comm_dim(adj, True)] == [10, 2, 0, 0]
+            and P0.rank() == 1 and P0 * P0 == P0 and P0.T * G == G * P0 and G.det() == 162,
+        "the quartic is a choice: V_a(r) = a r^2 - (40/9) r^4 falls without bound for every a, and coupling the source "
+        "amplitude r^2 to a wedge bath mode of core 242 by g, V = a r^2 + 121 y^2 - g r^2 y, gives on eliminating y the "
+        "effective a r^2 - (g^2/484) r^4, which matches 40/9 only by choosing g^2 = 19360/9: no symmetry fixes it":
+            sp.limit(a_ * r_ ** 2 - sp.Rational(40, 9) * r_ ** 4, r_, sp.oo) == -sp.oo
+            and Veff == sp.expand(a_ * r_ ** 2 - g_ ** 2 * r_ ** 4 / 484)
+            and sp.solve(sp.Eq(g_ ** 2 / 484, sp.Rational(40, 9)), g_ ** 2) == [sp.Rational(19360, 9)],
+        "the observers: Herm(C^6) of the six currents [3,1,1] is Sym^2 + Lambda^2 = [5] + [1^5] + [4,1] + [2,1,1,1] + 2[3,2] "
+        "+ 2[2,2,1] + [3,1,1], so full traceless tomography (35) needs one more [2,2,1] than the centred 42 outcomes give; "
+        "the six Sylow-five subgroups ([5] + [2,2,1]) supply it, the 48 outcomes are 5[5] + [1^5] + 3[4,1] + [2,1,1,1] + "
+        "2[3,2] + 2[2,2,1] + [3,1,1], leaving 4[5] + 2[4,1] (12); the 52 outcomes have fixed counts 52, 12, 8, 7, 3, 2 "
+        "on 1, 10, 15, 20, 20, 54 permutations, d_N = 1, 5, 54, 1445, and the separate model's 52 x 43 integer encoder "
+        "(data/n44_52_encoder.json) has rank 43 mod two primes, hence over Q, with its 42 signal columns summing to zero":
+            [a + b for a, b in zip(mults(sym2), mults(alt2))] == [1, 1, 1, 1, 2, 2, 1]
+            and mults(alt2) == [0, 0, 0, 1, 0, 1, 1]
+            and [a - b for a, b in zip([3, 1, 3, 1, 2, 1, 1], herm0)] == [3, 0, 2, 0, 0, -1, 0]
+            and len(fives) == 6 and m48 == [5, 1, 3, 1, 2, 2, 1]
+            and [a - b - (1 if n == 0 else 0) for n, (a, b) in enumerate(zip(m48, herm0))] == [4, 0, 2, 0, 0, 0, 0]
+            and sorted(fix52.items()) == [(2, 54), (3, 20), (7, 20), (8, 15), (12, 10), (52, 1)]
+            and dN == [1, 5, 54, 1445]
+            and len(enc) == 52 and rank_mod(enc) == 43 and rank_mod(enc, 1000033) == 43
+            and all(sum(r_[j] for r_ in enc) == 0 for j in range(42)) and {r_[42] for r_ in enc} == {1},
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -26711,6 +26944,7 @@ LEDGER_ROWS = [
     ("the star at the seed (join all dots, 1 Nov)", "38 new direct checked joins from E8: one to each of the 37 dots that had none and a THEOREM one to the circle, which had only a selected reference (32 THEOREM, 1 OBSTRUCTION, 2 SELECTED_REFERENCE, 3 CONDITIONAL); with the 35 dots joined before (33 by THEOREM, the circle by a selected reference, the memory clock by an obstruction) every dot but E8 now meets the seed directly", "constructed from the 240 roots, the Weyl group, the principal torus and the residue rings (join_e8_*); an independent review revised 22 of them and rejected one (a torus realization of the memory clock, which reaches only Z/90, not its 120 states); unify.star checks the star", T, "23, 25"),
     ("the 52-outcome extension and the Plucker residual (separate model's N44 addendum, 1 Nov 12:22)", "S5 multiplicities: signal 21 = 2[5] + [4,1] + [3,2] + [3,1,1] + [2,1,1,1], quadratic 21 = [5] + [1^5] + [4,1] + 2[3,2] + [2,2,1], 42 outcomes = 4[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + [2,2,1] + [3,1,1], residual 20 = [5] + [1^5] + 2[4,1] + [3,2] + [2,2,1]; equivariant ranks 10 (S5), 11 (A5), 21 (C5), quadratic into residual 16; one [3,2] short, supplied by the ten edge labels (52 outcomes, leftover [5] + 2[4,1]), ten minimal; the 30 x 5 Plucker matrix U with U^T U = G4/81; the sign channel of norm 10; J = h r with J^2 = -I and the icosahedral traces phi, 1 - phi", "replayed exactly from the model's carriers (notes_1222, four statements); the 30 x 5 matrix is rebuilt entry for entry (det G = 162, so the isometry is 9U); joined as kerM -> readout; the Schur sandwich b/(s + 256) <= Sigma(s) <= b/s with b = (2117, 389, 127, 83) uses the boundary variances already replayed (N42, N44)", T, "23"),
     ("the packet of 1 Nov (13:40): numbers kept apart on purpose", "rotor prefix Hankel 15930273 and Jacobi 242, 127, 25998/127, 15930273/16129; two 120-sets on F2^4 + F2^4 with the same spectrum, said to agree on 96 points; 9361 sites and squared mass 1260720; m2 = 58080 periodic against 57840 = lcm(240, 241); steps 931, 241, 541 = 1 mod 5; 22^2 = 2 and 98 of order 5 mod 241; GL(2,5) 480, SL 120, an abstract 2400; the quartic a r^2 - (40/9) r^4 with zeros r^2 = 9a/40", "replayed (notes_1340, six statements): all hold except the overlap, which is 56, not 96; the rotor prefix is the six currents' spectral measure; both quadrics are E8's half-period quadric up to isometry; the gap 240 is an identity of two measures (the straight pairs); 98 is the tick's eigenvalue over F_241; the 2400 is <g> x| GL(2,5) inside W(E8); the tick fixes no time unit (an obstruction). The quartic's zero moves with a, a DYN_BIND operand; the infrared interval, the hbar thresholds and the saddle bound are not replayed", T, "23"),
+    ("the binding route (separate model, 1 Nov 14:25-15:13)", "four bath channels with Jacobi data and BB* = diag(2117, 389, 127, 83); a visible-only no-go; tau^2 = -a R1/R3 (derivatives at 0) per channel with falsifiers m_k/a^k; the finite clock exp(-ihH) of order 4320 on E8/2E8 and no rank-8 lattice automorphism of that order; generator rigidity on Lambda^2 ker M (rank 75, nullity 25) with commutants 25, 5, 2, 1; the quartic matched by g^2 = 19360/9; the 48-outcome quantum observer with six Sylow labels; the 52-outcome counts and a 52 x 43 integer encoder; and the claim that two 120-sets overlap in 96", "replayed (notes_1512, six statements, six joins), all exact, the encoder stored as data/n44_52_encoder.json; corrected: no two quadric 120-sets on F2^8 can share 96 points (their symmetric difference is the support of a quadratic form, of weight 0, 128 or 128 +- 2^(7 - h), never 48); the pair x.y, q(x) + q(y) shares 56", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -26979,7 +27213,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
