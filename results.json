@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.57,
-  "2-spectral": 0.01,
-  "3-spacetime": 6.76,
-  "4-native": 78.32,
-  "5-observer": 0.25,
+  "1-carrier": 0.55,
+  "2-spectral": 0.0,
+  "3-spacetime": 5.39,
+  "4-native": 74.68,
+  "5-observer": 0.16,
   "6-gravity": 4.32,
-  "7-cosmology": 1.52,
-  "8-frontier": 33.09,
-  "9-joins": 7.66,
-  "10-literal": 35.01,
-  "11-glue": 0.13,
-  "12-binding": 0.03,
+  "7-cosmology": 1.44,
+  "8-frontier": 29.95,
+  "9-joins": 7.01,
+  "10-literal": 29.86,
+  "11-glue": 0.12,
+  "12-binding": 0.02,
   "13-gates": 0.1,
-  "14-recurrence": 35.65,
-  "15-court": 1.44,
-  "16-handover": 0.9,
-  "17-waves": 0.47,
-  "18-snapshot": 0.89,
-  "19-spine": 3.33,
-  "20-canon": 5.25,
-  "21-ledger": 34.06,
-  "22-counts": 21.42,
-  "23-dots": 456.14,
-  "24-assignment": 2.69,
-  "25-unify": 3.61,
-  "26-primes": 3.37,
-  "27-places": 1.51,
-  "28-principal": 1.92
+  "14-recurrence": 34.65,
+  "15-court": 1.37,
+  "16-handover": 0.91,
+  "17-waves": 0.42,
+  "18-snapshot": 0.72,
+  "19-spine": 3.07,
+  "20-canon": 4.88,
+  "21-ledger": 31.48,
+  "22-counts": 17.68,
+  "23-dots": 432.08,
+  "24-assignment": 2.7,
+  "25-unify": 3.8,
+  "26-primes": 3.2,
+  "27-places": 1.42,
+  "28-principal": 1.91
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 940,
-   "total": 940
+   "passed": 941,
+   "total": 941
   },
   "OBSTRUCTION": {
    "passed": 74,
@@ -11728,6 +11728,20 @@
   },
   {
    "layer": "23-dots",
+   "name": "E8 -> K5 edges: each edge ij of K5 reads a root by q_ij(alpha) = (alpha_i - alpha_j)^2 - 1/2: the ten readings have rank 10, sum to 0 over the roots and intertwine the coordinate S5 with the edge permutation (character 10, 4, 2, 1, 1, 0, 0 = [5] + [4, 1] + [3, 2]); they are the smallest S5-stable completion of N41's wedge features, which are a five-cycle module only (each adjacent transposition leaves a rank-5 defect); all ten lie in the rank-35 B = 8 eigenspace, (P8)_ab = (2(alpha.beta)^2 - 1)/48, so the bath reads them through the same centered memory channel, normalized walk moments 1, 8, 453, 27168, 2195296 (the separate model's N43)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "N41's six centered wedge features are a five-cycle module, not an S5 one: for each adjacent transposition Ec P_p - Lambda^2(p) Ec has rank 5; the ten edge readings q_ij(alpha) = (alpha_i - alpha_j)^2 - 1/2 have rank 10, sum to 0 over the roots and obey E10 P_p = C_p E10 (the edge permutation), Ec and its four transposition images span exactly row(E10), the smallest S5-invariant row space holding them, with the edge character 10, 4, 2, 1, 1, 0, 0 = [5] + [4, 1] + [3, 2] = Sym^2 A4 (not Lambda^2 A4); with the shell sum, 7 readings become 11 (four more) and the kernel is 229 (the separate model's N43)": true,
+    "the eleven readings use the same two memory channels: (P8)_ab = (2(alpha.beta)^2 - 1)/48 is the projector onto the rank-35 B = 8 eigenspace and holds every edge row, so E11 A_k J11 = diag(lambda_quad I10, lambda_mass) for each relation, the shell bath reads diag(232 I10, 184) and the boundary covariance is diag(389 I10, 2117)": true,
+    "exact walk moments to order four: the normalized A-moments are 1, 56, 5253, 574224, 71424160 (mass, supports 240, 9361, 131041) and 1, 8, 453, 27168, 2195296 (centered, the same for an edge row and for N41's row), so the Delta-moments are 1, 184, 35973, 7355136, 1556789920 and 1, 232, 54213, 12740592, 3008062816, the 3 x 3 Hankel determinants 14357066531 and 219823907, b = 2117 and 389, alpha1 = 346576/2117 and 72928/389, beta2 = 14357066531/4481689 and 219823907/151321 > 0; the variational bounds tighten: 1/(s + a) = lower_1 <= lower_2 <= upper_2 <= upper_1 at s = 1 and 64": true,
+    "the codec: T (32 x 11) with flag rows q_ij + q_ik - (sum q)/6 and anchors -sum q + m and -m has zero column sums, rank 11 and S5 equivariance (anchors fixed); the 30 flags carry one invariant and their zero-sum part none, so two anchors are needed for the two invariants; the FOAM wedge port F (two zero anchor rows) is orthogonal to T, rank [F, T] = 17; the half-outflow reader is an isometry of the cycles (F^T F = S^T S, det B^T B = 125, the spanning trees of K5, so det F^T F = 3125^2 125 = 5^13); and R = C^-1 (B^T B)^-1 B^T Lambda^2 U is invertible, carries the chart's G6 to F^T F and intertwines the five-cycle": true,
+    "relative records and counts: the reference flags (4, {0, 1}) and (0, {1, 2}) have trivial joint stabilizer, so the 120 frames are told apart and the 3840 records are disjoint; with two fixed anchors the fixed counts are 32, 8, 4, 2, 2, 2, 2, the singlets of V30 x V30 x V32 number 266, those of V32^N are (32^N + 10 8^N + 15 4^N + 94 2^N)/120 = 1, 3, 19, 330, ... (checked over all 120 elements to N = 10), and the source's three-cell V30 count stays 244": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -11791,7 +11805,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 469 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 470 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12051,7 +12065,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 13, lattice-operator 29, operator-physics 29 joins",
+   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 14, lattice-operator 29, operator-physics 29 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12106,6 +12120,7 @@
      "petersen -> rootgraph",
      "simplex -> penrose",
      "E8 -> cycles",
+     "E8 -> E",
      "rotor -> rootgraph"
     ],
     [
@@ -12179,7 +12194,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 426,
+    "THEOREM": 427,
     "OBSTRUCTION": 20,
     "SELECTED_REFERENCE": 10,
     "CONDITIONAL": 13
@@ -12199,11 +12214,11 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 13, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 29, lattice-physics 8, operator-physics 29",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 7, number-lattice 18, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 39, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 14, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 29, lattice-physics 8, operator-physics 29",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "(2, 3)": 13,
+    "(2, 3)": 14,
     "(3, 4)": 29,
     "(2, 4)": 27,
     "(1, 3)": 39,
@@ -14624,7 +14639,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 332 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 333 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
