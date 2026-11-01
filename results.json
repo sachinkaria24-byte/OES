@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.68,
-  "2-spectral": 0.0,
-  "3-spacetime": 6.05,
-  "4-native": 88.09,
-  "5-observer": 0.52,
-  "6-gravity": 4.43,
-  "7-cosmology": 1.32,
-  "8-frontier": 36.65,
-  "9-joins": 8.13,
-  "10-literal": 34.68,
-  "11-glue": 0.13,
+  "1-carrier": 0.67,
+  "2-spectral": 0.18,
+  "3-spacetime": 9.3,
+  "4-native": 91.66,
+  "5-observer": 0.64,
+  "6-gravity": 5.1,
+  "7-cosmology": 1.6,
+  "8-frontier": 36.14,
+  "9-joins": 7.91,
+  "10-literal": 35.49,
+  "11-glue": 0.16,
   "12-binding": 0.03,
   "13-gates": 0.09,
-  "14-recurrence": 37.94,
-  "15-court": 1.45,
-  "16-handover": 0.94,
-  "17-waves": 0.48,
-  "18-snapshot": 0.76,
-  "19-spine": 3.1,
-  "20-canon": 6.32,
-  "21-ledger": 35.3,
-  "22-counts": 21.38,
-  "23-dots": 577.64,
-  "24-assignment": 3.07,
-  "25-unify": 4.34,
-  "26-primes": 4.1,
-  "27-places": 2.18,
-  "28-principal": 2.48
+  "14-recurrence": 41.32,
+  "15-court": 1.37,
+  "16-handover": 0.96,
+  "17-waves": 0.62,
+  "18-snapshot": 0.67,
+  "19-spine": 2.92,
+  "20-canon": 6.93,
+  "21-ledger": 36.65,
+  "22-counts": 19.75,
+  "23-dots": 564.35,
+  "24-assignment": 3.74,
+  "25-unify": 3.7,
+  "26-primes": 3.58,
+  "27-places": 1.55,
+  "28-principal": 2.03
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 998,
-   "total": 998
+   "passed": 999,
+   "total": 999
   },
   "OBSTRUCTION": {
    "passed": 77,
@@ -12482,6 +12482,19 @@
   },
   {
    "layer": "23-dots",
+   "name": "zero modes -> readout: ker M is the S5 irreducible [3,2] with determinant 1, so Lambda^4 ker M = ker M, and a source x in Lambda^2 ker M is simple exactly when x ^ x = 0; the rational 30 x 5 matrix U = C G^-1 eps on the flag outcomes (C^T C = 2G, U^T U = Lambda^4 G / 81) embeds Lambda^4 ker M, after scaling by 9, isometrically as the one [3,2] of the 42-outcome codec's 20-dimensional residual, orthogonal to the root columns, so the quadratic x ^ x reads beside the linear signal; reading the signal and its whole quadratic independently needs one more [3,2], which the ten edge labels supply (52 outcomes, the least orbit that can) (the separate model's N44 extension, 1 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the S5 bookkeeping of the 42-outcome codec, from the model's own carriers (characters on all 120 permutations; irreducibles [5], [1^5], [4,1], [2,1,1,1], [3,2], [2,2,1], [3,1,1]): the 21 native directions (shell, ten edge quadratics, six odd currents, four dark) are 2[5] + [4,1] + [3,2] + [3,1,1] + [2,1,1,1], their quadratic Sym^2 of the currents is [5] + [1^5] + [4,1] + 2[3,2] + [2,2,1], the 42 outcomes are 4[5] + [1^5] + 3[4,1] + [2,1,1,1] + 2[3,2] + [2,2,1] + [3,1,1], and the 20-dimensional residual (outcomes minus normalization minus signal) is [5] + [1^5] + 2[4,1] + [3,2] + [2,2,1]; equivariant maps from the signal to the quadratic have rank at most 10, from the quadratic into the residual at most 16 (the separate model's N44 extension, 1 Nov 12:22)": true,
+    "so the signal and its quadratic cannot both be read independently from 42 outcomes: the centred 41 dimensions lack exactly one [3,2], the ten unordered edge labels ([5] + [4,1] + [3,2]) supply it, and the centred 51 dimensions of the 52 outcomes hold both with [5] + 2[4,1] (dimension 9) left over; no transitive S5-set of fewer than ten points carries [3,2], since those are the cosets of S5, A5, S4 and the Frobenius group F20 (the Sylow normalizer, order 20; no subgroup of order 40, 30 or 15 exists, since S5's only normal subgroups are 1, A5 and S5, so index 3 or 4 would embed S5 in S4, and no element has order 15; a subgroup of order 24 fixes a point, as a fixed-point-free one would have orbits 3 + 2 and order at most 12, and one of order 20 normalizes its single Sylow five), with permutation characters [5], [5] + [1^5], [5] + [4,1] and [5] + [2,2,1]; under A5 the signal-to-quadratic rank rises to 11 and under the five-cycle group to 21": true,
+    "the Plucker residual: ker M is [3,2] with determinant 1 on all 120 permutations, so Lambda^4 ker M = ker M, and x in Lambda^2 ker M is simple exactly when x ^ x = 0 (the simple cone has dimension 7: (a, b) -> a ^ b has Jacobian rank 7 and x -> x ^ x rank 3 at a simple x); on the 30 flag outcomes, C = (I - F(F^T F)^-1 F^T) B P (F = A P, A the root columns 1[e = ij] + 1[e = ik] - 1/6, B the partner columns 1[e = jk]) has C^T C = 2G and rank 5, and U = C G^-1 eps has U^T U = 2 Lambda^4 G / det G = Lambda^4 G / 81 (det G = 162), is orthogonal to the ten root columns and to constants and is equivariant (P_flag U = U Lambda^4 rho_P), so 9U embeds Lambda^4 ker M isometrically as the residual's one [3,2]; it is the separate model's 30 x 5 matrix entry for entry (first row 1/3, 1/6, -1/6, 1/6, -1/6)": true,
+    "the sign channel and the Golden phase: v = +1 on the five (+, i) outcomes and -1 on the five (-, i) transforms by sign under (sigma, i) -> (sign(p) sigma, p i) for all 120 p, has norm 10 and is orthogonal to every dark column (u; -u) with zero sum; on the six currents h = Hg/sqrt5 has h^2 = I with eigenspaces 3 + 3, the Hodge quadratic q_H(w) = w^T (2 Gp) h w changes sign under every transposition, J = h r (r a transposition) has J^2 = -I, and a five-cycle has trace phi or 1 - phi on the +1 eigenspace (its square the other), the two icosahedral three-dimensional representations of A5": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -12545,7 +12558,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 528 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 529 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12805,7 +12818,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 21, lattice-operator 46, operator-physics 29 joins",
+   "name": "each level is joined to the next: number-symmetry 12, symmetry-combinatorics 22, combinatorics-lattice 21, lattice-operator 46, operator-physics 30 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -12947,7 +12960,8 @@
      "triangle -> assignment",
      "pauli -> assignment",
      "pauli -> triple",
-     "pauli -> charges"
+     "pauli -> charges",
+     "kerM -> readout"
     ]
    ],
    "note": ""
@@ -12958,7 +12972,7 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 477,
+    "THEOREM": 478,
     "OBSTRUCTION": 23,
     "SELECTED_REFERENCE": 12,
     "CONDITIONAL": 16
@@ -12978,7 +12992,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 8, number-lattice 28, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 48, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 21, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 46, lattice-physics 16, operator-physics 29",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 12, number-combinatorics 8, number-lattice 28, number-operator 8, number-physics 8, symmetry-combinatorics 22, symmetry-lattice 48, symmetry-operator 17, symmetry-physics 10, combinatorics-lattice 21, combinatorics-operator 27, combinatorics-physics 12, lattice-operator 46, lattice-physics 16, operator-physics 30",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -12990,7 +13004,7 @@
     "(0, 1)": 12,
     "(0, 2)": 8,
     "(1, 4)": 17,
-    "(4, 5)": 29,
+    "(4, 5)": 30,
     "(2, 5)": 12,
     "(3, 5)": 16,
     "(0, 3)": 28,
@@ -15403,7 +15417,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 372 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 56 derived dots are connected by the 373 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
