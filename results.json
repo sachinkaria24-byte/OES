@@ -57,44 +57,44 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.72,
-  "2-spectral": 0.01,
-  "3-spacetime": 7.79,
-  "4-native": 96.52,
-  "5-observer": 0.35,
+  "1-carrier": 0.52,
+  "2-spectral": 0.0,
+  "3-spacetime": 7.02,
+  "4-native": 93.88,
+  "5-observer": 0.6,
   "6-gravity": 5.43,
-  "7-cosmology": 1.62,
-  "8-frontier": 34.75,
-  "9-joins": 6.7,
-  "10-literal": 37.63,
-  "11-glue": 0.15,
-  "12-binding": 0.22,
-  "13-gates": 0.38,
-  "14-recurrence": 42.01,
-  "15-court": 1.47,
+  "7-cosmology": 1.71,
+  "8-frontier": 37.34,
+  "9-joins": 6.79,
+  "10-literal": 37.6,
+  "11-glue": 0.26,
+  "12-binding": 0.1,
+  "13-gates": 0.11,
+  "14-recurrence": 39.05,
+  "15-court": 1.56,
   "16-handover": 1.44,
-  "17-waves": 0.89,
-  "18-snapshot": 1.59,
-  "19-spine": 3.9,
-  "20-canon": 5.5,
-  "21-ledger": 37.82,
-  "22-counts": 21.75,
-  "23-dots": 876.08,
-  "24-assignment": 4.04,
-  "25-unify": 4.86,
-  "26-primes": 5.19,
-  "27-places": 2.45,
-  "28-principal": 4.17
+  "17-waves": 0.85,
+  "18-snapshot": 1.3,
+  "19-spine": 3.94,
+  "20-canon": 5.87,
+  "21-ledger": 32.96,
+  "22-counts": 19.2,
+  "23-dots": 883.75,
+  "24-assignment": 4.12,
+  "25-unify": 4.64,
+  "26-primes": 4.8,
+  "27-places": 1.74,
+  "28-principal": 4.44
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 1114,
-   "total": 1114
+   "passed": 1162,
+   "total": 1162
   },
   "OBSTRUCTION": {
-   "passed": 89,
-   "total": 89
+   "passed": 94,
+   "total": 94
   },
   "REMOVED": {
    "passed": 2,
@@ -105,16 +105,16 @@
    "total": 45
   },
   "SELECTED_REFERENCE": {
-   "passed": 29,
-   "total": 29
+   "passed": 30,
+   "total": 30
   },
   "UNFORMED": {
    "passed": 24,
    "total": 24
   },
   "CONDITIONAL": {
-   "passed": 48,
-   "total": 48
+   "passed": 50,
+   "total": 50
   },
   "REPORTED": {
    "passed": 154,
@@ -14627,6 +14627,551 @@
   },
   {
    "layer": "23-dots",
+   "name": "K5 vertices -> K5 edges: the near edges [i, i+1] and the far edges [i, i+2] are two free orbits of the tick: the orthogonal Q sending them to (e_i, 0) and (0, e_i) carries the unsigned edge tick to two copies of the vertex five-cycle, the turn Laplacian 2I - U - U^-1 and the spanda Laplacian 2I - U^2 - U^-2 to two copies of the pentagon's and the pentagram's graph Laplacians, and their sum, the spanda sum 5I - sum U^k, to two copies of the golden Dirac square 5I - J = B B^T: trace 20 + 20 = 40, square-trace 100 + 100 = 200, spectrum 0^2 5^8 (the canon's W0 / Spanda / Firefly note, 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the note's two edge Laplacians on the edge tick R (layer 22's rotor on the oriented edges, the second compound of the vertex five-cycle, orthogonal with R^-1 = R^T = R^4): the turn Laplacian 2I - R - R^-1 = (I - R)^T (I - R), and the spanda Laplacian 2I - R^2 - R^-2 = G^T G = -G^2 for layer 22's Spanda G = R - R^4, which is skew; the unsigned edge tick U of notes_2055 and the chiral completion is the same tick oriented otherwise: S U S = R for the diagonal sign S that is -1 exactly on [0, 3], [0, 4] and [1, 4] (orienting every [i, i+1] and [i, i+2] from i), and S carries the two Laplacians of U to those of R": true,
+    "their sum, the spanda sum 4I - R - R^2 - R^3 - R^4, is 5I - (I + R + R^2 + R^3 + R^4) = 5(I - Pi_C5) (notes_2055's Gamma(R)^2), with minimal polynomial x(x - 5), spectrum 0^2 5^8 and kernel the rotor plane (the oriented pentagon and pentagram); its power sums of degree 1, 2, 3 are 40, 200, 1000, while the carrier's D^2, with spectrum 0^5 3^8 8^2, has 40, 200, 1240: the first two agree, the third and the spectra do not (3 and 8 are not 5, and 0 has multiplicity 5 on the carrier and 2 on the edges); the spanda sum has the nonzero spectrum 5^8 of the triple's signed Dirac square B B^T + B^T B (0^7 5^8), hence its power sums of every degree, so its 1000 is that square's Tr D_s^6, which join_gravity_waves separates from the carrier's 1240": true,
+    "Spanda is not the Lagrangian: the 15 x 10 matrices X with D^2 X = X (spanda sum) form a space of dimension 10 = 5 x 2, the product of the two kernels' dimensions (0 is the only common eigenvalue), and every one of them vanishes on the eight moving edge directions (X (I - Pi_C5) = 0), so no map carries the spanda sum's moving part into the carrier": true,
+    "on the eight golden edge directions, where golden_split's X = -(R + R^-1) satisfies X^2 = X + I (the golden companion B), L_turn - I = X^2 and L_spanda - I = 2I - X = X^-2, the images of B^2 and B^-2, and both are -I on the rotor plane; so (L_turn - I)(L_spanda - I) = I and L_turn L_spanda = L_turn + L_spanda, and both L - I have characteristic polynomial (x + 1)^2 (x^2 - 3x + 1)^4, x^2 - 3x + 1 being that of B^2 (roots phi^2, phi^-2); the inverse pair is (1 - x - x^4)(1 - x^2 - x^3) = 1 mod x^5 - 1, so it holds for every U with U^5 = I": true,
+    "twice 20 is 40: the near edges [i, i+1] and the far edges [i, i+2] are two free orbits of the tick, and the orthogonal Q sending [i, i+1] to (e_i, 0) and [i, i+2] to (0, e_i) carries the unsigned tick U to diag(P, P), the turn and spanda Laplacians to two copies of the pentagon's and the pentagram's graph Laplacians (which add to the K5 Laplacian 5I - J), and the spanda sum to diag(5I - J, 5I - J): two copies of the golden Dirac square on the five vertices, of trace 20 and square-trace 100 each, so the spanda sum's 40 and 200 are twice 20 and twice 100": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> K5 edges: on the eight golden edge directions, where -(R + R^-1) represents the golden companion B (golden_split), the turn Laplacian minus I is the image of B^2 and the spanda Laplacian minus I, with 2I - R^2 - R^-2 = G^T G for layer 22's Spanda G = R - R^4, the image of B^-2; both are -I on the rotor plane, so (L_turn - I)(L_spanda - I) = I and L_turn L_spanda = L_turn + L_spanda, as (1 - x - x^4)(1 - x^2 - x^3) = 1 mod x^5 - 1 for every five-cycle (the canon's W0 / Spanda / Firefly note, 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the note's two edge Laplacians on the edge tick R (layer 22's rotor on the oriented edges, the second compound of the vertex five-cycle, orthogonal with R^-1 = R^T = R^4): the turn Laplacian 2I - R - R^-1 = (I - R)^T (I - R), and the spanda Laplacian 2I - R^2 - R^-2 = G^T G = -G^2 for layer 22's Spanda G = R - R^4, which is skew; the unsigned edge tick U of notes_2055 and the chiral completion is the same tick oriented otherwise: S U S = R for the diagonal sign S that is -1 exactly on [0, 3], [0, 4] and [1, 4] (orienting every [i, i+1] and [i, i+2] from i), and S carries the two Laplacians of U to those of R": true,
+    "their sum, the spanda sum 4I - R - R^2 - R^3 - R^4, is 5I - (I + R + R^2 + R^3 + R^4) = 5(I - Pi_C5) (notes_2055's Gamma(R)^2), with minimal polynomial x(x - 5), spectrum 0^2 5^8 and kernel the rotor plane (the oriented pentagon and pentagram); its power sums of degree 1, 2, 3 are 40, 200, 1000, while the carrier's D^2, with spectrum 0^5 3^8 8^2, has 40, 200, 1240: the first two agree, the third and the spectra do not (3 and 8 are not 5, and 0 has multiplicity 5 on the carrier and 2 on the edges); the spanda sum has the nonzero spectrum 5^8 of the triple's signed Dirac square B B^T + B^T B (0^7 5^8), hence its power sums of every degree, so its 1000 is that square's Tr D_s^6, which join_gravity_waves separates from the carrier's 1240": true,
+    "Spanda is not the Lagrangian: the 15 x 10 matrices X with D^2 X = X (spanda sum) form a space of dimension 10 = 5 x 2, the product of the two kernels' dimensions (0 is the only common eigenvalue), and every one of them vanishes on the eight moving edge directions (X (I - Pi_C5) = 0), so no map carries the spanda sum's moving part into the carrier": true,
+    "on the eight golden edge directions, where golden_split's X = -(R + R^-1) satisfies X^2 = X + I (the golden companion B), L_turn - I = X^2 and L_spanda - I = 2I - X = X^-2, the images of B^2 and B^-2, and both are -I on the rotor plane; so (L_turn - I)(L_spanda - I) = I and L_turn L_spanda = L_turn + L_spanda, and both L - I have characteristic polynomial (x + 1)^2 (x^2 - 3x + 1)^4, x^2 - 3x + 1 being that of B^2 (roots phi^2, phi^-2); the inverse pair is (1 - x - x^4)(1 - x^2 - x^3) = 1 mod x^5 - 1, so it holds for every U with U^5 = I": true,
+    "twice 20 is 40: the near edges [i, i+1] and the far edges [i, i+2] are two free orbits of the tick, and the orthogonal Q sending [i, i+1] to (e_i, 0) and [i, i+2] to (0, e_i) carries the unsigned tick U to diag(P, P), the turn and spanda Laplacians to two copies of the pentagon's and the pentagram's graph Laplacians (which add to the K5 Laplacian 5I - J), and the spanda sum to diag(5I - J, 5I - J): two copies of the golden Dirac square on the five vertices, of trace 20 and square-trace 100 each, so the spanda sum's 40 and 200 are twice 20 and twice 100": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 edges -> carrier: the spanda sum on the ten edges (0^2 5^8) and the carrier's D^2 (0^5 3^8 8^2) share the power sums 40 and 200 but not 1000 and 1240, and every 15 x 10 matrix X with D^2 X = X (spanda sum) vanishes on the eight moving edge directions: the intertwiners are the 10 = 5 x 2 dimensional space between the two kernels, so no map carries the spanda sum's moving part into the carrier (the canon's W0 / Spanda / Firefly note, 2 Nov)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the note's two edge Laplacians on the edge tick R (layer 22's rotor on the oriented edges, the second compound of the vertex five-cycle, orthogonal with R^-1 = R^T = R^4): the turn Laplacian 2I - R - R^-1 = (I - R)^T (I - R), and the spanda Laplacian 2I - R^2 - R^-2 = G^T G = -G^2 for layer 22's Spanda G = R - R^4, which is skew; the unsigned edge tick U of notes_2055 and the chiral completion is the same tick oriented otherwise: S U S = R for the diagonal sign S that is -1 exactly on [0, 3], [0, 4] and [1, 4] (orienting every [i, i+1] and [i, i+2] from i), and S carries the two Laplacians of U to those of R": true,
+    "their sum, the spanda sum 4I - R - R^2 - R^3 - R^4, is 5I - (I + R + R^2 + R^3 + R^4) = 5(I - Pi_C5) (notes_2055's Gamma(R)^2), with minimal polynomial x(x - 5), spectrum 0^2 5^8 and kernel the rotor plane (the oriented pentagon and pentagram); its power sums of degree 1, 2, 3 are 40, 200, 1000, while the carrier's D^2, with spectrum 0^5 3^8 8^2, has 40, 200, 1240: the first two agree, the third and the spectra do not (3 and 8 are not 5, and 0 has multiplicity 5 on the carrier and 2 on the edges); the spanda sum has the nonzero spectrum 5^8 of the triple's signed Dirac square B B^T + B^T B (0^7 5^8), hence its power sums of every degree, so its 1000 is that square's Tr D_s^6, which join_gravity_waves separates from the carrier's 1240": true,
+    "Spanda is not the Lagrangian: the 15 x 10 matrices X with D^2 X = X (spanda sum) form a space of dimension 10 = 5 x 2, the product of the two kernels' dimensions (0 is the only common eigenvalue), and every one of them vanishes on the eight moving edge directions (X (I - Pi_C5) = 0), so no map carries the spanda sum's moving part into the carrier": true,
+    "on the eight golden edge directions, where golden_split's X = -(R + R^-1) satisfies X^2 = X + I (the golden companion B), L_turn - I = X^2 and L_spanda - I = 2I - X = X^-2, the images of B^2 and B^-2, and both are -I on the rotor plane; so (L_turn - I)(L_spanda - I) = I and L_turn L_spanda = L_turn + L_spanda, and both L - I have characteristic polynomial (x + 1)^2 (x^2 - 3x + 1)^4, x^2 - 3x + 1 being that of B^2 (roots phi^2, phi^-2); the inverse pair is (1 - x - x^4)(1 - x^2 - x^3) = 1 mod x^5 - 1, so it holds for every U with U^5 = I": true,
+    "twice 20 is 40: the near edges [i, i+1] and the far edges [i, i+2] are two free orbits of the tick, and the orthogonal Q sending [i, i+1] to (e_i, 0) and [i, i+2] to (0, e_i) carries the unsigned tick U to diag(P, P), the turn and spanda Laplacians to two copies of the pentagon's and the pentagram's graph Laplacians (which add to the K5 Laplacian 5I - J), and the spanda sum to diag(5I - J, 5I - J): two copies of the golden Dirac square on the five vertices, of trace 20 and square-trace 100 each, so the spanda sum's 40 and 200 are twice 20 and twice 100": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> 4-simplex: the five involutions of AGL(1,5), the pentagon reflections x -> c - x, each fix exactly one nonempty face of the 4-simplex in each of the tick's seven orbits on the faces (sizes 1, 5, 5, 5, 5, 5, 5), hence 7 faces (1, 2, 2, 1, 1 by grade), and move the other 24 in 12 pairs; among vertex permutations, order 2 with exactly 7 fixed faces characterizes the 15 double transpositions, among them d^2 = (i -> -i) and layer 22's W0_DEEP reversal i -> 3 - i; for the swap S, (I + S)/2 has rank 19 and the moment Hankel [[31, 7], [7, 31]] determinant 912 = 4 x 19 x 12 (the canon's W0 / Spanda / Firefly note's subset swap, 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "W0 = 360000 I on the 31 faces commutes with every 31 x 31 matrix (a generic one of 961 symbols), every polynomial p(W0) = c0 + c1 W0 + c2 W0^2 + c3 W0^3 is the scalar p(360000) I, and W0 acts by the same scalar on both eigenspaces of the swap S, so it cannot see a sign; 360000 = 250 x 1440 with 250 = 3 x 83 + 1 and 3 x 1440 = 4320, which is why the multiple reduces to the sun step 1440 itself": true,
+    "the subset swap is a double transposition: among the 120 vertex permutations acting on the 31 faces, the 25 involutions fix 15 faces (the 10 transpositions) or 7 (the 15 double transpositions), and the only other permutations fixing 7 are the 20 three-cycles, of order 3; i -> -i (the doubling's square d^2, fixing the nonempty unions of {0}, {1, 4}, {2, 3}) and layer 22's i -> 3 - i are two of them, conjugate by the tick (i -> 3 - i is i -> -i conjugated by i -> i + 4); the five involutions of AGL(1,5) are the reflections x -> c - x, and each fixes exactly one face in every one of the tick's seven orbits on the faces (sizes 1, 5, 5, 5, 5, 5, 5): the 7 is the tick's orbit count (31 + 4)/5, and by grade the fixed faces are 1, 2, 2, 1, 1": true,
+    "for the swap S (i -> -i on the faces): trace 7, S^2 = I, (I + S)/2 of rank 19 = (31 + 7)/2, the number of S-orbits (7 fixed faces and 12 pairs), and (I - S)/2 of rank 12; the moment Hankel [[tr S^0, tr S], [tr S, tr S^2]] = [[31, 7], [7, 31]] is V^T diag(19, 12) V with V = [[1, 1], [1, -1]] (S's spectral measure, 19 at +1 and 12 at -1), so its determinant is 31^2 - 7^2 = 912 = 4 x 19 x 12": true,
+    "no polynomial in W0 or in S selects the 7 fixed faces: the coordinate projector F onto them (rank 7) commutes with S but is not in span(I, S), which holds every polynomial in S (S^2 = I); the golden Dirac square 5I - J and the spanda sum 5(I - Pi_C5) are not scalars, and the first-degree polynomials I - (5I - J)/5 = J/5 and I - (spanda sum)/5 are idempotents of rank 1 and 2, so the scalar obstruction does not apply to them": true,
+    "the 31 faces hold the carrier's 15 atoms: by grade they are 5 vertices, 10 edges (exactly the carrier's edges), 10 triangles, 5 tetrahedra and the body, so the 31 is not the carrier 15 or the edge 10 as a count but contains both; the swap fixes 3 of those 15 (one vertex, two edges)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "W(E8) clocks -> observer clock: the day d (order 24) and the golden clock v (order 20) meet only in {I, -I}, v^10 = d^12 = -I, and their step maps d^j -> 180 j and v^j -> 216 j agree there, both sending -I to the half-turn 2160; on the circle their step subgroups meet in the whole observer clock <1080> = <180> n <216> (spine.meet(180, 216) = 1080), whose generator 1080 = 6 x 180 = 5 x 216 has the two lifts d^6 and v^5: the same characteristic polynomial (x^2 + 1)^4, different elements of W(E8), so the circle's meeting of the flash and the golden step is not a meeting of their clocks (the canon's W0 / Spanda / Firefly note, 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "in the model's lattice terms the flash step 180 and the golden step 216 join at 36 and meet at 1080 (spine.join, spine.meet): <180> + <216> = <36>, the seam, of 120 = lcm(24, 20) points, without the Coxeter step 144, and <180> n <216> = <1080>, the observer clock, of 4 = gcd(24, 20) points; so the note's 'meets the golden step at 36' is their join, and every multiple of 180 or 216 is 0 mod 36": true,
+    "the note's 36 is the generator of that join, and it equals the atlas's address count, the seam's index 4320/120, because in the cyclic circle the subgroup <e> of a divisor e has index e (all 48 divisors): the agreement is a property of Z/4320, not of the flash": true,
+    "in W(E8) the flash's clock, the day d (order 24), and the golden clock v (order 20) meet only in {I, -I}: v^10 = d^12 = -I and no other power of v is a power of d; the step maps d^j -> 180 j and v^j -> 216 j agree there (12 x 180 = 10 x 216 = 2160, the half-turn), but the circle's meeting <1080> of their steps is larger: its generator 1080 = 6 x 180 = 5 x 216 has the two lifts d^6 and v^5, which have the same characteristic polynomial (x^2 + 1)^4 and are different elements": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> readout: for an isometric readout Y of a stiffness K >= 0 (moments A_n = Y^T K^n Y) the wave-memory defect L(u) = (Q cos(u sqrt K) Y)^T (Q cos(u sqrt K) Y) satisfies I - L(u) = (sin(u sqrt K) Y)^T (sin(u sqrt K) Y) + C(u)^T C(u), C(u) = Y^T cos(u sqrt K) Y (checked as power series through u^10 in noncommuting moments; for every u it is Y^T (cos^2 + sin^2)(u sqrt K) Y = I with Q = I - Y Y^T, not computed), so 0 <= L(u) <= I at every u: on the bath's 45 channels tr L(u) <= 45 and on the mass channel L_mm(u) <= 1, while the leading laws 21061 u^4/4 and 2117 u^4/4 pass those ceilings at u = (180/21061)^(1/4), in (0.3040, 0.3041), and u = (4/2117)^(1/4), in (0.2084, 0.2085): the quartic law is a short-time law only (the ten-video review, 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the defect's ceiling: for an isometric readout Y of a stiffness K >= 0, with moments A_n = Y^T K^n Y, the defect L(u) in its Gram form (Q cos(u sqrt K) Y)^T (Q cos(u sqrt K) Y) satisfies I - L(u) = Y^T sin^2(u sqrt K) Y + C(u)^2, C(u) = Y^T cos(u sqrt K) Y (checked as power series through u^10 in noncommuting moments; for every u it is Y^T (cos^2 + sin^2)(u sqrt K) Y = Y^T Y = I with Q = I - Y Y^T, the functional calculus, not computed); both terms on the right are Gram matrices ((sin(u sqrt K) Y)^T (sin(u sqrt K) Y) and C(u)^T C(u)), so 0 <= L(u) <= I at every u: on the 45 channels tr L(u) <= 45, and on the mass channel L_mm(u) <= 1": true,
+    "the quartic law against the ceiling: 21061 u^4/4 (the 45 channels' leading trace, D45 = 2117 I1 + 967 I8 + 389 I26 + 127 I6 + 83 I4) exceeds 45 exactly when u^4 > 180/21061, and (180/21061)^(1/4) lies in (0.3040, 0.3041); 2117 u^4/4 exceeds 1 exactly when u^4 > 4/2117, with (4/2117)^(1/4) in (0.2084, 0.2085); at u = 1 and 3/2 the quartic trace is 21061/4 and 21061 x 81/64 = 1705941/64, so the leading law says nothing about tr L at u = 1 to 1.5, where tr L <= 45": true,
+    "a gap enters the defect at sixth order: the u^6 coefficient is (A_1 A_2 + A_2 A_1)/48 - A_3/24; replacing K by K + eps I (A_n -> sum_j C(n, j) eps^(n-j) A_j) leaves the u^4 coefficient (A_2 - A_1^2)/4 unchanged (chiral_time's source-update invariance, recomputed) and adds -(eps/12)(A_2 - A_1^2) at u^6, so L(u) = (u^4/4) D (1 - eps u^2/3) + (the eps-free u^6 term) + O(u^8) with D = A_2 - A_1^2; shifting the hidden block alone (K = [[A, B], [B*, C]] with C -> C + eps, A_1 = A, A_2 = A^2 + B B*, A_3 = A^3 + A B B* + B B* A + B C B*) also leaves the u^4 coefficient B B*/4 unchanged and adds -(eps/24) B B* at u^6 (series in noncommuting moments and blocks): in either reading of a Schur gap the leading defect D/4 does not depend on eps; what the gap does to L(u) beyond the quartic regime is not computed": true,
+    "the collar ratio: the band's ceiling and saddle give 256/224 = 8/7 (256 = 16 x 16 = 2^8 = 4^4, also the count of the model's Pauli labels on four qubits, M16(R)), while the review's 3.5/3.044 = 875/761 lies in (1.1498, 1.1499); the two differ by (875/761)/(8/7) - 1 = 37/6088, more than 0.6 %, so the ratio is approximate, not exact": true,
+    "the saddle's density term: at an index-1 nondegenerate critical point in eight dimensions (the 120 half-periods r/2 at eps = 224, Hessian 12 P' - 52 P: notes_0255) the quadratic model |w|^2 - s^2 (w in R^7, |s| <= 1) has level density |S^6| int_0^1 (s^2 + t)^(5/2) ds at level t (polar coordinates in w); F(s) = s v^5/6 + 5 t s v^3/24 + 5 t^2 s v/16 + (5 t^3/16) log(s + v), v = sqrt(s^2 + t), has F' = (s^2 + t)^(5/2); F(1), built from powers of 1 + t and log(1 + sqrt(1 + t)), is analytic at t = 0 (its series through t^5 has no log t); F(0) = (5/32) t^3 log t for t > 0 and F(sqrt(-t)) = (5/32) t^3 log|t| for t < 0; so the level density is analytic minus (5/32)|S^6| t^3 log|t|: finite and twice differentiable at the saddle level, with a logarithm only in its third derivative (sympy; the polar-coordinate step and the transfer to the band through the Morse lemma are cited, not computed, and whether other critical points lie at the level 224 is the open collar, notes_0255)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> readout: for K = H + eps I + Y R V R^T Y^T the compressed mismatch Y^T (K Q H - H Q K) Y vanishes identically (Q K Y = Q H Y, chiral_time's source-update invariance; generic symmetric 4 x 4 H, symbolic); on a two-channel instance with block-scalar Y^T H Y and hidden coupling D = diag(beta1^2, beta2^2) the first-order twin I - F^* F, F = Y^T exp(-i theta K) Y, has theta^2 coefficient D and theta^3 coefficient (i/2)[A_1, A_2] = (i/2)[V, D], off-diagonal -(i/2) v1 (beta1^2 - beta2^2); on the 45 channels, whose hidden variances 2117, 967, 389, 127, 83 are distinct, d_j - d_i vanishes exactly on the 793 pairs inside one channel group, so the theta^3 term (i/2)[V', D45] is zero exactly when the compressed source V' has no entries between different groups (zero for the undressed bath, onemodel_closures) (the ten-video review, 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the review's channel table is the model's 45 channels (master_readout, restated): multiplicities 1, 8, 26, 6, 4 (sum 45), means 184, 212, 232, 242, 243 strictly increasing and hidden variances 2117, 967, 389, 127, 83 strictly decreasing (the review's inverse ordering); b_j/83 lie in (25.506, 25.507), (11.650, 11.651), (4.686, 4.687), (1.530, 1.531) and 1 (the review's 25.51, 11.65, 4.69, 1.53, 1.00 and 25.506), and 2117/127 in (16.669, 16.670) (the review's 16.669)": true,
+    "per coordinate the mass channel has the largest hidden variance (2117 = max b_j), and since D45 is diagonal with entries b_j >= 0 (master_readout), <delta, D45 delta> >= 2117 |delta_m|^2 for every delta; per channel group the hidden variances n_j b_j are 2117, 7736, 10114, 762, 332, summing to 21061, so the 26 quadratic channels carry 10114/21061, in (0.4802, 0.4803), of tr D45 and the mass channel 2117/21061, in (0.1005, 0.1006)": true,
+    "the review's cubic term vanishes: for K = H + eps I + Y R V R^T Y^T (a generic symmetric 4 x 4 H, Y = [I2; 0], Q = I - Y Y^T, symbolic), Q K Y = Q H Y (chiral_time's source-update invariance, recomputed) and Y^T (K Q H - H Q K) Y = 0 identically (Y^T K Q H Y and Y^T H Q K Y both equal (Q K Y)^T (Q H Y)), so its i (kappa t/tau)^3 Y^T (K Q H - H Q K) Y is zero, not a cubic phase": true,
+    "the true cubic term needs a source between channels: on the two-channel instance H = [[a1, 0, beta1, 0], [0, a2, 0, beta2], [beta1, 0, c1, 0], [0, beta2, 0, c2]] (block-scalar Y^T H Y = diag(a1, a2), hidden coupling D = diag(beta1^2, beta2^2)) with K = H + eps I + Y V Y^T, V = [[v0, v1], [v1, v2]], the defect I - F^* F of F = Y^T exp(-i theta K) Y has theta^2 coefficient D and theta^3 coefficient (i/2)[A_1, A_2] = (i/2)[V, D], whose off-diagonal entry is -(i/2) v1 (beta1^2 - beta2^2): zero unless the source couples two channels of different hidden variance": true,
+    "on the 45 channels Y^T H Y and D45 are block scalar with the five distinct hidden variances and A_2 - A_1^2 = D45 holds for K as for H (master_response), so, as on the two-channel instance, (i/2)[A_1, A_2] = (i/2)[V', D45] for the compressed source V' = Y^T (K - H - eps) Y, with entries V'_ij (d_j - d_i); d_j - d_i vanishes exactly on the 793 = 1 + 64 + 676 + 36 + 16 pairs inside one channel group: the theta^3 term is zero exactly when V' has no entries between different groups": true,
+    "the reduction-time algebra: (u^4/4) 2117 Delta_q^2 = 1 has the one positive root u_OR = (4/(2117 Delta_q^2))^(1/4) and t = rho u with rho = tau/sqrt(kappa) gives (tau/sqrt(kappa)) u_OR, as the review writes; u_OR exceeds (4/2117)^(1/4) exactly when Delta_q < 1, and for a mass-channel difference the ceiling L <= I (video_ten_defect) gives Gamma(u) <= Delta_q^2 < 1 there, so the review's lower bound (2117/4) Delta_q^2 u^4 fails at u_OR and Gamma never reaches the review's threshold 1 (sympy)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral triple -> golden companion: the 19-dimensional chiral Dirac D19 (chiral_closures) has characteristic polynomial x (x^2 - 8)(x^4 - 5 alpha x^2 + 5 alpha^2)^2 ((x^2 - 3)^2 - 5 alpha (x^2 - 3) + 5 alpha^2)^2, the odd monic square root of its square's, so for every alpha > 0 its singular values are 0, sqrt(alpha lam-)^4, sqrt(alpha lam+)^4, sqrt(3 + alpha lam-)^4, sqrt(3 + alpha lam+)^4 and sqrt8^2; of the ten ratios among the five distinct nonzero ones exactly one does not move with alpha, sqrt(lam+/lam-) = phi, the golden companion's eigenvalue (lam+- = sqrt5 phi^(+-1), chiral_closures); the other nine depend on the free coupling alpha, so their agreements with outside numbers are readings, not joins (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "D19 = [[0, N], [N^T, 0]] is odd, so the grading conjugates it to -D19 and its characteristic polynomial p has p(-x) = -p(x) (dimension 19) and p(x)^2 = p(x) (-p(-x)) = det(x^2 I - D19^2) = c(x^2), c the characteristic polynomial x (x - 8)^2 (x^2 - 5 alpha x + 5 alpha^2)^4 ((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^4 of D19^2 (chiral_closures; at alpha = 1 it is that of schur_zero_mode's integer F19 = diag(K_1, B2, B2), checked); the odd monic p = x (x^2 - 8)(x^4 - 5 alpha x^2 + 5 alpha^2)^2 ((x^2 - 3)^2 - 5 alpha (x^2 - 3) + 5 alpha^2)^2 satisfies p^2 = c(x^2) identically in alpha, so D19 has eigenvalues 0, +-sqrt8 once and +-sqrt(alpha lam+-), +-sqrt(3 + alpha lam+-) twice each, and (D19 symmetric) singular values 0^1, sqrt(alpha lam-)^4, sqrt(alpha lam+)^4, sqrt(3 + alpha lam-)^4, sqrt(3 + alpha lam+)^4, sqrt8^2 (multiplicities checked from the roots of p at alpha = 1: eleven distinct roots, in +- pairs, total 19): the review's list": true,
+    "at alpha = 1 the five distinct nonzero singular values are the square roots of lam- < lam+ < 3 + lam- < 3 + lam+ < 8, so ten ratios s_j/s_i (i < j) exceed 1, their squares in Q(sqrt5); the review's three: lam+/lam- = phi^2 = (3 + sqrt5)/2 = (5 + sqrt5)/(5 - sqrt5), so sqrt(lam+/lam-) = phi; 8/lam- = 16/(5 - sqrt5) = 4(5 + sqrt5)/5 = 4 + 4/sqrt5, not the review's 8(5 + sqrt5)/5, which is twice it; (3 + lam+)/lam- = (11 + sqrt5)/(5 - sqrt5) = (30 + 8 sqrt5)/10, as the review writes": true,
+    "the decimals (exact comparisons of squares in Q(sqrt5)): phi lies in (1.6180339, 1.6180340), the review's 1.618034; sqrt(8/lam-) = 2 sqrt(1 + 1/sqrt5) lies in (2.4060038, 2.4060039), so the review's 2.406003 is its truncation (rounded, 2.406004), and the review's intermediate sqrt(8(5 + sqrt5)/5) lies in (3.4026, 3.4027); sqrt((3 + lam+)/lam-) lies in (2.1883451, 2.1883452), so the review's 2.188346 is off in the sixth decimal (2.188345)": true,
+    "the alpha dependence: of the ten quotients v_j/v_i of the squared singular values v = alpha lam-, alpha lam+, 3 + alpha lam-, 3 + alpha lam+, 8, exactly one is constant in alpha > 0, alpha lam+/(alpha lam-) = phi^2: the golden ratio phi is the only alpha-free ratio of D19's singular values; the other nine move with alpha, and sqrt(8/(alpha lam-)) takes every positive value t once, at alpha = 8/(lam- t^2)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "Penrose planes -> K5 vertices: on the vertex space the golden gram of the five-cycle, Gamma(U) = (U^2 + U^3) - (U + U^4), is sqrt5 (P2 - P1), with P1 and P2 the projectors onto the Penrose planes E1 (where U turns by 72 degrees, U + U^-1 = phi - 1) and E2 (144 degrees, U + U^-1 = -phi): -sqrt5 on E1, +sqrt5 on E2 and 0 on the constants, so the spectrum 0, +-sqrt5 of the golden gram on every five-cycle (notes_2137) is the Penrose splitting with a sign on each plane (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the golden gram on the Penrose planes: on R^5 with the vertex five-cycle U and X = -(U + U^-1), P1 = (phi I - X)(I - J/5)/sqrt5 and P2 = (X + I/phi)(I - J/5)/sqrt5 are idempotents with P1 P2 = 0 and P1 + P2 = I - J/5, of trace, hence rank, 2 each; U + U^-1 is phi - 1 = 2 cos 72 on E1 = ran P1 and -phi = 2 cos 144 on E2 = ran P2 (trace U P1 = phi - 1, trace U P2 = -phi); and Gamma(U) = (U^2 + U^3) - (U + U^4) = sqrt5 (P2 - P1): -sqrt5 on the 72-degree plane, +sqrt5 on the 144-degree plane, 0 on the constants; any five-cycle of roots is a relabelling of U, so the same holds on each of the root spin's 44 five-cycles": true,
+    "the names: notes_2137's near cycle N = (1, 0, 0, -1, 1, 0, 0, 1, 0, 1) and far cycle F = (0, 1, -1, 0, 0, 1, -1, 0, 1, 0) on the edges 01, 02, ..., 34 are supported on {i, i+1}, the pentagon of consecutive vertices, and on {i, i+2}, the pentagram (the model's names); drawn on the planes (P1, P2 symmetric, so P e_i . P e_j = P_ij), the projected vertices all have |P1 e_i|^2 = |P2 e_i|^2 = 2/5, with P1 e_i . P1 e_(i+1) = (phi - 1)/5 = (2/5) cos 72 and P1 e_i . P1 e_(i+2) = -phi/5 = (2/5) cos 144, the two values exchanged on E2: N's edges are 72-degree chords on E1 (a convex pentagon) and 144-degree chords on E2 (a pentagram), F's the reverse; so the review's '72 degrees, pentagram/near cycle N' fails in both readings, and its '144 degrees, pentagon/far cycle F' holds for the drawing on E2 but exchanges the names": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> readout: in noncommuting blocks A = Y^T K Y, B = Y^T K Q, C = Q K Q the wave-memory defect L(u) = (I + C(2u))/2 - C(u)^2 has u^4 coefficient D/4, u^6 coefficient -(A D + D A + 2 M1)/48 and u^8 coefficient M2/320 + 7 (A M1 + M1 A)/2880 + (A^2 D + D A^2)/1440 + A D A/576 + D^2/720 (D = B B^T, M1 = B C B^T, M2 = B C^2 B^T): C''''(0) - C''(0)^2 = D, M1 = -L^(6)(0)/30 - (A D + D A)/2 and L^(8)(0) = 126 M2 + terms in A, D, M1, and a source update A -> A + V inside the observer changes the visible moments but returns the same D, M1 and M2 (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "eqs (6) and (7) in noncommuting blocks (A, B, B^T, C symbols, K = [[A, B], [B^T, C]], A_n the (1, 1) block of K^n, D = B B^T, M1 = B C B^T): A_1 = A, A_2 = A^2 + D, A_3 = A^3 + A D + D A + M1, and the defect L(u) = (I + C(2u))/2 - C(u)^2 of C(u) = sum_n (-1)^n u^(2n) A_n/(2n)! has no u^0, u^2 or odd terms, u^4 coefficient D/4 and u^6 coefficient -(A D + D A + 2 M1)/48; C''(0) = -A_1 and C''''(0) = A_2, so C''''(0) - C''(0)^2 = D, and M1 = -L^(6)(0)/30 - (A D + D A)/2. New: the u^8 coefficient is M2/320 + 7 (A M1 + M1 A)/2880 + (A^2 D + D A^2)/1440 + A D A/576 + D^2/720 with M2 = B C^2 B^T, so L^(8)(0) = 126 M2 plus terms in A, D and M1: each even derivative of the defect adds the next hidden moment": true,
+    "Theorem 2 in the same blocks: for the update K' = [[A + V, B], [B^T, C]] (V a noncommuting symbol; B and C, hence every hidden moment B C^n B^T, unchanged by construction, as for any update inside the observer: master_response) the visible moments change (A_1 = A + V, A_2 = (A + V)^2 + D) but A_2 - A_1^2 = D does not, and the defect of K', read through eq (7) and the u^8 coefficient with the updated A + V, returns the same M1 = B C B^T and M2 = B C^2 B^T: through u^8 the defect yields D, M1 and M2 whatever V is (the previous statement's identities hold for every A, so this is their instance at A + V)": true,
+    "Theorem 2's Krylov statement on the root-site instance (H_R = 240 I - B_R on the 240 roots, Y the deltas at the six-site port's 15 bond roots, as in master_response) with the update K = H_R + Y V Y^T, V = D^2 (the carrier's, our choice; the note's argument covers any V, and K_n(M + eps I) = K_n(M), neither computed here): K_n(M) = span{Y, M Y, ..., M^n Y} has dimension 15, 30, 45, 51, 51 for n = 0..4, for M = H_R and for M = K, and so has K_n(H_R) + K_n(K) (exact ranks over Q); so K_n(K) = K_n(H_R) for n <= 4, and since dim K_4 = dim K_3 each 51-dimensional space is invariant under its operator: the two Krylov spaces agree at every depth n (master_response checks n <= 3)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "six-site port -> bath: on the root-site instance the six-site port's 15 bond roots span Krylov spaces of dimension 15, 30, 45, 51, 51 under H_R = 240 I - B_R, and the same spaces under the source update K = H_R + Y V Y^T (V = D^2, exact ranks over Q), stable from depth 3: a source update inside the observer leaves its whole 51-dimensional Krylov reach unchanged at every depth (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "eqs (6) and (7) in noncommuting blocks (A, B, B^T, C symbols, K = [[A, B], [B^T, C]], A_n the (1, 1) block of K^n, D = B B^T, M1 = B C B^T): A_1 = A, A_2 = A^2 + D, A_3 = A^3 + A D + D A + M1, and the defect L(u) = (I + C(2u))/2 - C(u)^2 of C(u) = sum_n (-1)^n u^(2n) A_n/(2n)! has no u^0, u^2 or odd terms, u^4 coefficient D/4 and u^6 coefficient -(A D + D A + 2 M1)/48; C''(0) = -A_1 and C''''(0) = A_2, so C''''(0) - C''(0)^2 = D, and M1 = -L^(6)(0)/30 - (A D + D A)/2. New: the u^8 coefficient is M2/320 + 7 (A M1 + M1 A)/2880 + (A^2 D + D A^2)/1440 + A D A/576 + D^2/720 with M2 = B C^2 B^T, so L^(8)(0) = 126 M2 plus terms in A, D and M1: each even derivative of the defect adds the next hidden moment": true,
+    "Theorem 2 in the same blocks: for the update K' = [[A + V, B], [B^T, C]] (V a noncommuting symbol; B and C, hence every hidden moment B C^n B^T, unchanged by construction, as for any update inside the observer: master_response) the visible moments change (A_1 = A + V, A_2 = (A + V)^2 + D) but A_2 - A_1^2 = D does not, and the defect of K', read through eq (7) and the u^8 coefficient with the updated A + V, returns the same M1 = B C B^T and M2 = B C^2 B^T: through u^8 the defect yields D, M1 and M2 whatever V is (the previous statement's identities hold for every A, so this is their instance at A + V)": true,
+    "Theorem 2's Krylov statement on the root-site instance (H_R = 240 I - B_R on the 240 roots, Y the deltas at the six-site port's 15 bond roots, as in master_response) with the update K = H_R + Y V Y^T, V = D^2 (the carrier's, our choice; the note's argument covers any V, and K_n(M + eps I) = K_n(M), neither computed here): K_n(M) = span{Y, M Y, ..., M^n Y} has dimension 15, 30, 45, 51, 51 for n = 0..4, for M = H_R and for M = K, and so has K_n(H_R) + K_n(K) (exact ranks over Q); so K_n(K) = K_n(H_R) for n <= 4, and since dim K_4 = dim K_3 each 51-dimensional space is invariant under its operator: the two Krylov spaces agree at every depth n (master_response checks n <= 3)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> readout: with E_P = |q'|^2/2 + <q, A q>/2, E_Q = |h'|^2/2 + <h, C h>/2 and E_int = <q, B h>, E_P' = -<q', B h>, E_Q' = -<h', B^T q> and E_P + E_Q + E_int is conserved (symbolic); a two-degree-of-freedom example (our choice a = c = 5/2, b = 3/2; the note names such a comparator without parameters), q = (cos 2u + cos u)/2, h = (cos 2u - cos u)/2, has visible power -3/8 at u = pi/2 and +3/8 at 3 pi/2, so the positive defect fixes no sign of the energy current; eliminating h gives the memory equation (8), with kernel b^2 sin(u sqrt c)/sqrt c of initial slope b^2 (scalar, Duhamel checked in closed form; the matrix equation on the root-site instance is bridge_memory_echo's) (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the sector energies (real coordinates, A and C symmetric, B arbitrary, two visible and two hidden): with E_P = |q'|^2/2 + <q, A q>/2, E_Q = |h'|^2/2 + <h, C h>/2 and E_int = <q, B h>, along q'' + A q + B h = 0, h'' + C h + B^T q = 0 the derivatives are E_P' = -<q', B h>, E_Q' = -<h', B^T q> and (E_P + E_Q + E_int)' = 0, so the exchange current (E_P + E_int/2)' = -(E_Q + E_int/2)' is antisymmetric (identities in the 18 symbols)": true,
+    "a two-degree-of-freedom comparator (the note names one without parameters; this one is our choice): for a = c = 5/2 and coupling b = 3/2, q = (cos 2u + cos u)/2, h = (cos 2u - cos u)/2 solve the pair from q(0) = 1, h(0) = q'(0) = h'(0) = 0 with total energy 5/4 at every u, and the visible power E_P' = -b q' h is -3/8 at u = pi/2 and +3/8 at u = 3 pi/2: visible energy leaves and returns, while the defect L(u) is positive semidefinite for every K (onemodel_closures): its sign fixes no sign of the energy current": true,
+    "the memory equation (8), scalar (c > 0, a quadratic test input q(s) symbolic): h = h_free - int_0^u sin((u - s) sqrt c)/sqrt c b q(s) ds with h_free = h0 cos(u sqrt c) + h0' sin(u sqrt c)/sqrt c solves h'' + c h + b q = 0 with h(0) = h0, h'(0) = h0', so q'' + a q + b h = 0 becomes q'' + a q - int_0^u k(u - s) q(s) ds = -b h_free with k(u) = b^2 sin(u sqrt c)/sqrt c, k(0) = 0 and k'(0) = b^2 (the matrix kernel B C^(-1/2) sin(u sqrt C) B^T, of slope B B^T = D, is bridge_memory_echo's on the root-site instance)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> readout: Theorem 4, sqrt(Y^T K Y) - Y^T sqrt(K) Y >= d/(8 M^(3/2)) I for 0 <= K <= M and Y^T K Q K Y >= d: its scalar ingredients are exact (sqrt(lambda) = (1/pi) int sqrt z (1/z - 1/(z + lambda)) dz, int_0^oo sqrt z/(z + M)^3 dz = pi/(8 M^(3/2)), t/(1 - t) - t = t^2/(1 - t)), the operator steps are the note's; with d = 83 (D45's least eigenvalue) and M = 256 the bound is 83/32768; complete monotonicity (-1)^n Sigma^(n) = n! B (z + C)^-(n + 1) B^T and the positive-frequency polarization i a' = sqrt(k) a are checked symbolically (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the scalar and resolvent ingredients (general, symbolic): int_0^oo lambda/(sqrt z (z + lambda)) dz = pi sqrt(lambda), i.e. sqrt(lambda) = (1/pi) int_0^oo sqrt z (1/z - 1/(z + lambda)) dz, which with Y^T Y = I gives sqrt(A) - Y^T sqrt(K) Y = (1/pi) int sqrt z [G(z) - (z + A)^-1] dz (functional calculus, not computed); int_0^oo sqrt z/(z + M)^3 dz = pi/(8 M^(3/2)); t/(1 - t) - t = t^2/(1 - t) >= 0 on [0, 1), so (I - T)^-1 - I >= T for 0 <= T < I (spectral calculus); d^n/dz^n (z + C)^-1 = (-1)^n n! (z + C)^-(n + 1) for a symbolic symmetric 2 x 2 C (n = 1, 2, 3), so (-1)^n Sigma^(n)(z) = n! B (z + C)^-(n + 1) B^T >= 0 (eq (3)); and 8 x 256^(3/2) = 32768, so d = 83 and M = 256 give 83/32768 = 0.002532958984375 (the note's 0.00253296)": true,
+    "Theorem 4 on a finite instance (the bridge addendum's comparator H90 + eps I, Y = [I45; 0], hidden diagonal 200 + eps; D = Y^T K Q K Y = diag of the 45 variances, least 83, and 0 < H90 < 256: bridge_comparator): a positive 2 x 2 block M has sqrt(M) = (M + sqrt(det M) I)/sqrt(tr M + 2 sqrt(det M)) (symbolic), so the softening is diagonal with channel values sqrt(a + eps) - (sqrt K)_11; in outward-rounded intervals (40 digits) every value exceeds 83/(8 (256 + eps)^(3/2)) at eps = 0 and 7, and the least is the dark channel's (a, v) = (243, 83) at both, in (0.0030134, 0.0030135) at eps = 0, above 83/32768; at eps = 7 the norm is the dark block's top M = 7 + 443/2 + sqrt(2181)/2 ((243 - 200)^2/4 + 83 = 2181/4; above the other four blocks' tops), the receipt's certified bound 0.002595814472536955 is 83/(8 M^(3/2)) to within 5 x 10^-18 and the dark value exceeds it, and the receipt's softening minimum 0.0028794513075120526 is the dark channel's 0.00287945130753542 to within 3 x 10^-14 (the receipt's 19-source dressing is not reconstructed)": true,
+    "the positive-frequency polarization (9), scalar: for q = alpha cos(u sqrt k) + beta sin(u sqrt k) (q'' + k q = 0, k > 0), a = (k^(1/4) q + i k^(-1/4) q')/sqrt2 obeys i a' = sqrt(k) a; and its leakage is not D: for a symmetric 2 x 2 S, 1 - |(e^(-iuS))_11|^2 = S12^2 u^2 + O(u^3), so with S = sqrt K the u^2 coefficient is Y^T sqrt K Q sqrt K Y, on the unloaded comparator (sqrt K)_12^2 = v/(a + 200 + 2 sqrt(200 a - v)) per channel, from 2117/(384 + 2 sqrt34683) in (2.79, 2.80) down to 83/(443 + 2 sqrt48517) in (0.093, 0.094), all in (0, 3), against the e^(-iuK) reference's v = 2117, ..., 83 (bridge_comparator)": "True"
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "spectral measures -> readout: on the 90 x 90 comparator H90 + eps I (bridge_comparator) the softening is diagonal, sqrt(a + eps) - (sqrt K)_11 per channel (sqrt of a 2 x 2 block in closed form), above 83/(8 (256 + eps)^(3/2)) for every channel at eps = 0 and 7 (outward-rounded intervals), least on the dark channel (243, 83); at eps = 7 the receipt's certified bound 0.002595814472536955 is 83/(8 M^(3/2)) with M = 7 + 443/2 + sqrt(2181)/2 the dark block's top, and its softening minimum 0.0028794513075120526 agrees with the undressed dark channel's value to 3 x 10^-14 (the receipt's 19-source dressing is not reconstructed); the positive-frequency leakage coefficient (sqrt K)_12^2 = v/(a + 200 + 2 sqrt(200 a - v)) (2.79 to 0.094) is not the variance v (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the scalar and resolvent ingredients (general, symbolic): int_0^oo lambda/(sqrt z (z + lambda)) dz = pi sqrt(lambda), i.e. sqrt(lambda) = (1/pi) int_0^oo sqrt z (1/z - 1/(z + lambda)) dz, which with Y^T Y = I gives sqrt(A) - Y^T sqrt(K) Y = (1/pi) int sqrt z [G(z) - (z + A)^-1] dz (functional calculus, not computed); int_0^oo sqrt z/(z + M)^3 dz = pi/(8 M^(3/2)); t/(1 - t) - t = t^2/(1 - t) >= 0 on [0, 1), so (I - T)^-1 - I >= T for 0 <= T < I (spectral calculus); d^n/dz^n (z + C)^-1 = (-1)^n n! (z + C)^-(n + 1) for a symbolic symmetric 2 x 2 C (n = 1, 2, 3), so (-1)^n Sigma^(n)(z) = n! B (z + C)^-(n + 1) B^T >= 0 (eq (3)); and 8 x 256^(3/2) = 32768, so d = 83 and M = 256 give 83/32768 = 0.002532958984375 (the note's 0.00253296)": true,
+    "Theorem 4 on a finite instance (the bridge addendum's comparator H90 + eps I, Y = [I45; 0], hidden diagonal 200 + eps; D = Y^T K Q K Y = diag of the 45 variances, least 83, and 0 < H90 < 256: bridge_comparator): a positive 2 x 2 block M has sqrt(M) = (M + sqrt(det M) I)/sqrt(tr M + 2 sqrt(det M)) (symbolic), so the softening is diagonal with channel values sqrt(a + eps) - (sqrt K)_11; in outward-rounded intervals (40 digits) every value exceeds 83/(8 (256 + eps)^(3/2)) at eps = 0 and 7, and the least is the dark channel's (a, v) = (243, 83) at both, in (0.0030134, 0.0030135) at eps = 0, above 83/32768; at eps = 7 the norm is the dark block's top M = 7 + 443/2 + sqrt(2181)/2 ((243 - 200)^2/4 + 83 = 2181/4; above the other four blocks' tops), the receipt's certified bound 0.002595814472536955 is 83/(8 M^(3/2)) to within 5 x 10^-18 and the dark value exceeds it, and the receipt's softening minimum 0.0028794513075120526 is the dark channel's 0.00287945130753542 to within 3 x 10^-14 (the receipt's 19-source dressing is not reconstructed)": true,
+    "the positive-frequency polarization (9), scalar: for q = alpha cos(u sqrt k) + beta sin(u sqrt k) (q'' + k q = 0, k > 0), a = (k^(1/4) q + i k^(-1/4) q')/sqrt2 obeys i a' = sqrt(k) a; and its leakage is not D: for a symmetric 2 x 2 S, 1 - |(e^(-iuS))_11|^2 = S12^2 u^2 + O(u^3), so with S = sqrt K the u^2 coefficient is Y^T sqrt K Q sqrt K Y, on the unloaded comparator (sqrt K)_12^2 = v/(a + 200 + 2 sqrt(200 a - v)) per channel, from 2117/(384 + 2 sqrt34683) in (2.79, 2.80) down to 83/(443 + 2 sqrt48517) in (0.093, 0.094), all in (0, 3), against the e^(-iuK) reference's v = 2117, ..., 83 (bridge_comparator)": "True"
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> bath: Theorems 5 and 6 on generic blocks: K = T^T diag(F, C) T with T = [[I, 0], [C^-1 B^T, I]], ker K the lift (q0, -C^-1 B^T q0) of ker F, S_K(z)^-1 = F + z [I + B C^-1 (z + C)^-1 B^T] and z S_K(z) -> q0 q0^T/Z0, Z0 = 1 + |C^-1 B^T q0|^2 (symbolic); on the root-site instance (schur_zero_mode) the note's gap argument gives at least 99/100 (|B|_F^2 = 944 visible-hidden root adjacencies, C_eps >= 185 by Gershgorin, lam- > 69/50) against the general formula's 1/66049 (the gap itself, in (1.3808, 1.3809), is the zero-pole note's replay, zero_pole_instance); the receipt's comparator Z0 = 1.0090783915610633 and residue 0.9910032841482029 are 43238/42849 = 1 + 389/207^2 and its inverse; a real C5-invariant line is fixed (s^5 = 1 with s = +-1 forces s = 1) (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the source stiffness (section 0): F19 = D19^2 has characteristic polynomial x (x - 8)^2 (x^2 - 5 alpha x + 5 alpha^2)^4 ((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^4 (K_alpha's times the auxiliaries' (x^2 - 5 alpha x + 5 alpha^2)^2, chiral_closures; its roots 0, (alpha lam-)^4, (alpha lam+)^4, (3 + alpha lam-)^4, (3 + alpha lam+)^4, 8^2, lam+- = (5 +- sqrt5)/2, the note's list, are the ten-video review's video_ten_chiral), of degree 19 with x^18 coefficient -(40 + 40 alpha): trace 40 + 40 alpha; its least positive eigenvalue is m = min(alpha lam-, 8) (alpha lam+ - alpha lam- = sqrt5 alpha > 0); at alpha = 6/5 its roots are 0, 3 -+ 3 sqrt5/5, 6 -+ 3 sqrt5/5 (four each) and 8 (twice), alpha lam- = 3 - 3 sqrt5/5, and the receipt's 19 squared eigenvalues, in increasing order, lie within 10^-13 of them": true,
+    "Theorem 5 on generic 2 x 2 blocks (F, C symmetric, B arbitrary, symbols): with T = [[I, 0], [C^-1 B^T, I]], T^T diag(F, C) T = [[F + B C^-1 B^T, B], [B^T, C]] = K and T^-1 = [[I, 0], [-C^-1 B^T, I]]; for F = diag(0, f), K kills (e1, -C^-1 B^T e1). The note's argument (not computed): x^T K x >= mu dist(T x, ker)^2 >= mu |x|^2/|T^-1|^2 on (ker K)^perp, mu the least positive eigenvalue of diag(F, C) and |T^-1| <= 1 + |C^-1| |B| <= 1 + 256/eps, giving min(m, eps)/(1 + 256/eps)^2. On the root-site instance (schur_zero_mode: K = L diag(F19, C_eps) L^T, eps = 1; F19's least positive eigenvalue lam- = (5 - sqrt5)/2 exceeds (5 - 56/25)/2 = 69/50 as (56/25)^2 > 5) C_eps = 241 I - B_hh >= 185, since no hidden root has more than 56 hidden neighbours (Gershgorin), and |B|_F^2 counts the visible-hidden root adjacencies, 944 = 19 x 56 - 120 < 33^2, so by that argument the gap of K is at least (69/50)/(1 + 33/185)^2 > 99/100, against the general bound 1/66049 = min(m, 1)/(1 + 256)^2 (the zero-pole note's replay, zero_pole_instance, finds the gap itself in (1.3808, 1.3809) and checks the sharper (1 + 128/eps)^2 from |Q (H - 128) J| <= 128)": true,
+    "Theorem 6: C^-1 - (z + C)^-1 = z C^-1 (z + C)^-1 (symbolic 2 x 2), so the Schur complement of z + K on the source, z + F + B C^-1 B^T - B (z + C)^-1 B^T, is F + z [I + B C^-1 (z + C)^-1 B^T] = S_K(z)^-1; for F = diag(0, f) and any G(z) = G0 + z G1 (symbols) z (F + z G(z))^-1 -> e1 e1^T/(G0)_11, and G(0) = I + B C^-2 B^T has (G0)_11 = 1 + |C^-1 B^T q0|^2 = Z0: the residue is q0 q0^T/Z0. Z0 involves only B, C and q0, which the source dressing does not touch (Theorem 2); on the receipt's comparator, read with hidden block (200 + 7) I and |B_J^T q0|^2 = 389 (its 'kernel source quadratic b389'), Z0 = 1 + 389/207^2 = 43238/42849, and the receipt's Z0 = 1.0090783915610633 and residue 0.9910032841482029 are 43238/42849 and 42849/43238 to within 10^-15, inside the note's 1 + 389/263^2 <= Z0 <= 1 + 389/49": "True",
+    "Theorem 7: an orthogonal U with U^5 = I preserving a real line acts on it by a sign s with s^5 = 1, and of +-1 only s = 1 qualifies: the line is fixed (the chiral completion's five-cycle fixes q itself, U_E q = q, chiral_closures); and a real unit vector field psi(t) = v(t)/|v(t)| (three symbolic functions) has psi . psi' = 0: no local Berry connection": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> spectral triple: the 19-dimensional source stiffness F19 = D19^2 (spectrum 0, (alpha lam-)^4, (alpha lam+)^4, (3 + alpha lam-)^4, (3 + alpha lam+)^4, 8^2, lam+- = (5 +- sqrt5)/2: video_ten_chiral, from chiral_closures' factors) has trace 40 + 40 alpha (its characteristic polynomial's x^18 coefficient) and least positive eigenvalue m = min(alpha lam-, 8), the floor in the dressed gap; at alpha = 6/5 the polynomial's roots are 0, 3 -+ 3 sqrt5/5, 6 -+ 3 sqrt5/5 (four each) and 8 (twice), and the receipt's 19 eigenvalues lie within 10^-13 of them (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the source stiffness (section 0): F19 = D19^2 has characteristic polynomial x (x - 8)^2 (x^2 - 5 alpha x + 5 alpha^2)^4 ((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^4 (K_alpha's times the auxiliaries' (x^2 - 5 alpha x + 5 alpha^2)^2, chiral_closures; its roots 0, (alpha lam-)^4, (alpha lam+)^4, (3 + alpha lam-)^4, (3 + alpha lam+)^4, 8^2, lam+- = (5 +- sqrt5)/2, the note's list, are the ten-video review's video_ten_chiral), of degree 19 with x^18 coefficient -(40 + 40 alpha): trace 40 + 40 alpha; its least positive eigenvalue is m = min(alpha lam-, 8) (alpha lam+ - alpha lam- = sqrt5 alpha > 0); at alpha = 6/5 its roots are 0, 3 -+ 3 sqrt5/5, 6 -+ 3 sqrt5/5 (four each) and 8 (twice), alpha lam- = 3 - 3 sqrt5/5, and the receipt's 19 squared eigenvalues, in increasing order, lie within 10^-13 of them": true,
+    "Theorem 5 on generic 2 x 2 blocks (F, C symmetric, B arbitrary, symbols): with T = [[I, 0], [C^-1 B^T, I]], T^T diag(F, C) T = [[F + B C^-1 B^T, B], [B^T, C]] = K and T^-1 = [[I, 0], [-C^-1 B^T, I]]; for F = diag(0, f), K kills (e1, -C^-1 B^T e1). The note's argument (not computed): x^T K x >= mu dist(T x, ker)^2 >= mu |x|^2/|T^-1|^2 on (ker K)^perp, mu the least positive eigenvalue of diag(F, C) and |T^-1| <= 1 + |C^-1| |B| <= 1 + 256/eps, giving min(m, eps)/(1 + 256/eps)^2. On the root-site instance (schur_zero_mode: K = L diag(F19, C_eps) L^T, eps = 1; F19's least positive eigenvalue lam- = (5 - sqrt5)/2 exceeds (5 - 56/25)/2 = 69/50 as (56/25)^2 > 5) C_eps = 241 I - B_hh >= 185, since no hidden root has more than 56 hidden neighbours (Gershgorin), and |B|_F^2 counts the visible-hidden root adjacencies, 944 = 19 x 56 - 120 < 33^2, so by that argument the gap of K is at least (69/50)/(1 + 33/185)^2 > 99/100, against the general bound 1/66049 = min(m, 1)/(1 + 256)^2 (the zero-pole note's replay, zero_pole_instance, finds the gap itself in (1.3808, 1.3809) and checks the sharper (1 + 128/eps)^2 from |Q (H - 128) J| <= 128)": true,
+    "Theorem 6: C^-1 - (z + C)^-1 = z C^-1 (z + C)^-1 (symbolic 2 x 2), so the Schur complement of z + K on the source, z + F + B C^-1 B^T - B (z + C)^-1 B^T, is F + z [I + B C^-1 (z + C)^-1 B^T] = S_K(z)^-1; for F = diag(0, f) and any G(z) = G0 + z G1 (symbols) z (F + z G(z))^-1 -> e1 e1^T/(G0)_11, and G(0) = I + B C^-2 B^T has (G0)_11 = 1 + |C^-1 B^T q0|^2 = Z0: the residue is q0 q0^T/Z0. Z0 involves only B, C and q0, which the source dressing does not touch (Theorem 2); on the receipt's comparator, read with hidden block (200 + 7) I and |B_J^T q0|^2 = 389 (its 'kernel source quadratic b389'), Z0 = 1 + 389/207^2 = 43238/42849, and the receipt's Z0 = 1.0090783915610633 and residue 0.9910032841482029 are 43238/42849 and 42849/43238 to within 10^-15, inside the note's 1 + 389/263^2 <= Z0 <= 1 + 389/49": "True",
+    "Theorem 7: an orthogonal U with U^5 = I preserving a real line acts on it by a sign s with s^5 = 1, and of +-1 only s = 1 qualifies: the line is fixed (the chiral completion's five-cycle fixes q itself, U_E q = q, chiral_closures); and a real unit vector field psi(t) = v(t)/|v(t)| (three symbolic functions) has psi . psi' = 0: no local Berry connection": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "half-periods -> bath: for every one of the 240 roots r0, 112 roots have r0.s odd, sum_odd s s^T = 24 I + 16 r0 r0^T, and at r0/2 the band is 224 with vanishing gradient and (2 pi)^-2 Hess = 12 I - 32 r0 r0^T, spectrum -52, 12^7: every root half-period r0/2 (the 120 norm-2 classes of notes_0255) is an index-one saddle at 224 (notes_0255 and band_closures check one root, notes_0255 and gksl_census the value 224 on all 120 classes); the receipt's 24 I + 32 v v^T and 12 I - 64 v v^T are these with v = r0/sqrt2 (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Theorem 9 at every root (notes_0255 and band_closures check one root, notes_0255 and gksl_census the value 224 on all 120 classes; new here: the counts, sums and Hessian at each root, exactly): for each of the 240 roots r0 the inner products r0.s take 2, 1, 0, -1, -2 on 1, 56, 126, 56, 1 roots, so exactly 112 are odd, sum_(odd) s s^T = 24 I + 16 r0 r0^T while sum_s s s^T = 60 I, and at k0 = r0/2: E = 240 - sum (-1)^(r0.s) = 224, the gradient sum sin(pi r0.s) s vanishes (r0.s integral), and (2 pi)^-2 Hess E = sum (-1)^(r0.s) s s^T = 12 I - 32 r0 r0^T, characteristic polynomial (x + 52)(x - 12)^7: all 240 half-periods r0/2 are index-one saddles at 224. With the unit v = r0/sqrt2 these are the receipt's 24 I + 32 v v^T and 12 I - 64 v v^T": true,
+    "eq (17) and the signature firewall: the symbol's quadratic term sum_s (p.s)^2/2 is 30|p|^2 (sum_s s s^T = 60 I above; the full symbol (16) is e8_anisotropy's), so the internal wave partial_u^2 + H has omega = sqrt30 |p| to leading order; with p = ell k (ell the spatial scale, k the physical wavenumber) and u = t/rho the plane wave exp(i (k X - (omega/rho) t)) solves f_tt = c^2 f_XX for c = sqrt30 ell/rho, the note's c_eff (a change of units, conditional on a five-dimensional reduction that is not built); and for every real 8 x 5 pullback iota (40 symbols) x^T iota^T (30 I8) iota x = 30 |iota x|^2 >= 0: a spatial pullback of the positive form is never indefinite, the (5, 1) sign comes only from the added time derivative": true,
+    "the no-KK corollary's numbers: sqrt(8/lam-) = 4/sqrt(5 - sqrt5) (the ratio of the source frequencies sqrt8 and sqrt(lam-) at alpha = 1) lies in (2.4060038200301, 2.4060038200302), holding the receipt's 2.406003820030183; video_ten_arithmetic's bracket [2.40482555, 2.40482556] of j01, J0's first zero, holds the receipt's 2.4048255576957724 and the note's 2.404825558; so alpha = 8/(lam- j01^2), at which the ratio matches j01 exactly, lies in (1.00098015, 1.00098017) and the relative gap sqrt(8/lam-)/j01 - 1 in (0.00048995, 0.00048997), holding the receipt's 1.0009801550718525 and 0.0004899575067471851 (video_ten_elsewhere reads both at the review's rounded 2.404826); one coincidence with a free alpha is no tower: the bath is bounded with absolutely continuous spectrum (band.edge, free_chain), a Sturm-Liouville tower is pure point and unbounded (the corollary's argument, recorded, not computed)": "True",
+    "the C5 lattice remark: 2 cos(2 pi/5) = (sqrt5 - 1)/2 is a root of x^2 + x - 1, which has no rational root, so it is irrational; Phi5 = x^4 + x^3 + x^2 + x + 1 is irreducible over Q, so no integer 2 x 2 matrix (characteristic polynomial of degree 2) has a primitive fifth root of unity as an eigenvalue: no rank-2 lattice has a five-fold rotation; the orders n <= 100 with phi(n) <= 2 are exactly 1, 2, 3, 4, 6 (the crystallographic restriction); rank 4 suffices (the A4 five-cycle r of onemodel_clock, characteristic polynomial Phi5 on its moving four)": true,
+    "eq (25)'s ingredients: H = 240 I - A with A the sum of the 240 root translations, so e^(-iuH) = e^(-240iu) e^(iuA); <x|A^n|y> vanishes for n < d(x, y) and has modulus at most |A|^n <= 240^n (localization_bound), so |<x|e^(-iuH)|y>| <= sum_(n >= d) (240|u|)^n/n!; coefficientwise 1/n! <= 1/(d! (n - d)!) (C(n, d) >= 1, checked for d <= 12, n <= 60) gives sum_(n >= d) a^n/n! <= (a^d/d!) e^a, the note's bound e^(240|u|) (240|u|)^d/d!": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> calibration: if a physical five-dimensional reduction exists (not constructed), the wave partial_u^2 + H, of leading symbol sum_s (p.s)^2/2 = 30|p|^2, read with p = ell k and u = t/rho, carries plane waves at c_eff = sqrt30 ell/rho (checked: f_tt = c^2 f_XX; a change of units); neither ell nor rho is fixed internally, and a real spatial pullback of 30 I8 is positive semidefinite (30 |iota x|^2), so the (5, 1) sign comes only from the time derivative (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "Theorem 9 at every root (notes_0255 and band_closures check one root, notes_0255 and gksl_census the value 224 on all 120 classes; new here: the counts, sums and Hessian at each root, exactly): for each of the 240 roots r0 the inner products r0.s take 2, 1, 0, -1, -2 on 1, 56, 126, 56, 1 roots, so exactly 112 are odd, sum_(odd) s s^T = 24 I + 16 r0 r0^T while sum_s s s^T = 60 I, and at k0 = r0/2: E = 240 - sum (-1)^(r0.s) = 224, the gradient sum sin(pi r0.s) s vanishes (r0.s integral), and (2 pi)^-2 Hess E = sum (-1)^(r0.s) s s^T = 12 I - 32 r0 r0^T, characteristic polynomial (x + 52)(x - 12)^7: all 240 half-periods r0/2 are index-one saddles at 224. With the unit v = r0/sqrt2 these are the receipt's 24 I + 32 v v^T and 12 I - 64 v v^T": true,
+    "eq (17) and the signature firewall: the symbol's quadratic term sum_s (p.s)^2/2 is 30|p|^2 (sum_s s s^T = 60 I above; the full symbol (16) is e8_anisotropy's), so the internal wave partial_u^2 + H has omega = sqrt30 |p| to leading order; with p = ell k (ell the spatial scale, k the physical wavenumber) and u = t/rho the plane wave exp(i (k X - (omega/rho) t)) solves f_tt = c^2 f_XX for c = sqrt30 ell/rho, the note's c_eff (a change of units, conditional on a five-dimensional reduction that is not built); and for every real 8 x 5 pullback iota (40 symbols) x^T iota^T (30 I8) iota x = 30 |iota x|^2 >= 0: a spatial pullback of the positive form is never indefinite, the (5, 1) sign comes only from the added time derivative": true,
+    "the no-KK corollary's numbers: sqrt(8/lam-) = 4/sqrt(5 - sqrt5) (the ratio of the source frequencies sqrt8 and sqrt(lam-) at alpha = 1) lies in (2.4060038200301, 2.4060038200302), holding the receipt's 2.406003820030183; video_ten_arithmetic's bracket [2.40482555, 2.40482556] of j01, J0's first zero, holds the receipt's 2.4048255576957724 and the note's 2.404825558; so alpha = 8/(lam- j01^2), at which the ratio matches j01 exactly, lies in (1.00098015, 1.00098017) and the relative gap sqrt(8/lam-)/j01 - 1 in (0.00048995, 0.00048997), holding the receipt's 1.0009801550718525 and 0.0004899575067471851 (video_ten_elsewhere reads both at the review's rounded 2.404826); one coincidence with a free alpha is no tower: the bath is bounded with absolutely continuous spectrum (band.edge, free_chain), a Sturm-Liouville tower is pure point and unbounded (the corollary's argument, recorded, not computed)": "True",
+    "the C5 lattice remark: 2 cos(2 pi/5) = (sqrt5 - 1)/2 is a root of x^2 + x - 1, which has no rational root, so it is irrational; Phi5 = x^4 + x^3 + x^2 + x + 1 is irreducible over Q, so no integer 2 x 2 matrix (characteristic polynomial of degree 2) has a primitive fifth root of unity as an eigenvalue: no rank-2 lattice has a five-fold rotation; the orders n <= 100 with phi(n) <= 2 are exactly 1, 2, 3, 4, 6 (the crystallographic restriction); rank 4 suffices (the A4 five-cycle r of onemodel_clock, characteristic polynomial Phi5 on its moving four)": true,
+    "eq (25)'s ingredients: H = 240 I - A with A the sum of the 240 root translations, so e^(-iuH) = e^(-240iu) e^(iuA); <x|A^n|y> vanishes for n < d(x, y) and has modulus at most |A|^n <= 240^n (localization_bound), so |<x|e^(-iuH)|y>| <= sum_(n >= d) (240|u|)^n/n!; coefficientwise 1/n! <= 1/(d! (n - d)!) (C(n, d) >= 1, checked for d <= 12, n <= 60) gives sum_(n >= d) a^n/n! <= (a^d/d!) e^a, the note's bound e^(240|u|) (240|u|)^d/d!": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "A4 -> golden companion: 2 cos(2 pi/5) = (sqrt5 - 1)/2, a root of x^2 + x - 1, is irrational and Phi5 is irreducible of degree 4, so no integer 2 x 2 matrix has order 5 (the orders with phi(n) <= 2 are 1, 2, 3, 4, 6): a five-fold lattice rotation needs rank 4, as the A4 five-cycle has; the golden C5 plane is not a periodic planar lattice (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "Theorem 9 at every root (notes_0255 and band_closures check one root, notes_0255 and gksl_census the value 224 on all 120 classes; new here: the counts, sums and Hessian at each root, exactly): for each of the 240 roots r0 the inner products r0.s take 2, 1, 0, -1, -2 on 1, 56, 126, 56, 1 roots, so exactly 112 are odd, sum_(odd) s s^T = 24 I + 16 r0 r0^T while sum_s s s^T = 60 I, and at k0 = r0/2: E = 240 - sum (-1)^(r0.s) = 224, the gradient sum sin(pi r0.s) s vanishes (r0.s integral), and (2 pi)^-2 Hess E = sum (-1)^(r0.s) s s^T = 12 I - 32 r0 r0^T, characteristic polynomial (x + 52)(x - 12)^7: all 240 half-periods r0/2 are index-one saddles at 224. With the unit v = r0/sqrt2 these are the receipt's 24 I + 32 v v^T and 12 I - 64 v v^T": true,
+    "eq (17) and the signature firewall: the symbol's quadratic term sum_s (p.s)^2/2 is 30|p|^2 (sum_s s s^T = 60 I above; the full symbol (16) is e8_anisotropy's), so the internal wave partial_u^2 + H has omega = sqrt30 |p| to leading order; with p = ell k (ell the spatial scale, k the physical wavenumber) and u = t/rho the plane wave exp(i (k X - (omega/rho) t)) solves f_tt = c^2 f_XX for c = sqrt30 ell/rho, the note's c_eff (a change of units, conditional on a five-dimensional reduction that is not built); and for every real 8 x 5 pullback iota (40 symbols) x^T iota^T (30 I8) iota x = 30 |iota x|^2 >= 0: a spatial pullback of the positive form is never indefinite, the (5, 1) sign comes only from the added time derivative": true,
+    "the no-KK corollary's numbers: sqrt(8/lam-) = 4/sqrt(5 - sqrt5) (the ratio of the source frequencies sqrt8 and sqrt(lam-) at alpha = 1) lies in (2.4060038200301, 2.4060038200302), holding the receipt's 2.406003820030183; video_ten_arithmetic's bracket [2.40482555, 2.40482556] of j01, J0's first zero, holds the receipt's 2.4048255576957724 and the note's 2.404825558; so alpha = 8/(lam- j01^2), at which the ratio matches j01 exactly, lies in (1.00098015, 1.00098017) and the relative gap sqrt(8/lam-)/j01 - 1 in (0.00048995, 0.00048997), holding the receipt's 1.0009801550718525 and 0.0004899575067471851 (video_ten_elsewhere reads both at the review's rounded 2.404826); one coincidence with a free alpha is no tower: the bath is bounded with absolutely continuous spectrum (band.edge, free_chain), a Sturm-Liouville tower is pure point and unbounded (the corollary's argument, recorded, not computed)": "True",
+    "the C5 lattice remark: 2 cos(2 pi/5) = (sqrt5 - 1)/2 is a root of x^2 + x - 1, which has no rational root, so it is irrational; Phi5 = x^4 + x^3 + x^2 + x + 1 is irreducible over Q, so no integer 2 x 2 matrix (characteristic polynomial of degree 2) has a primitive fifth root of unity as an eigenvalue: no rank-2 lattice has a five-fold rotation; the orders n <= 100 with phi(n) <= 2 are exactly 1, 2, 3, 4, 6 (the crystallographic restriction); rank 4 suffices (the A4 five-cycle r of onemodel_clock, characteristic polynomial Phi5 on its moving four)": true,
+    "eq (25)'s ingredients: H = 240 I - A with A the sum of the 240 root translations, so e^(-iuH) = e^(-240iu) e^(iuA); <x|A^n|y> vanishes for n < d(x, y) and has modulus at most |A|^n <= 240^n (localization_bound), so |<x|e^(-iuH)|y>| <= sum_(n >= d) (240|u|)^n/n!; coefficientwise 1/n! <= 1/(d! (n - d)!) (C(n, d) >= 1, checked for d <= 12, n <= 60) gives sum_(n >= d) a^n/n! <= (a^d/d!) e^a, the note's bound e^(240|u|) (240|u|)^d/d!": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "closed walks -> bath: e^(-iuH) = e^(-240iu) e^(iuA), <x|A^n|y> = 0 below the hop distance d and |A| <= 240 (localization_bound), and sum_(n >= d) a^n/n! <= (a^d/d!) e^a (1/n! <= 1/(d! (n - d)!), checked for d <= 12, n <= 60) give |<x|e^(-iuH)|y>| <= e^(240|u|) (240|u|)^d/d!: the parent is finite-range on the root graph while its compression has memory (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "Theorem 9 at every root (notes_0255 and band_closures check one root, notes_0255 and gksl_census the value 224 on all 120 classes; new here: the counts, sums and Hessian at each root, exactly): for each of the 240 roots r0 the inner products r0.s take 2, 1, 0, -1, -2 on 1, 56, 126, 56, 1 roots, so exactly 112 are odd, sum_(odd) s s^T = 24 I + 16 r0 r0^T while sum_s s s^T = 60 I, and at k0 = r0/2: E = 240 - sum (-1)^(r0.s) = 224, the gradient sum sin(pi r0.s) s vanishes (r0.s integral), and (2 pi)^-2 Hess E = sum (-1)^(r0.s) s s^T = 12 I - 32 r0 r0^T, characteristic polynomial (x + 52)(x - 12)^7: all 240 half-periods r0/2 are index-one saddles at 224. With the unit v = r0/sqrt2 these are the receipt's 24 I + 32 v v^T and 12 I - 64 v v^T": true,
+    "eq (17) and the signature firewall: the symbol's quadratic term sum_s (p.s)^2/2 is 30|p|^2 (sum_s s s^T = 60 I above; the full symbol (16) is e8_anisotropy's), so the internal wave partial_u^2 + H has omega = sqrt30 |p| to leading order; with p = ell k (ell the spatial scale, k the physical wavenumber) and u = t/rho the plane wave exp(i (k X - (omega/rho) t)) solves f_tt = c^2 f_XX for c = sqrt30 ell/rho, the note's c_eff (a change of units, conditional on a five-dimensional reduction that is not built); and for every real 8 x 5 pullback iota (40 symbols) x^T iota^T (30 I8) iota x = 30 |iota x|^2 >= 0: a spatial pullback of the positive form is never indefinite, the (5, 1) sign comes only from the added time derivative": true,
+    "the no-KK corollary's numbers: sqrt(8/lam-) = 4/sqrt(5 - sqrt5) (the ratio of the source frequencies sqrt8 and sqrt(lam-) at alpha = 1) lies in (2.4060038200301, 2.4060038200302), holding the receipt's 2.406003820030183; video_ten_arithmetic's bracket [2.40482555, 2.40482556] of j01, J0's first zero, holds the receipt's 2.4048255576957724 and the note's 2.404825558; so alpha = 8/(lam- j01^2), at which the ratio matches j01 exactly, lies in (1.00098015, 1.00098017) and the relative gap sqrt(8/lam-)/j01 - 1 in (0.00048995, 0.00048997), holding the receipt's 1.0009801550718525 and 0.0004899575067471851 (video_ten_elsewhere reads both at the review's rounded 2.404826); one coincidence with a free alpha is no tower: the bath is bounded with absolutely continuous spectrum (band.edge, free_chain), a Sturm-Liouville tower is pure point and unbounded (the corollary's argument, recorded, not computed)": "True",
+    "the C5 lattice remark: 2 cos(2 pi/5) = (sqrt5 - 1)/2 is a root of x^2 + x - 1, which has no rational root, so it is irrational; Phi5 = x^4 + x^3 + x^2 + x + 1 is irreducible over Q, so no integer 2 x 2 matrix (characteristic polynomial of degree 2) has a primitive fifth root of unity as an eigenvalue: no rank-2 lattice has a five-fold rotation; the orders n <= 100 with phi(n) <= 2 are exactly 1, 2, 3, 4, 6 (the crystallographic restriction); rank 4 suffices (the A4 five-cycle r of onemodel_clock, characteristic polynomial Phi5 on its moving four)": true,
+    "eq (25)'s ingredients: H = 240 I - A with A the sum of the 240 root translations, so e^(-iuH) = e^(-240iu) e^(iuA); <x|A^n|y> vanishes for n < d(x, y) and has modulus at most |A|^n <= 240^n (localization_bound), so |<x|e^(-iuH)|y>| <= sum_(n >= d) (240|u|)^n/n!; coefficientwise 1/n! <= 1/(d! (n - d)!) (C(n, d) >= 1, checked for d <= 12, n <= 60) gives sum_(n >= d) a^n/n! <= (a^d/d!) e^a, the note's bound e^(240|u|) (240|u|)^d/d!": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "readout -> calibration: if a calibration gives C_SI(t) = Y^T cos((t/rho) sqrt K) Y, then C_SI''''(0) - C_SI''(0)^2 = D/rho^4 (noncommuting moments) and rho = (21061/tr)^(1/4), 21061 = tr D45 summed from the 45 channels; any likelihood of beta z0 has Fisher null vector (beta, -z0), the generator of (c beta, z0/c), besides video_ten_fisher's (tau, 2 kappa) (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "eq (18) on an exact three-spin instance (H = sum J_ij Z_i Z_j + J_012 Z_0 Z_1 Z_2 + sum h_i Z_i + (Omega/2) sum X_i, J_ij, J_012 and h_i symbols: up to a constant every interaction diagonal in Z on three spins; state |down down down>): for each Z_i, <Z_i> = -1, <[H, Z_i]> = 0, d^2/dt^2 <Z_i(t)>|_0 = -<[H, [H, Z_i]]> = Omega^2 and <ad_H^3 Z_i> = 0, and for each pair <Z_i Z_j> = 1, first and third orders 0, second derivative -2 Omega^2: <Z_i(t)> = -1 + Omega^2 t^2/2 + O(t^4) and <Z_i Z_j(t)> = 1 - Omega^2 t^2 + O(t^4), with no J or h dependence (the receipt's two-spin check at J = 0, 1.7, 3.52); ad_H^n O is antisymmetric for odd n (checked for n = 1, 3; in general (ad_H X)^T = -ad_H X^T for real symmetric H), so every odd order vanishes in the real state": true,
+    "the Poisson mismatch (section 7): 1 - e^(-gamma t) = gamma t - gamma^2 t^2/2 + gamma^3 t^3/6 + O(t^4) has t-coefficient gamma, while the cosine leakage <D> (t/rho)^4/4 + O(t^6) has none below t^4, so their difference has t-coefficient -gamma, nonzero for every positive rate: no constant-rate reduction matches the wave leakage near t = 0": true,
+    "the separate 252 x 12 Vandermonde code (points 1..252, words the values of polynomials of degree <= 11): every 12 x 12 minor is a Vandermonde determinant prod_(i < j) (x_j - x_i), nonzero at distinct points (the product formula checked symbolically at size 4 and exactly on three 12-point subsets), so any twelve correct positions determine the word; a nonzero polynomial of degree <= 11 has at most 11 roots (standard, not computed), and prod_(k = 1..11) (x - k) is nonzero at exactly 241 of the points, so the minimum weight is 241 = 252 - 12 + 1 (Singleton: maximum distance) and up to floor((241 - 1)/2) = 120 symbol errors are corrected (2 x 120 < 241)": true,
+    "eq (22) and the gauges: for C_SI(t) = Y^T cos((t/rho) sqrt K) Y = I - (t/rho)^2 A_1/2 + (t/rho)^4 A_2/24 - ... (noncommuting A_1, A_2) C_SI''(0) = -A_1/rho^2 and C_SI''''(0) = A_2/rho^4, so C_SI''''(0) - C_SI''(0)^2 = (A_2 - A_1^2)/rho^4 = D/rho^4, so with tr D = 21061 (the 45 channels' variances 2117 + 8 x 967 + 26 x 389 + 6 x 127 + 4 x 83, master_readout) rho = (21061/tr)^(1/4) inverts tr(D/rho^4) exactly (at the synthetic rho = 15/4, the receipt's 3.7500000000000036 is it to 4 x 10^-15); the gauge (beta, z0) -> (c beta, z0/c) has generator (beta, -z0) at c = 1, and any likelihood g(beta z0) has gradient orthogonal to it, a second Fisher null vector (the first, (tau, 2 kappa), is video_ten_fisher's)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> rotor plane: the zero mode q = NEAR - FAR (unsigned, in ker M) spans a D10-trivial line and v- = N + phi^3 F (signed, in the rotor plane) a reflection-odd one: computed from the equivariance equations, Hom_D10(span q, span v-) = 0, and the signed edge space has no D10-fixed vector at all (characters 10, 0, 2 unsigned against 10, 0, -2 signed); the pentagon's cyclic orientation Delta (paired_response's regular tournament i -> i + 1, i -> i + 2) makes the signed edges the unsigned ones tensored with the orientation line O (S(g) = O(g) Delta U(g) Delta on D10, and on none of the other ten elements of F20), after which the Hom space is one line, spanned by q -> P- Delta q = ((5 - 3 sqrt5)/10) v-, the opposite orientation giving the opposite ray; O restricts no real character of S5 or F20 (D10 consists of even permutations and is generated by F20's squares and commutators), so it must be marked: the D10 form of notes_2137's 'the arrow is one marked bit' (rotor -> calibration), the parity gap being the square of the doubling's quarter turn on the rotor plane against its sign on q (the separate model's Zero Pole Golden Parity Full Join (OES_Nov2_Zero_Pole_Golden_Parity_Full_Join.txt, filed 2 Nov 00:22 UTC), 2 Nov)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "in the model's edge order (carrier.edges(), the lexicographic 01, 02, ..., 34) the note's q_edge = (1, -1, -1, 1, 1, -1, -1, 1, -1, 1) is NEAR - FAR (f20_schur's w, near = 01, 04, 12, 23, 34) and its N, F are f20_schur's signed cycles, with 2 + sqrt5 = phi^3 (v- is notes_2137's N + phi^3 F); the certificate script's edge action (e_ab to e_g(a)g(b), with sign -1 exactly when g reverses a < b, and without signs) is S(g) = compound2(P_g) and the unsigned edge permutation U(g) for all twenty elements of F20, so its conventions are the model's; the cyclic orientation Delta (paired_response's regular tournament: edge {i, i + k} oriented i -> i + k, k = 1, 2; -1 on 03, 04, 14) carries NEAR to N and FAR to F, and for each of the ten elements of D10 (x -> +-x + b) the signed edge action S(g) = Lambda^2(P_g) equals O(g) Delta U(g) Delta, U(g) the unsigned edge permutation and O(g) = +1 on the five rotations, -1 on the five reflections, while for each of the other ten elements of F20 Delta S(g) Delta U(g)^-1 is +-diag(q), not a scalar: as D10-modules the signed edges are the unsigned edges tensored with the orientation line O": true,
+    "D10 characters on the ten edges: unsigned 10, 0 (four rotations), 2 (five reflections); signed 10, 0, -2; solving S(g) y = y for all g in D10 gives y = 0 (no D10-fixed signed edge vector), S(g) y = O(g) y gives exactly span(N, F), the rotor plane (dimension 2); for the unsigned action the fixed space is exactly span(NEAR, FAR), which contains q, and the O-part is 0: every D10-equivariant map from span(q) into the signed edges is zero": true,
+    "the Hom spaces computed directly (a map x -> t (q.x/10) v-, the equivariance equations S(g) T q = O(g)^k T U(g) q for all ten g of D10, linear in t): dim Hom_D10(span q, span v-) = 0 (k = 0) and dim Hom_D10(span q (x) O, span v-) = 1 (k = 1), the certificate's 0 and 1; with Delta marked, x -> P- Delta x (P- = v- v-^T/|v-|^2, the orthogonal projector onto the R-negative line) satisfies S(g) P- Delta = O(g) P- Delta U(g) on D10 and spans the twisted line: it takes q to ((5 - 3 sqrt5)/10) v-, a negative multiple (the ray of -v-); the opposite orientation -Delta gives the opposite ray": true,
+    "O is no restriction of a real one-dimensional character of S5 or F20: all ten elements of D10 are even permutations (so S5's characters 1 and sign are both 1 on D10), and the squares and commutators of F20 generate exactly D10 (10 elements), so every +-1-valued character of F20 is 1 on D10, while O is -1 on the reflections; the reflection x -> -x is the square of the doubling x -> 2x, which turns the rotor plane by the quarter turn J2 (f20_schur) with J2^2 = -I, and negates q (chiral_dark) with (-1)^2 = +1: the parity gap is the square of the quarter turn, and the orientation is one marked bit (the D10 form of notes_2137's)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "zero modes -> bath: on schur_zero_mode's root-site instance (H_R = 240 I - B_R, eps = 1, alpha = 1; G4's 'the lifted zero mode') the zero mode of K has beta = |B^T q0|^2 = 103/5 exactly, not the note's 389 (the P0 hidden variance of master_readout's glue-built J15, a different source map: the ledger's 'Theorem 3: one dressed zero mode and the Z0 bounds (2 Nov)'), and Z0 = 1 + |C_eps^-1 B^T q0|^2 = q0^T Z q0 in (1.0004062, 1.0004063) (the lifted zero mode's Z/10, sharpened), with Z = I + B C_eps^-2 B^T = d/dz S(z)^-1 at 0 from the sector expansion: the source pole lim z S(z) = q0 q0^T/Z0 has weight 1/Z0; the note's bracket 1 + beta/(256 + eps)^2 <= Z0 <= 1 + beta/eps^2 holds with 103/5 and its lower side fails with 389; |B|^2 lies in (298, 299) (|H_R - 128 I| = 116 <= 128), and the eigenvalue count of K - g I through its 19 x 19 Schur complement puts gap(K) in (1.3808, 1.3809), above the note's 1/16641 and below delta_F = (5 - sqrt5)/2 (exact on this finite instance; the generic Schur residue and the 99/100 gap bound on the same instance are J1's 'the dressed pole residue'; the separate model's Zero Pole Golden Parity Full Join (OES_Nov2_Zero_Pole_Golden_Parity_Full_Join.txt, filed 2 Nov 00:22 UTC), 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "beta and Z0 on the instance: with q = (0_5, w, 0_4) (w = NEAR - FAR), q0 = q/sqrt10 and B = Y^T H_R Q (19 x 221), B^T q has 113 nonzero entries and |B^T q|^2 = 206, so beta = |B^T q0|^2 = 103/5; W = C_eps^-1 B^T from the sector expansion of (H_R + eps)^-1 (C_eps W = B^T checked on all 221 rows) gives Z0 = 1 + |W q0|^2, an exact rational in (1.0004062, 1.0004063) (schur_zero_mode's Z/10, sharpened); independently, since S(z)^-1 = F19 - G(eps)^-1 + G(eps + z)^-1 (G(t) = Y^T (H_R + t)^-1 Y, the Schur complement of z + K on the visible block), Z = d/dz S(z)^-1 at 0 = -G^-1 G' G^-1 (G and its eps-derivative from the sectors) equals I + W^T W = I + B C_eps^-2 B^T, and q0^T Z q0 = Z0: the source pole lim z S(z) = q0 q0^T/Z0 has weight 1/Z0 in (0.99959, 0.99960)": "True",
+    "the note's beta = 389 is not this instance's value: beta = 103/5, and with 389 the note's lower bound 1 + 389/(256 + eps)^2 = 1 + 389/66049 exceeds the instance's Z0; with the instance's own beta both sides hold, 1 + beta/257^2 <= Z0 <= 1 + beta/1^2, and even 1 + beta/245^2 <= Z0 <= 1 + beta/185^2 (C_eps between 185 and 245, the sector values plus eps); the 389 is the model's ledger row 'Theorem 3: one dressed zero mode and the Z0 bounds (2 Nov)': the P0 hidden variance of master_readout's glue-built J15 on the whole lattice (J^T H Q H J = 967 P3 + 389 (P0 + P8), cited), and q's 15-atom part lies in P0 = ker D^2, so q0^T (967 P3 + 389 (P0 + P8)) q0 = 389 there (a different source map)": true,
+    "the operator-norm ingredient on the instance: spec H_R = {184, 212, 232, 242, 244} lies in [0, 256] and H_R - 128 I has spectrum {56, 84, 104, 114, 116}, so |H_R - 128 I| = 116 <= 128, and B = Y^T (H_R - 128 I) Q (the shift does not touch the off-diagonal block); exactly, 128^2 I - B B^T is positive definite (exact LDL^T, all 19 pivots positive), and 298 I - B B^T has one negative pivot while 299 I - B B^T has none: |B|^2 lies in (298, 299), |B| < 18": true,
+    "the gap on the instance: F19 has characteristic polynomial x (x - 8)^2 (x^2 - 5x + 5)^4 ((x - 3)^2 - 5(x - 3) + 5)^4 (chiral_closures' factors at alpha = 1), so delta_F(1) = min(8, (5 - sqrt5)/2) = (5 - sqrt5)/2 > 1 = eps and the note's bound min(eps, delta_F)/(1 + 128/eps)^2 is 1/16641; K - g I has hidden block C_eps - g > 0 and visible Schur complement S_g = F19 - G(eps)^-1 + G(eps - g)^-1 (G(t) = Y^T (H_R + t)^-1 Y from the sectors), whose negative pivots in an exact LDL^T (Sylvester's law of inertia) count the eigenvalues of K below g: one (the zero mode) and none equal at g = 1/16641 and at g = 863/625, two at g = 13809/10000; so gap(K) lies in (1.3808, 1.3809), above the note's bound by a factor > 22977 and below delta_F": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> six-site port: if q'' + A q + B h = 0 and h'' + C h + B^T q = 0, then q'' + A q - int_0^t B C^(-1/2) sin((t - s) sqrt C) B^T q(s) ds = -B[cos(t sqrt C) h(0) + C^(-1/2) sin(t sqrt C) h'(0)]: a general identity, checked on master_response's root-site instance (H_R = 240 I - B_R, the six-site port's 15 bond roots visible, the 225 other roots hidden) coefficientwise through t^12 in exact integers, with a nonzero hidden echo; the kernel's slope is D = B B^T (trace 760) but its next coefficient B C B^T does not commute with D (rank 6), so the memory kernel and the self-energy are not functions of B B^T (deep_energy_exchange has the scalar case) (the separate model's ten-frontier bridge audit, filed 2 Nov 00:23 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on master_response's root-site instance (K = H_R = 240 I - B_R, the six-site port's 15 bond roots visible, the 225 other roots hidden: A, B, C its blocks), with q(0) = delta at e_0 + e_5, q'(0) = delta at e_0 - e_1, h(0) the indicator of every seventh hidden root and h'(0) = +-1 on every eleventh, the solution of z'' + K z = 0 satisfies q'' + A q - int_0^t B C^(-1/2) sin((t - s) sqrt C) B^T q(s) ds = -B[cos(t sqrt C) h(0) + C^(-1/2) sin(t sqrt C) h'(0)] coefficientwise through t^12 (exact integers, every coefficient times N!), and the right side, the hidden state's echo, is not zero (its t^0 term is -B h(0))": 1.0,
+    "the kernel B C^(-1/2) sin(t sqrt C) B^T = t D - t^3 M1/6 + ... has initial slope D = B B^T (trace 760) and next coefficient M1 = B C B^T, and on this instance D M1 - M1 D is not zero (rank 6), so M1 is no function of D (every f(D) commutes with D): the kernel, and the self-energy B (z + C)^-1 B^T = D/z - M1/z^2 + ..., are not functions of B B^T, which fixes only the kernel's slope": 1.0
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "six-site port -> bath: for F(t) = Y^T exp(-itK) Y, F(t + s) - F(t) F(s) = Y^T U(t) Q U(s) Y (coefficientwise for t^m s^n, m, n <= 4, on master_response's root-site instance; its ts term is -D, so F is no semigroup), and from the exact series I - F^* F = t^2 D + (i t^3/2)[A, D] + O(t^4); for the six-site port's 15 bond roots [A, D] is a nonzero skew matrix of rank 6, both on the instance and in the full bath (D = Y^T H^2 Y - A^2, trace 3520): the cubic term, zero on the five block-scalar sectors, appears here with no source (the separate model's ten-frontier bridge audit, filed 2 Nov 00:23 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on master_response's root-site instance (K = H_R, the six-site port's 15 bond roots visible, 225 hidden) the two-time defect F(t + s) - F(t) F(s) = Y^T U(t) Q U(s) Y holds coefficientwise for t^m s^n, m, n <= 4 (Y^T K^(m + n) Y - A_m A_n = Y^T K^m Q K^n Y, exact integers), and it is not zero (its t s term is -D, D = Y^T K Q K Y of trace 760): the projected unitary is no one-parameter semigroup": 1.0,
+    "from the exact series F(t) = sum (-it)^n A_n/n!, the coefficients of I - F^* F are 0, 0, D and (i/2)[A, D] at t^0 to t^3 (A = A_1, D = A_2 - A_1^2; onemodel_closures' identity in noncommuting moments, re-evaluated on this instance), and here [A, D] is a nonzero skew integer matrix of rank 6; the same 15 bond-root deltas read in the full bath (Y in l2(E8), A the same block, D = Y^T H^2 Y - A^2 from _master_shell's H^2, trace 3520 = 15 x 240 - 80, the 40 adjacent pairs of bond roots counted twice) also give [A, D] != 0 of rank 6: the cubic term vanishes for the five block-scalar sectors (video_ten_reduction) but not for this observer of the undressed bath, so a nonzero cubic term alone does not signal a source update": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> root graph: the bath's leakage off the root shell, Y^T H Q H Y for the 240 root sites, has every diagonal entry 184 (each root has 184 root translates off the shell) and the values 2117, 967, 389, 127, 77 on the root graph's sectors of ranks 1, 8, 35, 112, 84 (trace 44160 = 240 x 184): the canon's shell list; the 45 channels carry 2117, 967, 389, 127 as sub-blocks of those sectors, but the common (value, width) pairs are only (2117, 1) and (967, 8) (weight 9853, remainders 11208 and 34307); 77 is no channel value and the dark 83 lies off the shell (the canon's root-to-branch note, filed 2 Nov 00:25 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the 240 root sites the bath's leakage off the root shell, Y^T H Q H Y = Y^T H^2 Y - (Y^T H Y)^2 (Y the root sites), has every diagonal entry 184 (from each root x the 240 translates x + r are the origin once, 56 roots, and 126, 56 and 1 points of norms 4, 6, 8: 184 leave the shell) and is scalar on the root graph's five sectors: 2117, 967, 389, 127, 77 on ranks 1, 8, 35, 112, 84, so its trace is 44160 = 240 x 184": true,
+    "the note's shell list (2117, 389, 77, 967, 127 on widths 1, 35, 84, 8, 112; widths 240, trace 44160) is exactly these sector values, and its channel list is master_readout's (widths 45, trace 21061); the channels inside a sector (onemodel_closures) carry its value, so 2117, 967, 389, 127 are shared values, but only the mass and linear channels fill their sectors: the common (value, width) pairs are (2117, 1) and (967, 8), weight 9853, the remainders 11208 and 34307; 77 (the rank-84 sector) is no channel value and the dark 83 (off the shell) no sector value": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> bath: the reflection s = I - r r^T/4 in the stored root r = (1, ..., 1) (squared length 8; the real root (1/2)^8) permutes the 240 roots, has order 2, keeps the form and sends r to -r (det -1, trace 6); it keeps every directional root moment (checked for d = 1..8 at e1, at s e1 = (3, -1, ..., -1)/4 and at a generic k: 60, 36, 30, 57/2 at e1 and at s e1), fixes the 120 dark sites and commutes with the bath's 360-site compression H and H^2; the pentagon flip i -> -i lifted to E8 is a product of two root reflections (det +1, trace 4), not conjugate to it (the canon's root-to-branch note, filed 2 Nov 00:25 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "in stored coordinates every root has squared length 8 (real root = stored/2, squared length 2) and r = (1, ..., 1) is a root; s = I - r r^T/4 maps the 240 stored roots onto themselves, s^2 = I, s^T s = I (the form is kept), s r = -r, det s = -1 and trace s = 6 (it fixes the hyperplane r-perp)": true,
+    "so s keeps every directional root moment: sum_r (r.s k)^d = sum_r (r.k)^d, checked for d = 1..8 at the axis e1 and its image s e1 = (3, -1, ..., -1)/4 (a unit vector off every axis), where the unit moments are 60, 36, 30, 57/2 at both, and at k = (3, 1, 4, 1, 5, 9, 2, 6)": true,
+    "on the bath's 360-site compression (_master_shell: the 240 roots and the 120 dark sites) s fixes every dark site (their coordinates sum to 0) and permutes the roots, and this permutation commutes with H and with H^2 there; so the lattice operator and its compressed spectrum are fixed by s (the band sum_r (1 - cos r.k) is then equal at k and s k, a consequence of the root permutation, not computed separately)": true,
+    "the root reflection is not the pentagon flip: i -> -i on the carrier's five vertex coordinates, as the coordinate permutation (1 4)(2 3) of E8, is the product of the reflections in e1 - e4 and e2 - e3 (an element of W(E8)) with det +1 and trace 4, against s's det -1 and trace 6, so the two are not conjugate even in O(8); the flip fixes r and commutes with s": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "AGL(1,5) -> K5 edges: the pentagon reflection i -> -i acts on the ten edges as an involution (unsigned: trace 2, fixing [1, 4] and [2, 3]; on the oriented edges the signed Lambda^2 F) that inverts the edge tick (S U S = U^-1, (Lambda^2 F) R (Lambda^2 F) = R^-1) and fixes both the turn Laplacian 2I - T - T^-1 and the spanda Laplacian 2I - T^2 - T^-2; on the vertices it inverts P and so fixes L = 2I - P - P^-1 (whose spectrum, 0 and (5 -+ sqrt5)/2 twice each, is notes_2137's) (the canon's root-to-branch note, filed 2 Nov 00:25 UTC)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the edge reflection: i -> -i induces on the ten unsigned edges an involution (trace 2, fixing [1, 4] and [2, 3]) with S U S = U^-1 for the unsigned edge tick U, and on the oriented edges the signed involution Lambda^2 F with (Lambda^2 F) R (Lambda^2 F) = R^-1 for the rotor R = Lambda^2 P; in both cases it fixes the turn Laplacian 2I - T - T^-1 and the spanda Laplacian 2I - T^2 - T^-2: the quadratic energies and the spectrum stay while the clock reverses (S U S != U)": true,
+    "on the five vertices the same flip F inverts the vertex tick, F P F = P^-1, and so fixes the cycle Laplacian L = 2I - P - P^-1, F L F = L (L's spectrum, hence L(L^2 - 5L + 5I) = 0, rank 4, trace 10, kernel the constants and multiplicities 2, is notes_2137's, cited)": true,
+    "the note's separations: the carrier's 3 and 8 are not roots of x^2 - 5x + 5 (values -1 and 29), the vertex trace 10 is not the carrier's 40, and the 'branch wave' numbers, energy 10 and stiffness 4 (frequency 2), are no eigenvalues of L (0, (5 -+ sqrt5)/2), with 4 != 10; in the note's own convention (its carrier frequencies 0, sqrt3, 2 sqrt2 are the square roots of D^2's eigenvalues 0, 3, 8) the branch's nonzero frequencies are sqrt((5 -+ sqrt5)/2): the eigenvalues (5 -+ sqrt5)/2 = 1 + eig(B^2) are their squares, not themselves (m^2 != m)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> critical census: at every point of order dividing 3 or 4 of the momentum torus R^8/E8 (6561 and 65536 points; exact integer gradients and scaled integer Hessians) the stationary points are exactly 1 + 2240 + 1920 (eps 0, 243, 252; Morse index 0, 2, 8; H = 60 I, (H + 21)(H - 6) = 0 with trace -6, H = -3 I) and 1 + 120 + 15120 + 8640 + 135 (eps 0, 224, 248, 252, 256; index 0, 1, 3, 7, 8), the 256 half-periods being the ones at 0, 224 and 256; each class is one whole census family, E6 + A2 and A8, E7 + A1, D5 + A3, A7 + A1 and D8, with the census's orbit, eps and index (the separate model's all-dots unified theorems and handover, filed 2 Nov 01:17-01:18 UTC, section 4) (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "order 3: at the 6561 points x = (sum c_i alpha_i)/3 of R^8/E8 (m_r = <r, 3x> mod 3), sin(2 pi m/3) = 0, +-sqrt3/2 and cos(2 pi m/3) = 1, -1/2, -1/2 (sympy), so the gradient vanishes iff sum_(m_r = 1) r = sum_(m_r = 2) r and eps = (3/2) #(m_r != 0): exactly 4161 points are stationary, the origin, 2240 at eps 243 (162 nontrivial root characters) and 1920 at eps 252 (168); the other 2400 (eps 171 and 234, join_e8_moments' values) are not. With 8H = sum (2r)(2r)^T (2 - 3 [m_r != 0]) an integer matrix: H = 60 I at the origin, (H + 21)(H - 6) = 0 with tr H = -6 at each of the 2240 (eigenvalues -21 twice, 6 six times: Morse index 2) and H = -3 I at each of the 1920 (index 8), all nondegenerate (the note's table and the handover's item 3, 2 Nov)": true,
+    "order 4: at the 65536 points of order dividing 4, sin(2 pi m/4) = 0, 1, 0, -1 and cos = 1, 0, -1, 0, so the gradient vanishes iff sum_(m_r = 1) r = sum_(m_r = 3) r and eps = #(m_r odd) + 2 #(m_r = 2): exactly 24016 are stationary, the origin (H = 60 I), 120 at 224 ((H + 52)(H - 12) = 0, tr H = 32: index 1), 15120 at 248 ((H + 12)(H - 4) = 0, tr -16: -12 three times, 4 five times, index 3), 8640 at 252 ((H + 4)(H - 4) = 0, tr -24: index 7) and 135 at 256 (H = -4 I, index 8), with 4H = sum (2r)(2r)^T ([m_r = 0] - [m_r = 2]) integer; the other 41520 (eps 116, 184, 220, 240 and 244) are not stationary; the stationary points at 0, 224 and 256 are exactly the 256 points of order dividing 2 (c even), 1 + 120 + 135 (the note's 'all d = 2 points reappear on the d = 4 grid'; the handover's items 2 and 4, 2 Nov)": true,
+    "each stationary class is one whole census family: a point of it has integral roots {r : <r, x> in Z} (handover.stabiliser) of type E6 + A2 (eps 243) or A8 (252) at order 3 and E7 + A1 (224), D5 + A3 (248), A7 + A1 (252) or D8 (256) at order 4, every point of the class has as many integral roots as that type (78, 72, 128, 52, 58, 112), W(E8) acts on the points of order dividing d keeping eps, stationarity and the Hessian's spectrum (standard, not computed), so the class is a union of W(E8)-orbits, and its count is the census's orbit |W(E8)|/|W(type)| of that type (2240, 1920, 120, 15120, 8640, 135) with the census's eps and Morse index (census, census_stabilizers)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "golden companion -> critical census: at the 390625 points of order dividing 5 the band's gradient is 2 pi sin(4 pi/5)(phi A + B) with integer vectors A, B, so exactly the origin and the 48384 points of the census's A4 + A4 family are stationary (eps 250); at every one of the 48384 the Hessian H = sum r r^T cos(2 pi r.x) satisfies H^2 + 5H - 25I = 0 (its integer and sqrt5 parts checked exactly) with trace -20: eigenvalues -5 phi and 5/phi four times each, det 5^8, Morse index 4; -H/5 is the golden companion (X^2 = X + I) that census_stabilizers checks at the tick's 24 momenta, now on the whole family (the separate model's all-dots unified theorems and handover, filed 2 Nov 01:17-01:18 UTC, section 4) (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "order 5: at the 390625 points of order dividing 5, sin(2 pi/5) = phi sin(4 pi/5) (phi = (1 + sqrt5)/2 irrational), sin(6 pi/5) = -sin(4 pi/5) and sin(8 pi/5) = -sin(2 pi/5) (sympy), so the gradient is 2 pi sin(4 pi/5) (phi A + B) with A = sum_(m_r = 1) r - sum_(m_r = 4) r and B = sum_(m_r = 2) r - sum_(m_r = 3) r integer vectors, and vanishes iff A = B = 0: exactly 48385 points are stationary, the origin and 48384 points, each with 40 trivial root characters, 100 at +-1 and 100 at +-2, so eps = 100 (5 - sqrt5)/4 + 100 (5 + sqrt5)/4 = 250 (cos(2 pi/5) = (sqrt5 - 1)/4, cos(4 pi/5) = -(sqrt5 + 1)/4); the other 342240 points (eps 225, 245 and the ten irrational values of join_e8_moments) are not stationary; the 48384 are one census family, A4 + A4 (a point's integral roots, every point with exactly 40 = |A4 + A4|, census orbit 48384, eps 250) (the note's 'New Golden order-five theorem', 2 Nov)": true,
+    "at each of the 48384, 16 H = X + sqrt5 Z with X = 4 Q0 - Q1 - Q2 and Z = Q1 - Q2 (Q_j = sum (2r)(2r)^T over the roots with m_r = 0, +-1, +-2) and the integer identities X^2 + 5 Z^2 + 80 X - 6400 I = 0, XZ + ZX + 80 Z = 0, tr X = -320 and tr Z = 0 hold, which are the rational and sqrt5 parts of 256 (H^2 + 5 H - 25 I) = 0: H has eigenvalues among the roots -5 phi and 5/phi of x^2 + 5x - 25, tr H = -20 forces four of each (phi irrational), so det H = 5^8 = 390625 and every point is a nondegenerate saddle of Morse index 4, the census's A4 + A4 index; X = -H/5 then has X^2 - X - I = (H^2 + 5H - 25 I)/25 = 0: census_stabilizers' golden companion at the tick's 24 momenta, now at the whole family (2 Nov)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "E8 -> critical census: the stationary points of order 2 to 5 of R^8/E8 are 76560 nondegenerate points of signed index -23744 + 4161 + 48385 - 2 = +28800, not chi(T^8) = 0; they are exactly the census's E8, E7 + A1, D8, E6 + A2, A8, D5 + A3, A7 + A1 and A4 + A4 (the alcove's vertices of orders 1 to 5), and the census's other three families, A5 + A2 + A1 (the vertex of order 6), A6 + A1 and A7 (on edges), carry -80640 + 69120 - 17280 = -28800: the census's Morse sum 0 already holds the critical points that Poincare-Hopf demands beyond the torsion (the separate model's all-dots unified theorems and handover, filed 2 Nov 01:17-01:18 UTC, section 4) (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the signed Morse sums of the stationary torsion points: 1 - 120 + 135 = 16 (order 2), 1 + 2240 + 1920 = 4161 (order 3), 1 - 120 - 15120 - 8640 + 135 = -23744 (order 4) and 1 + 48384 = 48385 (order 5), all nondegenerate; the order-2 points lie on the order-4 grid and the grids of orders 3, 4 and 5 meet only at the origin (coprime orders), so the distinct ones carry -23744 + 4161 + 48385 - 2 = +28800 (orders up to 4: -23744 + 4161 - 1 = -19584), not chi(T^8) = 0: by Poincare-Hopf the band has further critical points (the note and the handover's item 7, 2 Nov)": true,
+    "they are whole orbits of exactly eight of the census's eleven families, E8, E7 + A1, D8, E6 + A2, A8, D5 + A3, A7 + A1 and A4 + A4, the alcove's vertices of orders 1 to 5 (x = omega_i/m_i has order m_i), with the census's indices: 76560 of its 243600 points, all of them in those families; the other three, A5 + A2 + A1 (index 5, 80640 points: the vertex of order 6), A6 + A1 (index 6, 69120) and A7 (index 7, 17280), both A6 + A1 and A7 off the alcove's vertices (the census's edge points), carry -80640 + 69120 - 17280 = -28800: the census's Morse sum 0 (census) is the torsion's +28800 plus these -28800, so the census already holds the critical points beyond the torsion that Poincare-Hopf demands, with exactly the missing -28800, and none of them has order 2, 3, 4 or 5 (whether the census is complete is not decided here) (2 Nov)": true,
+    "so the nine positive critical frequencies (nine_torus) split six and three: sqrt 224, sqrt 243, sqrt 248, sqrt 250, sqrt 252 and 16 are the band's square roots at stationary points of order up to 5, and sqrt 251, sqrt(4025/16) and sqrt(6800/27), those of the three families that carry -28800, are at none; new here is the split itself: 4025/16 and 6800/27 are the band at no torsion point at all and 251 is the band at the vertex of order 6 (join_e8_torus), here at no stationary point of order up to 5 (torus_places has the three at no fixed momentum of a prime clock and no critical step of the circle) (2 Nov)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "critical census -> nine-torus: of the nine positive critical frequencies, sqrt 224, sqrt 243, sqrt 248, sqrt 250, sqrt 252 and 16 are the band's square roots at stationary points of order up to 5, and sqrt 251, sqrt(4025/16) and sqrt(6800/27), those of the three families that carry the census's -28800, are at none: 4025/16 and 6800/27 are the band at no torsion point (join_e8_torus), and 251, the band at the alcove's vertex of order 6, is at no stationary point of order up to 5 (the separate model's all-dots unified theorems and handover, filed 2 Nov 01:17-01:18 UTC) (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the signed Morse sums of the stationary torsion points: 1 - 120 + 135 = 16 (order 2), 1 + 2240 + 1920 = 4161 (order 3), 1 - 120 - 15120 - 8640 + 135 = -23744 (order 4) and 1 + 48384 = 48385 (order 5), all nondegenerate; the order-2 points lie on the order-4 grid and the grids of orders 3, 4 and 5 meet only at the origin (coprime orders), so the distinct ones carry -23744 + 4161 + 48385 - 2 = +28800 (orders up to 4: -23744 + 4161 - 1 = -19584), not chi(T^8) = 0: by Poincare-Hopf the band has further critical points (the note and the handover's item 7, 2 Nov)": true,
+    "they are whole orbits of exactly eight of the census's eleven families, E8, E7 + A1, D8, E6 + A2, A8, D5 + A3, A7 + A1 and A4 + A4, the alcove's vertices of orders 1 to 5 (x = omega_i/m_i has order m_i), with the census's indices: 76560 of its 243600 points, all of them in those families; the other three, A5 + A2 + A1 (index 5, 80640 points: the vertex of order 6), A6 + A1 (index 6, 69120) and A7 (index 7, 17280), both A6 + A1 and A7 off the alcove's vertices (the census's edge points), carry -80640 + 69120 - 17280 = -28800: the census's Morse sum 0 (census) is the torsion's +28800 plus these -28800, so the census already holds the critical points beyond the torsion that Poincare-Hopf demands, with exactly the missing -28800, and none of them has order 2, 3, 4 or 5 (whether the census is complete is not decided here) (2 Nov)": true,
+    "so the nine positive critical frequencies (nine_torus) split six and three: sqrt 224, sqrt 243, sqrt 248, sqrt 250, sqrt 252 and 16 are the band's square roots at stationary points of order up to 5, and sqrt 251, sqrt(4025/16) and sqrt(6800/27), those of the three families that carry -28800, are at none; new here is the split itself: 4025/16 and 6800/27 are the band at no torsion point at all and 251 is the band at the vertex of order 6 (join_e8_torus), here at no stationary point of order up to 5 (torus_places has the three at no fixed momentum of a prime clock and no critical step of the circle) (2 Nov)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "critical census -> spectral measures: with mu_0 the push-forward of the volume-1 torus R^8/E8 under eps (join_e8_measure), a nondegenerate critical point with Hessian H in k = 2 pi x enters mu_0 with the factor (2 pi)^-8 2^4 |det H|^-1/2, which returns the band's edge densities E^3/(1536 x 30^4 pi^4) and 135 (256 - E)^3/(24576 pi^4); at the census's 120 E7 + A1 saddles (H = 12 I - 32 r r^T, det -52 x 12^7) the index-one term gives -5/[64 pi^5 sqrt(26 x 6^7)] (E - 224)^3 log|E - 224| = -5/(27648 sqrt39 pi^5) (E - 224)^3 log|E - 224| (on the quadratic model; the Morse-lemma transfer is cited), carried at 14/15 and 4/3 by the six-port's contrast and uniform sector measures (the separate model's all-dots unified theorems and handover, filed 2 Nov 01:17-01:18 UTC, section 4 and item 8) (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the normalization: at a nondegenerate critical point with Hessian H in k (eps = eps0 + y^T H y/2 + ...), u = (|lambda_i|/2)^(1/2) y_i makes eps - eps0 = sum +-u_i^2 with dy = 2^4 |det H|^(-1/2) du, so a level density f(t) of the quadratic model enters mu_0 as (2 pi)^-8 2^4 |det H|^(-1/2) f(eps - eps0); with the positive-definite model's f = d/dt (pi^4 t^4/24) = |S^7| t^3/2 this returns join_e8_measure's edge densities, E^3/(1536 x 30^4 pi^4) at the bottom (H = 60 I) and 135 (256 - E)^3/(24576 pi^4) at the top (135 points, H = -4 I)": true,
+    "the 224 saddles: H = 12 I - 32 r r^T (r a root) has eigenvalues -52 once and 12 seven times, det -52 x 12^7 = -2^8 x 26 x 6^7, and the substitution's Jacobian prod (2/|lambda_i|)^(1/2) = 2^4/(52 x 12^7)^(1/2); with the index-one model's term -(5/32)|S^6| t^3 log|t| (= -(|S^6|/2) C(5/2, 3), the script's form; |S^6| = 16 pi^3/15) the 120 half-periods contribute -5/[64 pi^5 sqrt(26 x 6^7)] (E - 224)^3 log|E - 224| = -5/(27648 sqrt39 pi^5) (E - 224)^3 log|E - 224| to mu_0's density, the note's coefficient (the handover's item 8, 2 Nov; computed on the quadratic model, its transfer to mu_0 by the Morse lemma cited, not computed); the six-port's sector measures (E/240) mu_0 and ((288 - E)/48) mu_0 (join_e8_measure) carry 14/15 and 4/3 of it as their leading logarithmic term; whether other critical points lie at 224 (notes_0255's collar) is not decided here": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> readout: for G(z) = Y^T (z + K)^-1 Y the block Loewner matrix [(G(z_i) - G(z_j))/(z_j - z_i)] (diagonal blocks -G'(z_i)) is the Gram matrix of the (z_i + K)^-1 Y by the resolvent identity, so it is positive semidefinite at every finite set of positive frequencies; on bridge_comparator's 90 x 90 comparator (eps = 3/2, the note's source on 19 channels, z = 1, 5, 12) the 135 x 135 matrix is that Gram exactly, of rank exactly 90 (each channel's 3 x 3 block of rank 2; at most 90 by dimension), where the note's script tested floats (the separate model's all-dots unified theorems and handover, filed 2 Nov 01:17-01:18 UTC, section 5) (2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Loewner identity: with R(z) = (z + K)^-1 the resolvent identity R(z1) - R(z2) = (z2 - z1) R(z1) R(z2) gives [G(z_i) - G(z_j)]/(z_j - z_i) = Y^T R(z_i) R(z_j) Y and -G'(z_i) = Y^T R(z_i)^2 Y (checked on a generic symmetric 2 x 2 K, Y = e1, symbols), so the block Loewner matrix L_ij at any positive frequencies is the Gram matrix of the R(z_i) Y (R(z_i) symmetric, R(z_i) R(z_j) = R(z_j) R(z_i)) and sum v_i^T L_ij v_j = |sum R(z_i) Y v_i|^2 >= 0: positive semidefinite at every finite set of positive frequencies (the note's section 5, 2 Nov)": true,
+    "on bridge_comparator's 90 x 90 comparator (45 channels, hidden variances of trace 21061, master_readout's), shifted by eps = 3/2 and dressed by the script's source V19 = diag(1/4 + k/36) (k = 0..18) on the first 19 channels (each shifted channel block [[a + 3/2 + s, sqrt v], [sqrt v, 201.5]] positive definite), the 135 x 135 Loewner matrix at z = 1, 5, 12 is, channel by channel, the Gram matrix ((z_i + 201.5)(z_j + 201.5) + v)/(det_i det_j) of the 2 x 2 resolvents (exact rationals: only v = (sqrt v)^2 enters), positive semidefinite and singular: each 3 x 3 block has leading minors > 0, > 0 and determinant 0 (three vectors (z_i + K_c)^-1 e1 in a plane), so the 135 x 135 matrix has rank 90 and least eigenvalue exactly 0, where the script tested its least float eigenvalue against -10^-11; rank at most 90 is forced by dimension (135 vectors in R^90), the exact content is that no channel's block drops below rank 2 (2 Nov)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "rotor plane -> cycles: on the ten edges Pt = [N, F] P- [N, F]^T/5 (P- = (I - R/sqrt5)/2, the negative projector of R = [[2, -1], [-1, -2]] on the rotor plane) is a rank-one orthogonal projector inside the cycles onto the line of v- = N + phi^3 F, and the separate model's eta = P6 - 2 Pt (P6 = I - B^T B/5) is exactly context_responses' Lorentz reference P_moving + J_H P_fix (P_fix = [N, F][N, F]^T/5, the average of the edge rotation's powers; J_H = Curl/sqrt5), whose square P6 and signature (5, 1) are checked there; eta B^T = 0, and the wedge map W of Lambda^2 A4 onto the cycles (W^T W = Q6, W (W^T W)^-1 W^T = P6) pulls eta back to notes_2137's (5, 1) reflector on Lambda^2 of the standard four: one form on the edges and on Lambda^2 A4 (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, sections I-II, and its typed_adapter_registry.json, 01:19 UTC; 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the wedge map W (columns (e_i - e_4) ^ (e_j - e_4), i < j < 4, in the lexicographic edge basis: exterior's Lambda^2 H) has W^T W = Lambda^2(I + J) = Q6 (det 125) and W (W^T W)^-1 W^T = I - B^T B/5 exactly, the orthogonal projector P6 onto the cycles; restricted to the six edges inside {0, 1, 2, 3} W is the identity, so a cycle's W-coordinates are its values on those six edges": true,
+    "the golden-marked edge form: with P- = (I - R/sqrt5)/2 on the near/far plane (R = [[2, -1], [-1, -2]]), the receipt's Pt = [N, F] P- [N, F]^T/5 is a symmetric idempotent of trace 1 inside the cycles (P6 Pt = Pt) whose line is spanned by v- = N + phi^3 F, and the receipt's eta = P6 - 2 Pt is exactly context_responses' Lorentz reference P_moving + J_H P_fix (its P_fix, the average of the edge rotation's powers, is [N, F][N, F]^T/5, P_moving = P6 - P_fix, J_H = Curl/sqrt5), whose square P6 and signature (5, 1) are checked there (cited, not repeated: so eta has eigenvalues -1 once, on v-, +1 five times and 0 four times); eta B^T = 0, and W^T eta W is notes_2137's reflector Q6 - 2 (Q6 v)(Q6 v)^T/(v^T Q6 v) (v the W-coordinates of v-): the separate model's edge form, the hub's Lorentz reference and the form on Lambda^2 of the standard four are one form through W": true,
+    "Cl(5, 1) over Z[i]: the Jordan-Wigner Pauli words XII, YII, ZXI, ZYI, ZZX, ZZY on three qubits, the first times i, satisfy {G_mu, G_nu} = 2 eta_mu nu I8 with eta = diag(-1, 1, 1, 1, 1, 1) (all 36 pairs); G0 is anti-Hermitian and G1..G5 Hermitian; the chirality G0 G1 G2 G3 G4 G5 is Z (x) Z (x) Z (real, diagonal), squares to I and anticommutes with all six; the 64 products G_A (A a subset of the six, in order) have tr(G_A^dagger G_B) = 8 delta_AB, so they are a basis of M8(C): a faithful 8-dimensional complex module. Its signature (5, 1) is eta's on the cycles (that a real (5, 1) space has a basis carrying these relations is Sylvester's law, not computed here); no physical Dirac operator or coframe is chosen": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "S5 -> 4-simplex: on the 32 faces of the simplex (Lambda^. R^5, the empty face included) the Hodge star e_S -> (-1)^inv e_(S^c) is a symmetric involution exchanging grades k and 5 - k and anticommuting with the grading, and every vertex permutation satisfies Lambda(p) * = sgn(p) * Lambda(p) (all 120 checked; Lambda(p) the signed face permutation, compound2 on the edges): the star commutes with A5 and anticommutes with the odd permutations, the operator form of join_S5_simplex's sign-twinned complementary grades (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section III; 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the 32 faces of the simplex (the subsets S of the five vertices, the empty face included: a basis of Lambda^. R^5) the Hodge star *e_S = (-1)^inv e_(S^c) (inv the pairs a in S, b not in S with a > b) is a symmetric involution (*^2 = I, *^T = *) that sends grade k to grade 5 - k and anticommutes with the grading Gamma = (-1)^|S|; for each of the 120 vertex permutations p, Lambda(p) * = sgn(p) * Lambda(p) (Lambda(p) the signed face permutation; on the edges it is compound2, checked for the rotation): the even permutations commute with the star and the odd ones anticommute": true,
+    "D = * P23 (P23 the projector on grades 2 and 3, the ten edges and the ten triangles) is symmetric with D^2 = P23, zero diagonal, rank 20 and nullity 12 (grades 0, 1, 4, 5: 1 + 5 + 5 + 1), so its spectrum is +1 ten times, -1 ten times and 0 twelve times, and D Gamma = -Gamma D; with J = * composed with complex conjugation (all matrices real), J^2 = +1 (*^2 = I), J D = D J (* D = D *) and J Gamma = -Gamma J: the sign triple the standard table assigns to KO-dimension 6 (the table is not computed); no algebra or order-one condition is given, so D is a Hodge-Dirac candidate only, and not chiral_closures' D19 (19 dimensions, nullity 1 for alpha > 0; cited)": true,
+    "the light is the star followed by the boundary: with the simplex boundary bd (contraction with u = (1, 1, 1, 1, 1), bd^2 = 0), bd from the edges to the vertices is the signed incidence B, and bd * from the edges to the triangles and back is exactly waves' light operator: F2^T bd * F2 = Curl (F2 the edges among the faces)": true,
+    "V12 = [F2 W, * F2 W] (the six cycles in grade 2 and their stars in grade 3) has rank 12, D V12 = V12 [[0, I6], [I6, 0]] and Gamma V12 = V12 diag(I6, -I6), and the boundary of the star of each cycle is its Curl (bd * F2 W = F2 Curl W); in H96 = Lambda^. C^5 (x) C^3 (dimension 96) V12 (x) I3 has rank 36 and D (x) I3 keeps it: a 36-dimensional invariant subspace (one copy of V12 per family index; no identification with other 36s)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "4-simplex -> sound and light: the simplex boundary bd (contraction with u) is B from the edges to the vertices, and bd after the Hodge star, from the edges to the triangles and back, is exactly the light operator: F2^T bd * F2 = Curl; the Fock Hodge-Dirac D = * P23 (grades 2 and 3) is symmetric with D^2 = P23, spectrum +1 ten times, -1 ten times, 0 twelve times, and odd for the grading, and J = * composed with conjugation has J^2 = 1, J D = D J, J Gamma = -Gamma J (the KO-dimension 6 signs); no algebra or order-one condition is given, so it is a candidate only, and it is not chiral_closures' D19 (nullity 12 on 32 dimensions against 1 on 19) (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section III; 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the 32 faces of the simplex (the subsets S of the five vertices, the empty face included: a basis of Lambda^. R^5) the Hodge star *e_S = (-1)^inv e_(S^c) (inv the pairs a in S, b not in S with a > b) is a symmetric involution (*^2 = I, *^T = *) that sends grade k to grade 5 - k and anticommutes with the grading Gamma = (-1)^|S|; for each of the 120 vertex permutations p, Lambda(p) * = sgn(p) * Lambda(p) (Lambda(p) the signed face permutation; on the edges it is compound2, checked for the rotation): the even permutations commute with the star and the odd ones anticommute": true,
+    "D = * P23 (P23 the projector on grades 2 and 3, the ten edges and the ten triangles) is symmetric with D^2 = P23, zero diagonal, rank 20 and nullity 12 (grades 0, 1, 4, 5: 1 + 5 + 5 + 1), so its spectrum is +1 ten times, -1 ten times and 0 twelve times, and D Gamma = -Gamma D; with J = * composed with complex conjugation (all matrices real), J^2 = +1 (*^2 = I), J D = D J (* D = D *) and J Gamma = -Gamma J: the sign triple the standard table assigns to KO-dimension 6 (the table is not computed); no algebra or order-one condition is given, so D is a Hodge-Dirac candidate only, and not chiral_closures' D19 (19 dimensions, nullity 1 for alpha > 0; cited)": true,
+    "the light is the star followed by the boundary: with the simplex boundary bd (contraction with u = (1, 1, 1, 1, 1), bd^2 = 0), bd from the edges to the vertices is the signed incidence B, and bd * from the edges to the triangles and back is exactly waves' light operator: F2^T bd * F2 = Curl (F2 the edges among the faces)": true,
+    "V12 = [F2 W, * F2 W] (the six cycles in grade 2 and their stars in grade 3) has rank 12, D V12 = V12 [[0, I6], [I6, 0]] and Gamma V12 = V12 diag(I6, -I6), and the boundary of the star of each cycle is its Curl (bd * F2 W = F2 Curl W); in H96 = Lambda^. C^5 (x) C^3 (dimension 96) V12 (x) I3 has rank 36 and D (x) I3 keeps it: a 36-dimensional invariant subspace (one copy of V12 per family index; no identification with other 36s)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cycles -> 4-simplex: the six cycles in grade 2 and their stars in grade 3 span V12 = [F2 W, * F2 W] of rank 12, with D V12 = V12 [[0, I6], [I6, 0]], the grading +1 and -1 on the two halves, and bd * (F2 W) = F2 Curl W (the boundary of a cycle's star is its Curl); in H96 = Lambda^. C^5 (x) C^3 the three family copies V12 (x) I3 form a 36-dimensional subspace kept by D (x) I3, an invariant subspace and no identification with the model's other 36s (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section III; 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the 32 faces of the simplex (the subsets S of the five vertices, the empty face included: a basis of Lambda^. R^5) the Hodge star *e_S = (-1)^inv e_(S^c) (inv the pairs a in S, b not in S with a > b) is a symmetric involution (*^2 = I, *^T = *) that sends grade k to grade 5 - k and anticommutes with the grading Gamma = (-1)^|S|; for each of the 120 vertex permutations p, Lambda(p) * = sgn(p) * Lambda(p) (Lambda(p) the signed face permutation; on the edges it is compound2, checked for the rotation): the even permutations commute with the star and the odd ones anticommute": true,
+    "D = * P23 (P23 the projector on grades 2 and 3, the ten edges and the ten triangles) is symmetric with D^2 = P23, zero diagonal, rank 20 and nullity 12 (grades 0, 1, 4, 5: 1 + 5 + 5 + 1), so its spectrum is +1 ten times, -1 ten times and 0 twelve times, and D Gamma = -Gamma D; with J = * composed with complex conjugation (all matrices real), J^2 = +1 (*^2 = I), J D = D J (* D = D *) and J Gamma = -Gamma J: the sign triple the standard table assigns to KO-dimension 6 (the table is not computed); no algebra or order-one condition is given, so D is a Hodge-Dirac candidate only, and not chiral_closures' D19 (19 dimensions, nullity 1 for alpha > 0; cited)": true,
+    "the light is the star followed by the boundary: with the simplex boundary bd (contraction with u = (1, 1, 1, 1, 1), bd^2 = 0), bd from the edges to the vertices is the signed incidence B, and bd * from the edges to the triangles and back is exactly waves' light operator: F2^T bd * F2 = Curl (F2 the edges among the faces)": true,
+    "V12 = [F2 W, * F2 W] (the six cycles in grade 2 and their stars in grade 3) has rank 12, D V12 = V12 [[0, I6], [I6, 0]] and Gamma V12 = V12 diag(I6, -I6), and the boundary of the star of each cycle is its Curl (bd * F2 W = F2 Curl W); in H96 = Lambda^. C^5 (x) C^3 (dimension 96) V12 (x) I3 has rank 36 and D (x) I3 keeps it: a 36-dimensional invariant subspace (one copy of V12 per family index; no identification with other 36s)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 vertices -> time clock: qubits on the five vertices: the stabilizers XZZXI, IXZZX, XIXZZ, ZXIXZ commute and are independent over F2, P = prod (I + g_k)/2 has trace 2, their product is ZZXIX, and the tick (qubit k -> k + 1) carries every Pauli word to its shift (checked on the 15 single-qubit words) and cycles all five, so it keeps P; the 15 single-qubit errors have distinct nonzero syndromes, the Knill-Laflamme conditions hold exactly over Z[i] for the 16 errors I, X_j, Y_j, Z_j, no word of weight 1 or 2 commutes with the stabilizers and 30 words of weight 3 act as logical operators: a [[5, 1, 3]] code with the tick as a symmetry; no holographic bulk is claimed (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section VI; 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "five qubits on the five vertices: g1..g4 = XZZXI, IXZZX, XIXZZ, ZXIXZ (real integer matrices, no Y) commute pairwise, their binary (x | z) vectors are independent over F2 (all 16 of their F2 combinations are distinct), and 16 P = (I + g1)(I + g2)(I + g3)(I + g4) is an integer matrix with P^2 = P and tr P = 2: a two-dimensional code space, one logical qubit": true,
+    "C5 covariance: g1 g2 g3 g4 = ZZXIX = g5 exactly (sign +1), and the cyclic shift S of the qubits (qubit k -> k + 1, the vertex rotation, the tick) carries each of the 15 single-qubit words X_j, Y_j, Z_j to its shifted word (S W S^T = shift(W); these generate every Pauli word, so every word goes to its shift) and g1 -> g2 -> g3 -> g4 -> g5 -> g1, so it keeps the stabilizer group and S P S^T = P": true,
+    "the 15 single-qubit errors X_j, Y_j, Z_j have 15 distinct nonzero syndromes (their anticommutation with g1..g4: all 15 nonzero 4-bit words), and the Knill-Laflamme conditions P E_a^dagger E_b P = delta_ab P hold exactly over Z[i] for the 16 errors I, X_j, Y_j, Z_j (all 256 pairs)": true,
+    "the distance is exactly 3: no Pauli word of weight 1 or 2 commutes with all four generators (every such error is detected), while 30 of the 270 words of weight 3 do, each acting on the code space as a nonzero traceless operator (P E P != 0, tr P E P = 0: a logical operator): [[5, 1, 3]]. This is a quantum code with cyclic symmetry on the vertices; no holographic bulk, entanglement wedge or area law is built": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "readout -> GKSL: OBSTRUCTION: the probabilities of N outcomes, summing to 1, are at most N - 1 independent affine functions of a state on C^d, whose state space has dimension d^2 - 1, so informational completeness needs N >= d^2: at d = 45 the 67 labels give 66 < 2024, while the exact construction (the 45 basis vectors and, for i < j, (e_i + e_j)/sqrt2 and (e_i + i e_j)/sqrt2; 2S = 90 I with 1 - i above and 1 + i below the diagonal, S > I by strict diagonal dominance, its extreme eigenvalues within 10^-12 of the receipt's floats by exact inertia; the recovery formulas symbolic) reaches the minimum 2025 = 45^2; and the model's own 67 effects on C^7 (bridge_comparator) span only 46 of Herm(7)'s 49 dimensions: the 67-label readout is a classical encoding of 45 coordinates, not quantum-state tomography (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section V; 2 Nov)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the 2025 vectors e_i, (e_i + e_j)/sqrt2 and (e_i + i e_j)/sqrt2 (i < j) number 45 + 2 C(45, 2) = 45^2; S = sum |v><v| has 2S = 90 I with 1 - i above and 1 + i below the diagonal (exact over Z[i]) and tr S = 2025; each |S_ij|^2 = 1/2 and (44/sqrt2)^2 = 968 < 44^2, so S - I is strictly diagonally dominant: S > I, S^(-1/2) exists and E_a = S^(-1/2)|v_a><v_a|S^(-1/2) sum to I (S^(-1/2) S S^(-1/2) = I). The receipt's normalizer floats 34.95943165613593 and 73.1449808153796 are S's least and greatest eigenvalues to within 10^-12: S - cI = alpha I + a U + conj(a) L (a = (1 - i)/2, U and L the strict upper and lower all-ones), whose first column below the pivot times its first row is |a|^2 J = J/2 (exact over Z[i]), so each Schur complement keeps the form with alpha -> alpha - |a|^2/alpha, a -> a - |a|^2/alpha; the 45 pivots (all nonzero) have 0, 1, 44 and 45 negative signs at c = 34.95943165613593 -+ 10^-12 and 73.1449808153796 -+ 10^-12, and by Sylvester's law they count the eigenvalues below c": true,
+    "the recovery: for any Hermitian sigma, <e_i|sigma|e_i> = sigma_ii, <v^R_ij|sigma|v^R_ij> = (sigma_ii + sigma_jj)/2 + Re sigma_ij and <v^I_ij|sigma|v^I_ij> = (sigma_ii + sigma_jj)/2 - Im sigma_ij (symbolic on the 2 x 2 block, all that a pair sees), so sigma -> (<v_a|sigma|v_a>) is injective on Herm(45), of real dimension 2025: the 2025 rank-one |v_a><v_a| are a basis of Herm(45), so are the E_a (conjugation by the invertible S^(-1/2)), and with p_a = tr(rho E_a) = <v_a|sigma|v_a> for sigma = S^(-1/2) rho S^(-1/2), rho = S^(1/2) sigma S^(1/2) is recovered: an informationally complete POVM with 45^2 outcomes": true,
+    "OBSTRUCTION, the 67 labels: N outcome probabilities summing to 1 are at most N - 1 independent affine functions of rho, whose state space has dimension d^2 - 1, so informational completeness on C^d needs N >= d^2 (a dimension count; the linear-algebra lemma is standard): at d = 45 the 67 labels give 66 < 2024, short by 1958 = 2025 - 67, so they can encode a restricted 45-parameter family but cannot be tomography of an arbitrary 45-level state; 67 outcomes can be complete only for d <= 8 (64 <= 67 < 81)": true,
+    "nor on C^7: the model's seven-level realization (bridge_comparator) has 67 effects I/67 + delta sum_a T_ja F_a/n_a, combinations of I and the 45 generators (their trace Gram is diagonal with entries 2 (43 times), 6, 12 and, for I, 7, so the 46 are independent), with coefficient matrix [delta T diag(1/n), 1/67], whose columns rescale to [T, 1], of rank 46 (21 of the effects are the same I/67, the 21 zero rows of T): they span 46 of the 49 dimensions of Herm(7), so they read the 45 encoded coordinates of rho(z), not an arbitrary state on C^7": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "six-site port -> cycles: the 2-CNF AND_(i < j) (x_i OR x_j) on five variables has exactly six solutions, all true and the five with one false variable, an S5-equivariant copy of the six sites (vertex k for x_k false, the cone point for all true); T6 = [w, U w, U^2 w, U^3 w, U^4 w, F] (w = P6 e_01, F the far cycle, U the signed edge rotation) is a C5-equivariant isomorphism onto the cycles (U T6 = T6 S6, rank 6, det T6^T T6 = 1/5), one choice in the 8-dimensional Hom_C5 (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, sections I and VIII; 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 2-CNF AND_(i < j) (x_i OR x_j) on five variables has exactly 6 satisfying assignments among the 32: all true and the five with one false variable; x_k false -> vertex k and all true -> the cone point is a bijection onto the six sites, carrying the action of each of the 120 permutations of the variables to the vertex permutation with the cone point fixed": true,
+    "the C5 intertwiner: with w = P6 e_01 (the cycle part of the edge 01) and the far cycle F, T6 = [w, U w, U^2 w, U^3 w, U^4 w, F] (U the signed edge rotation) has B T6 = 0, rank 6, det(T6^T T6) = 1/5 and U T6 = T6 S6, S6 the rotation of the six labels (x_k false -> x_(k + 1) false, all true fixed): the labels and the cycles are isomorphic C5-modules (characters 6, 1, 1, 1, 1 on both); Hom_C5 has dimension (6 x 6 + 4 x 1 x 1)/5 = 8, so T6 is one choice and 1/5 is its Gram determinant, not an invariant": true,
+    "OBSTRUCTION beyond C5: the S5 characters of the labels (1 + fix(p)) and of the cycles (tr P6 Lambda^2(p)) agree exactly on the identity and the 24 five-cycles: 4 against 0 on the transpositions, 3 against 0 on the 3-cycles, 2 against -2 on the double transpositions, 2 against 0 on the 4-cycles, 1 against 0 on the elements of type (2, 3); the pentagon's reflections are double transpositions, so already D10 (and F20, A5, S5, which contain it) admits no equivariant isomorphism of the six labels onto the six cycles; nothing here bears on SAT complexity": true,
+    "the closing edge: the path 0-1-2-3-4 (the pentagon minus the edge 04) has Laplacian characteristic polynomial x (x^2 - 3x + 1)(x^2 - 5x + 5), the moving factors those of B^2 = [[2, 1], [1, 1]] (roots phi^(+-2)) and of B^2 + I (lam+-; B the golden companion), and the pentagon's is x (x^2 - 5x + 5)^2 (notes_2137): closing the path turns the B^2 pair into a second B^2 + I pair, and the algebraic connectivity rises from phi^-2 = (3 - sqrt5)/2 to (5 - sqrt5)/2, by exactly 1 (a graph fact; no neural claim)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "six-site port -> cycles: OBSTRUCTION: the S5 characters of the six sites (1 + fix(p)) and of the cycles (tr P6 Lambda^2(p)) agree exactly on the identity and the 24 five-cycles (4 against 0 on transpositions, 3 against 0 on 3-cycles, 2 against -2 on double transpositions, 2 against 0 on 4-cycles, 1 against 0 on type (2, 3)); the pentagon's reflections are double transpositions, so no isomorphism of the sites onto the cycles is equivariant for D10, nor for F20, A5 or S5, which contain it; the toy carries no SAT-complexity content (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section I; 2 Nov)",
+   "status": "OBSTRUCTION",
+   "passed": true,
+   "value": {
+    "the 2-CNF AND_(i < j) (x_i OR x_j) on five variables has exactly 6 satisfying assignments among the 32: all true and the five with one false variable; x_k false -> vertex k and all true -> the cone point is a bijection onto the six sites, carrying the action of each of the 120 permutations of the variables to the vertex permutation with the cone point fixed": true,
+    "the C5 intertwiner: with w = P6 e_01 (the cycle part of the edge 01) and the far cycle F, T6 = [w, U w, U^2 w, U^3 w, U^4 w, F] (U the signed edge rotation) has B T6 = 0, rank 6, det(T6^T T6) = 1/5 and U T6 = T6 S6, S6 the rotation of the six labels (x_k false -> x_(k + 1) false, all true fixed): the labels and the cycles are isomorphic C5-modules (characters 6, 1, 1, 1, 1 on both); Hom_C5 has dimension (6 x 6 + 4 x 1 x 1)/5 = 8, so T6 is one choice and 1/5 is its Gram determinant, not an invariant": true,
+    "OBSTRUCTION beyond C5: the S5 characters of the labels (1 + fix(p)) and of the cycles (tr P6 Lambda^2(p)) agree exactly on the identity and the 24 five-cycles: 4 against 0 on the transpositions, 3 against 0 on the 3-cycles, 2 against -2 on the double transpositions, 2 against 0 on the 4-cycles, 1 against 0 on the elements of type (2, 3); the pentagon's reflections are double transpositions, so already D10 (and F20, A5, S5, which contain it) admits no equivariant isomorphism of the six labels onto the six cycles; nothing here bears on SAT complexity": true,
+    "the closing edge: the path 0-1-2-3-4 (the pentagon minus the edge 04) has Laplacian characteristic polynomial x (x^2 - 3x + 1)(x^2 - 5x + 5), the moving factors those of B^2 = [[2, 1], [1, 1]] (roots phi^(+-2)) and of B^2 + I (lam+-; B the golden companion), and the pentagon's is x (x^2 - 5x + 5)^2 (notes_2137): closing the path turns the B^2 pair into a second B^2 + I pair, and the algebraic connectivity rises from phi^-2 = (3 - sqrt5)/2 to (5 - sqrt5)/2, by exactly 1 (a graph fact; no neural claim)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "K5 vertices -> golden companion: the path 0-1-2-3-4 has Laplacian characteristic polynomial x (x^2 - 3x + 1)(x^2 - 5x + 5), its moving factors those of B^2 = [[2, 1], [1, 1]] and B^2 + I (B the golden companion), and the pentagon's is x (x^2 - 5x + 5)^2: closing the path turns the B^2 pair into a second B^2 + I pair, so the algebraic connectivity rises from phi^-2 = (3 - sqrt5)/2 to (5 - sqrt5)/2, by exactly 1 (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section VIII's graph fact, without its neural reading; 2 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 2-CNF AND_(i < j) (x_i OR x_j) on five variables has exactly 6 satisfying assignments among the 32: all true and the five with one false variable; x_k false -> vertex k and all true -> the cone point is a bijection onto the six sites, carrying the action of each of the 120 permutations of the variables to the vertex permutation with the cone point fixed": true,
+    "the C5 intertwiner: with w = P6 e_01 (the cycle part of the edge 01) and the far cycle F, T6 = [w, U w, U^2 w, U^3 w, U^4 w, F] (U the signed edge rotation) has B T6 = 0, rank 6, det(T6^T T6) = 1/5 and U T6 = T6 S6, S6 the rotation of the six labels (x_k false -> x_(k + 1) false, all true fixed): the labels and the cycles are isomorphic C5-modules (characters 6, 1, 1, 1, 1 on both); Hom_C5 has dimension (6 x 6 + 4 x 1 x 1)/5 = 8, so T6 is one choice and 1/5 is its Gram determinant, not an invariant": true,
+    "OBSTRUCTION beyond C5: the S5 characters of the labels (1 + fix(p)) and of the cycles (tr P6 Lambda^2(p)) agree exactly on the identity and the 24 five-cycles: 4 against 0 on the transpositions, 3 against 0 on the 3-cycles, 2 against -2 on the double transpositions, 2 against 0 on the 4-cycles, 1 against 0 on the elements of type (2, 3); the pentagon's reflections are double transpositions, so already D10 (and F20, A5, S5, which contain it) admits no equivariant isomorphism of the six labels onto the six cycles; nothing here bears on SAT complexity": true,
+    "the closing edge: the path 0-1-2-3-4 (the pentagon minus the edge 04) has Laplacian characteristic polynomial x (x^2 - 3x + 1)(x^2 - 5x + 5), the moving factors those of B^2 = [[2, 1], [1, 1]] (roots phi^(+-2)) and of B^2 + I (lam+-; B the golden companion), and the pentagon's is x (x^2 - 5x + 5)^2 (notes_2137): closing the path turns the B^2 pair into a second B^2 + I pair, and the algebraic connectivity rises from phi^-2 = (3 - sqrt5)/2 to (5 - sqrt5)/2, by exactly 1 (a graph fact; no neural claim)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -14690,7 +15235,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 651 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 694 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -14950,7 +15495,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 16, symmetry-combinatorics 26, combinatorics-lattice 22, lattice-operator 56, operator-physics 50 joins",
+   "name": "each level is joined to the next: number-symmetry 17, symmetry-combinatorics 31, combinatorics-lattice 23, lattice-operator 60, operator-physics 58 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -14970,7 +15515,8 @@
      "time -> golden",
      "time -> golden",
      "circle -> clocks",
-     "circle -> clocks"
+     "circle -> clocks",
+     "clocks -> observer"
     ],
     [
      "V -> clocks",
@@ -14998,6 +15544,11 @@
      "surface -> golden",
      "rotor -> S5",
      "pgl -> cycles",
+     "golden -> E",
+     "AGL -> simplex",
+     "AGL -> E",
+     "S5 -> simplex",
+     "V -> golden",
      "cycles -> golden"
     ],
     [
@@ -15022,6 +15573,7 @@
      "E8 -> surface",
      "E8 -> synthemes",
      "cube -> halfper",
+     "penrose -> V",
      "rotor -> rootgraph"
     ],
     [
@@ -15080,7 +15632,11 @@
      "E8 -> bath",
      "census -> walks",
      "rootgraph -> moments",
-     "E8 -> bath"
+     "E8 -> bath",
+     "halfper -> bath",
+     "bath -> rootgraph",
+     "E8 -> bath",
+     "census -> measure"
     ],
     [
      "carrier -> triple",
@@ -15132,6 +15688,14 @@
      "bath -> readout",
      "readout -> moments",
      "carrier -> readout",
+     "bath -> readout",
+     "bath -> readout",
+     "bath -> readout",
+     "bath -> readout",
+     "bath -> readout",
+     "bath -> readout",
+     "measure -> readout",
+     "bath -> calibration",
      "bath -> readout"
     ]
    ],
@@ -15143,10 +15707,10 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 571,
-    "OBSTRUCTION": 35,
-    "SELECTED_REFERENCE": 16,
-    "CONDITIONAL": 29
+    "THEOREM": 606,
+    "OBSTRUCTION": 40,
+    "SELECTED_REFERENCE": 17,
+    "CONDITIONAL": 31
    },
    "note": ""
   },
@@ -15163,25 +15727,25 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 16, number-combinatorics 10, number-lattice 33, number-operator 9, number-physics 9, symmetry-combinatorics 26, symmetry-lattice 52, symmetry-operator 21, symmetry-physics 14, combinatorics-lattice 22, combinatorics-operator 37, combinatorics-physics 13, lattice-operator 56, lattice-physics 19, operator-physics 50",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 17, number-combinatorics 11, number-lattice 33, number-operator 9, number-physics 9, symmetry-combinatorics 31, symmetry-lattice 53, symmetry-operator 21, symmetry-physics 16, combinatorics-lattice 23, combinatorics-operator 38, combinatorics-physics 14, lattice-operator 60, lattice-physics 19, operator-physics 58",
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "(2, 3)": 22,
-    "(3, 4)": 56,
-    "(2, 4)": 37,
-    "(1, 3)": 52,
-    "(1, 2)": 26,
-    "(0, 1)": 16,
-    "(0, 2)": 10,
+    "(2, 3)": 23,
+    "(3, 4)": 60,
+    "(2, 4)": 38,
+    "(1, 3)": 53,
+    "(1, 2)": 31,
+    "(0, 1)": 17,
+    "(0, 2)": 11,
     "(1, 4)": 21,
-    "(4, 5)": 50,
-    "(2, 5)": 13,
+    "(4, 5)": 58,
+    "(2, 5)": 14,
     "(3, 5)": 19,
     "(0, 3)": 33,
     "(0, 4)": 9,
     "(0, 5)": 9,
-    "(1, 5)": 14
+    "(1, 5)": 16
    },
    "note": ""
   },
@@ -16620,6 +17184,173 @@
   },
   {
    "layer": "23-dots",
+   "name": "the ledger check notes_1757 (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 240 roots read along the axis e1, the root e4 - e5, the charge (1, 1, 1, 0, -3, 0, 0, 0) and the color (1, 1, 1, 0, 0, 0, 0, 0) have unit-normalized even moments 60, 36, 30 in degrees 2, 4, 6 for all four and 57/2, 39, 179/6, 179/6 in degree 8: color and charge agree in every degree although their inner-product counts differ (46 zeros each; charge 48, 30, 16, 3 at 1, 2, 3, 4, color 48, 30, 16, 3 at 1/2, 1, 3/2, 2) (the separate model's degree moments, 31 Oct)": true,
+    "twice the color and the charge are lattice vectors of norm 12 with the same dominant representative, so a Weyl element of E8 carries 2 color to charge and permutes the roots: the equal profiles are a symmetry, not a coincidence": true,
+    "the band sigma(k) = sum_r (1 - cos k.r) is 30q - (3/2)q^2 + q^3/24 - P8(k)/40320 + R with 0 <= R <= q^5/30240 for q = |k|^2 and P8 = sum (k.r)^8: the first three terms are the 7-design moments 60, 36, 30 over 2!, 4!, 6!, per root the cosine remainder after x^8 lies in [0, x^10/10!] (cited), and since every root has norm 2, (k.r)^2 <= 2q and sum (k.r)^10 <= (2q)^2 sum (k.r)^6 = 120 q^5, with 120/10! = 1/30240": true,
+    "critical points of the band: the root half-period pi(e4 - e5) has sigma = 224 with Hessian diag(12, 12, 12, [[-20, 32], [32, -20]], 12, 12, 12), one descending direction (eigenvalue -52): one of the 120 E7 + A1 saddles of layer 22; the axis, charge and color half-periods are D8-type maxima at 256 with Hessian -4I; the golden character (4 pi/5)(1, 1, 1, 1, 1, 0, 0, 0) is critical at 250, the band's value at the tick's 24 nonzero fixed momenta, with the stated sqrt5 Hessian": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check notes_2122 (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "n -> n mod 30 maps the circle Z/4320 onto Z/30 with kernel <30> of order 144; the tick <864> lands on the order-5 subgroup and the misses <5> on the order-6 subgroup, so Z/30 = Z/5 x Z/6 is the circle's ticks times misses read mod 30 (the separate model's N39)": true,
+    "the seesaw identity: for S and N symmetric and A skew, -(S + alpha A) N (S + alpha A)^T = -S N S + alpha (S N A - A N S) + alpha^2 A N A, transpose-symmetric and with no value of alpha selected": true,
+    "GL(2,5) has 480 elements with orders 1, 2, 3, 4, 5, 6, 8, 10, 12, 20, 24 occurring 1, 31, 20, 152, 24, 20, 40, 24, 40, 48, 80 times; AIR_801 mod 5 is one of the 80 of order 24, of projective order 6": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check notes_2154 (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "on the cycles, with the tick C (C^5 = I), the metric G6 and the wedge Hodge star H (H^2 = 5I): L = 2I - C - C^-1 is G6-self-adjoint and nonnegative of rank 4, A = (C - C^-1)/2 is G6-skew, C = I - L/2 + A, F = (I + C + ... + C^4)/5 and B = I - F are G6-orthogonal projectors of ranks 2 and 4, H B = 2L - 5B (for the wedge orientation, up to the sign of H) with (H B)^2 = 5B, and L(L^2 - 5L + 5I) = 0: eigenvalues 0 and (5 -+ sqrt5)/2, twice each (the separate model's N40)": true,
+    "the all-order return (sI + L)^-1 = [s^2 I + s(5I - L) + 5F]/[s(s^2 + 5s + 5)] = F/s + [(s + 5/2)B - HB/2]/(s^2 + 5s + 5), with residue F at s = 0 and L^(n+2) = 5L^(n+1) - 5L^n for n >= 1": true,
+    "over the 240 roots P2 = 60q, P4 = 36q^2, P6 = 30q^3, and P8 - 30q^4 is harmonic; the certificates P8 - (132/5)q^4 = sum [(a.k)^4 - q(a.k)^2 + q^2/10]^2 and 39q^4 - P8 = sum (a.k)^2 [2q - (a.k)^2][(a.k)^2 - q/2]^2 hold identically, so (132/5)q^4 <= P8 <= 39q^4, the upper bound attained along a root (squared projections 0, 1/2, 2 times 126, 112, 2); the lower is strict, since (5 -+ sqrt15)/10 cannot carry 240 roots with sum 60": true,
+    "degree ten closes through degree eight: 4 P10 - 15 q P8 + 315 q^5 = 0 identically; the unit tenth moments are 225/8 (axis), 135/2 (root) and 265/8 (charge and color), so P10 <= (135/2) q^5, sharp along a root": true,
+    "so the band's eighth-order Taylor remainder, whose leading term is P10/10!, satisfies 0 <= sigma - T8 <= q^5/53760, sharp along a root, 9/16 of the bound q^5/30240 of notes_1757, which it sharpens": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check w0_oscillator (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the sign wave 1, -1, 1, -1 is the unit orbit q = cos 2t sampled at t = j pi/2 (j = 0, ..., 3), where v = -2 sin 2t vanishes, so every sample has the note's energy v^2 + 4q^2 = 4; it also solves the equation with q'' replaced by the unit-step second difference (not the sampling step pi/2): with C the cyclic shift on Z/4, C w = -w and (2I - C - C^-1) w = 4w, the top eigenvector of the 4-cycle's Laplacian (spectrum 0, 2, 2, 4), i.e. w(j+1) - 2w(j) + w(j-1) + 4w(j) = 0; the top eigenvalue 4 with the alternating eigenvector is that of every even cycle (checked for 4, 6, 8), so this 4 is the lattice's highest frequency, not a property of the 4-cycle; the recurrence has characteristic polynomial (z + 1)^2, a double root -1, and (-1)^j (a + bj) solves it for all a and b, the sign wave being a = 1, b = 0": true,
+    "'the stiffness 4 meets every five-tick' read as layer 22 read 'the order 24 meets every tick': 864 = 4 x 216 lies in <4>, so <4> contains the time clock <864>; equivalently 4 is prime to 5, and x -> 4x on the circle permutes the five ticks, as the inversion t -> -t (4 = -1 mod 5); 4 is also the number of nonzero five-ticks and the multiplicity of the golden Dirac square's eigenvalue 5 (5I - J has spectrum 0, 5^4), and 4 is not an eigenvalue of it": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check video_ten_arithmetic (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the eight Bessel zeros the review lists are right to its four decimals: from the exact power series at rational points with the alternating-tail bound, J_1 changes sign across [3.83170597, 3.83170598], [7.01558666, 7.01558667], [10.17346813, 10.17346814], [13.32369193, 13.32369194] and J_0 across [2.40482555, 2.40482556], [5.52007811, 5.52007812], [8.65372791, 8.65372792], [11.79153443, 11.79153444], each inside the rounding interval of 3.8317, 7.0156, 10.1735, 13.3237 and 2.4048, 5.5201, 8.6537, 11.7915; at the 280 points m/20 in (0, 14] the exact signs of J_1 and of J_0 change exactly four times each, in the cells holding these brackets, so (two zeros lying more than 1/20 apart, by the Sturm comparison theorem, cited) they are the first four zeros of each": true,
+    "the ratios as rounded in the review: j_(1,k)/j_(1,1) lie in (1.8309, 1.8310), (2.6550, 2.6551) and (3.4772, 3.4773) (the review's 1 : 1.83 : 2.66 : 3.48), 100 GeV x j_(1,k) lie in (383.17, 383.18), (701.55, 701.56), (1017.34, 1017.35) and (1332.36, 1332.37) GeV against the quoted 380, 700, 1000, 1320 (each within 2 %); j_(0,2)/j_(0,1) lies in (2.2954, 2.2955) and 5.52/2.40 = 2.3 exactly (the review's 2.30)": true,
+    "the hierarchy: ln(10^16) = 16 ln 10 lies in (36.8413, 36.8414) and ln(10^16)/pi in (11.7269, 11.7270) (mpmath interval arithmetic at 120 bits), the review's 36.84 and k r_c = 11.73; the five-dimensional metric's 5 x 6/2 = 15 components split 10 + 4 + 1 (metric, vector, radion)": true,
+    "the Orsay reading: 8.6/3.6 = 43/18 lies in (2.388, 2.389) and 2.15/1.04 = 215/104 in (2.067, 2.068), the review's 2.39 and 2.07 (with the quoted M_4j = 8 TeV instead, 8/3.6 = 20/9 lies in (2.222, 2.223)); both cascades are open (3.6 > 2 x 1.04, 8.6 > 2 x 2.15); if the review's two towers (zeros of J_1 and of J_0) share one mass scale, the first graviton and gluon rungs stand in the ratio j_(1,1)/j_(0,1), in (1.5933, 1.5934), so m_1^G = 380 GeV beside m_1^g = 3.6 TeV (ratio 19/180) is off that ratio by a factor in (15.09, 15.10), consistent with the review's call for non-minimal adjustments; the one-sided normal tail at 1.6 sigma lies in (0.0547, 0.0549) (exact series with its tail bound, sqrt(2 pi) by interval arithmetic), the review's p = 0.05": true,
+    "the 256-atom numbers: 16 x 16 = 256 = 2^8; 75^2 = 5625, and 5625 a0 with a0 = 5.29177210544 x 10^-11 m (CODATA, cited) is 2.9766... x 10^-7 m, the review's 0.3 micrometre; 2^256 lies in (1.1579, 1.1580) x 10^77, the review's 1.16 x 10^77; and twice the square-lattice critical field 3.044 is 6.088 (the review's H puts Omega/2 on sigma^x)": true,
+    "the warped mode equation (e^(-4ky) f')' + m^2 e^(-2ky) f = 0 is solved by f = e^(2ky) [J_2 + b Y_2]((m/k) e^(ky)) for every b (residual 0), while e^(2ky) J_1((m/k) e^(ky)) leaves the residual -3 k^2 e^(-2ky) J_1((m/k) e^(ky)); d/dz (z^2 J_2(z)) = z^2 J_1(z) and d/dz (z^2 Y_2(z)) = z^2 Y_1(z), so f' = k (k/m)^2 z^3 [J_1 + b Y_1](z) at z = (m/k) e^(ky) and the Neumann condition at the infrared brane is J_1(x_n) + b Y_1(x_n) = 0, which at b = 0 is the review's J_1(x_n) = 0: its graviton roots are those of the displayed equation, whose f_n has Bessel order 2, not nu = 1 (sympy)": true,
+    "the free-fall phase: with i hbar psi_t = -(hbar^2/2m) psi_xx - m g x psi and x~ = x - g t^2/2, every free plane wave psi~ = exp(i (p x~ - hbar p^2 t/(2m))) (a solution of the free equation in (x~, t)) gives the solution psi = psi~ exp[(i m/hbar)(g x t - g^2 t^3/6)] (residual 0), while the review's exp[(i m/hbar)(-g x t + g^2 t^3/6)] leaves the residual g (2 m x + 2 hbar p t - m g t^2) psi: the cubic term has size g^2 t^3/6 and the opposite sign (sympy)": true,
+    "the self-energy: for a uniform ball of mass M and radius R (Phi = -G M (3 R^2 - r^2)/(2 R^3) inside and -G M/r outside, Poisson's equation and the continuity of Phi and Phi' checked), (1/(4 pi G)) int |grad Phi|^2 d^3x and G iint rho(x) rho(y)/|x - y| d^3x d^3y = int rho (-Phi) d^3x both equal (6/5) G M^2/R, the review's two expressions for E_G on a single mass distribution (sympy)": true,
+    "the Zeno product: |<psi|e^(-iH tau)|psi>|^2 = 1 - (m2 - m1^2) tau^2 + O(tau^4) with no tau^3 term (m_n = <H^n>, hbar = 1), so with tau = t/N the survival is (1 - DeltaE^2 t^2/N^2 + O(N^-4))^N, whose logarithm is -DeltaE^2 t^2/N + O(N^-3); the review's (1 - DeltaE^2 t^2/(2N^2) + O(N^-3))^N has logarithm -DeltaE^2 t^2/(2N) + O(N^-2): both tend to 1, but the review's middle expression halves the leading exponent (it needs the power 2N) (sympy: the tau-coefficients and the limits N^2 log(1 - c DeltaE^2 t^2/N^2) -> -c DeltaE^2 t^2 at c = 1, 1/2)": true,
+    "the binomial likelihood: int_0^1 C(n, k) theta^k (1 - theta)^(n - k) d theta = 1/(n + 1) for every 0 <= k <= n <= 10, the review's example of a likelihood that does not integrate to 1 over the parameter (sympy)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check video_ten_elsewhere (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the review's match: with r = sqrt(8/lam-) (alpha = 1) and its quoted j_(0,1) = 2.404826, r/2.404826 - 1 lies in (0.000489, 0.000490), the review's 0.049 %; but chiral_closures holds identically in alpha, and sqrt(8/(alpha lam-)) equals 2.404826 at alpha* = 8/(lam- 2.404826^2), in (1.00097, 1.00099): the 0.049 % says that the chosen alpha = 1 lies within 0.1 % of alpha*": "True",
+    "against mass ratios: r exceeds 43/18 = 8.6/3.6 (the review's observed ratio) by a factor between 1.0071 and 1.0072; the third ratio sqrt((3 + lam+)/lam-) exceeds 2.15, the top of the review's range 2.07-2.15, and exceeds 215/104 = 2.15/1.04 by more than 5.8 %; with the cited brackets, j_(1,1)/j_(0,1) (the minimal tower's graviton-to-gluon ratio) is below 3.83170598/2.40482555 and phi, the only alpha-free ratio (video_ten_chiral), exceeds that by more than 1.5 %; and every one of the ten ratios at alpha = 1 differs from j_(0,2)/j_(0,1) (between 5.52007811/2.40482556 and 5.52007812/2.40482555) by more than 4.6 % of it": true,
+    "a look-elsewhere count at alpha = 1: windows of relative half-width 0.00049 (the review's tolerance) around the ten ratios have total logarithmic length 10 log((1 + 0.00049)/(1 - 0.00049)), below 0.0090 log 3 (interval arithmetic), so they cover less than 0.9 % of [1, 3] in logarithmic measure, all ten ratios lying in [1, 3]; with alpha free, sqrt(8/(alpha lam-)) alone reaches every target (video_ten_chiral)": true,
+    "the review's look-elsewhere numbers for Video 1: the one-sided normal tail at 3.9 sigma lies in (4.8096e-5, 4.8097e-5) (exact rational series in Fractions, 90 terms, whose terms alternate in sign and decrease in size from n = 6 on, not before, so the first omitted term bounds the tail; sqrt(2 pi) by interval arithmetic), and with the 1.6 sigma tail in (0.0547, 0.0549) the ratio p_global/p_local, the effective number of trials, lies in (1137, 1142): 3.9 sigma local to 1.6 sigma global is a look-elsewhere factor of about 1.1 x 10^3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check video_ten_codes (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the 67-outcome decoder on bridge_comparator's reference T (not FOAM67's T67, whose coefficients the model does not hold): T has rank 45, T^T T = I45 + J45 with determinant 46 and inverse I - J/46, so the least-squares left inverse (T^T T)^-1 T^T is [I - J/46 | 0 | -(1/46) 1] in Q^(45 x 67) and inverts T; the left inverses are it plus Z with Z T = 0, an affine family of dimension 45 x 22 = 990 (T^T has a 22-dimensional kernel, as for every 67 x 45 T of rank 45, the addendum's hypothesis on T67), [I45 | 0 | 0] among them: a left inverse exists and is not unique": true,
+    "the 252-cell code's contraction: the review's 16087194767402583867/186264514923095703125 is exactly 3^19 7^12 / 5^29 = 1120 M / 10^28 with M = 7 x 2^10 x 252^11/(28 x 5! x 6!) = 2 x 252^11/675 (the hub's Vandermonde-inverse bound, host Lipschitz bound 1120, gain 10^28: notes_2256's 0.0863674692 as a rational), between 0.0863674692 and 0.0863674693 and below 1/10; and 'any 12 of the 252 cells' is 252 - (241 - 1) = 12 with notes_2256's distance 241 = 252 - 12 + 1": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check video_ten_fisher (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the Euler law: for an undefined differentiable f, (tau d/dtau + 2 kappa d/dkappa) f(tau/sqrt(kappa)) = 0, and (tau, 2 kappa) is the velocity d/dc (c tau, c^2 kappa) at c = 1, the scaling that keeps rho; it annihilates every response cosine cos(sqrt(mu) t sqrt(kappa)/tau) (mu > 0 symbolic, u = t sqrt(kappa)/tau; onemodel_closures' root-site sectors mu = 184, ..., 244 are instances)": true,
+    "the Fisher matrix: for 67 outcome probabilities P_k(tau/sqrt(kappa)) (undefined functions), every gradient in (tau, kappa) is parallel to g = grad rho = (1/sqrt(kappa), -tau/(2 kappa^(3/2))), g . (tau, 2 kappa) = 0, so the one-observation Fisher matrix sum_k (grad P_k)(grad P_k)^T/P_k has (tau, 2 kappa) in its kernel and determinant 0; M observations add such matrices, each a multiple of g g^T, so the review's I (tau, 2 kappa)^T = 0 and det I = 0 hold": true,
+    "the likelihood's integral: (tau, rho) -> (tau, tau^2/rho^2) has Jacobian determinant -2 tau^2/rho^3, so for a likelihood g(tau/sqrt(kappa)) >= 0 Tonelli gives int int g dtau dkappa = int_0^oo 2 tau^2 dtau x int_0^oo g(rho) rho^-3 drho, and int_0^oo 2 tau^2 dtau = oo: infinite whenever g is positive on a set of positive measure (the review's claim); and since every expectation is a function of rho, while (tau, kappa) = (1, 1) and (2, 4) share rho = 1, no estimator of tau is unbiased at every (tau, kappa): the review's 'Var(tau hat) = oo' should read 'no unbiased estimator of tau exists'": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check video_ten_buffer (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the review's numbers: pi/(2 sqrt83) lies in (0.17241, 0.17242) and pi/(2 sqrt389) in (0.07964, 0.07965) (interval arithmetic), its 0.1724 and 0.0796": true,
+    "but they are not times of the wave law: on a generic symmetric K (4 x 4, ten symbols) with Y = [I2; 0], the defect's u^(2n) coefficients for sK are s^n times those for K (checked for n = 0..3; the u^(2n) coefficient is of degree n in K), so L_sK(u) = L_K(sqrt(s) u) and a time read off the defect scales as s^(-1/2), while the hidden variance D = Y^T K Q K Y (4 times the u^4 coefficient, chiral_time) goes to s^2 D; the quartic time (4/b)^(1/4) goes to s^(-1/2) (4/b)^(1/4) under b -> s^2 b, but the review's pi/(2 sqrt b) goes to (1/s) pi/(2 sqrt b): it reads the hidden variance 83 (units of K^2) as a squared frequency (units of K)": true,
+    "the workbench's 25.5 ('25.5 times faster in variance'): at equal u the mass channel's quartic term (2117/4) |dq|^2 u^4 is 2117/83 times the dark channel's (video_ten_reduction's 25.506), as a ratio of coefficients; under the leading quartic law the two reach a common level l at u_m = (4 l/(2117 |dq|^2))^(1/4) and u_d = (4 l/(83 |dq|^2))^(1/4), so u_d/u_m = (2117/83)^(1/4) for every l, which lies in (2.2472, 2.2473): in time the mass channel is 2.247 times faster, not 25.5 (the quartic law is only the small-u term, video_ten_defect)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check zero_pole_toy (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the toy (F = diag(0, 3), C_eps = diag(2, 4), B = [[1, 2], [1, -1]]): K = [[F + B C^-1 B^T, B], [B^T, C]] = [[3/2, 0, 1, 2], [0, 15/4, 1, -1], [1, 1, 2, 0], [2, -1, 0, 4]] has rank 3 and characteristic polynomial x (x^3 - 45 x^2/4 + 305 x/8 - 36) (alternating signs: three positive eigenvalues), its kernel is spanned by psi = (q0, -C^-1 B^T q0) = (1, 0, -1/2, -1/2) (q0 = e1), Z0 = |psi|^2 = 1 + |C^-1 B^T q0|^2 = 3/2; the source Green function S(z) = J^T (z + K)^-1 J satisfies S(z)^-1 = F + z [I + B C^-1 (z + C)^-1 B^T] identically in z, and d/dz S^-1 at 0 is Z = I + B C^-2 B^T = [[3/2, 1/8], [1/8, 21/16]] with q0^T Z q0 = 3/2": true,
+    "the pole: lim_(z -> 0+) z (z + K)^-1 = psi psi^T/Z0 entrywise (the zero eigenprojection), so lim z S(z) = q0 q0^T/Z0 = [[2/3, 0], [0, 0]] (the certificate's pole matrix): q0's spectral measure has the atom 1/Z0 = 2/3 at 0 and positive-frequency weight 1/3; for the coordinate observers Y = [e1, e2], [e1, e2, e3], I4 (each containing the source) lim z Y^T (z + K)^-1 Y = (Y^T Psi0)(Y^T Psi0)^T (Psi0 = psi/sqrt Z0) with |Y^T Psi0|^2 = 2/3, 5/6, 1, between 1/Z0 and 1 (the note's 45-port statement in miniature)": true,
+    "the time domain: P = Psi0 Psi0^T has P K = K P = 0, so in cos(u sqrt K) = sum_n (-u^2 K)^n/(2n)! and sin(u sqrt K)/sqrt K = sum_n (-1)^n u^(2n+1) K^n/(2n+1)! only n = 0 survives under P: P cos(u sqrt K) = P and P sin(u sqrt K)/sqrt K = u P (checked on the series through n = 7); in the Laplace variable s (s^2 + K)^-1 - P/s -> 0 and (s^2 + K)^-1 - P/s^2 -> K^+ (the pseudo-inverse, K K^+ = I - P) as s -> 0+, so the linear growth u P is the zero mode's alone; the source readout's zero piece is u q0 q0^T/Z0 = u [[2/3, 0], [0, 0]]": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check branch_counts (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "27 x 8 x 20 = 4320 holds as integers, with 27 the order of the step 160, 20 the order of the golden step 216 and 8 the coil's generator (equal to the coil's index 4320/540); it is not a splitting of the circle: Z/27 x Z/8 x Z/20 has exponent lcm(27, 8, 20) = 1080, so it is not cyclic (gcd(8, 20) = 4), and the circle's primary split is 27 x 32 x 5": true,
+    "the coil step 8 equals the rank (8 x 30 = 240) and is not the stiffness 4; it is no eigenvalue of the carrier's Dirac operator D (0^5, +-sqrt3 four times each, +-2 sqrt2 once each), but it is an eigenvalue of D^2, of multiplicity 2": true,
+    "the branch counts as arithmetic: 192 + 417 + 740 + 24 + 15 + 13 = 1401, 1401 - 31 = 1370 = 10 x 137, 186 + 2 + 10 + 6 = 204, 1370 + 30 - 6 = 1394, and 1401 is not 240; in the model 1401 -> 1370 appears only as an unformed operand (gates.UNFORMED_OPERANDS: the original 31 seam rows), and the integer 1370 elsewhere only in counts, the ledger's 'ten counts' (10 x 137) and counts' 'other coordinates 1370 - 12' (FIVE_SENSES): equal integers, no formed operator": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check bridge_workbench (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the toy is positive on the whole slider (Omega/J from 2 to 6, a from 166 to 214): det = 200a - 2117 = 26283 + 2400 Omega/J > 0 and trace > 0; at Omega/J = 3.5 (a = 184, bridge_comparator's mass block, characteristic polynomial x^2 - 384x + 34683) its eigenvalues are 192 -+ sqrt2181, e1's weight on the upper mode is w = (1 - 8/sqrt2181)/2 and w(1 - w) = 2117/8724 = 2117/(lam+ - lam-)^2": true,
+    "the workbench's curves are e1's: (K^k)_11 = w lam+^k + (1 - w) lam-^k for k = 0..8, so C(u) = w cos(sqrt(lam+) u) + (1 - w) cos(sqrt(lam-) u) to every order checked, and with cos 2x = 2 cos^2 x - 1 the defect is its formula w(1 - w)(cos sqrt(lam+) u - cos sqrt(lam-) u)^2 (an identity in w and the two cosines); for every detuning a its expansion is (2117/4) u^4 - (2117 (a + 200)/24) u^6 + O(u^8): the u^4 coefficient is the fixed coupling variance 2117/4, the u^6 coefficient depends on the detuning": true,
+    "the workbench's five listed J0 zeros z_1..z_5 = 2.404825557695773, 5.52007811028631, 8.65372791291101, 11.7915344390143 and 14.9309177084878 each lie within 10^-12 of a sign change of J0 (exact series, tail bounded); in its own shape test at alpha = 1 (each spectrum over its first rung) the OES rungs sqrt(lam-) < sqrt(lam+) < sqrt(3 + lam-) < sqrt(3 + lam+) < sqrt8 give increasing ratios 1, phi (< 1.6181), ..., sqrt(8/lam-) (8/lam- = 4 + 4 sqrt5/5, so the top ratio is in (2.406, 2.4061)), while its Bessel ratios z_n/z_1 exceed 2.2954, 3.5984, 4.9032 and 6.2087 at n = 2..5: every rung from the second on is below its Bessel counterpart, and the 2.406 ~ 2.4048 match sets the top OES ratio against z_1 itself, a zero, not a ratio": true,
+    "the threshold ratio the workbench displays (fmt((2117/83)^0.25, 4)) and the note states, 2.2473, is (2117/83)^(1/4) rounded to four decimals: 2.24725^4 < 2117/83 < 2.2473^4, so the fourth root lies in (2.24725, 2.2473)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "the ledger check grand_registry (layer 23's ledger rows cite it; no join uses it) holds",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the dependency file's 54 rows carry an open-root column that follows one rule on every row: an open node (open input or open proof) lists itself, an established node (exact, analytic, source bytes, conditional builder) lists none, and a blocked node the union of its parents' open roots (the status counts are onemodel_gates'); its listed topological order is a permutation of the 54 ids with every dependency before its dependent": true,
+    "its transitive dependents: selected_parent 27 (exactly the other 10 open-input nodes and the 17 blocked ones), time_scale 10 (dynamics_binding, gauge_matter, quantum_state, return_identification, horizon_entropy, renormalization, thermal_limit, atoms_chemistry, life_observer, prediction), quantum_state 5 (horizon_entropy, thermal_limit, atoms_chemistry, life_observer, prediction), SCR6 1 and return_identification 1 (prediction), the file's and the receipt's counts": true,
+    "the 44-object registry against the model (a reading; the existence of every named check is what is computed): 19 objects are already built and checked by the model, 4 more are model checks extended here (01, 29, 42, 44) and 9 are built here (18, 25, 31-37), and 12 stay outside: 6 standard theorems or float fixtures on no model object (19, 21, 26, 38-40: #SAT separators, Bell no-signaling, the geometric phase, qutrit dephasing) and 6 with the physical input absent (10, 20, 22-24, 27: D_F on H96, the holographic code, the M-theory functor, the restriction transfer, neutrino propagation, the M6 field binding); of the 13 objects among 01-28 the registry marks unconstructed, the model builds 6 (04 as the bath's finite compressions and spectrum, the 21 and 45 readouts, J15, the fingerprints, the 67-outcome code) and records 28's gate state with the same values (onemodel_gates), and the other 6 are exactly the absent ones": true,
+    "registry object 42, replayed: each of the 240 doubles 2r (r a root) is a sum of two roots in exactly one way (r + r) and is neither 0 nor a root, so with H = 240 I - A (A the sum of the 240 root shifts) <delta_2r, H^n delta_0> = 0, 0, 1 for n = 0, 1, 2 and <delta_2r, e^(-itH) delta_0> = -t^2/2 + O(t^3): the bounded lattice evolution reaches lattice distance two at once, with no strict light cone (internal model time; no M6 causal structure is built)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "the separate model's N44 54-node obligation graph and frozen gates against the model's checks and gate ledger: 18 nodes covered, 12 touched in part, 24 reached by none (onemodel_gates)",
    "status": "THEOREM",
    "passed": true,
@@ -17593,7 +18324,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 61 derived dots are connected by the 490 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 61 derived dots are connected by the 525 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
