@@ -781,6 +781,12 @@ def test_the_drive_replays_of_2_nov_b():
         assert all(out.values()), out
 
 
+def test_the_drive_replays_of_2_nov_c():
+    for check in (dots.tdc_momentum, dots.tdc_leakage, dots.tdc_frequency, dots.tdc_nested, dots.ff5_comparator, dots.ff5_bell, dots.ff5_light_cone, dots.ff5_intertwiner, dots.adj_clock_words, dots.adj_golden_carriers, dots.adj_relative_selector, dots.adj_six_lines, dots.adj_foam12, dots.adj_bridge_receipt, dots.adj_bath_no_clock, dots.mgm_marks, dots.mgm_traces, dots.mgm_dirac20, dots.mgm_delta_audit):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out
