@@ -2138,6 +2138,75 @@ New here:
 - **The separate model's moments and band** (`notes_1757`). The roots' eighth moments are 57/2, 39, 179/6 and 179/6 along the axis, a root, the charge (1, 1, 1, 0, −3, 0, 0, 0) and the color (1, 1, 1, 0, …). Twice the color and the charge have one dominant representative, so a Weyl element of E8 explains their equal profiles. The band's Taylor remainder after degree 8 lies in [0, q⁵/30240]. Its critical values are 224 (layer 22's E7 + A1 saddle), 256 (D8-type maxima, Hessian −4I) and 250 (the tick's fixed momenta).
 - **Recorded (REPORTED).** The canon's N36 adds the Level Join and Degree Moment tabs and N37 the dispersion tabs (3770 and 3725 sheets), keeping every prior cell; its pending claims K04, X01 and X02 stay unformed. The separate model's reconciled branches (4242 artifacts, 682 relationships), N37 source integration and source aliases add no new mathematics. The claim ledgers' cubic-node, syntheme and two-snapshot rows need the hub's definitions of the trace cubic and the snapshot maps, which the notes do not give, and stay reported.
 
+**The Drive checks of 2 Nov, 02:22–04:28: ten replayed sources.** Ten units replayed the sources filed 01:58–04:19 as checks. Each unit was reviewed adversarially. A cross-unit pass then made sure no fact is checked twice: a later unit cites the earlier one, and checks already in the model are cited, not repeated. All units passed after fixes. Together they add 54 checks, 66 joins (53 THEOREM, 7 OBSTRUCTION, 3 CONDITIONAL, 3 SELECTED_REFERENCE) and 134 ledger rows. Apart from float precision, no checked number in these sources failed; the slip 6 × 66 = 660 belongs to an earlier handover, and the 01:59 note corrects it itself. The other corrections are about wording, scope, vacuous or tautological verifier checks, and identifications. The scripts were read as text and not run; the packet zips were neither run nor unpacked. TIME_BIND stays UNBOUND and DYN_BIND NOT_INSTALLED.
+- **The canon's selected mathematical join and the motif cross-court (01:58)** (`canon_gram_traces`, `motif_source_moments`, `motif_mode_floor`, `motif_spray`, `motif_k5_gluing`, `motif_reflection_859`, `motif_d14_table`).
+  - **The hidden source moments.** The six-site port's source moments C_j = B D^j Bᵀ, computed on the lattice for j ≤ 4, are c_j I + d_j J. They equal the Schur continued fraction of the sector moments.
+  - **Mode floors (an OBSTRUCTION).** Four source moments need 12 modes and a two-node rule per sector realizes them. Five need 18.
+  - **The spray covariance is the Coxeter number's.** The walk of Δ = 240 − A has covariance 60τ I₈ = 2hτ I₈ (h = 30). Its heat-return constant (120πτ)⁻⁴ is the model's band-bottom density coefficient.
+  - **Corrections:**
+    - The canon's "vertex Laplacian of trace 10" is the pentagon's (or pentagram's); K5's has trace 20.
+    - "The three-moment Hankel asks for 18" needs five moments, not three.
+- **The separate model's six-reference joint closure (01:59)** (`six_ref_source`, `six_ref_shape`, `six_ref_court`, `six_ref_residual`, `six_ref_decoder`, `six_ref_quartic`).
+  - **The common-phase record.** The record z z* has a real kernel of dimension 1 at every z ≠ 0.
+  - **No global nine-reading chart (an OBSTRUCTION).** The source shape ℝ₊ × CP⁴ has p₁ = 5u² ≠ 0, so it is not an open set of ℝ⁹.
+  - **The fourth-moment residual.** Δ^j (j ≤ 2) of the six-site deltas have the block Hankel of the walk moments as Gram.
+  - **The exterior quartic.** It is the four-cube's subset sums.
+  - **Correction:** "6 × 66 = 660" is 396.
+- **The separate model's one-parent multipole threshold unification (01:59–02:04)** (`multipole_filtration`, `multipole_dark_parity`, `multipole_heat_law`, `multipole_two_step`, `multipole_k5_source`, `multipole_k0_threshold`).
+  - **The multipole filtration.** The 45 channels' moments vanish below degree 0, 1, 2, 3 and 7 for the mass, linear, quadratic, wedge and dark sectors.
+  - **Infrared exponents (CONDITIONAL).** Under the standard Laplace asymptotics these give the five infrared exponents.
+  - **Two dark fours.** N44's dark four starts at degree 7; the hub's dark port starts at degree 4.
+  - **The two-step parent.** The hidden variances 2117, 967, 389, 127 and 82 of 83 come from two-step paths outside the 360 sites.
+  - **The regulator-free threshold action.** K₀ = H + J(F − S₀⁻¹)Jᵀ is congruent to diag(F, C) on the root-site instance.
+- **The block-Jacobi memory tower and the open-item closures (02:05)** (`jacobi_channels`, `jacobi_two_rung`, `jacobi_fractional`, `open_clock_word`, `open_hodge_marker`, `open_golden_coupling`).
+  - **The block-Jacobi chain.** It is diagonal on the 45 channels; the lattice check now runs at orders 3 and 4.
+  - **Fractional softening.** A^s − YᵀK^sY ≥ s(1 − s)d/(2M^{2−s}) holds for every 0 < s < 1.
+  - **The one-tick word.** U = A²B⁻⁷T⁻¹ on ℤ/4320.
+  - **A smaller Hodge witness.** Pf(w) = 1 and q_H = 10, with the Hodge marker identified as Curl.
+  - **The F20-invariant coupling.** κI + γC ≥ 0 exactly when κ ≥ 5|γ|.
+  - **Correction:** the note's "exact symbolic" Sylvester minors were floats in its verifier; they are exact here.
+- **The separate model's single-action threshold note and five-face join (02:17–02:18)** (`threshold_moments`, `threshold_action`, `threshold_pole_toy`, `threshold_five_faces`).
+  - **The dressed golden levels.** Located on the root-site instance at ε = 0.
+  - **Five faces of one D.** The heat, unitary, wave and resolvent readouts of an observer all start from one matrix D = YᵀKQKY, checked in noncommuting blocks through total order 4.
+  - **Corrections:**
+    - The threshold verifier's comparator coupling has rank 1.
+    - Its "positive-gap guarantee" uses K5's λ₋ inside a toy whose own stiffness gap is 2.
+- **The canon staging integration, root to flower (02:29)** (`flower_homotopy`, `flower_residues`, `flower_sections`, `flower_source`, `flower_twelve`).
+  - **The convex chiral homotopy.** It is checked on bridge_comparator's 90D comparator.
+  - **One residue for both spines.** Z₀ = 41598/41209 at ε = 3, and the regulator-free Z_rf = 40389/40000 is the same block formula at ε = 0.
+  - **No Schur reduction on a blind six (an OBSTRUCTION).**
+  - **The legal six and the auxiliary gap.** The legal six's complement has least eigenvalue 1.35007342371567…, the dressed auxiliary level.
+  - **The source pullback's geodesic term.** Checked on the model's port.
+  - **The timed flower.** Ranks 5, 11, 11, 12 and the −117 witness.
+  - **Status:** the regulator-free spine is a CONDITIONAL ledger row.
+- **The canon staging unified spectral model and action (03:01)** (`usm_bulk_heat`, `usm_spine_cubic`, `usm_relheat_words`, `usm_relheat_comparator`, `usm_relheat_laplace`, `usm_wave_dirac`).
+  - **The bulk heat series.** It comes from the closed root walks.
+  - **The spine's cubic moment.** Tr F₁₉³ = 1240 + 540α + 540α² + 400α³.
+  - **The relative heat hierarchy through Δ₄.** It is checked exactly on the comparator. D first enters Θ_rel at t³ as −Tr(WD)/2.
+  - **The spectral determinant.** It matches the relative heat exactly at the receipt's frequencies.
+  - **The doubled wave-Dirac.** Its index 0 against D19's −1 is an OBSTRUCTION that is the graded dimension count on every finite instance.
+  - **Corrections:** the verifier's index check is vacuous, and its vacuum check is a tautology.
+- **The separate model's joined motifs and native memory (03:15)** (`joined_defect_series`, `joined_current_lattice`, `joined_views`, `joined_hodge_859`, `joined_port_compare`).
+  - **The defects past their common D.** Heat t³ is 24 times wave u⁶, and heat and wave part at order 4.
+  - **The six A4 currents on the whole lattice.** Their memory 127 I₆ appears only on the infinite lattice. On the 240-root compression they are an exact eigenspace with no memory.
+  - **The six C5 views.** All 15 commutators have rank 4, and each view has one helicity line, over ℚ(√5) and mod 859.
+  - **Two inequivalent six-ports (an OBSTRUCTION).** They differ already at the first moment.
+- **The separate model's reference clock for TIME_BIND (03:16)** (`refclock_protected`, `refclock_halfreturn`, `refclock_gain`, `refclock_calibration`).
+  - **The protected mass clock.** The selected 19-source annihilates Hⁿ f_m. The model's bond-delta stand-in is not protected (OBSTRUCTION).
+  - **The mass moments.** m₅ = 338685591840 and m₆ = 75335064498405, with a certified half-return about 116 times narrower than the note's.
+  - **The 19-source covariance.** Trace 10791 = 8 × 967 + 7 × 389 + 4 × 83.
+  - **Calibration (two CONDITIONAL joins).** Constant gains cancel, and one half-return fixes ρ = τ/√κ, but not τ and κ separately.
+- **The canon's expanded root-to-flower edition (04:19)** (`canon_flower_pullback`, `canon_flower_spectral`, `canon_flower_receipt`, `canon_flower_nested`, `canon_flower_leaf`).
+  - **The conditional pullback.** It is checked on the model's commutator source. The vacuum misses the chiral zero for every α > 0, and the dressing graph carries Z₀.
+  - **The chiral supertrace.** It is −1 at every t.
+  - **The spectral shift.** It reaches the rank 19.
+  - **A nested observer's covariance moves (an OBSTRUCTION).** 10459 → 10464 and 7101 → 7106, while D19 and D45 stay fixed.
+  - **The stated leaf row.** It gives the blind line (a, 7a).
+  - **Corrections:**
+    - The receipt's gap is right to 12 significant digits.
+    - "The bath force is at least cubic" holds for the force on the source.
+    - 98/98 and 174 and 148 reconcile.
+
 **The Drive checks of 2 Nov, 00:18–01:51: eight replayed sources.** Eight units replayed the eight sources as checks (the ten-video review in two units, the ten-frontier bridges and the canon's root-to-branch note in one), and each unit was reviewed adversarially. All eight units passed after fixes. Together they add 40 checks, 43 joins (35 THEOREM, 5 OBSTRUCTION, 2 CONDITIONAL, 1 SELECTED_REFERENCE) and 109 ledger rows. No checked number failed in the W0 note, the deep-unification master, the zero-pole note, the bridges, the root-to-branch note, the torsion census or the grand adapter join; their corrections are about wording, conventions, identifications and slips that change no checked number. The ten-video review has wrong formulas and numbers, listed under its corrections. The scripts and the HTML workbench on Drive were read as data and not run; the packet zips were neither run nor unpacked.
 - **The canon's W0, Spanda and Firefly note (00:09)** (`w0_spanda`, `w0_oscillator`, `w0_subsets`, `w0_firefly`).
   - **Spanda is not the Lagrangian.** The note does not define the turn and spanda Laplacians; read on layer 22's edge tick R they are 2I − R − R⁻¹ and 2I − R² − R⁻² = GᵀG (G = R − R⁴, layer 22's Spanda). Their sum 5(I − Π_C5) shares the power sums 40 and 200 with the carrier's D², but not the third, 1000 against 1240. Every intertwiner vanishes on the eight moving directions (an OBSTRUCTION).

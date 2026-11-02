@@ -10288,6 +10288,72 @@ JOINS = [
     ("sixsite", "cycles", "the SAT6 intertwiner", "the 2-CNF AND_(i < j) (x_i OR x_j) on five variables has exactly six solutions, all true and the five with one false variable, an S5-equivariant copy of the six sites (vertex k for x_k false, the cone point for all true); T6 = [w, U w, U^2 w, U^3 w, U^4 w, F] (w = P6 e_01, F the far cycle, U the signed edge rotation) is a C5-equivariant isomorphism onto the cycles (U T6 = T6 S6, rank 6, det T6^T T6 = 1/5), one choice in the 8-dimensional Hom_C5 (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, sections I and VIII; 2 Nov)", T, "grand_sat6"),
     ("sixsite", "cycles", "no D10 map of sites to cycles", "OBSTRUCTION: the S5 characters of the six sites (1 + fix(p)) and of the cycles (tr P6 Lambda^2(p)) agree exactly on the identity and the 24 five-cycles (4 against 0 on transpositions, 3 against 0 on 3-cycles, 2 against -2 on double transpositions, 2 against 0 on 4-cycles, 1 against 0 on type (2, 3)); the pentagon's reflections are double transpositions, so no isomorphism of the sites onto the cycles is equivariant for D10, nor for F20, A5 or S5, which contain it; the toy carries no SAT-complexity content (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section I; 2 Nov)", OB, "grand_sat6"),
     ("V", "golden", "the closing edge", "the path 0-1-2-3-4 has Laplacian characteristic polynomial x (x^2 - 3x + 1)(x^2 - 5x + 5), its moving factors those of B^2 = [[2, 1], [1, 1]] and B^2 + I (B the golden companion), and the pentagon's is x (x^2 - 5x + 5)^2: closing the path turns the B^2 pair into a second B^2 + I pair, so the algebraic connectivity rises from phi^-2 = (3 - sqrt5)/2 to (5 - sqrt5)/2, by exactly 1 (the separate model's grand adapter join (OES_N44_GRAND_ALL_DOTS_JOIN_20261102.md, filed 2 Nov 01:20 UTC, section VIII's graph fact, without its neural reading; 2 Nov)", T, "grand_sat6"),
+    ("carrier", "E", "the twenty and the hundred", "the carrier's D^2 = diag(M M^T, M^T M) (chiral_closures) splits the canon's trace 40 and square-trace 200 as 20 + 20 and 100 + 100 over the vertex Gram M M^T = 3I + J (k5_roots) and the edge Gram M^T M (petersen_roots; entry 1 on the 60 ordered pairs of edges sharing a vertex); 3I + J and the signed vertex Gram B B^T = 5I - J agree entrywise up to sign, so with the split the carrier and w0_spanda's spanda sum (two copies of 5I - J) share 40 and 200 while their spectra differ (the canon's selected mathematical join (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, filed 2 Nov 01:58 UTC, section 1; 2 Nov)", T, "canon_gram_traces"),
+    ("V", "golden", "the trace-10 Laplacian", "the canon's vertex Laplacian of trace 10 is the pentagon's (or the pentagram's) graph Laplacian 2I - P - P^-1 on the five vertices, not the K5 Laplacian 5I - J of trace 20 (their sum, w0_spanda); the pentagon's characteristic polynomial x (x^2 - 5x + 5)^2, with the golden shift B^2 + I's as moving factor, is the one grand_sat6's 'the closing edge' states on this pair (notes_2137, chiral_closures), and the pentagram's is the same; D^2's trace 40 is four times 10 (the canon's selected mathematical join (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, filed 2 Nov 01:58 UTC, section 2; 2 Nov)", T, "canon_gram_traces"),
+    ("bath", "sixsite", "the hidden source moments", "the six-site port's source moments C_j = B D^j B^T (B the coupling of the origin and the five e_a + e_5 to the rest of the lattice, D the bath without them), computed exactly on the lattice for j <= 4, are c_j I + d_j J with uniform values 495, 84170, 15392365, 2961706840, 591613766250 and contrast values 183, 35366, 7104445, 1469074096, 310682501178 (C_0 and C_1 are schur_memory's V = 183I + 52J and six_site_torsion's G1 = 35366I + 8134J); they are the Schur continued fraction of the sector moments (1/G(z) = z - m_1 - sum C_j z^-(j+1)), with Hankels C0 C2 - C1^2 = 534631775 and 49359479 and shifted C1 C3 - C2^2 = 12361964429575 and 1482135721111, and H_n(C) = H_(n+1)(m) (the separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its receipt oes_034_430_h30_motif_receipt.json, propositions 1-2; 2 Nov)", T, "motif_source_moments"),
+    ("sixsite", "measure", "four source moments on twelve modes", "in each sector the two-node rule at the roots of (C0 C2 - C1^2) x^2 - (C0 C3 - C1 C2) x + (C1 C3 - C2^2), with weights fixed by C0 and C1, has both nodes in (0, 256) and positive weights (the shifted Hankels C1 C3 - C2^2 > 0 and (256 C0 - C1)(256 C2 - C3) - (256 C1 - C2)^2 > 0 keep the nodes above 0 and below 256) and reproduces C0..C3 exactly, so one uniform rule and five contrast copies realize the six-site port's first four source moments on 12 modes; it misses C4 by exactly H3/H2 > 0 (the separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its receipt oes_034_430_h30_motif_receipt.json, proposition 2; the canon's selected mathematical join (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, filed 2 Nov 01:58 UTC, section 3; 2 Nov)", T, "motif_mode_floor"),
+    ("measure", "sixsite", "the mode floors", "OBSTRUCTION: the 12 x 12 block Hankel [[C0, C1], [C1, C2]] of the six-site port's source moments has determinant 534631775 x 49359479^5 > 0 and the 18 x 18 one of C0..C4 has determinant 1694632079790338625 x 31566087163013649^5 > 0 (the 3 x 3 source Hankels per sector, which are shared_bath's 4 x 4 clique Hankels by H_3(C) = H_4(m)), so a finite realization C_j = B' D'^j B'^T needs at least 12 modes for C0..C2 and 18 for C0..C4 (no symmetry assumed); the visible 3-block Hankel of M0..M4 has the same determinant as the hidden 12 x 12 one, so the canon's 18 read on the visible side is 6 visible + 12 hidden directions for the same data (the separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its receipt oes_034_430_h30_motif_receipt.json, proposition 2; the canon's selected mathematical join (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, filed 2 Nov 01:58 UTC, section 3; 2 Nov)", OB, "motif_mode_floor"),
+    ("E8", "bath", "the spray covariance", "the walk generated by Delta = 240 - A is Poisson-many root steps: the n-step endpoint counts (total 240^n, supported for n = 2, 3 on walk_convolutions' 9361 pair and 131041 triple root sums) have mean 0 and second moment 60 n 240^(n-1) I8, so Cov(X_tau) = 60 tau I8 and E|X_tau|^2 = 480 tau exactly (n <= 3 computed, every n by the expansion of the step sum); the one-step frame sum r r^T is 2h I8 for E8's Coxeter number h = 30 (the Coxeter element's order, 240 = h x 8), so 60 = 2h and 480 = 2h x 8 (the separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its receipt oes_034_430_h30_motif_receipt.json, proposition 3; the canon's selected mathematical join (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, filed 2 Nov 01:58 UTC, section 4; 2 Nov)", T, "motif_spray"),
+    ("walks", "measure", "one infrared constant", "the motif's heat-return constant (120 pi tau)^-4 equals the local-limit constant (2 pi)^-4 det(Cov)^-1/2 of the spray's own covariance Cov = 60 tau I8 on the unimodular E8, 6C tau^-4 for the band-bottom density C E^3, C = 1/(1536 x 30^4 pi^4), and join_e8_walks's 16/pi^4 read at n = 240 tau; so the motif's bulk density coefficient 1/[6 (120 pi)^4] is the model's C exactly (identities of constants only: the heat-return asymptotic itself, Laplace's method at the band bottom, is not computed and stays conditional, as in 'the infrared exponent') (the separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its receipt oes_034_430_h30_motif_receipt.json, proposition 3; 2 Nov)", T, "motif_spray"),
+    ("cycles", "E", "flat transport from six holonomies", "on a stated instance (star transports R_0i = B, D, BD, DB^2 with B the golden companion and D = [[0, -1], [1, 0]], the other six fixed by trivial holonomy on the six fundamental triangles, R_ij = R_0i^-1 R_0j) all 37 cycles of K5 have trivial holonomy from every start in both directions, and changing one non-tree transport leaves exactly the 15 cycles through that edge nontrivial, as the telescoping argument (trivial fundamental holonomies gauge every R_ij to R_0i^-1 R_0j) says for invertible transport (the separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its receipt oes_034_430_h30_motif_receipt.json, proposition 4; 2 Nov)", T, "motif_k5_gluing"),
+    ("S5", "cycles", "the flag complement mod 859", "on notes_0030's 30 flags of K5, which read the cycles, the complement (i, {j, k}) -> (i, {l, m}) is a fixed-point-free involution R30 of trace 0 (15 + 15); 430 = 2^-1 mod 859 (prime), and P+- = 430 (I +- R30) are complementary rank-15 idempotents over F859; the 120 vertex permutations commute with R30 and have zero cross blocks mod 859, while a swap of two non-complementary flags leaves a nonzero cross block: the motif's 430 preflight on a model object (the model builds no strict H30) (the separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its receipt oes_034_430_h30_motif_receipt.json, proposition 5; the canon's selected mathematical join (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, filed 2 Nov 01:58 UTC, section 4; 2 Nov)", T, "motif_reflection_859"),
+    ("source", "kerM", "the common-phase record", "for the source z = a + ib ((a, b) in ker M + ker M, five complex coordinates) the record H = z z* on ker M (x) C has differential dz -> dz z* + z dz* with J^T J = 2|z|^2 I + 2 v v^T - 2 w w^T (v, w the real forms of z and iz), so at every z != 0 its real kernel is exactly the phase line {i t z} and its rank is 9; on each of the five patches H_jj > 0 the nine numbers H_jj, Re H_ij, Im H_ij give back H (H_ik = H_ij H_jk / H_jj) and every value is reached: five charts R_{>0} x C^4 of the source modulo its common phase (symbolic; the separate model's six-reference joint closure, filed 2 Nov 01:59 UTC, Closure B) (2 Nov)", T, "six_ref_source"),
+    ("source", "readout", "no global nine-reading chart", "OBSTRUCTION: the source shape (C^5 minus 0)/U(1) = R_{>0} x CP^4 has dimension 9 and p1 = 5u^2 != 0 (c(T CP^n) = (1 + u)^(n + 1) gives p1 = (n + 1) u^2; the complexification gives p = (1 + u^2)^5 mod u^5 with p2 = 10u^4, and Hirzebruch's L2 = (7 p2 - p1^2)/45 = 1, the signature of CP^4), so its tangent bundle is not stably trivial and no nine phase-invariant smooth readings of the source, a map to R^9 such as Herm(3) (the 092 selector's space), have rank nine at every point; the bundle theory is cited, the class arithmetic and the dimensions checked (the separate model's six-reference joint closure, filed 2 Nov 01:59 UTC, Closure B) (2 Nov)", OB, "six_ref_shape"),
+    ("bath", "sixsite", "the fourth-moment residual", "Delta^j (j <= 2) of the six-site port's site deltas, computed on the lattice, have Gram the block Hankel of M_k = c_k I + ((u_k - c_k)/6) J from the walk moments: M1, ..., M4 = 241 I - J, 58264 I - 424 J, 14121093 I - 137733 J and 3429473376 I - 40411056 J, the separate model's 'E8 moments' (root_shell_krylov's clique has the same five moment matrices); the residual of Delta^2 E off span(E, Delta E), R4 = M4 - B^T H1^-1 B, is the Schur complement of the 18 x 18 Gram H2 over H1, det H2 = det H1 det R4, of the form r_c Pc + r_u Pu and rank 6, and R4 = L - G0^2 for port_leak's leakage residual L and the memory variance G0 = M2 - M1^2 (cited: R4's sector values 49359479/183 and 106926355/99 are motif_source_moments' per-sector residuals, det H2 = 534631775 x 49359479^5 > 0 is motif_mode_floor's, the ranks 12 and 18 root_shell_krylov's, L's values port_leak's and G0 = 183 I + 52 J schur_memory's) (the separate model's six-reference joint closure, filed 2 Nov 01:59 UTC, Closure D) (2 Nov)", T, "six_ref_residual"),
+    ("cube", "pauli", "the exterior quartic", "the exterior lift dGamma: gl(4) -> M16 on Lambda* C^4, whose basis e_S sits on the four-cube's sixteen vertices, is a Lie homomorphism (on all 256 pairs of matrix units) taking diag q to the subset sums on the vertices, and for every traceless A, Tr dGamma(A)^4 - Tr (A (x) I4)^4 = 24 det A (symbolic in its 15 entries; for diagonal A, sum_S s_S^4 - 4 sum q_i^4 = 24 q1 q2 q3 q4 for all traceless q): the tensor and the exterior lift of one generator differ in quartic trace exactly when det A != 0 (the separate model's six-reference joint closure, filed 2 Nov 01:59 UTC, Closure G) (2 Nov)", T, "six_ref_quartic"),
+    ("E8", "readout", "the 45 channels' multipole filtration", "master_readout's 45 channels on the 360 sites, with their exact monomial moments sum_s c(s) s^alpha through degree 7 (doubled coordinates): every channel's moments vanish below degree 0, 1, 2, 3, 7 for the mass, linear, quadratic, wedge and dark sectors, each sector's moment map has full rank 1, 8, 26, 6, 4 at that degree, the cumulative ranks are 1, 9, 35, 41, 41, 41, 41, 45 for degrees 0..7, and every channel has an inversion parity (mass and quadratic even, the rest odd); the lexicographically first four independent degree-7 dark moment rows have determinant -1424967069597696 = -2^44 3^4, the note's witness, so its chart is doubled coordinates with master_readout's dark columns (the separate model's one-parent unification (OES_ONE_PARENT_MULTIPOLE_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:04 UTC, section 4; OES_FULL45_MULTIPOLE_FILTRATION_20261102.json, filed 01:59 UTC) (2 Nov)", T, "multipole_filtration"),
+    ("darkport", "S5", "the dark four's two onsets: degree four on the dark port's orbit, seven on N44's", "S5 permuting the first five coordinates acts on the dark four by its sign-twisted standard sgn(p)(fix(p) - 1) on both orbits (A4 x sign on the hub's norm-four sites, dark_port; on N44's four dark columns, onemodel_closures); by characters over all 120 elements: on dark_port's free orbit S5 permutes both A4 label sets (the label map alpha -> (v, w) linear of rank 8, R^8 = standard + standard) and the representation first occurs in Sym^n R^8 at n = 4 (multiplicity 3), view_closures' quartic onset of the hub's dark port; on N44's 120-site orbit of (-2, -1, 0, 1, 2, 0, 0, 0) (notes_0204) R^8 is four trivial + standard, the multiplicities in Sym^n of the standard R^4 are 0, 0, 0, 0, 0, 0, 1, 1 (n = 0..7) and the first occurrence in Sym^n R^8 is at n = 6, where the columns' oddness under x -> -x (multipole_filtration's parity) kills it, so those dark four start in degree 7 (multipole_filtration) (the separate model's one-parent unification (OES_ONE_PARENT_MULTIPOLE_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:04 UTC, section 4) (2 Nov)", T, "multipole_dark_parity"),
+    ("readout", "measure", "the five infrared exponents of the 45", "conditional on the standard Laplace-method asymptotics at the bath symbol's nondegenerate minimum (eps = 30|k|^2 + O(|k|^4) in d = 8, zero only on the lattice: notes_1250, free_chain, band_closures), a source whose first nonzero moment has degree l has unloaded heat return ~ c u^-(4 + l) with c > 0, spectral density ~ a E^(3 + l) (the law already in the model as notes_1725's 'the infrared exponent') and first resolvent branch z^(3 + l) log z; with the sector orders l = 0, 1, 2, 3, 7 of master_readout's channels (multipole_filtration: exact moments, injective at that degree) the exponents are 4, 5, 6, 7, 11 and the log orders 3, 4, 5, 6, 10, the note's tables; the Laplace and branch steps are checked symbolically on the model symbol 30|k|^2 and density lambda^n; for the unloaded bath only (the separate model's one-parent unification (OES_ONE_PARENT_MULTIPOLE_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:04 UTC, section 4; OES_ONE_PARENT_MACHINE_SPEC_20261102.json, filed 01:59 UTC) (2 Nov)", gates.CONDITIONAL, "multipole_heat_law"),
+    ("walks", "readout", "the two-step kernel behind the hidden variances", "between the 360 sites the bath's H^2 needs the full two-step kernel (A^2)_(xy) = ordered root pairs summing to y - x (over the 9361 two-root sums, walk_convolutions), not the square of the 360-site compression: they differ in 63000 entries, by 236 = 240 - 4 on the dark diagonal, and on the roots, where the compression has no root-dark bonds, by shell_channels' leakage (diagonal 184); with the truncated square the 45 channels' hidden variances would be 0, 0, 0, 0, 1 (trace 4), against master_readout's 2117, 967, 389, 127, 83 (trace 21061): on the root shell they come entirely from two-step paths through sites outside the 360 (shell_channels' sector values), and the dark's 83 is 1 + 82, 82 from outside (the separate model's moment certificate, OES_NATIVE45_FULL_PARENT_MOMENT_CERTIFICATE_20261102.json, filed 2 Nov 01:59 UTC; one-parent unification (OES_ONE_PARENT_MULTIPOLE_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:04 UTC, section 5) (2 Nov)", T, "multipole_two_step"),
+    ("kerM", "readout", "the K5 source's multipoles", "for master_readout's glue-built J15 (22 raw integer root readings, the atom matrix and positive group scales) with the dark four: the 19 monopoles vanish, the dipoles have rank 8 and the quadrupoles rank 7 (scale-independent: one scale per degree-1 atom part, row scalings on the 7 even readings), the note's counts; the C5-fixed zero vector q0 = NEAR - FAR in ker M goes to a root source with zero sum and dipole and second moment 192 A(q0) (doubled coordinates, raw reading): rank 4, trace 0, the note's quadrupolar Golden source (its Frobenius norm 1036800000 = 20 x 7200^2 is chart-dependent: 20 x 192^2 = 737280 here); the 19 sources first appear in degrees 1, 2 and 7 with dimensions 8, 7 and 4 (the zero-dipole J15 sources, 7-dimensional for any scales, have injective quadrupole; the dark four start at 7, multipole_filtration's), the machine spec's multipole_source_dimensions_at_degrees1_2_7 (the separate model's one-parent unification (OES_ONE_PARENT_MULTIPOLE_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:04 UTC, sections 2 and 4; OES_ONE_PARENT_MACHINE_SPEC_20261102.json, filed 01:59 UTC) (2 Nov)", SR, "multipole_k5_source"),
+    ("kerM", "bath", "the regulator-free threshold action", "K0 = H + J (F - S0^-1) J^T with S0 = J^T H^-1 J, on schur_zero_mode's root-site instance at eps = 0 (H = H_R = 240 I - B_R, J the 19 visible roots, F = F19 of nullity 1): S0^-1 = H_vv - B C^-1 B^T (C W0 = B^T checked), so K0 is congruent to diag(F, C): K0 >= 0 and dim ker K0 = dim ker F (1; also 5 for F = diag(D15^2, B2, B2)), K0 - J F J^T is congruent to diag(0, C) (the square completion, rank 221); the kernel vector is H^-1 J S0^-1 q0 = (q0, -C^-1 B^T q0) with Z0 = q0^T S0^-1 T0 S0^-1 q0 (T0 = J^T H^-2 J) in (1.0004099, 1.0004100), the zero eigenprojection gives J q0 the weight 1/Z0, and S_K(1)^-1 - S_H(1)^-1 = F - S0^-1 exactly; it is the eps = 0 member of schur_zero_mode's K (whose V19 = F19 - S_eps^-1) (the separate model's one-parent unification (OES_ONE_PARENT_MULTIPOLE_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:04 UTC, section 6) (2 Nov)", T, "multipole_k0_threshold"),
+    ("readout", "measure", "the block-Jacobi chain of the 45 channels", "the bath's block Lanczos chain on the 45 channels is diagonal in D-orthonormal channel coordinates at every depth (onemodel_closures' decoupling, which it argues, checked here on the lattice at orders 3 and 4: the 41 x 4 dark-root blocks of T^3 and T^4 vanish and the dark block is m_n G_d, G_d = 12(5I - J); master_readout has orders n <= 2); the note's depth-1 formulas A_0 = D^-1/2 M1 D^-1/2 and T_1^2 = D^-1/2 (M2 - M1 D^-1 M1) D^-1/2 agree with the Chebyshev algorithm in all five channels (A and D master_readout's, the mass, quadratic, cubic and dark values notes_1512's) and give the linear channel A_0 = 164628/967 and T_1^2 = 1913066793/935089 (Delta_3 = 3^2 x 11 x 19323907); every A_0 lies inside the band (0, 256); each channel measure is absolutely continuous (free_chain), so no block loses rank: the Krylov dimension is 45(n + 1) at every depth (45, 90, 135 computed on the lattice as ranks mod 2039; the note's missing cyclic-rank proof), A_k -> 128 I45 and T_k -> 64 I45, and the matrix continued fraction is five scalar Stieltjes fractions; no A_0 entry is 200, so the note's comparators (M1 = 200 D) share the bath's wave memory only through u^4 (the separate model's block-Jacobi memory-tower note (OES_BLOCK_JACOBI_MEMORY_UNIFICATION_20261102.md, filed 2 Nov 02:05 UTC, with oes_block_jacobi_memory_results.json), Theorems 1-2) (2 Nov)", T, "jacobi_channels"),
+    ("bath", "readout", "the invisible Jacobi rung", "on the note's two comparators built from the 45 channels' means and variances, H90 (hidden mode 200: bridge_comparator's) and H135 (hidden modes 180 and 220, couplings sqrt(b/2); 0 < H135 < 256 by exact minors), A, D and M1 = 200 D agree and M2 = 40000 D, 40400 D: an orthogonal rotation makes H135 the Jacobi chain A_0 = 200, T_1 = 20, A_1 = 200, its Green function D/(z + 200 - 400/(z + 200)) exceeds D/(z + 200) by 400 D/((z + 200)((z + 200)^2 - 400)) > 0 (not constant in z), the wave memory agrees through u^6 and differs by (5/4) D at u^8 (trace 26326.25, the receipt's ten coefficients), a shared hidden shift keeps Delta_2 = 400 D and T_1 = 20, and the source inertia is 1 + b/40000 against 1 + 101 b/3920400; the signed truncation identity for B (z + C)^-1 B^T holds symbolically (a reference fixture, not the bath: jacobi_channels) (the separate model's block-Jacobi memory-tower note (OES_BLOCK_JACOBI_MEMORY_UNIFICATION_20261102.md, filed 2 Nov 02:05 UTC, with oes_block_jacobi_memory_results.json), sections 1, 2, 4) (2 Nov)", SR, "jacobi_two_rung"),
+    ("bath", "readout", "fractional softening at every power", "for 0 < s < 1, 0 <= K <= M and Y* K Q K Y >= d: A^s - Y* K^s Y >= s(1 - s) d/(2 M^(2 - s)) (the reflection step symbolic, the integrals exact at s = 1/4, 1/2, 3/4, the operator steps the note's, independent of s; s = 1/2 is deep_softening's d/(8 M^(3/2))) (the separate model's block-Jacobi memory-tower note (OES_BLOCK_JACOBI_MEMORY_UNIFICATION_20261102.md, filed 2 Nov 02:05 UTC, with oes_block_jacobi_memory_results.json), section 3) (2 Nov)", T, "jacobi_fractional"),
+    ("measure", "readout", "the comparator's fractional softening", "on bridge_comparator's H90 (d = 83, M = (443 + sqrt2181)/2 its top eigenvalue, the dark block's) every channel's deficit a^s - (K^s)_11 exceeds s(1 - s) 83/(2 M^(2 - s)) at s = 1/4, 1/2, 3/4 in outward-rounded intervals, least on the dark channel; the receipt's guaranteed gaps are these bounds within 10^-18 and its minimum gaps the dark deficits within 3 x 10^-15 (float cancellation) (the separate model's block-Jacobi memory-tower note (OES_BLOCK_JACOBI_MEMORY_UNIFICATION_20261102.md, filed 2 Nov 02:05 UTC, with oes_block_jacobi_memory_results.json), section 3) (2 Nov)", SR, "jacobi_fractional"),
+    ("circle", "time", "the one-tick word", "on Z/4320, 2 x 520 - 7 x 25 - 864 = 1, so U = A^2 B^-7 T^-1 for A = U^520, B = U^25 and the tick T = U^864, the only word A^a B^b T^c of least cost |a| + |b| + |c| = 10; <A, B> = <U^5> (order 864, index 5) and Z/4320 = <5> + <864>, so only the tick moves between the five components; TIME_BIND stays UNBOUND (the separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102.md, filed 2 Nov 02:05 UTC, with oes_open_items_exact_receipt_20261102.json), Closure A; the 520/025 operator reading is the note's hypothesis) (2 Nov)", T, "open_clock_word"),
+    ("source", "cycles", "a simple source with a nondecomposable commutator", "the pair a = (1, 1, -1, -1, -1, 0, 0, 0, 0, 1), b = (1, 0, 0, -1, -1, 0, 0, 0, 1, 0) in ker M has commutator cycle [A(a), A(b)] of rank 4 with leading block w = (-1, -1, 1, -1, 1, -1), Pf(w) = 1 and Hodge marker q_H(w) = w^T Q6 H6 w = 10; decomposable sources with nondecomposable commutators were already in the model (hodge_star's two witnesses, f^T Curl f = 350 and 480): the note's is a smaller one (the separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102.md, filed 2 Nov 02:05 UTC, with oes_open_items_exact_receipt_20261102.json), Closure B) (2 Nov)", T, "open_hodge_marker"),
+    ("cycles", "waves", "the Hodge marker is Curl", "with the wedge chart W of Lambda^2 A4 onto the cycles (W^T W = Q6 = Lambda^2(I + J)), Curl W = W H6 for H6 = K Q6, so the note's Hodge quadratic q_H(w) = w^T Q6 H6 w is f^T Curl f for f = W w, = 10 Pf(w) identically, hodge_star's 2 Pf(R^T C R) with R^T C R = (I + J) C' (I + J) (the separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102.md, filed 2 Nov 02:05 UTC, with oes_open_items_exact_receipt_20261102.json), Closure B) (2 Nov)", T, "open_hodge_marker"),
+    ("S5", "cycles", "the commutator is S5-equivariant", "for all 120 vertex permutations p, [A(p a), A(p b)] = Lambda^2(p) [A(a), A(b)] on the cycles (p acting on unsigned edges for the source and by the signed second compound on the cycles; all ten pairs of a ker M basis), so with hodge_star's Lambda^2(p)^T Curl Lambda^2(p) = sgn(p) Curl the parity law q_H(W(p a, p b)) = sgn(p) q_H(W(a, b)) holds for every source pair (the note argues the general law and tests one pair) (the separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102.md, filed 2 Nov 02:05 UTC, with oes_open_items_exact_receipt_20261102.json), Closure C) (2 Nov)", T, "open_hodge_marker"),
+    ("AGL", "source", "the F20 relative invariant", "exactly the 20 maps x -> m x + t of the pentagon's affine group keep the golden contrast G5 = J - I - 2 A_C5 = -A(NEAR - FAR) up to sign, the sign being the quadratic character of m, which on F20 is sgn(p), the parity law's sign; so I_rel = q_G(x) q_H(W(a, b)) is invariant under the diagonal F20 for every x, a, b (-20 at x = e0 + e1 and the note's source, on all 20) and not under S5: the transposition (0 1) gives +20 (the separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102.md, filed 2 Nov 02:05 UTC, with oes_open_items_exact_receipt_20261102.json), Closure C) (2 Nov)", T, "open_hodge_marker"),
+    ("AGL", "rotor", "the F20-invariant coupling", "C = G5 (x) R on the five vertices and the rotor plane (R = [[2, -1], [-1, -2]], Curl on the near and far cycles) has spectrum -5 (four times), 0 (twice), 5 (four times), so kappa I + gamma C >= 0 exactly when kappa >= 5|gamma| (> 0 when >); it commutes with P_p (x) rho(p) for all 20 elements of F20 (rho the signed action on the near and far cycles), while the ten with m = 2, 3 negate G5 and R separately; among couplings G (x) R with G symmetric the F20-invariant ones are exactly the multiples of G5 (the separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102.md, filed 2 Nov 02:05 UTC, with oes_open_items_exact_receipt_20261102.json), Closure D; a selected reference stiffness, not a derived action) (2 Nov)", T, "open_golden_coupling"),
+    ("golden", "bath", "the dressed golden levels", "on schur_zero_mode's root-site instance at eps = 0 the regulator-free threshold action K0 = H_R + J (F19 - S0^-1) J^T (multipole_k0_threshold's) has, by exact inertia of its source Schur complement F19 - S0^-1 + G(-g)^-1 (C >= 184; zero_pole_instance's method, there at eps = 1), an isolated zero, gap in (1.380839, 1.38084), exactly four eigenvalues in (1.380839, 1.3819) below lam- = (5 - sqrt5)/2 and four in (3.6079, 3.618) below lam+ = (5 + sqrt5)/2: F19's golden quadruplets lam-^4, lam+^4 (the eigenvalues of B^2 + I, B the golden companion; chiral_closures), lowered by the bath by less than 0.0012 and 0.011; the note's kinetic metric M0 = S0^-1 T0 S0^-1 is I + W0^T W0, the Gram matrix of the 19 lifts H_R^-1 J S0^-1 (zero_pole_instance's Z = I + W^T W, at eps = 0), with spectrum in (1 + 1/5500, 1 + 1/131); exact on this finite instance, whose zero is gapped, while the infinite lattice's K0 has essential spectrum [0, 256] and no gap (analytic, not computed) (the separate model's single-action threshold note (OES_SINGLE_ACTION_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:18 UTC, sections 3-4) (2 Nov)", T, "threshold_action"),
+    ("bath", "readout", "five faces of one D", "the heat, unitary, erasure, wave and resolvent readouts of an observer Y of a symmetric K all start from one matrix D = Y^T K Q K Y = B B^T: in noncommuting blocks, coefficientwise through total order 4, F(t + s) - F(t) F(s) = Y^T e^(-tK) Q e^(-sK) Y (the heat face, which the grand join had stated but not replayed), its two-time unitary form and the two-time wave double-angle defect (C(t + s) + C(t - s))/2 - C(t) C(s) hold with leading terms + ts D, - ts D and + t^2 s^2 D/4, and Y^T (z + K)^-1 Y has inverse z + A - D/z + B C B^T/z^2 - B C^2 B^T/z^3 + ...; the erasure I - F*F = (Q U Y)*(Q U Y) with leading t^2 D is chiral_time's and onemodel_closures' (cited); on master_readout's 45 channels of the bath D is D45 with trace 21061 and tr D45^2 = 16021077, and on the six-site port's 15 bond roots it has trace 760 (bridge_unitary_port's, cited) (the separate model's five-face join script (verify_five_face_join.py, filed 2 Nov 02:18 UTC, read as text, not run)) (2 Nov)", T, "threshold_five_faces"),
+    ("triple", "bath", "the convex chiral homotopy", "the 19-dimensional chiral source (F19 = D19^2 at alpha = 1 with schur_zero_mode's admissible auxiliary square) placed on the first 19 channels of bridge_comparator's 90D comparator H90 in D19's order (vertices on channels 0-4, auxiliaries on the linear channels 5-8, edges on the quadratic channels 9-18) and completed at eps = 3 by V19 = F19 + B C^-1 B^T - J^T H J - 3I = F19 - (J^T (H + 3)^-1 J)^-1 (negative definite) has zero-frequency Schur complement F19 on the source; the convex family K_theta = (1 - theta) H90 + theta K19 is positive semidefinite at theta = 0, 1/10, 1/2, 9/10, 1 with nullity 0, 0, 0, 0, 1 (exact inertia through the rational congruence D = diag(I45, sqrt v)), and its five-sector covariance Y^T K_theta Q K_theta Y is diag(2117, 967 I8, 389 I26, 127 I6, 83 I4) at the five theta (at every theta by chiral_time's Q K Y = Q H Y) (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, Theorem S1; 2 Nov)", T, "flower_homotopy"),
+    ("kerM", "bath", "one residue for both spines", "the zero mode q0 (pentagon minus pentagram, in ker M) dressed on that comparator: at eps = 3 the kernel vector (q0, -C^-1 B^T q0) of K19 has Z0 = 1 + 389/203^2 = 41598/41209 (the note's 1.0094396855 and 0.9906485889 to 10^-10; at eps = 7 deep_zero_pole's 1 + 389/207^2); the regulator-free spine K_rf = H90 + J (F19 - S0^-1) J^T, S0 = J^T H90^-1 J, is entry for entry the regulated completion at eps = 0, with the one zero mode H90^-1 J S0^-1 q0 and Z_rf = 1 + 389/200^2 = 40389/40000 = 1.009725 (weight 40000/40389, the note's 0.9903686647): on the comparator both residues are 1 + 389/(200 + eps)^2, at eps = 3 and at eps = 0 (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, section 3.2 and Theorem S1b; 2 Nov)", T, "flower_residues"),
+    ("triple", "readout", "no Schur reduction on a blind six", "OBSTRUCTION: on the comparator (alpha = 1, eps = 3) the six-section of the first six coordinates in D19's 9 + 10 order (the five vertices and the first auxiliary) is orthogonal to q0, so the zero mode psi0 lies in its 84-dimensional complement and the complement block of K19 is singular (inertia 83 positive, 1 zero): no zero-frequency Schur reduction onto that six; with E6 = J19 on it, (q, h) = (0, t psi0) are static solutions, so Theorem S3's vacuum is not unique there; the first six in the K_alpha + S S^T order (the vertices and edge 01) meet q0 and their complement is positive definite (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, section 4.1 and Theorem S3; 2 Nov)", OB, "flower_sections"),
+    ("triple", "readout", "the legal six and the auxiliary gap", "the six-section spanned by q0 and the five vertices has a positive definite complement in the comparator, and Schur_6(K19) = Schur_6(F19) exactly (6 x 6 rational, with the q0 direction in its kernel), the nested Schur identity; its least complement eigenvalue and K19's least positive eigenvalue both lie in (1.3500734237156, x-], x- the smaller root of x^2 - (lam- + 967/203 + 203) x + 203 lam- (lam- = (5 - sqrt5)/2) on the invariant auxiliary block [[diag(B2, B2) + (967/203) I, sqrt967 I], [sqrt967 I, 203 I]], with x- in (1.3500734237156, 1.3500734237157): the note's 1.3500734 is the auxiliaries' dressed gap on the linear channels, to 10^-13 (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, section 4.1; 2 Nov)", T, "flower_sections"),
+    ("source", "readout", "six of nine shape directions", "the commutator reading g = W_AS(a ^ b) of the source pair is minus the commutator map applied to Im(z z*) (z = a + ib), so it factors through six_ref_source's phase-invariant record; at the rational witness ((2, 1, -1, 3, 1), (1, 3, 2, -1, 4)) its derivative has rank 6 (the pair map's generic rank, view_closures) and a 4-dimensional kernel holding the three sl(2) directions (a, -b), (0, a), (b, 0) (the wedge's fibre, observer_completion) and one more: a single-time reading through g sees 6 of the nine shape directions there, misses 3, and its derivative kernel exceeds the SL(2) frame's by one (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, section 5.1; 2 Nov)", T, "flower_source"),
+    ("source", "bath", "the pullback's geodesic term", "pulling the field's kinetic term back through Phi = E6 g(q) + h gives the source the inertia G = M_s + J_g^T J_g (J_g = Dg), and on the model's port the Euler-Lagrange acceleration term sum_ij (d_i G_kj - (1/2) d_k G_ij) v_i v_j equals J_g^T D^2 g[v, v] = 2 J_g^T g(v) identically in (q, v), the note's compulsory nonlinear term; layer 4's native equations (native.NativeSystem) are the theta = 0 case with the same term (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, Theorem S2; 2 Nov)", T, "flower_source"),
+    ("walks", "bath", "the bulk heat series", "The bath's trace per site tau(f(H)) = <delta_0, f(H) delta_0> is the binomial transform of the closed root walks: tau(H^2) = 240^2 + W_2 = 57840 and tau(H^3) = 240^3 + 3 x 240 W_2 - W_3 = 240^3 + 3 x 240^2 - 13440 = 13983360, the cubic's correction being the 13440 ordered zero-sum root triples, and tau(e^-tH) = 1 - 240t + 28920t^2 - 2330560t^3 + 141210930t^4 - ... with integer coefficients (the canon staging folder's unified spectral model and action, OES_UNIFIED_SPECTRAL_MODEL_AND_ACTION_20261102.md, filed 2 Nov 03:01 UTC, eqs (3) and (23); 2 Nov)", T, "usm_bulk_heat"),
+    ("rootgraph", "bath", "the shell as a compression", "The root-site compression 240 I - B_R has the same diagonal at every root and per-site moments 240, 57656 = 240^2 + 56 and 13862808 = 240^3 + 3 x 240 x 56 - 1512, against the bath's 240, 57840, 13983360: the second moments differ by 184, the root steps that leave the shell, and the third by 120552, so the 240-root shell is a compression, not the operator (the unified spectral model and action (filed 2 Nov 03:01 UTC), section I; 2 Nov)", T, "usm_bulk_heat"),
+    ("bath", "readout", "the relative heat hierarchy", "For a finite-rank update K = H + Y W Y^T inside an isometric observer Y, Theta_rel(t) = Tr(e^-tK - e^-tH) = sum_n (-1)^n Delta_n t^n/n!, and Delta_n = Tr(K^n - H^n) is a sum over cyclic words in H and X: Delta_1 = Tr W, Delta_2 = 2 Tr(W A) + Tr W^2, Delta_3 = 3 Tr[W (A^2 + D)] + 3 Tr(W^2 A) + Tr W^3, Delta_4 = 4 Tr[W (A^3 + A D + D A + M1)] + 4 Tr[W^2 (A^2 + D)] + 2 Tr(W A W A) + 4 Tr(W^3 A) + Tr W^4 (A = Y^T H Y, D = Y^T H Q H Y, M1 = Y^T H Q H Q H Y). At fixed W the t and t^2 coefficients do not see the bath coupling (a Schur-completed W itself depends on it, the note's caveat); the hidden covariance D first enters at t^3, as -Tr(W D)/2 (the note's 3 Tr(W D) in Delta_3), and is unchanged by a shift H + eps I; through t^8 the part linear in W is the series of -t Tr(W Y^T e^-tH Y) (generic symbolic instance and exact word counts; the unified spectral model and action (filed 2 Nov 03:01 UTC), eqs (24)-(27); 2 Nov)", T, "usm_relheat_words"),
+    ("readout", "measure", "observed against global relative heat", "The observed relative heat Tr Y^T (e^-tK - e^-tH) Y differs from Theta_rel(t) by the hidden trace Tr Q (e^-tK - e^-tH) Q, whose coefficients Tr Q (K^n - H^n) Q are 0, 0, Tr(W D) and Tr(W (A D + D A)) + 2 Tr(W M1) + Tr(W^2 D) for n = 1..4: the two agree through t^2 and first differ at t^3, by -Tr(W D) t^3/6, so the observed trace sees two of the three Tr(W D) of Delta_3 (generic symbolic instance, and exactly on the 90D comparator; the unified spectral model and action (filed 2 Nov 03:01 UTC), eqs (24) and (30); 2 Nov)", T, "usm_relheat_words"),
+    ("triple", "bath", "the relative heat of the chiral completion", "On bridge_comparator's 90D comparator at eps = 3 with the chiral source F19 on its first 19 channels and the completion V19 = F19 - (J^T (H + 3)^-1 J)^-1 (the sibling replay's flower_homotopy), the relative traces computed directly from the 90 x 90 matrices are Delta_1 = Tr V19 = -834188/203, Delta_2 = -39381365560/41209, Delta_3 = -1876763776116296/8365427 and Delta_4 = -91201900742411145656/1698181681, equal to the word formula with D = diag(2117, 967 I8, 389 I26, 127 I6, 83 I4) and M1 = 203 D; the bath's share of Delta_3 is 3 Tr(W D) = -1733059728/203; the receipt's four relative-heat floats are these to 10^-12 of their size; and |Theta_rel(t)| < t |Tr V19| <= t |V19|_1 at t = 10^-5 and 3 x 10^-5 with an exact remainder bound (the unified spectral model and action (filed 2 Nov 03:01 UTC) and its verification receipt, OES_UNIFIED_SPECTRAL_MODEL_VERIFICATION_20261102.json, filed 2 Nov 03:01 UTC; 2 Nov)", T, "usm_relheat_comparator"),
+    ("measure", "bath", "the spectral determinant and the relative heat", "On the same comparator S_K(z)^-1 - S_0(z)^-1 = V19 holds as a series in 1/z through z^-7 and exactly at the receipt's frequencies z = 3/10, 2, 19, 85, where also Tr[(z + K)^-1 - (z + H + 3)^-1] = d/dz log det(I + V19 S_0(z)) and the spectral determinant det(I + V19 S_0(z)) = det(z + K)/det(z + H + 3) > 0; log det(I + V19 S_0(z)) = sum_m (-1)^(m + 1) Delta_m z^-m/m through z^-4 with the directly computed Delta_m, so its log-derivative is int_0^oo e^-zt Theta_rel(t) dt term by term: the Laplace image of the relative heat trace, whose z^-4 coefficient -Delta_3 carries the bath as -3 Tr(W D) (the unified spectral model and action (filed 2 Nov 03:01 UTC) and its verification receipt (filed 2 Nov 03:01 UTC), eqs (28)-(29); 2 Nov)", T, "usm_relheat_laplace"),
+    ("carrier", "readout", "the doubled wave-Dirac", "On the carrier's K = D^2, sqrt K = sqrt3 P3 + 2 sqrt2 P8, and D_wave = [[0, i sqrt K], [-i sqrt K, 0]] is Hermitian, odd for diag(I, -I) and squares to diag(K, K) (the real form [[0, sqrt K], [sqrt K, 0]] is carried to it by the even unitary diag(I, iI)); e^(-iu D_wave) = e^(uG), G = [[0, sqrt K], [-sqrt K, 0]], carries Z = (sqrt K Phi, Phi') along the wave Phi'' + K Phi = 0 with |Z|^2 conserved, and a static kernel field has Z = 0, so the static kernel value must be carried separately (the unified spectral model and action (filed 2 Nov 03:01 UTC), eqs (14)-(15); 2 Nov)", T, "usm_wave_dirac"),
+    ("triple", "carrier", "the wave-Dirac against the chiral index", "OBSTRUCTION: the doubled wave-Dirac has graded kernel ker K + ker K (5 and 5 on the carrier), index 0 and supertrace Tr Gamma e^(-t D_wave^2) = 0 for every t, and grand_fock's Hodge-middle D32 (kernel on grades 0, 1, 4, 5: 6 even, 6 odd) has index 0 too, while D19 has index -1; a graded unitary equivalence keeps graded kernel dimensions, so neither is gradedly equivalent to D19, as the note says. On finite instances the index is forced by rank-nullity to be the graded dimension difference (15 - 15, 16 - 16, 9 - 10), so there the obstruction is the graded dimension count (the verifier's own index check compares a number with itself; the unified spectral model and action (filed 2 Nov 03:01 UTC), sections II, IV and VIII; 2 Nov)", OB, "usm_wave_dirac"),
+    ("golden", "triple", "the spine's cubic moment", "With F19 = K_alpha + alpha S1 S1^T, Tr F19^3 = Tr D^6 + 3 alpha Tr(D^4 L) + 3 alpha^2 Tr(D^2 L^2) + alpha^3 (Tr L^3 + Tr (P0 L_E P0)^3) = 1240 + 540 alpha + 540 alpha^2 + 400 alpha^3, symbolic in alpha, where Tr (P0 L_E P0)^3 = 2 (lam-^3 + lam+^3) = 100 from the golden pair lam+- = (5 +- sqrt5)/2; at alpha = 1 the three moments are the receipt's 80, 440, 2720 (the unified spectral model and action (filed 2 Nov 03:01 UTC), eq (7); 2 Nov)", T, "usm_spine_cubic"),
+    ("bath", "moments", "the defects past their common D", "past the common leading coefficient D = J* K Q K J = B B* of the heat, unitary, erasure, wave and resolvent defects (sibling L5's 'five faces of one D', threshold_five_faces, through total order 4; cited), the visible moments A_n = J* K^n J keep carrying the bath's hidden moments B C^k B*: in the free algebra on the blocks of K the heat composition defect X(2t) - X(t)^2 (X(t) = J* exp(-tK) J) stays the Gram form H H* (H = J* exp(-tK) Q) at t^5..t^8, with t^3 and t^4 coefficients -(AD + DA)/2 - B C B* and ADA/4 + 5(A M1 + M1 A)/12 + (A^2 D + D A^2)/6 + D^2/3 + 7 M2/12, and the Schur self-energy Sigma(s) = sum (-1)^k B C^k B*/s^(k+1) solves (s + A - Sigma) G = I at s^-5..s^-8 as well; the defects part after D (heat t^3 = 24 times the wave's u^6, deep_wave_memory's; unitary (i/2)[A, D], onemodel_closures'; Schur -B C B*) and heat and wave part at order 4 (ADA and D^2 coefficient ratios 144 and 240); on master_response's root-site instance the Schur recursion A_n = A_1 A_(n-1) + sum_k B C^k B^T A_(n-2-k) holds through n = 8, with tr B C B^T = 163860 (tr B B^T = 760 is bridge_unitary_port's) (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), sections 6-7; 2 Nov)", T, "joined_defect_series"),
+    ("bath", "readout", "the dark floor of the memory", "for a scalar channel g(s) = 1/(s + a - Sigma(s)) with Sigma(s) >= b/(s + 256) (the band bound), g(s) - 1/(s + a) >= b/[(s + 256)(s + a)^2] > 0 for every s > 0; over the four N44 sectors (a, b) = (m1, m2 - m1^2) = (184, 2117), (232, 389), (242, 127), (243, 83) (notes_1512's (a0, b1^2), master_readout's (a, m2 - a^2); cited) the least is the source-dark sector's 83/[(s + 256)(s + 243)^2], a common floor that excludes replacing any channel by its zero-memory response 1/(s + a) (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), section 7; 2 Nov)", T, "joined_defect_series"),
+    ("cycles", "A4", "the literal native current", "the note's current S = Od Phi (Phi the literal wedge map Lambda^2 V -> cycles in the basis e_i - e_4, grand_lorentz's W; Od the hub's odd port e_ij -> delta(e_i - e_j) - delta(e_j - e_i)) is supported on exactly the twenty A4 roots with S^T S = 2G (parity_ports' T_O = Od/sqrt2 an isometry of the cycles; notes_0204's Sg^T Sg = 2 Gp in its basis); G = 5 P5 + P1 with complementary rank-3 projectors, so (2G)^(-1/2) = (P1 + P5/sqrt5)/sqrt2 exactly and J_w = S (2G)^(-1/2) is an isometry of the six cycle coordinates into l2 of the lattice (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), section 2; 2 Nov)", T, "joined_current_lattice"),
+    ("A4", "bath", "the six currents on the whole lattice", "Delta applied twice to the six currents on the full E8 lattice (the note's route) gives union supports 20, 2330 and 54170, and all 180 entries of M0..M4 equal 2G mu_n (mu = 1, 242, 58691, 14259954, 3470101592): parity_ports' identity Pc Od^T Delta^n Od Pc/2 = mu_n Pc pulled back by Phi, cited with its root-pair route, band_closures' cubic sector at every order and walk_convolutions' 9361 two-root sums, here re-derived once in the note's coordinates; so J_w^T Delta^n J_w = mu_n I6, A_w = 242 I6, D_w = 127 I6. On the 240-root compression the currents are an eigenspace (H_R S = 242 S: the root graph's -2, notes_0204's and onemodel_closures'; cited), so there their hidden coupling is 0 and their moments 2G x 242^n: the root shell shows no memory, and the lattice's D_w = 127 I6 enters at M2 (58564 against 58691) (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), section 5; 2 Nov)", T, "joined_current_lattice"),
+    ("rotor", "cycles", "six overlapping views, one nested flag", "the note's six C5 views E_i on Lambda^2 V are notes_1751's petals and, through Phi, pair_frame's Sylow fixed planes of the cycles; all 15 commutators E_i E_j - E_j E_i have rank 4; the analysis map z -> (E_i z)_i has V*V = 2I (notes_1751's sum of the petals) and V V* with spectrum 2^6 0^30, so a reconstruction error is at most |eta|/sqrt2 and the bound is attained; the nested coordinate projectors N_k (rank k, N_i N_j = N_min(i,j)) form a flag, the views do not, and N_1..N_5 do not commute with the Hodge operator R6 that every view commutes with (view_closures' Curl, through sibling L4's Curl W = W H6; cited) (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), section 3; 2 Nov)", T, "joined_views"),
+    ("cycles", "waves", "one helicity line per view", "through the literal map Phi (grand_lorentz's W, equivariant with the note's rho: Phi rho(p) = Lambda^2(p) Phi for all 120 vertex permutations) each of the six C5 views, pair_frame's Sylow fixed planes of the cycles, has tr(R6 E_i) = 0 against the Hodge operator R6 = S_wedge G it commutes with, so it holds one +sqrt5 and one -sqrt5 helicity line of Curl (rank(P+- E_i) = 1 over Q(sqrt5)); cited, not recomputed: R6 is sibling L4's H6 with Curl Phi = Phi R6 (open_hodge_marker), R6^2 = 5I with 3 + 3 eigenvalues +-sqrt5 notes_2137's, R6 rho(p) = sgn(p) rho(p) R6 hodge_star's, and the commuting view_closures' (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), sections 2 and 4; 2 Nov)", T, "joined_hodge_859"),
+    ("rotor", "waves", "the 859 preflight on the views", "mod 859 (prime, 430 = 2^-1: sibling L1's motif_reflection_859, cited; 306^2 = 553^2 = 5, the only square roots) h_bar = 306^-1 R6 is an involution and P_bar+- = 430 (I +- h_bar) are complementary rank-3 idempotents with rank(P_bar+- E_i) = 1 for all six views, the characteristic-zero ranks; the root 553 swaps the pair; on the 120 vertex permutations the 60 even ones have zero cross blocks and the 60 odd ones zero same-parity blocks (and nonzero cross blocks), so a cross-block test is valid only for maps declared even, as the note says (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), section 4; 2 Nov)", T, "joined_hodge_859"),
+    ("sixsite", "triangle", "two inequivalent six-ports", "OBSTRUCTION: the six-site port (orthonormal deltas at the origin and the five e_a + e_5) and the six odd currents (the triangle port's S5 orbit, normalized by J_w) are ports of one bath with different moment matrices at every order 1..4 (cited, not recomputed: the six-site matrices M_n = c_n I + (u_n - c_n) J/6 are sibling L2's six_ref_residual's with port_leak's walk moments, M1 = 241 I - J port_moments', D = 183 I + 52 J schur_memory's, the currents' mu_n I6 joined_current_lattice's): the numerical range [235, 241] of M1 misses 242, the traces of D are 1410 against 762, and at every order the spectra differ; no orthogonal U intertwines them at any single order, so no port equivalence preserving the parent and the observation exists (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), sections 1 and 5; 2 Nov)", OB, "joined_port_compare"),
+    ("bath", "source", "the protected mass clock", "the uniform root-shell state f_m = (1/sqrt240) sum_r delta_r spans a cyclic space that the selected 19-source annihilates: for master_readout's J15 (image in the linear and quadratic root sectors, 8 + 7 dimensions) and its four dark currents on the 120-site orbit, J19^* H^n f_m = 0, exactly on the lattice for n <= 5 (sqrt240 H^n f_m is constant on the 240 roots, where it is the walk route's m_n, constant on the dark orbit and inversion-even) and at every n by W(E8)-transitivity on the roots (join_e8_measure) and the dark currents' oddness under x -> -x (multipole_filtration's parity); so K = H + J19 V19 J19^* moves no moment of f_m (through order 12 from the computed depth; at every order by the note's reducing-subspace step) and <f_m, cos(u sqrt K) f_m> = <f_m, cos(u sqrt H) f_m> for every fixed V19 with K >= 0, and the 19 ports neither drive nor read this clock (the separate model's reference-clock note TIME_BIND_REFERENCE_CLOCK.md, filed 2 Nov 03:16 UTC in PAGE_0001, with its receipt verification(20261102-030733).json, section 2; 2 Nov)", T, "refclock_protected"),
+    ("sixsite", "bath", "the bond-root source moves the clock", "the model's finite stand-in for the 19-source (deltas at the six-site port's 15 bond roots e_i + e_5, e_i - e_j and at e_i + e_6, i < 4: schur_zero_mode, zero_pole_instance) is not protected: J^* f_m = 1_19/sqrt240, so <f_m, K f_m> = 184 + 1^T V19 1/240, 184 + 19/240 at V19 = I; the 15 bond deltas alone (master_response) or beside the dark four (chiral_dark) move it alike through the root block; the reference clock needs the selected image (zero-sum root columns, odd dark currents), not only rank 19 (reference-clock note, filed 2 Nov 03:16 UTC, section 2; 2 Nov)", OB, "refclock_protected"),
+    ("walks", "moments", "the mass clock's moments", "the mass channel's moments are the binomial transform of the closed-walk counts, m_n = (1/240) sum_k C(n, k) 240^(n - k) (-1)^k W_(k+2) (data/walks90.json), equal for n <= 5 to the root value of sqrt240 H^n f_m (refclock_protected's shell route); m0..m4 = 1, 184, 35973, 7355136, 1556789920 are the model's (notes_0101, join_e8_triangle, band_closures; the note's five, all holding, though it recomputed only m1 and m2), and new: m5 = 338685591840 and m6 = 75335064498405, with m5 <= 256 m4 and m6 <= 256 m5, as the support [0, 256] requires (reference-clock note, filed 2 Nov 03:16 UTC, section 3; 2 Nov)", T, "refclock_halfreturn"),
+    ("moments", "measure", "the certified half-return", "c_m(u) = int cos(u sqrt(lambda)) dmu_m first crosses 1/2 inside (892853037828096677, 892854727289957321)/11529215046068469760, in (0.0774426562, 0.0774428029): exact endpoint signs of P8 -+ 256 m4 u^10/10! in Fractions, strict decrease on (0, pi/16) (support [0, 256], m1 > 0) and hi < 3/16 < pi/16; the 3/4 and 1/4 events lie in (0.0533563658, 0.0533563705) and (0.0976866055, 0.0976879526) and the scale-free model ratios u_3/4/u_1/2, u_1/4/u_1/2 in [0.68897772, 0.68897909] and [1.26140328, 1.26142307], as the note prints (read as ratios of observed times, T_3/4/T_1/2 and T_1/4/T_1/2, they are conditional: 'one half-return fixes rho'); with the exact m5 and m6 (P10, remainder m6 u^12/12!) u_half lies in (0.0774426666, 0.0774426679), about 116 times narrower, and the model ratios in (0.68897892, 0.68897894) and (1.26140666, 1.26140693) (the separate model's reference-clock note TIME_BIND_REFERENCE_CLOCK.md, filed 2 Nov 03:16 UTC in PAGE_0001, with its receipt verification(20261102-030733).json, section 4; 2 Nov)", T, "refclock_halfreturn"),
+    ("source", "readout", "the nineteen-port hidden covariance", "the selected 19-source (master_readout's J15 and dark four) has block-diagonal hidden covariance: the dark currents meet the roots neither in H (master_readout's zero root-dark block) nor in H^2 (H^2 d vanishes on all 240 roots, though the root-dark block of H^2 does not) and their block is scalar (mean 243, second moment 59132, variance 83: master_readout, notes_0204), so J19^T H Q19 H J19 = diag(967 P3 + 389 (P0 + P8), 83 I4), eigenvalues 967^8 (the linear channel), 389^7 (the quadratic) and 83^4 (the dark), trace 10791 = 8 x 967 + 7 x 389 + 4 x 83; the 45 channels' 21061 exceeds it by 10270 = 2117 + 19 x 389 + 6 x 127, the mass channel, the other 19 quadratics and the six wedge currents (reference-clock note, filed 2 Nov 03:16 UTC, section 6; 2 Nov)", T, "refclock_gain"),
+    ("readout", "calibration", "the gain cancels", "if background-subtracted raw transfers are M(t) = L C(t) R with constant invertible L, R and C(0) = I, the zero-time normalization N(t) = M(t) M(0)^-1 = L C(t) L^-1 removes R, and Xi_N = N''''(0) - N''(0)^2 = L D L^-1/rho^4: on the 45 channels tr Xi_N = 21061/rho^4, so deep_observer_algebra's rho = (21061/tr Xi_N)^(1/4) holds for every such gain and mixing (mock rho = 4/3 recovered exactly with L = I + 5U, R = I + 3U^T), and on the 19-source rho = (10791/tr Xi_19)^(1/4); Xi_N need not be symmetric or Euclidean-positive (x^T Xi_N x < 0 on that instance, spectrum >= 83/rho^4); a physical transfer of this form is an external input (reference-clock note, filed 2 Nov 03:16 UTC, section 6; 2 Nov)", gates.CONDITIONAL, "refclock_gain"),
+    ("bath", "calibration", "one half-return fixes rho", "if a verified realization reads r(t) = c_m((t - t0)/rho) from a pure mass preparation (not reachable through the 19 source ports), one measured proper-time interval T to the first r = 1/2 gives T/hi <= rho <= T/lo, a relative width < 1.9 x 10^-6 (< 1.7 x 10^-8 with P10), with no golden coupling (the clock is blind to V19) and no fourth derivative; the observed ratios T_3/4/T_1/2 and T_1/4/T_1/2 then lie in the model ratios' intervals [0.68897772, 0.68897909] and [1.26140328, 1.26142307] (refclock_halfreturn), the note's zero-parameter predictions; a level error e_r widens the bracket as the note's calculator says; tau and kappa stay apart unidentified ((c tau, c^2 kappa) keeps rho, video_ten_fisher), an address n mod 4320 forgets the winding, and the interval, preparation and readout are external inputs: TIME_BIND stays UNBOUND (reference-clock note, filed 2 Nov 03:16 UTC, sections 5 and 7; 2 Nov)", gates.CONDITIONAL, "refclock_calibration"),
+    ("source", "triple", "the pullback's vacuum misses the chiral zero", "pulling the 19D action back to the ten-dimensional source through an isometry iota of the cycles into R^19 (the edition's conditional construction; on the instance iota is the cycles' inclusion into the edge block, the source is the model's commutator port and W_p = I), the reduced static potential V_s + x^T F19 x/2 (x = iota g) satisfies Euler's identity q . grad V = q^T diag(W, W) q + 2|g|^2 + 2 g^T F_E g with W positive definite, so q = 0 is its only critical point; there its Hessian is diag(W, W), M_s^-1 diag(W, W) = 4 I10 and the source-bath cross block vanishes; and F19 on the cycles, F_E = M^T M + alpha L_E, has determinant (96/125) alpha^3 (7 alpha + 8)(2 alpha^2 + 12 alpha + 9) > 0 for alpha > 0 (nullity 3 at alpha = 0, where ker M meets the cycles in a three-space), so the chiral zero mode is never a direction of the pullback and the October vacuum's 4^10 survives (the canon's expanded root-to-flower edition (OES_CANON_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 04:19 UTC in PAGE_0001), section II.3; 2 Nov)", T, "canon_flower_pullback"),
+    ("source", "bath", "the dressing graph carries the zero pole's norm", "on the verifier's 90D comparator (eps = 3; the source's ten edges on quadratic channels of variance 389, hidden partners at 203) the pulled-back source's frozen-background bath coupling is D_q = J_x^T B B^T J_x = 389 J_g^T J_g, homogeneous of degree 2, zero at the vacuum and of rank 6 at a rational witness; the static dressing graph q -> (x(q), -C^-1 B^T x(q)) has metric M_s + J_x^T (I + B C^-2 B^T) J_x = M_s + (41598/41209) J_g^T J_g, the factor being the dressed zero pole's norm Z0 (the sibling replay's flower_residues), the q0-entry of deep_zero_pole's G(0) = I + B C^-2 B^T; and the bath is driven at second order (|B^T x|^2 = 389 |g|^2) and acts back on the source at third (the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC, sections II.1 and II.3 (S9)-(S12); 2 Nov)", T, "canon_flower_pullback"),
+    ("triple", "golden", "the chiral supertrace", "the two chiral halves of D19^2 are M M^T + alpha L_V with the auxiliary block alpha S1 S1^T (vertices and auxiliaries) and M^T M + alpha L_E (edges), and det(x - M^T M - alpha L_E) = x det(x - M M^T - alpha L_V) (x^2 - 5 alpha x + 5 alpha^2)^2 with det(x - M M^T - alpha L_V) = (x - 8)((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^2, symbolic in alpha: the golden cycle Laplacians give both halves one nonzero spectrum, so Tr Gamma f(F19) = -f(0) for every f, the supertrace Tr(Gamma e^-tF19) is -1 at every t and the heat trace is 1 + 2 e^-8t + 4 sum [e^-t alpha lam + e^-t(3 + alpha lam)] (the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC, section III.1, (B1) and (B3); 2 Nov)", T, "canon_flower_spectral"),
+    ("bath", "measure", "the source's spectral shift reaches its rank", "on the verifier's comparator (alpha = 1, eps = 3) the completion V19 = F19 + B C^-1 B^T - J^T H J - 3I is negative definite and the spectral shift xi(lambda) = #{K19 < lambda} - #{H + 3I < lambda} (exact inertia) is 1, 5, 9, 19, 19, 18, 0, 0 at lambda = 1, 3/2, 4, 9, 148, 150, 200, 260, reaching the rank 19; with Weyl interlacing (0 <= xi <= 19 everywhere) the relative heat action Z_rel(t) = t int xi(l) e^-tl dl lies in [0, 19] for every t, a uniform bound for the edition's dilution theorem: the relative heat per site of an N-site box is at most 19/N (the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC, section III.2, (B4) and (B6); 2 Nov)", T, "canon_flower_spectral"),
+    ("readout", "bath", "a nested observer's covariance moves", "OBSTRUCTION: on bridge_comparator's H90 + 3I in master_readout's sector layout, with the 19-source (linear 1-8, quadratic 9-15, dark 41-44; trace 10791, the sibling replay's refclock_gain) and a rational source correction V (one dark channel coupled to two linear ones by 1 and 2; 3I + V positive definite, so K = H + 3I + J V J^T > 0), the full 45 and the source-complete 19 keep their first hidden covariance exactly (21061, 10791), while the source's J15 moves from 10459 to 10464 and N44's native 21 (mass, the ten carrier quadratics 9-18 in master_readout's order, wedge, dark four) from 7101 to 7106, the edition's four numbers; on the comparator the change is the Gram V_(S cap J, J - S) V_(J - S, S cap J), so invariance of the 45 does not pass to a nested observer (the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC, sections IV.1 and IV.1b; 2 Nov)", OB, "canon_flower_nested"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -35021,6 +35087,4347 @@ def grand_registry():
     }
 
 
+# ------------------------------------------------------------------- the canon's selected mathematical join (2 Nov 01:58): the Gram traces and the motifs
+
+def canon_gram_traces():
+    """The canon's selected mathematical join (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, filed 2 Nov 01:58 UTC
+    in OES_20261102_THREE_LAYER_UNIFICATION), sections 1-2, read as data. Already in the model and cited, not
+    repeated: M M^T = 3I + J with eigenvalues 8 and 3^4 and B B^T = 5I - J (k5_roots); M^T M as the Gram matrix of the
+    roots e_i + e_j, diagonal 2, entry 1 for edges sharing a vertex and 0 for disjoint ones (petersen_roots); D^2 =
+    D15^2 = diag(M M^T, M^T M) (chiral_closures) with spectrum 0^5 3^8 8^2 and power sums 40, 200, 1240 and its heat
+    trace (carrier, master_readout, w0_spanda); the spanda sum's 0^2 5^8 and its 40 and 200 as twice the trace 20 and
+    square-trace 100 of 5I - J, with pentagon plus pentagram = 5I - J (w0_spanda); B^2 + I = [[3, 1], [1, 2]] with
+    characteristic polynomial x^2 - 5x + 5 (chiral_closures, grand_sat6) and the pentagon's Laplacian x (x^2 - 5x +
+    5)^2 (notes_2137, grand_sat6's 'the closing edge'). New: the split of 40 and 200 over the two Grams, the entrywise
+    match of the signless and signed vertex Grams, which vertex Laplacian has the canon's trace 10, and the
+    pentagram's Laplacian polynomial."""
+    M = sp.Matrix(carrier.signless_incidence())
+    Bs = sp.Matrix(carrier.signed_incidence())
+    I5 = sp.eye(5)
+    x = sp.Symbol("x")
+    Vg, Eg = M * M.T, M.T * M                                          # vertex and edge Grams
+    K = Bs * Bs.T
+    D2 = sp.Matrix(carrier.D2())
+    sq = lambda X: sum(v ** 2 for v in X)
+    off = [Eg[a, b] for a in range(10) for b in range(10) if a != b]
+    P = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))           # the vertex five-cycle
+    Lp = 2 * I5 - P - P.T                                              # the pentagon's graph Laplacian
+    Lq = 2 * I5 - P ** 2 - (P ** 2).T                                  # the pentagram's
+    return {
+        "the carrier's two Grams each carry half of the canon's traces: the vertex Gram M M^T = 3I + J (k5_roots) and "
+        "the edge Gram M^T M (petersen_roots; its entry 1 sits on exactly 60 ordered pairs of edges sharing a vertex) "
+        "each have trace 20 and squared-entry sum 100, and D^2 = diag(M M^T, M^T M) (chiral_closures) has trace and "
+        "square-trace their sums, so its 40 and 200 (w0_spanda) are 20 + 20 and 100 + 100":
+            Vg.trace() == Eg.trace() == 20 and sq(Vg) == sq(Eg) == 100 and off.count(1) == 60
+            and D2.trace() == Vg.trace() + Eg.trace() and (D2 ** 2).trace() == sq(Vg) + sq(Eg),
+        "the signless vertex Gram 3I + J and the signed one B B^T = 5I - J (k5_roots) agree entrywise up to sign (both "
+        "have diagonal 4 and off-diagonal entries of modulus 1), so they share trace 20 and squared-entry sum 100 while "
+        "their spectra differ (8, 3^4 against 0, 5^4, k5_roots): with the split above (M^T M carrying the same 20 and "
+        "100 as M M^T), this match is why the carrier and the spanda sum (two copies of 5I - J, w0_spanda) share 40 and "
+        "200":
+            Vg != K and Vg.applyfunc(abs) == K.applyfunc(abs) and Vg.diagonal() == K.diagonal()
+            and (K.trace(), sq(K)) == (Vg.trace(), sq(Vg)),
+        "the canon's vertex Laplacian of trace 10 is the pentagon's (or the pentagram's) graph Laplacian 2I - P - "
+        "P^-1 on the five vertices, not the K5 Laplacian 5I - J = B B^T of trace 20 = 2 x 10 (their sum, w0_spanda's); "
+        "the pentagon's characteristic polynomial x (x^2 - 5x + 5)^2, with the golden shift B^2 + I's as moving factor, "
+        "is notes_2137's and grand_sat6's (the closing edge), and the pentagram's is the same; D^2's trace 40 is four "
+        "times 10":
+            Lp.trace() == Lq.trace() == 10 and K.trace() == 2 * Lp.trace()
+            and sp.expand(Lq.charpoly(x).as_expr() - x * (x ** 2 - 5 * x + 5) ** 2) == 0
+            and D2.trace() == 4 * Lp.trace(),
+    }
+
+
+def _motif_source_lattice():
+    """C_j = B D^j B^T (j = 0..4) for the six-site port (the origin and the five e_a + e_5), exactly on the lattice:
+    v = Q Delta delta_y, w = Q Delta v, z = Q Delta w (Q kills the six sites), and C_0..C_4 = <v, v>, <v, w>, <w, w>,
+    <w, z>, <z, z>. Points are encoded as integers (doubled coordinates plus 32, base 64), so a root step is an
+    addition of keys. Returns the five 6 x 6 matrices and the support sizes of v, w, z."""
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    base = 64 ** np.arange(8, dtype=np.int64)
+    renc = R2 @ base
+    e8 = np.eye(8, dtype=np.int64)
+    sites = [np.zeros(8, dtype=np.int64)] + [2 * (e8[a] + e8[5]) for a in range(5)]
+    skeys = np.array([int((s + 32) @ base) for s in sites], dtype=np.int64)
+
+    def qlap(k, v):                                                    # Q Delta on a finitely supported vector
+        allk = np.concatenate([k, (k[:, None] + renc[None, :]).ravel()])
+        allv = np.concatenate([240 * v, -np.repeat(v, 240)])
+        uk, inv = np.unique(allk, return_inverse=True)
+        out = np.zeros(len(uk), dtype=np.int64)
+        np.add.at(out, inv.ravel(), allv)
+        keep = (out != 0) & ~np.isin(uk, skeys)
+        return uk[keep], out[keep]
+
+    def ip(a, b):
+        _, ia, ib = np.intersect1d(a[0], b[0], assume_unique=True, return_indices=True)
+        return int(a[1][ia] @ b[1][ib])
+    vec = []
+    for s in skeys:
+        v = qlap(np.array([s], dtype=np.int64), np.array([1], dtype=np.int64))
+        w = qlap(*v)
+        vec.append((v, w, qlap(*w)))
+    pairs = [(0, 0), (0, 1), (1, 1), (1, 2), (2, 2)]
+    C = [sp.Matrix(6, 6, lambda x, y: ip(vec[x][a], vec[y][b])) for a, b in pairs]
+    return C, sorted({tuple(len(f[0]) for f in t) for t in vec})
+
+
+def _motif_schur(m, N):
+    """The source moments C_0..C_(N-1) of a scalar moment sequence m (m_0 = 1) by the Schur continued fraction:
+    with G(w) = sum m_k w^(k+1) (w = 1/z), 1/G = 1/w - m_1 - sum_j C_j w^(j+1)."""
+    w = sp.Symbol("w")
+    G = sum(m[k] * w ** (k + 1) for k in range(N + 2))
+    S = sp.expand(1 / w - m[1] - sp.series(1 / G, w, 0, N + 1).removeO())
+    return [S.coeff(w, j + 1) for j in range(N)]
+
+
+def motif_source_moments():
+    """The separate model's motif cross-court (oes_034_430_h30_motif_crosscourt.txt, filed 2 Nov 01:58 UTC, and its
+    receipt oes_034_430_h30_motif_receipt.json), propositions 1-2, read as data. Already in the model and cited, not
+    repeated: B B^T = 183I + 52J with eigenvalues 495 and 183^5, so the six-site port is not Delta-invariant
+    (schur_memory); B D B^T = 35366I + 8134J and the Smith form of the pair (six_site_torsion); the sector moments and
+    their Hankels through size 11 (port_leak, from the walk counts), the 4 x 4 ones being shared_bath's. New: the
+    source moments C_j = B D^j B^T through j = 4, computed on the lattice (its j = 0, 1 values are those cited); their
+    identity with the Schur continued fraction of the sector moments; the receipt's Hankel values."""
+    C, supp = _motif_source_lattice()
+    c, u = _sector_moments(8)
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    uni = [sum(C[j].row(0)) for j in range(5)]                        # value on the all-ones line
+    con = [C[j][0, 0] - C[j][0, 1] for j in range(5)]                  # value on the contrasts
+    split = all(C[j] == con[j] * I6 + C[j][0, 1] * J6 and 6 * C[j][0, 1] == uni[j] - con[j] for j in range(5))
+    Su, Sc = _motif_schur(u, 5), _motif_schur(c, 5)
+    H = lambda m, n, a=0: sp.Matrix(n, n, lambda i, j: m[a + i + j]).det()
+    ms = sp.symbols("m1:7")
+    mg = [1] + list(ms)
+    Cg = _motif_schur(mg, 4)
+    gen = all(sp.expand(sp.together(H(Cg, n) - H(mg, n + 1))) == 0 for n in (1, 2))
+    # per sector, the residual of Delta^2 on span(delta, Delta delta): m4 - [m2, m3] [[m0, m1], [m1, m2]]^-1 [m2; m3]
+    res = lambda m: m[4] - (sp.Matrix([[m[2], m[3]]]) * sp.Matrix([[m[0], m[1]], [m[1], m[2]]]).inv()
+                            * sp.Matrix([m[2], m[3]]))[0]
+    return {
+        "the six-site port's source moments C_j = B D^j B^T (B the bath's coupling from the six sites, the origin and the "
+        "five e_a + e_5, to the rest of the lattice; D the bath with the six sites removed), computed exactly on the "
+        "lattice for j = 0..4 (supports 235, 9340 and 131000 points), are c_j I + d_j J with uniform values 495, 84170, "
+        "15392365, 2961706840, 591613766250 and contrast values 183, 35366, 7104445, 1469074096, 310682501178; the j = 0, "
+        "1 values are schur_memory's V = 183I + 52J and six_site_torsion's G1 = 35366I + 8134J (cited), and the "
+        "receipt's C0..C3 are these":
+            split and supp == [(235, 9340, 131000)]
+            and uni == [495, 84170, 15392365, 2961706840, 591613766250]
+            and con == [183, 35366, 7104445, 1469074096, 310682501178],
+        "they are the Schur continued fraction of the port's sector moments (_sector_moments, from the walk counts): in "
+        "each sector, with G(z) = sum m_k z^-(k+1), 1/G(z) = z - m_1 - sum_j C_j z^-(j+1) through j = 4; so C_2 = "
+        "X^T Delta^2 X - C_0^2 for port_leak's 7137934 and 15637390":
+            Su == uni and Sc == con
+            and 7137934 - 183 ** 2 == con[2] and 15637390 - 495 ** 2 == uni[2],
+        "the receipt's Hankel values: C0 C2 - C1^2 = 534631775 (uniform) and 49359479 (contrast), and the shifted C1 C3 "
+        "- C2^2 = 12361964429575 and 1482135721111, all positive; the source Hankel is the port's moment Hankel one "
+        "size up, H_n(C) = H_(n+1)(m), symbolically for n = 1, 2 (generic moments m_1..m_6, m_0 = 1) and on both "
+        "sectors for n = 1, 2, 3 (port_leak has the moment Hankels positive through size 11); per sector the residual "
+        "of Delta^2 on the span of the site delta and its first image, m4 - [m2, m3] [[m0, m1], [m1, m2]]^-1 [m2; m3], "
+        "computed from the sector moments, is (C0 C2 - C1^2)/C0 = 49359479/183 (contrast) and 534631775/495 = "
+        "106926355/99 (uniform): the sector values of six_ref_residual's R4":
+            [H(uni, 2), H(con, 2)] == [534631775, 49359479]
+            and [H(uni, 2, 1), H(con, 2, 1)] == [12361964429575, 1482135721111]
+            and gen and all(H(C_, n) == H(m_, n + 1) for C_, m_ in ((uni, u), (con, c)) for n in (1, 2, 3))
+            and res(c) == sp.Rational(H(con, 2), con[0]) == sp.Rational(49359479, 183)
+            and res(u) == sp.Rational(H(uni, 2), uni[0]) == sp.Rational(106926355, 99),
+    }
+
+
+def motif_mode_floor():
+    """The motif cross-court's proposition 2 and the canon's 'the two-point gap asks for 12 modes, the three-moment
+    Hankel already asks for 18' (OES_UNIFIED_MATH_LAGRANGIAN_SPECTRAL_20261102.md, section 3), on the six-site port's
+    source moments (motif_source_moments; here from the sector moments by the Schur continued fraction). Already in
+    the model and cited: every block Hankel of a root-shell port is positive definite and its Krylov ranks are 6, 12,
+    18, ... (root_shell_krylov); six_ref_residual has the visible 18 x 18 Gram as det H1 det R4; the clique's 4 x 4
+    sector moment Hankels 1694632079790338625 and 31566087163013649 (shared_bath), which are the 3 x 3 source Hankels
+    H_3(C) here by H_n(C) = H_(n+1)(m) (motif_source_moments), cited, not repeated. New: the hidden-mode counts with
+    their contracts, the 12-mode realization of four source moments, the 18 x 18 block Hankel's factorization over
+    the sectors, and the two readings of the canon's 18."""
+    c, u = _sector_moments(8)
+    Cu, Cc = _motif_schur(u, 5), _motif_schur(c, 5)
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    Cm = [Cc[j] * I6 + (Cu[j] - Cc[j]) / 6 * J6 for j in range(5)]    # C_j = c_j P_contrast + u_j P_uniform
+    blk = lambda n: sp.Matrix(sp.BlockMatrix([[Cm[i + j] for j in range(n)] for i in range(n)]))
+    H = lambda m, n, a=0: sp.Matrix(n, n, lambda i, j: m[a + i + j]).det()
+    B12, B18 = blk(2), blk(3)
+    Mv = [c[k] * I6 + (u[k] - c[k]) / 6 * J6 for k in range(5)]       # the visible moment blocks M_0..M_4
+    V18 = sp.Matrix(sp.BlockMatrix([[Mv[i + j] for j in range(3)] for i in range(3)]))
+
+    def two_node(C):                                                   # the two-node rule from C0..C3
+        h2, s, b = H(C, 2), H(C, 2, 1), C[0] * C[3] - C[1] * C[2]
+        p = lambda t: h2 * t ** 2 - b * t + s
+        Q = [C[0], C[1]]
+        for _ in range(3):
+            Q.append((b * Q[-1] - s * Q[-2]) / h2)                     # moments of a rule on the roots of p
+        inside = (b ** 2 - 4 * h2 * s > 0 and p(0) > 0 and p(256) > 0 and 0 < b / (2 * h2) < 256
+                  and p(sp.Rational(C[1], C[0])) < 0
+                  and p(256) == (256 * C[0] - C[1]) * (256 * C[2] - C[3]) - (256 * C[1] - C[2]) ** 2)
+        return inside, Q
+    gu, gc = two_node(Cu), two_node(Cc)
+    return {
+        "12 modes are needed for C_0, C_1, C_2: the 12 x 12 block Hankel [[C0, C1], [C1, C2]] has determinant "
+        "534631775 x 49359479^5 > 0, so rank 12, and a finite realization C_j = B' D'^j B'^T (j = 0, 1, 2) on n modes "
+        "has n >= 12, the block Hankel factoring through the n modes as [B'; B'D'][B'^T, D'B'^T] (a dimension count): "
+        "the motif's 2 uniform + 2 x 5 contrast floor, with no symmetry assumed":
+            B12.shape == (12, 12) and B12.det() == 534631775 * 49359479 ** 5 and H(Cu, 2) * H(Cc, 2) ** 5 > 0
+            and all(Cm[j] == Cm[j].T and all(v.is_integer for v in Cm[j]) for j in range(5)),
+        "12 modes suffice for C_0..C_3: in each sector the rule with two nodes at the roots of p(x) = (C0 C2 - C1^2) "
+        "x^2 - (C0 C3 - C1 C2) x + (C1 C3 - C2^2) and weights fixed by C0 and C1 has p's discriminant positive, p(0) = "
+        "C1 C3 - C2^2 > 0 (the Hankel of x C), p(256) = (256 C0 - C1)(256 C2 - C3) - (256 C1 - C2)^2 > 0 (the Hankel "
+        "of (256 - x) C), its vertex in (0, 256) and p(C1/C0) < 0, so both nodes lie in (0, 256), on either side of "
+        "the mean, and both weights are positive; its moments, which obey p's recurrence, are C0, C1, C2, C3 exactly: "
+        "two such rules (one uniform, five contrast copies) are a 12-mode diagonal realization of C_0..C_3; the "
+        "receipt's shifted Hankel C1 C3 - C2^2 > 0 keeps the nodes positive (with p(256) > 0 below 256) without "
+        "raising the floor":
+            gu[0] and gc[0] and gu[1][:4] == Cu[:4] and gc[1][:4] == Cc[:4],
+        "18 modes are needed for C_0..C_4: C_4 = 591613766250 (uniform) and 310682501178 (contrast), the 18 x 18 block "
+        "Hankel has determinant H_3(C_u) H_3(C_c)^5, the 3 x 3 Hankels of C0..C4 per sector (shared_bath's 4 x 4 clique "
+        "Hankels 1694632079790338625 and 31566087163013649, through H_3(C) = H_4(m), motif_source_moments), so rank 18, "
+        "and the two-node rules miss C_4 by exactly H_3/H_2 > 0: the canon's 'three-moment Hankel' asking for 18 = 3 + "
+        "3 x 5 is the 3 x 3 Hankel of the five source moments C_0..C_4":
+            [Cu[4], Cc[4]] == [591613766250, 310682501178]
+            and B18.det() == H(Cu, 3) * H(Cc, 3) ** 5 != 0
+            and Cu[4] - gu[1][4] == sp.Rational(H(Cu, 3), H(Cu, 2)) > 0 and Cc[4] - gc[1][4] == sp.Rational(H(Cc, 3), H(Cc, 2)) > 0,
+        "read on the visible side, the canon's 18 is the same data as its 12: the 18 x 18 block Hankel of the three "
+        "visible moment blocks [M_(i+j)] (M_0 = I, M_1 = 241I - J, ..., M_4; the rank 18 is root_shell_krylov's, the "
+        "Gram six_ref_residual's) has "
+        "determinant 534631775 x 49359479^5, the 12 x 12 hidden Hankel's, since M_0 = I and one Schur step takes the "
+        "visible Hankel to the hidden one: 18 = 6 visible + 12 hidden directions for C_0..C_2, while 18 hidden modes "
+        "need C_0..C_4":
+            Mv[0] == I6 and Mv[1] == 241 * I6 - J6 and V18.shape == (18, 18)
+            and V18.det() == 534631775 * 49359479 ** 5 == B12.det() and 6 + 12 == 18 == 3 + 3 * 5,
+    }
+
+
+def motif_spray():
+    """The motif cross-court's proposition 3 (the E8 spray and its heat normalization) and the canon's section 4 ('the
+    real-root spray covariance is 60 tau on each of eight axes ... 480 tau'). Already in the model and cited: the root
+    moments 60, 36, 30 and the symbol 30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6 (e8_anisotropy, notes_0255), W_0..W_4 = 1, 0,
+    240, 13440, 1260720 and the binomial transform E_n (walks_join, port_moments), the local limit of W_n
+    (join_e8_walks), the density E^3/(1536 x 30^4 pi^4) at the band bottom and its heat tail (notes_0255, infrared),
+    the supports 9361 and 131041 of the pair and triple root sums with total 240^3 (walk_convolutions), the Coxeter
+    element's order 30 (video_heterotic, join_e8_grain's 60 = 2h), sum alpha alpha^T = 2h P for A4 and D5
+    (k5_roots). New: the walk's covariance from the endpoint distributions, 2h for E8's frame, and the identity of the
+    motif's constants with the model's (cited by threshold_moments for the single-action note). The heat-return
+    asymptotic itself (Laplace's method at the band bottom) is not computed here: only the identities of its
+    constants are."""
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    base = 64 ** np.arange(8, dtype=np.int64)
+    renc = R2 @ base
+    I8 = sp.eye(8)
+    k, cnt = np.array([int(32 * base.sum())], dtype=np.int64), np.array([1], dtype=np.int64)
+    mom = []
+    for n in range(1, 4):                                              # N_n(x) = <delta_x, A^n delta_0>
+        allk = (k[:, None] + renc[None, :]).ravel()
+        k, inv = np.unique(allk, return_inverse=True)
+        c_ = np.zeros(len(k), dtype=np.int64)
+        np.add.at(c_, inv.ravel(), np.repeat(cnt, 240))
+        cnt = c_
+        X = (k[:, None] // base[None, :]) % 64 - 32                    # doubled coordinates
+        mom.append((len(k), int(cnt.sum()), [int(v) for v in cnt @ X], sp.Matrix((X.T * cnt) @ X)))
+    t, E = sp.symbols("tau E", positive=True)
+    n = sp.Symbol("n", integer=True, nonnegative=True)
+    cov = sp.simplify(sp.exp(-240 * t) * sp.summation(60 * n * 240 ** (n - 1) * t ** n / sp.factorial(n), (n, 0, sp.oo)))
+    Cb = 1 / (1536 * 30 ** 4 * sp.pi ** 4)                             # the band-bottom density E^3 coefficient
+    ret = (120 * sp.pi * t) ** -4
+    h = spine.mat_order(spine.coxeter())                               # the Coxeter element's order
+    S1 = mom[0][3] / 4                                                 # sum_r r r^T, from the one-step endpoints
+    covm = S1 * t                                                      # 240 tau steps of covariance S1/240 each
+    return {
+        "the walk generated by Delta = 240 - A (A the sum of the 240 root translations; exp(-tau Delta) = e^(-240 tau) "
+        "sum tau^n A^n/n! since 240 I commutes with A) is Poisson-many root steps: the n-step endpoint counts N_n(x) = "
+        "<delta_x, A^n delta_0> (total 240^n, on the 240 roots and walk_convolutions' 9361 pair sums and 131041 triple "
+        "sums for n = 1, 2, 3) have mean 0 and second moment "
+        "sum N_n(x) x x^T = 60 n 240^(n-1) I8 (= n 240^(n-1) sum r r^T; 4 times that in the stored doubled "
+        "coordinates), computed for n = 1, 2, 3; for every n this is the expansion of (r_1 + ... + r_n)(r_1 + ... + "
+        "r_n)^T over the 240^n step sequences, whose cross terms vanish since sum_r r = 0 (the n = 1 mean; the "
+        "expansion is stated, not computed), and e^(-240 tau) sum_n 60 n 240^(n-1) tau^n/n! "
+        "= 60 tau: Cov(X_tau) = 60 tau I8 and E|X_tau|^2 = 480 tau, exactly":
+            all(m[2] == [0] * 8 and m[3] == 4 * 60 * (j + 1) * 240 ** j * I8 for j, m in enumerate(mom))
+            and sp.simplify(cov - 60 * t) == 0 and 8 * 60 == 480,
+        "60 = 2h for E8's Coxeter number h = 30, the order of the Coxeter element s1 ... s8 (spine), which is also "
+        "the root count over the rank, 240 = h x 8: the one-step frame sum r r^T computed above is 2h I8 (k5_roots has "
+        "the same 2h for A4 and D5), so the per-axis rate is 2h and E|X|^2's 480 = 2h x 8: the spray is fixed by the "
+        "Coxeter number (and the band symbol's 30|k|^2, cited, is h |k|^2); 'not the Coxeter number 30' holds only as "
+        "the integer inequalities 60 != 30 and 480 != 30":
+            h == 30 and len(R2) == h * 8 and S1 == 2 * h * I8 and 60 == 2 * h and 480 == 2 * h * 8
+            and 60 != 30 and 480 != 30,
+        "the heat-return constant: on E8 (unimodular, join_e8_walks) the local-limit constant (2 pi)^-4 det(Cov)^-1/2 "
+        "for the covariance Cov = 60 tau I8 computed above is (120 "
+        "pi tau)^-4; it is 6C tau^-4 for the model's band-bottom density C E^3, C = 1/(1536 x 30^4 pi^4) (a density "
+        "c E^3 has heat tail 6c tau^-4, infrared), so the motif's bulk density coefficient 1/[6 (120 pi)^4] is C exactly, "
+        "and it is join_e8_walks's 16/pi^4 read at n = 240 tau: (16/pi^4)(240 tau)^-4 = (120 pi tau)^-4 (identities of "
+        "constants only; that the heat return behaves as (120 pi tau)^-4, Laplace's method at the band bottom, is not "
+        "computed)":
+            covm == 60 * t * I8 and sp.simplify((2 * sp.pi) ** -4 / sp.sqrt(covm.det()) - ret) == 0
+            and sp.simplify(6 * Cb * t ** -4 - ret) == 0 and sp.simplify(1 / (6 * (120 * sp.pi) ** 4) - Cb) == 0
+            and sp.simplify(16 / sp.pi ** 4 * (240 * t) ** -4 - ret) == 0
+            and sp.simplify(sp.integrate(sp.exp(-t * E) * Cb * E ** 3, (E, 0, sp.oo)) - ret) == 0,
+    }
+
+
+def motif_k5_gluing():
+    """The motif cross-court's proposition 4 (K5 coiled-roll gluing): flat transport from the six fundamental
+    holonomies of the star spanning tree, on a stated instance. Already in the model and cited, not repeated: the six
+    triangles 0ij (the fundamental cycles of the star at vertex 0) span the cycle space over Q (notes_0030), and mod 2
+    they are independent with the 64 even subgraphs of K5 as their sums, the cuts being the complement
+    (join_cube_cycles: the receipt's 10 edges, 6 loops and 64 cycle masks); 125 spanning trees (notes_0117)."""
+    V = range(5)
+    tree = [(0, i) for i in range(1, 5)]
+    chords = [e for e in itertools.combinations(V, 2) if e not in tree]
+    B = sp.Matrix([[1, 1], [1, 0]])
+    D = sp.Matrix([[0, -1], [1, 0]])
+    g = {0: sp.eye(2), 1: B, 2: D, 3: B * D, 4: D * B ** 2}
+    Rt = {}
+    for i in range(1, 5):
+        Rt[(0, i)] = g[i]
+    for i, j in chords:
+        Rt[(i, j)] = g[i].inv() * g[j]                                   # trivial holonomy on 0 -> i -> j -> 0
+    cyc = {}
+    for L in (3, 4, 5):
+        for S in itertools.combinations(V, L):
+            for p in itertools.permutations(S[1:]):
+                walk = (S[0],) + p
+                cyc.setdefault(frozenset(tuple(sorted((walk[a], walk[(a + 1) % L]))) for a in range(L)), walk)
+
+    def hol(R, walk):
+        out = sp.eye(2)
+        for a in range(len(walk)):
+            s, t_ = walk[a], walk[(a + 1) % len(walk)]
+            out = out * (R[(s, t_)] if s < t_ else R[(t_, s)].inv())
+        return out
+    rots = lambda w: [w[a:] + w[:a] for a in range(len(w))] + [(w[::-1])[a:] + (w[::-1])[:a] for a in range(len(w))]
+    flat = all(hol(Rt, r) == sp.eye(2) for w in cyc.values() for r in rots(w))
+    Rb = dict(Rt)
+    Rb[(1, 2)] = Rt[(1, 2)] * B
+    broken = [es for es, w in cyc.items() if hol(Rb, w) != sp.eye(2)]
+    return {
+        "on a stated instance the six triangle holonomies decide flatness: with the star transports R_0i = B, D, BD, DB^2 "
+        "(B the golden companion, D = [[0, -1], [1, 0]], invertible over Z, not commuting) and each of the six other "
+        "R_ij fixed by trivial holonomy on its fundamental triangle 0 -> i -> j -> 0 (R_ij = R_0i^-1 R_0j, so every "
+        "cycle's holonomy telescopes: the general argument, here tested rather than proved), "
+        "every one of the 37 cycles of K5 (10 triangles, 15 four-cycles, 12 five-cycles), from every start and in both "
+        "directions, has holonomy I; changing the one transport R_12 to R_12 B leaves exactly the 15 cycles through "
+        "the edge 12 with nontrivial holonomy (compressed partial transports are not tested)":
+            len(chords) == 6 and B * D != D * B and len(cyc) == 37 and Counter(len(s) for s in cyc) == Counter({3: 10, 4: 15, 5: 12})
+            and flat and len(broken) == 15 and all((1, 2) in es for es in broken)
+            and sum(1 for es in cyc if (1, 2) in es) == 15,
+    }
+
+
+def motif_reflection_859():
+    """The motif cross-court's proposition 5 (the 430 preflight) and the canon's 'a synthetic 30-state involution
+    splits as 15 and 15; modulo 859, 430 is the inverse of 2', replayed on a 30-state involution the model has: the
+    complement on notes_0030's 30 flags of K5. It is an instance only: the model builds no strict H30 and no R30 =
+    Gamma_F Sigma_end."""
+    p = 859
+    V = range(5)
+    flags = [(i, j, k) for i in V for j, k in itertools.combinations([a for a in V if a != i], 2)]
+    fid = {f: n for n, f in enumerate(flags)}
+    comp = [fid[(i, *sorted(set(V) - {i, j, k}))] for i, j, k in flags]
+    R = np.zeros((30, 30), dtype=np.int64)
+    R[comp, range(30)] = 1
+    I30 = np.eye(30, dtype=np.int64)
+    Pp, Pm = (430 * (I30 + R)) % p, (430 * (I30 - R)) % p
+
+    def rank_mod(A):                                                   # rank over F_p by elimination
+        A = [[int(v) % p for v in row] for row in A]
+        r = 0
+        for c in range(len(A[0])):
+            piv = next((i for i in range(r, len(A)) if A[i][c]), None)
+            if piv is None:
+                continue
+            A[r], A[piv] = A[piv], A[r]
+            inv = pow(A[r][c], -1, p)
+            A[r] = [v * inv % p for v in A[r]]
+            for i in range(len(A)):
+                if i != r and A[i][c]:
+                    A[i] = [(a - A[i][c] * b) % p for a, b in zip(A[i], A[r])]
+            r += 1
+        return r
+
+    def perm(s):
+        T = np.zeros((30, 30), dtype=np.int64)
+        for n, (i, j, k) in enumerate(flags):
+            T[fid[(s[i], *sorted((s[j], s[k])))], n] = 1
+        return T
+    S5 = [perm(s) for s in itertools.permutations(V)]
+    cross = lambda T: ((Pm @ T % p) @ Pp % p, (Pp @ T % p) @ Pm % p)
+    swap = I30.copy()
+    swap[[0, 1]] = swap[[1, 0]]
+    Rs = sp.Symbol("R", commutative=False)
+    half = (1 + Rs) / 2
+    return {
+        "859 is prime and 2 x 430 = 860 = 1 mod 859, so 430 = 2^-1 in F859; for an involution R the halves (I +- R)/2 "
+        "are idempotent (((1 + R)/2)^2 = (1 + R)/2 when R^2 = 1, symbolically), so mod 859 the projectors are "
+        "430 (I +- R)":
+            sp.isprime(859) and 2 * 430 == 860 and 860 % 859 == 1 and pow(2, -1, 859) == 430
+            and sp.expand(half ** 2 - half).subs(Rs ** 2, 1) == 0,
+        "on the 30 flags (i, {j, k}) of K5 the complement (i, {j, k}) -> (i, {l, m}) is a fixed-point-free involution "
+        "R30 of trace 0, so its +1 and -1 spaces have dimension 15 and 15 (ranks of I +- R30 over Q); mod 859 P+- = "
+        "430 (I +- R30) are idempotents with P+ + P- = I and P+ P- = 0, each of rank 15 over F859":
+            np.array_equal(R @ R, I30) and int(np.trace(R)) == 0 and all(comp[n] != n for n in range(30))
+            and sp.Matrix(I30 + R).rank() == 15 and sp.Matrix(I30 - R).rank() == 15
+            and np.array_equal(Pp @ Pp % p, Pp) and np.array_equal(Pm @ Pm % p, Pm)
+            and np.array_equal((Pp + Pm) % p, I30) and not (Pp @ Pm % p).any()
+            and rank_mod(Pp) == 15 and rank_mod(Pm) == 15,
+        "the cross-block test: the 120 vertex permutations act on the flags commuting with R30, and all their cross "
+        "blocks P- T P+ and P+ T P- vanish mod 859; the transposition of the flags (0, {1, 2}) and (0, {1, 3}), which "
+        "are not complements, does not commute with R30 and leaves a nonzero cross block mod 859 (integer entries, so "
+        "an exact rejection); notes_0030's flag reader is odd, R30 F = -F (checked there), so it lies in the 15 "
+        "dimensions of P-":
+            len(S5) == 120 and all(np.array_equal(T @ R, R @ T) for T in S5)
+            and all(not x.any() for T in S5 for x in cross(T))
+            and comp[0] != 1 and not np.array_equal(swap @ R, R @ swap) and any(x.any() for x in cross(swap)),
+    }
+
+
+def motif_d14_table():
+    """The motif cross-court's proposition 6 and the receipt's D14_conditional_table (oes_034_430_h30_motif_receipt.json,
+    filed 2 Nov 01:58 UTC), checked as representation arithmetic on explicit rational modules. Conditional: the model supplies no
+    native C7 or D14 action on a 30-dimensional object, so the table is a capacity count, not a statement about one."""
+    x = sp.Symbol("x")
+    phi7 = sp.Poly(sum(x ** k for k in range(7)), x)
+    red = lambda q: sp.Poly(sp.rem(sp.Poly(q, x), phi7), x)
+    col = lambda q: [red(q).as_expr().coeff(x, k) for k in range(6)]
+    gT = sp.Matrix.hstack(*[sp.Matrix(col(x ** (k + 1))) for k in range(6)])        # multiplication by x on Q[x]/Phi7
+    rT = sp.Matrix.hstack(*[sp.Matrix(col(x ** ((7 - k) % 7))) for k in range(6)])  # x -> x^-1
+    irr = {"W+": (sp.eye(1), sp.eye(1)), "W-": (sp.eye(1), -sp.eye(1)), "T": (gT, rT)}
+    ok_irr = all(g_ ** 7 == sp.eye(g_.rows) and r_ ** 2 == sp.eye(g_.rows) and r_ * g_ * r_ == g_ ** 6
+                 for g_, r_ in irr.values())
+    tr = {k: (g_.trace(), r_.trace()) for k, (g_, r_) in irr.items()}
+    sols = [(p_, q_, b) for b in range(6) for p_ in range(31) for q_ in range(31)
+            if p_ + q_ + 6 * b == 30 and p_ * tr["W+"][1] + q_ * tr["W-"][1] + b * tr["T"][1] == 0]
+    rows = []
+    for p_, q_, b in sols:
+        g = sp.diag(sp.eye(p_ + q_), *([gT] * b)) if b else sp.eye(30)
+        r = sp.diag(sp.eye(p_), -sp.eye(q_), *([rT] * b))
+        fixed = 30 - (g - sp.eye(30)).rank()
+        even = 30 - sp.Matrix.vstack(g - sp.eye(30), r - sp.eye(30)).rank()
+        odd = 30 - sp.Matrix.vstack(g - sp.eye(30), r + sp.eye(30)).rank()
+        rows.append((b, fixed, g.trace(), even, odd, fixed >= 6, even >= 6,
+                     g ** 7 == sp.eye(30) and r ** 2 == sp.eye(30) and r * g * r == g ** 6 and r.trace() == 0))
+    receipt = [(0, 30, 30, 15, 15, True, True), (1, 24, 23, 12, 12, True, True), (2, 18, 16, 9, 9, True, True),
+               (3, 12, 9, 6, 6, True, True), (4, 6, 2, 3, 3, True, False), (5, 0, -5, 0, 0, False, False)]
+    reg = sp.Matrix(7, 7, lambda a, b: int(a == (b + 1) % 7))
+    gray = sp.diag(*([reg] * 6))
+    return {
+        "D14 over Q: on W+ (trivial), W- (g -> 1, R -> -1) and T = Q[x]/Phi7 (g multiplication by x, R: x -> x^-1; "
+        "Phi7 irreducible) g^7 = I, R^2 = I and R g R = g^-1, with (tr g, tr R) = (1, 1), (1, -1), (-1, 0); so a "
+        "30-dimensional W+^p + W-^q + T^b with tr R = 0 has exactly p = q = 15 - 3b, b = 0..5, and tr g = 30 - 7b":
+            ok_irr and phi7.is_irreducible and tr == {"W+": (1, 1), "W-": (1, -1), "T": (-1, 0)}
+            and sols == [(15 - 3 * b, 15 - 3 * b, b) for b in range(6)],
+        "the receipt's table, row by row on these modules (b; g-fixed 'white' dimension 30 - 6b; rotation trace 30 - "
+        "7b; reflection-even and -odd fixed dimensions 15 - 3b; the two capacity flags are the inequalities 30 - 6b "
+        ">= 6 (b <= 4) and 15 - 3b >= 6 (b <= 3), read as: an equivariant map from six C7-fixed lines lands in the "
+        "C7-fixed space, and a D14-equivariant one from six reflection-even lines in the W+ part, so rank 6 needs "
+        "that dimension >= 6; the dimensions and inequalities are computed, no detector is built): (0; 30, 30, 15, "
+        "15, yes, yes) to (5; 0, -5, 0, 0, no, no), as filed; the Gray model 6 Reg_C7 (42 dimensions) has exactly six "
+        "C7-fixed lines":
+            [r_[:7] for r_ in rows] == receipt and all(r_[7] for r_ in rows)
+            and gray.shape == (42, 42) and 42 - (gray - sp.eye(42)).rank() == 6,
+    }
+
+
+# ------------------------------------------------------------------- the separate model's six-reference joint closure (2 Nov 01:59)
+
+def six_ref_source():
+    """The separate model's six-reference joint closure (2 Nov, filed 01:59 UTC), Closure B: the native source
+    z = a + ib modulo its common phase. The record H = z z* is constant along the phase orbit e^(i theta) z; its
+    differential dH(dz) = dz z* + z dz* is real-linear from C^5 = R^10 into the 5 x 5 Hermitian matrices. The Gram of its
+    real Jacobian is computed symbolically for every z, which gives the kernel and the rank at every nonzero z
+    (source_phase has rank 9 for ten particular readings at one witness only); the instance is the hub's witness pair
+    from _source. The five patch charts H_jj > 0 are checked both ways. That the fibres of z -> z z* are exactly the
+    phase orbits (z z* = w w* iff w = e^(i theta) z) is elementary and cited."""
+    a, b = sp.symbols("a0:5", real=True), sp.symbols("b0:5", real=True)
+    x, y = sp.symbols("x0:5", real=True), sp.symbols("y0:5", real=True)
+    z = [a[k] + sp.I * b[k] for k in range(5)]
+    dz = [x[k] + sp.I * y[k] for k in range(5)]
+    dH = [sp.expand(dz[k] * sp.conjugate(z[m]) + z[k] * sp.conjugate(dz[m])) for k in range(5) for m in range(5)]
+    J = sp.Matrix([sp.re(e) for e in dH] + [sp.im(e) for e in dH]).jacobian(list(x) + list(y))   # 50 x 10
+    v = sp.Matrix(list(a) + list(b))                                     # z, real form
+    w = sp.Matrix([-t for t in b] + list(a))                             # i z, real form
+    n2 = sum(t ** 2 for t in a + b)                                      # |z|^2
+    gram = (J.T * J).applyfunc(sp.expand)
+    _, N5, _, _, a0, b0 = _source()                                      # the hub's witness, in N5 coordinates
+    ca, cb = [list((N5.T * N5).inv() * N5.T * vec) for vec in (a0, b0)]
+    z0 = {**dict(zip(a, ca)), **dict(zip(b, cb))}
+    H = sp.Matrix(5, 5, lambda i, k: sp.expand(z[i] * sp.conjugate(z[k])))
+    t = sp.Symbol("t", positive=True)
+    p, q = sp.symbols("p0:4", real=True), sp.symbols("q0:4", real=True)
+    c = [p[m] + sp.I * q[m] for m in range(4)]
+    charts = True
+    for j in range(5):
+        h = c[:j] + [t] + c[j:]
+        Hh = sp.Matrix(5, 5, lambda i, k: sp.expand(h[i] * sp.conjugate(h[k]) / t))
+        charts = (charts and Hh[j, j] == t and all(sp.expand(Hh[i, j] - h[i]) == 0 for i in range(5))
+                  and Hh == Hh.H and Hh.rank() == 1)
+    return {
+        "for z = a + ib in C^5 (ten real symbols: the source's state (a, b) in a real basis of ker M), the real-linear map "
+        "dz -> dz z* + z dz* into the 5 x 5 Hermitian matrices, written as its 50 x 10 real Jacobian J (real and imaginary "
+        "parts of the 25 entries), has J^T J = 2|z|^2 I10 + 2 v v^T - 2 w w^T identically, where v = (a, b) and "
+        "w = (-b, a) are the real forms of z and iz, v.w = 0, |w|^2 = |v|^2 = |z|^2 and J w = 0; so at every z != 0 "
+        "J^T J has eigenvalues 4|z|^2 (on z), 2|z|^2 (eight times) and 0 (on iz): the real kernel of dH is exactly the "
+        "phase line {i t z} and its rank is 9 = 10 - 1 (symbolic; at the hub's witness a = (-1, -1, -2, 1, -1), "
+        "b = (-1, -2, -1, -2, 0) in sympy's nullspace basis of M, J has rank 9 and J^T J - 2|z|^2 I rank 2)":
+            J.shape == (50, 10) and gram == (2 * n2 * sp.eye(10) + 2 * v * v.T - 2 * w * w.T).applyfunc(sp.expand)
+            and sp.expand((v.T * w)[0]) == 0 and sp.expand((w.T * w)[0] - n2) == 0 and sp.expand((v.T * v)[0] - n2) == 0
+            and (J * w).applyfunc(sp.expand).is_zero_matrix
+            and (gram * v - 4 * n2 * v).applyfunc(sp.expand).is_zero_matrix
+            and (ca, cb) == ([-1, -1, -2, 1, -1], [-1, -2, -1, -2, 0])
+            and J.subs(z0).rank() == 9 == 10 - 1 and (gram - 2 * n2 * sp.eye(10)).subs(z0).rank() == 2,
+        "on each of the five patches H_jj > 0 of H = z z*, the nine real numbers H_jj, Re H_ij and Im H_ij (i != j; "
+        "1 + 2 x 4 = 9) give back H by H_ik = H_ij H_jk / H_jj (H_ij H_jk = H_jj H_ik for all i, j, k, a polynomial "
+        "identity in a, b), and every t > 0 with c in C^4 is reached: for h the vector with t at j and c elsewhere, "
+        "h h*/t = (h/sqrt t)(h/sqrt t)* is Hermitian of rank 1 with H_jj = t and H_ij = c_i. Each patch is a chart "
+        "R_{>0} x C^4 = R^9 of the nonzero rank-one positive matrices, the source modulo its common phase (symbolic)":
+            all(sp.expand(H[i, j] * H[j, k] - H[j, j] * H[i, k]) == 0 for j in range(5) for i in range(5) for k in range(5))
+            and charts and 1 + 2 * 4 == 9,
+    }
+
+
+def six_ref_shape():
+    """Closure B's global no-go (2 Nov, filed 01:59 UTC). The Chern-class arithmetic is checked twice, for every n
+    through c1^2 - 2 c2 and on CP^4 through the complexification, with Hirzebruch's L2 as a test of p1 and p2;
+    notes_0154 and notes_2343 have p1(CP^4) = 5u^2 by the first route, and notes_0154 already records in words that a
+    rank-9 map is excluded into a parallelizable target such as Herm(3); here it becomes a join. The bundle theory
+    (Whitney sum, homotopy invariance, stable triviality of a parallelized manifold, the inverse function theorem) is
+    cited, not checked."""
+    u, n = sp.symbols("u n")
+    upto = lambda f, k: sum((sp.expand(f).coeff(u, i) * u ** i for i in range(k)), sp.Integer(0))
+    cn1, cn2 = n + 1, sp.binomial(n + 1, 2)                              # c(T CP^n) = (1 + u)^(n + 1)
+    c = upto((1 + u) ** 5, 5)                                            # c(T CP^4), u^5 = 0
+    cC = upto((1 + u) ** 5 * (1 - u) ** 5, 5)                            # c(T (x) C) = c(T) c(T-bar)
+    p = sum((-1) ** k * cC.coeff(u, 2 * k) * u ** (2 * k) for k in range(3))
+    p1, p2 = p.coeff(u, 2), p.coeff(u, 4)
+    return {
+        "c(T CP^n) = (1 + u)^(n + 1) gives c1 = (n + 1) u and c2 = C(n + 1, 2) u^2, so p1 = c1^2 - 2 c2 = (n + 1) u^2 "
+        "for every n (symbolic in n), 5u^2 on CP^4 (c = 1 + 5u + 10u^2 + 10u^3 + 5u^4)":
+            sp.simplify(sp.expand_func(cn1 ** 2 - 2 * cn2) - (n + 1)) == 0
+            and [c.coeff(u, i) for i in range(5)] == [1, 5, 10, 10, 5] and c.coeff(u, 1) ** 2 - 2 * c.coeff(u, 2) == 5,
+        "the same class through the complexification: c(T (x) C) = (1 + u)^5 (1 - u)^5 = 1 - 5u^2 + 10u^4 mod u^5, and "
+        "p_k = (-1)^k c_2k(T (x) C) gives p = 1 + 5u^2 + 10u^4 = (1 + u^2)^5 mod u^5: p1 = 5u^2 again and p2 = 10u^4; "
+        "Hirzebruch's L2 = (7 p2 - p1^2)/45 is (70 - 25)/45 = 1 on [CP^4], its signature (u^4[CP^4] = 1)":
+            cC == 1 - 5 * u ** 2 + 10 * u ** 4 and sp.expand(p - upto((1 + u ** 2) ** 5, 5)) == 0
+            and (p1, p2) == (5, 10) and sp.Rational(7 * p2 - p1 ** 2, 45) == 1,
+        "OBSTRUCTION: the source shape Q = (C^5 minus 0)/U(1) = R_{>0} x CP^4 has dimension 1 + 2 x 4 = 9 = 10 - 1 "
+        "(six_ref_source's rank) and T Q = R + T CP^4, so p1(T Q) = 5u^2, nonzero in H^4(Q; Z) = Z u^2: T Q is not "
+        "stably trivial. Hence no smooth map Q -> R^9, nine phase-invariant readings of the source (for instance into "
+        "Herm(3), of dimension 3 + 2 x 3 = 9, the 092 selector's space), has rank nine at every point: it would be a "
+        "local diffeomorphism and trivialize T Q. Cited: the bundle theory; checked: the class and the dimensions":
+            p1 != 0 and c.coeff(u, 1) ** 2 - 2 * c.coeff(u, 2) == p1 and 1 + 2 * 4 == 9 == 10 - 1
+            and 3 + 2 * comb(3, 2) == 9,
+    }
+
+
+def six_ref_court():
+    """Closure C (2 Nov, filed 01:59 UTC) and the receipt's 092 commutator Gram, exactly. protection has the ranks
+    8 and 9 and the rounded determinant in floating point; here the form is identified symbolically with the
+    receipt's matrix over Z[i], its kernel is found and the anchored matrix is shown positive definite (notes_0252
+    has the factorization 176173056 = 2^12 3^6 59). The distinct mediator H8 is checked symbolically (real symmetric
+    case)."""
+    K = [sp.diag(0, 1, 3), sp.ones(3, 3)]
+    basis = []
+    for i in range(3):
+        E = sp.zeros(3, 3)
+        E[i, i] = 1
+        basis.append(E)
+    for i, j in itertools.combinations(range(3), 2):
+        X = sp.zeros(3, 3)
+        X[i, j] = X[j, i] = 1
+        Y = sp.zeros(3, 3)
+        Y[i, j], Y[j, i] = sp.I, -sp.I
+        basis += [X, Y]
+    com = lambda Km, X: Km * X - X * Km
+    G = sp.Matrix(9, 9, lambda r, s: sp.expand(sum(((com(Km, basis[r]).H * com(Km, basis[s])).trace() for Km in K),
+                                                    sp.Integer(0))))
+    xs = sp.Matrix(sp.symbols("x0:9", real=True))
+    Xs = sum((xs[k] * basis[k] for k in range(9)), sp.zeros(3, 3))
+    form = sp.expand(sum(((com(Km, Xs).H * com(Km, Xs)).trace() for Km in K), sp.Integer(0)))
+    tr = sp.Matrix([B.trace() for B in basis])
+    A = G + tr * tr.T
+    unit = [B / sp.sqrt((B.H * B).trace()) for B in basis]                # unit Frobenius norm
+    An = sp.Matrix(9, 9, lambda r, s: sum(((com(Km, unit[r]).H * com(Km, unit[s])).trace() for Km in K),
+                                          sp.Integer(0)) + unit[r].trace() * unit[s].trace())
+    # the distinct mediator: V6 (0-5), ell_Sak (6), ell_r (7)
+    A6 = sp.Matrix(6, 6, lambda i, j: sp.Symbol("h%d%d" % (min(i, j), max(i, j))))
+    bv, (d, zz) = sp.Matrix(sp.symbols("g0:6")), sp.symbols("d z")
+    H8 = sp.zeros(8, 8)
+    H8[:6, :6], H8[:6, 7], H8[7, :6], H8[7, 7] = A6, bv, bv.T, d
+    Q = sp.zeros(8, 8)
+    Q[6, 6] = 1
+    live = list(range(7))
+    static = H8.extract(live, live) - H8.extract(live, [7]) * H8.extract([7], live) / d
+    Zm = zz * sp.eye(8) - H8
+    dyn = Zm.extract(live, live) - Zm.extract(live, [7]) * Zm.extract([7], [7]).inv() * Zm.extract([7], live)
+    corr = -bv * bv.T / d
+    return {
+        "with K1 = diag(0, 1, 3), K2 = J3 and the nine Hermitian basis matrices E_ii, E_ij + E_ji and i(E_ij - E_ji) "
+        "(i < j), the commutator form sum_a ||[K_a, X]||^2 of X = sum x_k B_k is x^T G x with G = [sum_a tr([K_a, B_r]* "
+        "[K_a, B_s])] integer (symbolic in the nine x_k; G has diagonal 4, 4, 4, 6, 14, 22, 30, 12, 20); G has rank 8 "
+        "and its kernel is the line of the identity's coordinates (1, 1, 1, 0, ..., 0): only the scalars commute with K1 "
+        "and K2 (exact over Z[i]; protection has the ranks in floating point)":
+            all(B == B.H for B in basis) and sp.expand(form - (xs.T * G * xs)[0]) == 0
+            and all(e.is_integer for e in G) and [G[k, k] for k in range(9)] == [4, 4, 4, 6, 14, 22, 30, 12, 20]
+            and G.rank() == 8 and G.nullspace() == [sp.Matrix([1, 1, 1, 0, 0, 0, 0, 0, 0])],
+        "the trace anchor (Tr X)^2 = x^T t t^T x (t = (1, 1, 1, 0, ..., 0)) gives A = G + t t^T of rank 9 and determinant "
+        "176173056 exactly (= 2^12 3^6 59, notes_0252), its nine leading principal minors all positive: A is positive "
+        "definite (the receipt's commutator_rank 8, trace_anchored_rank 9 and trace_anchored_det, in its stated basis). The "
+        "determinant belongs to the basis: with the six off-diagonal matrices scaled to unit norm it is "
+        "176173056/2^6 = 2752704":
+            sp.expand(Xs.trace() ** 2 - (xs.T * tr * tr.T * xs)[0]) == 0 and list(tr) == [1, 1, 1, 0, 0, 0, 0, 0, 0]
+            and A.rank() == 9 and A.det() == 176173056
+            and all(A[:k, :k].det() > 0 for k in range(1, 10))
+            and sp.expand(An.det()) == 2752704 == 176173056 // 2 ** 6,
+        "a distinct mediator keeps the line protected: on V6 + ell_Sak + ell_r, H8 = [[A, 0, b], [0, 0, 0], [b^T, 0, d]] "
+        "(A a symbolic real symmetric 6 x 6, b in R^6, d a symbol) commutes with the projector onto ell_Sak; eliminating "
+        "ell_r leaves the static Schur term A - b b^T/d with a zero ell_Sak row, and z - H8 leaves z - A - b b^T/(z - d), "
+        "a self-energy of rank 1; for d > 0 the correction -b b^T/d has the single nonzero eigenvalue -|b|^2/d on b "
+        "(symbolic, real case)":
+            (H8 * Q - Q * H8).is_zero_matrix and static[:6, :6] == A6 - bv * bv.T / d
+            and static[6, :].is_zero_matrix and static[:, 6].is_zero_matrix
+            and sp.simplify(dyn[:6, :6] - (zz * sp.eye(6) - A6 - bv * bv.T / (zz - d))).is_zero_matrix
+            and (bv * bv.T).rank() == 1 and (corr * bv + (bv.T * bv)[0] / d * bv).applyfunc(sp.expand).is_zero_matrix,
+    }
+
+
+def six_ref_residual():
+    """Closure D (2 Nov, filed 01:59 UTC) and the receipt's E8 fourth-moment Schur residual. The note calls M1..M4
+    'the documented selected E8 moments'; they are the six-site port's moments of the bath. They are computed here
+    on the lattice (Delta^j applied to the six site deltas, j <= 2, as finitely supported integer vectors) and
+    checked against the walk moments c_k = E_(k+1)/240, u_k = 6 E_k - 5 E_(k+1)/240 (_sector_moments, from W_n) and
+    against root_shell_krylov's clique (the same five matrices). Cited, not rechecked: port_moments, protection and
+    schur_memory have M1 and M2 - M1^2 = G0 = 183 I + 52 J (eigenvalues 183 and 495), port_leak the contrast moments
+    and the sector values 55487966/183 and 131183830/99 of the leakage residual L, walks_by_angle the entries of M4,
+    root_shell_krylov the Krylov ranks 6, 12, 18 of the clique (so of these Hankels); the canon's motif cross-court
+    (filed 01:58, earlier) owns R4's two sector values, the per-sector residuals 49359479/183 and 106926355/99
+    (motif_source_moments), and the visible 18 x 18 Gram's determinant 534631775 x 49359479^5 > 0
+    (motif_mode_floor). New here: the receipt's M1..M4 identified as the six-site port's lattice moments, R4 as the
+    Schur complement of that Gram over H1 (of the form r_c Pc + r_u Pu, rank 6, det H2 = det H1 det R4) and
+    R4 = L - G0^2, the relation to port_leak's residual."""
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)                      # doubled roots
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    sites = [0 * e2[0]] + [e2[i] + e2[5] for i in range(5)]             # the cone: origin and e_i + e_5
+
+    def lap(P, v):                                                       # Delta f = 240 f - sum_r f(. + r)
+        Pn = np.concatenate([P, (P[:, None, :] + R2[None, :, :]).reshape(-1, 8)])
+        wn = np.concatenate([240 * v, -np.repeat(v, 240)])
+        U, inv = np.unique(Pn, axis=0, return_inverse=True)
+        out = np.zeros(len(U), dtype=np.int64)
+        np.add.at(out, inv.reshape(-1), wn)
+        return U[out != 0], out[out != 0]
+    vecs = []
+    for j in range(3):
+        for s in sites:
+            P, v = s[None, :], np.array([1], dtype=np.int64)
+            for _ in range(j):
+                P, v = lap(P, v)
+            vecs.append((P, v))
+    pts = np.unique(np.concatenate([P for P, _ in vecs]), axis=0)
+    code = lambda P: (P + 16) @ (np.int64(64) ** np.arange(8))           # injective for |coordinate| <= 15
+    order = np.argsort(code(pts))
+    keys = code(pts)[order]
+    V = np.zeros((18, len(pts)), dtype=np.int64)
+    for k, (P, v) in enumerate(vecs):
+        V[k, order[np.searchsorted(keys, code(P))]] = v
+    H2 = sp.Matrix((V @ V.T).tolist())                                   # Gram of E, Delta E, Delta^2 E
+    blk = lambda i, j: H2[6 * i:6 * i + 6, 6 * j:6 * j + 6]
+    Mk = {i + j: blk(i, j) for i in range(3) for j in range(3)}
+    hankel = all(blk(i, j) == Mk[i + j] for i in range(3) for j in range(3))
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    cw, uw = _sector_moments(5)
+    walk = [cw[k] * I6 + (uw[k] - cw[k]) / 6 * J6 for k in range(5)]
+    printed = [I6, 241 * I6 - J6, 58264 * I6 - 424 * J6, 14121093 * I6 - 137733 * J6, 3429473376 * I6 - 40411056 * J6]
+    R10, _, _, _, _, _, Hc = _wedge()
+    clique = _two_ports()[0]
+    ci = [[tuple(r) for r in R10].index(tuple(t)) for t in clique]
+    Mcl = [sp.Matrix(6, 6, lambda i, j: Hc[k][ci[i], ci[j]]) for k in range(5)]
+    H1, B, M4 = H2[:12, :12], H2[:12, 12:], H2[12:, 12:]
+    R4 = M4 - B.T * H1.inv() * B
+    Pu = J6 / 6
+    Pc = I6 - Pu
+    M1, M2, M3 = Mk[1], Mk[2], Mk[3]
+    G0, G1 = M2 - M1 ** 2, M3 - 2 * M1 * M2 + M1 ** 3
+    L = (M4 - 2 * M1 * M3 + M1 ** 2 * M2) - G1 * G0.inv() * G1
+    return {
+        "on the E8 lattice, Delta = 240 - sum of root translations applied j = 0, 1, 2 times to the deltas at the six-site "
+        "port's sites (the origin and e_i + e_5) gives 18 integer vectors supported on 26646 points whose Gram matrix "
+        "is the block Hankel [M_(i+j)] (each 6 x 6 block depends only on i + j), with M0 = I and M_k = c_k I + "
+        "((u_k - c_k)/6) J for the walk moments c_k = E_(k+1)/240 and u_k = 6 E_k - 5 E_(k+1)/240: M1 = 241 I - J, "
+        "M2 = 58264 I - 424 J, M3 = 14121093 I - 137733 J and M4 = 3429473376 I - 40411056 J, the receipt's printed "
+        "'E8 moments', are the six-site port's moments of the bath; root_shell_krylov's clique has the same five "
+        "matrices":
+            len(pts) == 26646 and int(np.abs(pts).max()) <= 15 and hankel and Mk[0] == I6
+            and all(Mk[k] == walk[k] for k in range(5)) and all(Mk[k] == printed[k] for k in range(5))
+            and all(Mcl[k] == Mk[k] for k in range(5)),
+        "R4 = M4 - B^T H1^-1 B, with H1 = [[I, M1], [M1, M2]] (det H1 > 0) and B = [M2; M3], is r_c Pc + r_u Pu "
+        "(Pu = J/6, Pc = I - Pu) of rank 6; since every M_k is c_k Pc + u_k Pu, r_c and r_u are the per-sector "
+        "residuals m4 - [m2, m3] [[m0, m1], [m1, m2]]^-1 [m2; m3] of the walk moments, motif_source_moments' "
+        "49359479/183 and 106926355/99 (cited, not rechecked). R4 is the Schur complement of the 18 x 18 Gram H2 over "
+        "the 12 x 12 H1 (det H2 = det H1 det R4), so the Gram of the part of Delta^2 E orthogonal to span(E, Delta E), "
+        "positive definite as a Gram of rank 6; with det H2 = 534631775 x 49359479^5 > 0 (motif_mode_floor) H1 and H2 "
+        "are nonsingular (the receipt's Hankel ranks 12 and 18, root_shell_krylov's for the clique): that span is not "
+        "Delta-invariant, and any selfadjoint operator with these moments has at least 18 cyclic directions":
+            R4 == (R4[0, 0] - R4[0, 1]) * Pc + sum(R4.row(0)) * Pu and R4.rank() == 6
+            and (H1.shape, H2.shape) == ((12, 12), (18, 18)) and H1.det() > 0
+            and H2.det() == H1.det() * R4.det(),
+        "port_leak's leakage residual L, from regressing Delta (Delta - M1) E on (Delta - M1) E alone, is "
+        "(M4 - 2 M1 M3 + M1^2 M2) - G1 G0^-1 G1 with G0 = M2 - M1^2 and G1 = M3 - 2 M1 M2 + M1^3, and R4 = L - G0^2: "
+        "projecting Delta^2 E also onto E (orthogonal to (Delta - M1) E, and meeting Delta (Delta - M1) E in G0) "
+        "removes G0^2. With L = (55487966/183) Pc + (131183830/99) Pu (port_leak) and G0 = 183 I + 52 J, of values 183 "
+        "and 495 (schur_memory), both cited, that is 183^2 off the contrast and 495^2 off the uniform line, leaving "
+        "motif_source_moments' 49359479/183 and 106926355/99":
+            R4 == L - G0 ** 2 and sp.Rational(55487966, 183) - 183 ** 2 == sp.Rational(49359479, 183)
+            and sp.Rational(131183830, 99) - 495 ** 2 == sp.Rational(106926355, 99),
+    }
+
+
+def six_ref_decoder():
+    """Closures A and E (2 Nov, filed 01:59 UTC): the 660 correction, the received V7 decoder figures and the sample
+    floor, as arithmetic. The V7 matrices A1, M1 and the tensor M990 are not in the model; only the consistency of the
+    received figures with one another is checked."""
+    smith = [1, 1, 1, 2] + [6] * 11
+    detM1 = sp.Rational(-1, 648)
+    floor = lambda N, m: -(-N // m)
+    return {
+        "correction to the earlier 066-660-990 handover: '6 x 66 = 660' is false, 6 x 66 = 396. In X990 = Lambda^2(Q^6) "
+        "(x) Q^66, of dimension C(6, 2) x 66 = 15 x 66 = 990, a sector V (x) Q^66 has dimension 66 dim V, so a "
+        "660-dimensional blind sector of that form has dim V = 10 (660 = 10 x 66), leaving 15 - 10 = 5 exterior "
+        "directions seen":
+            6 * 66 == 396 != 660 and comb(6, 2) * 66 == 15 * 66 == 990 and 660 % 66 == 0 and 660 // 66 == 10
+            and 15 - 10 == 5,
+        "the received V7 figures agree with one another: M1 = A1/6 of size 15 with det M1 = -1/648 = -1/(2^3 3^4) gives "
+        "|det A1| = 6^15/648 = 2^12 3^11, the product of the reported Smith factors 1, 1, 1, 2 and eleven 6's (read as "
+        "A1's; each "
+        "dividing the next); det M1 and every factor are units of Z[1/6], so A1 and M1 are invertible over Z[1/6] and "
+        "over every field of characteristic other than 2 and 3 (the matrices themselves are not replayed)":
+            len(smith) == 15 and detM1 == sp.Rational(-1, 2 ** 3 * 3 ** 4) and abs(6 ** 15 * detM1) == 2 ** 12 * 3 ** 11
+            and sp.prod(smith) == 2 ** 12 * 3 ** 11 and all(t % s == 0 for s, t in zip(smith, smith[1:]))
+            and set(sp.primefactors(sp.prod(smith))) == {2, 3}
+            and set(sp.primefactors(detM1.p * detM1.q)) <= {2, 3},
+        "the sample floor: m = 9 scalar readings at each of k instants stack to 9k rows, so a local reconstruction of "
+        "N coordinates needs k >= ceil(N/9): 110 for N = 990 and 74 for N = 660 (9 x 109 = 981 < 990, 9 x 73 = 657 < 660); "
+        "the V7 grammar's 15 scalars on each of 66 vectors are 15 x 66 = 990 readings at one instant":
+            floor(990, 9) == 110 and floor(660, 9) == 74
+            and 9 * 109 == 981 < 990 <= 9 * 110 and 9 * 73 == 657 < 660 <= 9 * 74 and 15 * 66 == 990,
+    }
+
+
+def six_ref_quartic():
+    """Closure G (2 Nov, filed 01:59 UTC): the quartic trace of the tensor and the exterior lift of a traceless 4 x 4
+    generator. The receipt checks four diagonal fixtures; here the subset-sum identity is a polynomial identity for
+    every traceless q, and the matrix identity is checked for a general traceless A (15 symbols, exact polynomial
+    ring), so no density argument is needed. The exterior lift acts on Lambda* C^4, whose basis e_S is indexed by the
+    four-cube's sixteen vertices (subsets of the four coordinates), as an element of the Pauli algebra M16."""
+    subsets = [S for r in range(5) for S in itertools.combinations(range(4), r)]
+    pos = {S: k for k, S in enumerate(subsets)}
+    q1, q2, q3 = sp.symbols("q1:4")
+    qv = [q1, q2, q3, -(q1 + q2 + q3)]
+    ssum = lambda q, S: sum((q[i] for i in S), sp.Integer(0))
+    lhs = sum(ssum(qv, S) ** 4 for S in subsets) - 4 * sum(t ** 4 for t in qv)
+    e1 = [1, 0, 0, 0]
+
+    def dgamma(A, zero):
+        D = [[zero] * 16 for _ in range(16)]
+        for S in subsets:
+            for k, j in enumerate(S):
+                for i in range(4):
+                    if i in S and i != j:
+                        continue
+                    Lw = list(S)
+                    Lw[k] = i
+                    sgn = Permutation(sorted(range(len(Lw)), key=lambda m: Lw[m])).signature()
+                    D[pos[tuple(sorted(Lw))]][pos[S]] = D[pos[tuple(sorted(Lw))]][pos[S]] + sgn * A[i][j]
+        return D
+
+    def mul(X, Y, zero):
+        return [[sum((X[i][k] * Y[k][j] for k in range(len(X)) if X[i][k] and Y[k][j]), zero) for j in range(len(X))]
+                for i in range(len(X))]
+    trace4 = lambda X, zero: (lambda X2: sum((X2[i][k] * X2[k][i] for i in range(len(X)) for k in range(len(X))),
+                                             zero))(mul(X, X, zero))
+    R, *g = sp.ring(",".join("m%d" % k for k in range(15)), sp.ZZ)
+    it = iter(g)
+    A = [[None if (i, j) == (3, 3) else next(it) for j in range(4)] for i in range(4)]
+    A[3][3] = -(A[0][0] + A[1][1] + A[2][2])
+    DF = dgamma(A, R(0))
+    DT = [[A[i // 4][j // 4] if i % 4 == j % 4 else R(0) for j in range(16)] for i in range(16)]   # A (x) I4
+    detA = sum((Permutation(list(s)).signature() * A[0][s[0]] * A[1][s[1]] * A[2][s[2]] * A[3][s[3]]
+                for s in itertools.permutations(range(4))), R(0))
+    unit = lambda i, j: [[int((r, c) == (i, j)) for c in range(4)] for r in range(4)]
+    Ds = {(i, j): sp.Matrix(dgamma(unit(i, j), 0)) for i in range(4) for j in range(4)}
+    lin = lambda M: sum((M[i, j] * Ds[(i, j)] for i in range(4) for j in range(4)), sp.zeros(16, 16))
+    Us = {k: sp.Matrix(unit(*k)) for k in Ds}
+    hom = all(Ds[s] * Ds[t] - Ds[t] * Ds[s] == lin(Us[s] * Us[t] - Us[t] * Us[s]) for s in Ds for t in Ds)
+    rq = sp.symbols("r0:4")
+    Dq = sp.Matrix(dgamma([[rq[i] if i == j else 0 for j in range(4)] for i in range(4)], 0))
+    return {
+        "for q1 + q2 + q3 + q4 = 0 the 16 subset sums s_S = sum_(i in S) q_i satisfy sum_S s_S^4 - 4 sum_i q_i^4 = "
+        "24 q1 q2 q3 q4, a polynomial identity in q1, q2, q3 with q4 = -(q1 + q2 + q3) (the receipt checks four "
+        "fixtures); the trace condition is needed: q = (1, 0, 0, 0) gives 8 - 4 = 4, not 0":
+            len(subsets) == 16 and sp.expand(lhs - 24 * qv[0] * qv[1] * qv[2] * qv[3]) == 0
+            and sum(sum(e1[i] for i in S) ** 4 for S in subsets) - 4 * sum(t ** 4 for t in e1) == 4,
+        "the exterior lift dGamma(A) e_S = sum_(j in S) e_S with e_j replaced by A e_j, on Lambda* C^4 with basis e_S "
+        "on the four-cube's sixteen vertices, is a Lie homomorphism gl(4) -> M16 ([dGamma(E_ab), dGamma(E_cd)] = "
+        "dGamma([E_ab, E_cd]) for all 256 pairs of matrix units), dGamma(diag q) is diagonal with the subset sums s_S, "
+        "and for a general traceless A (15 symbols) Tr dGamma(A)^4 - Tr (A (x) I4)^4 = 24 det A identically, with "
+        "Tr (A (x) I4)^4 = 4 Tr A^4: one generator's two 16-dimensional lifts differ in quartic trace exactly when "
+        "det A != 0 (24 x 20 = 480 at the note's det A = 20)":
+            hom and len(Ds) ** 2 == 256 and Dq == sp.diag(*[ssum(rq, S) for S in subsets])
+            and trace4(DF, R(0)) - trace4(DT, R(0)) == 24 * detA and trace4(DT, R(0)) == 4 * trace4(A, R(0))
+            and 24 * 20 == 480,
+    }
+
+
+# ------------------------------------------------------------------- the separate model's one-parent multipole threshold unification (2 Nov 01:59-02:04)
+
+def _mp45():
+    """master_readout's 45 channels on its 360 sites (the 240 roots, then the 120 dark sites: the S5 orbit of
+    (-2, -1, 0, 1, 2, 0, 0, 0) under permutations of the first five coordinates), rebuilt column for column in
+    master_readout's order (mass 1, linear 8, quadratic 10 + 16, wedge 6, dark 4), with the sites in doubled
+    coordinates s = 2x and the bath's H and H^2 between them (_master_shell)."""
+    R2, G, A, Pint, sc, O, Ab, H, H2 = _master_shell()
+    E = carrier.edges()
+    R10 = 5 * R2
+    TW = assignment.TWIN
+    cp = 5 * R2[:, :5] - R2[:, :5].sum(1)[:, None]
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    z120 = np.zeros(120, dtype=np.int64)
+    cols, grp = [np.r_[np.ones(240, dtype=np.int64), z120]], [0]
+    sA = R10 @ assignment.SITE[:4].T // 10
+    sB = R10 @ TW[:4].T // 10
+    for i in range(4):
+        cols.append(np.r_[sA[:, i], z120])
+        grp.append(1)
+    for i in range(4):
+        cols.append(np.r_[sB[:, i], z120])
+        grp.append(1)
+    for i, j in E:
+        f = cp[:, i] * cp[:, j]
+        cols.append(np.r_[240 * f - f.sum(), z120])
+        grp.append(2)
+    for i in range(4):
+        for j in range(4):
+            cols.append(np.r_[sA[:, i] * sB[:, j], z120])
+            grp.append(2)
+    cyc = sp.Matrix.hstack(*sp.Matrix(carrier.signed_incidence()).nullspace())
+    for c in range(6):
+        f = np.zeros(360, dtype=np.int64)
+        for n, (i, j) in enumerate(E):
+            f[idx[tuple(e2[i] - e2[j])]], f[idx[tuple(e2[j] - e2[i])]] = int(cyc[n, c]), -int(cyc[n, c])
+        cols.append(f)
+        grp.append(3)
+    sgn = lambda x: Permutation([int(v) + 2 for v in x[:5]]).signature()
+    for j in range(4):
+        cols.append(np.r_[np.zeros(240, dtype=np.int64), [sgn(x) * (int(x[j]) ** 3 - int(x[j])) // 6 for x in O]])
+        grp.append(4)
+    Y = np.array(cols, dtype=np.int64).T
+    X = np.vstack([R2, 2 * O])
+    return dict(X=X, Y=Y, grp=grp, O=O, R2=R2, A=A, Pint=Pint, sc=sc, Ab=Ab, H=H, H2=H2)
+
+
+def _mp_moments(X, Y, top=7):
+    """The monomial moments sum_s c(s) s^alpha of the columns c of Y over the sites s (rows of X), for every monomial
+    of degree 0..top in lexicographic order (itertools.combinations_with_replacement), in int64; returns the monomials,
+    the moment matrices (monomials x columns) and the bound max_alpha sum_s |s^alpha| max |c| on every partial sum."""
+    mons, V = {0: [()]}, {0: np.ones((X.shape[0], 1), dtype=np.int64)}
+    for d in range(1, top + 1):
+        pos = {m: k for k, m in enumerate(mons[d - 1])}
+        mons[d] = list(itertools.combinations_with_replacement(range(X.shape[1]), d))
+        V[d] = V[d - 1][:, [pos[m[:-1]] for m in mons[d]]] * X[:, [m[-1] for m in mons[d]]]
+    bound = max(int(np.abs(V[d]).sum(0).max()) for d in V) * int(np.abs(Y).max())
+    return mons, {d: V[d].T @ Y for d in V}, bound
+
+
+def _mp_symchar(p, copies, triv, top):
+    """Coefficients t^0..t^top of 1/det(1 - t g) for the permutation p of five letters acting on copies x (standard
+    representation of S5) + triv x (trivial): (1 - t)^copies / prod_cycles (1 - t^len)^copies / (1 - t)^triv."""
+    seen, lens = set(), []
+    for i in range(5):
+        if i not in seen:
+            n, j = 0, i
+            while j not in seen:
+                seen.add(j)
+                j, n = p[j], n + 1
+            lens.append(n)
+    ser = [1] + [0] * top
+    mul = lambda a, b: [sum(a[k] * b[n - k] for k in range(n + 1)) for n in range(top + 1)]
+    geo = lambda c: [1 if n % c == 0 else 0 for n in range(top + 1)]
+    for _ in range(copies):
+        ser = mul(ser, [1, -1] + [0] * (top - 1))
+        for c in lens:
+            ser = mul(ser, geo(c))
+    for _ in range(triv):
+        ser = mul(ser, geo(1))
+    return ser
+
+
+def multipole_filtration():
+    """The separate model's one-parent unification (OES_ONE_PARENT_MULTIPOLE_THRESHOLD_UNIFICATION_20261102.md, filed
+    2 Nov 02:04 UTC, section 4; OES_FULL45_MULTIPOLE_FILTRATION_20261102.json, filed 01:59 UTC): the multipole
+    filtration of master_readout's 45 channels on the 360 sites, from their exact monomial moments through degree 7,
+    and the note's degree-7 dark witness determinant, reproduced in the chart stated below."""
+    from sympy.polys.matrices import DomainMatrix
+    c = _mp45()
+    X, Y, grp = c["X"], c["Y"], c["grp"]
+    mons, Mo, bound = _mp_moments(X, Y)
+    blocks = [[i for i in range(45) if grp[i] == k] for k in range(5)]
+    rk = lambda M: DomainMatrix.from_list(sp.Matrix(M.tolist()).tolist(), sp.ZZ).rank()
+    gram = lambda M: M.astype(object).T.dot(M.astype(object))
+    first = [min(d for d in range(8) if Mo[d][:, i].any()) for i in range(45)]
+    orders = [sorted({first[i] for i in b}) for b in blocks]
+    full = [rk(gram(Mo[l][:, b])) for l, b in zip((0, 1, 2, 3, 7), blocks)]
+    cum, acc = [], np.zeros((45, 45), dtype=object)
+    for d in range(8):
+        acc = acc + gram(Mo[d])
+        cum.append(rk(acc))
+    # parity under the inversion s -> -s, a permutation of the 360 sites
+    sid = {tuple(x): n for n, x in enumerate(X)}
+    neg = [sid[tuple(-x)] for x in X]
+    par = [1 if np.array_equal(Y[neg, i], Y[:, i]) else -1 if np.array_equal(Y[neg, i], -Y[:, i]) else 0
+           for i in range(45)]
+    par_moms = all(not Mo[d][:, i].any() for i in range(45) for d in range(8) if (-1) ** d != par[i])
+    # the degree-7 witness: the lexicographically first four monomials with independent dark moment rows
+    Md = Mo[7][:, blocks[4]]
+    sel = []
+    for k in range(len(mons[7])):
+        if rk(Md[sel + [k]]) == len(sel) + 1:
+            sel.append(k)
+        if len(sel) == 4:
+            break
+    wit = sp.Matrix(Md[sel].tolist())
+    return {
+        "master_readout's 45 channels on its 360 sites (doubled coordinates s = 2x; 240 roots and the 120 dark sites), "
+        "with every monomial moment sum_s c(s) s^alpha of degree 0 to 7 computed exactly (int64, every partial sum below "
+        "2^62): the first nonzero degree is 0 for the mass channel, 1 for each of the 8 linear, 2 for each of the 26 "
+        "quadratic, 3 for each of the 6 wedge and 7 for each of the 4 dark channels; every moment tensor of a channel "
+        "below its degree vanishes":
+            bound < 2 ** 62 and [len(b) for b in blocks] == [1, 8, 26, 6, 4] and orders == [[0], [1], [2], [3], [7]],
+        "at its first degree each sector's moment map is injective: the degree 0, 1, 2, 3 and 7 moment matrices of the "
+        "mass, linear, quadratic, wedge and dark columns have ranks 1, 8, 26, 6, 4 (exact, through their integer Grams), "
+        "so every nonzero source in a sector has a nonzero leading polynomial P_l(k) = sum_s c(s) (k.s)^l":
+            full == [1, 8, 26, 6, 4],
+        "the cumulative moment ranks of all 45 channels (the rank of the stacked moment matrices of degrees 0..d, exact "
+        "through the summed Grams) are 1, 9, 35, 41, 41, 41, 41, 45 for d = 0..7, the note's filtration":
+            cum == [1, 9, 35, 41, 41, 41, 41, 45],
+        "every channel has a parity under the inversion s -> -s of the 360 sites: the mass and quadratic channels are "
+        "even, the linear, wedge and dark channels odd, and accordingly every odd moment of an even channel and every "
+        "even moment of an odd channel vanishes (degrees 0 to 7)":
+            par == [1] + [-1] * 8 + [1] * 26 + [-1] * 6 + [-1] * 4 and par_moms,
+        "the dark witness in this chart (doubled coordinates, master_readout's dark columns sign(x)(x_j^3 - x_j)/6 in "
+        "the order j = 0..3, monomials in lexicographic order): the first four monomials with independent degree-7 dark "
+        "moment rows are x0^4 x1^2 x2, x0^4 x1^2 x3, x0^4 x2^2 x3 and x0 x1^3 x2^2 x3, and the 4 x 4 matrix of those "
+        "moments has determinant -1424967069597696 = -2^44 3^4, the note's witness determinant":
+            [mons[7][k] for k in sel] == [(0, 0, 0, 0, 1, 1, 2), (0, 0, 0, 0, 1, 1, 3), (0, 0, 0, 0, 2, 2, 3),
+                                          (0, 1, 1, 1, 2, 2, 3)]
+            and wit.det() == -1424967069597696 == -2 ** 44 * 3 ** 4,
+    }
+
+
+def multipole_dark_parity():
+    """The note's reason the dark four first appear in degree 7 (section 4): the multiplicities of S5's sign-twisted
+    standard representation in the symmetric powers (characters over all 120 elements), on N44's dark orbit and on
+    dark_port's free orbit, where the same representation starts in degree 4. Cited, not repeated: the 120 dark sites
+    as the free orbit of (-2, -1, 0, 1, 2, 0, 0, 0) with 120 distinct coordinate permutations (notes_0204; _master_shell
+    builds them so); S5 acting on the four dark columns sign(x)(x_j^3 - x_j)/6 by exact 4 x 4 matrices, (p f)(p x) =
+    f(x), with character sgn(p)(fix(p) - 1) of norm 120 (onemodel_closures; notes_0204 has the same character on N44's
+    dark kernel, and master_readout that the four columns span that reader); and the columns' oddness under x -> -x
+    with every even moment vanishing (multipole_filtration's parity; notes_0204's reader is odd under the reversal).
+    New here: the symmetric-power multiplicities on both orbits and dark_port's linear label map."""
+    S5 = list(itertools.permutations(range(5)))
+    sgn = lambda p: Permutation(list(p)).signature()
+    chi = lambda p: sgn(p) * (sum(1 for i in range(5) if p[i] == i) - 1)   # onemodel_closures' dark character
+    mult = lambda copies, triv: [sp.Rational(sum(_mp_symchar(p, copies, triv, 8)[n] * chi(p) for p in S5), 120)
+                                 for n in range(9)]
+    m_std, m_r8, m_two = mult(1, 0), mult(1, 4), mult(2, 0)
+    # dark_port's labels: alpha -> (v, w) (carrier part in site coordinates, twin part), linear on R^8
+    R10 = assignment.roots10()
+    V = np.array([assignment.carrier_part(r)[:5] for r in R10], dtype=np.int64)
+    W = np.array([[int((r - assignment.carrier_part(r)) @ assignment.TWIN[k]) for k in range(5)] for r in R10],
+                 dtype=np.int64)
+    Rm, Lm = sp.Matrix(R10.tolist()), sp.Matrix(np.hstack([V, W]).tolist())
+    Lsol = (Rm.T * Rm).inv() * Rm.T * Lm
+    return {
+        "characters over the 120 elements (Sym^n through 1/det(1 - t g)): the sign-twisted standard sgn(p)(fix(p) - 1), "
+        "the dark columns' representation (onemodel_closures), occurs in Sym^n of the standard representation R^4 with "
+        "multiplicities 0, 0, 0, 0, 0, 0, 1, 1 for n = 0..7 (the note's) and in Sym^n R^8, on which this S5 acts as "
+        "three trivial lines plus the permutation module of the five coordinates, with 0, 0, 0, 0, 0, 0, 1, 5: the "
+        "S5-equivariant degree-n moment map of the dark four vanishes for n <= 5 by characters and for n = 6 by the "
+        "columns' oddness under x -> -x (multipole_filtration's parity), so 7 is the first possible degree, where "
+        "multipole_filtration finds rank 4":
+            m_std[:8] == [0, 0, 0, 0, 0, 0, 1, 1] and m_r8[:8] == [0, 0, 0, 0, 0, 0, 1, 5],
+        "on dark_port's free orbit S5 permutes both A4 label sets: the label map alpha -> (v, w) is linear on R^8 of rank "
+        "8 with both parts summing to zero (solved exactly on the 240 roots), so there R^8 is standard + standard and "
+        "the sign-twisted standard first occurs in Sym^n at n = 4 (multiplicities 0, 0, 0, 0, 3): the quartic onset "
+        "view_closures finds for the hub's dark port; the same representation starts in degree 4 there and in degree 7 "
+        "on N44's orbit (multipole_filtration)":
+            Rm * Lsol == Lm and Lsol.rank() == 8 and not V.sum(1).any() and not W.sum(1).any()
+            and m_two[:5] == [0, 0, 0, 0, 3],
+    }
+
+
+def multipole_heat_law():
+    """The note's heat-return and branch-order table (section 4) for the unloaded bath on the 45 channels: the exponent
+    law d/2 + l for a nondegenerate quadratic minimum in dimension d = 8, with the sector orders l = 0, 1, 2, 3, 7 and
+    their injectivity from the exact moments (multipole_filtration, cited, not recomputed) and the law's Laplace and
+    branch steps checked symbolically on the model symbol 30|k|^2 (the band's design moments 60, 36, 30 are
+    notes_1250's, its Hessian 60 I at 0 free_chain's, eps > 0 away from the lattice band_closures', its top 256
+    band.edge's); the law itself is already in the model, conditionally, as notes_1725's 'the infrared exponent'
+    (density E^(3 + l), heat return u^-(4 + l) for a port of order l), here applied to the 45 channels' orders with the
+    branch orders added; the lattice asymptotic itself is the standard Laplace-method result, cited, not computed."""
+    ls = [0, 1, 2, 3, 7]                                                 # multipole_filtration's sector orders
+    dim = sp.Matrix(_master_shell()[0].tolist()).rank()
+    u, r, lam, z = sp.symbols("u r lambda z", positive=True)
+    lap = all(sp.simplify(sp.integrate(r ** (2 * l + 7) * sp.exp(-30 * u * r ** 2), (r, 0, sp.oo))
+                          - sp.factorial(l + 3) / (2 * (30 * u) ** (l + 4))) == 0 for l in ls)
+    rsub = sp.sqrt(lam / 30)
+    shell = all(sp.simplify(rsub ** (2 * l + 7) * sp.diff(rsub, lam) - lam ** (l + 3) / (2 * 30 ** (l + 4))) == 0
+                for l in ls)
+    gam = all(sp.integrate(lam ** (l + 3) * sp.exp(-u * lam), (lam, 0, sp.oo)) == sp.factorial(l + 3) / u ** (l + 4)
+              for l in ls)
+    divid = all(sp.expand(lam ** n - (z + lam) * sum((-z) ** k * lam ** (n - 1 - k) for k in range(n)) - (-z) ** n) == 0
+                for n in [l + 3 for l in ls])
+    logint = sp.simplify(sp.integrate(1 / (z + lam), (lam, 0, 1)) - (sp.log(1 + z) - sp.log(z))) == 0
+    taylor = all(sp.integrate(lam ** n * lam ** (-n), (lam, 0, 1)) == 1
+                 and sp.integrate(lam ** n * lam ** (-n - 1), (lam, 0, 1)) == sp.oo for n in [l + 3 for l in ls])
+    return {
+        "with multipole_filtration's sector orders l = 0, 1, 2, 3, 7 (one order per sector, from the exact moments; "
+        "cited), the roots, hence the 360 sites, span dimension d = 8, and the quadratic-minimum law gives heat-return "
+        "exponents d/2 + l = 4, 5, 6, 7, 11 and spectral-density and first-log orders d/2 - 1 + l = 3, 4, 5, 6, 10 for "
+        "the mass, linear, quadratic, wedge and dark sectors: the note's tables (machine spec: unloaded_heat_exponents "
+        "and unloaded_resolvent_first_log_order)":
+            dim == 8
+            and [dim // 2 + l for l in ls] == [4, 5, 6, 7, 11] and [dim // 2 - 1 + l for l in ls] == [3, 4, 5, 6, 10],
+        "the Laplace step on the model symbol 30|k|^2 in R^8 (symbolic, for l = 0, 1, 2, 3, 7): a homogeneous |P_l|^2 of "
+        "degree 2l gives int |P_l|^2 e^(-30 u |k|^2) d^8k = (int over the unit sphere S^7 of |P_l|^2) x int_0^oo "
+        "r^(2l + 7) e^(-30 u r^2) dr (polar coordinates, not computed), and that radial integral is (l + 3)!/(2 (30 "
+        "u)^(l + 4)), so the return falls as u^-(4 + l) with a positive constant (the sphere integral of |P_l|^2 is "
+        "positive since P_l is nonzero, by multipole_filtration's injectivity); in lambda = 30 r^2 the shell measure "
+        "is lambda^(l + 3) dlambda/(2 30^(l + 4)), a density lambda^(3 + l), and int_0^oo lambda^(l + 3) e^(-u lambda) "
+        "dlambda = (l + 3)!/u^(l + 4)":
+            lap and shell and gam,
+        "the branch step on the model density lambda^n on [0, 1], n = 3 + l = 3, 4, 5, 6, 10 (symbolic): lambda^n = (z + "
+        "lambda) sum_(k < n) (-z)^k lambda^(n - 1 - k) + (-z)^n and int_0^1 dlambda/(z + lambda) = log(1 + z) - log z, so "
+        "int_0^1 lambda^n/(z + lambda) dlambda = sum_(k < n) (-z)^k/(n - k) + (-z)^n (log(1 + z) - log z): Taylor "
+        "coefficients finite through z^(n - 1) = z^(l + 2) (int_0^1 lambda^(n - m - 1) dlambda finite exactly for m <= "
+        "n - 1) and the first nonanalytic term (-1)^(n + 1) z^n log z, i.e. z^3, z^4, z^5, z^6, z^10 log z":
+            divid and logint and taylor,
+    }
+
+
+def multipole_two_step():
+    """The note's moment certificate (section 5; OES_NATIVE45_FULL_PARENT_MOMENT_CERTIFICATE_20261102.json, filed 2 Nov
+    01:59 UTC): its M0, M1, M2 block structure, the tuples (184, 2117) ... (243, 83) and the trace 21061 are
+    master_readout's, and the 9361 two-root sums walk_convolutions'; on the root sites, where the compression Ab has
+    no root-dark bonds, A^2 - Ab^2 is shell_channels' leakage BB = H2_RR - H_R^2, whose diagonal 184 and sector values
+    2117, 967, 389, 127 (carried by the root channels inside each sector) are shell_channels', cited, not repeated;
+    new here, the note's point that the two-step parent is not the square of the 360-site compression, what the
+    square would give, and the dark sector's split 83 = 1 + 82."""
+    c = _mp45()
+    Y, H, H2, Ab = c["Y"], c["H"], c["H2"], c["Ab"]
+    grp = c["grp"]
+    blocks = [[i for i in range(45) if grp[i] == k] for k in range(5)]
+    Dk = (H2 - H @ H)                                                    # = A^2 (full kernel) - Ab^2 (compression)
+    Yo = Y.astype(object)
+    G = sp.Matrix(Yo.T.dot(Yo).tolist())
+    F1 = sp.Matrix(Yo.T.dot(H.astype(object)).dot(Yo).tolist())
+    Ft = sp.Matrix(Yo.T.dot((H @ H).astype(object)).dot(Yo).tolist())
+    dk = blocks[4]                                                       # the dark four
+    Fd = sp.Matrix(Yo[:, dk].T.dot(Dk.astype(object)).dot(Yo[:, dk]).tolist())
+    a = [F1[b[0], b[0]] / G[b[0], b[0]] for b in blocks]
+    bt = [Ft[b[0], b[0]] / G[b[0], b[0]] - x ** 2 for b, x in zip(blocks, a)]
+    blockwise = lambda Mx, vals: all(Mx.extract(p, q) == (v * G.extract(p, p) if p == q else sp.zeros(len(p), len(q)))
+                                     for p, v in zip(blocks, vals) for q in blocks)
+    return {
+        "between the 360 sites the bath's H^2 = 240^2 - 480 A + A^2 uses the full two-step kernel ((A^2)_(xy) = the "
+        "ordered root pairs summing to y - x, over all of E8: _master_shell), not the square of the 360-site "
+        "compression Ab: A^2 - Ab^2 is entrywise >= 0 and nonzero in 63000 entries, with diagonal 236 = 240 - 4 at every "
+        "dark site (Ab has 56 neighbours at a root, all of them roots, and 4 at a dark site); with no root-dark bonds its "
+        "root block is A^2|_R - B_R^2, shell_channels' leakage off the root shell (diagonal 184 = 240 - 56, cited)":
+            (Dk >= 0).all() and int(np.count_nonzero(Dk)) == 63000
+            and np.diag(Dk)[240:].tolist() == [236] * 120
+            and Ab.sum(1).tolist() == [56] * 240 + [4] * 120 and not Ab[:240, 240:].any(),
+        "on master_readout's 45 channels the truncated square would give Y^T Hc^2 Y - (Y^T Hc Y) G^-1 (Y^T Hc Y) = 0, 0, "
+        "0, 0, 1 times G on the five sectors (cross-sector blocks zero; trace 4; Hc = 240 I - Ab, master_readout's sector "
+        "means a = 184, 212, 232, 242, 243), so master_readout's hidden variances 2117, 967, 389, 127 on the four "
+        "root-shell sectors are carried entirely by two-step paths leaving the 360 sites (there Y^T (A^2 - Ab^2) Y is "
+        "shell_channels' sector values on root-graph eigenvector channels, cited), while on the dark four the paths "
+        "outside add Y^T (A^2 - Ab^2) Y = 82 G: the dark's 83 is 1 from the truncated square and 82 from outside":
+            a == [184, 212, 232, 242, 243] and bt == [0, 0, 0, 0, 1] and blockwise(Ft, [x ** 2 + y for x, y in zip(a, bt)])
+            and sum(len(b) * x for b, x in zip(blocks, bt)) == 4 and Fd == 82 * G.extract(dk, dk),
+    }
+
+
+def multipole_k0_threshold():
+    """The note's single regulator-free threshold action (section 6): K0 = H + J (F - S0^-1) J^* with S0 = J^* H^-1 J,
+    replayed on schur_zero_mode's finite root-site instance at eps = 0 (H = H_R = 240 I - B_R on the 240 roots, J the
+    deltas at its 19 visible roots, F = F19 = diag(K_1, B2, B2)); the infinite-lattice statements (H^-1 J in l2 for
+    d = 8, the essential spectrum [0, 256] and the zero mode at its threshold) are analytic and not computed."""
+    R2, G, A, Pint, sc, *_ = _master_shell()
+    E = carrier.edges()
+    I = np.eye(240, dtype=np.int64)
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    mu = [240 - l for l in lam]
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    vis = ([idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in E]
+           + [idx[tuple(e2[i] + e2[6])] for i in range(4)])
+    hid = [k for k in range(240) if k not in set(vis)]
+    HR = 240 * I - A
+    mat = lambda a: sp.Matrix(a.tolist())
+
+    def green(z, power):                                                 # (z + H_R)^-power = sum P_k/(s_k (z + mu_k)^power)
+        cs = [sp.Rational(1, s) / (z + m) ** power for s, m in zip(sc, mu)]
+        dd = int(sp.ilcm(*[sp.fraction(x)[1] for x in cs]))
+        return sum((int(x * dd) * P.astype(object) for x, P in zip(cs, Pint)), np.zeros((240, 240), dtype=object)), dd
+    Gi, dd = green(0, 1)
+    G2, d2 = green(0, 2)
+    res_ok = np.array_equal(HR.astype(object) @ Gi, dd * I.astype(object))
+    S0 = mat(Gi[np.ix_(vis, vis)]) / dd
+    T0 = mat(G2[np.ix_(vis, vis)]) / d2
+    S0i = S0.inv()
+    W0 = -mat(Gi[np.ix_(hid, vis)]) / dd * S0i                           # C^-1 B^T from the block inverse
+    dw = int(sp.ilcm(*[sp.fraction(v)[1] for v in W0]))
+    Wi = np.array((W0 * dw).tolist(), dtype=object)
+    Bo = HR[np.ix_(vis, hid)].astype(object)
+    Co = HR[np.ix_(hid, hid)].astype(object)
+    CW = np.array_equal(Co @ Wi, dw * Bo.T)
+    Hvv = mat(HR[np.ix_(vis, vis)])
+    BW = mat(Bo) * W0
+    # the target F19 (schur_zero_mode's) and a source with nullity 5
+    M = sp.Matrix(carrier.signless_incidence())
+    p = [1, 2, 3, 4, 0]
+    UV = sp.Matrix(5, 5, lambda i, j: int(i == p[j]))
+    UE = _edge_perm(p)
+    D15 = sp.zeros(15)
+    D15[:5, 5:], D15[5:, :5] = M, M.T
+    U15 = sp.diag(UV, UE)
+    K1 = D15 * D15 + sp.diag(2 * sp.eye(5) - UV - UV.T, 2 * sp.eye(10) - UE - UE.T)   # schur_zero_mode's K_1
+    B2 = sp.Matrix([[3, 1], [1, 2]])
+    F19 = sp.diag(K1, B2, B2)
+    F5 = sp.diag(D15 * D15, B2, B2)
+    w = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+    q = sp.Matrix([0] * 5 + list(w) + [0] * 4)
+
+    def kzero(F):                                                        # K0 = H + J (F - S0^-1) J^T, scaled to integers
+        Vm = F - S0i
+        dv = int(sp.ilcm(*[sp.fraction(v)[1] for v in Vm]))
+        K = HR.astype(object) * dv
+        K[np.ix_(vis, vis)] = K[np.ix_(vis, vis)] + np.array((Vm * dv).tolist(), dtype=object)
+        return K, dv
+
+    def psi(qv):                                                         # H^-1 J S0^-1 q = (q, -W0 q)
+        out = np.zeros(240, dtype=object)
+        out[vis], out[hid] = list(S0 * S0i * qv), [-x for x in W0 * qv]
+        return out
+    K0, dv = kzero(F19)
+    ps = psi(q)
+    Z = (q.T * q)[0] + ((W0 * q).T * (W0 * q))[0]
+    Zf = (q.T * S0i * T0 * S0i * q)[0]
+    K5, dv5 = kzero(F5)
+    ker5 = F5.nullspace()
+    # the inverse response at z = 1
+    G1, d1 = green(1, 1)
+    SH1 = mat(G1[np.ix_(vis, vis)]) / d1
+    W1 = -mat(G1[np.ix_(hid, vis)]) / d1 * SH1.inv()
+    SK1 = (SH1.inv() + F19 - S0i).inv()
+    Xs = np.zeros((240, 19), dtype=object)
+    Xs[vis] = np.array(SK1.tolist(), dtype=object)
+    Xs[hid] = np.array((-W1 * SK1).tolist(), dtype=object)
+    dx = int(sp.ilcm(*[sp.fraction(v)[1] for v in sp.Matrix(Xs.tolist())]))
+    Jm = np.zeros((240, 19), dtype=object)
+    for n, k in enumerate(vis):
+        Jm[k, n] = 1
+    solves = np.array_equal((dv * I.astype(object) + K0) @ (Xs * dx), dv * dx * Jm)
+    return {
+        "on schur_zero_mode's root-site instance at eps = 0 (H = H_R, H^-1 = sum_k P_k/(s_k mu_k) exactly, mu = 184, "
+        "212, 232, 242, 244; J the deltas at the 19 visible roots; C the 221 hidden rows of H, B = H_vh): S0 = J^T H^-1 J "
+        "and W0 = -(H^-1)_hv S0^-1 satisfy C W0 = B^T and S0^-1 = H_vv - B C^-1 B^T (the block inverse), so "
+        "K0 = H + J (F - S0^-1) J^T has Schur complement K0_vv - B C^-1 B^T = F onto the visible roots and is congruent "
+        "to diag(F, C); with F = F19 = diag(K_1, B2, B2), schur_zero_mode's K_1 = D15^2 + diag(2I - U - U^T) equal to "
+        "D15^2 + (I - U)^T (I - U) (U the tick's permutation matrices), so F >= 0 (det B2 = 5, tr B2 = 5), of nullity 1, "
+        "and C >= 184 (a compression of H_R, least sector mean 184), K0 >= 0 with dim ker K0 = 1; and since K0 - J F J^T "
+        "= H - J S0^-1 J^T has visible block H_vv - S0^-1 = B C^-1 B^T, it is congruent to diag(0_19, C): >= 0 of rank "
+        "240 - 19 = 221, which is the note's square completion H^(1/2) (I - P) H^(1/2) (P = H^(-1/2) J S0^-1 J^T "
+        "H^(-1/2) of rank 19; that rewriting is algebra, not computed)":
+            res_ok and mu == [184, 212, 232, 242, 244] and len(set(vis)) == 19 and CW and S0i == Hvv - BW
+            and (Hvv + F19 - S0i) - BW == F19 and len(F19.nullspace()) == 1 and B2.det() == 5 and B2.trace() == 5
+            and K1 == D15 * D15 + (sp.eye(15) - U15).T * (sp.eye(15) - U15) and U15.T * U15 == sp.eye(15),
+        "the kernel vector is psi = H^-1 J S0^-1 q = (q, -W0 q) for q = (0_5, NEAR - FAR, 0_4) spanning ker F19: K0 psi "
+        "= 0 on all 240 rows and J^T psi = q, and |psi|^2 = |q|^2 + |W0 q|^2 equals q^T S0^-1 T0 S0^-1 q with T0 = "
+        "J^T H^-2 J = sum_k (P_k)_vv/(s_k mu_k^2) exactly; for the unit q0 = q/sqrt10, Z0 = |psi_q0|^2 lies in (1.0004099, "
+        "1.0004100) (against (1.0004062, 1.0004063) at eps = 1, zero_pole_instance) and <J q0, psi_q0>^2/|psi_q0|^2 = 1/Z0 is the weight of J q0 on the zero eigenprojection of K0 (the "
+        "note's long-time heat-return limit, on this finite instance)":
+            (F19 * q).is_zero_matrix and not any(K0 @ ps) and list(ps[vis]) == list(q) and Z == Zf
+            and (q.T * q)[0] == 10 and sp.Rational(10004099, 10 ** 7) < Z / 10 < sp.Rational(10004100, 10 ** 7)
+            and sum(ps[k] * q[n] for n, k in enumerate(vis)) == (q.T * q)[0],
+        "dim ker K0 = dim ker F also for a larger kernel: with F' = diag(D15^2, B2, B2) (nullity 5) the same congruence "
+        "makes K0' = H + J (F' - S0^-1) J^T congruent to diag(F', C), and the five vectors H^-1 J S0^-1 q (q in ker F') "
+        "are killed by K0' on all 240 rows":
+            len(ker5) == 5 and all(not any(K5 @ psi(v)) for v in ker5) and (Hvv + F5 - S0i) - BW == F5,
+        "the inverse response at z = 1: with S_H(1) = J^T (1 + H)^-1 J from the sector expansion and W1 = -((1 + "
+        "H)^-1)_hv S_H(1)^-1, the 240 x 19 matrix X = [S; -W1 S] with S = (S_H(1)^-1 + F19 - S0^-1)^-1 solves (1 + K0) X "
+        "= J exactly on all 240 rows (1 + K0 >= 1 is invertible, so X is the solution; the solve is the content, S being "
+        "defined from S_H(1)), hence J^T (1 + K0)^-1 J = J^T X = S and "
+        "S_K(1)^-1 - S_H(1)^-1 = F19 - S0^-1: the note's frequency-independent correction (master_response's general "
+        "identity, here with V = F - S0^-1); as z -> 0, S_H(z)^-1 + V tends to S0^-1 + V = F, singular on ker F":
+            solves and SK1.inv() - SH1.inv() == F19 - S0i,
+    }
+
+
+def multipole_k5_source():
+    """The note's K5 source among the multipoles (sections 2 and 4; claims K5_source_19_monopole and
+    K5_fixed_zero_quadrupole): the 19 columns J15 + dark four, with master_readout's glue-built J15 (its raw integer
+    readings on the roots and atom matrix, rebuilt here) standing in for the note's own K5 root frame, which is absent.
+    The dark four's part is multipole_filtration's, cited, not recomputed: their moments vanish through degree 6 (zero
+    sums included) and have rank 4 at degree 7."""
+    R2 = _master_shell()[0]
+    E = carrier.edges()
+    R10 = 5 * R2
+    _, _, _, rp, g, _ = spine.spine_clock()
+    rps = spine.to_standard(rp)
+    TW = assignment.TWIN
+    step = [int(np.flatnonzero([np.allclose(rps @ TW[i], TW[k]) for k in range(5)])[0]) for i in range(5)]
+    order = [0]
+    while len(order) < 5:
+        order.append(step[order[-1]])
+    s = R10 @ assignment.SITE.T // 10
+    tw = R10 @ TW[order].T // 10
+    cp = 5 * R2[:, :5] - R2[:, :5].sum(1)[:, None]
+    M = sp.Matrix(carrier.signless_incidence())
+    N5 = sp.Matrix.hstack(*M.nullspace())
+    N5 = N5 * sp.ilcm(*[sp.fraction(v)[1] for v in N5])
+    Qk = np.array([R2[:, i] * R2[:, j] for i, j in E]).T @ np.array(N5.tolist(), dtype=np.int64)
+    raw = np.hstack([s, np.array([tw[:, i] + tw[:, j] for i, j in E]).T, ((cp * cp).sum(1) - 100)[:, None],
+                     (s * tw).sum(1)[:, None], Qk])
+    coef = (N5.T * N5).inv() * N5.T
+    Cr = sp.zeros(22, 15)
+    for i in range(5):
+        Cr[i, i] = Cr[15, i] = 1
+    for e in range(10):
+        Cr[5 + e, 5 + e] = Cr[16, 5 + e] = 1
+        Cr[17:22, 5 + e] = coef[:, e]
+    mons, Mo, bound = _mp_moments(R2, raw, top=2)
+    M1, M2 = sp.Matrix(Mo[1].tolist()), sp.Matrix(Mo[2].tolist())
+    # the 19 sources' filtration: zero-dipole sources ker(M1 Cr) (scale-free: vertex and edge dipole images complementary)
+    kd = sp.Matrix.hstack(*(M1 * Cr).nullspace())
+    w = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+    q = sp.Matrix([0] * 5 + list(w))
+    m2 = M2 * Cr * q
+    pos = {m: k for k, m in enumerate(mons[2])}
+    Q = sp.Matrix(8, 8, lambda i, j: m2[pos[tuple(sorted((i, j)))]])
+    Aq = sp.zeros(8, 8)
+    for n, (i, j) in enumerate(E):
+        Aq[i, j] = Aq[j, i] = w[n]
+    return {
+        "master_readout's J15 is J = raw S Cr (22 raw integer readings on the roots: 5 vertex and 10 twin-duad linear, "
+        "|P_A4 alpha|^2 - 1, T2 and five ker M quadratics; S the positive group scales; Cr the atom matrix, whose first "
+        "15 rows are I15): all 22 readings have zero sum, and the four dark columns have no moments through degree 6 "
+        "(multipole_filtration, cited), so the 19 monopoles vanish; only the 15 linear readings have degree-1 moments, of "
+        "rank 8, so the 19 dipoles have rank 8 for any scales; only the 7 even readings have degree-2 moments, "
+        "independent (rank 7), and the 7 x 15 rows of Cr under them have rank 7, so the 19 quadrupoles have rank 7 (row "
+        "scalings keep it): the note's 'all 19 monopoles vanish, rank 8 dipoles and rank 7 quadrupoles', for this J15":
+            bound < 2 ** 62 and not Mo[0].any()
+            and M1[:, 15:].is_zero_matrix and M2[:, :15].is_zero_matrix
+            and Cr[:15, :] == sp.eye(15) and M1[:, :15].rank() == 8 and M2[:, 15:].rank() == 7
+            and Cr[15:, :].rank() == 7 and (M1 * Cr).rank() == 8 and (M2 * Cr).rank() == 7,
+        "the C5-fixed zero vector q0 = (0_5, NEAR - FAR) of ker M goes to the root source raw Cr q0 (values 0, +-4) "
+        "with zero sum, zero dipole and, in doubled coordinates, second moment 192 A(q0) (A(q0) the symmetric matrix of "
+        "q0's edge values on the first five coordinates): rank 4, trace 0, the note's quadrupolar Golden source; "
+        "|A(q0)|^2 = 20, so the squared Frobenius norm here is 20 x 192^2 = 737280 (raw reading; J15's scale 1/sqrt192 "
+        "multiplies the whole source, its linear part vanishing with the dipole); the note's 1036800000 = 20 x 7200^2 "
+        "would be 7200 A(q0) if its quadrupole is a multiple of A(q0) in its own integer chart (its K5 frame is absent; "
+        "not checked)":
+            (sp.Matrix(Mo[0].tolist()) * Cr * q).is_zero_matrix and (M1 * Cr * q).is_zero_matrix
+            and Q == 192 * Aq and Q.rank() == 4 and Q.trace() == 0 and sum(v ** 2 for v in Aq) == 20
+            and sum(v ** 2 for v in Q) == 737280 and 1036800000 == 20 * 7200 ** 2
+            and set((raw @ np.array((Cr * q).tolist(), dtype=object)).flatten().tolist()) == {0, 4, -4},
+        "the 19 sources' multipole filtration (machine spec, multipole_source_dimensions_at_degrees1_2_7 = 8, 7, 4): the "
+        "vertex and edge dipole maps have ranks 4 and 4 with complementary images, so for any positive scales the "
+        "zero-dipole sources of J15 are ker(M1 Cr) = ker(vertex) + ker(edge), of dimension 1 + 6 = 7; on it the even "
+        "atom rows of Cr have rank 7, so (M2's even columns being independent) the quadrupole is injective there and no "
+        "J15 source survives degree 2; with multipole_filtration's dark four (no moments below degree 7, rank 4 at degree "
+        "7; cited) the 19 sources first appear in degrees 1, 2 and 7 with dimensions 8, 7 and 4 (the moment rows of "
+        "degrees <= 6 vanish on the dark columns: block triangular, total 19)":
+            M1[:, :5].rank() == 4 and M1[:, 5:15].rank() == 4 and M1[:, :15].rank() == M1[:, :5].rank() + M1[:, 5:15].rank()
+            and kd.shape == (15, 7) and (Cr[15:, :] * kd).rank() == 7,
+    }
+
+
+# ------------------------------------------------- the block-Jacobi memory tower and the open-item closures (2 Nov, 02:05)
+
+def jacobi_channels():
+    """The separate model's block-Jacobi memory-tower note (OES_BLOCK_JACOBI_MEMORY_UNIFICATION_20261102, filed 2 Nov
+    02:05 UTC, with oes_block_jacobi_memory_results.json, read as data), Theorems 1 and 2 on the bath itself compressed
+    to master_readout's 45 channels (as the sibling multipole replay's _mp45 builds them). Cited, not repeated: the
+    channels, their independence, A and D = B B*, the widths 1, 8, 26, 6, 4, and Y^T H^n Y scalar on each group and zero
+    across for n <= 2 (master_readout); the decoupling at every order, with the exact 4 x 4 matrices of the coordinate S5
+    on the dark four, their character sgn(p)(fix(p) - 1) (norm 120: irreducible), its multiplicity 0 in the 240 roots,
+    the 41 root channels as root-graph eigenvectors and the Schur deduction that every function of the bath is scalar
+    on each channel group and zero across (onemodel_closures; notes_0204 has the character, the free orbit of the 120
+    dark sites and the multiplicity 0); the root-shell sector theorem at every order and the four root sectors' moment
+    sequences (band_closures); the dark sequence 1, 243, 59132, 14407126, 3514086413 (notes_0204); the supports 9361 and
+    131041 of two and three root steps (walk_convolutions); the Jacobi data (a0, b1^2, a1, b2^2) and positive 3 x 3
+    Hankels of the mass, quadratic, cubic and dark channels (notes_1512); the same Schur argument for the hub's
+    norm-four dark port (dark_port); the Krylov rank of root-shell ports at every order (root_shell_krylov); absolute
+    continuity and the limit (128, 64^2) of every port chain (free_chain). New: onemodel_closures' decoupling, which it
+    argues, checked directly on the lattice at orders 3 and 4 (the dark-root blocks vanish and the dark block is m_n G_d,
+    G_d = 12(5I - J), the dark field on 16140 and then 312480 sites); the note's block formulas for A_0 and T_1^2 against
+    the Chebyshev algorithm in all five channels and the linear channel's depth-1 block; A_0 inside (0, 256) and never
+    200, so the comparators part from the bath at u^6; the Krylov dimensions 45, 90, 135 computed on the lattice (ranks
+    mod a prime) and the cyclic rank 45(n + 1) at every depth argued, which the note says must not be asserted without
+    an independent proof."""
+    c45 = _mp45()
+    X, Y, grp, R2 = c45["X"], c45["Y"], c45["grp"], c45["R2"]
+    base = np.int64(64) ** np.arange(8, dtype=np.int64)
+    key = lambda V: V @ base                                             # linear and injective for |coordinates| < 32
+    rk = key(R2)
+
+    def step(keys, vals):                                                # T = sum of the 240 root translations
+        u, inv = np.unique((keys[:, None] + rk[None, :]).reshape(-1), return_inverse=True)
+        inv = inv.reshape(-1)
+        o = np.argsort(inv, kind="stable")
+        starts = np.r_[0, np.flatnonzero(np.diff(inv[o])) + 1]
+        src = np.repeat(np.arange(len(keys)), 240)[o]
+        return u, np.stack([np.add.reduceat(vals[src, c], starts) for c in range(vals.shape[1])], axis=1)
+
+    def dot(k1, v1, k2, v2):                                             # exact: Python integers on the common sites
+        _, i1, i2 = np.intersect1d(k1, k2, assume_unique=True, return_indices=True)
+        return v1[i1].astype(object).T.dot(v2[i2].astype(object))
+    kx = key(X)
+    o_r, o_d = np.argsort(kx[:240]), 240 + np.argsort(kx[240:])
+    field = {"r": (kx[o_r], Y[o_r, :41]), "d": (kx[o_d], Y[o_d, 41:])}
+    lev = {}
+    for s_, (k0, v0) in field.items():
+        k1, v1 = step(k0, v0)
+        k2, v2 = step(k1, v1)
+        lev[s_] = [(k0, v0), (k1, v1), (k2, v2)]
+    split = lambda n: (min(n, 2), n - min(n, 2))
+    Tn = lambda a_, b_, n, ca=slice(None), cb=slice(None): dot(lev[a_][split(n)[0]][0], lev[a_][split(n)[0]][1][:, ca],
+                                                                 lev[b_][split(n)[1]][0], lev[b_][split(n)[1]][1][:, cb])
+    Hn = lambda F, n: sum((comb(n, j) * 240 ** (n - j) * (-1) ** j * F[j] for j in range(n + 1)), 0 * F[0])
+    # the Krylov spaces directly: the Gram of the 135 vectors [Y, T Y, T^2 Y] reduced mod p; residues < p summed in
+    # float64 are exact while (number of common sites) (p - 1)^2 < 2^53, and rank mod p <= rank over Q
+    p_ = 2039
+    kv = [(s_, k) for k in range(3) for s_ in "rd"]
+
+    def gram_p(u, v):
+        _, i1, i2 = np.intersect1d(u[0], v[0], assume_unique=True, return_indices=True)
+        g = (u[1][i1] % p_).astype(np.float64).T @ (v[1][i2] % p_).astype(np.float64)
+        return g.astype(np.int64) % p_, len(i1) * (p_ - 1) ** 2 < 2 ** 53
+
+    gb = [[gram_p(lev[s1][k1], lev[s2][k2]) for s2, k2 in kv] for s1, k1 in kv]
+    exact_p = all(ok_ for row in gb for _, ok_ in row)
+    Gp = np.vstack([np.hstack([g for g, _ in row]) for row in gb])
+
+    def rank_p(Mx):                                                      # Gaussian elimination over F_p
+        Mx = [[int(v) % p_ for v in row] for row in Mx]
+        r = 0
+        for c in range(len(Mx[0])):
+            piv = next((i for i in range(r, len(Mx)) if Mx[i][c]), None)
+            if piv is None:
+                continue
+            Mx[r], Mx[piv] = Mx[piv], Mx[r]
+            iv_ = pow(Mx[r][c], -1, p_)
+            Mx[r] = [v * iv_ % p_ for v in Mx[r]]
+            for i in range(len(Mx)):
+                if i != r and Mx[i][c]:
+                    f_ = Mx[i][c]
+                    Mx[i] = [(a_ - f_ * b_) % p_ for a_, b_ in zip(Mx[i], Mx[r])]
+            r += 1
+        return r
+    kry = [rank_p(Gp[:45 * (n + 1), :45 * (n + 1)].tolist()) for n in range(3)]
+    Fd = [Tn("d", "d", n) for n in range(5)]                            # Y_d^T T^n Y_d, 4 x 4
+    Fx = [Tn("r", "d", n) for n in range(5)]                            # Y_r^T T^n Y_d, 41 x 4
+    Gd = sp.Matrix(Fd[0].tolist())
+    dark_block = [sp.Matrix(Hn(Fd, n).tolist()) for n in range(5)]
+    mu = {4: [dark_block[n][0, 0] / Gd[0, 0] for n in range(5)]}
+    first = {g: grp.index(g) for g in range(4)}
+    for g, c in first.items():                                          # one column per root group (the sector theorem)
+        F = [Tn("r", "r", n, slice(c, c + 1), slice(c, c + 1)) for n in range(5)]
+        mu[g] = [sp.Rational(int(Hn(F, n)[0, 0]), int(F[0][0, 0])) for n in range(5)]
+    # the depth-one blocks: Theorem 2's A_0 = D^-1/2 M1 D^-1/2 and T_1^2 = D^-1/2 (M2 - M1 D^-1 M1) D^-1/2, per channel
+    jac = {}
+    for g in range(5):
+        m = mu[g]
+        a, d = m[1], m[2] - m[1] ** 2
+        M1 = m[3] - a ** 3 - 2 * a * d                                  # (K^3)_11 = A^3 + A D + D A + M1
+        M2 = m[4] - (a ** 2 + d) ** 2 - a ** 2 * d - 2 * a * M1          # (K^4)_11 = (A^2 + D)^2 + ADA + {A, M1} + M2
+        hank = sp.Matrix(3, 3, lambda i, j: m[i + j]).det()
+        al, b2, fail = court.chebyshev([int(v) for v in m])
+        jac[g] = (a, d, M1 / d, (M2 - M1 ** 2 / d) / d, hank,
+                  (sp.Rational(al[1].numerator, al[1].denominator), sp.Rational(b2[1].numerator, b2[1].denominator)),
+                  fail, M1, M2)
+    want1 = (sp.Rational(164628, 967), sp.Rational(1913066793, 935089))   # the linear channel's (A_0, T_1^2)
+    u6_bath = [-(2 * j[0] * j[1] + 2 * j[7]) / 48 for j in jac.values()]
+    u6_comp = [-(2 * j[0] * j[1] + 400 * j[1]) / 48 for j in jac.values()]
+    return {
+        "onemodel_closures' decoupling (the dark four carry S5's sign-twisted standard, which the 240 roots carry 0 times, "
+        "so by Schur's lemma every function of the bath is scalar on each channel group and zero across: argued there, "
+        "and on the lattice for n <= 2 by master_readout) checked directly on the lattice at orders 3 and 4: with T the "
+        "sum of the 240 root translations applied twice to the 41 root and the 4 dark columns as integer vectors (the "
+        "dark field on 16140, then 312480 sites), the 41 x 4 blocks Y_root^T T^n Y_d vanish and Y_d^T H^n Y_d = m_n G_d "
+        "for n = 3 and 4, with G_d = Y_d^T Y_d = 12(5I - J) (m_n notes_0204's dark moments)":
+            Gd == 12 * (5 * sp.eye(4) - sp.ones(4, 4))
+            and [len(lev["d"][k][0]) for k in (1, 2)] == [16140, 312480]
+            and all(not any(Fx[n].flatten()) for n in (3, 4))
+            and all(dark_block[n] == mu[4][n] * Gd for n in (3, 4)),
+        "Theorem 2's first two hidden levels on the bath: from the five channel measures' moments through order 4 "
+        "(recomputed here on the lattice; band_closures' four root-sector sequences and notes_0204's dark one), with M1 = "
+        "(K^3)_11 - A^3 - 2AD and M2 = (K^4)_11 - (A^2 + D)^2 - ADA - 2AM1 (the (1, 1) blocks of K^3 and K^4; "
+        "deep_wave_memory has the first), the note's A_0 = D^-1/2 M1 D^-1/2 and T_1^2 = D^-1/2 (M2 - M1 D^-1 M1) D^-1/2 "
+        "are, in all five channels, the Chebyshev algorithm's alpha_1 and beta_2 (no breakdown), so in D-orthonormal "
+        "channel coordinates the depth-1 blocks are diagonal (A = 184, 212, 232, 242, 243, D = 2117, 967, 389, 127, 83 "
+        "on widths 1, 8, 26, 6, 4: master_readout's); the mass, quadratic, cubic and dark entries are notes_1512's "
+        "Jacobi data; new, the linear channel's A_0 = 164628/967 and T_1^2 = 1913066793/935089 = Delta_3/967^2, with "
+        "its 3 x 3 Hankel Delta_3 = 1913066793 = 3^2 x 11 x 19323907":
+            all(jac[g][5] == jac[g][2:4] and jac[g][6] is None for g in range(5))
+            and jac[1][2:4] == want1 and jac[1][4] == 1913066793 == 3 ** 2 * 11 * 19323907
+            and jac[1][4] == jac[1][1] ** 2 * jac[1][3],
+        "Theorem 1's positivity and the comparators: every A_0 entry lies in (0, 256) (the localizing forms M1 >= 0 and "
+        "256 D - M1 >= 0, the hidden C = Q H Q having spectrum in [0, 256]) and every T_1^2 entry is positive (the linear "
+        "channel's above, notes_1512's four positive Hankels Delta_3 = D^2 T_1^2 for the rest), so T_1 is invertible; "
+        "directly on the lattice, the Gram of the 135 vectors [Y, T Y, T^2 Y] reduced mod 2039 (exact: residue sums "
+        "below 2^53) has ranks 45, 90, 135 on its leading 45, 90, 135 rows and columns, and rank mod p <= rank over Q <= "
+        "45(n + 1), so the Krylov spaces of the 45 channels have dimensions exactly 45, 90, 135 (the visible Gram [Y^T "
+        "H^(i+j) Y], i, j <= 2, is positive definite); no A_0 entry is 200, so M1 != 200 D: neither comparator "
+        "(bridge_comparator's H90, jacobi_two_rung's H135, both with M1 = 200 D) has the bath's hidden first moment, and "
+        "their u^6 wave-memory coefficients -(2 a d + 400 d)/48 differ from the bath's -(2 a d + 2 M1)/48 in every "
+        "channel (deep_wave_memory's coefficient): they share the bath's data through u^4 only":
+            all(0 < j[2] < 256 for j in jac.values())
+            and all(j[2] != 200 and j[7] != 200 * j[1] for j in jac.values())
+            and all(x != y for x, y in zip(u6_bath, u6_comp))
+            and exact_p and kry == [45, 90, 135],
+        "so at every depth (an argument, not computed, from onemodel_closures' decoupling, checked above at orders 3 and "
+        "4, and cited theorems): in D-orthonormal channel coordinates every block A_k, T_k of the bath's block Lanczos "
+        "chain on the 45 channels is diagonal, the direct sum of five scalar chains (the five (a, d) pairs above are "
+        "distinct) with multiplicities 1, 8, 26, 6, 4; each channel column is a nonzero finitely supported site vector "
+        "(support in the 360 sites), so by free_chain its measure is absolutely continuous with a.e. positive density on "
+        "[0, 256]: no block ever loses rank, the depth-n block Krylov space has dimension exactly 45(n + 1) for every n "
+        "(root_shell_krylov has the 41 root channels; the dark four are off the root shell, on norm 10, one sphere, "
+        "where dark_port's argument applies; n <= 2 is computed above), A_k -> 128 I45 and T_k -> 64 I45 (Rakhmanov, as "
+        "in free_chain), and the matrix continued fraction sqrt D [z + A_0 - T_1 (z + A_1 - ...)^-1 T_1]^-1 sqrt D is "
+        "five scalar Stieltjes fractions d/(z + alpha_1 - beta_2/(z + alpha_2 - ...)), all beta_k > 0":
+            len({(j[0], j[1]) for j in jac.values()}) == 5 and all(Y[:, c].any() for c in range(45))
+            and Y.shape == (360, 45) and all(int(x @ x) == 40 for x in X[240:]) and all(int(r @ r) == 8 for r in R2),
+    }
+
+
+def jacobi_two_rung():
+    """The block-Jacobi note (filed 2 Nov 02:05 UTC), sections 1, 2 and 4, on its two finite comparators: H90 (one
+    hidden mode at 200 per channel: bridge_comparator's, whose 0 < H90 < 256, moments and two atoms are checked there)
+    and the new H135 (two hidden modes at 180 and 220 with couplings sqrt(b/2)). Exact: the comparators' blocks have
+    rational minors; square roots enter only squared, or symbolically. Cited: the source law S_K(z)^-1 = F + z [I + B
+    C^-1 (z + C)^-1 B^T] and the residue q0 q0^T/Z0 (deep_zero_pole, Theorem 6), the u^8 coefficient in noncommuting
+    blocks (deep_wave_memory), the note's 'bare Golden-to-root ratio 2.40600382', sqrt(8/lam-) in (2.4060038200301,
+    2.4060038200302) (deep_saddles). The receipt's ten 'wave8_coefficient' strings and its trace 26326.25 are read as
+    data."""
+    sect = [(184, 2117, 1), (212, 967, 8), (232, 389, 26), (242, 127, 6), (243, 83, 4)]
+    receipt = {184: ("209648627/240", "210283727/240"), 212: ("109751599/240", "110041699/240"),
+               232: ("48481459/240", "48598159/240"), 242: ("1035304/15", "4150741/60"),
+               243: ("130490359/2880", "130789159/2880")}
+    z, t, e = sp.symbols("z t epsilon", positive=True)
+    c_, Mb, s_ = sp.symbols("c M s", nonnegative=True)
+    r2 = 1 / sp.sqrt(2)
+    Wr = sp.Matrix([[1, 0, 0], [0, r2, -r2], [0, r2, r2]])
+
+    def comps(a, b, sh=0):
+        H2 = sp.Matrix([[a + sh, sp.sqrt(b)], [sp.sqrt(b), 200 + sh]])
+        q = sp.sqrt(sp.Rational(b, 2))
+        H3 = sp.Matrix([[a + sh, q, q], [q, 180 + sh, 0], [q, 0, 220 + sh]])
+        return H2, H3
+    hid = lambda H: (H[0, 1:], H[1:, 1:])
+    mom = lambda H: [sp.expand((H ** k)[0, 0]) for k in range(5)]
+    hm = lambda H, n: sp.expand((hid(H)[0] * hid(H)[1] ** n * hid(H)[0].T)[0, 0])
+
+    def wave(m):                                                         # (1 + C(2t))/2 - C(t)^2 through t^8
+        C = sum(((-1) ** k * m[k] * t ** (2 * k) / sp.factorial(2 * k) for k in range(5)), sp.Integer(0))
+        L = sp.expand((1 + C.subs(t, 2 * t)) / 2 - C * C)
+        return [L.coeff(t, k) for k in (4, 6, 8)]
+    syl, mom_ok, rot_ok, wave_ok, green_ok, trunc_ok, inert_ok, eps_ok = [True] * 8
+    w8diff = []
+    for a, b, n in sect:
+        H2, H3 = comps(a, b)
+        P3 = 256 * sp.eye(3) - H3
+        mins = [H3[:k, :k].det() for k in (1, 2, 3)] + [P3[:k, :k].det() for k in (1, 2, 3)]
+        syl = syl and mins == [a, 180 * a - sp.Rational(b, 2), 39600 * a - 200 * b, 256 - a,
+                               76 * (256 - a) - sp.Rational(b, 2), 2736 * (256 - a) - 56 * b] and all(x > 0 for x in mins)
+        m2_, m3_ = mom(H2), mom(H3)
+        mom_ok = (mom_ok and m2_[:4] == m3_[:4] and m3_[4] - m2_[4] == 400 * b
+                  and [hm(H, k) for H in (H2, H3) for k in (0, 1, 2)] == [b, 200 * b, 40000 * b, b, 200 * b, 40400 * b])
+        J3 = (Wr.T * H3 * Wr).applyfunc(sp.simplify)
+        rot_ok = rot_ok and (Wr.T * Wr).applyfunc(sp.simplify) == sp.eye(3) and J3 == sp.Matrix(
+            [[a, sp.sqrt(b), 0], [sp.sqrt(b), 200, 20], [0, 20, 200]]) and hid(H2)[1].shape == (1, 1)
+        w2, w3 = wave(m2_), wave(m3_)
+        M1, M2 = 200 * b, 40000 * b
+        f8 = sp.Rational(a * a * b, 576) + sp.Rational(2 * a * a * b, 1440) + sp.Rational(14 * a * M1, 2880) \
+            + sp.Rational(b * b, 720) + sp.Rational(M2, 320)
+        wave_ok = (wave_ok and w2[:2] == w3[:2] == [sp.Rational(b, 4), -sp.Rational(2 * a * b + 400 * b, 48)]
+                   and w2[2] == f8 and w3[2] - w2[2] == sp.Rational(5, 4) * b
+                   and (str(w2[2]), str(w3[2])) == receipt[a])
+        w8diff.append(n * (w3[2] - w2[2]))
+        S2 = sp.cancel((hid(H2)[0] * (z * sp.eye(1) + hid(H2)[1]).inv() * hid(H2)[0].T)[0, 0])
+        S3 = sp.cancel((hid(H3)[0] * (z * sp.eye(2) + hid(H3)[1]).inv() * hid(H3)[0].T)[0, 0])
+        dS = sp.cancel(S3 - S2)
+        green_ok = (green_ok and sp.cancel(S2 - b / (z + 200)) == 0
+                    and sp.cancel(S3 - b * (z + 200) / ((z + 200) ** 2 - 400)) == 0
+                    and sp.cancel(S3 - b / (z + 200 - 400 / (z + 200))) == 0
+                    and sp.cancel(dS - 400 * b / ((z + 200) * ((z + 200) ** 2 - 400))) == 0
+                    and sp.cancel(sp.diff(dS, z)) != 0 and sp.expand((z + 200) ** 2 - 400 - (z + 180) * (z + 220)) == 0)
+        for H, S in ((H2, S2), (H3, S3)):
+            Bh, Ch = hid(H)
+            for k in range(4):
+                rem = (Bh * Ch ** (k + 1) * (z * sp.eye(Ch.rows) + Ch).inv() * Bh.T)[0, 0]
+                trunc_ok = trunc_ok and sp.cancel(S - sum((-1) ** j * hm(H, j) / z ** (j + 1) for j in range(k + 1))
+                                                  - (-1) ** (k + 1) * rem / z ** (k + 1)) == 0
+            ser = sp.series(z * (1 + (Bh * Ch.inv() * (z * sp.eye(Ch.rows) + Ch).inv() * Bh.T)[0, 0]), z, 0, 3).removeO()
+            inert_ok = inert_ok and sp.expand(ser - z * (1 + (Bh * Ch.inv() ** 2 * Bh.T)[0, 0])
+                                              + z ** 2 * (Bh * Ch.inv() ** 3 * Bh.T)[0, 0]) == 0
+        me2 = 1 + (hid(H2)[0] * hid(H2)[1].inv() ** 2 * hid(H2)[0].T)[0, 0]
+        me3 = 1 + (hid(H3)[0] * hid(H3)[1].inv() ** 2 * hid(H3)[0].T)[0, 0]
+        inert_ok = (inert_ok and me2 == 1 + sp.Rational(b, 40000)
+                    and me3 == 1 + sp.Rational(b, 2) * (sp.Rational(1, 180 ** 2) + sp.Rational(1, 220 ** 2))
+                    and me3 == 1 + sp.Rational(101 * b, 3920400) and me3 > me2)
+        E2, E3 = comps(a, b, e)
+        d2e = [sp.expand(hm(H, 2) - hm(H, 1) ** 2 / hm(H, 0)) for H in (E2, E3)]
+        J3e = (Wr.T * E3 * Wr).applyfunc(sp.simplify)
+        eps_ok = (eps_ok and [sp.expand(hm(H, 1)) for H in (E2, E3)] == [sp.expand((200 + e) * b)] * 2
+                  and d2e == [0, 400 * b] and J3e[1, 2] == 20 and J3e[1, 1] == J3e[2, 2] == 200 + e)
+    scal = [sp.cancel(1 / (z + c_) - sum((-1) ** j * c_ ** j / z ** (j + 1) for j in range(k + 1))
+                      - (-1) ** (k + 1) * c_ ** (k + 1) / (z ** (k + 1) * (z + c_))) for k in range(4)]
+    bound = [sp.expand((Mb ** (k + 1) * (z + c_) - c_ ** (k + 1) * z).subs(c_, Mb * s_)
+                       - Mb ** (k + 1) * (z * (1 - s_ ** (k + 1)) + Mb * s_)) for k in range(4)]
+    return {
+        "the two-rung comparator H135 = sum over the 45 channels of [[a, sqrt(b/2), sqrt(b/2)], [sqrt(b/2), 180, 0], "
+        "[sqrt(b/2), 0, 220]] is bounded positive, 0 < H135 < 256: its leading minors a, 180a - b/2, 39600a - 200b and "
+        "those of 256 - H135, 256 - a, 76(256 - a) - b/2, 2736(256 - a) - 56b, are exact rationals, positive in all five "
+        "sectors (the receipt compares their floats with 0)": syl,
+        "it shares A = a, D = b and M1 = 200 b with H90 and differs at M2: B C^n B^T = b, 200 b, 40000 b (H90) and b, "
+        "200 b, 40400 b (H135), so Delta_2 = M2 - M1 D^-1 M1 is 0 and 400 b, (K^k)_11 agree for k <= 3 and differ by "
+        "exactly 400 b at k = 4; on all 45 channels Delta_2(H135) - Delta_2(H90) = 400 D; the orthogonal W = [[1, 0, 0], "
+        "[0, s, -s], [0, s, s]] (s = 1/sqrt2) turns each block into the Jacobi form [[a, sqrt b, 0], [sqrt b, 200, 20], "
+        "[0, 20, 200]]: A_0 = 200, T_1 = 20, A_1 = 200, while H90's hidden space is one mode (A_0 = 200, no T_1); with a "
+        "shared shift of the hidden diagonals by eps (symbolic) M1 = (200 + eps) b in both, Delta_2 stays 0 and 400 b "
+        "and T_1 stays 20": mom_ok and rot_ok and eps_ok,
+        "the wave memory L(u) = (1 + C(2u))/2 - C(u)^2 (C(u) = (cos u sqrt K)_11 through u^8) has the same u^4 and u^6 "
+        "coefficients b/4 and -(2ab + 400b)/48 on both, and u^8 coefficients differing by exactly (5/4) b; H90's u^8 "
+        "coefficient is deep_wave_memory's a^2 D/576 + 2a^2 D/1440 + 14 a M1/2880 + D^2/720 + M2/320, and the ten are "
+        "the receipt's 209648627/240, 210283727/240, 109751599/240, 110041699/240, 48481459/240, 48598159/240, "
+        "1035304/15, 4150741/60, 130490359/2880, 130789159/2880; summed over the 45 channels the difference is (5/4) x "
+        "21061 = 105305/4 = 26326.25": wave_ok and sum(w8diff) == sp.Rational(105305, 4) == sp.Rational(2632625, 100),
+        "the hidden Green functions B (z + C)^-1 B^T are b/(z + 200) and b(z + 200)/((z + 200)^2 - 400) = b/(z + 200 - "
+        "400/(z + 200)), the note's continued fraction with A_0 = 200, T_1^2 = 400, A_1 = 200; their difference 400 b/"
+        "((z + 200)((z + 200)^2 - 400)) is positive for z >= 0 ((z + 200)^2 - 400 = (z + 180)(z + 220): the hidden modes) "
+        "and has nonzero derivative, so no frequency-independent "
+        "source term absorbs it; the truncation identity Sigma(z) = sum_(k <= n) (-1)^k M_k/z^(k + 1) + (-1)^(n + 1) "
+        "z^-(n + 1) B C^(n + 1) (z + C)^-1 B^T holds on both for n = 0..3 (symbolic z), and in its scalar form (any "
+        "hidden eigenvalue c, so for every C >= 0 by the spectral theorem, not computed) the signed remainder is "
+        "c^(n + 1)/(z^(n + 1)(z + c)) >= 0, at most M^(n + 1)/z^(n + 2) for 0 <= c = M s <= M, since M^(n + 1)(z + c) - "
+        "c^(n + 1) z = M^(n + 1)(z (1 - s^(n + 1)) + M s)":
+            green_ok and trunc_ok and all(x == 0 for x in scal) and all(x == 0 for x in bound),
+        "section 2 on the comparators (deep_zero_pole's S_K(z)^-1 = F + z [I + B C^-1 (z + C)^-1 B^T]): z [1 + B C^-1 "
+        "(z + C)^-1 B^T] = z M_eff - z^2 B C^-3 B^T + O(z^3) with M_eff = 1 + B C^-2 B^T, which is 1 + b/40000 for H90 "
+        "and 1 + (b/2)(1/180^2 + 1/220^2) = 1 + 101 b/3920400 for H135, larger in every channel: equal lower moments, "
+        "different source inertia (symbolic z; exact rationals)": inert_ok,
+    }
+
+
+def jacobi_fractional():
+    """The block-Jacobi note (filed 2 Nov 02:05 UTC), section 3: A^s - Y* K^s Y >= s(1 - s) d/(2 M^(2 - s)) for 0 < s
+    < 1, 0 <= K <= M, Y* K Q K Y >= d. Its s = 1/2 case d/(8 M^(3/2)) is deep_softening's Theorem 4, with the
+    comparator check at M = 256 (eps = 0) and at eps = 7; new here: the general s (its integrals and the reflection
+    step) and the receipt's s = 1/4, 1/2, 3/4 values on bridge_comparator's H90 at eps = 0 with M its own top
+    eigenvalue, in outward-rounded intervals (40 digits; iv precision restored). The operator steps (Schur complement,
+    G - R >= R Sigma R, the spectral integral) are the note's and do not depend on s; deep_softening states them for
+    s = 1/2 with their scalar ingredients; cited."""
+    import mpmath
+    s, z, Mv, x = sp.symbols("s z M x", positive=True)
+    refl = sp.simplify(sp.gammasimp(sp.sin(sp.pi * s) / sp.pi * sp.gamma(s + 1) * sp.gamma(2 - s) / 2) - s * (1 - s) / 2)
+    qs = (sp.Rational(1, 4), sp.Rational(1, 2), sp.Rational(3, 4))
+    ints = all(sp.simplify(sp.integrate(z ** q / (z + Mv) ** 3, (z, 0, sp.oo))
+                           - Mv ** (q - 2) * sp.gamma(q + 1) * sp.gamma(2 - q) / 2) == 0
+               and sp.simplify(sp.sin(sp.pi * q) / sp.pi * sp.integrate(z ** (q - 1) * x / (z + x), (z, 0, sp.oo))
+                               - x ** q) == 0
+               and sp.simplify(sp.sin(sp.pi * q) / sp.pi * Mv ** (q - 2) * sp.gamma(q + 1) * sp.gamma(2 - q) / 2
+                               - q * (1 - q) / (2 * Mv ** (2 - q))) == 0 for q in qs)
+    half = sp.Rational(1, 2) * (1 - sp.Rational(1, 2)) / 2 == sp.Rational(1, 8)
+    sect = [(184, 2117), (212, 967), (232, 389), (242, 127), (243, 83)]
+    rec = {0.25: (0.0005819215671700739, 0.0005134194904379606), 0.5: (0.0030134563357986366, 0.002707923406307944),
+           0.75: (0.008779162113434325, 0.008033835367447012)}
+    iv = mpmath.iv
+    prec0 = iv.prec
+    iv.dps = 40
+    try:
+        P = iv.mpf
+        pw = lambda y, q: iv.exp(P(q) * iv.log(y))
+
+        def block(a, v):                                                 # eigenvalues, e1's weights of the block
+            D = iv.sqrt(P((a - 200) ** 2) / 4 + v)
+            lp, lm = P(a + 200) / 2 + D, P(a + 200) / 2 - D
+            wp = (1 + P(a - 200) / (2 * D)) / 2
+            return lp, lm, wp, 1 - wp
+        tops = [block(a, v)[0] for a, v in sect]
+        Mtop = P(443) / 2 + iv.sqrt(P(2181)) / 2
+        top_ok = (all(tops[4].a > tops[j].b for j in range(4))
+                  and max(abs((tops[4] - Mtop).a), abs((tops[4] - Mtop).b)) < 1e-35)
+        near = lambda X, y, tol: max(abs((X - P(y)).a), abs((X - P(y)).b)) < tol
+        far = lambda X, y, tol: (X - P(y)).a > tol or (X - P(y)).b < -tol
+        res = {}
+        for q in (0.25, 0.5, 0.75):
+            qq = P(sp.Rational(str(q)).p) / sp.Rational(str(q)).q
+            defs = []
+            for a, v in sect:
+                lp, lm, wp, wm = block(a, v)
+                defs.append(pw(P(a), qq) - (wp * pw(lp, qq) + wm * pw(lm, qq)))
+            guar = qq * (1 - qq) * 83 / (2 * pw(Mtop, 2 - qq))
+            res[q] = (all(dv.a > guar.b for dv in defs), all(defs[4].b < defs[j].a for j in range(4)),
+                      near(defs[4], rec[q][0], 3e-15), far(defs[4], rec[q][0], 5e-16), near(guar, rec[q][1], 1e-18))
+    finally:
+        iv.prec = prec0
+    return {
+        "the general-s step: (sin pi s/pi) Gamma(s + 1) Gamma(2 - s)/2 = s(1 - s)/2 for 0 < s < 1 (symbolic, by Euler's "
+        "reflection), and at s = 1/4, 1/2, 3/4 the integrals int_0^oo z^s/(z + M)^3 dz = M^(s - 2) Gamma(s + 1) Gamma(2 "
+        "- s)/2 and x^s = (sin pi s/pi) int_0^oo z^(s - 1) x/(z + x) dz hold exactly, so with the note's G - R >= d/(z + "
+        "M)^3 (its operator steps, cited) A^s - Y* K^s Y >= s(1 - s) d/(2 M^(2 - s)), at s = 1/2 deep_softening's "
+        "d/(8 M^(3/2))": refl == 0 and ints and half,
+        "on bridge_comparator's H90 (eps = 0, d = 83 its least hidden variance, M = (443 + sqrt2181)/2 its largest "
+        "eigenvalue, the dark block's, above the other four blocks' tops) the deficit a^s - (K^s)_11 = a^s - (w+ lam+^s + "
+        "w- lam-^s) of every channel exceeds s(1 - s) 83/(2 M^(2 - s)) at s = 1/4, 1/2 and 3/4 (outward-rounded "
+        "intervals), the least deficit is the dark channel's (243, 83); the receipt's guaranteed gaps 0.0005134194904379606, "
+        "0.002707923406307944, 0.008033835367447012 are these bounds within 10^-18, and its minimum gaps "
+        "0.0005819215671700739, 0.0030134563357986366, 0.008779162113434325 are the dark deficits within 3 x 10^-15 but "
+        "not within 5 x 10^-16 (float cancellation in a^s - (K^s)_11)":
+            top_ok and all(all(v) for v in res.values()),
+    }
+
+
+def open_clock_word():
+    """The separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102, filed 2 Nov 02:05 UTC, with
+    oes_open_items_exact_receipt_20261102.json, read as data), Closure A, on the model's circle Z/4320 (spine). The
+    note's A = U^520, B = U^25 are a hypothesis about native operators (its own words); only the arithmetic is checked.
+    <5> = <25> of order 864 and the tick <864> of order 5 are canon_sync's (UPGRADE_JOIN's correction); the gate is
+    gates.GATES'."""
+    Nc, tick = N, TICK
+    sols = [(a, b, c) for a in range(-10, 11) for b in range(-10, 11) for c in range(-10, 11)
+            if (520 * a + 25 * b + 864 * c - 1) % Nc == 0]
+    cost = lambda w: sum(abs(v) for v in w)
+    best = min(cost(w) for w in sols)
+    sub5 = {(5 * k) % Nc for k in range(Nc)}
+    gen520_25 = {(520 * a + 25 * b) % Nc for a in range(Nc // 40) for b in range(Nc // 5)}
+    ticks = {(tick * k) % Nc for k in range(5)}
+    return {
+        "on the circle Z/4320 with U the unit step, A = U^520, B = U^25 and T = U^864 (the tick): 2 x 520 - 7 x 25 - 864 "
+        "= 1 exactly, so U = A^2 B^-7 T^-1; among all integer (a, b, c) with 520a + 25b + 864c = 1 mod 4320 the least "
+        "|a| + |b| + |c| is 10, attained only by (2, -7, -1) (exhaustive over |a|, |b|, |c| <= 10, which holds every "
+        "triple of cost at most 10; the next costs in the box are 13, 15, 18, all with (a, b) = (2, -7))":
+            2 * 520 - 7 * 25 - 864 == 1 and Nc == 4320 and tick == 864 and best == 10
+            and [w for w in sols if cost(w) == 10] == [(2, -7, -1)]
+            and sorted(cost(w) for w in sols)[:4] == [10, 13, 15, 18] and all(w[:2] == (2, -7) for w in sols),
+        "gcd(4320, 520, 25) = 5, so <A, B> = <U^5> = <U^25>, canon_sync's subgroup of order 864 (index 5): the note's "
+        "'five clock components' are the five classes mod 5; the tick <T> has order 5 and meets it only in 0, so "
+        "Z/4320 = <5> + <864> (direct, 864 x 5 = 4320), and any word reaching U has c = 4 mod 5 (520a + 25b is 0 mod 5 "
+        "and 864 is 4 mod 5): only T changes the component":
+            gcd(gcd(Nc, 520), 25) == 5 and gen520_25 == sub5 and len(sub5) == 864 and len(ticks) == 5
+            and sub5 & ticks == {0} and len({(x + y) % Nc for x in sub5 for y in ticks}) == Nc
+            and all(c % 5 == 4 for _, _, c in sols) and 864 % 5 == 4,
+        "the closure is exact in the finite clock and touches the model's open time binding without closing it: one "
+        "tick is not an interval of time, and gates.GATES keeps TIME_BIND UNBOUND (the note says the same)":
+            str(gates.GATES.get("TIME_BIND", "")).upper() == "UNBOUND",
+    }
+
+
+def open_hodge_marker():
+    """The open-item closures (filed 2 Nov 02:05 UTC), Closures B and C, on the model's source (ker M), cycles and light
+    operator. Already in the model and cited: W: Lambda^2 ker M -> cycles of rank 6 and kernel 4 (source_port,
+    notes_0204); f^T Curl f = 2 Pf(R^T C R) and Lambda^2(p)^T Curl Lambda^2(p) = sgn(p) Curl for all 120 p, with
+    decomposable sources of nonzero Pfaffian, the hub's quartic witness (175) and the Agni-Soma witness (240)
+    (hodge_star); Q6 = Lambda^2(I + J), H6 = K Q6, H6^2 = 5I (notes_2137); grand_lorentz's wedge map W with W^T W = Q6;
+    F20 on w = NEAR - FAR by its quadratic character (f20_schur); Gamma^2 = 5I - J (notes_2137). New: the note's
+    witness, its q_H read as Curl in W-coordinates, the equivariance of the commutator on all 120 permutations, and
+    that exactly F20 keeps the golden contrast up to sign."""
+    E = carrier.edges()
+    eidx = {e_: k for k, e_ in enumerate(E)}
+    M = sp.Matrix(carrier.signless_incidence())
+    Curl = sp.Matrix(waves.complex_ops()[3])
+
+    def sym(v):
+        A = sp.zeros(5)
+        for k, (i, j) in enumerate(E):
+            A[i, j] = A[j, i] = v[k]
+        return A
+    comm = lambda a, b: sym(a) * sym(b) - sym(b) * sym(a)
+    upper = lambda C: sp.Matrix([C[i, j] for i, j in E])
+    pr = list(itertools.combinations(range(4), 2))
+    lead = lambda C: sp.Matrix([C[i, j] for i, j in pr])
+    pf = lambda w: w[0] * w[5] - w[1] * w[4] + w[2] * w[3]
+    G4 = sp.eye(4) + sp.ones(4, 4)
+    Q6 = sp.Matrix(6, 6, lambda r, c: G4.extract(list(pr[r]), list(pr[c])).det())
+    K6 = sp.Matrix(6, 6, lambda r, c: Permutation(list(pr[r] + pr[c])).signature()
+                   if set(pr[r]) | set(pr[c]) == {0, 1, 2, 3} else 0)
+    H6 = K6 * Q6
+    Wm = sp.Matrix.hstack(*[sp.Matrix([int(e_ == (i, j)) - int(e_ == (i, 4)) + int(e_ == (j, 4)) for e_ in E])
+                            for i, j in pr])
+    a = sp.Matrix([1, 1, -1, -1, -1, 0, 0, 0, 0, 1])
+    b = sp.Matrix([1, 0, 0, -1, -1, 0, 0, 0, 1, 0])
+    Om = comm(a, b)
+    w = lead(Om)
+    f = upper(Om)
+    qH = lambda v: (v.T * Q6 * H6 * v)[0]
+    ws = sp.Matrix(sp.symbols("w0:6"))
+    fs = Wm * ws
+    Cs = sp.Matrix(5, 5, lambda i, j: 0 if i == j else fs[eidx[(i, j)]] if i < j else -fs[eidx[(j, i)]])
+    Rm = sp.Matrix.vstack(sp.eye(4), -sp.ones(1, 4))
+    pf4 = lambda X_: X_[0, 1] * X_[2, 3] - X_[0, 2] * X_[1, 3] + X_[0, 3] * X_[1, 2]
+    # equivariance of the commutator under all 120 vertex permutations, on a basis of ker M
+    N5 = sp.Matrix.hstack(*M.nullspace())
+    S5 = list(itertools.permutations(range(5)))
+    Pm = lambda p: sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+    unsigned = lambda p: sp.Matrix(10, 10, lambda r, c: int(E[r] == tuple(sorted((p[E[c][0]], p[E[c][1]])))))
+    equiv = all(upper(comm(unsigned(p) * N5[:, i], unsigned(p) * N5[:, j]))
+                == compound2(Pm(p)) * upper(comm(N5[:, i], N5[:, j]))
+                for p in S5 for i in range(5) for j in range(i + 1, 5))
+    # the golden contrast and F20
+    Ac = sp.Matrix(5, 5, lambda i, j: int((i - j) % 5 in (1, 4)))
+    G5 = sp.ones(5, 5) - sp.eye(5) - 2 * Ac
+    wNF = sp.Matrix([1 if (j - i) % 5 in (1, 4) else -1 for i, j in E])
+    F20 = [tuple((m * i + t) % 5 for i in range(5)) for m in range(1, 5) for t in range(5)]
+    chi = {1: 1, 2: -1, 3: -1, 4: 1}
+    keeps = {p: (1 if Pm(p) * G5 * Pm(p).T == G5 else -1 if Pm(p) * G5 * Pm(p).T == -G5 else 0) for p in S5}
+    qG = lambda x: (x.T * G5 * x)[0]
+    x0 = sp.Matrix([1, 1, 0, 0, 0])
+    rel = lambda p: qG(Pm(p) * x0) * qH(lead(comm(unsigned(p) * a, unsigned(p) * b)))
+    swap01 = (1, 0, 2, 3, 4)
+    return {
+        "the note's pair a = (1, 1, -1, -1, -1, 0, 0, 0, 0, 1), b = (1, 0, 0, -1, -1, 0, 0, 0, 1, 0) (lexicographic K5 "
+        "edges) lies in ker M; Omega = [A(a), A(b)] is skew with zero row sums (a cycle), its leading 4 x 4 block has "
+        "rank 4 and entries w = (-1, -1, 1, -1, 1, -1), Pf(w) = 1, and with Q6 = Lambda^2(I + J) (det 125), K the "
+        "complementary-pair signs and H6 = K Q6 (H6^2 = 5I, Q6 H6 = 5K) the note's marker is q_H(w) = w^T Q6 H6 w = 10 = "
+        "10 Pf(w): a decomposable source with a nondecomposable commutator. The existence was already in the model "
+        "(hodge_star: the hub's quartic witness and the Agni-Soma witness, Pf(R^T C R) = 175 and 240, f^T Curl f = 350 "
+        "and 480): the note's witness is a smaller one, not the first":
+            M * a == sp.zeros(5, 1) and M * b == sp.zeros(5, 1) and Om.T == -Om and Om * sp.ones(5, 1) == sp.zeros(5, 1)
+            and Om[:4, :4].rank() == 4 and list(w) == [-1, -1, 1, -1, 1, -1] and pf(w) == 1
+            and Q6.det() == 125 and H6 ** 2 == 5 * sp.eye(6) and Q6 * H6 == 5 * K6 and qH(w) == 10 == 10 * pf(w),
+        "the note's Hodge quadratic is the model's light operator read in W-coordinates: with grand_lorentz's wedge map "
+        "W (columns (e_i - e_4) ^ (e_j - e_4), i < j < 4; W^T W = Q6), Curl W = W H6 and W^T Curl W = Q6 H6 = 5K, so "
+        "for every cycle f = W w, f^T Curl f = q_H(w) = 10 Pf(w) (symbolic in w), which is hodge_star's 2 Pf(R^T C R): "
+        "for the cycle's skew matrix C, R^T C R = (I + J) C' (I + J) (C' its leading block, R = [e_i - e_4]) has "
+        "Pfaffian 5 Pf(C') = 5 Pf(w); the note's commutator is W w with f^T Curl f = 10":
+            Wm.T * Wm == Q6 and Curl * Wm == Wm * H6 and Wm.T * Curl * Wm == 5 * K6 and Wm * w == f
+            and (f.T * Curl * f)[0] == 10 and sp.expand((fs.T * Curl * fs)[0] - 10 * pf(ws)) == 0
+            and Cs * sp.ones(5, 1) == sp.zeros(5, 1)
+            and (Rm.T * Cs * Rm - G4 * Cs[:4, :4] * G4).expand() == sp.zeros(4, 4)
+            and sp.expand(pf4(Rm.T * Cs * Rm) - 5 * pf(ws)) == 0,
+        "the commutator is S5-equivariant: for all 120 vertex permutations p and all ten pairs of a ker M basis, "
+        "[A(p a), A(p b)] read on the edges is Lambda^2(p) applied to [A(a), A(b)] (p a: p acting on unsigned edges; "
+        "Lambda^2(p): the signed second compound), so with hodge_star's Lambda^2(p)^T Curl Lambda^2(p) = sgn(p) Curl "
+        "the law q_H(W(p a, p b)) = sgn(p) q_H(W(a, b)) holds for every source pair, not only on the note's witness":
+            equiv,
+        "the golden contrast G5 = J - I - 2 A_C5 is minus the source matrix of f20_schur's w = NEAR - FAR (G5 = -A(w)), "
+        "with G5^2 = 5I - J; of the 120 vertex permutations exactly the 20 of F20 (x -> m x + t) carry G5 to +-G5, by the "
+        "quadratic character of m (+ for m = 1, 4), and the other 100 to neither; on F20 that character is sgn(p), the "
+        "sign q_H takes by the parity law, so I_rel = q_G(x) q_H(W(a, b)) is invariant under the diagonal F20 for every "
+        "x, a, b (both factors change by the same sign), with q_G(e0 + e1) = -2, q_G(e0 + e2) "
+        "= 2 and I_rel = -20 at the witness on all 20; the transposition (0 1), outside F20, fixes x = e0 + e1 and turns "
+        "I_rel to +20: the invariant is F20's, not S5's":
+            G5 == -sym(wNF) and G5 ** 2 == 5 * sp.eye(5) - sp.ones(5, 5) and M * wNF == sp.zeros(5, 1)
+            and {p for p in S5 if keeps[p] != 0} == set(F20)
+            and all(keeps[p] == chi[(p[1] - p[0]) % 5] == Permutation(list(p)).signature() for p in F20)
+            and qG(x0) == -2 and qG(sp.Matrix([1, 0, 1, 0, 0])) == 2 and all(rel(p) == -20 for p in F20)
+            and rel(swap01) == 20,
+    }
+
+
+def open_golden_coupling():
+    """The open-item closures (filed 2 Nov 02:05 UTC), Closure D: the ten-dimensional coupling C = G5 (x) R on the five
+    vertices and the rotor plane. R = [[2, -1], [-1, -2]] is the model's light operator on the near/far cycles (N, F)
+    (notes_2137, join_rotor_waves); F20's action on (N, F) is f20_schur's, recomputed here from the signed edge action.
+    New: the spectrum and the cone, and that C is the F20-invariant coupling."""
+    E = carrier.edges()
+    I5, J5 = sp.eye(5), sp.ones(5, 5)
+    Ac = sp.Matrix(5, 5, lambda i, j: int((i - j) % 5 in (1, 4)))
+    G5 = J5 - I5 - 2 * Ac
+    R = sp.Matrix([[2, -1], [-1, -2]])
+    C = sp.kronecker_product(G5, R)
+    lam = sp.Symbol("lambda")
+    kap, gam = sp.symbols("kappa gamma", real=True)
+    Kk = kap * sp.eye(10) + gam * C
+    Nv = sp.Matrix([1 if j - i == 1 else -1 if (i, j) == (0, 4) else 0 for i, j in E])
+    Fv = sp.Matrix([1 if j - i == 2 else -1 if j - i == 3 else 0 for i, j in E])
+    NF = sp.Matrix.hstack(Nv, Fv)
+    Pm = lambda p: sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+    F20 = [tuple((m * i + t) % 5 for i in range(5)) for m in range(1, 5) for t in range(5)]
+    rho = {p: (NF.T * NF).inv() * NF.T * compound2(Pm(p)) * NF for p in F20}
+    stable = all(compound2(Pm(p)) * NF == NF * rho[p] for p in F20)
+    inv_ = all(sp.kronecker_product(Pm(p), rho[p]) * C * sp.kronecker_product(Pm(p), rho[p]).T == C for p in F20)
+    odd = [p for p in F20 if Pm(p) * G5 * Pm(p).T == -G5]
+    gs = sp.symbols("g0:25")
+    Gs = sp.Matrix(5, 5, gs)                                            # G (x) R is invariant iff P G P^T = +-G as R
+    eqs = list(Gs - Gs.T) + [x for p in F20 for x in Pm(p) * Gs * Pm(p).T - (1 if p not in odd else -1) * Gs]
+    sol = sp.linsolve(eqs, gs)
+    Gsol = sp.Matrix(5, 5, list(sol)[0]) if len(sol) == 1 else None
+    free_g = sorted(Gsol.free_symbols, key=str) if Gsol is not None else []
+    line_ok = len(free_g) == 1 and Gsol == -free_g[0] * G5
+    return {
+        "C = G5 (x) R (G5 = J - I - 2 A_C5, R = [[2, -1], [-1, -2]], R^2 = 5I) has characteristic polynomial lambda^2 "
+        "(lambda^2 - 25)^4 and C^2 = 25 (I - J/5) (x) I2: spectrum -5 (four times), 0 (twice), 5 (four times); so K = "
+        "kappa I + gamma C has characteristic polynomial (x - kappa)^2 ((x - kappa)^2 - 25 gamma^2)^4, K >= 0 exactly when "
+        "kappa >= 5|gamma| and K > 0 exactly when kappa > 5|gamma| (symbolic in kappa, gamma)":
+            R ** 2 == 5 * sp.eye(2) and sp.expand(C.charpoly(lam).as_expr() - lam ** 2 * (lam ** 2 - 25) ** 4) == 0
+            and C ** 2 == 25 * sp.kronecker_product(I5 - J5 / 5, sp.eye(2))
+            and sp.expand(Kk.charpoly(lam).as_expr() - (lam - kap) ** 2 * ((lam - kap) ** 2 - 25 * gam ** 2) ** 4) == 0,
+        "C is the F20-invariant coupling of the vertices and the rotor plane: F20 keeps the plane of the near and far "
+        "cycles N, F (signed second compound), acting there by rho(p) with rho(p) R rho(p)^T = +-R (f20_schur's), and "
+        "(P_p (x) rho(p)) C (P_p (x) rho(p))^T = C for all 20, while the ten with m = 2, 3 negate G5 and R separately; "
+        "among couplings G (x) R with G symmetric (5 x 5, solved exactly) the F20-invariant ones are exactly the "
+        "multiples of G5: the operator form of Closure C's relative invariant (a selected reference stiffness, not a "
+        "derived action)":
+            stable and inv_ and len(odd) == 10 and all(rho[p] * R * rho[p].T == -R for p in odd)
+            and all(rho[p] * R * rho[p].T == R for p in F20 if p not in odd)
+            and sorted({(p[1] - p[0]) % 5 for p in odd}) == [2, 3]
+            and NF.T * NF == 5 * sp.eye(2) and sp.Matrix(carrier.signed_incidence()) * NF == sp.zeros(5, 2)
+            and line_ok,
+    }
+
+
+# ------------------------------------------------------------------- the separate model's single-action threshold note (2 Nov 02:17-02:18)
+
+def threshold_moments():
+    """The separate model's single-action threshold note (OES_SINGLE_ACTION_THRESHOLD_UNIFICATION_20261102.md, filed 2
+    Nov 02:18 UTC, with its machine spec, filed 02:17 UTC, and verify_e8_threshold_unification.py, filed 02:17 UTC, read
+    as text, not run), section 2: the six representative root tensors with the symmetry reduction behind 'these six
+    numbers determine every coefficient through degree six'. Already in the model and cited, not repeated: sum_r (r.x)^k
+    = 60|x|^2, 36|x|^4, 30|x|^6 as polynomial identities, all 36, 330 and 1716 coefficients (e8_anisotropy; notes_1250
+    monomial by monomial), which, through the multinomial factor, is every monomial sum of degree 2, 4 and 6: an
+    all-even one equals its exponent partition's value and one with an odd exponent vanishes; M8 = 57/2 on an axis and
+    39 on a root, the symbol 30|k|^2 - (3/2)|k|^4 + |k|^6/24 - (30 + H8)|k|^8/40320 (e8_anisotropy, notes_1250,
+    notes_1757, notes_2154). The note's heat-return constant (120 pi u)^-4 is the canon motif cross-court's replay
+    (motif_spray: the Gaussian with the walk covariance 60 tau I8, 6C tau^-4 for the band-bottom density C E^3, the walk
+    counts' 16/pi^4 at n = 240 tau and the Laplace transform, all exact), cited, not repeated; the lattice asymptotic
+    itself is Laplace's method at the band's unique nondegenerate zero, not computed. New here: the six numbers as the
+    multinomial readings of e8_anisotropy's three constants, the root set's coordinate symmetry behind the reduction,
+    the odd degrees 1-7 monomial by monomial (notes_1250 derives their vanishing from the roots' closure under negation;
+    here each of the 4352 sums is computed), and where the reduction stops (degree 8)."""
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)                      # doubled coordinates: r = R2/2, r.r = 2
+    roots = {tuple(r) for r in R2}
+    perms = [[1, 0, 2, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6, 7, 0]]         # (12) and the 8-cycle generate S8
+    flips = [[-1 if j in (0, i) else 1 for j in range(8)] for i in range(1, 8)]   # generate the even sign changes
+    sym_ok = (len(roots) == 240 and all({tuple(r[p]) for r in R2} == roots for p in perms)
+              and all({tuple(r * np.array(f)) for r in R2} == roots for f in flips))
+    R2o = R2.astype(object)
+    odd_alive, deg8_odd, n_odd, n8 = [], [], 0, 0
+    for d in (1, 3, 5, 7, 8):                                            # degrees 2, 4, 6: e8_anisotropy's, cited
+        for c in itertools.combinations_with_replacement(range(8), d):
+            m = [0] * 8
+            for i in c:
+                m[i] += 1
+            s = Fraction(int((R2o ** np.array(m)).prod(axis=1).sum()), 2 ** d)
+            odd = any(v % 2 for v in m)
+            if d < 8:                                                    # odd degree: every exponent vector has an odd entry
+                n_odd += 1
+                if s != 0:
+                    odd_alive.append(m)
+            else:
+                n8 += 1
+                if odd and s != 0:
+                    deg8_odd.append((tuple(m), s))
+    six = {(2,): 60, (4,): 36, (2, 2): 12, (6,): 30, (4, 2): 6, (2, 2, 2): 2}
+    cdeg = {2: 60, 4: 36, 6: 30}                                          # e8_anisotropy's constants
+    fac = lambda t: sp.prod([sp.factorial(v) for v in t])
+    multinom = all(v == cdeg[sum(k)] * sp.factorial(sum(k) // 2) * fac(k) / (sp.factorial(sum(k)) * fac([x // 2 for x in k]))
+                   for k, v in six.items())
+    return {
+        "the note's six representative tensors over the 240 roots (squared length 2), sum r1^2 = 60, sum r1^4 = 36, sum "
+        "r1^2 r2^2 = 12, sum r1^6 = 30, sum r1^4 r2^2 = 6, sum r1^2 r2^2 r3^2 = 2, are the multinomial readings of "
+        "e8_anisotropy's 60|x|^2, 36|x|^4, 30|x|^6: an all-even monomial x^m of degree 2j has sum c_2j j! m!/((2j)! "
+        "(m/2)!) (e.g. 12 = 36 x 2! x 2!2!/4!), the coefficient identity e8_anisotropy checks on all 36, 330 and 1716 "
+        "monomials of degrees 2, 4, 6 (the odd-exponent ones zero; notes_1250 monomial by monomial), cited, not repeated, "
+        "so the six determine every moment through degree 6; the reduction's symmetry: the root set is invariant under "
+        "the coordinate permutations (the transposition (12) and the 8-cycle) and the even sign changes (the flips of "
+        "coordinates 1 and i, i = 2..8); all 4352 monomial sums of the odd degrees 1, 3, 5, 7 vanish (as the roots' "
+        "closure under negation implies, notes_1250); the reduction stops at degree 8: of the 6435 degree-8 monomials "
+        "exactly one with an odd exponent has a nonzero sum, x1 x2 ... x8, with sum 1/2 (the 128 half-integer roots, each "
+        "(1/2)^8 with an even number of minus signs), so sum (r.x)^8 carries 8!/2 = 20160 x1...x8, absent from |x|^8: a "
+        "second witness, besides 57/2 against 39, that the roots are no 8-design":
+            sym_ok and n_odd == 4352 == 8 + 120 + 792 + 3432 and n8 == 6435 and not odd_alive
+            and multinom and deg8_odd == [((1,) * 8, Fraction(1, 2))] and factorial(8) // 2 == 20160,
+    }
+
+
+def threshold_action():
+    """The single-action threshold note (filed 2 Nov 02:18 UTC), sections 3-4, beyond what is already replayed:
+    multipole_k0_threshold (the one-parent note's replay) carries K0 = H + J (F - S0^-1) J^T on schur_zero_mode's
+    root-site instance at eps = 0 (S0^-1 = H_vv - B C^-1 B^T, the congruence to diag(F, C), K0 >= 0, dim ker K0 = dim
+    ker F for nullity 1 and 5, the square completion, the kernel vector, Z0 and the inverse response at z = 1);
+    flower_residues has, on the 90D comparator, K_rf = H + J (F19 - S0^-1) J^T as the eps = 0 regulated completion entry
+    for entry, its kernel vector H^-1 J S0^-1 q0, inertia (89, 1, 0) (K_rf >= 0 of nullity 1) and Z_rf = 40389/40000;
+    deep_zero_pole's Theorems 5 and 6 are, on generic 2 x 2 blocks with a symbolic C, the congruence [[F + B C^-1 B^T,
+    B], [B^T, C]] = T^T diag(F, C) T and the source Schur complement F + z [I + B C^-1 (z + C)^-1 B^T] of z + K (at z =
+    -g that of K - g); zero_pole_instance has, at eps = 1 on the same instance, Z = I + W^T W and the gap in (1.3808,
+    1.3809) by the same exact inertia. New here: on generic symbolic blocks, that the regulator-free K0 = H + J (F -
+    S0^-1) J^T is that K with S0^-1 the Schur complement and M0 = S0^-1 T0 S0^-1 = I + B C^-2 B^T; on the instance at
+    eps = 0, the note's M0 in all 19 source directions and the dressed low spectrum of K0; and the note's own 25D
+    comparator read as data. The infinite-lattice statements (H^-1 J in l2 because 8 > 4, sigma_ess(K0) = [0, 256] by
+    Weyl's theorem with band.edge, the zero at the threshold with no gap) are analytic, recorded, not computed; on the
+    finite instance the zero is isolated."""
+    # (1) generic 2 + 2 blocks, symbols: H = [[A, B], [B^T, C]]
+    sym2 = lambda s: sp.Matrix([[s[0], s[1]], [s[1], s[2]]])
+    A_, C_, F_ = sym2(sp.symbols("a0:3")), sym2(sp.symbols("c0:3")), sym2(sp.symbols("f0:3"))
+    B_ = sp.Matrix(2, 2, sp.symbols("b0:4"))
+    z4 = lambda X: X.applyfunc(sp.cancel).is_zero_matrix
+    Ci = C_.inv()
+    S_ = A_ - B_ * Ci * B_.T                                             # the Schur complement
+    Hs = sp.Matrix(sp.BlockMatrix([[A_, B_], [B_.T, C_]]))
+    J4 = sp.Matrix.vstack(sp.eye(2), sp.zeros(2, 2))
+    Lf = sp.Matrix.vstack(sp.eye(2), -Ci * B_.T)                         # the candidate lifts
+    lift = z4(Hs * Lf - J4 * S_)                                         # H Lf = J S, so H^-1 J = Lf S^-1, S0 = S^-1
+    K0s = Hs + J4 * (F_ - S_) * J4.T
+    Kt = sp.Matrix(sp.BlockMatrix([[F_ + B_ * Ci * B_.T, B_], [B_.T, C_]]))   # deep_zero_pole's K (Theorem 5)
+    blocks = z4(K0s - Kt)
+    metric = z4(Lf.T * Lf - sp.eye(2) - B_ * Ci * Ci * B_.T)              # M0 = S T0 S = Lf^T Lf
+    # (2), (3) schur_zero_mode's root-site instance at eps = 0
+    R2, G, A, Pint, sc, *_ = _master_shell()
+    E = carrier.edges()
+    I = np.eye(240, dtype=np.int64)
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    mu = [240 - l for l in lam]
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    vis = ([idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in E]
+           + [idx[tuple(e2[i] + e2[6])] for i in range(4)])
+    hid = [k for k in range(240) if k not in set(vis)]
+    HR = 240 * I - A
+    mat = lambda a: sp.Matrix(a.tolist())
+
+    def gblk(t, rows, cols, d=0):                                        # block of (H_R + t)^-(d + 1) from the sectors
+        return sum((mat(P[np.ix_(rows, cols)]) * sp.Rational(1, s_) / (t + m) ** (d + 1) for P, s_, m in zip(Pint, sc, mu)),
+                   sp.zeros(len(rows), len(cols)))
+    S0 = gblk(0, vis, vis)
+    S0i = S0.inv()
+    T0 = gblk(0, vis, vis, 1)                                            # J^T H_R^-2 J
+    M0 = S0i * T0 * S0i
+    W0 = -gblk(0, hid, vis) * S0i                                        # H^-1 J S0^-1 = [I; -W0] (multipole_k0_threshold)
+
+    def inertia(Sm):                                                     # exact LDL^T; Sylvester's law of inertia
+        L_, D_ = Sm.LDLdecomposition(hermitian=False)
+        d_ = list(D_.diagonal())
+        ok = all(v != 0 for v in d_) and (L_ * D_ * L_.T - Sm).is_zero_matrix
+        return ok, sum(1 for v in d_ if v < 0), sum(1 for v in d_ if v > 0)
+    lo_m, hi_m = 1 + sp.Rational(1, 5500), 1 + sp.Rational(1, 131)
+    M = sp.Matrix(carrier.signless_incidence())
+    p = [1, 2, 3, 4, 0]
+    UV = sp.Matrix(5, 5, lambda i, j: int(i == p[j]))
+    UE = _edge_perm(p)
+    D15 = sp.zeros(15)
+    D15[:5, 5:], D15[5:, :5] = M, M.T
+    K1 = D15 * D15 + (sp.eye(15) - sp.diag(UV, UE)).T * (sp.eye(15) - sp.diag(UV, UE))
+    B2 = sp.Matrix([[3, 1], [1, 2]])
+    F19 = sp.diag(K1, B2, B2)
+    gs = [sp.Rational(1380839, 10 ** 6), sp.Rational(138084, 10 ** 5), sp.Rational(13819, 10 ** 4),
+          sp.Rational(36079, 10 ** 4), sp.Rational(3618, 10 ** 3)]
+    counts = [inertia(F19 - S0i + gblk(-g, vis, vis).inv()) for g in gs]
+    C184 = sum((P[np.ix_(hid, hid)] * ((m - 184) * 240 // s_) for P, s_, m in zip(Pint, sc, mu)), np.zeros((221, 221), dtype=np.int64))
+    Cok = (np.array_equal(C184, 240 * (HR[np.ix_(hid, hid)] - 184 * np.eye(221, dtype=np.int64))) and min(mu) == 184
+           and all((m - 184) * 240 % s_ == 0 for s_, m in zip(sc, mu)))
+    r5 = sp.sqrt(5)
+    lm, lp = (5 - r5) / 2, (5 + r5) / 2
+    # (4) the note's 25D comparator, read as data
+    m_, n_ = 19, 6
+    Ac = sp.diag(*[24 + i for i in range(m_)])
+    Cc = sp.diag(*[30 + i for i in range(n_)])
+    Bc = sp.Matrix(m_, n_, lambda i, j: (i + 3 * j) % 3 - 1)
+    Sc = Ac - Bc * Cc.inv() * Bc.T
+    Fc = sp.diag(0, *([3] * (m_ - 1)))
+    Vc = Fc - Sc
+    Kc = sp.Matrix(sp.BlockMatrix([[Ac + Vc, Bc], [Bc.T, Cc]]))
+    Hc = sp.Matrix(sp.BlockMatrix([[Ac, Bc], [Bc.T, Cc]]))
+    Jc = sp.Matrix.vstack(sp.eye(m_), sp.zeros(n_, m_))
+    qc = sp.eye(m_)[:, 0]
+    psic = sp.Matrix.vstack(qc, -Cc.inv() * Bc.T * qc)
+    freq = all((Jc.T * (z * sp.eye(25) + Kc).inv() * Jc).inv() - (Jc.T * (z * sp.eye(25) + Hc).inv() * Jc).inv() == Vc
+               for z in (sp.Rational(1, 2), sp.Integer(1), sp.Integer(3)))
+    trc = (Bc * Cc.inv() * Bc.T).trace()
+    return {
+        "the regulator-free algebra on generic blocks (A, C, F symmetric 2 x 2 and B arbitrary, 13 symbols, H = [[A, B], "
+        "[B^T, C]], J = [I; 0]): with S = A - B C^-1 B^T and L = [I; -C^-1 B^T], H L = J S, so H^-1 J = L S^-1, S0 = J^T "
+        "H^-1 J = S^-1 (J^T L = I) and S0^-1 = S needs no regulator; K0 = H + J (F - S0^-1) J^T is exactly [[F + B C^-1 "
+        "B^T, B], [B^T, C]], deep_zero_pole's K of Theorem 5 (whose congruence T^T diag(F, C) T, with dim ker K0 = dim ker "
+        "F whenever C is invertible, and whose source Schur complement F + z [I + B C^-1 (z + C)^-1 B^T] of z + K are "
+        "checked there, cited); the columns of L = H^-1 J S0^-1 are the lifts, T0 = J^T H^-2 J = S^-1 L^T L S^-1, and "
+        "the note's metric is M0 = S0^-1 T0 S0^-1 = L^T L = I + B C^-2 B^T, the Gram matrix of the lifts (rational "
+        "functions, checked by cancellation)":
+            lift and blocks and metric,
+        "the note's effective kinetic metric on schur_zero_mode's root-site instance at eps = 0 (H_R = 240 I - B_R, J the "
+        "deltas at the 19 visible roots, S0 = J^T H_R^-1 J and T0 = J^T H_R^-2 J from the sector expansion, F = F19): "
+        "with W0 = -(H_R^-1)_hv S0^-1, whose columns give the 19 lifts H_R^-1 J S0^-1 = [I; -W0] (multipole_k0_threshold's "
+        "C W0 = B^T and S0^-1 = H_vv - B W0, cited), M0 = S0^-1 T0 S0^-1 = I + W0^T W0 exactly (zero_pole_instance's Z = I "
+        "+ W^T W at eps = 1, here at eps = 0; by the chain rule M0 is the z-derivative at 0 of S_K(z)^-1 = S_H(z)^-1 + "
+        "F19 - S0^-1, as S_H'(0) = -T0, not computed), so q^T M0 q = |H^-1 J S0^-1 q|^2 for every source vector q "
+        "(multipole_k0_threshold has q0's, Z0), and all 19 eigenvalues of M0 lie in (1 + 1/5500, 1 + 1/131) (exact LDL^T "
+        "inertia; W0 has rank 19): every source direction carries kinetic weight within 0.77% of 1":
+            M0 == sp.eye(19) + W0.T * W0
+            and inertia(M0 - lo_m * sp.eye(19)) == (True, 0, 19) and inertia(hi_m * sp.eye(19) - M0) == (True, 0, 19),
+        "the dressed low spectrum of K0 = H_R + J (F19 - S0^-1) J^T on the same instance: its hidden block C satisfies "
+        "C - 184 I = (H_R - 184 I)_hh = sum_k (mu_k - 184) (P_k)_hh/s_k >= 0 (mu = 184, 212, 232, 242, 244; the C "
+        ">= 184 that multipole_k0_threshold states, here as an exact identity), so for g < 184 the eigenvalues of K0 "
+        "below g are the negative pivots of the source Schur complement S_g = F19 - S0^-1 + G(-g)^-1 (G(t) = J^T (H_R + "
+        "t)^-1 J from the sectors; Sylvester on an exact LDL^T, nonzero pivots, so g itself is no eigenvalue; "
+        "zero_pole_instance's method at eps = 1; S_g = F19 - g - g B C^-1 (C - g)^-1 B^T <= F19 - g is deep_zero_pole's "
+        "Theorem 6 at z = -g, cited): there are 1, 2, 5, 5 and 9 of them below g = 1.380839, 1.38084, 1.3819, 3.6079 and "
+        "3.618; so after the isolated zero the gap lies in (1.380839, 1.38084) (at eps = 1 zero_pole_instance has it in "
+        "(1.3808, 1.3809)), four eigenvalues lie in (1.380839, 1.3819), below lam- = (5 - sqrt5)/2 and within 0.0012 of "
+        "it, and four in (3.6079, 3.618), below lam+ = (5 + sqrt5)/2 and within 0.011 of it: F19's golden quadruplets "
+        "lam-^4 and lam+^4 (chiral_closures), each pushed down by the bath (the finite instance is gapped; the infinite "
+        "K0's threshold has no gap, analytic)":
+            Cok and [c_[0] for c_ in counts] == [True] * 5 and [c_[1] for c_ in counts] == [1, 2, 5, 5, 9]
+            and bool(lm > gs[2]) and bool(lp > gs[4]) and bool(lm - gs[0] < sp.Rational(12, 10 ** 4))
+            and bool(lp - gs[3] < sp.Rational(11, 1000)) and bool(max(gs) < 184),
+        "the note's finite comparator, read as data (verify_e8_threshold_unification.py: A = diag(24, ..., 42), C = "
+        "diag(30, ..., 35), B_ij = ((i + 3j) mod 3) - 1, F = diag(0, 3, ..., 3)): B_ij does not depend on j, so the "
+        "19 x 6 coupling B has rank 1 (rows -1, 0, 1 by i mod 3; 13 nonzero); tr B C^-1 B^T = 13 sum_j 1/(30 + j) < 24 "
+        "makes S = A - B C^-1 B^T positive definite (the script's bound); V = F - S, K = [[A + V, B], [B^T, C]] has rank "
+        "24 and kills (e1, -C^-1 B^T e1), and S_K(z)^-1 - S_H(z)^-1 = V exactly at z = 1/2, 1, 3: the script's three "
+        "checks hold, on a comparator whose hidden coupling is rank one":
+            Bc.rank() == 1 and all(Bc[i, j] == Bc[i, 0] for i in range(m_) for j in range(n_))
+            and sum(1 for i in range(m_) if Bc[i, 0] != 0) == 13 and trc == 13 * sum(sp.Rational(1, 30 + j) for j in range(n_))
+            and trc < 24 and Kc.rank() == 24 and (Kc * psic).is_zero_matrix and freq
+            and (Ac + Vc - Bc * Cc.inv() * Bc.T) == Fc,
+    }
+
+
+def threshold_pole_toy():
+    """The separate model's all-dots zero-pole note (OES_All_Dots_Chiral_Zero_Pole_Gap_and_Golden_20261102.txt, filed 2
+    Nov 02:17 UTC) with its certificate (exact_zero_pole_certificate.json, filed 02:17 UTC, read as data) and script
+    (verify_zero_pole_join.py, filed 02:16 UTC, read as text, not run): the certificate's finite exact toy. The note's
+    sections 1-7 restate the 00:22 zero-pole note and the deep master, already replayed and cited, not repeated: q_edge,
+    K_alpha's single zero and its gap min(8, alpha lam-) (chiral_closures, deep_zero_pole, zero_pole_parity), the
+    regulated congruence and Z0 (schur_zero_mode, deep_zero_pole, zero_pole_toy), |B| <= 128, the gap bound and the gap
+    itself on the root-site instance (zero_pole_instance), 389 as master_readout's P0 variance (zero_pole_instance),
+    the time-domain zero piece (zero_pole_toy), the D10 parity of q against the golden v- (zero_pole_parity), the
+    memory D45 (master_readout, deep_wave_memory). New here: the toy's numbers exactly."""
+    Bt = sp.diag(10, 9, 8)
+    A0, C0, eps = 128 * sp.eye(3), 128 * sp.eye(3), sp.Integer(2)
+    H0 = sp.Matrix(sp.BlockMatrix([[A0, Bt], [Bt, C0]]))
+    F = sp.diag(0, 2, 3)
+    Ce = C0 + eps * sp.eye(3)
+    V = F + Bt * Ce.inv() * Bt - A0 - eps * sp.eye(3)
+    J = sp.Matrix.vstack(sp.eye(3), sp.zeros(3, 3))
+    K = H0 + eps * sp.eye(6) + J * V * J.T
+    T = sp.Matrix(sp.BlockMatrix([[sp.eye(3), sp.zeros(3, 3)], [Ce.inv() * Bt, sp.eye(3)]]))
+    q0 = sp.Matrix([1, 0, 0])
+    psi = sp.Matrix.vstack(q0, -Ce.inv() * Bt * q0)
+    Z = sp.eye(3) + Bt * Ce.inv() ** 2 * Bt
+    z, x = sp.Symbol("z", positive=True), sp.Symbol("x")
+    Nz = sp.eye(3) + Bt * Ce.inv() * (z * sp.eye(3) + Ce).inv() * Bt
+    SK = (J.T * (z * sp.eye(6) + K).inv() * J).applyfunc(sp.cancel)
+    schur = (SK.inv() - F - z * Nz).applyfunc(sp.cancel).is_zero_matrix
+    pole = (z * SK).applyfunc(lambda e: sp.limit(e, z, 0))
+    freq = all((J.T * (w * sp.eye(6) + K).inv() * J).inv() - (J.T * (w * sp.eye(6) + H0 + eps * sp.eye(6)).inv() * J).inv() == V
+               for w in (sp.Rational(1, 7), sp.Rational(1, 2), sp.Integer(1), sp.Integer(5)))
+    cp = sp.expand(K.charpoly(x).as_expr())
+    want = sp.expand(x * (x - sp.Rational(1700, 13)) * (x ** 2 - sp.Rational(17241, 130) * x + 260)
+                     * (x ** 2 - sp.Rational(8677, 65) * x + 390))
+    tr1 = sp.Rational(17241, 130)
+    qd = lambda v: v ** 2 - tr1 * v + 260                                 # its smaller root is the least positive eigenvalue
+    left = lambda v: v < tr1 / 2 and qd(v) > 0                           # v lies left of the smaller root
+    right = lambda v: v < tr1 / 2 and qd(v) < 0                          # v lies between the roots
+    lm = (5 - sp.sqrt(5)) / 2
+    dF = min(v for v in F.diagonal() if v > 0)                           # the toy's own source gap (F diagonal)
+    nB = max(abs(v) for v in Bt.diagonal())                              # |B| for the diagonal B
+    rec = sp.Rational(1.9903123138965406)
+    tol = sp.Rational(1, 10 ** 15)
+    return {
+        "the certificate's toy (source and bath of dimension 3, B = diag(10, 9, 8), A = C = 128 I, eps = 2, F = diag(0, "
+        "2, 3)): H0 = [[A, B], [B, C]] has spectrum 128 -+ 10, 9, 8, inside [0, 256] with least value 118 (the "
+        "certificate's 118.0); K = H0 + eps I + J V J^T with V = F + B C_eps^-1 B - A - eps I is [[F + B C_eps^-1 B, B], "
+        "[B, C_eps]] = T^T diag(F, C_eps) T, T = [[I, 0], [C_eps^-1 B, I]] (C_eps = 130 I); it kills psi = (q0, -C_eps^-1 "
+        "B q0) = (1, 0, 0, -1/13, 0, 0), |psi|^2 = 1 + 100/130^2 = 170/169 = Z_11 with Z = I + B C_eps^-2 B (the "
+        "certificate's zero_mode_full_norm2), S_K(z)^-1 = F + z [I + B C_eps^-1 (z + C_eps)^-1 B] identically in z, and "
+        "lim z S_K(z) = diag(169/170, 0, 0) (the source_pole_residue); S_K(x)^-1 - S_0(x)^-1 = V at x = 1/7, 1/2, 1, 5 "
+        "(sourced_frequency_inverse_identity)":
+            sorted(H0.eigenvals().items()) == [(118, 1), (119, 1), (120, 1), (136, 1), (137, 1), (138, 1)]
+            and K == sp.Matrix(sp.BlockMatrix([[F + Bt * Ce.inv() * Bt, Bt], [Bt, Ce]])) and T.T * sp.diag(F, Ce) * T == K
+            and (K * psi).is_zero_matrix and psi[3] == sp.Rational(-1, 13) and (psi.T * psi)[0] == sp.Rational(170, 169) == Z[0, 0]
+            and schur and pole == sp.diag(sp.Rational(169, 170), 0, 0) and freq,
+        "the toy's spectrum and gap: K splits into three 2 x 2 blocks (coordinates i and 3 + i), its characteristic "
+        "polynomial is x (x - 1700/13)(x^2 - (17241/130) x + 260)(x^2 - (8677/65) x + 390), and its least positive "
+        "eigenvalue, the smaller root of x^2 - (17241/130) x + 260 (the other quadratic is positive at 2, left of its "
+        "vertex, and the first is negative there), is within 10^-15 of the certificate's "
+        "first_positive_eigenvalue 1.9903123138965406; the note's bound min(eps, delta_F)/(1 + 128/eps)^2 with the toy's "
+        "own delta_F = 2 (F = diag(0, 2, 3)) is 2/4225, while the script evaluates min(8, lam-, eps)/(1 + 128/eps)^2 = "
+        "lam-/4225 with K5's lam- = (5 - sqrt5)/2, not the toy's (smaller, so still a lower bound); with the toy's own |B| "
+        "= 10 and C_eps = 130 I the congruence argument (least positive eigenvalue of diag(F, C_eps) min(delta_F, 130) = "
+        "2, |T^-1| <= 1 + |B|/130 = 14/13; the argument is deep_zero_pole's, not recomputed) gives 2 (13/14)^2 = 169/98, "
+        "and the gap lies in (169/98, 2)":
+            cp == want and left(rec - tol) and right(rec + tol) and left(sp.Rational(169, 98)) and right(sp.Integer(2))
+            and 1700 / sp.Integer(13) > 2 and 2 < sp.Rational(8677, 130) and 4 - 2 * sp.Rational(8677, 65) + 390 > 0
+            and F.is_diagonal() and Bt.is_diagonal() and dF == 2 and nB == 10
+            and sp.Min(eps, dF) / (1 + 128 / eps) ** 2 == sp.Rational(2, 4225)
+            and sp.simplify(sp.Min(8, lm, eps) / (1 + 128 / eps) ** 2 - lm / 4225) == 0 and bool(lm < 2)
+            and Ce == Ce[0, 0] * sp.eye(3) and sp.Min(dF, Ce[0, 0]) / (1 + nB / Ce[0, 0]) ** 2 == sp.Rational(169, 98),
+    }
+
+
+def threshold_five_faces():
+    """The separate model's five-face join script (verify_five_face_join.py, filed 2 Nov 02:18 UTC, read as text, not
+    run) and the intertwiner file it writes (sat6_cycle6_intertwiner.json, filed 02:17 UTC, read as data): its checkable
+    content. Already in the model and cited, not repeated: the 90D comparator's 45 blocks [[a, sqrt v], [sqrt v, 200]]
+    strictly inside (0, 256) and their erasure leakage (bridge_comparator), the unitary two-time defect with t s
+    coefficient -D on the six-site port (bridge_unitary_port), the erasure face I - F*F = (Q U Y)*(Q U Y) with leading
+    coefficient t^2 D (chiral_time on a generic symmetric K through s^4, onemodel_closures in noncommuting moments
+    through theta^6), the equal-time wave-memory defect with u^4 D/4 (deep_wave_memory, onemodel_closures), the
+    self-energy and the frequency-independent source update G^-1 - G0^-1 = V (master_response), the SAT6 intertwiner
+    with its Gram determinant det(T6^T T6) = 1/5, its S5 obstruction and the path-to-pentagon step (grand_sat6), the
+    4320 address CRT j = 2241 (j mod 160) + 2080 (j mod 27) (clock_sidebands, notes_2117), the single two-root route to
+    2r (grand_registry), the 19D against 32D spectra (grand_fock), the 15D stiffness's characteristic polynomial
+    (chiral_closures, symbolic in alpha), tr B B^T = 760 on the six-site port (bridge_unitary_port, onemodel_closures).
+    New here: the script's 15D stiffness identified with chiral_closures' K_1, tr D45^2, in noncommuting blocks the heat
+    face (the grand join's 'stated, not separately replayed'), the two-time unitary and wave faces and the resolvent
+    face with their common coefficient D, and the stored intertwiner columns."""
+    x = sp.Symbol("x")
+    # (1) the script's K15 at alpha = 1, built as the script builds it
+    E = carrier.edges()
+    eix = {e: j for j, e in enumerate(E)}
+    M = sp.Matrix(carrier.signless_incidence())
+    Uv, Ue = sp.zeros(5, 5), sp.zeros(10, 10)
+    for i in range(5):
+        Uv[(i + 1) % 5, i] = 1
+    for (a, b), j in eix.items():
+        Ue[eix[tuple(sorted(((a + 1) % 5, (b + 1) % 5)))], j] = 1
+    D15 = sp.zeros(15)
+    D15[:5, 5:], D15[5:, :5] = M, M.T
+    K15 = D15 * D15 + sp.diag(2 * sp.eye(5) - Uv - Uv.T, 2 * sp.eye(10) - Ue - Ue.T)
+    p = [1, 2, 3, 4, 0]
+    _, _, _, LVc, LEc, *_ = _chiral()
+    Kc1 = sp.Matrix(carrier.D2()) + sp.diag(LVc, LEc)                    # chiral_closures' K_alpha at alpha = 1
+    al = sp.Symbol("alpha", positive=True)
+    quad = x ** 2 - 5 * al * x + 5 * al ** 2
+    cpc = (x * (x - 8) ** 2 * quad ** 2 * quad.subs(x, x - 3) ** 4).subs(al, 1)   # chiral_closures' polynomial
+    cp = sp.expand(cpc - x * (x - 8) ** 2 * (x ** 2 - 5 * x + 5) ** 2 * (x ** 2 - 11 * x + 29) ** 4)
+    r5 = sp.sqrt(5)
+    shift = sp.expand((x - 3) ** 2 - 5 * (x - 3) + 5) == x ** 2 - 11 * x + 29
+    rts = sp.roots(x ** 2 - 11 * x + 29, x)
+    # (2) D45's traces (master_readout's blockwise variances and sizes)
+    b45, n45 = [2117, 967, 389, 127, 83], [1, 8, 26, 6, 4]
+    # (3) the five faces in noncommuting blocks K = [[A, B], [Bt, C]]
+    Aa, Bb, Bt_, Cc = sp.symbols("A B Bt C", commutative=False)
+    one, nil = sp.Integer(1), sp.Integer(0)
+
+    def powers(n):                                                       # the 2 x 2 blocks of K^0..K^n
+        out = [[[one, nil], [nil, one]]]
+        Kb = [[Aa, Bb], [Bt_, Cc]]
+        for _ in range(n):
+            P_ = out[-1]
+            out.append([[sp.expand(P_[i][0] * Kb[0][j] + P_[i][1] * Kb[1][j]) for j in range(2)] for i in range(2)])
+        return out
+    Pw = powers(4)
+    An = [P_[0][0] for P_ in Pw]
+    t, s, w = sp.symbols("t s w")
+    def deg(term, v):                                                    # the power of the commuting symbol v in a term
+        return sum(int(f.as_base_exp()[1]) for f in sp.Mul.make_args(term) if f.as_base_exp()[0] == v)
+    cut = lambda e, n: sum((term for term in sp.Add.make_args(sp.expand(e)) if deg(term, t) + deg(term, s) <= n), nil)
+    F_of = lambda c, tau: sum((c ** k * tau ** k / sp.factorial(k) * An[k] for k in range(5)), nil)
+    R_of = lambda c, ta, sa: sum((c ** (m + n) * ta ** m * sa ** n / (sp.factorial(m) * sp.factorial(n)) * Pw[m][0][1] * Pw[n][1][0]
+                                  for m in range(1, 4) for n in range(1, 4) if m + n <= 4), nil)
+    heat = sp.expand(cut(F_of(-1, t + s) - F_of(-1, t) * F_of(-1, s) - R_of(-1, t, s), 4)) == 0
+    unit = sp.expand(cut(F_of(-sp.I, t + s) - F_of(-sp.I, t) * F_of(-sp.I, s) - R_of(-sp.I, t, s), 4)) == 0
+    Cw = lambda tau: sum(((-1) ** k * tau ** (2 * k) / sp.factorial(2 * k) * An[k] for k in range(3)), nil)
+    Rw = sum(((-1) ** (m + n) * t ** (2 * m) * s ** (2 * n) / (sp.factorial(2 * m) * sp.factorial(2 * n)) * Pw[m][0][1] * Pw[n][1][0]
+              for m in (1,) for n in (1,)), nil)
+    wave = sp.expand(cut((Cw(t + s) + Cw(t - s)) / 2 - Cw(t) * Cw(s) - Rw, 4)) == 0
+    def coef(e, a, b, v1=t, v2=s):                                      # the coefficient of v1^a v2^b
+        out = nil
+        for term in sp.Add.make_args(sp.expand(e)):
+            if (deg(term, v1), deg(term, v2)) == (a, b):
+                out += term / (v1 ** a * v2 ** b)
+        return sp.expand(out)
+    Dn = Bb * Bt_
+    lead = [coef(F_of(-1, t + s) - F_of(-1, t) * F_of(-1, s), 1, 1), coef(F_of(-sp.I, t + s) - F_of(-sp.I, t) * F_of(-sp.I, s), 1, 1),
+            coef((Cw(t + s) + Cw(t - s)) / 2 - Cw(t) * Cw(s), 2, 2)]
+    Xs = sum((-(-w) ** k * An[k] for k in range(1, 5)), nil)             # G(z) = w (1 - X), w = 1/z
+    wcut = lambda e: sum((term for term in sp.Add.make_args(sp.expand(e)) if deg(term, w) <= 4), nil)
+    Xk = [one]
+    for _ in range(4):
+        Xk.append(wcut(Xk[-1] * Xs))
+    Ginv = sp.expand(sum(Xk, nil))                                       # w G(z)^-1 = sum X^k, read through w^4
+    res = [coef(Ginv, k, 0, w, t) for k in (1, 2, 3, 4)]
+    # (4) the stored intertwiner columns against grand_sat6's T6
+    stored = [["3/5", "-1/5", "-1/5", "-1/5", "1/5", "1/5", "1/5", "0", "0", "0"],
+              ["1/5", "-1/5", "0", "0", "3/5", "-1/5", "-1/5", "1/5", "1/5", "0"],
+              ["0", "1/5", "-1/5", "0", "1/5", "-1/5", "0", "3/5", "-1/5", "1/5"],
+              ["0", "0", "1/5", "-1/5", "0", "1/5", "-1/5", "1/5", "-1/5", "3/5"],
+              ["1/5", "1/5", "1/5", "-3/5", "0", "0", "1/5", "0", "1/5", "1/5"],
+              ["0", "1", "-1", "0", "0", "1", "-1", "0", "1", "0"]]
+    stored_edges = [[0, 1], [0, 2], [0, 3], [0, 4], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+    Ts = sp.Matrix([[sp.Rational(c[i]) for c in stored] for i in range(10)])
+    Bs = sp.Matrix(carrier.signed_incidence())
+    P6 = sp.eye(10) - Bs.T * Bs / 5
+    Pv = lambda q: sp.Matrix(5, 5, lambda i, j: int(i == q[j]))
+    U = compound2(Pv(p))
+    T6 = sp.Matrix.hstack(*[U ** k * P6 * sp.eye(10)[:, 0] for k in range(5)], sp.Matrix([0, 1, -1, 0, 0, 1, -1, 0, 1, 0]))
+    return {
+        "the script's 15D golden stiffness at alpha = 1, built as it builds it (D15 = [[0, M], [M^T, 0]] with the signless "
+        "incidence, L_v = 2I - U_v - U_v^T and L_e = 2I - U_e - U_e^T for the five-cycle on vertices and on unsigned edges) "
+        "is entry for entry chiral_closures' K_alpha = D^2 + alpha L at alpha = 1, whose characteristic polynomial x (x - "
+        "8)^2 (x^2 - 5 alpha x + 5 alpha^2)^2 ((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^4 is checked there symbolically in "
+        "alpha (cited, not recomputed); at alpha = 1 it expands to the script's x (x - 8)^2 (x^2 - 5x + 5)^2 (x^2 - 11x + "
+        "29)^4 exactly, x^2 - 11x + 29 = (x - 3)^2 - 5(x - 3) + 5 having the roots 3 + lam+- = (11 +- sqrt5)/2":
+            K15 == Kc1 and cp == 0 and shift and rts == {(11 + r5) / 2: 1, (11 - r5) / 2: 1},
+        "the 45-channel hidden covariance in orthonormal coordinates, D45 = 2117 I1 + 967 I8 + 389 I26 + 127 I6 + 83 I4 "
+        "(master_readout's blockwise variances and multiplicities, cited as inputs, with its tr D45 = 21061 and least "
+        "eigenvalue 83): tr D45^2 = 2117^2 + 8 x 967^2 + 26 x 389^2 + 6 x 127^2 + 4 x 83^2 = 16021077, the script's "
+        "trace_D2 (its trace_D 21061 and rank 45 agree)":
+            sum(n * b for n, b in zip(n45, b45)) == 21061 and sum(n * b * b for n, b in zip(n45, b45)) == 16021077
+            and sum(n45) == 45 and min(b45) == 83,
+        "the five faces of one D, in noncommuting blocks K = [[A, B], [B^T, C]] (symbols, A_n the (1, 1) block of K^n, D "
+        "= B B^T): coefficientwise through total order 4, the heat face F(t + s) - F(t) F(s) = Y^T e^(-tK) Q e^(-sK) Y "
+        "(F(t) = sum (-t)^n A_n/n!), the two-time unitary face (-it in place of -t) and the two-time wave face (C(t + s) + "
+        "C(t - s))/2 - C(t) C(s) = Y^T cos(t sqrt K) Q cos(s sqrt K) Y; their leading coefficients are + t s D, - t s D "
+        "and + t^2 s^2 D/4, and the resolvent face G(z)^-1 = z + A - D/z + B C B^T/z^2 - B C^2 B^T/z^3 + ... (G = Y^T (z "
+        "+ K)^-1 Y; self-energy B (z + C)^-1 B^T); the remaining face, the erasure I - F*F = (Q U Y)*(Q U Y) with "
+        "leading t^2 D, is chiral_time's and onemodel_closures' (cited, not repeated): one matrix D leads all five; on the "
+        "six-site port (15 bond roots of H_R) D = Y^T H_R Q H_R Y has trace 760 (bridge_unitary_port's, cited), on "
+        "master_readout's 45 channels it is D45 above":
+            heat and unit and wave and lead == [Dn, -Dn, Dn / 4]
+            and res == [Aa, -Dn, Bb * Cc * Bt_, -Bb * Cc ** 2 * Bt_],
+        "the stored intertwiner (sat6_cycle6_intertwiner.json): its edge order is the model's carrier.edges(), and its six "
+        "map columns, read as exact fractions, are grand_sat6's T6 = [w, U w, U^2 w, U^3 w, U^4 w, F] (w = P6 e_01, U the "
+        "signed edge rotation, F the far cycle) entry for entry, so the file's gram_det 1/5 is grand_sat6's det(T6^T T6) "
+        "= 1/5 (checked there on T6, cited, not repeated)":
+            stored_edges == [list(e) for e in E] and Ts == T6,
+    }
+
+
+# ------------------------------------------------------------------- the canon staging integration, root to flower (filed 2 Nov 02:29 UTC): the homotopy, the residues, the six-section court, the timed flower
+
+def _flower_linalg():
+    """Exact linear algebra on lists of Fractions: product, transpose, a Gauss-Jordan solve A X = B, and the inertia
+    (positive, zero, negative pivots) of a symmetric matrix by LDL^T, None if a zero pivot has a nonzero row."""
+    zero = Fraction(0)
+
+    def mul(A, B):
+        cols = list(zip(*B))
+        return [[sum((a * b for a, b in zip(r, c) if a and b), zero) for c in cols] for r in A]
+
+    def tr(A):
+        return [list(r) for r in zip(*A)]
+
+    def solve(A, B):
+        n = len(A)
+        M = [list(A[i]) + list(B[i]) for i in range(n)]
+        for c in range(n):
+            p = next(r for r in range(c, n) if M[r][c] != 0)
+            M[c], M[p] = M[p], M[c]
+            row = [x / M[c][c] for x in M[c]]
+            M[c] = row
+            nz = [j for j in range(c, len(row)) if row[j] != 0]
+            for r in range(n):
+                if r != c and M[r][c] != 0:
+                    f, Mr = M[r][c], M[r]
+                    for j in nz:
+                        Mr[j] -= f * row[j]
+        return [r[n:] for r in M]
+
+    def inertia(A):
+        M = [list(r) for r in A]
+        n, pos, nul, neg = len(A), 0, 0, 0
+        for k in range(n):
+            d, rk = M[k][k], M[k]
+            nz = [j for j in range(k + 1, n) if rk[j] != 0]
+            if d == 0:
+                if nz:
+                    return None
+                nul += 1
+                continue
+            pos, neg = (pos + 1, neg) if d > 0 else (pos, neg + 1)
+            for i in nz:
+                f, Mi = M[i][k] / d, M[i]
+                for j in nz:
+                    Mi[j] -= f * rk[j]
+        return pos, nul, neg
+    return mul, tr, solve, inertia
+
+
+def _flower_comparator():
+    """bridge_comparator's 90 x 90 comparator H90 = [[A, sqrt V], [sqrt V, 200 I]] (channels 0 | 1-8 | 9-34 | 35-40 |
+    41-44 with (a, v) = (184, 2117), (212, 967), (232, 389), (242, 127), (243, 83)) through the congruence D = diag(I45,
+    sqrt v): H' = D H90 D = [[A, V], [V, 200 V]] and D^2 are rational, and D fixes every visible vector. The chiral source
+    J19 sits on the first 19 channels in D19's order: the five vertices on channels 0-4, the four auxiliaries on 5-8,
+    the ten edges on 9-18 (the source index s = vertex 0-4, edge 5-14, auxiliary 15-18 goes to channel ch[s]); F19 =
+    diag(K_1, B2, B2), B2 = [[3, 1], [1, 2]], schur_zero_mode's admissible alpha = 1 square; q19 = (0_5, q, 0_4) with
+    q = pentagon minus pentagram, the kernel of F19 (chiral_closures)."""
+    F = Fraction
+    sect = [(184, 2117, 1), (212, 967, 8), (232, 389, 26), (242, 127, 6), (243, 83, 4)]
+    av = [(a, v) for a, v, n in sect for _ in range(n)]
+    Hp = [[F(0)] * 90 for _ in range(90)]
+    for i, (a, v) in enumerate(av):
+        Hp[i][i], Hp[i][45 + i], Hp[45 + i][i], Hp[45 + i][45 + i] = F(a), F(v), F(v), F(200 * v)
+    D2 = [F(1)] * 45 + [F(v) for _, v in av]
+    M, UV, UE, LV, LE, mu, Pi, P0, S1, q = _chiral()
+    D15 = sp.zeros(15)
+    D15[:5, 5:], D15[5:, :5] = M, M.T
+    B2 = sp.Matrix([[3, 1], [1, 2]])
+    F19 = sp.diag(D15 * D15 + sp.diag(LV, LE), B2, B2)
+    F19 = [[F(int(F19[i, j])) for j in range(19)] for i in range(19)]
+    ch = list(range(5)) + list(range(9, 19)) + list(range(5, 9))
+    q19 = [F(0)] * 5 + [F(int(t)) for t in q] + [F(0)] * 4
+    return av, Hp, D2, F19, ch, q19
+
+
+def _flower_completion(eps):
+    """The regulated chiral completion on the comparator by the note's recipe, in the congruent coordinates: V19 = F19
+    + B C^-1 B^T - J^T H J - eps I with B = J^T (H + eps) Q and C = Q (H + eps) Q on the 71-dimensional complement of
+    ran J (the D's cancel), and J V19 J^T, so that D K19 D = H' + eps D^2 + J V19 J^T (D J = J); also S_eps = J^T (H +
+    eps)^-1 J, from (H' + eps D^2) X = J."""
+    F = Fraction
+    mul, tr, solve, inertia = _flower_linalg()
+    av, Hp, D2, F19, ch, q19 = _flower_comparator()
+    J = [[F(int(ch[s] == r)) for s in range(19)] for r in range(90)]
+    He = [[Hp[i][j] + (eps * D2[i] if i == j else 0) for j in range(90)] for i in range(90)]
+    src = [ch[s] for s in range(19)]
+    comp = [r for r in range(90) if r not in src]
+    sub = lambda A, R, C: [[A[r][c] for c in C] for r in R]
+    BCB = mul(sub(He, src, comp), solve(sub(He, comp, comp), sub(He, comp, src)))
+    V19 = [[F19[i][j] + BCB[i][j] - Hp[src[i]][src[j]] - (eps if i == j else 0) for j in range(19)] for i in range(19)]
+    JVJ = mul(J, mul(V19, tr(J)))
+    S = mul(tr(J), solve(He, J))
+    return J, S, V19, JVJ
+
+
+def flower_homotopy():
+    """The canon staging integration, root to flower (OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed
+    2 Nov 02:29 UTC in OES_CANON_N44Q_UPDATE_STAGING_20261102), Theorem S1, read as data: the convex family K_theta =
+    (1 - theta) H + theta K19 between the bath comparator and its Schur-completed chiral source, at the note's five
+    theta, exactly. The chiral source on the 90D
+    comparator is the note's fixture as identified here (the first 19 channels in D19's order: flower_residues and
+    flower_sections reproduce its five reported numbers). Already in the model and not repeated: Q K Y = Q H Y under any
+    source update with ran J in ran Y (chiral_time), H90's blocks and 0 < H90 < 256 (bridge_comparator), the rank-19
+    frequency-independent inverse response G_K^-1 - G_(H + eps)^-1 = U V U^T (master_response; theta scales eps and V),
+    and the Loewner kernel (loewner_kernel)."""
+    F = Fraction
+    mul, tr, solve, inertia = _flower_linalg()
+    av, Hp, D2, F19, ch, q19 = _flower_comparator()
+    eps = 3
+    J, S, V19, JVJ = _flower_completion(eps)
+    vis, hid = list(range(45)), list(range(45, 90))
+    # the zero-frequency Schur complement on the source, eliminating the 71 coordinates outside ran J
+    Kp = lambda th: [[Hp[i][j] + th * ((eps * D2[i] if i == j else 0) + JVJ[i][j]) for j in range(90)] for i in range(90)]
+    K1 = Kp(F(1))
+    src = [ch[s] for s in range(19)]
+    comp = [r for r in range(90) if r not in src]
+    sub = lambda A, R, C: [[A[r][c] for c in C] for r in R]
+    schur = [[K1[src[i]][src[j]] - x for j, x in enumerate(row)] for i, row in
+             enumerate(mul(sub(K1, src, comp), solve(sub(K1, comp, comp), sub(K1, comp, src))))]
+    thetas = [F(0), F(1, 10), F(1, 2), F(9, 10), F(1)]
+    inert = [inertia(Kp(th)) for th in thetas]
+    # the five-sector covariance: Y^T K Q K Y = Y^T K' Q D^-2 Q K' Y (D commutes with Q, D Y = Y)
+    cov = []
+    for th in thetas:
+        K = Kp(th)
+        cov.append([[sum(K[h][i] * K[h][j] / D2[h] for h in hid) for j in vis] for i in vis])
+    vd = [2117] + [967] * 8 + [389] * 26 + [127] * 6 + [83] * 4
+    Vd = [[F(vd[i]) if i == j else F(0) for j in vis] for i in vis]
+    diag_S = all(S[i][j] == (1 / (av[ch[i]][0] + eps - F(av[ch[i]][1], 200 + eps)) if i == j else 0)
+                 for i in range(19) for j in range(19))
+    Si = solve(S, [[F(int(i == j)) for j in range(19)] for i in range(19)])
+    recipe = V19 == [[F19[i][j] - Si[i][j] for j in range(19)] for i in range(19)]
+    negdef = inertia(V19) == (0, 0, 19)
+    return {
+        "the comparator's chiral completion: on bridge_comparator's H90 with the chiral source J19 on its first 19 "
+        "channels in D19's order (vertices on 0-4, auxiliaries on the linear channels 5-8, edges on the quadratic "
+        "channels 9-18) and eps = 3, the Schur-completion correction V19 = F19 + B C^-1 B^T - J^T H J - 3I "
+        "(schur_zero_mode's recipe; F19 = diag(K_1, B2, B2) at alpha = 1; B, C the source-complement and complement "
+        "blocks of H + 3I) equals F19 - S_eps^-1 with S_eps = J^T (H + 3)^-1 J diagonal, entries 1/(a + 3 - v/203) "
+        "(7/1236 on the mass channel), "
+        "is negative definite, and K19 = H + 3I + J V19 J^T has "
+        "zero-frequency Schur complement exactly F19 on the source (all exact, in the rational congruent coordinates D "
+        "H D, D = diag(I45, sqrt v))":
+            recipe and diag_S and S[0][0] == F(7, 1236) and negdef and schur == F19,
+        "Theorem S1 on the comparator: K_theta = (1 - theta) H + theta K19 = H + theta (3I + J V19 J^T) is positive "
+        "semidefinite at the note's theta = 0, 1/10, 1/2, 9/10, 1, with nullity 0, 0, 0, 0, 1 (exact LDL^T inertia of the "
+        "congruent D K_theta D: 90, 90, 90, 90 and 89 positive pivots, no negative one): kernel only at theta = 1, as "
+        "ker K_theta is the intersection of ker H and ker K19 for 0 < theta < 1 and H > 0 here":
+            inert == [(90, 0, 0)] * 4 + [(89, 1, 0)],
+        "the five-sector first bath covariance Y^T K_theta Q K_theta Y (Y = [I45; 0], Q = I - Y Y^T) is exactly "
+        "diag(2117, 967 I8, 389 I26, 127 I6, 83 I4) at all five theta, the same as Y^T H Q H Y: independent of theta, "
+        "as the source update lives inside ran Y (chiral_time's Q K Y = Q H Y)":
+            all(c == Vd for c in cov),
+    }
+
+
+def flower_residues():
+    """The note's dressed zero pole (section 3.2) and regulator-free spine (Theorem S1b) on its 90D comparator, read as
+    data: the regulated residue at eps = 3 and the regulator-free one, exactly, and their relation on any finite
+    comparator. The general dressed-pole law Z0 = 1 + |C^-1 B^T q0|^2 with residue q0 q0^T/Z0 is deep_zero_pole's
+    (with the eps = 7 receipt 1 + 389/207^2); the threshold completion K0 = H + J (F - S0^-1) J^T, its kernel lift
+    and norm on schur_zero_mode's root-site instance, and K0 as the eps = 0 member of the regulated family there, are
+    multipole_k0_threshold's, and that identity on generic symbolic blocks is threshold_action's; new here is the
+    note's 90D fixture. The infinite-lattice statements (d = 8 integrability, the threshold eigenstate, sigma_ess)
+    are analytic, not computed, and the ledger row is conditional on them."""
+    F = Fraction
+    mul, tr, solve, inertia = _flower_linalg()
+    av, Hp, D2, F19, ch, q19 = _flower_comparator()
+    q2 = sum(t * t for t in q19)
+    out = {}
+    for eps in (3, 7, 0):
+        J, S, V19, JVJ = _flower_completion(eps)
+        K = [[Hp[i][j] + (eps * D2[i] if i == j else 0) + JVJ[i][j] for j in range(90)] for i in range(90)]
+        # the kernel: psi' = (q at the source channels, -q_i/(200 + eps) at their hidden partners), psi = D psi'
+        psi = [F(0)] * 90
+        for s in range(19):
+            psi[ch[s]] = q19[s]
+            psi[45 + ch[s]] = -q19[s] / (200 + eps)
+        Kpsi = [sum(K[i][j] * psi[j] for j in range(90) if psi[j]) for i in range(90)]
+        out[eps] = (K, J, S, all(x == 0 for x in Kpsi), sum(D2[i] * psi[i] ** 2 for i in range(90)) / q2, inertia(K))
+    Z3, Z7, Z0e = out[3][4], out[7][4], out[0][4]
+    # the regulator-free spine, built directly: S0 = J^T H^-1 J, K_rf = H + J (F19 - S0^-1) J^T, psi_rf = H^-1 J S0^-1 q0
+    J = out[0][1]
+    Jt = tr(J)
+    X = solve(Hp, J)                                                       # H'^-1 J = D^-1 H^-1 J (D J = J)
+    S0 = mul(Jt, X)
+    S0i = solve(S0, [[F(int(i == j)) for j in range(19)] for i in range(19)])
+    Krf = [[Hp[i][j] + x for j, x in enumerate(row)] for i, row in
+           enumerate(mul(J, mul([[F19[i][j] - S0i[i][j] for j in range(19)] for i in range(19)], Jt)))]
+    c = [sum(S0i[i][j] * q19[j] for j in range(19)) for i in range(19)]
+    psi = [sum(X[r][s] * c[s] for s in range(19)) for r in range(90)]      # psi' = D^-1 psi_rf
+    Jpsi = [psi[ch[s]] for s in range(19)]
+    Kpsi = [sum(Krf[i][j] * psi[j] for j in range(90) if psi[j]) for i in range(90)]
+    T2 = mul(tr(X), [[D2[r] * x for x in row] for r, row in enumerate(X)])  # X^T D^2 X = J^T H^-2 J
+    Zrf = sum(c[i] * T2[i][j] * c[j] for i in range(19) for j in range(19)) / q2
+    near = lambda x, y: abs(x - Fraction(y)) < Fraction(1, 10 ** 10)
+    return {
+        "section 3.2 on the comparator (alpha = 1, eps = 3): K19 kills psi0 = (q0, -C_eps^-1 B^T q0), the hidden part "
+        "being -sqrt(v) q_i/203 on the ten edge channels' partners, K19 has nullity 1, and Z0 = |psi0|^2/|q0|^2 = 1 + "
+        "389/203^2 = 41598/41209, the variance 389 of the quadratic channels over (200 + eps)^2: the note's Z0 ~ "
+        "1.0094396855 and residue ~ 0.9906485889 are 41598/41209 and 41209/41598 to within 10^-10; at eps = 7 the same "
+        "comparator gives deep_zero_pole's receipt 1 + 389/207^2 = 43238/42849":
+            out[3][3] and out[3][5] == (89, 1, 0) and Z3 == 1 + F(389, 203 ** 2) == F(41598, 41209)
+            and near(Z3, "1.0094396855") and near(1 / Z3, "0.9906485889")
+            and out[7][3] and Z7 == F(43238, 42849),
+        "Theorem S1b on the comparator: with S0 = J^T H^-1 J (exact), K_rf = H + J (F19 - S0^-1) J^T is the regulated "
+        "completion at eps = 0, entry for entry (J^T H J - B C0^-1 B^T = S0^-1, the Schur complement); psi_rf = H^-1 J "
+        "S0^-1 q0 has J^T psi_rf = q0 and K_rf psi_rf = 0, K_rf has nullity 1, and Z_rf = q0^T S0^-1 (J^T H^-2 J) S0^-1 "
+        "q0/|q0|^2 = 1 + 389/200^2 = 40389/40000 = 1.009725 exactly, with pole weight 40000/40389 within 10^-10 of the "
+        "note's 0.9903686647; it equals the regulated Z0 at eps = 0 (whose kernel vector is again (q0, -C0^-1 B^T q0)): "
+        "on this comparator the regulated residue is 1 + 389/(200 + eps)^2 at eps = 0, 3, 7, and the regulator-free one "
+        "is its eps = 0 value":
+            Krf == out[0][0] and Jpsi == q19 and all(x == 0 for x in Kpsi) and inertia(Krf) == (89, 1, 0)
+            and Zrf == F(40389, 40000) == 1 + F(389, 200 ** 2) and F(40389, 40000) == F("1.009725")
+            and near(1 / Zrf, "0.9903686647") and Zrf == Z0e and out[0][3],
+    }
+
+
+def flower_sections():
+    """The note's section 4.1 (a hidden zero mode makes a naive six-source Schur reduction illegal), its comparator's
+    smallest complement eigenvalue ~1.3500734, and Theorem S3's vacuum condition, read as data, on the 90D comparator
+    of flower_homotopy (alpha = 1, eps = 3). A six-section is a 6-dimensional subspace of the 19-dimensional source,
+    carried into the comparator by J19; its complement is the 84-dimensional orthogonal complement there. The
+    quotient formula for nested Schur complements is cited (Crabtree-Haynsworth) and checked here on the instance."""
+    F = Fraction
+    mul, tr, solve, inertia = _flower_linalg()
+    av, Hp, D2, F19, ch, q19 = _flower_comparator()
+    eps = 3
+    J, S, V19, JVJ = _flower_completion(eps)
+    K = [[Hp[i][j] + (eps * D2[i] if i == j else 0) + JVJ[i][j] for j in range(90)] for i in range(90)]
+    psi = [F(0)] * 90                                                      # psi' = D^-1 psi0 (flower_residues)
+    for s in range(19):
+        psi[ch[s]], psi[45 + ch[s]] = q19[s], -q19[s] / (200 + eps)
+    unit = lambda s, n=19: [F(int(t == s)) for t in range(n)]
+    lift = lambda w: [sum((w[s] for s in range(19) if ch[s] == r), F(0)) for r in range(90)]
+    others = [unit(c, 90) for c in range(45) if c not in ch] + [unit(45 + c, 90) for c in range(45)]
+
+    def section(E):
+        """(complement basis in R^19, its lift plus the other 71 coordinates, the compressions of K' and D^2)."""
+        N19 = [[F(int(x.p), int(x.q)) for x in v] for v in sp.Matrix([[sp.Rational(x.numerator, x.denominator) for x in e]
+                                                                       for e in E]).nullspace()]
+        Bc = [lift(n) for n in N19] + others
+        C = mul(Bc, mul(K, tr(Bc)))
+        G = mul(Bc, [[D2[i] * x for x in row] for i, row in enumerate(tr(Bc))])
+        return N19, Bc, C, G
+    nine_ten = list(range(5)) + list(range(15, 19)) + list(range(5, 15))   # D19's order: vertices, auxiliaries, edges
+    bad = [unit(s) for s in nine_ten[:6]]
+    kfirst = [unit(s) for s in range(6)]                                   # K_alpha + S S^T order: vertices, edge 01
+    good = [q19] + [unit(s) for s in range(5)]
+    dot = lambda u, w: sum(x * y for x, y in zip(u, w))
+    Nb, Bb, Cb, Gb = section(bad)
+    Nk, Bk, Ck, Gk = section(kfirst)
+    Ng, Bg, Cg, Gg = section(good)
+    # the zero mode lies in the bad complement: its source part q0 is orthogonal to the six, the rest is off the source
+    in_bad = all(dot(e, q19) == 0 for e in bad)
+    Kpsi = [sum(K[i][j] * psi[j] for j in range(90) if psi[j]) for i in range(90)]
+    bad_ok = in_bad and all(x == 0 for x in Kpsi) and inertia(Cb) == (83, 1, 0) and len(Bb) == 84
+    k_ok = dot(kfirst[5], q19) in (1, -1) and inertia(Ck) == (84, 0, 0)
+    # the legal section: Schur_6 through the comparator and through F19
+    Eg = [lift(e) for e in good]
+    KE = mul(K, tr(Eg))
+    BKE = mul(Bg, KE)
+    sch90 = [[a - b for a, b in zip(r1, r2)] for r1, r2 in zip(mul(Eg, KE), mul(tr(BKE), solve(Cg, BKE)))]
+    FE = mul(F19, tr(good))
+    NF = mul(Ng, FE)
+    sch19 = [[a - b for a, b in zip(r1, r2)] for r1, r2 in
+             zip(mul(good, FE), mul(tr(NF), solve(mul(Ng, mul(F19, tr(Ng))), NF)))]
+    # the auxiliary block and the dressed gap
+    aux = [ch[s] for s in range(15, 19)]
+    blk = aux + [45 + c for c in aux]
+    closed = all(K[i][j] == 0 for i in blk for j in range(90) if j not in blk)
+    B2 = [[3, 1], [1, 2]]
+    want = [[F(B2[i % 2][j % 2]) * (i // 2 == j // 2) + F(967, 203) * (i == j) if i < 4 and j < 4 else
+             F(967) * (abs(i - j) == 4) if (i < 4) != (j < 4) else F(203 * 967) * (i == j) for j in range(8)] for i in range(8)]
+    blk_ok = closed and [[K[i][j] for j in blk] for i in blk] == want
+    r5 = sp.sqrt(5)
+    beta = (5 - r5) / 2
+    p = lambda x: x ** 2 - (beta + sp.Rational(967, 203) + 203) * x + 203 * beta
+
+    def sign(e):                                                           # exact sign of a + b sqrt5
+        a, b = sp.expand(e).as_independent(r5)
+        a, b = sp.Rational(a), sp.Rational(sp.expand(b / r5))
+        if a * b >= 0:
+            return int(sp.sign(a + b))
+        return int(sp.sign(a)) if a * a > 5 * b * b else int(sp.sign(b))
+    ylo, xhi = sp.Rational(13500734237156, 10 ** 13), sp.Rational(13500734237157, 10 ** 13)
+    root_ok = sign(p(ylo)) == 1 and sign(p(xhi)) == -1 and sign(p(0)) == 1 and sp.expand(beta ** 2 - 5 * beta + 5) == 0
+    yl = F(13500734237156, 10 ** 13)
+    above = inertia([[c - yl * g for c, g in zip(rc, rg)] for rc, rg in zip(Cg, Gg)]) == (84, 0, 0)
+    gapK = inertia([[K[i][j] - (yl * D2[i] if i == j else 0) for j in range(90)] for i in range(90)]) == (89, 0, 1)
+    aux_in_good = all(dot(e, unit(s)) == 0 for e in good for s in range(15, 19))
+    return {
+        "OBSTRUCTION, section 4.1's illegal section: the first six coordinates in D19's 9 + 10 order (the five vertices "
+        "and the first auxiliary) are orthogonal to q0, so psi0 = (q0, -C^-1 B^T q0) lies in their 84-dimensional "
+        "complement, K19 psi0 = 0, and the complement block of K19 is singular (exact inertia 83 positive, 1 zero): no "
+        "zero-frequency Schur reduction onto that six; with E6 = J19 on that section psi0 is in ran Q6 and Q6 K19 psi0 = 0, "
+        "so (q, h) = (0, t psi0) are static solutions of Theorem S2's equations at theta = 1 (K_theta = K19) and Theorem "
+        "S3's vacuum is not unique there. "
+        "The first six in the K_alpha + S S^T order (the vertices and edge 01) meet q0 (q0 = +-1 on edge 01) and their "
+        "complement is positive definite: which six is illegal depends on the coordinate order":
+            bad_ok and k_ok,
+        "the legal section spanned by q0 and the five vertices: its complement block of K19 is positive definite (84 "
+        "positive pivots), and Schur_6(K19), computed through the comparator's 84-dimensional complement, equals "
+        "Schur_6(F19), computed in the 19-dimensional source, exactly (6 x 6 rational), with the q0 direction in its "
+        "kernel: the nested Schur identity Schur_6(K19) = Schur_6(Schur_19(K19)) = Schur_6(F19) on the comparator":
+            inertia(Cg) == (84, 0, 0) and sch90 == sch19 and all(x == 0 for x in sch19[0]) and inertia(sch19)[1] == 1,
+        "the reported smallest complement eigenvalue ~1.3500734 is, to within 10^-13, the dressed auxiliary gap: the "
+        "four auxiliary channels (linear, v = 967) and their hidden partners span an invariant block of K19, "
+        "[[diag(B2, B2) + (967/203) I4, sqrt967 I4], [sqrt967 I4, 203 I4]] (checked in the congruent coordinates), so "
+        "each eigenvalue beta of B2 gives x^2 - (beta + 967/203 + 203) x + 203 beta = 0, and for beta = (5 - sqrt5)/2 "
+        "its smaller root x- lies in (1.3500734237156, 1.3500734237157) (exact signs in Q(sqrt5)), twice; the legal "
+        "complement contains these eigenvectors and, less 1.3500734237156 times its metric, is positive definite, so "
+        "its least eigenvalue lies in (1.3500734237156, x-], within 10^-13 of x-; and K19 - 1.3500734237156 I has "
+        "exactly one negative eigenvalue (the zero mode), so K19's least positive eigenvalue lies there too: both "
+        "round to the note's 1.3500734, set by the auxiliaries' 967, not the edges' 389":
+            blk_ok and root_ok and aux_in_good and above and gapK,
+    }
+
+
+def flower_source():
+    """The note's source geometry (Theorem S2, section 5.1) and branch moments (section 3.1), read as data, on the
+    model's own source: the commutator port g(a, b) = [A(a), A(b)] on ker M + ker M in sympy's nullspace basis (the
+    hub's Agni-Soma source, _source). Already in the model and not repeated: W_AS has rank 6 and kernel 4, the wedge cone
+    has dimension 7 and SL(2) fibre (source_port, observer_completion; (a, b) -> a ^ b of Jacobian rank 7, notes_1222);
+    the pair map's generic Jacobian rank 6 (view_closures; rank 6 at notes_1616's witness, code_closures); the phase
+    quotient R_{>0} x CP^4 of dimension 9, its charts and the global no-go (six_ref_source, six_ref_shape); the lane
+    rotation's invariance Dg(-b, a) = 0 and
+    Noether charge (notes_1534); the native equations with the inertia M_s + J^T J, the geodesic term, q'' + 4q = 0 and
+    Dg(0) = 0 (layer 4, native.NativeSystem; its energy is conserved there in floating point); F19's spectrum, index -1
+    and trace 40 + 40 alpha (chiral_closures, deep_zero_pole)."""
+    E, N5, sym, Fp, a0, b0 = _source()
+    a, b = sp.symbols("a0:5"), sp.symbols("b0:5")
+    va, vb = sp.symbols("u0:5"), sp.symbols("w0:5")
+    X, V = list(a) + list(b), list(va) + list(vb)
+    g = Fp(N5 * sp.Matrix(a), N5 * sp.Matrix(b)).applyfunc(sp.expand)
+    pairs = list(itertools.combinations(range(5), 2))
+    n = [N5[:, i] for i in range(5)]
+    imH = {(i, j): b[i] * a[j] - a[i] * b[j] for i, j in pairs}            # Im (z_i conj z_j), z = a + ib
+    via_H = sum((-imH[i, j] * Fp(n[i], n[j]) for i, j in pairs), sp.zeros(10, 1)).applyfunc(sp.expand)
+    Jg = g.jacobian(X)
+    wit = dict(zip(X, (2, 1, -1, 3, 1, 1, 3, 2, -1, 4)))
+    Jw = Jg.subs(wit)
+    aw, bw = [wit[t] for t in a], [wit[t] for t in b]
+    sl2 = [sp.Matrix(aw + [-t for t in bw]), sp.Matrix([0] * 5 + aw), sp.Matrix(bw + [0] * 5)]
+    # the pullback metric G(q) = M_s + J^T J and its Euler-Lagrange acceleration term
+    G = (Jg.T * Jg).applyfunc(sp.expand)
+    v = sp.Matrix(V)
+    dG = sum((V[i] * sp.diff(G, X[i]) for i in range(10)), sp.zeros(10, 10))
+    quad = sp.expand((v.T * G * v)[0])
+    christ = (dG * v - sp.Matrix([sp.diff(quad, x) for x in X]) / 2).applyfunc(sp.expand)
+    gv = Fp(N5 * sp.Matrix(va), N5 * sp.Matrix(vb))                        # g(v): D^2 g[v, v] = 2 g(v)
+    geo = (Jg.T * 2 * gv).applyfunc(sp.expand)
+    # the branch's second moment
+    M, UV, UE, LV, LE, mu, Pi, P0, S1, q = _chiral()
+    al = sp.Symbol("alpha")
+    D2 = sp.Matrix(carrier.D2())
+    L = sp.diag(LV, LE)
+    G4 = P0 * LE * P0                                                      # = S1^T S1 (chiral_closures)
+    tr2 = sp.expand(((D2 + al * L) ** 2).trace() + al ** 2 * (G4 * G4).trace())
+    tr1 = sp.expand((D2 + al * L).trace() + al * G4.trace())
+    return {
+        "the source reading g = W_AS(a ^ b) is linear in the imaginary part of six_ref_source's record H = z z* (z = a + "
+        "ib): g = -sum_(i < j) Im(z_i conj z_j) [A(n_i), A(n_j)] identically (n_i sympy's basis of ker M), so it factors "
+        "through the nine-dimensional shape; at the witness (a, b) = ((2, 1, -1, 3, 1), (1, 3, 2, -1, 4)) its 10 x 10 "
+        "Jacobian has rank 6 (the pair map's generic rank, view_closures), and its kernel of dimension 4 holds the three "
+        "sl(2) directions (a, -b), (0, a), (b, 0) (rank 3; the phase direction is (b, 0) - (0, a)) and one more: g "
+        "reads 6 of the 9 shape directions there and misses exactly 3, the note's 'at least three' attained; its "
+        "derivative kernel is one dimension larger than the SL(2) frame's":
+            (g - via_H).is_zero_matrix and Jw.rank() == 6 and all((Jw * s).is_zero_matrix for s in sl2)
+            and sp.Matrix.hstack(*sl2).rank() == 3 and 10 - Jw.rank() == 4,
+        "Theorem S2's compulsory term on the model's port: for the pullback metric G(q) = M_s + J_g^T J_g (M_s constant, "
+        "J_g = Dg linear in q) the Euler-Lagrange acceleration term sum_ij (d_i G_kj - (1/2) d_k G_ij) v_i v_j equals "
+        "(J_g^T D^2 g[v, v])_k = 2 (J_g^T g(v))_k identically in the twenty symbols q, v, so the q-equation is (M_s + "
+        "J_g^T J_g) q'' + J_g^T D^2 g[q', q'] + grad V_s + J_g^T (A g + B h) = 0 as the note writes; dropping the term "
+        "leaves a different, flat-inertia equation":
+            (christ - geo).is_zero_matrix and not geo.is_zero_matrix,
+        "section 3.1's second spectral moment: with F19 = K_alpha + alpha S1 S1^T (chiral_closures), Tr F19^2 = Tr D^4 "
+        "+ 2 alpha Tr(D^2 L) + alpha^2 (Tr L^2 + Tr (P0 L_E P0)^2) = 200 + 120 alpha + 120 alpha^2 (Tr D^4 = 200, Tr D^2 L "
+        "= 60, Tr L^2 = 30 + 60, Tr (S1^T S1)^2 = 2 (lam-^2 + lam+^2) = 30), symbolic in alpha; the first moment 40 + 40 "
+        "alpha is deep_zero_pole's and is recomputed here from the same blocks":
+            tr2 == 200 + 120 * al + 120 * al ** 2 and (D2 ** 2).trace() == 200 and (D2 * L).trace() == 60
+            and (L * L).trace() == 90 and (G4 * G4).trace() == 30 and tr1 == 40 + 40 * al,
+    }
+
+
+def flower_twelve():
+    """The note's timed six-petal flower (section 5.3), read as data: a twelve-dimensional comparator on two copies of
+    the six-cycle, not a model operator. The present view O_f = [C, 0] uses notes_1751's positional flower C = I +
+    W (rank 5, kernel the alternating vector a; there the static leaf e_0 - e_3 completes it to rank 6). The note does
+    not state its clock phases or leaf rows; the gating below is one exact reading consistent with its ranks (5, 11,
+    11, 12) and its -117. Section 6.3's composition rule for dynamical defects closes the function."""
+    I6 = sp.eye(6)
+    W = sp.Matrix(6, 6, lambda i, j: int(i == (j + 1) % 6))
+    L6 = 2 * I6 - W - W.T
+    Q = sp.Matrix(sp.BlockMatrix([[3 * I6 + L6, -I6], [-I6, 2 * I6]]))
+    lam = sorted(L6.eigenvals(multiple=True))
+    av = sp.Matrix([1, -1, 1, -1, 1, -1])
+    z6 = sp.zeros(6, 1)
+    s1, s2 = sp.Matrix.vstack(av, z6), sp.Matrix.vstack(z6, av)
+    Of = sp.Matrix.hstack(I6 + W, sp.zeros(6, 6))
+    Qk = [sp.eye(12)]
+    for _ in range(11):
+        Qk.append(Q * Qk[-1])
+    hist = sp.Matrix.vstack(*[Of * Qk[k] for k in range(12)])
+    ell = sp.Matrix([[0] * 6 + [1] + [0] * 5])                            # one leaf row: the first site of the second copy
+    ctx = [[Of], [Of * Qk[1], ell * Qk[1]], [Of * Qk[2]], [Of * Qk[3], ell * Qk[3]]]
+    cum = [sp.Matrix.vstack(*[R for c in ctx[:k + 1] for R in c]) for k in range(4)]
+    ranks = [m.rank() for m in cum]
+    blind = cum[2].nullspace()
+    r = 2 * s1 + s2
+    Mq = sp.Matrix([[7, -1], [-1, 2]])
+    # section 6.3: delta(T) = K_Y T - T K_X obeys delta(g f) = delta(g) f + g delta(f)
+    sym2 = lambda t: sp.Matrix(2, 2, sp.symbols(t + "0:4"))
+    KX, KY, KZ, f, gm = (sym2(t) for t in ("x", "y", "z", "f", "g"))
+    dl = lambda Kt, T, Ks: Kt * T - T * Ks
+    leib = (dl(KZ, gm * f, KX) - dl(KZ, gm, KY) * f - gm * dl(KY, f, KX)).applyfunc(sp.expand).is_zero_matrix
+    return {
+        "Q12 = [[3I + L6, -I], [-I, 2I]] with L6 = 2I - W - W^-1 on the six-cycle is positive definite with det Q12 = "
+        "385385 = 5 x 7^2 x 11^2 x 13 = prod_k (5 + 2 lam_k) over the six-cycle's Laplacian eigenvalues lam = 0, 1, 1, "
+        "3, 3, 4 (each Fourier block [[3 + lam, -1], [-1, 2]] has determinant 5 + 2 lam)":
+            Q.is_positive_definite and Q.det() == 385385 == 5 * 7 ** 2 * 11 ** 2 * 13 and lam == [0, 1, 1, 3, 3, 4]
+            and sp.prod([5 + 2 * x for x in lam]) == 385385,
+        "the six-petal view O_f = [I + W, 0] has rank 5, and its whole history [O_f Q12^k, k < 12] has rank 10: the blind "
+        "subspace is the stripe pair (a, 0), (0, a) (a the alternating vector), on which Q12 acts by [[7, -1], [-1, 2]] "
+        "((a, 0) -> (7a, -a), (0, a) -> (-a, 2a)), so a fixed petal view sees 10 of the 12 dimensions at all times":
+            Of.rank() == 5 and hist.rank() == 10 and (hist * s1).is_zero_matrix and (hist * s2).is_zero_matrix
+            and Q * s1 == 7 * s1 - s2 and Q * s2 == -s1 + 2 * s2,
+        "with the k-th context reading O_f Q12^k (k = 0, 1, 2, 3) and one leaf row l (the first site of the second copy) "
+        "gated at k = 1 and 3, the cumulative ranks are 5, 11, 11, 12; after the third context the blind line is r = "
+        "(2a, a), and the gated leaf reading gives l Q12^3 r = -117 (Q12^3 acts on the stripe pair by [[359, -68], [-68, "
+        "19]]): an exact observability witness matching the note's (5, 11, 11, 12) and -117":
+            ranks == [5, 11, 11, 12] and len(blind) == 1 and sp.Matrix.hstack(blind[0], r).rank() == 1
+            and (cum[2] * r).is_zero_matrix and (ell * Qk[3] * r)[0] == -117 and Mq ** 3 == sp.Matrix([[359, -68], [-68, 19]]),
+        "section 6.3: the dynamical defect delta(T) = K_Y T - T K_X of a map T: X -> Y obeys delta(g f) = delta(g) f + g "
+        "delta(f) for f: X -> Y, g: Y -> Z (generic 2 x 2 symbols), so a composite of exact arrows is exact":
+            leib,
+    }
+
+
+# ------------------------------------------------------------------- the unified spectral model and action (canon staging, filed 2 Nov 03:01 UTC): bulk, relative and observed heat, the doubled wave-Dirac
+
+def usm_bulk_heat():
+    """The canon staging folder's unified spectral model and action (OES_UNIFIED_SPECTRAL_MODEL_AND_ACTION_20261102.md,
+    filed 2 Nov 03:01 UTC in OES_CANON_N44Q_UPDATE_STAGING_20261102, with its arrow ledger, verification receipt and
+    verifier, filed 03:01-03:17 UTC; read as data, the verifier as text, not run), section I eq (3) and section VI eqs
+    (22)-(23): the bulk trace per site tau(f(H)) = <delta_0, f(H) delta_0> of H = 240 - sum_r T_r from the walk counts.
+    Already in the model and cited, not repeated: W_n (data/walks90.json) and its binomial transform 1, 240, 57840,
+    13983360 (walks_join, notes_0255), W_3 = 13440 as the ordered zero-sum root triples (notes_1038, notes_1250), m_4 =
+    3389062320 as a torsion quadrature (join_e8_moments), the 2-torsion's second moment 58080 against 57840
+    (notes_1340), the root graph's closed walks 1, 0, 56, 1512 per root (notes_1004) and the leak of 184 per root site
+    (shell_channels). New here: the closed forms, the heat series' coefficients and the shell compression's per-site
+    moments set against the bulk's."""
+    W, _ = _walks()
+    w = sp.symbols("w0:5")
+    Es = [sp.expand(sum(sp.binomial(n, k) * 240 ** (n - k) * (-1) ** k * w[k] for k in range(n + 1))) for n in range(5)]
+    closed = [sp.expand(e.subs({w[0]: 1, w[1]: 0})) for e in Es]
+    vals = [int(e.subs(dict(zip(w, W[:5])))) for e in Es]
+    heat = [sp.Rational((-1) ** n * vals[n], sp.factorial(n)) for n in range(5)]
+    roots = glue.roots()
+    A = np.isclose(roots @ roots.T, 1).astype(np.int64)
+    Hc = 240 * np.eye(240, dtype=np.int64) - A
+    pw = [np.linalg.matrix_power(Hc, n) for n in (1, 2, 3)]
+    flat = all(len(set(np.diag(P).tolist())) == 1 for P in pw)
+    comp = [int(P[0, 0]) for P in pw]
+    return {
+        "eq (3) in closed form: tau(H^n) = sum_k C(n, k) 240^(n - k) (-1)^k W_k with W_0 = 1 and W_1 = 0 gives tau(H) = "
+        "240, tau(H^2) = 240^2 + W_2 and tau(H^3) = 240^3 + 3 x 240 W_2 - W_3; with the stored W_2 = 240 and W_3 = 13440 "
+        "these are 57840 = 240^2 + 240 and 13983360 = 240^3 + 3 x 240^2 - 13440, the note's forms, the correction to "
+        "240^3 + 3 x 240^2 being the 13440 ordered root triples that sum to zero":
+            closed[1] == 240 and closed[2] == 240 ** 2 + w[2] and closed[3] == 240 ** 3 + 3 * 240 * w[2] - w[3]
+            and W[2:4] == [240, 13440] and vals[1:4] == [240, 57840, 13983360]
+            and 240 ** 3 + 3 * 240 ** 2 - 13440 == 13983360,
+        "eq (23): tau(e^-tH) = sum_n (-t)^n tau(H^n)/n! has Taylor coefficients 1, -240, 28920, -2330560 through t^3, the "
+        "note's, and 141210930 at t^4, from tau(H^4) = 240^4 + 6 x 240^2 W_2 - 4 x 240 W_3 + W_4 = 3389062320 with W_4 = "
+        "1260720; all are integers (tau(H^n) is divisible by n! through n = 4)":
+            heat == [1, -240, 28920, -2330560, 141210930] and W[4] == 1260720
+            and closed[4] == 240 ** 4 + 6 * 240 ** 2 * w[2] - 4 * 240 * w[3] + w[4] and vals[4] == 3389062320,
+        "the 240-root shell is a compression, not the operator: P_R H P_R = 240 I - B_R on the root sites (B_R the root "
+        "graph, adjacent at inner product 1) has one diagonal at every root, with per-site moments 240, 57656 = 240^2 + "
+        "56 and 13862808 = 240^3 + 3 x 240 x 56 - 1512 for n = 1, 2, 3, against the bulk's 240, 57840, 13983360: the "
+        "second moments differ by 184, the root steps that leave the shell (shell_channels' leak per site), the third by "
+        "120552":
+            flat and comp == [240, 57656, 13862808] and comp[1] == 240 ** 2 + 56 and comp[2] == 240 ** 3 + 3 * 240 * 56 - 1512
+            and [vals[n] - comp[n - 1] for n in (1, 2, 3)] == [0, 184, 120552],
+    }
+
+
+def usm_spine_cubic():
+    """The unified spectral model and action (filed 2 Nov 03:01 UTC), section II eq (7) and the receipt's chiral block:
+    the spine's third moment. Already in the model and cited, not repeated: F19 = D19^2's spectrum 0, (alpha lam+-)^4,
+    (3 + alpha lam+-)^4, 8^2, its index -1, its pseudodeterminant 64 (5 alpha^2)^4 (9 + 15 alpha + 5 alpha^2)^4 and its
+    heat function (chiral_closures, deep_zero_pole), Tr F19 = 40 + 40 alpha (deep_zero_pole) and Tr F19^2 = 200 + 120
+    alpha + 120 alpha^2 (the sibling replay's flower_source). New here: Tr F19^3 from the same blocks, symbolic in alpha."""
+    M, UV, UE, LV, LE, mu, Pi, P0, S1, q = _chiral()
+    al = sp.Symbol("alpha")
+    D2 = sp.Matrix(carrier.D2())
+    L = sp.diag(LV, LE)
+    G4 = P0 * LE * P0                                                      # = S1^T S1 (chiral_closures)
+    K = D2 + al * L
+    tr3 = sp.expand((K ** 3).trace() + al ** 3 * (G4 ** 3).trace())
+    tr2 = sp.expand((K ** 2).trace() + al ** 2 * (G4 ** 2).trace())
+    tr1 = sp.expand(K.trace() + al * G4.trace())
+    return {
+        "eq (7)'s cubic moment: with F19 = K_alpha + alpha S1 S1^T (K_alpha = D^2 + alpha L on the carrier and the four "
+        "auxiliaries, chiral_closures; Tr (S1 S1^T)^3 = Tr (P0 L_E P0)^3 = 2 (lam-^3 + lam+^3) = 100) Tr F19^3 = Tr D^6 + "
+        "3 alpha Tr(D^4 L) + 3 alpha^2 Tr(D^2 L^2) + alpha^3 (Tr L^3 + 100) = 1240 + 540 alpha + 540 alpha^2 + 400 alpha^3 "
+        "(Tr D^6 = 1240), symbolic in alpha; at alpha = 1 the three traces are the receipt's 80, 440, 2720":
+            tr3 == 1240 + 540 * al + 540 * al ** 2 + 400 * al ** 3 and (G4 ** 3).trace() == 100 and (D2 ** 3).trace() == 1240
+            and [t.subs(al, 1) for t in (tr1, tr2, tr3)] == [80, 440, 2720],
+    }
+
+
+def usm_relheat_words():
+    """The unified spectral model and action (filed 2 Nov 03:01 UTC), section VI eqs (24)-(27) and (30): the relative
+    heat trace Theta_rel(t) = Tr(e^-tK - e^-tH) of a finite-rank update K = H + X, X = Y W Y^T inside an isometric
+    observer Y (Y^T Y = I, Q = I - Y Y^T), as an identity in noncommuting H and X: its coefficients Delta_n = Tr(K^n -
+    H^n) by cyclic words, the coefficient that carries the hidden covariance D = Y^T H Q H Y, and the split into the
+    observed and the hidden trace. Already in the model and cited: the block moments A_2 = A^2 + D, A_3 = A^3 + A D + D A
+    + M1 (deep_wave_memory, recomputed here as ingredients), Q K Y = Q H Y for every update inside the observer
+    (master_response, chiral_time), the wave-memory defect's u^4 coefficient D/4 (onemodel_closures). The check is on a
+    generic symmetric H (4 x 4, ten symbols) with Y = [I2; 0] and a generic symmetric W (2 x 2, three symbols); the
+    word counts are exact for every n listed."""
+    def necklaces(n):
+        out = Counter()
+        for word in itertools.product("HX", repeat=n):
+            if "X" not in word:
+                continue
+            s = "".join(word)
+            rots = [s[k:] + s[:k] for k in range(n)]
+            out[min(tuple(len(p) for p in r.split("X")[1:]) for r in rots if r[0] == "X")] += 1
+        return out
+    nk = {n: dict(necklaces(n)) for n in range(1, 9)}
+    h = sp.symbols("h0:10")
+    idx = {}
+    c = 0
+    for i in range(4):
+        for j in range(i, 4):
+            idx[i, j] = idx[j, i] = c
+            c += 1
+    H = sp.Matrix(4, 4, lambda i, j: h[idx[i, j]])
+    Hoff = sp.Matrix(4, 4, lambda i, j: 0 if (i < 2) != (j < 2) else h[idx[i, j]])
+    w0, w1, w2 = sp.symbols("w0:3")
+    W = sp.Matrix([[w0, w1], [w1, w2]])
+    Y = sp.Matrix([[1, 0], [0, 1], [0, 0], [0, 0]])
+    Q = sp.diag(0, 0, 1, 1)
+    e = sp.Symbol("epsilon")
+    X = Y * W * Y.T
+    T = lambda Mx: sp.expand(Mx.trace())
+
+    def blocks(Hm):
+        A = Y.T * Hm * Y
+        D = (Y.T * Hm * Q * Hm * Y).applyfunc(sp.expand)
+        M1 = (Y.T * Hm * Q * Hm * Q * Hm * Y).applyfunc(sp.expand)
+        K = Hm + X
+        Kp, Hp = [sp.eye(4)], [sp.eye(4)]
+        for _ in range(4):
+            Kp.append((Kp[-1] * K).applyfunc(sp.expand))
+            Hp.append((Hp[-1] * Hm).applyfunc(sp.expand))
+        delta = [None] + [T(Kp[n] - Hp[n]) for n in range(1, 5)]
+        hidden = [None] + [T(Q * (Kp[n] - Hp[n]) * Q) for n in range(1, 5)]
+        return A, D, M1, Hp, delta, hidden
+    A, D, M1, Hp, delta, hidden = blocks(H)
+    Ao, Do, M1o, _, delta_o, _ = blocks(Hoff)
+    mom = ((Y.T * Hp[2] * Y - A * A - D).applyfunc(sp.expand).is_zero_matrix
+           and (Y.T * Hp[3] * Y - A ** 3 - A * D - D * A - M1).applyfunc(sp.expand).is_zero_matrix)
+    f = [None, T(W), T(2 * W * A + W ** 2), T(3 * W * (A ** 2 + D) + 3 * W ** 2 * A + W ** 3),
+         T(4 * W * (A ** 3 + A * D + D * A + M1) + 4 * W ** 2 * (A ** 2 + D) + 2 * W * A * W * A + 4 * W ** 3 * A + W ** 4)]
+    coef = lambda dl: [None] + [sp.expand(sp.Rational((-1) ** n, sp.factorial(n)) * dl[n]) for n in range(1, 5)]
+    cf, co = coef(delta), coef(delta_o)
+    He = H + e * sp.eye(4)
+    De = (Y.T * He * Q * He * Y).applyfunc(sp.expand)
+    return {
+        "eq (26) by cyclic words: the 2^n - 1 words in noncommuting H and X with at least one X fall, up to rotation, into "
+        "the classes XHH (3 words), XXH (3), XXX (1) at n = 3 and XHHH (4), XXHH (4), XHXH (2), XXXH (4), XXXX (1) at n = "
+        "4, written by the H-gaps after each X; with X = Y W Y^T and Y^T Y = I a class X H^(k1) ... X H^(km) has trace "
+        "Tr(W A_k1 ... W A_km), A_k = Y^T H^k Y, A_0 = I. The class with one X has n words for every n <= 8, so through "
+        "t^8 the part of Theta_rel linear in W, sum_n (-t)^n n Tr(W A_(n-1))/n!, is the series of -t Tr(W Y^T e^-tH Y)":
+            nk[3] == {(2,): 3, (0, 1): 3, (0, 0, 0): 1}
+            and nk[4] == {(3,): 4, (0, 2): 4, (1, 1): 2, (0, 0, 1): 4, (0, 0, 0, 0): 1}
+            and all(nk[n][(n - 1,)] == n and sum(nk[n].values()) == 2 ** n - 1 for n in range(1, 9)),
+        "so Delta_1 = Tr W, Delta_2 = 2 Tr(W A) + Tr W^2, Delta_3 = 3 Tr[W (A^2 + D)] + 3 Tr(W^2 A) + Tr W^3 (the note's "
+        "(26)) and Delta_4 = 4 Tr[W (A^3 + A D + D A + M1)] + 4 Tr[W^2 (A^2 + D)] + 2 Tr(W A W A) + 4 Tr(W^3 A) + Tr W^4 "
+        "(A = Y^T H Y, D = Y^T H Q H Y, M1 = Y^T H Q H Q H Y; A_2 = A^2 + D and A_3 = A^3 + A D + D A + M1 recomputed): "
+        "polynomial identities on the generic instance, n = 1..4":
+            mom and all(sp.expand(delta[n] - f[n]) == 0 for n in range(1, 5)),
+        "which coefficient carries D: Theta_rel(t) = sum_n (-1)^n Delta_n t^n/n!, and at fixed W (a Schur-completed W "
+        "itself depends on the bath, the note's caveat) switching the bath coupling off (H's "
+        "visible-hidden block set to zero, so D = M1 = 0 and A unchanged) leaves the t and t^2 coefficients -Tr W and "
+        "Tr(W A) + Tr(W^2)/2 unchanged, moves the t^3 coefficient by exactly -Tr(W D)/2 (the note's 3 Tr(W D) in Delta_3, "
+        "divided by -6) and the t^4 coefficient by [Tr(W (A D + D A)) + Tr(W^2 D) + Tr(W M1)]/6; D is the same for H + "
+        "eps I (Q Y = 0, eps a symbol), so the regulator does not enter it":
+            (Ao - A).is_zero_matrix and Do.is_zero_matrix and M1o.is_zero_matrix
+            and sp.expand(cf[1] - co[1]) == 0 and sp.expand(cf[2] - co[2]) == 0
+            and sp.expand(cf[3] - co[3] + T(W * D) / 2) == 0
+            and sp.expand(cf[4] - co[4] - (T(W * (A * D + D * A)) + T(W ** 2 * D) + T(W * M1)) / 6) == 0
+            and (De - D).is_zero_matrix,
+        "the observed and the global relative heat (eq (30) against (24)): Delta_n splits as Tr Y^T (K^n - H^n) Y + Tr Q "
+        "(K^n - H^n) Q, and the hidden part is 0, 0, Tr(W D) and Tr(W (A D + D A)) + 2 Tr(W M1) + Tr(W^2 D) for n = 1..4: "
+        "Z_Y^K(t) - Z_Y^H(t) = Tr Y^T (e^-tK - e^-tH) Y and Theta_rel(t) agree through t^2 and first differ at t^3, by "
+        "-Tr(W D) t^3/6, so the observed trace sees two of the three Tr(W D) in Delta_3":
+            hidden[1] == 0 and hidden[2] == 0 and sp.expand(hidden[3] - T(W * D)) == 0
+            and sp.expand(hidden[4] - T(W * (A * D + D * A)) - 2 * T(W * M1) - T(W ** 2 * D)) == 0,
+    }
+
+
+def _usm_comparator():
+    """bridge_comparator's 90 x 90 comparator H90 = [[A, sqrt V], [sqrt V, 200 I45]] (channels 0 | 1-8 | 9-34 | 35-40 |
+    41-44 with (a, v) = (184, 2117), (212, 967), (232, 389), (242, 127), (243, 83)) in the similar rational form H~ =
+    S^-1 H90 S = [[A, diag v], [I45, 200 I45]], S = diag(I45, sqrt v), shifted by eps = 3; the chiral source J19 on the
+    first 19 channels in D19's order (the source index s = vertex 0-4, edge 5-14, auxiliary 15-18 goes to channel ch[s]:
+    vertices on 0-4, auxiliaries on the linear channels 5-8, edges on the quadratic channels 9-18, flower_homotopy's
+    identification) with F19 = diag(K_1, B2, B2), B2 = [[3, 1], [1, 2]] (schur_zero_mode's admissible alpha = 1 square),
+    and the note's completion V19 = F19 - (J^T (H + 3)^-1 J)^-1, the inverse read off the 2 x 2 channel blocks. Returns
+    the channel data, ch, F19, V19 (Fractions) and the matrices Ks = 203 (H~ + 3 + J V19 J^T), Hs = 203 (H~ + 3), integer
+    when 203 V19 is (checked in usm_relheat_comparator)."""
+    F = Fraction
+    eps = 3
+    sect = [(184, 2117, 1), (212, 967, 8), (232, 389, 26), (242, 127, 6), (243, 83, 4)]
+    av = [(a, v) for a, v, n in sect for _ in range(n)]
+    M, UV, UE, LV, LE, *_ = _chiral()
+    D15 = sp.zeros(15)
+    D15[:5, 5:], D15[5:, :5] = M, M.T
+    B2 = sp.Matrix([[3, 1], [1, 2]])
+    F19 = sp.diag(D15 * D15 + sp.diag(LV, LE), B2, B2)
+    F19 = [[F(int(F19[i, j])) for j in range(19)] for i in range(19)]
+    ch = list(range(5)) + list(range(9, 19)) + list(range(5, 9))
+    inv00 = [sp.Matrix([[a + eps, v], [1, 200 + eps]]).inv()[0, 0] for a, v in av]
+    Sinv = [F(int(sp.fraction(1 / inv00[ch[s]])[0]), int(sp.fraction(1 / inv00[ch[s]])[1])) for s in range(19)]
+    V19 = [[F19[i][j] - (Sinv[i] if i == j else 0) for j in range(19)] for i in range(19)]
+    L = 200 + eps
+    Hs = np.zeros((90, 90), dtype=object)
+    Hs[:] = 0
+    for i, (a, v) in enumerate(av):
+        Hs[i, i], Hs[i, 45 + i], Hs[45 + i, i], Hs[45 + i, 45 + i] = L * (a + eps), L * v, L, L * (200 + eps)
+    Ks = Hs.copy()
+    for i in range(19):
+        for j in range(19):
+            x = L * V19[i][j]
+            Ks[ch[i], ch[j]] += int(x)
+    return av, ch, F19, V19, Ks, Hs, L
+
+
+def usm_relheat_comparator():
+    """The unified spectral model and action (filed 2 Nov 03:01 UTC), section VI's principal result on the note's own
+    finite comparator, and the receipt OES_UNIFIED_SPECTRAL_MODEL_VERIFICATION_20261102.json (filed 03:01 UTC; its
+    relative_heat block and the relative heat checks), done exactly where the verifier used floats: the comparator is
+    bridge_comparator's H90 at eps = 3 with the chiral source on its first 19 channels (_usm_comparator); its chiral
+    completion K = H + 3 + J V19 J^T with zero-frequency Schur complement F19 and one zero mode is the sibling replay's
+    flower_homotopy, cited, not repeated. New here: the relative traces Delta_1..Delta_4 computed directly from the 90 x
+    90 matrices, the word formula (usm_relheat_words) on them, the receipt's four numbers, the observed and hidden split,
+    and Duhamel's bound at the receipt's two times with an exact remainder."""
+    F = Fraction
+    av, ch, F19, V19, Ks, Hs, L = _usm_comparator()
+    sim = all(sp.simplify(sp.diag(1, sp.sqrt(v)) * sp.Matrix([[a, v], [1, 200]])
+                          - sp.Matrix([[a, sp.sqrt(v)], [sp.sqrt(v), 200]]) * sp.diag(1, sp.sqrt(v))) == sp.zeros(2, 2)
+              for a, v in sorted(set(av)))
+    blockdiag = all(Hs[i, j] == 0 for i in range(90) for j in range(90) if i % 45 != j % 45)
+    trV = sum((V19[i][i] for i in range(19)), F(0))
+    tr = lambda X: sum(X[i, i] for i in range(90))
+    trv = lambda X: sum(X[i, i] for i in range(45))
+    K2, H2 = Ks.dot(Ks), Hs.dot(Hs)
+    T = [None, (tr(Ks), tr(Hs)), (tr(K2), tr(H2)), (sum((K2 * Ks.T).ravel()), sum((H2 * Hs.T).ravel())),
+         (sum((K2 * K2.T).ravel()), sum((H2 * H2.T).ravel()))]
+    Tv = [None, (trv(Ks), trv(Hs)), (trv(K2), trv(H2)),
+          (sum(K2[i, j] * Ks[j, i] for i in range(45) for j in range(90)), sum(H2[i, j] * Hs[j, i] for i in range(45) for j in range(90))),
+          (sum(K2[i, j] * K2[j, i] for i in range(45) for j in range(90)), sum(H2[i, j] * H2[j, i] for i in range(45) for j in range(90)))]
+    delta = [None] + [F(T[n][0] - T[n][1], L ** n) for n in range(1, 5)]
+    seen = [None] + [F(Tv[n][0] - Tv[n][1], L ** n) for n in range(1, 5)]
+    hidden = [None] + [delta[n] - seen[n] for n in range(1, 5)]
+    # the word formula's ingredients, read off the matrices (Y = the 45 visible coordinates)
+    Hm = [[F(Hs[i, j], L) for j in range(90)] for i in range(90)]
+    A = [Hm[i][i] for i in range(45)]
+    Dd = [Hm[i][45 + i] * Hm[45 + i][i] for i in range(45)]
+    M1 = [Hm[i][45 + i] * Hm[45 + i][45 + i] * Hm[45 + i][i] for i in range(45)]
+    diag_ok = all(Hm[i][j] == 0 for i in range(45) for j in range(45) if i != j)
+    Wm = [[F(0)] * 45 for _ in range(45)]
+    for i in range(19):
+        for j in range(19):
+            Wm[ch[i]][ch[j]] = V19[i][j]
+    mm = lambda P, R: [[sum((P[i][k] * R[k][j] for k in range(45) if P[i][k] and R[k][j]), F(0)) for j in range(45)] for i in range(45)]
+    dg = lambda d: [[d[i] if i == j else F(0) for j in range(45)] for i in range(45)]
+    ad = lambda P, R: [[P[i][j] + R[i][j] for j in range(45)] for i in range(45)]
+    t45 = lambda P: sum((P[i][i] for i in range(45)), F(0))
+    Am, Dm, M1m = dg(A), dg(Dd), dg(M1)
+    W2 = mm(Wm, Wm)
+    W3 = mm(W2, Wm)
+    AA = mm(Am, Am)
+    AD = ad(mm(Am, Dm), mm(Dm, Am))
+    f = [None, t45(Wm), 2 * t45(mm(Wm, Am)) + t45(W2), 3 * t45(mm(Wm, ad(AA, Dm))) + 3 * t45(mm(W2, Am)) + t45(W3),
+         4 * t45(mm(Wm, ad(ad(mm(AA, Am), AD), M1m))) + 4 * t45(mm(W2, ad(AA, Dm))) + 2 * t45(mm(mm(Wm, Am), mm(Wm, Am)))
+         + 4 * t45(mm(W3, Am)) + t45(mm(W2, W2))]
+    TWD = t45(mm(Wm, Dm))
+    bathfree = 3 * t45(mm(Wm, AA)) + 3 * t45(mm(W2, Am)) + t45(W3)
+    h4 = t45(mm(Wm, AD)) + 2 * t45(mm(Wm, M1m)) + t45(mm(W2, Dm))
+    rec = {k: F(s) for k, s in (("TrV", "-4109.300492610838"), ("TrK2_minus_H2", "-955649.6289645468"),
+                                 ("TrK3_minus_H3", "-224347636.5421989"), ("bath", "-8537240.039408868"))}
+    near = lambda x, y: abs(x - y) <= abs(y) / 10 ** 12
+    # Duhamel at the receipt's times: |Theta(t) - P4(t)| <= 180 sum_(n >= 5) (r t)^n/n! <= 3 (r t)^5 for r t <= 1/2,
+    # r = 2400 above the largest absolute row sum of K~ and of H~ + 3 (similar to the symmetric K, H + 3)
+    rows = max(max(sum(abs(x) for x in Ks[i, :]), sum(abs(x) for x in Hs[i, :])) for i in range(90))
+    duh = []
+    for t in (F(1, 10 ** 5), F(3, 10 ** 5)):
+        P4 = -t * delta[1] + t ** 2 * delta[2] / 2 - t ** 3 * delta[3] / 6 + t ** 4 * delta[4] / 24
+        R = 3 * (2400 * t) ** 5
+        duh.append(2400 * t <= F(1, 2) and abs(P4) + R < t * abs(trV))
+    return {
+        "the note's comparator, exactly: on each of the five 2 x 2 channel blocks diag(1, sqrt v) carries [[a, v], [1, "
+        "200]] to [[a, sqrt v], [sqrt v, 200]], so S = diag(I45, sqrt v), which fixes the visible coordinates, makes "
+        "bridge_comparator's H90 similar to the rational H~ = [[A, diag v], [I45, 200 I45]] and Tr K^n, Y^T K^n Y and J^T "
+        "K^n J may be computed there; H~ + 3 is block diagonal over the 45 channel pairs, so J^T (H + 3)^-1 J = diag(1/(a "
+        "+ 3 - v/203)) and V19 = F19 - (J^T (H + 3)^-1 J)^-1 is integral times 1/203 with trace 80 - 4257 + 13743/203 = "
+        "-834188/203, the receipt's "
+        "TrV -4109.300492610838 (to 10^-12 of its size)":
+            sim and blockdiag and all((L * V19[i][j]).denominator == 1 for i in range(19) for j in range(19))
+            and sum(F19[i][i] for i in range(19)) == 80 and trV == F(-834188, 203) and trV == 80 - 4257 + F(13743, 203)
+            and near(trV, rec["TrV"]),
+        "eq (26) on the comparator: Delta_n = Tr(K^n - (H + 3)^n) from the 90 x 90 matrices equals the word formula "
+        "(usm_relheat_words) with W = J V19 J^T on the 45 channels, A = diag(a + 3), D = diag(2117, 967 I8, 389 I26, 127 "
+        "I6, 83 I4) (master_readout's D45, read off the matrix) and M1 = 203 D, for n = 1..4 exactly: Delta_2 = "
+        "-39381365560/41209 and Delta_3 = -1876763776116296/8365427 are the receipt's TrK2_minus_H2 -955649.6289645468 "
+        "and TrK3_minus_H3 -224347636.5421989 (to 10^-12 of their size; the receipt matched them to tolerances 10^-7 and "
+        "10^-3), and Delta_4 = -91201900742411145656/1698181681, about -5.37 x 10^10, is new":
+            diag_ok and A == [a + 3 for a, v in av]
+            and Dd == [2117] + [967] * 8 + [389] * 26 + [127] * 6 + [83] * 4 and M1 == [203 * x for x in Dd]
+            and all(delta[n] == f[n] for n in range(1, 5))
+            and delta[2] == F(-39381365560, 41209) and delta[3] == F(-1876763776116296, 8365427)
+            and delta[4] == F(-91201900742411145656, 1698181681)
+            and near(delta[2], rec["TrK2_minus_H2"]) and near(delta[3], rec["TrK3_minus_H3"]),
+        "the bath's share: 3 Tr(W D) = -1733059728/203 is the receipt's cubic_bath_contribution_3TrWD -8537240.039408868 "
+        "(to 10^-12), nonzero, and exactly Delta_3 minus the bath-free cubic 3 Tr(W A^2) + 3 Tr(W^2 A) + Tr W^3; in "
+        "Theta_rel it is the t^3 term -Tr(W D) t^3/2 = (288843288/203) t^3":
+            3 * TWD == F(-1733059728, 203) and near(3 * TWD, rec["bath"]) and TWD != 0
+            and delta[3] - bathfree == 3 * TWD and -TWD / 2 == F(288843288, 203),
+        "the observed and the hidden trace on the comparator (Y the 45 visible coordinates): Tr Q (K^n - (H + 3)^n) Q "
+        "= Delta_n - Tr Y^T (K^n - (H + 3)^n) Y is 0, 0, Tr(W D) = -577686576/203 and Tr(W (A D + D A)) + 2 Tr(W M1) + "
+        "Tr(W^2 D) = -74193693328388/41209 for n = 1..4, as the words predict":
+            hidden[1] == 0 and hidden[2] == 0 and hidden[3] == TWD == F(-577686576, 203)
+            and hidden[4] == h4 == F(-74193693328388, 41209),
+        "Duhamel's bound |Theta_rel(t)| <= t |V|_1 at the receipt's t = 10^-5 and 3 x 10^-5, exactly: Theta_rel(t) = sum_n "
+        "(-t)^n Delta_n/n! (finite matrices), its degree-4 part P4(t) from the exact Delta_1..Delta_4, and |Delta_n| <= "
+        "|Tr K^n| + |Tr (H + 3)^n| <= 180 r^n with r = 2400 above every absolute row sum of K~ and H~ + 3 (similar to "
+        "the symmetric K and H + 3, so r bounds their spectral radii), so |Theta_rel(t) - P4(t)| <= 3 (r t)^5 for r t <= "
+        "1/2; then |P4(t)| + 3 (r t)^5 < t |Tr V19| <= t |V19|_1 at both times":
+            F(rows, L) <= 2400 and all(duh),
+    }
+
+
+def usm_relheat_laplace():
+    """The unified spectral model and action (filed 2 Nov 03:01 UTC), section VI eqs (28)-(29) and the arrow ledger's
+    'Spectral determinant, det(I + V S0), EXACT_WOODBURY' row, on the same comparator (_usm_comparator), with the
+    receipt's 'constant source inverse resolvent' and 'Fredholm log determinant' checks. Already in the model and
+    cited, not repeated: S_K(z)^-1 - S_0(z)^-1 = V, G_K - G_0 of finite rank and Tr[G_K - G_0] = d/dz log det(I + V
+    S_0(z)) exactly at z = 1 on the root-site instance (master_response), and the frequency-independent inverse
+    response G_K^-1 - G_0^-1 = U V U^T in the 45-port (loewner_kernel). New here: the same laws on the 19-source
+    comparator, as power series in 1/z through z^-7 and exactly at the receipt's four frequencies, the determinant
+    as the ratio det(z + K)/det(z + H + 3), and its log-derivative as the Laplace image of the relative heat trace,
+    with the Delta_n of usm_relheat_comparator."""
+    F = Fraction
+    av, ch, F19, V19, Ks, Hs, L = _usm_comparator()
+    src = [ch[s] for s in range(19)]
+    N = 7
+
+    def jmj(Ms):
+        X = np.zeros((90, 19), dtype=object)
+        X[:] = 0
+        for s in range(19):
+            X[src[s], s] = 1
+        out = []
+        for k in range(N + 1):
+            out.append([[F((-1) ** k * X[src[i], j], L ** k) for j in range(19)] for i in range(19)])
+            X = Ms.dot(X)
+        return out                                     # coefficient of z^-(k+1) in J^T (z + M)^-1 J
+    sK, s0 = jmj(Ks), jmj(Hs)
+    mm = lambda P, R: [[sum((P[i][k] * R[k][j] for k in range(len(R)) if P[i][k] and R[k][j]), F(0))
+                        for j in range(len(R[0]))] for i in range(len(P))]
+    ad = lambda P, R: [[P[i][j] + R[i][j] for j in range(19)] for i in range(19)]
+    Z = [[F(0)] * 19 for _ in range(19)]
+    # series in u = 1/z: SK[m], S0[m] the u^m coefficients (m >= 1)
+    SK = [Z] + sK[:N]
+    S0 = [Z] + s0[:N]
+    VS0 = [mm(V19, S0[m]) for m in range(N + 1)]
+
+    def coeff(m):                                      # the u^m coefficient of S_K (I + V19 S_0)
+        acc = SK[m]
+        for i in range(1, m):
+            acc = ad(acc, mm(SK[i], VS0[m - i]))
+        return acc
+    wood = all(coeff(m) == S0[m] for m in range(1, N + 1))
+    # log det(I + V S0) = Tr log(I + G), G = V S0 = sum_m VS0[m] u^m: coefficients through u^4
+    top = 4
+
+    def smul(P, R):
+        out = [Z] * (top + 1)
+        for i in range(1, top + 1):
+            for j in range(1, top + 1 - i):
+                out[i + j] = ad(out[i + j], mm(P[i], R[j]))
+        return out
+    G = VS0[:top + 1]
+    Gk = G
+    logdet = [F(0)] * (top + 1)
+    for k in range(1, top + 1):
+        for m in range(1, top + 1):
+            logdet[m] += F((-1) ** (k + 1), k) * sum((Gk[m][i][i] for i in range(19)), F(0))
+        Gk = smul(Gk, G)
+    tr = lambda X: sum(X[i, i] for i in range(90))
+    K2, H2 = Ks.dot(Ks), Hs.dot(Hs)
+    T = [(tr(Ks), tr(Hs)), (tr(K2), tr(H2)), (sum((K2 * Ks.T).ravel()), sum((H2 * Hs.T).ravel())),
+         (sum((K2 * K2.T).ravel()), sum((H2 * H2.T).ravel()))]
+    delta = [None] + [F(T[n - 1][0] - T[n - 1][1], L ** n) for n in range(1, 5)]
+    t, z = sp.symbols("t z", positive=True)
+    lap = all(sp.simplify(sp.integrate(sp.exp(-z * t) * (-t) ** n / sp.factorial(n), (t, 0, sp.oo)) - (-1) ** n / z ** (n + 1)) == 0
+              for n in range(5))
+    # exactly at the receipt's frequencies: the 19 source channels and their hidden partners (38 coordinates) are
+    # decoupled from the rest in both matrices, which agree off them
+    blk = list(range(19)) + list(range(45, 64))
+    rest = [r for r in range(90) if r not in blk]
+    decoupled = (sorted(src) == list(range(19))
+                 and all(M[i, j] == 0 and M[j, i] == 0 for M in (Ks, Hs) for i in blk for j in rest)
+                 and all(Ks[i, j] == Hs[i, j] for i in rest for j in range(90)))
+
+    def gj(A):                                         # exact inverse and determinant (Gauss-Jordan on Fractions)
+        n = len(A)
+        M = [list(A[i]) + [F(int(i == j)) for j in range(n)] for i in range(n)]
+        det = F(1)
+        for c in range(n):
+            p = next(r for r in range(c, n) if M[r][c] != 0)
+            if p != c:
+                M[c], M[p] = M[p], M[c]
+                det = -det
+            det *= M[c][c]
+            row = [x / M[c][c] for x in M[c]]
+            M[c] = row
+            nz = [j for j in range(2 * n) if row[j] != 0]
+            for r in range(n):
+                if r != c and M[r][c] != 0:
+                    f, Mr = M[r][c], M[r]
+                    for j in nz:
+                        Mr[j] -= f * row[j]
+        return [r[n:] for r in M], det
+    I19 = [[F(int(i == j)) for j in range(19)] for i in range(19)]
+    atz = []
+    for zz in (F(3, 10), F(2), F(19), F(85)):
+        RK, dK = gj([[F(Ks[a, b], L) + (zz if a == b else 0) for b in blk] for a in blk])
+        RH, dH = gj([[F(Hs[a, b], L) + (zz if a == b else 0) for b in blk] for a in blk])
+        SKz = [[RK[src[i]][src[j]] for j in range(19)] for i in range(19)]
+        S0z = [[RH[src[i]][src[j]] for j in range(19)] for i in range(19)]
+        RH2 = mm(RH, RH)
+        dS0 = [[-RH2[src[i]][src[j]] for j in range(19)] for i in range(19)]      # S_0'(z) = -J^T (z + H + 3)^-2 J
+        IVS = ad(I19, mm(V19, S0z))
+        Inv, dI = gj(IVS)
+        dlog = sum(mm(Inv, mm(V19, dS0))[i][i] for i in range(19))               # d/dz log det(I + V S_0), Jacobi
+        rel = sum(RK[i][i] for i in range(38)) - sum(RH[i][i] for i in range(38))
+        atz.append((mm(SKz, IVS) == S0z, rel == dlog, dI == dK / dH, dI > 0, rel > 0))
+    return {
+        "eq (28) on the comparator as a series in 1/z: with S_K(z) = J^T (z + K)^-1 J = sum_k (-1)^k J^T K^k J z^-(k+1) "
+        "and S_0 likewise for H + 3 (coefficients from the 90 x 90 powers, k <= 6), S_K (I + V19 S_0) = S_0 "
+        "coefficientwise through z^-7, so S_K^-1 - S_0^-1 = V19 + O(z^-6) with no frequency dependence at those orders "
+        "(master_response has the identity exactly at z = 1 on the root-site instance)":
+            wood,
+        "eqs (28)-(29) exactly at the receipt's four frequencies z = 3/10, 2, 19, 85 (its float checks 'constant source "
+        "inverse resolvent' and 'Fredholm log determinant'): the 19 source channels and their partners are decoupled "
+        "from the other 52 coordinates, on which K and H + 3 agree, and on those 38 coordinates S_K (I + V19 S_0) = S_0 "
+        "(S_K^-1 - S_0^-1 = V19), Tr[(z + K)^-1 - (z + H + 3)^-1] = Tr[(I + V19 S_0)^-1 V19 S_0'(z)] = d/dz log det(I + "
+        "V19 S_0(z)) (Jacobi), and the spectral determinant is det(I + V19 S_0(z)) = det(z + K)/det(z + H + 3) > 0; the "
+        "relative resolvent trace is positive at all four":
+            decoupled and all(all(x) for x in atz),
+        "eq (29) and the relative heat: log det(I + V19 S_0(z)) = Tr log(I + V19 S_0) has the series "
+        "sum_m (-1)^(m + 1) Delta_m z^-m/m through z^-4, with Delta_1..Delta_4 = Tr(K^m - (H + 3)^m) from the matrices, so "
+        "d/dz log det(I + V19 S_0) = sum_m (-1)^m Delta_m z^-(m + 1) = Tr[(z + K)^-1 - (z + H + 3)^-1], and since int_0^oo "
+        "e^-zt (-t)^n/n! dt = (-1)^n z^-(n + 1) (symbolic, n <= 4) this is int_0^oo e^-zt Theta_rel(t) dt term by term: "
+        "the log-derivative of the relative determinant is the Laplace image of the relative heat trace, and its z^-4 "
+        "coefficient -Delta_3 carries the bath as -3 Tr(W D) (usm_relheat_comparator)":
+            all(logdet[m] == F((-1) ** (m + 1), m) * delta[m] for m in range(1, 5)) and lap
+            and logdet[1] == F(-834188, 203),
+    }
+
+
+def usm_wave_dirac():
+    """The unified spectral model and action (filed 2 Nov 03:01 UTC), section IV eqs (14)-(15) and the arrow ledger's
+    'Wave-Dirac doubling' row: the canonical doubled wave-Dirac D_wave = [[0, i sqrt K], [-i sqrt K, 0]] on H + H, its
+    square, its grading, the unitary flow it generates and its index, on a finite instance with an exact square root:
+    the carrier's K = H_K = D^2 (spectrum 0^5 3^8 8^2, projectors P0, P3, P8 from carrier.spectral_projectors;
+    master_readout). Already in the model and cited: the wave field Phi'' + K Phi = 0 on H_K and its energy
+    (master_response), the first-order (q, p) generator [[0, I], [-D^2, 0]] (onemodel_closures, observer), D19's
+    nullity 1 and index -1 (chiral_closures), the Hodge middle D32 = * P23 with kernel on grades 0, 1, 4, 5 (grand_fock).
+    New here: the doubled square root, its flow and its index."""
+    K = sp.Matrix(carrier.D2())
+    P = carrier.spectral_projectors()
+    I15, Z15 = sp.eye(15), sp.zeros(15)
+    s3, s8 = sp.sqrt(3), 2 * sp.sqrt(2)
+    R = s3 * P[3] + s8 * P[8]
+    proj = (P[0] + P[3] + P[8] == I15 and all(P[l] * P[m] == (P[l] if l == m else Z15) for l in P for m in P)
+            and K == 3 * P[3] + 8 * P[8])
+    Rsq = (R * R - K).applyfunc(sp.expand).is_zero_matrix and R == R.T
+    Dw = sp.BlockMatrix([[Z15, sp.I * R], [-sp.I * R, Z15]]).as_explicit()
+    Dr = sp.BlockMatrix([[Z15, R], [R, Z15]]).as_explicit()
+    G = sp.BlockMatrix([[Z15, R], [-R, Z15]]).as_explicit()
+    Gam = sp.diag(I15, -I15)
+    Uev = sp.diag(I15, sp.I * I15)
+    herm = (Dw.H - Dw).applyfunc(sp.expand).is_zero_matrix
+    odd = (Gam * Dw + Dw * Gam).is_zero_matrix
+    sq = (Dw * Dw - sp.diag(K, K)).applyfunc(sp.expand).is_zero_matrix
+    even = (Uev.H * Dr * Uev - Dw).applyfunc(sp.expand).is_zero_matrix and (Uev * Gam - Gam * Uev).is_zero_matrix
+    real_sq = (Dr * Dr - sp.diag(K, K)).applyfunc(sp.expand).is_zero_matrix
+    gen = (sp.I * G - Dw).applyfunc(sp.expand).is_zero_matrix
+    # the flow, eigenvalue by eigenvalue, then assembled with the projector algebra
+    u = sp.Symbol("u", real=True)
+    rot_ok = True
+    for lam in (0, 3, 8):
+        c, s = sp.cos(u * sp.sqrt(lam)), sp.sin(u * sp.sqrt(lam))
+        r_ = sp.Matrix([[c, s], [-s, c]])
+        g_ = sp.Matrix([[0, sp.sqrt(lam)], [-sp.sqrt(lam), 0]])
+        rot_ok = rot_ok and r_.subs(u, 0) == sp.eye(2) and (sp.diff(r_, u) - g_ * r_).applyfunc(sp.simplify).is_zero_matrix \
+            and (r_.T * r_ - sp.eye(2)).applyfunc(sp.simplify).is_zero_matrix
+    Cu = P[0] + sp.cos(s3 * u) * P[3] + sp.cos(s8 * u) * P[8]
+    Su = sp.sin(s3 * u) * P[3] + sp.sin(s8 * u) * P[8]
+    U = sp.BlockMatrix([[Cu, Su], [-Su, Cu]]).as_explicit()
+    flow = (U.subs(u, 0) == sp.eye(30) and (sp.diff(U, u) - G * U).applyfunc(sp.expand).is_zero_matrix)
+    a0, b0 = I15[:, 0], I15[:, 5]
+    Phi = P[0] * (a0 + u * b0) + sum(((sp.cos(sp.sqrt(l) * u) * P[l] * a0 + sp.sin(sp.sqrt(l) * u) / sp.sqrt(l) * P[l] * b0)
+                                      for l in (3, 8)), sp.zeros(15, 1))
+    ode = (sp.diff(Phi, u, 2) + K * Phi).applyfunc(sp.expand).is_zero_matrix
+    Zu = sp.Matrix.vstack(R * Phi, sp.diff(Phi, u)).applyfunc(sp.expand)
+    Z0 = Zu.subs(u, 0)
+    carried = (Zu - (U * Z0).applyfunc(sp.expand)).applyfunc(sp.expand).is_zero_matrix
+    energy = sp.simplify((Zu.T * Zu)[0] - (Z0.T * Z0)[0]) == 0
+    k0 = P[0][:, 5]
+    lost = (R * k0).is_zero_matrix and k0 != sp.zeros(15, 1) and (K * k0).is_zero_matrix
+    seen0 = ((P[0] * Zu[:15, :]).applyfunc(sp.expand).is_zero_matrix
+             and (P[0] * Zu[15:, :] - P[0] * b0).applyfunc(sp.expand).is_zero_matrix)
+    # the index: the graded kernel of D_wave (Hermitian, so ker D_wave = ker D_wave^2, which keeps the grading)
+    Rinv = P[3] / s3 + P[8] / s8
+    rankR = (R * P[0]).is_zero_matrix and (R * Rinv - P[3] - P[8]).applyfunc(sp.expand).is_zero_matrix and (P[3] + P[8]).rank() == 10
+    Dw2 = (Dw * Dw).applyfunc(sp.expand)
+    kerg = (15 - Dw2[:15, :15].rank(), 15 - Dw2[15:, 15:].rank())
+    grades = (comb(5, 0) + comb(5, 4), comb(5, 1) + comb(5, 5))
+    faces = (sum(comb(5, k) for k in (0, 2, 4)), sum(comb(5, k) for k in (1, 3, 5)))
+    return {
+        "eq (15) on the carrier: sqrt K = sqrt3 P3 + 2 sqrt2 P8 (P0 + P3 + P8 = I, P_l P_m = delta_lm P_l, K = 3 P3 + 8 P8) "
+        "is symmetric with square K and eigenvalues 0, sqrt3, 2 sqrt2 >= 0, the positive root; D_wave = [[0, i sqrt K], "
+        "[-i sqrt K, 0]] on C^15 + C^15 is Hermitian, odd for Gamma = diag(I, -I) and squares to diag(K, K); the real "
+        "form [[0, sqrt K], [sqrt K, 0]] also squares to diag(K, K) and the even unitary diag(I, iI) carries it to "
+        "D_wave; so Tr e^(-t D_wave^2) = 2 Tr e^(-tK) and the doubled heat difference of two such K is twice Theta_rel":
+            proj and Rsq and herm and odd and sq and even and real_sq,
+        "the flow: D_wave = i G with G = [[0, sqrt K], [-sqrt K, 0]], and U(u) = sum_l [[cos(u sqrt l), sin(u sqrt l)], "
+        "[-sin(u sqrt l), cos(u sqrt l)]] (x) P_l has U(0) = I, U' = G U and orthogonal 2 x 2 factors (each l = 0, 3, 8, "
+        "symbolic in u), so U(u) = e^(uG) = e^(-iu D_wave); for the wave field Phi(u) = P0 (a + u b) + sum_(l = 3, 8) "
+        "P_l (cos(u sqrt l) a + sin(u sqrt l) b/sqrt l) (a = e0, b = e5, master_response's), which solves Phi'' + K Phi = "
+        "0, Z(u) = (sqrt K Phi, Phi') equals U(u) Z(0) and |Z|^2 = |Phi'|^2 + <Phi, K Phi> is constant: the unitary group "
+        "carries the wave's phase-space flow":
+            gen and rot_ok and flow and ode and carried and energy,
+        "what Z forgets (the note's caveat): sqrt K kills ker K, so a static kernel field Phi = k (K k = 0, k = P0 e5 != "
+        "0) has Z = 0; along the wave field above Z sees the kernel part P0 Phi = P0 (a + u b) only through P0 Phi' = P0 "
+        "b (P0 sqrt K Phi = 0), so the static value must be carried as a separate coordinate":
+            lost and seen0,
+        "the index: sqrt K P0 = 0 and sqrt K (P3/sqrt3 + P8/(2 sqrt2)) = P3 + P8 of rank 10; D_wave is Hermitian, so its "
+        "kernel on each graded half is that of D_wave^2 there, of dimension 5 on each (computed from D_wave), ker D_wave "
+        "= ker K + ker K, the off-diagonal block i sqrt K has index 5 - 5 = 0 and Tr Gamma e^(-t D_wave^2) = Tr e^(-tK) - "
+        "Tr e^(-tK) = 0 for every t. In finite dimensions this is forced: by rank-nullity the index of any odd operator "
+        "is the difference of its graded dimensions, 15 - 15 = 0 here, 16 - 16 = 0 on the 32 faces of grand_fock's D32 "
+        "(whose kernel on grades 0, 1, 4, 5 is 1 + 5 even and 5 + 1 odd) and 9 - 10 = -1 for D19 (nullity 1 on its "
+        "negative side, chiral_closures). A graded unitary equivalence keeps the graded kernel dimensions, so neither the "
+        "doubled wave-Dirac nor D32 is gradedly equivalent to D19: the note's obstruction, which on finite instances is "
+        "the graded dimension count (the verifier's own index check, abs(n//2 - n//2) == 0, compares a number with "
+        "itself)":
+            rankR and kerg == (5, 5) and kerg[0] - kerg[1] == 15 - 15 and grades == (6, 6)
+            and faces == (16, 16) and grades[0] - grades[1] == faces[0] - faces[1] == 0,
+    }
+
+
+# ---------------------------------- the separate model's joined motifs and native memory (2 Nov, filed 03:15 UTC)
+
+def _joined_wedge():
+    """The joined-motifs note's literal coordinates (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, section 2): V the
+    sum-zero R^5 with basis f_i = e_i - e_4 (i = 0..3), Lambda^2 V with the ordered pairs a < b, Phi(u ^ v)_ij = u_i v_j
+    - u_j v_i on the lexicographic K5 edges (grand_lorentz's W), G = Phi^T Phi, rho(p) = Lambda^2 of the vertex
+    permutation p on V (all 120), the six C5 averages E_i = (1/5) sum_(g in C5_i) rho(g) (ordered by their least
+    non-identity element), R6 = S_wedge G and the signed complementary-pair matrix S_wedge."""
+    E = carrier.edges()
+    pr = list(itertools.combinations(range(4), 2))
+    f = [_e(i) - _e(4) for i in range(4)]
+    Phi = sp.Matrix.hstack(*[sp.Matrix([f[a][i] * f[b][j] - f[a][j] * f[b][i] for i, j in E]) for a, b in pr])
+    G = Phi.T * Phi
+    w2 = lambda M: sp.Matrix(6, 6, lambda r, c: M.extract(list(pr[r]), list(pr[c])).det())
+
+    def on_v(p):                                                         # f_i -> e_p(i) - e_p(4), with f_4 = 0
+        M = sp.zeros(4, 4)
+        for i in range(4):
+            if p[i] < 4:
+                M[p[i], i] += 1
+            if p[4] < 4:
+                M[p[4], i] -= 1
+        return M
+    S5 = list(itertools.permutations(range(5)))
+    rho = {p: w2(on_v(p)) for p in S5}
+    sgn = {p: Permutation(list(p)).signature() for p in S5}
+    groups = {}
+    for p in S5:
+        if Permutation(list(p)).order() == 5:
+            H = frozenset(tuple((Permutation(list(p)) ** k).array_form) for k in range(5))
+            groups[H] = min(q for q in H if q != tuple(range(5)))
+    gens = sorted(groups.values())
+    Ev = [sum((rho[tuple((Permutation(list(c)) ** k).array_form)] for k in range(5)), sp.zeros(6, 6)) / 5
+          for c in gens]
+    Sw = sp.Matrix(6, 6, lambda r, c: 0 if len(set(pr[r]) | set(pr[c])) < 4
+                   else Permutation(list(pr[r]) + list(pr[c])).signature())
+    return Phi, G, rho, sgn, S5, gens, Ev, Sw * G, Sw
+
+
+def joined_defect_series():
+    """The separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in
+    PAGE_0001, read as data), section 6 eqs (1)-(4) and section 7: the heat, wave, unitary and Schur defects past their
+    common leading coefficient D = J* K Q K J = M2 - M1^2. Already in the model and cited, not repeated: that one D
+    leads all of them is sibling L5's threshold_five_faces (filed 02:18), in noncommuting blocks through total order
+    4: the heat face F(t + s) - F(t) F(s) = Y^T e^(-tK) Q e^(-sK) Y (whose equal-time case is X(2t) - X(t)^2 = H H*
+    through t^4, with the atoms A_(m+n) - A_m A_n = (K^m)_12 (K^n)_21 for m + n <= 4 and t^2 coefficient D), the
+    unitary, erasure and wave faces with leading t s D, -t s D, t^2 D and t^2 s^2 D/4, and the resolvent face G^-1 = z
+    + A - D/z + B C B^T/z^2 - B C^2 B^T/z^3 + ... (so Sigma through s^-3); the wave defect's Gram form and series in
+    the moments through u^10, the unitary twin's through theta^6 with theta^3 coefficient (i/2)[A_1, A_2] = (i/2)[A,
+    D] (onemodel_closures), the wave defect's u^4, u^6 and u^8 coefficients in the blocks and A_3 = A^3 + AD + DA + M1
+    (deep_wave_memory), the two-time identity Y^T K^(m + n) Y - A_m A_n = Y^T K^m Q K^n Y on the root-site instance for
+    m, n <= 4, tr B B^T = 760 and the nonzero [A, D] there (bridge_unitary_port; bridge_memory_echo has the same D, M1
+    = B C B^T and the self-energy's first two terms D/z - M1/z^2 on that instance), the band bounds D/(s + 256) <=
+    Sigma(s) <= D/s (schur_memory, master_readout), the four sectors' (a, b) (notes_1512's (a0, b1^2), master_readout's
+    (a, m2 - a^2) from the lattice). New: the heat defect's Gram form at t^5..t^8 and its explicit t^3 and t^4
+    coefficients, Sigma's coefficients s^-4..s^-7, that the four defects part after D (heat = 24 wave at the next
+    order, the ratios 144 and 240 at order 4), the Schur recursion on the instance through n = 8 with tr B C B^T =
+    163860, and the channel floor. Exact: words in A, B, B*, C with Fraction coefficients; integer matrices on the
+    instance."""
+    one = {(): Fraction(1)}
+
+    def add(*terms):                                                     # sum of c x over (c, x)
+        out = {}
+        for c, x in terms:
+            for w_, v in x.items():
+                out[w_] = out.get(w_, 0) + c * v
+        return {w_: v for w_, v in out.items() if v}
+
+    def mul(x, y):                                                       # concatenation of words
+        out = {}
+        for wx, cx in x.items():
+            for wy, cy in y.items():
+                out[wx + wy] = out.get(wx + wy, 0) + cx * cy
+        return {w_: v for w_, v in out.items() if v}
+    word = lambda s: {tuple(s): Fraction(1)}
+    A, B, Bs, C = word("A"), word("B"), word("b"), word("C")             # b stands for B*
+    N = 8
+    pw = [[[one, {}], [{}, one]]]                                        # the 2 x 2 blocks of K^n, K = [[A, B], [B*, C]]
+    for _ in range(N):
+        P = pw[-1]
+        pw.append([[add((1, mul(P[i][0], [A, B][j])), (1, mul(P[i][1], [Bs, C][j]))) for j in range(2)]
+                   for i in range(2)])
+    An = [q[0][0] for q in pw]
+    fact = lambda n: Fraction(factorial(n))
+    smul = lambda p, q: [add(*[(1, mul(p[i], q[k - i])) for i in range(k + 1)]) for k in range(N + 1)]
+    X1 = [add((Fraction((-1) ** n) / fact(n), An[n])) for n in range(N + 1)]       # J* exp(-tK) J
+    X2 = [add((Fraction((-2) ** n) / fact(n), An[n])) for n in range(N + 1)]       # J* exp(-2tK) J
+    heat = [add((1, X2[k]), (-1, x)) for k, x in enumerate(smul(X1, X1))]
+    H12 = [add((Fraction((-1) ** n) / fact(n), pw[n][0][1])) for n in range(N + 1)]  # J* exp(-tK) Q, in blocks
+    H21 = [add((Fraction((-1) ** n) / fact(n), pw[n][1][0])) for n in range(N + 1)]
+    gram = smul(H12, H21)
+    D, M1, M2 = mul(B, Bs), mul(mul(B, C), Bs), mul(mul(mul(B, C), C), Bs)
+    AD, DA = mul(A, D), mul(D, A)
+    atom = lambda m, n: add((1, An[m + n]), (-1, mul(An[m], An[n])))   # A_(m+n) - A_m A_n
+    insert_q = all(atom(m, n) == mul(pw[m][0][1], pw[n][1][0])          # m + n <= 4: threshold_five_faces' heat face
+                   for m in range(1, N) for n in range(1, N + 1 - m) if m + n >= 5)
+    cw = lambda n: Fraction((-1) ** n) / fact(2 * n)
+    wave = [add(*[(cw(m) * cw(k - m), atom(m, k - m)) for m in range(k + 1)]) for k in range(5)]   # u^(2k)
+    h4 = add((Fraction(1, 4), mul(A, DA)), (Fraction(5, 12), mul(A, M1)), (Fraction(5, 12), mul(M1, A)),
+             (Fraction(1, 6), mul(A, AD)), (Fraction(1, 6), mul(DA, A)), (Fraction(1, 3), mul(D, D)),
+             (Fraction(7, 12), M2))
+    ratio = lambda s: heat[4][tuple(s)] / wave[4][tuple(s)]            # wave[4]: deep_wave_memory's u^8 coefficient
+    # the Schur self-energy: g(w) = s G(s) = sum (-1)^n A_n w^n, w = 1/s, and w Sigma = sum (-1)^k B C^k B* w^(k+2)
+    Ms, Cp = [], one
+    for _ in range(N - 1):
+        Ms.append(mul(mul(B, Cp), Bs))
+        Cp = mul(Cp, C)
+    g = [add((Fraction((-1) ** n), An[n])) for n in range(N + 1)]
+    fs = [one, A] + [add((-Fraction((-1) ** (k - 2)), Ms[k - 2])) for k in range(2, N + 1)]   # 1 + w A - w Sigma
+    unit_series = [one] + [{}] * N
+    left, right = smul(fs, g), smul(g, fs)                              # through w^4: threshold_five_faces' resolvent
+    # the root-site instance: master_response's H_R with the six-site port's 15 bond roots visible
+    K, vis, hid = _bridge_port()
+    Y = np.zeros((240, 15), dtype=object)
+    for c_, k_ in enumerate(vis):
+        Y[k_, c_] = 1
+    KY = [Y]
+    for _ in range(N):
+        KY.append(K.dot(KY[-1]))
+    Am = [X[vis] for X in KY]
+    Bv, Cv = K[np.ix_(vis, hid)], K[np.ix_(hid, hid)]
+    v_, Mi = Bv.T.copy(), []
+    for _ in range(N - 1):
+        Mi.append(Bv.dot(v_))                                            # B C^k B^T
+        v_ = Cv.dot(v_)
+    eq = np.array_equal
+    rec = all(eq(Am[n], Am[1].dot(Am[n - 1]) + sum(Mi[k].dot(Am[n - 2 - k]) for k in range(n - 1)))
+              and eq(Am[n], Am[n - 1].dot(Am[1]) + sum(Am[n - 2 - k].dot(Mi[k]) for k in range(n - 1)))
+              for n in range(2, N + 1))
+    at = lambda m, n: Am[m + n] - Am[m].dot(Am[n])
+    Dm, A1 = at(1, 1), Am[1]
+    X13, X22 = at(1, 3) + at(3, 1), at(2, 2)
+    # the channel floor; (a, b) = notes_1512's (a0, b1^2) = master_readout's (a, m2 - a^2), cited inputs
+    s, x, a = sp.symbols("s x a", positive=True)
+    ch = [(184, 2117), (232, 389), (242, 127), (243, 83)]
+    ad, bd = ch[3]
+    ident = sp.simplify(1 / (s + a - x) - 1 / (s + a) - x / (s + a) ** 2 - x ** 2 / ((s + a) ** 2 * (s + a - x))) == 0
+    floor = all(all(c_ > 0 for c_ in sp.Poly(b_ * (s + ad) ** 2 - bd * (s + a_) ** 2, s).all_coeffs())
+                for a_, b_ in ch[:3])
+    return {
+        "the heat composition defect past order four, in the free algebra on the blocks of K = [[A, B], [B*, C]] (A_n "
+        "the (1, 1) block of K^n, D = B B*, M1 = B C B*, M2 = B C^2 B*): with X(t) = sum (-t)^n A_n/n! = J* exp(-tK) J, "
+        "X(2t) - X(t)^2 is the equal-time case of sibling L5's heat face, so through t^4 it is the Gram form H(t) H*(t), "
+        "H(t) = sum (-t)^n (K^n)_12/n! = J* exp(-tK) Q, with t^2 coefficient D (threshold_five_faces, cited); here it "
+        "equals H H* coefficientwise at t^5..t^8 as well (a Gram form through t^8, so >= 0), the atoms A_(m+n) - A_m "
+        "A_n being (K^m)_12 (K^n)_21 for 5 <= m + n <= 8, and its t^3 and t^4 coefficients are -(AD + DA)/2 - M1 and "
+        "ADA/4 + 5(A M1 + M1 A)/12 + (A^2 D + D A^2)/6 + D^2/3 + 7 M2/12":
+            len(heat) == len(gram) == 9 and insert_q and all(heat[k] == gram[k] for k in range(5, N + 1))
+            and heat[3] == add((Fraction(-1, 2), AD), (Fraction(-1, 2), DA), (-1, M1)) and heat[4] == h4,
+        "the Schur self-energy past s^-3: with G(s) = J*(s + K)^-1 J = sum (-1)^n A_n s^-(n+1) and Sigma(s) = sum_k "
+        "(-1)^k B C^k B* s^-(k+1), (s + A - Sigma(s)) G(s) = I = G(s)(s + A - Sigma(s)) through s^-4 is sibling L5's "
+        "resolvent face G^-1 = s + A - D/s + M1/s^2 - M2/s^3 + ... (threshold_five_faces, cited); both products vanish "
+        "at s^-5..s^-8 as well, so Sigma's next coefficients are B C^3 B*, ..., B C^6 B* with alternating signs. On the "
+        "root-site instance (master_response's H_R = 240 I - B_R, the six-site port's 15 bond roots visible, 225 hidden; "
+        "exact integers) the hidden moments B C^k B^T (k <= 6) satisfy A_n = A_1 A_(n-1) + sum_k B C^k B^T A_(n-2-k) "
+        "and its mirror for n = 2..8, so the Laurent coefficients of Sigma are read off the visible moments; B C B^T "
+        "has trace 163860 (the n = 2 case is B B^T = A_2 - A_1^2, of trace 760: bridge_unitary_port's, cited)":
+            len(fs) == len(g) == 9 and all(left[k] == unit_series[k] and right[k] == unit_series[k] for k in range(5, N + 1))
+            and len(Am) == 9 and len(Mi) == 7 and rec and int(np.trace(Mi[1])) == 163860,
+        "past their common leading coefficient D (sibling L5's five faces, threshold_five_faces: heat t^2 D, wave u^4 "
+        "D/4, unitary theta^2 D, Schur s^-1 D; cited) the four defects part: the heat t^3 coefficient -(AD + DA + 2 "
+        "M1)/2 is 24 times the wave's u^6 coefficient (deep_wave_memory's -(AD + DA + 2 M1)/48, the wave defect here "
+        "summed from the same atoms A_(m+n) - A_m A_n with weights (-1)^(m+n)/((2m)! (2n)!)), while the unitary theta^3 "
+        "coefficient is onemodel_closures' (i/2)[A_1, A_2] = (i/2)[A, D] and the Schur s^-2 coefficient is -M1 "
+        "(cited); heat and wave part at order 4, where the ratios of their ADA and D^2 coefficients are 144 and 240 "
+        "(wave u^8 as deep_wave_memory has it). On the instance the heat t^3 coefficient is -(AD + DA)/2 - B C B^T with "
+        "AD + DA != 0, and the order-4 atoms (A_4 - A_1 A_3) + (A_4 - A_3 A_1) and A_4 - A_2^2 are linearly "
+        "independent, so the heat t^4 and wave u^8 coefficients are not proportional there either":
+            heat[3] == add((24, wave[3])) and ratio("ABbA") == 144 and ratio("BbBb") == 240
+            and eq(at(1, 2) + at(2, 1), A1.dot(Dm) + Dm.dot(A1) + 2 * Mi[1]) and (A1.dot(Dm) + Dm.dot(A1)).any()
+            and sp.Matrix([list(X13.flatten()), list(X22.flatten())]).rank() == 2,
+        "the channel floor: for a scalar channel g(s) = 1/(s + a - Sigma(s)) > 0 with Sigma(s) >= b/(s + 256) (the band "
+        "bound, cited), 1/(s + a - x) - 1/(s + a) = x/(s + a)^2 + x^2/((s + a)^2 (s + a - x)) gives g(s) - 1/(s + a) >= "
+        "b/[(s + 256)(s + a)^2] > 0 for every s > 0; for the note's four sectors (a, b) = (184, 2117), (232, 389), "
+        "(242, 127), (243, 83) (notes_1512's (a0, b1^2), master_readout's (a, m2 - a^2) from the lattice; cited inputs) "
+        "the polynomials b (s + 243)^2 - 83 (s + a)^2 of the first three have positive coefficients, so the dark "
+        "sector's 83/[(s + 256)(s + 243)^2] is the common floor: no channel's response is its zero-memory 1/(s + a)":
+            ident and floor,
+    }
+
+
+def joined_current_lattice():
+    """The joined-motifs note (filed 2 Nov 03:15 UTC), sections 2 and 5: the literal native current S z = sum_(i<j)
+    c_ij (delta_(e_i - e_j) - delta_(e_j - e_i)), c = Phi z, and its entire 6 x 6 moment matrices on the infinite
+    lattice. Already in the model and cited, not repeated: Phi = grand_lorentz's W, with B W = 0, rank 6 and W^T W =
+    Q6 of determinant 125 (grand_lorentz, exterior); the commutator map Lambda^2 P5 -> cycles of rank 6 and kernel 4
+    (source_port, notes_0204, chiral_dark); the odd port T_O = Od/sqrt2, an isometry of the cycles scalar on them with
+    moments 1, 242, 58691, 14259954, 3470101592 by _wedge's root-pair table (parity_ports: Pc Od^T Delta^n Od Pc/2 =
+    mu_n Pc, so, since B Phi = 0, S^T Delta^n S = 2 mu_n G for n <= 4; notes_0204's Sg^T Sg = 2 Gp is the n = 0 case
+    in its own cycle basis), and at every order, since the currents lie in the root graph's cubic sector and the bath
+    between roots depends only on their inner product (band_closures), one current's moments by lattice walks
+    (notes_0204), the 9361 two-root sums (walk_convolutions), the root graph's -2 on the currents, so H_R S = 242 S on
+    the root-site compression (notes_0204, onemodel_closures' B_R Y = -2 Y on the six wedge channels). New: S = Od Phi
+    row by row on exactly the twenty A4 roots and its exact isometry J_w, the note's lattice route with its support
+    counts (parity_ports' identity re-derived once by it, in the note's coordinates), and the comparison of the
+    root-site compression's moments 2G x 242^n with the lattice's at M2."""
+    Phi, G, rho, sgn, S5, gens, Ev, R6, Sw = _joined_wedge()
+    I6 = sp.eye(6)
+    E = carrier.edges()
+    Ph = np.array(Phi.tolist(), dtype=np.int64)
+    # the current through the hub's odd port (roots times 10, _odd_port's order)
+    Od = _odd_port()
+    S10 = Od.dot(Ph)
+    R10 = assignment.roots10()
+    e8 = np.eye(8, dtype=np.int64)
+    a4 = {tuple(10 * (e8[i] - e8[j])) for i in range(5) for j in range(5) if i != j}
+    rows = np.flatnonzero(S10.any(axis=1))
+    on_a4 = len(rows) == 20 and {tuple(int(t) for t in R10[k]) for k in rows} == a4
+    i10 = {tuple(int(t) for t in r): k for k, r in enumerate(R10)}
+    lit = all(np.array_equal(S10[i10[tuple(10 * e8[i] - 10 * e8[j])]], Ph[n])
+              and np.array_equal(S10[i10[tuple(10 * e8[j] - 10 * e8[i])]], -Ph[n]) for n, (i, j) in enumerate(E))
+    Sm = sp.Matrix(S10.tolist())
+    P5, P1 = (G - I6) / 4, (5 * I6 - G) / 4
+    Gm = (P1 + P5 / sp.sqrt(5)) / sp.sqrt(2)                              # (2G)^(-1/2)
+    iso = (Gm * (Sm.T * Sm) * Gm - I6).applyfunc(sp.simplify).is_zero_matrix
+    # the note's lattice route: Delta = 240 - A applied to the six columns on the full lattice
+    base = np.int64(64) ** np.arange(8, dtype=np.int64)
+    R2 = np.rint(2 * glue.roots()).astype(np.int64)
+    renc = R2 @ base
+    A4 = [2 * (e8[i] - e8[j]) for i, j in E] + [2 * (e8[j] - e8[i]) for i, j in E]
+    S20 = np.vstack([Ph, -Ph])                                           # rows: the 20 A4 roots, as listed in A4
+    k0 = np.array(A4) @ base
+    o = np.argsort(k0)
+    lev = [(k0[o], S20[o])]
+
+    def lap(keys, vals):
+        u, inv = np.unique((keys[:, None] + renc[None, :]).reshape(-1), return_inverse=True)
+        av = np.zeros((len(u), 6), dtype=np.int64)
+        np.add.at(av, inv.reshape(-1), np.repeat(vals, 240, axis=0))
+        uu, inv2 = np.unique(np.concatenate([keys, u]), return_inverse=True)
+        out = np.zeros((len(uu), 6), dtype=np.int64)
+        np.add.at(out, inv2.reshape(-1), np.concatenate([240 * vals, -av]))
+        keep = out.any(axis=1)
+        return uu[keep], out[keep]
+    for _ in range(2):
+        lev.append(lap(*lev[-1]))
+
+    def ip(a, b):
+        _, ia, ib = np.intersect1d(lev[a][0], lev[b][0], assume_unique=True, return_indices=True)
+        return sp.Matrix(lev[a][1][ia].astype(object).T.dot(lev[b][1][ib].astype(object)).tolist())
+    Mlat = [ip(0, 0), ip(0, 1), ip(1, 1), ip(1, 2), ip(2, 2)]
+    mu = [1, 242, 58691, 14259954, 3470101592]                         # parity_ports' (cited)
+    return {
+        "the note's native current is the hub's odd port on the cycles: S = Od Phi (Od e_ij = delta(e_i - e_j) - "
+        "delta(e_j - e_i), parity_ports' T_O = Od/sqrt2; Phi the literal wedge map) is supported on exactly the twenty "
+        "A4 roots, where it is the note's S z = sum_(i<j) c_ij (delta(e_i - e_j) - delta(e_j - e_i)), c = Phi z, row by "
+        "row, and S^T S = 2G (T_O an isometry of the cycles, parity_ports; notes_0204's Sg^T Sg = 2 Gp in its basis); "
+        "G = 5 P5 + P1 with P5 = (G - I)/4 and P1 = (5I - G)/4 complementary idempotents of rank 3 each, so (2G)^(-1/2) "
+        "= (P1 + P5/sqrt5)/sqrt2 exactly and J_w = S (2G)^(-1/2) satisfies J_w^T J_w = I6 (an isometry of the six "
+        "cycle coordinates into l2 of the lattice, over Q(sqrt2, sqrt5))":
+            on_a4 and lit and Sm.T * Sm == 2 * G and P5 * P5 == P5 and P1 * P1 == P1 and P5 + P1 == I6
+            and G == 5 * P5 + P1 and P5.rank() == 3 and P1.rank() == 3 and iso,
+        "the six currents' entire moment matrices on the infinite lattice, by the note's route: Delta = 240 - A applied "
+        "twice to the six columns on the full lattice gives fields with union supports 20, 2330 and 54170 sites, and "
+        "M0 = S^T S, M1 = S^T (Delta S), M2 = (Delta S)^T (Delta S), M3 = (Delta S)^T (Delta^2 S), M4 = (Delta^2 S)^T "
+        "(Delta^2 S) equal 2G mu_n in all 180 entries, mu = 1, 242, 58691, 14259954, 3470101592: parity_ports' "
+        "identity Pc Od^T Delta^n Od Pc/2 = mu_n Pc pulled back by Phi (B Phi = 0, so Pc Phi = Phi), cited with its "
+        "root-pair route and band_closures' cubic sector at every order, here re-derived once by the lattice route in "
+        "the note's coordinates; so J_w^T Delta^n J_w = mu_n I6 for n <= 4, A_w = 242 I6 and D_w = 127 I6":
+            [len(lv[0]) for lv in lev] == [20, 2330, 54170] and all(Mlat[n] == 2 * mu[n] * G for n in range(5)),
+        "the finite root shell hides this memory: on master_response's root-site compression H_R = 240 I - B_R (the 240 "
+        "roots only) the currents span an eigenspace, H_R S = 242 S (the root graph's -2: notes_0204's, and "
+        "onemodel_closures' B_R Y = -2 Y on the six wedge channels; cited), so there the hidden coupling B = Q H_R J_w "
+        "is 0, every defect of joined_defect_series vanishes and the compressed moments are 2G x 242^n; the lattice's "
+        "agree with them at n = 0, 1 and first differ at n = 2 (58564 against 58691, short by 2G x 127), where the "
+        "infinite parent's D_w = 127 I6 appears: the 240-root shell makes the current port autonomous (B = 0), the "
+        "lattice does not":
+            242 ** 2 == 58564 != mu[2] and Mlat[1] == 2 * 242 * G and Mlat[2] - 2 * 242 ** 2 * G == 2 * 127 * G,
+    }
+
+
+def joined_views():
+    """The joined-motifs note (filed 2 Nov 03:15 UTC), section 3: six overlapping C5 views against six nested
+    coordinate projectors on Lambda^2 V. Already in the model and cited, not repeated: the six Sylow averages on
+    Lambda^2 A4 in the same wedge basis are notes_1751's petals (rank-2 idempotents, G6-self-adjoint, sum 2I, F_i F_j
+    F_i = F_i/5, every pair spanning rank 4, F_i/2 a six-outcome resolution of the identity), on the cycles pair_frame's
+    Sylow fixed planes (sum 2 P_cycle, F_i F_j F_i = F_i/5), tr F_i F_j = 2/5 (notes_0951's Golden channel), and each
+    commutes with Curl (view_closures), so, through Curl Phi = Phi R6 (sibling L4's Curl W = W H6, open_hodge_marker),
+    each view commutes with R6. New: the identification in the note's coordinates, the commutators, the analysis map's
+    exact norm, and the nested flag with its Hodge test."""
+    from sympy.polys.matrices import DomainMatrix
+    Phi, G, rho, sgn, S5, gens, Ev, R6, Sw = _joined_wedge()
+    I6 = sp.eye(6)
+    t = sp.Symbol("x")
+    # notes_1751's petals, rebuilt as it builds them (conjugation by g = (01)(234) from the five-cycle i -> i + 1)
+    g = Permutation([[0, 1], [2, 3, 4]], size=5)
+    cyc = [Permutation([1, 2, 3, 4, 0])]
+    for _ in range(5):
+        cyc.append(g ** -1 * cyc[-1] * g)
+    petals = {tuple(sum((rho[tuple((c ** k).array_form)] for k in range(5)), sp.zeros(6, 6)) / 5) for c in cyc}
+    Bs = sp.Matrix(carrier.signed_incidence())
+    Pc = sp.eye(10) - Bs.T * Bs / 5
+    perm = lambda p: sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+    lam = lambda p: compound2(perm(p))
+    Fe = [sum((Pc * lam(c) ** k for k in range(5)), sp.zeros(10, 10)) / 5 for c in gens]
+    pr = list(itertools.combinations(range(4), 2))
+    G6 = sp.Matrix(6, 6, lambda r, c: (sp.eye(4) + sp.ones(4, 4)).extract(list(pr[r]), list(pr[c])).det())
+    comm_ranks = [(Ev[i] * Ev[j] - Ev[j] * Ev[i]).rank() for i, j in itertools.combinations(range(6), 2)]
+    VV = sp.Matrix(sp.BlockMatrix([[Ev[i] * Ev[j] for j in range(6)] for i in range(6)]))
+    cp = DomainMatrix.from_Matrix(VV).to_field().charpoly()
+    cpoly = sp.Poly([sp.Rational(int(c.numerator), int(c.denominator)) for c in cp], t)
+    # the nested coordinate flag
+    Z = [I6[:, :k] for k in range(1, 7)]
+    Nk = [Zk * (Zk.T * G * Zk).inv() * Zk.T * G for Zk in Z]
+    return {
+        "the note's six views are the model's petals: in its coordinates (f_i = e_i - e_4, pairs a < b, G = Phi^T Phi = "
+        "notes_1751's G6 = Lambda^2(I + J)) the C5 averages E_i over the six Sylow 5-subgroups of S5 are, as a set, "
+        "notes_1751's six petals (so G-self-adjoint idempotents of rank 2 with sum 2I: notes_1751's, cited), and Phi E_i "
+        "= F_i Phi with pair_frame's Sylow fixed planes F_i = (1/5) sum_k P_cycle Lambda^2(c_i)^k of the cycles; new: "
+        "every one of the 15 commutators E_i E_j - E_j E_i has rank 4 (the views overlap without "
+        "commuting), and the analysis map V z = (E_i z)_i (G inner product on each factor, so V* (y_i) = sum E_i y_i) "
+        "has V* V = sum E_i = 2I and V V* = [E_i E_j] (36 x 36) with characteristic polynomial x^30 (x - 2)^6: the "
+        "reconstruction z = (1/2) V* (E_i z)_i turns view noise eta into an error (1/2) V* eta of G-norm at most "
+        "|eta|/sqrt2, with equality for eta in the range of V":
+            len(Ev) == 6 and G == G6 and {tuple(e) for e in Ev} == petals and len(petals) == 6
+            and all(Phi * e == f_ * Phi for e, f_ in zip(Ev, Fe)) and comm_ranks == [4] * 15
+            and sp.expand(cpoly.as_expr() - t ** 30 * (t - 2) ** 6) == 0,
+        "six nested coordinate projectors are a different family on the same space: N_k = Z_k (Z_k^T G Z_k)^-1 Z_k^T G "
+        "(Z_k the first k coordinate vectors) are G-self-adjoint idempotents of rank k with N_i N_j = N_min(i, j) for "
+        "all 36 pairs, a genuine flag; the six views are pairwise distinct rank-2 idempotents with E_i E_j != 0 (tr "
+        "E_i E_j = 2/5: notes_1751's petals and notes_0951's trace, cited), so no two are nested and they are not "
+        "orthogonal atoms; every view commutes with the Hodge operator R6 (view_closures' Curl through Curl Phi = Phi "
+        "R6, sibling L4's open_hodge_marker; cited) while N_1..N_5 do not (N_6 = I): the coordinate flag is not built "
+        "from Hodge eigenspaces, and a flag need not be spectral for an operator chosen separately":
+            all(n * n == n and n.rank() == k + 1 and n.T * G == G * n for k, n in enumerate(Nk))
+            and all(Nk[i] * Nk[j] == Nk[min(i, j)] for i in range(6) for j in range(6))
+            and len({tuple(e) for e in Ev}) == 6 and [n * R6 == R6 * n for n in Nk] == [False] * 5 + [True],
+    }
+
+
+def joined_hodge_859():
+    """The joined-motifs note (filed 2 Nov 03:15 UTC), sections 2 and 4: the literal map's equivariance, the Hodge
+    operator R6 = S_wedge G with its orientation covariance, and the modular reflection preflight (430 = 2^-1, 306^2 = 5
+    mod 859) with the parity rule R_out T = sigma T R_in. Already in the model and cited, not repeated: Curl W = W H6
+    and W^T Curl W = Q6 H6 = 5K with H6 = K Q6, H6^2 = 5I for grand_lorentz's W (sibling L4's open_hodge_marker; the
+    matrices are the same: Phi = W, G = Q6, S_wedge = K, so R6 = H6 and Curl Phi = Phi R6, R6 = G^-1 Phi^T Curl Phi
+    = 5 G^-1 S_wedge are that identity); KH = 5 G6^-1 S_wedge with KH^2 = 5I and the star's split of the standard
+    rotor plane (notes_1751); H6^2 = 5I, H6^T Q6 = Q6 H6 and eigenvalues +-sqrt5 three times each (notes_2137, on the
+    same H6 and Q6); Curl symmetric with Curl^2 = 5 P_cycle and trace 0, the orientation character Lambda^2(p)^T Curl
+    Lambda^2(p) = sgn(p) Curl for all 120 and the 3 + 3 helicities (hodge_star), which through Curl Phi = Phi R6 and
+    Phi's equivariance give R6^T G = G R6, tr R6 = 0, R6 rho(p) = sgn(p) rho(p) R6 and rank P+- = 3 over Q(sqrt5);
+    every petal commutes with Curl (view_closures), so every view with R6; Hg^2 = 5, Gp-self-adjoint, odd under
+    transpositions (notes_0204); 859 prime, 430 = 2^-1 mod 859 and the cross-block test on maps that commute with a
+    flag involution (sibling L1's motif_reflection_859). New: Phi's equivariance with the note's rho on all 120
+    permutations, the split of every view over Q(sqrt5) (tr(R6 E_i) = 0, one line each) and mod 859, the two roots
+    306 and 553 with the swap, and the sigma = -1 blocks."""
+    Phi, G, rho, sgn, S5, gens, Ev, R6, Sw = _joined_wedge()
+    I6 = sp.eye(6)
+    perm = lambda p: sp.Matrix(5, 5, lambda r, c: int(r == p[c]))
+    equiv = all(Phi * rho[p] == compound2(perm(p)) * Phi for p in S5)
+    r5 = sp.sqrt(5)
+    Pp, Pm = (I6 + R6 / r5) / 2, (I6 - R6 / r5) / 2
+    rk0 = lambda X: X.applyfunc(sp.expand).rank(simplify=True)
+    p = 859
+
+    def red(M):                                                          # a rational matrix mod p
+        return np.array([[sp.Rational(v).p * pow(int(sp.Rational(v).q), -1, p) % p for v in row] for row in M.tolist()],
+                        dtype=np.int64)
+
+    def rank_mod(M):                                                     # rank over F_p by elimination
+        M = [[int(v) % p for v in row] for row in M]
+        r = 0
+        for c in range(len(M[0])):
+            piv = next((i for i in range(r, len(M)) if M[i][c]), None)
+            if piv is None:
+                continue
+            M[r], M[piv] = M[piv], M[r]
+            inv = pow(M[r][c], -1, p)
+            M[r] = [v * inv % p for v in M[r]]
+            for i in range(len(M)):
+                if i != r and M[i][c]:
+                    M[i] = [(a_ - M[i][c] * b_) % p for a_, b_ in zip(M[i], M[r])]
+            r += 1
+        return r
+    In = np.eye(6, dtype=np.int64)
+    Rn = red(R6)
+    Evn = [red(e) for e in Ev]
+    roots5 = [r for r in range(p) if r * r % p == 5]
+
+    def halves(root):
+        hb = pow(root, -1, p) * Rn % p
+        return hb, 430 * (In + hb) % p, 430 * (In - hb) % p
+    hb, Pbp, Pbm = halves(306)
+    _, Qbp, Qbm = halves(553)
+    mm = lambda X, Y: X.dot(Y) % p
+    blocks = {}
+    for q in S5:
+        T = red(rho[q])
+        same = [mm(mm(Pbp, T), Pbp), mm(mm(Pbm, T), Pbm)]
+        cross = [mm(mm(Pbm, T), Pbp), mm(mm(Pbp, T), Pbm)]
+        blocks[q] = (all(not b.any() for b in same), all(b.any() for b in same),
+                     all(not b.any() for b in cross), all(b.any() for b in cross))
+    return {
+        "the literal map is S5-equivariant and each view holds one line of each helicity: Phi rho(p) = Lambda^2(p) Phi "
+        "for all 120 vertex permutations (rho(p) = Lambda^2 of p on V in the basis f_i, Lambda^2(p) the signed edge "
+        "action, exterior's second compound); R6 = S_wedge G is sibling L4's H6 = K Q6 on the same matrices, with Curl "
+        "Phi = Phi R6 (open_hodge_marker) and R6 = 5 G^-1 S_wedge (notes_1751's KH); R6^2 = 5I, R6^T G = G R6 and the "
+        "ranks 3 + 3 of P+- = (I +- R6/sqrt5)/2 are notes_2137's H6 checks, tr R6 = 0 and R6 rho(p) = sgn(p) rho(p) R6 "
+        "hodge_star's facts in the note's coordinates, and every view commutes with R6 (view_closures'), all cited, "
+        "not recomputed; each view has tr(R6 E_i) = 0, so on its plane R6 has eigenvalues sqrt5 and -sqrt5 once each: "
+        "rank(P+ E_i) = rank(P- E_i) = 1 for all six views over Q(sqrt5), one positive and one negative Hodge line "
+        "per view":
+            equiv and all((R6 * e).trace() == 0 for e in Ev)
+            and all(rk0(Pp * e) == 1 and rk0(Pm * e) == 1 for e in Ev),
+        "the modular preflight on the actual R6 (859 prime and 430 = 2^-1 mod 859: sibling L1's motif_reflection_859, "
+        "cited): 306^2 = 553^2 = 5 mod 859 (306 and 553 = 859 - 306 the only square roots of 5); h_bar = 306^-1 R6 mod 859 squares to I, and P_bar+- = 430 (I +- h_bar) "
+        "are complementary idempotents (sum I, product 0) of rank 3 each over F859, with rank(P_bar+ E_i) = rank(P_bar- "
+        "E_i) = 1 for all six views (E_i reduced with 5^-1 mod 859): the same ranks as over Q(sqrt5); the other root "
+        "553 gives 430 (I + 553^-1 R6) = P_bar- and 430 (I - 553^-1 R6) = P_bar+, the same pair with the sign "
+        "convention exchanged":
+            roots5 == [306, 553] and 306 + 553 == p
+            and np.array_equal(mm(hb, hb), In) and np.array_equal(mm(Pbp, Pbp), Pbp) and np.array_equal(mm(Pbm, Pbm), Pbm)
+            and np.array_equal((Pbp + Pbm) % p, In) and not mm(Pbp, Pbm).any()
+            and rank_mod(Pbp) == 3 and rank_mod(Pbm) == 3
+            and all(rank_mod(mm(Pbp, e)) == 1 and rank_mod(mm(Pbm, e)) == 1 for e in Evn)
+            and np.array_equal(Qbp, Pbm) and np.array_equal(Qbm, Pbp),
+        "the parity rule R_out T = sigma T R_in on the 120 vertex permutations (R = h_bar, T = rho(p) mod 859): the 60 "
+        "even p (sigma = +1) have both cross blocks P_bar-+ T P_bar+- zero and both same-parity blocks nonzero, the 60 "
+        "odd p (sigma = -1) have both same-parity blocks zero and both cross blocks nonzero: a nonzero grading-odd map "
+        "has nonzero cross blocks, so the cross-block test (sibling L1's motif_reflection_859, on maps that commute) is "
+        "valid only for maps declared even, as the note says; over Q(sqrt5) the same follows from R6 rho(p) = sgn(p) "
+        "rho(p) R6 (hodge_star's orientation character, cited)":
+            Counter((sgn[q], blocks[q]) for q in S5)
+            == Counter({(1, (False, True, True, False)): 60, (-1, (True, False, False, True)): 60}),
+    }
+
+
+def joined_port_compare():
+    """The joined-motifs note (filed 2 Nov 03:15 UTC), sections 1 and 5: the old six-SITE port and the six odd CURRENTS
+    are not equivalent as normalized native ports. Already in the model and cited, not recomputed: the six-site port's
+    five moment matrices M_n = c_n I + (u_n - c_n) J/6 on the lattice and on root_shell_krylov's clique (sibling L2's
+    six_ref_residual), with the walk moments c = 1, 241, 58264, 14121093, 3429473376 and u = 1, 235, 55720, 13294695,
+    3187007040 (port_leak, _sector_moments; built here from _sector_moments), its M1 = 241 I - J with spectrum 235,
+    241^5 (port_moments, schur_memory) and D = 183 I + 52 J with eigenvalues 495 and 183^5 (schur_memory); the
+    currents' J_w^T Delta^n J_w = mu_n I6 (parity_ports, joined_current_lattice). New: the comparison."""
+    I6, J6 = sp.eye(6), sp.ones(6, 6)
+    c, u = _sector_moments(5)
+    Mo = [c[n] * I6 + (u[n] - c[n]) / 6 * J6 for n in range(5)]        # six_ref_residual's matrices (cited)
+    mu = [1, 242, 58691, 14259954, 3470101592]                         # parity_ports', joined_current_lattice's
+    Dold, Dw = Mo[2] - Mo[1] ** 2, (mu[2] - mu[1] ** 2) * I6
+    spec = lambda M: M.eigenvals()
+    return {
+        "OBSTRUCTION: the old six-site port (orthonormal deltas at the origin and the five e_a + e_5) and the six odd "
+        "currents (J_w) are ports of the same bath Delta but not equivalent as normalized native ports. The six-site "
+        "moment matrices are M_n = c_n I + (u_n - c_n) J/6 (sibling L2's six_ref_residual, with port_leak's walk moments; "
+        "M_1 = 241 I - J of spectrum 235, 241^5 port_moments', D_old = M_2 - M_1^2 = 183 I + 52 J of eigenvalues 495, "
+        "183^5 schur_memory's; cited), the currents' J_w^T Delta^n J_w = mu_n I6 (joined_current_lattice, parity_ports; "
+        "cited). Already at n = 1 the numerical range [235, 241] of the old port's first moment tops out below 242, so "
+        "no unit vector of the old port has the first moment of any unit vector of the new one; tr D_old = 1410 "
+        "against tr D_w = 762; and at every order n = 1..4 the spectra {u_n, c_n^5} and {mu_n^6} differ, so no "
+        "orthogonal U has U^T M_n U = mu_n I6 at any single order, while a port equivalence preserving the parent and "
+        "the observation would give one at every order":
+            max(spec(Mo[1])) < mu[1] and Dold.trace() == 1410 and Dw.trace() == 762
+            and all(spec(Mo[n]) != {mu[n]: 6} for n in range(1, 5)),
+    }
+
+
+# ------------------------------------------------------------------- the separate model's reference clock (2 Nov 03:16)
+
+
+def _refclock_envelope(m, J, top):
+    """The note's polynomial envelope for c_m(u) = int cos(u sqrt(lambda)) dmu_m: P_2J(u) = sum_(j <= J) (-1)^j m_j
+    u^(2j)/(2j)! with the Taylor remainder top u^(2J + 2)/(2J + 2)! (top bounds int lambda^(J + 1) dmu_m), in Fractions;
+    returns env(u, s) = P_2J(u) + s top u^(2J + 2)/(2J + 2)! and the note's bisection of [0, 1/10] (60 halvings)."""
+    coef = [Fraction((-1) ** j * m[j], factorial(2 * j)) for j in range(J + 1)]
+    rem = Fraction(top, factorial(2 * J + 2))
+
+    def env(u, s):
+        return sum((c * u ** (2 * j) for j, c in enumerate(coef)), Fraction(0)) + s * rem * u ** (2 * J + 2)
+
+    def bracket(level, s):
+        lo, hi = Fraction(0), Fraction(1, 10)
+        if not env(lo, s) > level > env(hi, s):
+            return None
+        for _ in range(60):
+            mid = (lo + hi) / 2
+            if env(mid, s) > level:
+                lo = mid
+            else:
+                hi = mid
+        return lo, hi
+
+    def crossing(level, err=Fraction(0)):                                # the certified (lower, upper) for level +- err
+        return bracket(level + err, -1)[0], bracket(level - err, 1)[1]
+    return env, crossing
+
+
+def refclock_protected():
+    """The separate model's reference-clock note (TIME_BIND_REFERENCE_CLOCK.md, filed 2 Nov 03:16 UTC in PAGE_0001, with
+    its receipt verification(20261102-030733).json; both read as data), section 2: the protected mass clock, on the
+    lattice. The source used is master_readout's: its J15 (glue-built from 15 linear readings at root-graph eigenvalue 28
+    and 7 quadratic readings at eigenvalue 8; its image is 8-dimensional in the linear root sector and 7-dimensional in
+    the quadratic one, J^T B_R J = 28 P3 + 8 (P0 + P8): the note's 'eight linear and seven harmonic quadratic root
+    functions') and its four dark currents sign(x)(x_j^3 - x_j)/6 (j < 4) on the 120-site orbit of (-2, -1, 0, 1, 2, 0,
+    0, 0). The note's own W15 is not in the repository; schur_zero_mode's bond-root stand-in is shown not to qualify.
+    Cited, not repeated: the 360 sites, the bath between them and the sector projectors (_master_shell, master_readout),
+    the walk counts W_n (walks_join, band_closures), the supports 9361 and 131041 of two and three root steps
+    (walk_convolutions, notes_0101), the mass moments m0..m4 = 1, 184, 35973, 7355136, 1556789920 (notes_0101,
+    join_e8_triangle, band_closures; m5 and m6 are refclock_halfreturn's), W(E8) transitive on the roots through its
+    simple reflections (join_e8_measure; band_closures' two-point property), the zero sums of the 19 columns
+    (multipole_k5_source, L3), the dark four's oddness under x -> -x on the 360 sites (L3's multipole_filtration parity;
+    notes_0204's reader ell QD(reversal) = -ell), and the update identities K = H + J V J* (master_response). New: the
+    depth-5 cyclic vectors on the 360 sites, their annihilation by J15 and the dark four, and the stand-in's shift."""
+    R2, G, A, Pint, sc, O, *_ = _master_shell()
+    _, code, shift, pts, keys, mult = _two_root_sums()
+    W, _ = _walks()
+    w8 = 64 ** np.arange(8, dtype=np.int64)
+    # N_k(x) = number of ordered k-tuples of roots with sum x; N_3 on its whole support (two-root sums plus a root)
+    c3, inv3 = np.unique((keys[:, None] + (R2 @ w8)[None, :]).reshape(-1), return_inverse=True)
+    n3 = np.zeros(len(c3), dtype=np.int64)
+    np.add.at(n3, inv3.reshape(-1), np.repeat(mult, 240))
+    X = np.vstack([R2, 2 * O])                                           # the 360 sites, doubled coordinates
+    cX = code(X)
+
+    def look(k, v, q):
+        i = np.minimum(np.searchsorted(k, q), len(k) - 1)
+        return np.where(k[i] == q, v[i], 0)
+
+    def conv(ka, va, kb, vb):                                            # N_(a+b)(x) = sum_y N_a(y) N_b(x - y)
+        return np.array([int((va * look(kb, vb, c - ka + shift)).sum()) for c in cX], dtype=object)
+    N = [np.r_[np.ones(240, dtype=np.int64), np.zeros(120, dtype=np.int64)].astype(object),
+         look(keys, mult, cX).astype(object), look(c3, n3, cX).astype(object),
+         conv(keys, mult, keys, mult), conv(c3, n3, keys, mult), conv(c3, n3, c3, n3)]
+    # sqrt240 H^n f_m = sum_k C(n, k) 240^(n - k) (-1)^k A^k 1_R and (A^k 1_R)(x) = N_(k+1)(x)
+    h = [sum(comb(n, k) * 240 ** (n - k) * (-1) ** k * N[k] for k in range(n + 1)) for n in range(6)]
+    ix = {tuple(x): k for k, x in enumerate(X)}
+    neg = [ix.get(tuple(-x), -1) for x in X]
+    # master_readout's four dark currents on the 120 sites
+    sgn = lambda x: Permutation([int(v) + 2 for v in x[:5]]).signature()
+    d = np.array([[sgn(x) * (int(x[j]) ** 3 - int(x[j])) // 6 for j in range(4)] for x in O], dtype=np.int64)
+    # master_readout's 22 raw root readings (J15 = raw S Cr: 5 vertex and 10 twin-duad linear, |P_A4 alpha|^2 - 1, T2,
+    # five ker M quadratics), rebuilt as there
+    E = carrier.edges()
+    _, _, _, rp, _, _ = spine.spine_clock()
+    rps, TW = spine.to_standard(rp), assignment.TWIN
+    step = [int(np.flatnonzero([np.allclose(rps @ TW[i], TW[k]) for k in range(5)])[0]) for i in range(5)]
+    order = [0]
+    while len(order) < 5:
+        order.append(step[order[-1]])
+    s5, tw = 5 * R2 @ assignment.SITE.T // 10, 5 * R2 @ TW[order].T // 10
+    cp = 5 * R2[:, :5] - R2[:, :5].sum(1)[:, None]
+    N5 = sp.Matrix.hstack(*sp.Matrix(carrier.signless_incidence()).nullspace())
+    N5 = N5 * sp.ilcm(*[sp.fraction(v)[1] for v in N5])
+    raw = np.hstack([s5, np.array([tw[:, i] + tw[:, j] for i, j in E]).T, ((cp * cp).sum(1) - 100)[:, None],
+                     (s5 * tw).sum(1)[:, None],
+                     np.array([R2[:, i] * R2[:, j] for i, j in E]).T @ np.array(N5.tolist(), dtype=np.int64)])
+    # schur_zero_mode's visible roots: the six-site port's 15 bond roots and the auxiliaries e_i + e_6 (i < 4)
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    vis = ([idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in carrier.edges()]
+           + [idx[tuple(e2[i] + e2[6])] for i in range(4)])
+    Jb = np.zeros((240, 19), dtype=np.int64)
+    Jb[vis, list(range(19))] = 1
+    V = np.eye(19, dtype=np.int64)
+    shiftK = Fraction(int(np.ones(240, dtype=np.int64) @ Jb @ V @ Jb.T @ np.ones(240, dtype=np.int64)), 240)
+    return {
+        "the cyclic vectors of the uniform root-shell state f_m = (1/sqrt240) sum_r delta_r, exactly on the lattice to "
+        "depth 5: with N_k(x) the number of ordered k-tuples of roots summing to x (N_2 on the two-root sums, N_3 on the "
+        "three-root sums, supports walk_convolutions'; N_4, N_5, N_6 at the 360 sites by convolving these), sqrt240 H^n "
+        "f_m = sum_(k <= n) C(n, k) 240^(n - k) (-1)^k N_(k+1) (n <= 5) is constant on the 240 roots, and the root sums of "
+        "N_1..N_6 are the closed-walk counts W_2..W_7 of data/walks90.json (240 <f_m, A^k f_m> = W_(k+2)), so that "
+        "constant is <f_m, H^n f_m> = m_n, the walk route's moment (refclock_halfreturn: m5 new there, m0..m4 the "
+        "model's): the shell route and the walk route agree through n = 5":
+            all(len(set(hn[:240].tolist())) == 1 for hn in h)
+            and [int(N[k][:240].sum()) for k in range(6)] == W[2:8],
+        "the cyclic vectors are constant on the dark orbit and even (as Weyl invariance and parity require): on the 120 "
+        "dark sites sqrt240 H^n f_m is constant, 0, 0, 39, 11376, 1623110, -109242720 for n = 0..5 (N_3 = 39 there), and x -> -x maps the roots "
+        "and the dark orbit onto themselves and fixes every H^n f_m, n <= 5, on all 360 sites":
+            [set(hn[240:].tolist()) for hn in h] == [{0}, {0}, {39}, {11376}, {1623110}, {-109242720}]
+            and set(N[2][240:].tolist()) == {39}
+            and sorted(neg[:240]) == list(range(240)) and sorted(neg[240:]) == list(range(240, 360))
+            and all(np.array_equal(hn[neg], hn) for hn in h),
+        "the root columns annihilate the cyclic space: the four non-constant sector projectors P_1..P_4 (t/60, (2t^2 - "
+        "1)/48, (5t^3 - 6t)/60 and the rest) kill H^n f_m on the roots for n <= 5, so every root function orthogonal to the "
+        "constants is orthogonal to H^n f_m, in particular master_readout's J15, whose columns lie in ran P_1 + ran P_2 "
+        "(its readings are root-graph eigenvectors at 28 and 8): J15^* H^n f_m = 0 for n <= 5; at every n because W(E8) "
+        "permutes the roots, so fixes f_m and commutes with H, and is transitive on them (join_e8_measure), so H^n f_m is "
+        "constant on the roots (the note's argument); P_0 does not kill it (H f_m has a nonzero shell sum); directly, "
+        "master_readout's 22 raw readings (rebuilt; J15 = raw S Cr) are nonzero and raw^T H^n f_m = 0 for n <= 5":
+            all(not Pint[k].astype(object).dot(hn[:240]).any() for k in range(1, 5) for hn in h)
+            and Pint[0].astype(object).dot(h[1][:240]).any()
+            and raw.shape == (240, 22) and all(raw[:, c].any() for c in range(22))
+            and all(not raw.T.astype(object).dot(hn[:240]).any() for hn in h),
+        "the dark columns annihilate it: master_readout's four currents d_j = sign(x)(x_j^3 - x_j)/6 on the dark orbit "
+        "have d_j^* H^n f_m = 0 exactly for n <= 5; at every n because H commutes with the inversion (the root set is "
+        "symmetric), f_m is even (above) and the d_j are odd under x -> -x (multipole_filtration's parity, not rechecked "
+        "here), so <d_j, H^n f_m> = -<d_j, H^n f_m>. With the root part, J19^* H^n "
+        "f_m = 0 for this J19 = (J15, d), so (H + J19 V19 J19^*)^n f_m = H^n f_m for n <= 6 whatever V19 is (every other "
+        "word ends in J19 V19 J19^* H^j f_m, j <= 5; the word expansion is not computed), the clock's moments agree "
+        "through order 12, and the note's "
+        "reducing-subspace step (recorded) gives <f_m, cos(u sqrt K) f_m> = <f_m, cos(u sqrt H) f_m> for every fixed "
+        "V19 with K >= 0":
+            all(not d.T.astype(object).dot(hn[240:]).any() for hn in h),
+        "the protection needs the image, not the rank: schur_zero_mode's finite stand-in for the 19-source (deltas at the "
+        "six-site port's 15 bond roots e_i + e_5, e_i - e_j and at e_i + e_6, i < 4; the same 19 in zero_pole_instance "
+        "and L3's multipole_k0_threshold) has J^* f_m = 1_19/sqrt240, so <f_m, K f_m> = 184 + 1^T V19 1/240, 184 + "
+        "19/240 at V19 = I: there the mass clock moves with the source; the 15 bond deltas alone (master_response) or "
+        "beside the dark four (chiral_dark's diag(W15, Jd)) move it alike, by 1^T V15 1/240 through the root block":
+            len(set(vis)) == 19 and np.array_equal(Jb.T @ np.ones(240, dtype=np.int64), np.ones(19, dtype=np.int64))
+            and shiftK == Fraction(19, 240) and 184 + shiftK != 184,
+    }
+
+
+def refclock_halfreturn():
+    """The reference-clock note (filed 2 Nov 03:16 UTC), sections 3-4, and its receipt's interval fields: the mass
+    channel's moments m5, m6 by the walk route and the certified first half-return of c_m(u) = <f_m, cos(u sqrt H) f_m>,
+    with the 3/4 and 1/4 levels and the scale-free model ratios u_3/4/u_1/2, u_1/4/u_1/2, all in Fraction arithmetic.
+    The note's calculator (protected_clock.py, read as text, not run) is reimplemented from its stated algorithm
+    (_refclock_envelope). Cited, not repeated: m0..m4 = 1, 184, 35973, 7355136, 1556789920 on the lattice (notes_0101,
+    join_e8_triangle, band_closures; the walk route here reproduces them only inside the exact bracket, and
+    refclock_protected's shell route agrees with it through n = 5), the support [0, 256] (band.edge), the variance 2117
+    and the fingerprint m2/m1^2 = 35973/33856 behind the note's curvature route (master_readout, notes_1512). The
+    observed-time ratios T_3/4/T_1/2, T_1/4/T_1/2 are these model ratios only for a realization r(t) = c_m((t -
+    t0)/rho), an external input (CONDITIONAL, refclock_calibration's join)."""
+    W, _ = _walks()
+    m = [Fraction(sum(comb(n, k) * 240 ** (n - k) * (-1) ** k * W[k + 2] for k in range(n + 1)), 240) for n in range(7)]
+    env8, cross8 = _refclock_envelope(m, 4, 256 * m[4])
+    env10, cross10 = _refclock_envelope(m, 5, m[6])
+    den = 10 * 2 ** 60
+    lo, hi = Fraction(892853037828096677, den), Fraction(892854727289957321, den)
+    half, q3, q1 = cross8(Fraction(1, 2)), cross8(Fraction(3, 4)), cross8(Fraction(1, 4))
+    half10, q310, q110 = cross10(Fraction(1, 2)), cross10(Fraction(3, 4)), cross10(Fraction(1, 4))
+    pi_lo = 16 * (Fraction(1, 5) - Fraction(1, 375)) - Fraction(4, 239)  # Machin, with arctan x > x - x^3/3, < x
+    r34 = (q3[0] / half[1], q3[1] / half[0])
+    r14 = (q1[0] / half[1], q1[1] / half[0])
+    return {
+        "the mass moments by the walk route: m_n = (1/240) sum_(k <= n) C(n, k) 240^(n - k) (-1)^k W_(k+2) (data/"
+        "walks90.json) gives, beyond the model's m0..m4 (notes_0101, join_e8_triangle, band_closures; the note's five, "
+        "all holding, though it recomputed only m1, m2), m5 = 338685591840 and m6 = 75335064498405, new; m5 <= 256 m4 "
+        "(398538219520, the note's remainder coefficient) and m6 <= 256 m5, as the support [0, 256] requires, so the "
+        "note's remainder 256 m4 u^10/10! bounds the exact m5 u^10/10!":
+            m[5:] == [338685591840, 75335064498405]
+            and m[5] <= 256 * m[4] == 398538219520 and m[6] <= 256 * m[5],
+        "the half-return bracket: with P8(u) = sum_(j <= 4) (-1)^j m_j u^(2j)/(2j)! and |c_m - P8| <= 256 m4 u^10/10!, "
+        "the receipt's endpoints lo = 892853037828096677/11529215046068469760 and hi = 892854727289957321/"
+        "11529215046068469760 (denominator 10 x 2^60) satisfy P8(lo) - R(lo) > 1/2 > P8(hi) + R(hi) exactly, are the "
+        "note's 60-step bisection of [0, 1/10] reproduced, print as 0.07744265626588037 and 0.07744280280333794, and "
+        "lie inside the outward-rounded 0.0774426562 < u < 0.0774428029; width (hi - lo) = 1689461860644/"
+        "11529215046068469760 < 1.5 x 10^-7":
+            env8(lo, -1) > Fraction(1, 2) > env8(hi, 1) and half == (lo, hi) and den == 11529215046068469760
+            and (float(lo), float(hi)) == (0.07744265626588037, 0.07744280280333794)
+            and Fraction("0.0774426562") < lo < hi < Fraction("0.0774428029")
+            and hi - lo == Fraction(1689461860644, den) < Fraction(15, 10 ** 8),
+        "it is the first crossing: c_m(0) = m0 = 1 > 1/2, and c_m'(u) = -int sqrt(lambda) sin(u sqrt(lambda)) dmu_m < 0 "
+        "for 0 < u < pi/16 since 0 < u sqrt(lambda) < pi on (0, 256] and mu_m((0, 256]) > 0 (m1 = 184 > 0) (the integral "
+        "step, not computed); hi < 3/16 < pi/16 because pi > 16 (1/5 - 1/375) - 4/239 > 3 (Machin with alternating "
+        "arctan bounds), so c_m decreases strictly on [0, hi] and crosses 1/2 once there, inside (lo, hi)":
+            m[0] == 1 > Fraction(1, 2) and m[1] > 0 and hi < Fraction(3, 16) and pi_lo > 3
+            and 16 * Fraction(3, 16) == 3,
+        "the 3/4 and 1/4 levels: the same bisection gives [307578508111883499/5764607523034234880, "
+        "153789267309820579/2882303761517117440] and [225249976414818851/2305843009213693952, "
+        "225253082463065751/2305843009213693952], with certified endpoint signs, printing as the note's "
+        "[0.05335636587276071, 0.05335637047112366] and [0.09768660551250209, 0.09768795254620495]; the three events are "
+        "strictly ordered, u_3/4 < u_1/2 < u_1/4, all below 3/16":
+            q3 == (Fraction(307578508111883499, 5764607523034234880), Fraction(153789267309820579, 2882303761517117440))
+            and q1 == (Fraction(225249976414818851, 2305843009213693952),
+                       Fraction(225253082463065751, 2305843009213693952))
+            and env8(q3[0], -1) > Fraction(3, 4) > env8(q3[1], 1) and env8(q1[0], -1) > Fraction(1, 4) > env8(q1[1], 1)
+            and (float(q3[0]), float(q3[1])) == (0.05335636587276071, 0.05335637047112366)
+            and (float(q1[0]), float(q1[1])) == (0.09768660551250209, 0.09768795254620495)
+            and q3[1] < half[0] and half[1] < q1[0] and q1[1] < Fraction(3, 16),
+        "the scale-free model ratios: u_3/4/u_1/2 lies in [lo_3/4/hi_1/2, hi_3/4/lo_1/2] and u_1/4/u_1/2 in [lo_1/4/"
+        "hi_1/2, hi_1/4/lo_1/2], and these exact bounds print as the note's [0.6889777221552335, 0.6889790852206521] and "
+        "[1.2614032805678825, 1.2614230613528714]; they are the observed T_3/4/T_1/2 and T_1/4/T_1/2 (rho cancels, T = "
+        "rho u at each level) only for a realization r(t) = c_m((t - t0)/rho), the CONDITIONAL reading":
+            (float(r34[0]), float(r34[1])) == (0.6889777221552335, 0.6889790852206521)
+            and (float(r14[0]), float(r14[1])) == (1.2614032805678825, 1.2614230613528714),
+        "sharper, from the exact m5 and m6: P10 with remainder m6 u^12/12! (int lambda^6 dmu_m = m6) certifies u_half in "
+        "(0.0774426666, 0.0774426679), u_3/4 in (0.0533563662, 0.0533563663) and u_1/4 in (0.0976866974, 0.0976867159), "
+        "each inside the note's bracket, the half-return about 116 times narrower (width < 1.3 x 10^-9), and the model "
+        "ratios u_3/4/u_1/2, u_1/4/u_1/2 in (0.68897892, 0.68897894) and (1.26140666, 1.26140693), inside the note's":
+            Fraction("0.0774426666") < half10[0] < half10[1] < Fraction("0.0774426679")
+            and Fraction("0.0533563662") < q310[0] < q310[1] < Fraction("0.0533563663")
+            and Fraction("0.0976866974") < q110[0] < q110[1] < Fraction("0.0976867159")
+            and lo < half10[0] and half10[1] < hi and q3[0] < q310[0] and q310[1] < q3[1]
+            and q1[0] < q110[0] and q110[1] < q1[1] and half10[1] - half10[0] < Fraction(13, 10 ** 10)
+            and 116 * (half10[1] - half10[0]) < hi - lo < 117 * (half10[1] - half10[0])
+            and Fraction("0.68897892") < q310[0] / half10[1] < q310[1] / half10[0] < Fraction("0.68897894")
+            and Fraction("1.26140666") < q110[0] / half10[1] < q110[1] / half10[0] < Fraction("1.26140693")
+            and r34[0] < q310[0] / half10[1] and q310[1] / half10[0] < r34[1]
+            and r14[0] < q110[0] / half10[1] and q110[1] / half10[0] < r14[1],
+    }
+
+
+def refclock_gain():
+    """The reference-clock note (filed 2 Nov 03:16 UTC), section 6: zero-time normalization cancels constant
+    input/output gains and mixing, and the selected 19-source's hidden covariance. Cited, not repeated: C''''(0) -
+    C''(0)^2 = D/rho^4 and rho = (21061/tr)^(1/4) for a normalized readout (deep_observer_algebra), the 45 channels'
+    means, second moments and variances (master_readout), J15's coupling 967 P3 + 389 (P0 + P8) (master_readout), the
+    dark block: the bath's root-dark block zero, d^T H d = 243 d^T d, d^T H^2 d = 59132 d^T d and 59132 - 243^2 = 83
+    (master_readout's scalar blocks; notes_0204's dark sequence 1, 243, 59132; jacobi_channels carries both to orders
+    3, 4), J15
+    inside the 45 (onemodel_closures), and the invariance of A_2 - A_1^2 under a source update inside the observer
+    (deep_wave_memory). New: the gain cancellation, the non-Euclidean Xi_N, H^2 d vanishing on every root (pointwise,
+    not only against the 41 root channels) and the 19-source's hidden covariance."""
+    t, rho = sp.symbols("t rho", positive=True)
+    sym = lambda c: sp.Matrix(3, 3, lambda i, j: sp.Symbol("%s%d%d" % (c, min(i, j), max(i, j))))
+    a1, a2, a3 = sym("a"), sym("b"), sym("c")
+    C = sp.eye(3) - (t / rho) ** 2 * a1 / 2 + (t / rho) ** 4 * a2 / 24 - (t / rho) ** 6 * a3 / 720
+    L3 = sp.Matrix([[2, 1, 0], [0, 1, 3], [1, 0, 1]])
+    R3 = sp.Matrix([[1, 2, 0], [0, 1, 1], [1, 0, 3]])
+    M = L3 * C * R3
+    Nt = M * M.subs(t, 0).inv()
+    N2, N4 = Nt.diff(t, 2).subs(t, 0), Nt.diff(t, 4).subs(t, 0)
+    XiN = (N4 - N2 * N2).applyfunc(sp.expand)
+    # the 45 channels (and the 19-source) in orthonormal channel coordinates, with nonorthogonal L = I + 5U, R = I + 3U^T
+    blocks45 = [(1, 184, 35973), (8, 212, 45911), (26, 232, 54213), (6, 242, 58691), (4, 243, 59132)]
+
+    def mock(blocks, r):
+        a = [x for k, x, _ in blocks for _ in range(k)]
+        m2 = [y for k, _, y in blocks for _ in range(k)]
+        n = len(a)
+        I = np.eye(n, dtype=np.int64).astype(object)
+        U = np.eye(n, k=1, dtype=np.int64).astype(object)
+        L, R = I + 5 * U, I + 3 * U.T
+        Li = np.array([[(-5) ** (j - i) if j >= i else 0 for j in range(n)] for i in range(n)], dtype=object)
+        Ri = np.array([[(-3) ** (i - j) if i >= j else 0 for j in range(n)] for i in range(n)], dtype=object)
+        M0i = Ri.dot(Li)
+        X = (L.dot(np.diag(m2).astype(object)).dot(R).dot(M0i)
+             - np.linalg.matrix_power(L.dot(np.diag(a).astype(object)).dot(R).dot(M0i), 2))  # rho^4 Xi_N
+        D = [y - x * x for x, y in zip(a, m2)]
+        tr = Fraction(int(np.trace(X))) / r ** 4
+        return (L.dot(Li) == I).all() and (R.dot(Ri) == I).all(), X, D, tr
+    ok45, X45, D45, tr45 = mock(blocks45, Fraction(4, 3))
+    x = np.zeros(45, dtype=np.int64).astype(object)
+    x[0], x[1] = 1, 3
+    # the 19-source on the lattice: J15's columns on the roots (any functions in the root sectors) and the dark four
+    _, _, _, _, _, O, _, _, H2 = _master_shell()
+    sgn = lambda y: Permutation([int(v) + 2 for v in y[:5]]).signature()
+    d = np.array([[sgn(y) * (int(y[j]) ** 3 - int(y[j])) // 6 for j in range(4)] for y in O], dtype=np.int64)
+    P = carrier.spectral_projectors()
+    hid19 = sp.diag(967 * P[3] + 389 * (P[0] + P[8]), 83 * sp.eye(4))
+    ok19, X19, D19, tr19 = mock([(8, 212, 45911), (7, 232, 54213), (4, 243, 59132)], Fraction(4, 3))
+    return {
+        "the gain cancels: for raw transfers M(t) = L C(t) R with constant invertible L, R (here the nonorthogonal "
+        "rational [[2, 1, 0], [0, 1, 3], [1, 0, 1]] and [[1, 2, 0], [0, 1, 1], [1, 0, 3]]) and C(t) = I - (t/rho)^2 A_1/2 + "
+        "(t/rho)^4 A_2/24 - (t/rho)^6 A_3/720 (A_n symmetric 3 x 3 symbols), N(t) = M(t) M(0)^-1 = L C(t) L^-1 "
+        "identically in t, so Xi_N = N''''(0) - N''(0)^2 = L (A_2 - A_1^2) L^-1/rho^4 and tr Xi_N = tr(A_2 - A_1^2)/rho^4: "
+        "R drops out and L survives only as a similarity (L = g, a scalar, is the note's constant-gain case)":
+            (Nt - L3 * C * L3.inv()).applyfunc(sp.expand) == sp.zeros(3, 3)
+            and (XiN - L3 * (a2 - a1 * a1) * L3.inv() / rho ** 4).applyfunc(sp.expand) == sp.zeros(3, 3)
+            and sp.expand(XiN.trace() - (a2 - a1 * a1).trace() / rho ** 4) == 0 and L3.det() == 5 and R3.det() == 5,
+        "on the 45 channels (orthonormal coordinates, A_1 = diag of the means 184, 212, 232, 242, 243 and A_2 of the "
+        "second moments 35973, ..., 59132; L = I + 5U, R = I + 3U^T, U the 45 x 45 shift): rho^4 Xi_N = L D45 L^-1, upper "
+        "triangular with diagonal D45 = (2117, 967^8, 389^26, 127^6, 83^4) and trace 21061, so at the mock rho = 4/3 "
+        "(the note's synthetic value) (21061/tr Xi_N)^(1/4) = 4/3 exactly; Xi_N is not symmetric and x^T (rho^4 Xi_N) x "
+        "= 2117 + 9 x 967 - 3 x 5750 = -6430 < 0 at x = e_0 + 3 e_1, although every eigenvalue is >= 83/rho^4 > 0: a "
+        "Euclidean positivity test is wrong after a nonorthogonal similarity, the spectrum and trace are not":
+            ok45 and D45 == [2117] + [967] * 8 + [389] * 26 + [127] * 6 + [83] * 4 and sum(D45) == 21061
+            and all(X45[i, j] == 0 for i in range(45) for j in range(i)) and [X45[i, i] for i in range(45)] == D45
+            and tr45 == Fraction(21061) * Fraction(81, 256) and Fraction(21061) / tr45 == Fraction(4, 3) ** 4
+            and (X45 != X45.T).any() and X45[0, 1] == -5750 and x.dot(X45).dot(x) == -6430,
+        "the selected 19-source on the lattice: master_readout's dark currents d meet the 240 roots neither in H (its "
+        "root-dark block is zero: master_readout) nor in H^2: H^2 d vanishes on every root, although the root-dark block "
+        "of H^2 is not zero, so J^T H^2 d = 0 for any root columns J; with the dark block scalar (243, 59132, variance 83: "
+        "master_readout, notes_0204) and J15's 967 P3 + 389 (P0 + P8) the 19-source's hidden covariance J19^T H "
+        "Q19 H J19 = J19^T H^2 J19 - (J19^T H J19)^2 is diag(967 P3 + 389 (P0 + P8), 83 I4): eigenvalues 967^8 (the "
+        "linear channel), 389^7 (the quadratic) and 83^4 (the dark), trace 8 x 967 + 7 x 389 + 4 x 83 = 10791, and "
+        "21061 - 10791 = 10270 = 2117 + 19 x 389 + 6 x 127, the mass channel, the other 19 quadratics and the six "
+        "wedge currents it does not see; the same normalization recovers the mock rho = 4/3 as (10791/tr Xi_19)^(1/4)":
+            not (H2[:240, 240:] @ d).any() and (H2[:240, 240:] != 0).any()
+            and hid19.eigenvals() == {967: 8, 389: 7, 83: 4} and hid19.trace() == 10791
+            and 8 * 967 + 7 * 389 + 4 * 83 == 10791 and 21061 - 10791 == 2117 + 19 * 389 + 6 * 127
+            and ok19 and sum(D19) == 10791 and Fraction(10791) / tr19 == Fraction(4, 3) ** 4,
+    }
+
+
+def refclock_calibration():
+    """The reference-clock note (filed 2 Nov 03:16 UTC), sections 5 and 7 and the receipt's calibration fields: what one
+    measured half-return interval would fix, conditional on a physical realization r(t) = c_m((t - t0)/rho). Cited, not
+    repeated: the protection of c_m from the source (refclock_protected), the bracket (refclock_halfreturn), the gauge
+    (tau, kappa) -> (c tau, c^2 kappa) that keeps rho = tau/sqrt(kappa) and the Fisher null vector (tau, 2 kappa)
+    (video_ten_fisher, chiral_time), 4320 and 21600 as addresses, not periods (chiral_time), the curvature route
+    (notes_1512)."""
+    W, _ = _walks()
+    m = [Fraction(sum(comb(n, k) * 240 ** (n - k) * (-1) ** k * W[k + 2] for k in range(n + 1)), 240) for n in range(7)]
+    env8, cross8 = _refclock_envelope(m, 4, 256 * m[4])
+    env10, cross10 = _refclock_envelope(m, 5, m[6])
+    lo, hi = cross8(Fraction(1, 2))
+    lo10, hi10 = cross10(Fraction(1, 2))
+    er = Fraction(1, 1000)
+    lo_e, hi_e = cross8(Fraction(1, 2), er)
+    T, et = sp.symbols("T e_t", positive=True)
+    rho_lo, rho_hi = T / sp.Rational(hi.numerator, hi.denominator), T / sp.Rational(lo.numerator, lo.denominator)
+    u = sp.Symbol("u")
+    P8 = sum(sp.Integer((-1) ** j * int(m[j])) * u ** (2 * j) / sp.factorial(2 * j) for j in range(5))
+    hist = [-4321, -1, 0, 1, 4319, 4320, 4321, 9001]
+    wj = [divmod(n, 4320) for n in hist]
+    return {
+        "one interval fixes rho, conditionally: if a realization reads r(t) = c_m((t - t0)/rho) and r first reaches 1/2 "
+        "at t0 + T, then T = rho u_half, so T/hi <= rho <= T/lo for every T > 0, a relative width hi/lo - 1 < 1.9 x 10^-6 "
+        "from the note's bracket and < 1.7 x 10^-8 from the P10 bracket; c_m does not involve V19, hence not the golden "
+        "coupling (refclock_protected), while (tau, kappa) and (c tau, c^2 kappa) give the same r, so tau and kappa "
+        "stay apart unidentified (video_ten_fisher)":
+            sp.simplify(rho_hi / rho_lo - sp.Rational(hi.numerator, hi.denominator)
+                        / sp.Rational(lo.numerator, lo.denominator)) == 0
+            and hi / lo - 1 < Fraction(19, 10 ** 7) and hi10 / lo10 - 1 < Fraction(17, 10 ** 9),
+        "the calculator's error budget: with a normalized level error e_r the crossing is bracketed by the lower end at "
+        "1/2 + e_r and the upper end at 1/2 - e_r, which at e_r = 1/1000 widens (lo, hi) on both sides and stays in (0, "
+        "3/16), so (T - e_t)/upper <= rho <= (T + e_t)/lower contains T/hi <= rho <= T/lo for every T > e_t >= 0 (the "
+        "receipt's 'nonzero level error widens the certified clock interval')":
+            0 < lo_e < lo < hi < hi_e < Fraction(3, 16) and env8(lo_e, -1) > Fraction(1, 2) + er
+            and env8(hi_e, 1) < Fraction(1, 2) - er
+            and sp.simplify((T + et) / sp.Rational(lo_e.numerator, lo_e.denominator) - rho_hi).is_positive
+            and sp.simplify(rho_lo - (T - et) / sp.Rational(hi_e.numerator, hi_e.denominator)).is_positive,
+        "what the clock does not fix: an address j = n mod 4320 on the circle forgets the winding w = n div 4320, n = "
+        "4320 w + j: the receipt's histories n = -4321, -1, 0, 1, 4319, 4320, 4321, 9001 have (w, j) = (-2, 4319), (-1, "
+        "4319), (0, 0), (0, 1), (0, 4319), (1, 0), (1, 1), (2, 361), so three of them share the address 4319; and c_m "
+        "is even, P8(-u) = P8(u), so cosine data give no time orientation":
+            wj == [(-2, 4319), (-1, 4319), (0, 0), (0, 1), (0, 4319), (1, 0), (1, 1), (2, 361)]
+            and all(4320 * w + j == n for (w, j), n in zip(wj, hist))
+            and sum(j == 4319 for _, j in wj) == 3 and sp.expand(P8.subs(u, -u) - P8) == 0,
+    }
+
+
+# ------------------------------------------------------------------- the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC): the conditional pullback, the chiral supertrace and spectral shift, the receipt's digits, the nested observer, the stated leaf row
+
+def _cf_inertia(A):
+    """(positive, zero, negative) pivots of a symmetric matrix of Fractions by LDL^T (Sylvester's law of inertia),
+    None if a zero pivot has a nonzero row."""
+    M = [list(r) for r in A]
+    n, pos, nul, neg = len(A), 0, 0, 0
+    for k in range(n):
+        d, rk = M[k][k], M[k]
+        nz = [j for j in range(k + 1, n) if rk[j] != 0]
+        if d == 0:
+            if nz:
+                return None
+            nul += 1
+            continue
+        pos, neg = (pos + 1, neg) if d > 0 else (pos, neg + 1)
+        for i in nz:
+            f, Mi = M[i][k] / d, M[i]
+            for j in nz:
+                Mi[j] -= f * rk[j]
+    return pos, nul, neg
+
+
+def _cf_fixture(eps):
+    """The verifier's 90D comparator (bridge_comparator's H90, eps = 3) with the chiral source on its first 19 channels
+    as flower_homotopy places it (source index: vertices 0-4 on channels 0-4, edges 5-14 on the quadratic channels 9-18,
+    auxiliaries 15-18 on the linear channels 5-8), reduced to the 38 coordinates of the source and its hidden partners,
+    an invariant block of K19 = H + eps I + J V19 J^T (V19 = F19 + B C^-1 B^T - J^T H J - eps I) and of H + eps I; the
+    other 26 channels keep H90 + eps I's 2 x 2 blocks. Congruent coordinates D = diag(I19, sqrt v) as in
+    bridge_comparator's sector blocks: the source block is F19 + diag(v)/(200 + eps) (for H + eps I: diag(a + eps)), the
+    coupling diag(v), the partner block (200 + eps) diag(v); the metric is D^2 = diag(1, v). F19 = diag(M M^T + L_V,
+    M^T M + L_E, B2, B2) at alpha = 1 (L = 2I - U - U^-1 on the five-cycle as in _chiral; B2 = [[3, 1], [1, 2]],
+    orthogonally similar to the auxiliary block S1 S1^T: chiral_closures). Returns (D K19 D, D (H + eps I) D, D^2, the
+    means, the variances, F19, q0 on the source)."""
+    F = Fraction
+    M = sp.Matrix(carrier.signless_incidence())
+    UV = sp.Matrix(5, 5, lambda i, j: int(i == [1, 2, 3, 4, 0][j]))
+    UE = _edge_perm([1, 2, 3, 4, 0])
+    LV, LE = 2 * sp.eye(5) - UV - UV.T, 2 * sp.eye(10) - UE - UE.T
+    B2 = sp.Matrix([[3, 1], [1, 2]])
+    F19 = sp.diag(M * M.T + LV, M.T * M + LE, B2, B2)
+    a = [184] + [212] * 4 + [232] * 10 + [212] * 4
+    v = [2117] + [967] * 4 + [389] * 10 + [967] * 4
+    K = [[F(0)] * 38 for _ in range(38)]
+    Kb = [[F(0)] * 38 for _ in range(38)]
+    for s in range(19):
+        for t in range(19):
+            K[s][t] = F(int(F19[s, t])) + (F(v[s], 200 + eps) if s == t else 0)
+        Kb[s][s] = F(a[s] + eps)
+        for A in (K, Kb):
+            A[s][19 + s] = A[19 + s][s] = F(v[s])
+            A[19 + s][19 + s] = F((200 + eps) * v[s])
+    D2 = [F(1)] * 19 + [F(t) for t in v]
+    q19 = [F(0)] * 5 + [F(1 if (j - i) % 5 in (1, 4) else -1) for i, j in carrier.edges()] + [F(0)] * 4
+    return K, Kb, D2, a, v, F19, q19
+
+
+def canon_flower_pullback():
+    """The canon's expanded root-to-flower edition (OES_CANON_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md,
+    filed 2 Nov 04:19 UTC in PAGE_0001), section II.3, read as data: the explicit conditional pullback of the 19D action
+    to the ten-dimensional source, on an exact instance. The source is the model's (the hub's Agni-Soma port, _source:
+    q = (a, b) on ker M + ker M in sympy's basis, g = upper([A(a), A(b)]) in the cycles, W = N^T N, M_s = diag(W, W)/4,
+    W_p = I); iota is the cycles' own inclusion into the edge block of R^19 (vertex 5, edge 10, auxiliary 4), an isometry
+    on L6, with x = iota g; F19 = D19^2 symbolic in alpha (chiral_closures: blocks M M^T + alpha L_V, M^T M + alpha L_E,
+    alpha S1 S1^T, here alpha diag(B2, B2)); the bath is the source's coupling in the verifier's comparator (_cf_fixture:
+    hidden partners at 200 + 3 with couplings sqrt v, v = 389 on the edge channels). Already in the model and not
+    repeated: the compulsory term J^T D^2 g[v, v] (the sibling replay's flower_source; with iota isometric it is the same
+    term), Dg(-b, a) = 0 and the Noether charge (notes_1534), the square completion K = T^T diag(F, C) T and G(0) = I + B
+    C^-2 B^T with q0-entry Z0 (deep_zero_pole), q'' + 4q = 0 and Dg(0) = 0 (layer 4); the 02:29 edition's form of this
+    pullback (Theorems S2-S3: Phi = E6 g + h with h in ran Q6, its compulsory term and its vacuum condition) is the sibling
+    replay's flower_source and flower_sections. New here: x = iota g with h in ran Q_J, (S9)-(S12)."""
+    E, N5, sym, Fp, a0, b0 = _source()
+    M = sp.Matrix(carrier.signless_incidence())
+    UV = sp.Matrix(5, 5, lambda i, j: int(i == [1, 2, 3, 4, 0][j]))
+    UE = _edge_perm([1, 2, 3, 4, 0])
+    LV, LE = 2 * sp.eye(5) - UV - UV.T, 2 * sp.eye(10) - UE - UE.T
+    Bs = sp.Matrix(carrier.signed_incidence())
+    _, _, _, _, v, _, q19 = _cf_fixture(3)
+    al = sp.Symbol("alpha", positive=True)
+    a, b = sp.symbols("a0:5"), sp.symbols("b0:5")
+    X = list(a) + list(b)
+    g = Fp(N5 * sp.Matrix(a), N5 * sp.Matrix(b)).applyfunc(sp.expand)
+    W = N5.T * N5
+    Wq = sp.diag(W, W)
+    Ms = Wq / 4
+    B2 = sp.Matrix([[3, 1], [1, 2]])
+    Fe = M.T * M + al * LE                                                  # F19's edge block, the 10-side of D19^2
+    F19 = sp.diag(M * M.T + al * LV, Fe, al * B2, al * B2)
+    iota = sp.zeros(19, 10)
+    iota[5:15, :] = sp.eye(10)
+    x = iota * g
+    Jg = g.jacobian(X)
+    Jx = iota * Jg
+    eps = 3
+    Bm = sp.diag(*[sp.sqrt(t) for t in v])                                  # source to its 19 hidden partners
+    Ci = sp.eye(19) / (200 + eps)
+    hstar = -Ci * Bm.T * x
+    Kx = (F19 + Bm * Ci * Bm.T) * x + Bm * hstar
+    Vs = ((sp.Matrix(X).T * Wq * sp.Matrix(X))[0] + (g.T * g)[0]) / 2          # V_s with W_p = I
+    U_star = Vs + ((x.T * Kx)[0] + (hstar.T * (Bm.T * x + (200 + eps) * hstar))[0]) / 2
+    Vst = sp.expand(Vs + (x.T * F19 * x)[0] / 2)
+    reduce_ok = sp.expand(U_star - Vst) == 0
+    metric_ok = iota.T * iota == sp.eye(10) and (Jx.T * Jx - Jg.T * Jg).is_zero_matrix
+    # the vacuum
+    grad = sp.Matrix([sp.diff(Vst, t) for t in X])
+    euler = sp.expand((sp.Matrix(X).T * grad)[0] - (sp.Matrix(X).T * Wq * sp.Matrix(X))[0] - 2 * (g.T * g)[0]
+                      - 2 * (g.T * Fe * g)[0]) == 0
+    zero = {t: 0 for t in X}
+    hess0 = sp.hessian(Vst, X).subs(zero)
+    W_pd = [W[:k, :k].det() for k in range(1, 6)] == [4, 12, 36, 81, 162]
+    L6 = sp.Matrix.hstack(*Bs.nullspace())
+    G6 = L6.T * Fe * L6
+    cyc = (Bs * g).applyfunc(sp.expand).is_zero_matrix and L6.shape == (10, 6)
+    det6 = sp.factor(G6.det() / (L6.T * L6).det())                         # basis-free: over the basis' own Gram
+    cross0 = (Jx.subs(zero).T * Bm).is_zero_matrix
+    # the first bath coupling and the static dressing graph
+    wit = dict(zip(X, (2, 1, -1, 3, 1, 1, 3, 2, -1, 4)))
+    Dq = (Jx.T * Bm * Bm.T * Jx).applyfunc(sp.expand)
+    lamb = sp.Symbol("lambda")
+    Dlam = Dq.subs({t: lamb * t for t in X}, simultaneous=True).applyfunc(sp.expand)
+    Jgraph = sp.Matrix.vstack(Jx, -Ci * Bm.T * Jx)
+    M19 = sp.eye(19) + Bm * Ci * Ci * Bm.T
+    q19 = sp.Matrix([int(t) for t in q19])
+    Z0 = sp.Rational(41598, 41209)
+    graph = (Jgraph.T * Jgraph - Jx.T * M19 * Jx).applyfunc(sp.expand).is_zero_matrix
+    return {
+        "section II.3's pullback on an exact instance: iota (the cycles' inclusion into the edge block of R^19) has iota^T "
+        "iota = I, so the pullback's kinetic metric M_s + J_x^T J_x is M_s + J_g^T J_g identically in q (the October "
+        "action's S1 form), g takes values in the cycles (B g = 0, B the signed incidence, dim ker B = 6), and with the "
+        "comparator's bath on the 19 hidden partners (couplings sqrt v, partner block 203) the static minimizer h* = -C^-1 "
+        "B^T x gives U(q, h*) = V_s(q) + x^T F19 x/2 identically in q and alpha: the note's (S9)":
+            metric_ok and cyc and reduce_ok,
+        "section II.3's vacuum theorem on the instance: the reduced potential obeys Euler's identity q . grad V = q^T "
+        "diag(W, W) q + 2 |g|^2 + 2 g^T F_E g (F_E = M^T M + alpha L_E, F19 on iota's image) with W positive definite "
+        "(leading minors 4, 12, 36, 81, 162), so q = 0 is its only critical point and h* = 0 there; its Hessian at 0 is "
+        "diag(W, W) and M_s^-1 diag(W, W) = 4 I10, the q-h cross block J_x(0)^T B vanishes; and F_E restricted to the "
+        "cycles has determinant (96/125) alpha^3 (7 alpha + 8)(2 alpha^2 + 12 alpha + 9) (the Gram determinant in sympy's "
+        "basis of ker B over that basis' own Gram determinant 125), positive for alpha > 0; at alpha = 0 it has nullity 3, "
+        "the three-dimensional intersection of ker M with the cycles (dim ker M + dim ker B - dim(ker M + ker B) = 5 + 6 - "
+        "8); so, F_E being positive semidefinite (M^T M and L_E = (I - U)^T (I - U), "
+        "chiral_closures), x(q)^T F19 x(q) > 0 whenever g(q) != 0: F19's zero mode (0, q0, 0) is never reached by the "
+        "pullback, at q = 0 or elsewhere":
+            euler and W_pd and hess0 == Wq and Ms.inv() * hess0 == 4 * sp.eye(10) and cross0
+            and det6 == sp.Rational(96, 125) * al ** 3 * (7 * al + 8) * (2 * al ** 2 + 12 * al + 9)
+            and 6 - G6.subs(al, 0).rank() == 3 and 5 + 6 - sp.Matrix.hstack(N5, L6).rank() == 3,
+        "sections II.3 (S10) and (S12) on the instance: the frozen-background coupling D_q = J_x^T B B^T J_x equals 389 "
+        "J_g^T J_g (the edges sit on the quadratic channels), is homogeneous of degree 2 (D_(lambda q) = lambda^2 D_q), "
+        "vanishes at q = 0 and has rank 6 at the witness ((2, 1, -1, 3, 1), (1, 3, 2, -1, 4)), the bound rank <= 6 "
+        "attained; the static dressing graph q -> (x(q), h*(q)) has Jacobian Gram J_x^T M19 J_x with M19 = I + B C^-2 B^T "
+        ">= I (deep_zero_pole's G(0)), here (1 + 389/203^2) J_g^T J_g = (41598/41209) J_g^T J_g, and q0^T M19 q0/|q0|^2 "
+        "= 41598/41209: on this comparator the graph metric is M_s + Z0 J_g^T J_g, Z0 the dressed zero pole's norm "
+        "(flower_residues)":
+            (Dq - 389 * Jg.T * Jg).applyfunc(sp.expand).is_zero_matrix and (Dlam - lamb ** 2 * Dq).applyfunc(sp.expand).is_zero_matrix
+            and Dq.subs(zero).is_zero_matrix and Dq.subs(wit).rank() == 6 and graph
+            and (Jx.T * M19 * Jx - Z0 * Jg.T * Jg).applyfunc(sp.expand).is_zero_matrix
+            and all(M19[i, i] >= 1 for i in range(19)) and (q19.T * M19 * q19)[0] / (q19.T * q19)[0] == Z0
+            and 1 + sp.Rational(389, 203 ** 2) == Z0,
+        "section II.1's order count: the source drives the bath at second order and the bath acts back at third: |B^T "
+        "x(q)|^2 = 389 |g(q)|^2 identically, g(lambda q) = lambda^2 g(q), g is nonzero at the witness, so the force on "
+        "the bath, -B^T x(q), is quadratic in q, while J_x(lambda q) = lambda J_x(q), so the bath's force back on the "
+        "source, J_x^T B h with a quietly started h of second order (Duhamel, not computed), is cubic: the note's 'at "
+        "least cubic', with its reason J_g = O(q), is the latter":
+            sp.expand((x.T * Bm * Bm.T * x)[0] - 389 * (g.T * g)[0]) == 0
+            and (g.subs({t: lamb * t for t in X}, simultaneous=True) - lamb ** 2 * g).applyfunc(sp.expand).is_zero_matrix
+            and not g.subs(wit).is_zero_matrix and (Jg.subs({t: lamb * t for t in X}, simultaneous=True) - lamb * Jg).applyfunc(sp.expand).is_zero_matrix,
+    }
+
+
+def canon_flower_spectral():
+    """The canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section III.1 (B1, B3) and III.2 (B4, B6),
+    read as data: the chiral supertrace at every t from the chiral halves of D19^2, and the relative spectral shift of
+    the regulated completion on the verifier's comparator. Already in the model and not repeated: F19's spectrum,
+    kernel and index -1 (chiral_closures, deep_zero_pole), Tr F19 and Tr F19^2 (deep_zero_pole, the sibling replay's
+    flower_source), Tr F19^3 (the sibling replay's usm_spine_cubic), the relative determinant as the Laplace image of
+    the relative heat trace (master_response; the sibling replay's usm_relheat_laplace), the bulk trace per site (the
+    sibling replay's usm_bulk_heat). Weyl interlacing for a rank-19 update is cited (general linear algebra)."""
+    F = Fraction
+    M, UV, UE, LV, LE, mu, Pi, P0, S1, q = _chiral()
+    al = sp.Symbol("alpha", positive=True)
+    x = sp.Symbol("x")
+    quad = x ** 2 - 5 * al * x + 5 * al ** 2
+    pe = (M.T * M + al * LE).charpoly(x).as_expr()
+    pv = (M * M.T + al * LV).charpoly(x).as_expr()
+    halves = sp.expand(pe - x * pv * quad ** 2) == 0 and sp.expand(pv - (x - 8) * quad.subs(x, x - 3) ** 2) == 0
+    # the relative counting function on the comparator
+    K, Kb, D2, a, v, F19, q19 = _cf_fixture(3)
+    shift = lambda A, lam: [[x_ - (lam * D2[i] if i == j else 0) for j, x_ in enumerate(r)] for i, r in enumerate(A)]
+    lams = [F(1), F(3, 2), F(4), F(9), F(148), F(150), F(200), F(260)]
+    xi = [_cf_inertia(shift(K, lam))[2] - _cf_inertia(shift(Kb, lam))[2] for lam in lams]
+    V19 = [[K[s][t] - Kb[s][t] for t in range(19)] for s in range(19)]
+    return {
+        "section III.1's supertrace (B3) at every t: D19^2's positive-chirality half (vertices and auxiliaries) is M M^T + "
+        "alpha L_V plus alpha S1 S1^T and its negative half (edges) is M^T M + alpha L_E (chiral_closures), and det(x - "
+        "M^T M - alpha L_E) = x det(x - M M^T - alpha L_V) (x^2 - 5 alpha x + 5 alpha^2)^2, the last factor the "
+        "auxiliaries', with det(x - M M^T - alpha L_V) = (x - 8)((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^2 (symbolic in "
+        "alpha): the two halves have the same nonzero spectrum and the edge half one more zero, so Tr Gamma f(F19) = -f(0) "
+        "for every function f, Tr(Gamma e^-tF19) = -1 for every t >= 0, and Z19(t) = 1 + 2 e^-8t + 4 sum [e^-t alpha "
+        "lam_s + e^-t(3 + alpha lam_s)] (B1)":
+            halves,
+        "section III.2's relative heat action (B4, B6) on the comparator (alpha = 1, eps = 3): V19 = F19 + B C^-1 B^T - "
+        "J^T H J - 3I is negative definite (recomputed on the 38-coordinate block; flower_homotopy's), so K19 <= H + 3I, "
+        "and the spectral shift xi(lambda) = #{K19 < lambda} - #{H + 3I < lambda} (exact inertia) is 1, 5, 9, 19, 19, "
+        "18, 0, 0 at lambda = 1, 3/2, 4, 9, 148, 150, 200, 260, reaching the rank 19 at lambda = 9 and 148; by Weyl "
+        "interlacing (cited) 0 <= xi <= 19 at every lambda, and with K19 >= 0 (flower_homotopy) xi vanishes below 0, so "
+        "Z_rel(t) = Tr(e^-tK19 - e^-t(H + 3)) = t int_0^oo xi(l) e^-tl dl lies in [0, 19] for every t (the integral "
+        "formula cited): a uniform form of the note's Duhamel bound C_t, which any rank-19 update of a positive H_eps with "
+        "K >= 0 obeys (|xi| <= 19), the relative heat per site of an N-site box being at most 19/N (B6)":
+            _cf_inertia(V19) == (0, 0, 19) and xi == [1, 5, 9, 19, 19, 18, 0, 0] and all(0 <= t <= 19 for t in xi),
+    }
+
+
+def canon_flower_receipt():
+    """The verification receipt filed with the canon's expanded edition (OES_ROOT_SPINE_FLOWER_VERIFICATION_20261102.json,
+    2 Nov 04:18 UTC; section IV.5 of the note, filed 04:19), read as data: its three 16-digit comparator numbers against
+    the exact comparator (_cf_fixture: the verifier's H90 + 3I and K19, alpha = 1). Z0 = 41598/41209 is the sibling
+    replay's flower_residues and deep_zero_pole's law; the dressed auxiliary level x- and its interval are the sibling
+    replay's flower_sections; recomputed here on the 38-coordinate block."""
+    F = Fraction
+    K, Kb, D2, a, v, F19, q19 = _cf_fixture(3)
+    shift = lambda A, lam: [[x_ - (lam * D2[i] if i == j else 0) for j, x_ in enumerate(r)] for i, r in enumerate(A)]
+    psi = q19 + [-t / 203 for t in q19]                                     # D^-1 (q0, -C^-1 B^T q0)
+    kill = all(sum(K[i][j] * psi[j] for j in range(38)) == 0 for i in range(38))
+    Z0 = sum(D2[i] * psi[i] ** 2 for i in range(38)) / sum(t * t for t in q19)
+    y1, y2 = F(13500734237156, 10 ** 13), F(13500734237157, 10 ** 13)
+    n1, n2 = _cf_inertia(shift(K, y1)), _cf_inertia(shift(K, y2))
+    # the other 26 channels (16 quadratic, 6 wedge, 4 dark) keep H90 + 3I's blocks; they stay above y2
+    others = all(A + 3 - y2 > 0 and (A + 3 - y2) * (203 - y2) * V - V * V > 0 for A, V in ((232, 389), (242, 127), (243, 83)))
+    rz, rr, rg = F(1.0094396855055936), F(0.9906485888744649), F(1.3500734237153602)
+    nz, nr = F(1.0094396855055934), F(0.9906485888744652)                 # the doubles nearest 41598/41209, 41209/41598
+    uz, ur = F(1, 2 ** 52), F(1, 2 ** 53)                                  # a double's last unit on [1, 2) and on [1/2, 1)
+    return {
+        "the receipt's Z0 = 1.0094396855055936 and visible pole residue 0.9906485888744649 are within 2 x 10^-16 of the "
+        "exact 41598/41209 and 41209/41598 (K19 kills (q0, -C^-1 B^T q0) on the comparator and its norm is 1 + 389/203^2, "
+        "flower_residues), but they are not the nearest doubles: those are 1.0094396855055934 and 0.9906485888744652 "
+        "(within half a unit in the last place of the exact values), and the receipt's numbers lie one unit in the last "
+        "place above and two units below them: floating-point rounding, not the double's last digit":
+            kill and Z0 == F(41598, 41209) and abs(rz - Z0) < F(2, 10 ** 16) and abs(rr - 1 / Z0) < F(2, 10 ** 16)
+            and abs(nz - Z0) < uz / 2 and abs(nr - 1 / Z0) < ur / 2 and rz - nz == uz and nr - rr == 2 * ur,
+        "the receipt's positive comparator gap 1.3500734237153602 (section IV.5's 'positive gap') is right to 12 "
+        "significant digits only: K19 - y D^2 has exactly one negative eigenvalue (the zero mode) at y = 1.3500734237156 "
+        "and three at y = 1.3500734237157 (exact inertia on the source block; the other 26 channels' blocks of H90 + 3I "
+        "stay above), so K19's least positive eigenvalue lies in (1.3500734237156, 1.3500734237157), with multiplicity "
+        "two there, as flower_sections' dressed auxiliary level x- (double); the receipt's value lies more than 2.39 x "
+        "10^-13 below that interval: it is the verifier's float(wK[1]) from scipy's eigh of the 90 x 90 K (read as "
+        "text), and the difference is floating-point error, a precision on the note, not an error in it":
+            n1 == (37, 0, 1) and n2 == (35, 0, 3) and others and y1 - rg > F(239, 10 ** 15),
+    }
+
+
+def canon_flower_nested():
+    """The canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), sections IV.1 and IV.1b ('nested observer
+    control'), read as data: the full and the source-complete observers keep their first hidden covariance under a
+    source correction, a nested one does not. On bridge_comparator's H90 + 3I in master_readout's sector layout
+    (channels: mass 0, linear 1-8, quadratic 9-34, wedge 35-40, dark 41-44), the 19-source of the sibling replay's
+    refclock_gain (linear 1-8, quadratic 9-15, dark 41-44: 10791), its J15 (the first 15: 10459) and N44's native 21 in
+    master_readout's order (mass, the ten carrier quadratics, which come first among the 26: channels 9-18, the wedge and
+    the dark four: 7101, master_readout and notes_1512). The note's source
+    correction is not given; one rational V with the same four numbers is exhibited. Q K Y = Q H Y for ran J in ran Y
+    is chiral_time's; the general nested identity D_P = P D_R P + P K E K P is recorded by the joined-motifs replay."""
+    F = Fraction
+    sect = [(184, 2117, 1), (212, 967, 8), (232, 389, 26), (242, 127, 6), (243, 83, 4)]
+    av = [(a, v) for a, v, n in sect for _ in range(n)]
+    D2 = [F(1)] * 45 + [F(v) for _, v in av]
+    J = list(range(1, 16)) + list(range(41, 45))
+    S15, S19 = J[:15], J
+    S21 = [0] + list(range(9, 19)) + list(range(35, 41)) + list(range(41, 45))  # master_readout: the ten come first
+    S45 = list(range(45))
+    V = [[F(0)] * 19 for _ in range(19)]
+    V[15][0] = V[0][15] = F(1)
+    V[15][1] = V[1][15] = F(2)                                               # the first dark channel against two linear ones
+
+    def Kp(VV):                                                             # D K D for K = H90 + 3I + J V J^T, as a dict
+        K = {}
+        for i, (a, v) in enumerate(av):
+            K[i, i], K[i, 45 + i], K[45 + i, i], K[45 + i, 45 + i] = F(a + 3), F(v), F(v), F(203 * v)
+        for s, i in enumerate(J):
+            for t, j in enumerate(J):
+                if VV[s][t]:
+                    K[i, j] = K.get((i, j), F(0)) + VV[s][t]
+        return K
+
+    def cov(K, S):                                                          # Y_S^T K Q_S K Y_S = sum_(h not in S) K'[S, h] K'[h, S]/D^2[h]
+        out = set(range(90)) - set(S)
+        return [[sum(K.get((i, h), 0) * K.get((h, j), 0) / D2[h] for h in out) for j in S] for i in S]
+    K0, K1 = Kp([[F(0)] * 19 for _ in range(19)]), Kp(V)
+    tr = lambda C: sum(C[i][i] for i in range(len(C)))
+    traces = [(tr(cov(K0, S)), tr(cov(K1, S))) for S in (S45, S19, S15, S21)]
+    same = [cov(K0, S) == cov(K1, S) for S in (S45, S19)]
+
+    def defect(S):                                                          # V_(S cap J, J - S) V_(J - S, S cap J), padded
+        pos = {c: k for k, c in enumerate(J)}
+        outJ = [c for c in J if c not in S]
+        return [[sum(V[pos[i]][pos[h]] * V[pos[h]][pos[j]] for h in outJ) if i in pos and j in pos else F(0)
+                 for j in S] for i in S]
+    law = all([[c1 - c0 for c0, c1 in zip(r0, r1)] for r0, r1 in zip(cov(K0, S), cov(K1, S))] == defect(S)
+              for S in (S15, S21, S19, S45))
+    pd = _cf_inertia([[V[s][t] + (3 if s == t else 0) for t in range(19)] for s in range(19)]) == (19, 0, 0)
+    return {
+        "OBSTRUCTION, section IV.1b's nested observers: on the comparator H90 + 3I with the 19-source (linear 1-8, "
+        "quadratic 9-15, dark 41-44) and the rational correction V (the first dark channel coupled to the first two "
+        "linear ones by 1 and 2; 3I + V positive definite, so K = H + 3I + J V J^T >= H > 0), the full 45 and the "
+        "source-complete 19 keep their covariance matrices exactly (traces 21061 and 10791), while the source's J15 moves "
+        "from 10459 to 10464 and N44's native 21 (mass, the ten carrier quadratics 9-18 in master_readout's order, wedge, "
+        "dark four) from 7101 to 7106, the note's four numbers; on this comparator (its visible block diagonal) D_S(K) - "
+        "D_S(H) = V_(S cap J, J - S) V_(J - S, S cap J), a Gram matrix (for every S there, the visible block being "
+        "diagonal; checked for S = 15, 21, 19, 45): there a "
+        "sub-observer keeps its covariance exactly when V has no block between the source inside it and the source "
+        "outside it, and otherwise its hidden trace grows":
+            same == [True, True] and traces == [(21061, 21061), (10791, 10791), (10459, 10464), (7101, 7106)]
+            and law and pd,
+    }
+
+
+def canon_flower_leaf():
+    """The canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section V.4, read as data: the six-petal
+    tissue Q12 with the leaf row the edition now states, O_ell = [e_0^T, 0] read at phases 1 and 3 (also the verifier's
+    Ol, oes_root_spine_flower_verify_20261102.py, read as text). Q12, det 385385, the flower view's ranks 5 and 10, the
+    blind stripe pair and Q12^3 = [[359, -68], [-68, 19]] on it are the sibling replay's flower_twelve, which had to choose
+    a leaf row (the second copy's first site) because the 02:29 edition stated none."""
+    I6 = sp.eye(6)
+    W = sp.Matrix(6, 6, lambda i, j: int(i == (j + 1) % 6))
+    Q = sp.Matrix(sp.BlockMatrix([[3 * I6 + 2 * I6 - W - W.T, -I6], [-I6, 2 * I6]]))
+    Of = sp.Matrix.hstack(I6 + W, sp.zeros(6, 6))
+    ell = sp.Matrix([[1] + [0] * 11])
+    Qk = [sp.eye(12)]
+    for _ in range(3):
+        Qk.append(Q * Qk[-1])
+    ctx = [[Of], [Of * Qk[1], ell * Qk[1]], [Of * Qk[2]], [Of * Qk[3], ell * Qk[3]]]
+    ranks = [sp.Matrix.vstack(*[R for c in ctx[:k + 1] for R in c]).rank() for k in range(4)]
+    blind = sp.Matrix.vstack(*[R for c in ctx[:3] for R in c]).nullspace()
+    av = sp.Matrix([1, -1, 1, -1, 1, -1])
+    r = sp.Matrix.vstack(av, 7 * av)
+    return {
+        "section V.4 with the edition's leaf row O_ell = [e_0^T, 0] (the first site of the first copy) read with the "
+        "flower view at phases 1 and 3: the cumulative ranks are 5, 11, 11, 12; after the third context the blind line is "
+        "spanned by (a, 7a) (a the alternating stripe), which the leaf reading at phase 1 misses (O_ell Q12 (a, 7a) = 0), "
+        "and O_ell Q12^3 (a, 7a) = -117, the edition's vector and value (with the second copy's site the blind line is "
+        "(2a, a), flower_twelve's, with the same -117)":
+            ranks == [5, 11, 11, 12] and len(blind) == 1 and sp.Matrix.hstack(blind[0], r).rank() == 1
+            and (ell * Qk[1] * r)[0] == 0 and (ell * Qk[3] * r)[0] == -117,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -35765,6 +40172,140 @@ LEDGER_ROWS = [
     ("the 44-object typed adapter registry (typed_adapter_registry.json, 2 Nov 01:19 UTC)", "28 previously constructed typed objects plus 16 new comparators, ADDITIVE_NONPROMOTING; 54 obligations not reclassified; no theorem ID assigned", "mapped to the model (grand_registry; the existence of every named check is computed): 19 already built and checked (02-09, 11-17, 28, 30, 41, 43), 4 model checks extended here (01, 29, 42, 44), 9 built here (18, 25, 31-37), 6 standard theorems or float fixtures on no model object (19, 21, 26, 38-40) and 6 with physical input absent (10, 20, 22-24, 27); of the 13 objects among 01-28 the registry marks unconstructed, the model builds 6 (04, 05, 06, 07, 15, 17) and records 28's gate state with the same values (onemodel_gates)", SR, "23"),
     ("the physical admission template and the status contract (physical_admission_template.json, 2 Nov 01:19 UTC; grand join, sections X and XII)", "13 fail-closed sockets PR1_AUTH, A_MASTER, M6_COF, DF96, PHYS_J, POVM, TAU_SI, KAPPA, Q31, SCR6, BV_REG, GLOBAL, EVIDENCE, each with bound_value null and admitted false; preflight NOT_PASS with 13 missing operands and 78 unmet checks; AUTH NOT_PASS, ScientificGold FALSE, G_OES FALSE, DYN_BIND NOT_INSTALLED, TIME_BIND UNBOUND, BIND_Q31 UNBOUND, SCR6 NOT_RUN_OPERAND_ABSENT, PredictionFreeze NOT_TRIGGERED, physical_residual null, TwinPrime OPEN_UNSOLVED, R6/A40/A52 FROZEN", "recorded only (the validator was not run); 78 = 13 x 6 (five provenance and operand fields and the admitted flag per socket); the sockets name the graph nodes selected_parent, dynamics_binding, metric_binding, quantum_state (twice), return_identification, time_scale (twice), Q31_binding, SCR6, BRST_BV, horizon_entropy and prediction, all open-input or blocked; the receipt's gate block equals onemodel_gates' frozen spec on all 24 entries (compared outside the checks)", SR, "23"),
     ("the grand join's standard comparators (sections VIII; registry objects 19, 21, 24, 26, 38-40; receipt groups 'Neutrino three-flavor Lindblad CPTP comparator', 'Bell local-channel no-signaling', 'Degenerate rotation changes measurement but not internal energy')", "qutrit dephasing rho_ij(t) = rho_ij(0) exp[-i(E_i - E_j)t - gamma (l_i - l_j)^2 t/2] is CPTP; a local CPTP channel leaves the distant marginal I/2; a degenerate-eigenspace rotation changes outcome probabilities (1 -> 1/2) at zero internal energy change; #SAT separator factorization", "recorded, not replayed: standard theorems checked in floats on generic fixtures, on no model object; the note itself disclaims physical rates, retrocausal signaling, morphic resonance and complexity consequences", SR, "23"),
+    ("one quadratic: the Lagrangian (canon's selected mathematical join, 2 Nov 01:58 UTC, section 1)", "on five vertices and ten edges M M^T = 3I + J, diagonal 4, off-diagonal 1; the all-ones vector has eigenvalue 8, a contrast 3; vertex trace 20 and squared-entry sum 100; M^T M has the same trace and squared-entry sum; the fifteen-atom square has spectrum 0^5 3^8 8^2, trace 40, square-trace 200; the action is the one quadratic (1/2)|psi'|^2 - (1/2)<psi, D^2 psi>; a spectral action would add a heat trace and a fermionic pairing, not installed", "replayed: M M^T = 3I + J and its eigenvalues are k5_roots', the fifteen-atom spectrum, 40 and 200 and the heat trace 5 + 8 e^-3t + 2 e^-8t are carrier's and master_readout's, the edge Gram M^T M petersen_roots' and D^2 = diag(M M^T, M^T M) chiral_closures' (cited); new (canon_gram_traces): the split 20 + 20 and 100 + 100 over the vertex Gram and the edge Gram (60 ordered adjacent pairs) and the entrywise match |3I + J| = |5I - J| behind the shared 40 and 200; the action and the uninstalled spectral action are recorded", T, "23"),
+    ("the same traces, a different operator (canon's selected mathematical join, 2 Nov 01:58 UTC, section 2)", "the turn and spanda Laplacians on the ten edges add to 0^2 5^8, trace 40, square-trace 200; 3 is not 5, kernel 5 against 2; Spanda is not the Lagrangian; the golden companion squares to itself plus I (trace 3, determinant 1); shifting its eigenvalues by 1 gives x^2 - 5x + 5; the vertex Laplacian has trace 10, and ten is not 40", "replayed: the spanda sum, its spectrum, its non-identification with the carrier and pentagon plus pentagram = 5I - J are w0_spanda's, B^2 + I = [[3, 1], [1, 2]] with x^2 - 5x + 5 chiral_closures', the pentagon's x (x^2 - 5x + 5)^2 notes_2137's and grand_sat6's ('the closing edge') (cited); new (canon_gram_traces): the trace-10 vertex Laplacian is the pentagon's (or the pentagram's, whose polynomial is the same) cycle Laplacian, the K5 vertex Laplacian 5I - J having trace 20; D^2's 40 is 4 x 10", T, "23"),
+    ("the spectral observer's two traces (canon's selected mathematical join, 2 Nov 01:58 UTC, section 3)", "45-channel covariance on widths 1, 8, 26, 6, 4 with variances 2117, 967, 389, 127, 83, trace 21061; the 21-channel reader keeps 1, 10, 6, 4, trace 7101; the difference is eight channels of 967 and sixteen of 389; neither trace is 40 or 200", "already in the model: master_readout checks the 45 channels, both traces and that the 21 drop exactly its 8 linear and 16 mixed quadratic columns ('N44's native 21 alone: trace 7101'), so 21061 - 8 x 967 - 16 x 389 = 7101; the grand join's ledger row on the N44 native 21-channel reader already identifies the 21 (mass, ten centred carrier quadratics, six currents, four dark currents), and the joins 'the 45 channels' and 'no autonomous visible law' carry both readers; the canon's reader is that one, so no new join; the inequalities with 40 and 200 are recorded as integer inequalities", T, "23"),
+    ("the six-site hidden moment and the mode counts (canon's selected mathematical join, 2 Nov 01:58 UTC, section 3)", "the six-site hidden moment is 183I + 52J with eigenvalues 495 once and 183 five times, so the coupling has rank 6; the boundary is not autonomous; the two-point gap asks for 12 modes; the three-moment Hankel already asks for 18; twelve is not eighteen, and neither is the infinite bath", "replayed: 183I + 52J, its spectrum and the non-invariance are schur_memory's, the never-closing Krylov chain root_shell_krylov's (cited); new (motif_source_moments, motif_mode_floor): C0..C2 need 12 hidden modes (12 x 12 block Hankel 534631775 x 49359479^5) and C0..C3 are realized on 12 (two-node rule per sector, nodes in (0, 256)); the visible 18 x 18 Gram is also six_ref_residual's; the 18 holds in two readings, 18 hidden modes for the five source moments C0..C4 (3 x 3 Hankels, shared_bath's 4 x 4 clique Hankels 1694632079790338625 and 31566087163013649 through H_3(C) = H_4(m)), or 6 visible + 12 hidden for the visible 3-block Hankel of M0..M4, which has the same determinant as the hidden 12 x 12 one: corrected below", OB, "23"),
+    ("tomography and the shell list (canon's selected mathematical join, 2 Nov 01:58 UTC, section 3)", "a 45-dimensional state has 45^2 - 1 = 2024 parameters, informational completeness needs 2025 outcomes, 67 labels are fewer; the shell weights 1, 35, 84, 8, 112 sum to 240 with weighted trace 44160, sharing only part of the observer trace", "already in the model: grand_tomography (2024, 2025, the 67-label obstruction) and shell_channels (the shell list as the bath's leakage off the root shell, 44160 = 240 x 184, common part (2117, 1) and (967, 8)); cited, not repeated", T, "23"),
+    ("the clock (canon's selected mathematical join, 2 Nov 01:58 UTC, section 4)", "4320 = 160 x 27 = 36 x 120 = 27 x 8 x 20; the real-root spray covariance is 60 tau on each of eight axes and E|X|^2 grows as 480 tau, which is not 4320 and not the Coxeter number 30; a synthetic 30-state involution splits as 15 and 15; modulo 859, 430 is the inverse of 2; that 30 is not the Coxeter number and not the spray rate", "replayed: 160 x 27 (clock_sidebands), 36 x 120 (notes_1007_arithmetic) and 27 x 8 x 20 as integers only, not as a splitting of the circle (branch_counts) (cited); new: the covariance 60 tau I8 and 480 tau from the walk's endpoint distributions (motif_spray), with 60 = 2h(E8), corrected below; the 15 + 15 split and 430 = 2^-1 mod 859 on the model's 30-flag complement (motif_reflection_859)", T, "23"),
+    ("the six-site autonomy no-go (motif cross-court, 2 Nov 01:58 UTC, proposition 1)", "Delta = [A0 B; B* D]; ker pi = 0 + H is invariant only if B = 0, but B B* = C0 = 183 I6 + 52 J6 has eigenvalues 495 and 183^5, so B has rank 6; no exact autonomous six-site dynamics descends through pi; memory or an enlarged state is needed", "already in the model: schur_memory (V = T* Delta Q Delta T = 183I + 52J, positive definite, so no visible direction is Delta-invariant, and the Schur memory's bounds) and root_shell_krylov (Krylov rank 6(n + 1) at every order); cited, not repeated", OB, "23"),
+    ("the tissue lower bound and the receipt's Hankels (motif cross-court, 2 Nov 01:58 UTC, proposition 2)", "C_j = B D^j B*: uniform 495, 84170, 15392365, 2961706840 and contrast 183, 35366, 7104445, 1469074096; C0 C2 - C1^2 = 534631775 and 49359479, both > 0; no one-point measure; a symmetry-preserving realization of C0, C1, C2 needs 2 + 2 x 5 = 12 mode coordinates; receipt H1_det 12361964429575 and 1482135721111; not a finite replacement of the bath", "replayed exactly on the lattice (motif_source_moments: C_j = B D^j B^T for j <= 4 from the six site deltas, equal to the Schur continued fraction of the sector moments, H_n(C) = H_(n+1)(m)); the 12-mode floor holds with no symmetry assumed (rank of the 12 x 12 block Hankel), 12 modes suffice for C0..C3, and the receipt's H1_det is the shifted Hankel C1 C3 - C2^2, which keeps the two nodes positive (with the (256 - x) Hankel, below 256) but does not raise the floor (motif_mode_floor)", OB, "23"),
+    ("the spray and its heat normalization (motif cross-court, 2 Nov 01:58 UTC, proposition 3)", "exp(-tau Delta) = e^(-240 tau) sum (tau^n/n!) A^n; sum r r^T = 60 I8 and power sums 60|v|^2, 36|v|^4, 30|v|^6; eps(k) = 30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6 + O(|k|^8); Cov(X_tau) = 60 tau I8, E|X_tau|^2 = 480 tau; heat return (120 pi tau)^-4; bulk density coefficient 1/[6 (120 pi)^4]; independent of strict H30", "the moments and the symbol are already in the model (e8_anisotropy, notes_2154, notes_0255; the receipt's four test vectors, of norms q = 1, 2, 12, 60, list 60q, 36q^2, 30q^3 exactly, as those polynomial identities require: arithmetic on the receipt's own numbers; the n-step supports 9361 and 131041 are walk_convolutions'); new (motif_spray): the covariance from the n-step endpoint distributions (n <= 3, every n by the expansion of the step sum) and the Poisson sum, 2h for E8's frame, and the identity of the motif's heat-return and density constants with the model's C = 1/(1536 x 30^4 pi^4) and join_e8_walks' 16/pi^4 (cited by threshold_moments for the single-action note); these are identities of constants only: the heat return's asymptotic form itself (Laplace's method at the band bottom) is not computed and stays conditional, as the model's other infrared asymptotics ('the infrared exponent'); the receipt's doubled covariance diagonal 240 is the n = 1 moment in stored coordinates", T, "23"),
+    ("the K5 gluing (motif cross-court, 2 Nov 01:58 UTC, proposition 4)", "K5: beta1 = 10 - 5 + 1 = 6; a 4-edge star spanning tree, six fundamental triangles, 2^6 = 64 F2 sums give the cycle space; trivial holonomy on the six cycles suffices for flat transport with invertible R_ij; compressed partial operators need invertibility, correct inverses and coherent typing; H2/pentagon and the global fermionic line need separate tests", "already in the model and cited, not repeated: the six star triangles 0ij span the cycle space over Q (notes_0030) and mod 2 are independent with the 64 even subgraphs as their sums, the cuts the complement (join_cube_cycles, join 'cuts plus cycles'); new (motif_k5_gluing): flatness from the six fundamental holonomies on a stated noncommuting instance over Z, all 37 cycles from every start in both directions, and one broken transport detected on exactly its 15 cycles; compressed partial transports, the pentagon/H2 test and the fermionic line are recorded, not tested", T, "23"),
+    ("the 430 preflight (motif cross-court, 2 Nov 01:58 UTC, proposition 5)", "a trace-zero involution R30 = Gamma_F Sigma_end on strict H30 has rank-15 projectors P+- = (I +- R30)/2 = 430 (I +- R30) mod 859; a preserving map has vanishing cross blocks; a nonzero residue mod 859 rejects exactly when the denominators are prime to 859; zero is no proof over Q; the verifier uses a synthetic 30 x 30 example", "replayed on a model object, the complement on notes_0030's 30 flags of K5 (motif_reflection_859): 15 + 15, the projectors mod 859 of rank 15, zero cross blocks for the 120 vertex permutations, a nonzero one for a non-complementary swap; the model builds no strict H30, no Gamma_F Sigma_end and no native finite Dirac on 30 states, so nothing about those is claimed", T, "23"),
+    ("the conditional C7/D14 table (motif cross-court, 2 Nov 01:58 UTC, proposition 6; receipt D14_conditional_table)", "an actual 30-dimensional module with g^7 = I, R^2 = I, R g R = g^-1, tr R = 0, decomposing as W+^p + W-^q + T^b, has p = q = 15 - 3b, 0 <= b <= 5, tr g = 30 - 7b; six C7-fixed lines of the 42-dimensional Gray 6 Reg_C7 detect at full rank only if b <= 4, and if reflection-even and D14-equivariant only if b <= 3; the table rows for b = 0..5", "replayed as representation arithmetic on explicit rational modules (motif_d14_table): the traces of W+, W-, T = Q[x]/Phi7, the forced p = q, and every row of the receipt's table; conditional: no native C7 or D14 action on a 30-dimensional model object and no same-parent map is supplied", gates.CONDITIONAL, "23"),
+    ("the receipt's walk and cycle counts (motif cross-court receipt, 2 Nov 01:58 UTC)", "closed walks W2 = 240, W3 = 13440, W4 = 1260720; K5 edges 10, independent loops 6, cycle masks 64; mod_859_half 430; synthetic H30 parities 15, 15; symbol coefficients 30, -3/2, 1/24", "W_0..W_4 = 1, 0, 240, 13440, 1260720 are walks_join's and port_moments' and the symbol band's (cited); the K5 counts 10, 6, 64 are join_cube_cycles' (cited); 430 and the 15 + 15 are replayed in motif_reflection_859 (the parities on the model's flags, not on the receipt's synthetic matrix)", T, "23"),
+    ("the common-phase quotient and its charts (the separate model's six-reference joint closure (OES_660_160_260_092_091_099_JOINT_CLOSURE_20261102.md, filed 2 Nov 01:59 UTC), Closure B)", "z = a + ib in C^5 minus 0 modulo common U(1) is Qshape = R_{>0} x CP^4, of dimension nine; dH(dz) = dz z* + z dz* has real kernel {i t z} and rank 10 - 1 = 9; on each of five patches H_jj > 0 the nine numbers H_jj, Re H_ij, Im H_ij reconstruct H by H_ik = H_ij H_jk / H_jj", "replayed symbolically for every z (six_ref_source): J^T J = 2|z|^2 I + 2 v v^T - 2 w w^T, so the eigenvalues are 4|z|^2, 2|z|^2 (eight times) and 0 on iz; the patch identity and its converse (every t > 0, c in C^4 reached); rank 9 also at the hub's witness pair from _source; source_phase had rank 9 for ten particular readings at one witness only; the fibres of z -> z z* being the phase orbits is elementary and cited; joined source -> zero modes", T, "23"),
+    ("the global no-go for nine unmarked coordinates (six-reference joint closure, Closure B)", "p1(T CP^4) = c1^2 - 2 c2 = (5u)^2 - 2(10u^2) = 5u^2 != 0, so R_{>0} x CP^4 has a nontrivial tangent bundle and no smooth map of rank nine everywhere identifies it with Herm(3) = R^9; the two nines meet only through local charts or a higher-dimensional constrained embedding", "the class arithmetic replayed: notes_0154 and notes_2343 have n = 4 (notes_0154 states the exclusion into Herm(3) in words); new (six_ref_shape): p1 = (n + 1) u^2 for every n, the complexification route p = (1 + u^2)^5 mod u^5 with p2 = 10u^4, and Hirzebruch's L2 = 1, the signature of CP^4; the bundle topology (Whitney sum, stable triviality, the inverse function theorem) is cited; joined as an obstruction source -> readout", OB, "23"),
+    ("the 092 commutator Gram (the six-reference receipt (oes_660_160_260_092_091_099_checks.json, filed 2 Nov 01:59 UTC); joint closure, Closure C)", "K1 = diag(0, 1, 3), K2 = ones(3, 3): sum_a ||[K_a, X]||^2 on Herm(3) annihilates the identity and has rank 8; adding (Tr X)^2 gives rank 9 and determinant 176173056 in the stated real Hermitian basis", "replayed exactly over Z[i] (six_ref_court): the form is x^T G x with integer G (diagonal 4, 4, 4, 6, 14, 22, 30, 12, 20), its kernel exactly the identity's line; A = G + t t^T has rank 9 and determinant 176173056 (2^12 3^6 59 is notes_0252's) and is positive definite; the determinant belongs to the basis (2752704 = 176173056/2^6 with unit-norm off-diagonal matrices); protection had the ranks and a rounded determinant in floating point", T, "23"),
+    ("the protected mediator H8 (six-reference joint closure, Closure C)", "[H, Q] = 0 iff b = 0; a distinct mediator r on V6 + ell_Sak + ell_r keeps ell_Sak protected, with static Schur term A - b d^-1 b* and dynamical term b (z - d)^-1 b* of rank at most one; a positive-stiffness mediator's uncompensated -b d^-1 b* is negative semidefinite", "replayed symbolically in the real case (six_ref_court); the protected-line criterion is protection's; the joint rank bound (at least 192 - 9 = 183 null directions, 182 after a further rank-one correction) is conditional on the absent 193-dimensional Hessian and is recorded (192 - 9 = 183 is notes_0154's arithmetic)", T, "23"),
+    ("the E8 fourth-moment Schur residual (the six-reference receipt (oes_660_160_260_092_091_099_checks.json, filed 2 Nov 01:59 UTC); joint closure, Closure D)", "M1 = 241 I6 - J6, M2 = 58264 I6 - 424 J6, M3 = 14121093 I6 - 137733 J6, M4 = 3429473376 I6 - 40411056 J6 (documented selected E8 moments); R4 = M4 - B* H1^-1 B = (49359479/183) Pc + (106926355/99) Pu, rank 6, both eigenvalues positive; prepared Hankel/Krylov ranks 6, 12, 18; at least 18 cyclic directions", "replayed and identified (six_ref_residual): the moments are the six-site port's, computed on the lattice from Delta^j of the six site deltas and equal to M_k = c_k I + ((u_k - c_k)/6) J from the walk moments and to root_shell_krylov's clique moments; R4 is computed as the Schur complement of the 18 x 18 Gram over H1 (det H1 > 0, det H2 = det H1 det R4), of the form r_c Pc + r_u Pu and rank 6, and R4 = L - G0^2 for port_leak's leakage residual L; cited, not rechecked: R4's values 49359479/183 and 106926355/99 are the per-sector residuals of the walk moments (motif_source_moments, the motif cross-court filed 01:58), det H2 = 534631775 x 49359479^5 > 0 is motif_mode_floor's (so H1 and H2 are nonsingular, the ranks 12 and 18 that root_shell_krylov computes for the clique), L's values 55487966/183 and 131183830/99 are port_leak's and G0 = 183 I + 52 J is schur_memory's; the differences 55487966/183 - 183^2 and 131183830/99 - 495^2 are R4's two values; joined bath -> six-site port", T, "23"),
+    ("the finite CRT clock (six-reference receipt, CRT_4320; joint closure, Closure F)", "4320 = 160 x 27, j = 2241 (j mod 160) + 2080 (j mod 27) mod 4320 for all residues; the Sun step 1440 is (0, 9) of order 3, the Moon step 120 is (120, 12) of order 36; the 36-address quotient forgets 120 full ticks; no physical seconds", "already replayed, nothing new: clock_sidebands has the CRT on all 4320 residues, (0, 9), (120, 12) and the orders 3 and 36 = 4 x 9; atlas has the 36-address quotient with kernel <36> of order 120; notes_0154 and notes_2343 have the orders; the time calibration stays open (TIME_BIND UNBOUND in onemodel_gates)", T, "23"),
+    ("the 660 correction and the observation floor (six-reference receipt; joint closure, Closures A and E)", "6 x 66 = 396, not 660: a 660-dimensional blind sector is 10 exterior sectors of dimension 66; with m = 9 readings per instant, k >= ceil(N/m) gives 110 for N = 990 and 74 for N = 660; the V7 66-vector x 15-scalar grammar is a different measurement from nine scalar readings", "replayed as arithmetic (six_ref_decoder): the correction to the earlier 066-660-990 handover holds (15 x 66 = 990; V (x) Q^66 has dimension 66 dim V, so dim V = 10, leaving 5 seen); 110 and 74, with 9 x 109 = 981 < 990 and 9 x 73 = 657 < 660; the V7 grammar gives 15 x 66 = 990 readings at one instant", T, "23"),
+    ("the spectral quartic (six-reference receipt, quartic_traceless_diagonal_fixtures; joint closure, Closure G)", "for a trace-free 4 x 4 generator Tr(dGamma(A)^4) - Tr((A (x) I4)^4) = 24 det A; for diagonal A the 16 subset sums give sum s_S^4 - 4 sum lambda_i^4 = 24 prod lambda_i (four fixtures); a native fixture with det A = 20 gives 480", "proved here (six_ref_quartic): the subset-sum identity for all traceless q (and the trace condition is needed), the matrix identity symbolically for a general traceless A without the density argument, dGamma a Lie homomorphism on the cube's sixteen vertex states; 24 x 20 = 480 is arithmetic and the det-20 native fixture is not identified; joined four-cube -> Pauli algebra", T, "23"),
+    ("the received V7 decoder and the native nine-reading witness (six-reference joint closure, Closures A and B)", "M1 = A1/6 on the selected 15-dimensional exterior reference, det M1 = -1/648, Smith factors 1, 1, 1, 2 and eleven 6's, invertible over Z[1/6]; M990 = M1 (x) I66, D990 M990 = I990; the native Psi = (g0..g5, e0, e1, e2) has a rank-nine Jacobian witness with minor 117760/19683 on a dense open subset", "received, not rerun: the V7 operands and the native W_AS are not in the model (the note says the same); the received V7 figures agree with one another (six_ref_decoder: |det A1| = 6^15/648 = 2^12 3^11, the product of the Smith factors, every factor a unit of Z[1/6])", SR, "23"),
+    ("the 45-channel multipole filtration (one-parent unification note, filed 2 Nov 02:04 UTC, sec. 4; filtration JSON, 01:59 UTC)", "first nonzero degrees 0, 1, 2, 3, 7 for mass 1, linear 8, quadratic 26, wedge 6, dark 4, full rank there; cumulative ranks 1, 9, 35, 41, 41, 41, 41, 45 by degree 0..7; dark degree-7 witness determinant -1424967069597696", "replayed exactly on master_readout's glue-built 45 channels (multipole_filtration): orders, full ranks and cumulative ranks as stated; the witness determinant is reproduced exactly with doubled coordinates, master_readout's dark columns (unscaled) and the lexicographically first four independent degree-7 monomials, which identifies the note's chart for the dark block; every channel has a definite inversion parity", T, "23"),
+    ("the S5 reason for degree seven (one-parent unification note, sec. 4; claims S5_dark4_first_allowed_degree, dark_inversion_parity)", "the dark four carry the sign-twisted standard of S5, with multiplicities (0, 0, 0, 0, 0, 0, 1, 1) in Sym^n(standard), n = 0..7; the literal dark source is inversion-odd, so degree 6 vanishes and degree 7 is first", "replayed (multipole_dark_parity): the multiplicities, also in Sym^n R^8 = Sym^n(4 trivial + standard) (first at 6: 1, then 5); cited, not repeated: the representation on the dark columns by exact 4 x 4 matrices over all 120 elements, character sgn(p)(fix(p) - 1) of norm 120 (onemodel_closures), the free orbit and the character on N44's dark kernel and the reader's oddness (notes_0204), the columns' inversion oddness with their even moments vanishing and the onset at 7 with rank 4 (multipole_filtration); joined to dark_port, where S5 acts on R^8 as standard + standard and the first occurrence is n = 4, view_closures' quartic onset", T, "23"),
+    ("the unloaded heat-return exponents and branch orders (one-parent unification note, sec. 4; machine spec, 01:59 UTC; claims source_heat_exponents, source_resolvent_branches)", "<f, e^-uH f> ~ c_f u^-(4 + l), c_f > 0: powers 4, 5, 6, 7, 11; rho_f ~ a_f E^(3 + l); first nonanalytic resolvent terms z^3, z^4, z^5, z^6, z^10 log z", "conditional on the standard Laplace/Tauberian asymptotics at the band's nondegenerate minimum, as notes_1725 and view_closures: the orders from the exact moments with their injectivity (multipole_filtration), the exponent arithmetic and the Laplace and branch steps on the model symbol and density (multipole_heat_law) are checked; the lattice asymptotic is not computed, and it holds for the unloaded bath only (the note's own caveat for K0)", gates.CONDITIONAL, "23"),
+    ("the native 45 moment certificate (certificate JSON, filed 2 Nov 01:59 UTC; note sec. 5; claim N44_45_exact_moments)", "9361-point two-root convolution; M0, M1, M2 cross-sector blocks zero; (1, 184, 2117), (8, 212, 967), (26, 232, 389), (6, 242, 127), (4, 243, 83); D45 of rank 45, trace 21061, least eigenvalue 83; M2 from the full parent, not the truncated 360 square", "already replayed: master_readout (blocks, tuples, D45, 21061, 83), walk_convolutions (9361) and shell_channels (on the root sites the full kernel minus the compression's square is its leakage, diagonal 184, sector values 2117, 967, 389, 127 on the channels); new (multipole_two_step): the truncated square differs from the full kernel in 63000 entries (236 on the dark diagonal) and would give hidden variances 0, 0, 0, 0, 1 (trace 4), so the root-shell variances come entirely from paths outside the 360 sites, and the dark's 83 is 1 + 82", T, "23"),
+    ("the K5 source's multipoles (one-parent unification note, secs. 2 and 4; claims K5_source_19_monopole, K5_fixed_zero_quadrupole)", "all 19 monopoles vanish, rank 8 dipoles and rank 7 quadrupoles (K5 root15 plus N44 dark4); q0's root source has dipole 0 and a trace-free quadrupole of rank 4, squared Frobenius norm 1036800000 in the integer-scaled chart; machine spec: multipole source dimensions 8, 7, 4 at degrees 1, 2, 7", "replayed for master_readout's glue-built J15, the note's own K5 root frame being absent (multipole_k5_source): monopoles 0, dipole rank 8, quadrupole rank 7, independent of J15's positive scales; q0's source has second moment 192 A(q0) (raw reading, doubled coordinates), rank 4, trace 0; the Frobenius norm is chart-dependent (1036800000 = 20 x 7200^2 against 20 x 192^2 = 737280 here; that the note's quadrupole is 7200 A(q0) is not checked); the 19 sources' filtration is 8, 7, 4 at degrees 1, 2, 7, as the machine spec says, for any scales (the dark four's 4 at degree 7 multipole_filtration's)", SR, "23"),
+    ("the single regulator-free threshold action (one-parent unification note, sec. 6; claims regulator_free_green, K0_single_action, K0_threshold, source_inverse_response)", "S0 = J*H^-1 J > 0, T0 = J*H^-2 J finite on finite support in d = 8; K0 = H + J(F - S0^-1)J* = H^(1/2)(I - P)H^(1/2) + JFJ* >= 0; ker K0 = {H^-1 J S0^-1 q : q in ker F}, dim 1; Z0 = q0* S0^-1 T0 S0^-1 q0; residue q0 q0*/(z Z0); S_K(z)^-1 - S_H(z)^-1 = F - S0^-1; zero at the threshold of [0, 256], no gap; lim <Jq0, e^(-uK0) Jq0> = 1/Z0", "replayed on schur_zero_mode's finite root-site instance at eps = 0 (multipole_k0_threshold): the congruence to diag(F, C), dim ker K0 = dim ker F (1, and 5 for a second F), the square completion's rank 221, the kernel vector, Z0 two ways (in (1.0004099, 1.0004100)), the zero-projection weight 1/Z0 and the inverse response at z = 1; the note's K0 is the eps = 0 member of schur_zero_mode's K; conditional on the note's J19 (not built) and on the infinite-lattice analysis (H^-1 J in l2, the threshold zero without gap, the heat limit), which is not computed", gates.CONDITIONAL, "23"),
+    ("the block-Jacobi tower on the 45 channels (block-Jacobi memory note, filed 2 Nov 02:05 UTC, Theorems 1-2)", "hidden moments M_n = B C^n B* (M0 = D = diag(2117[1], 967[8], 389[26], 127[6], 83[4]), trace 21061); block Hankel and localizing forms PSD, eps D <= M1 <= (256 + eps) D, Delta_2 >= 0; A_0 = D^-1/2 M1 D^-1/2, T_1 = [D^-1/2 (M2 - M1 D^-1 M1) D^-1/2]^1/2, K ~ [[A, sqrt D, 0, ...], [sqrt D, A_0, T_1, ...], ...] on the cyclic subspace; matrix continued fraction; 'one must not assert fixed rank 45 at every depth without an independent cyclic-rank proof'", "replayed on the bath itself (jacobi_channels): onemodel_closures' decoupling of the dark four (their character sgn(p)(fix(p) - 1), its multiplicity 0 in the roots and Schur's lemma, argued there; master_readout has orders n <= 2 on the lattice) checked directly on the lattice at orders 3 and 4, so the chain is a direct sum of five scalar chains; depth 1 by the note's formulas, which agree with the Chebyshev algorithm in all five channels: the linear channel's A_0 = 164628/967 and T_1^2 = 1913066793/935089 are new, the other four are notes_1512's Jacobi data; every A_0 lies in the band; the Krylov dimensions 45, 90, 135 computed on the lattice (ranks of the Gram mod 2039); the cyclic rank is 45(n + 1) at every depth and A_k -> 128 I, T_k -> 64 I by free_chain's Rakhmanov argument: the note's open caveat is closed; the Gram form of Theorem 1 is the note's", T, "23"),
+    ("the observer-memory identification through u^8 (block-Jacobi memory note, Theorem 3)", "L(u) = (u^4/4) D - (u^6/48)({A, D} + 2 M1) + u^8 [ADA/576 + {A^2, D}/1440 + 7{A, M1}/2880 + D^2/720 + M2/320] + O(u^10); D = 4[u^4]L, M1 = -24[u^6]L - {A, D}/2, M2 = 320([u^8]L - ...), T_1 from them; a noncommuting 6 x 6 confirms", "already in the model (deep_wave_memory: the three coefficients in noncommuting symbols, M1 = -L^(6)(0)/30 - {A, D}/2 and the u^8 recovery of M2, with source invariance); the receipt's noncommuting 6 x 6 checks are floating point (residuals 4 x 10^-16 to 10^-12); nothing new", T, "23"),
+    ("the two-bath nonidentifiability (block-Jacobi memory note, section 1)", "H2(a, b) = [[a, sqrt b], [sqrt b, 200]] (90D) and H3(a, b) (135D, hidden 180 and 220, couplings sqrt(b/2)) on the five channels; exact Sylvester 0 < H < 256; equal A, M0, M1 = 200 b; M2 = 40000 b and 40400 b; Delta_2(H3) - Delta_2(H2) = 400 D; [u^8](L3 - L2) = (5/4) D, trace 26326.25; Sigma_2 = D/(z + 200), Sigma_3 = D(z + 200)/((z + 200)^2 - 400); rotation to A_0 = 200 I, T_1 = 20 I, A_1 = 200 I", "replayed exactly (jacobi_two_rung): the minors are exact rationals (the receipt compares their floats), the ten u^8 coefficients are the receipt's strings, the rotation and the shared-eps persistence symbolic; H90 is bridge_comparator's; neither comparator is the bath: the bath's M1 is not 200 D (jacobi_channels), so they already differ from it at u^6", T, "23"),
+    ("the source low-frequency inertia (block-Jacobi memory note, section 2)", "S_K(z)^-1 = F + z [I + B C_eps^-1 (z + C_eps)^-1 B*] = F + z M_eff - z^2 B C_eps^-3 B* + O(z^3), M_eff = I + B C_eps^-2 B* >= I; F v = omega^2 M_eff v approximately; residue q0 q0*/Z0; M_eff,2 = I + D/40000, M_eff,3 = I + (D/2)(1/180^2 + 1/220^2); 'the bare Golden-to-root ratio 2.40600382' is not a dressed prediction", "the source law and the residue are deep_zero_pole's (Theorem 6) and zero_pole_instance's; new (jacobi_two_rung): the z^2 term and both comparators' M_eff exactly (1 + 101 b/3920400 for H135, above H90's); 2.40600382 is sqrt(8/lam-) (deep_saddles' bracket); the generalized eigenproblem is an approximation under stated conditions, recorded", T, "23"),
+    ("the fractional softening bound (block-Jacobi memory note, section 3)", "A^s - Y* K^s Y >= [s(1 - s) d/(2 M^(2 - s))] I for 0 < s < 1; verifier at s = 1/4, 1/2, 3/4 on the 90D comparator: minimum gaps 0.0005819215671700739, 0.0030134563357986366, 0.008779162113434325, guaranteed 0.0005134194904379606, 0.002707923406307944, 0.008033835367447012", "replayed (jacobi_fractional): the reflection step symbolic, the integrals exact at the three s; on H90 with M its top eigenvalue (443 + sqrt2181)/2 every deficit exceeds the bound in intervals, least on the dark channel; the receipt's guaranteed gaps agree to 10^-18 and its minimum gaps to 3 x 10^-15 but not to 5 x 10^-16 (float cancellation); s = 1/2 is deep_softening's Theorem 4", T, "23"),
+    ("certified moment truncation and the all-frequency falsifier (block-Jacobi memory note, section 4)", "Sigma(z) = sum_(k <= n) (-1)^k M_k/z^(k + 1) + (-1)^(n + 1) z^-(n + 1) B C^(n + 1) (z + C)^-1 B*, signed remainder PSD, norm <= |D| M^(n + 1)/z^(n + 2); the dressed and undressed inverse Green matrices differ by one constant rank <= 19 matrix", "the identity replayed symbolically in scalar form (any hidden eigenvalue c, so every C >= 0) and on both comparators for n = 0..3, the remainder's sign and bound exact (jacobi_two_rung); the constant rank-19 source law is master_response's Feshbach/Woodbury law and loewner_kernel's frequency-independent inverse response", T, "23"),
+    ("the block-Jacobi receipt (oes_block_jacobi_memory_results.json, filed 2 Nov 02:05 UTC)", "status PASS, 87 checks; D45 trace 21061; per-sector M1, M2, Schur gaps and u^8 coefficients; noncommuting test (K_dim 6, Hankel minimum 0.0023846870418446054, T1^2 minimum 0.5606637429126261); fractional gaps", "the 87 named checks counted (5 x 15 per sector + 12); every sector number, the u^8 strings, the trace 26326.25 and the fractional gaps reproduced exactly or within the stated tolerances (jacobi_two_rung, jacobi_fractional); the noncommuting test's floats come from its own fixed 6 x 6 example and are not replayed (the identities are deep_wave_memory's, exact); the script was read as text, not run", SR, "23"),
+    ("Closure A, the minimum one-tick word (open-item closures, filed 2 Nov 02:05 UTC)", "U of order 4320, A = U^520, B = U^25, T = U^864; 2(520) - 7(25) - 864 = 1, U = A^2 B^-7 T^-1 of cost 10, no word of cost <= 9; gcd(4320, 520, 25) = 5 (five clock components); approximate unitaries: error <= 2 eps_A + 7 eps_B + eps_T", "replayed on the model's circle (open_clock_word): the word is the only one of cost 10 (exhaustive over the box that holds every cost-10 triple), <A, B> = <5> is canon_sync's subgroup of order 864 and the tick <864> its complement, so only T moves between components; the telescoping bound is standard, recorded; it touches the model's time_scale node and TIME_BIND, which stay open (one tick is not an interval of time)", T, "23"),
+    ("Closure B, a decomposable source with a nondecomposable commutator (open-item closures)", "W: Lambda^2 P5 -> L6 rank 6, kernel 4; det Q6 = 125, H6^2 = 5 I6, Q6 H6 = 5K, q_H(w) = 10 Pf(w); witness a = (1, 1, -1, -1, -1, 0, 0, 0, 0, 1), b = (1, 0, 0, -1, -1, 0, 0, 0, 1, 0), w = (-1, -1, 1, -1, 1, -1), Pf 1, q_H 10, rank 4; 'closes the existence question raised by the N44 structural addendum'; nonvanishing Zariski-open", "replayed (open_hodge_marker): the witness, and q_H is the model's Curl in the wedge chart (Curl W = W H6); the rank-6 map is source_port's and notes_0204's, Q6 and H6 notes_2137's; the existence was already in the model before the addendum (hodge_star: the hub's quartic witness and the Agni-Soma witness), so nothing open is closed: the model's native_hodge_lift node (ANALYTIC_PROOF) was established; the Zariski-open statement is the standard one for a nonzero polynomial, recorded", T, "23"),
+    ("Closure C, S5 parity covariance and the F20 relative invariant (open-item closures)", "q_H(W(sigma a, sigma b)) = sign(sigma) q_H(W(a, b)) (tested on 120 permutations of the witness); G5 = J5 - I5 - 2 A_C5, G5^2 = 5I - J, q_G transforms under F20 by the same sign; I_rel = q_G(x) q_H(W(a, b)) F20-invariant, -20 at x = e0 + e1; not S5-invariant", "replayed and strengthened (open_hodge_marker): the commutator is S5-equivariant on all 120 permutations and all basis pairs, so with hodge_star's sign character the law holds for every source pair; exactly F20 keeps G5 up to sign (G5 = -A(NEAR - FAR), f20_schur's line), by the quadratic character, which on F20 is sgn(p), so the invariance holds for every x, a, b; the value -20 on all 20 and the S5 failure (+20 under (0 1)) checked", T, "23"),
+    ("Closure D, the positive cone of the ten-dimensional coupling (open-item closures)", "R = [[2, -1], [-1, -2]], R^2 = 5I, C = G5 (x) R, spec C = {-5^4, 0^2, 5^4}; kappa I + gamma C >= 0 iff kappa >= 5|gamma|, > 0 iff kappa > 5|gamma|", "replayed (open_golden_coupling): the characteristic polynomials symbolic; new, C is F20-invariant on vertices (x) rotor plane with F20's signed action on the near and far cycles (f20_schur's), and among couplings G (x) R with G symmetric the invariant ones are exactly the multiples of G5; a selected stiffness, touching no open item", T, "23"),
+    ("the six root tensors (single-action threshold note, filed 2 Nov 02:18 UTC, section 2; machine spec claim E8_even_moments)", "sum r1^2 = 60, r1^4 = 36, r1^2 r2^2 = 12, r1^6 = 30, r1^4 r2^2 = 6, r1^2 r2^2 r3^2 = 2 over the 240 roots of squared length 2; odd-exponent monomials vanish before degree 8 by the even sign changes, so these six determine every coefficient through degree 6: sum (r.k)^2 = 60|k|^2, sum (r.k)^4 = 36|k|^4, sum (r.k)^6 = 30|k|^6; h(k) = 30|k|^2 - (3/2)|k|^4 + |k|^6/24 - sum (r.k)^8/40320 + O(|k|^10) with M8 = 57/2 on an axis and 39 on a root direction", "the polynomial identities (all 36, 330 and 1716 coefficients of sum (r.x)^k at k = 2, 4, 6, which through the multinomial factor is every monomial sum of those degrees: the all-even ones at their partition's value, the odd-exponent ones zero), M8 and the symbol were already exact in the model (e8_anisotropy, notes_1250 monomial by monomial, notes_1757, notes_2154) and are cited, not repeated; new (threshold_moments): the six values as the multinomial readings of e8_anisotropy's 60, 36, 30, the root set's coordinate symmetry behind the reduction (the permutations and the even sign changes), the odd degrees 1-7 monomial by monomial (all 4352 sums vanish, as the roots' closure under negation, notes_1250, implies), and the reduction's sharpness: at degree 8 exactly one odd-exponent monomial survives, x1...x8, with sum 1/2", T, "23"),
+    ("the heat return (120 pi u)^-4 (single-action threshold note, section 2; machine spec claim E8_heat_return)", "<delta_0, e^(-uH) delta_0> ~ (120 pi u)^-4 as u -> oo with covolume(E8) = 1 and Laplace's method; a heat-semigroup decay, distinct from the open oscillatory t^-4 bound", "the constant is the canon motif cross-court's replay (motif_spray: (2 pi)^-4 det(60 tau I8)^-1/2, 6C tau^-4 for the band-bottom density C E^3 of infrared and join_e8_measure, the walk counts' 16/pi^4 at n = 240 tau, and the Laplace transform, all exact), cited, not repeated; the asymptotic is the standard Laplace method at the band's unique nondegenerate zero (band.edge, notes_1250's Hessian 60 I), not computed; the one-parent note's replay (multipole_heat_law) has the exponents", gates.CONDITIONAL, "23"),
+    ("the regulator-free source completion beyond the one-parent note (single-action threshold note, sections 3-4; machine spec claims E8_threshold_Green, regulator_free_K0, threshold_zero, response_uniqueness, effective_kinetic_metric)", "H^-1 J has l2 columns for finite support as 8 > 4; S0 = J* H^-1 J > 0 and T0 = J* H^-2 J > 0; K0 = H + J (F - S0^-1) J* = H^(1/2) (I - P) H^(1/2) + J F J* >= 0 with dim ker K0 = dim ker F, one l2 zero mode for F19 at the edge of sigma_ess(K0) = [0, 256], no gap; S_K(z)^-1 - S_H(z)^-1 = F - S0^-1 for all z > 0, selecting V0 uniquely; S_K(z)^-1 = F + z M0 + O(z^2) with M0 = S0^-1 T0 S0^-1 > 0; Z0 = q0* M0 q0 and the residue q0 q0*/(z Z0)", "already replayed on the finite root-site instance at eps = 0 (multipole_k0_threshold: positivity, the kernel for nullity 1 and 5, the square completion, Z0, the inverse response at z = 1) and on the 90D comparator (flower_residues: K_rf as the eps = 0 regulated completion entry for entry, its kernel vector, inertia (89, 1, 0), Z_rf = 40389/40000); the congruence and the source Schur complement of z + K on generic blocks are deep_zero_pole's (Theorems 5-6); new (threshold_action): on generic symbolic blocks with no regulator, S0^-1 the Schur complement, the lifts [I; -C^-1 B^T], K0 equal to deep_zero_pole's K and M0 = I + B C^-2 B^T; M0 in all 19 directions on the instance (spectrum in (1 + 1/5500, 1 + 1/131)); and the instance's dressed low spectrum (gap in (1.380839, 1.38084), the golden quadruplets lowered below lam+-); the l2 domain argument, Weyl's theorem and the threshold zero with no gap are analytic, recorded; every finite instance here is gapped", gates.CONDITIONAL, "23"),
+    ("the single-action note's finite comparator (verify_e8_threshold_unification.py, filed 2 Nov 02:17 UTC, read as text, not run)", "a 25D comparator (19 source, 6 hidden coordinates, F = diag(0, 3^18)) with rank 24, one zero mode and the frequency-independent V at z = 1/2, 1, 3; the script's K5 part: D15^2 spectrum 0^5 3^8 8^2, G = 2 LC5 - 5 Pmov with G^2 = 5 Pmov, F20 G F20^T = -G and F20 LC5 F20^T = 5 Pmov - LC5; the 8D infinite theorem not a finite replay", "the comparator replayed exactly (threshold_action), with a precision: B_ij = ((i + 3j) mod 3) - 1 does not depend on j, so the coupling has rank 1 and the comparator tests the algebra with a rank-one self-energy only; the K5 part is the model's (the D15^2 spectrum: notes_1250, master_readout; the doubling takes L to 5(I - Pi_C5) - L: chiral_dark; F20 does not keep the stiffness: f20_schur; the golden quadratic of L on the moving part: chiral_closures), cited", T, "23"),
+    ("the all-dots zero-pole note's restatement (OES_All_Dots_Chiral_Zero_Pole_Gap_and_Golden_20261102.txt, filed 2 Nov 02:17 UTC, sections 1-7)", "q_edge = NEAR - FAR spans ker K_alpha (rank 14) with gap min(8, alpha lam-); signed v- = N + (2 + sqrt5) F a different typed vector; the regulated congruence K = T* diag(F19, C_eps) T with one kernel line; GAP(K) >= min(eps, delta_F)/(1 + 128/eps)^2 (1/16641 at alpha = eps = 1); the pole q0 q0*/Z0 with Z0 = 1 + |C_eps^-1 B* q0|^2 and the 389 bracket; the 45-port residue of trace in [1/Z0, 1]; the zero piece constant in cos and linear in sin; the projector is sign-blind; D45 of trace 21061 and L(u) = u^4 D45/4 + ...", "a restatement of the 00:22 zero-pole note and the deep master, already replayed and cited, not repeated: chiral_closures, zero_pole_parity (q_edge, the D10 parity of q against v-), deep_zero_pole (Theorems 5-7, the 99/100 bound on the instance), zero_pole_instance (|B| <= 128, the gap in (1.3808, 1.3809) against 1/16641, beta = 103/5 against the note's 389), zero_pole_toy (the time piece, the 45-port residue in miniature), master_readout and deep_wave_memory (D45, L(u)); the essential spectrum [eps, 256 + eps] is analytic; the regulator-free gap on the same instance is threshold_action's", gates.CONDITIONAL, "23"),
+    ("the exact zero-pole certificate's toy (exact_zero_pole_certificate.json, filed 2 Nov 02:17 UTC; verify_zero_pole_join.py, filed 02:16 UTC, read as text, not run)", "source and bath of dimension 3, eps = 2: H0's least eigenvalue 118, kernel dimension 1, zero_mode_full_norm2 170/169, source_pole_residue 169/170, first_positive_eigenvalue 1.9903123138965406, the sourced frequency-inverse identity and the factorization; the K5 block: signless rank 5, K_alpha1 rank 14, q_edge, norm 10, doubling sign -1", "replayed exactly (threshold_pole_toy): the spectrum 128 -+ 10, 9, 8, the congruence, psi = (1, 0, 0, -1/13, 0, 0), 170/169, the pole diag(169/170, 0, 0) as a limit, the identity at the four frequencies, the characteristic polynomial and the eigenvalue to within 10^-15; a precision on the script's gap guarantee (it inserts K5's lam- into the toy; the toy's own bound is 2/4225, and with its |B| = 10 the congruence gives 169/98 < gap < 2); the K5 block is the model's (chiral_closures, chiral_dark, zero_pole_parity)", T, "23"),
+    ("the five-face join script (verify_five_face_join.py, filed 2 Nov 02:18 UTC, read as text, not run)", "the SAT6 -> cycle6 C5 intertwiner (det 1/5) and the S5 nonisomorphism; the 15D golden stiffness at alpha = 1 with characteristic polynomial x (x - 8)^2 (x^2 - 5x + 5)^2 (x^2 - 11x + 29)^4; tr D = 21061 and tr D^2 = 16021077 for multiplicities (1, 8, 26, 6, 4) and variances (2117, 967, 389, 127, 83); the 90D comparator's 45 blocks in (0, 256); the heat, unitary, erasure and wave faces (floats, residual < 2e-13) with shared coefficients ts D, -ts D, t^2 s^2 D/4, t^2 D; G^-1 = z + a - b/(z + 200); a rank-15 source shift 2/7 with constant inverse-Green difference; the 4320 CRT; one two-root path to 2r; the path-to-cycle Fiedler shift 1; Bell local-erasure no-signalling; 8 not in {0, 1}", "replayed (threshold_five_faces): the stiffness, built the script's way, is chiral_closures' K_alpha at alpha = 1, whose polynomial (checked there symbolically in alpha, cited) expands to the script's; tr D45^2; and, in noncommuting blocks through total order 4, the heat face (new: the grand join had stated it only), the two-time unitary and wave faces and the resolvent face, with leading coefficients ts D, -ts D, t^2 s^2 D/4 and -D/z; cited: bridge_comparator (the blocks in (0, 256), the erasure leakage), bridge_unitary_port (the unitary two-time defect on the instance, tr D = 760 on the six-site port), chiral_time and onemodel_closures (the erasure face I - F*F and its t^2 D), deep_wave_memory (the equal-time wave defect), master_response (G^-1 and the frequency-independent update), grand_sat6 (the intertwiner, the S5 obstruction, the path-to-pentagon step), clock_sidebands and notes_2117 (the CRT), grand_registry (2r), grand_fock (19D against 32D); the Bell witness is a standard local-channel fact on no model object, recorded", T, "23"),
+    ("the SAT6 intertwiner file (sat6_cycle6_intertwiner.json, filed 2 Nov 02:17 UTC)", "edge order 01, 02, ..., 34; solution basis the five single-false assignments and all-true; six map columns; 'exact C5-equivariant 10 x 6 embedding into ker(oriented incidence); not S5-equivariant'; gram_det 1/5", "the stored columns, read as exact fractions, are grand_sat6's T6 entry for entry in the model's edge order (threshold_five_faces), so the file's gram_det 1/5 is grand_sat6's det(T6^T T6) (cited, not repeated); the equivariance, the kernel and the S5 obstruction are grand_sat6's", T, "23"),
+    ("the single-action note's scope (sections 5-8) and the machine spec's gates (filed 2 Nov 02:17-02:18 UTC)", "the conditional M6 scalar field (box_g - mu*^2 K0) Phi = 0 with Lorentzian principal symbol and finite speed; the flat source response G19(s, k) and its Stieltjes form; the 67-outcome observation of the source through J19 = Y45 U19; alpha > 0 breaks F20; the 4320 / relative-C5 clock as an address; the time-scale obstruction (only kappa/tau^2 fixed); the 54 obligations 17 + 1 + 2 + 1 + 11 + 5 + 17; AUTH = NOT_PASS and the other gates", "recorded: the conditional field construction, the observation map and the physical gates are outside the model's checks; already in the model and cited: the doubling takes L to 5(I - Pi_C5) - L and F20 does not keep the stiffness (chiral_dark, f20_schur), the (c tau, c^2 kappa) null direction (video_ten_fisher), 4320 and 21600 as addresses, not periods (chiral_time); the obligation count is arithmetic, recorded by the one-parent note's replay", SR, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 1, root): K5, A4 and the marked E8 parent", "M M^T = 3I + J, rank M = 5, rank B = 4, dim ker M = 5, ker B = L6 of dimension 6 related to Lambda^2 A4; W_AS rank 6, dark kernel 4, the decomposable cone smaller with an SL2 frame ambiguity; sigma(H_K5) = 0^5 3^8 8^2, Tr = 40, Tr^2 = 200, Tr^3 = 1240; L = 2I - U - U^-1 with lam+- = (5 +- sqrt5)/2 and (I + L)^2 - 7(I + L) + 11I = J; H = 240I - sum Shift_r with 0 <= H <= 256; the order-five golden stationary family at 250 (48,384 phases), Hessian H^2 + 5H - 25I = 0, eigenvalues -5 phi and 5/phi four times each; the complete critical census open", "already replayed, nothing new: chiral_closures (spectrum, the golden polynomial), triple (the trace moments 15, 40, 200, 1240, 8840), exterior and grand_lorentz (ker B = Lambda^2 H, L6 = Lambda^2 A4), source_port and observer_completion (W_AS rank 6 and kernel 4, the cone of dimension 7 with fibre SL(2)), band.edge ([0, 256]), census_stabilizers (X = -H/5 with X^2 = X + I at 250) and torsion_golden (exactly the origin and 48384 points of the 390625 order-five phases are critical); the full critical census stays open, as the note says", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 2, Theorem S1): the positive interpolation", "K19 = H + eps I + J19 V19 J19^*, (K19 - H) x = eps x off ran J19, essential spectrum [eps, 256 + eps]; K_theta = (1 - theta) H + theta K19 >= 0 with ker 0 for 0 < theta < 1 and one zero mode at theta = 1; Q K_theta Y = Q H Y, so Y^* K_theta Q K_theta Y = 2117 I1 + 967 I8 + 389 I26 + 127 I6 + 83 I4 for every theta; the finite comparator checks theta = 0, .1, .5, .9, 1; the block values 'not independently recomputed'", "replayed exactly on the note's 90D comparator, identified as bridge_comparator's H90 with J19 on its first 19 channels in D19's order (flower_homotopy; the identification reproduces all five of the note's comparator numbers, flower_residues and flower_sections); Q K Y = Q H Y is chiral_time's; the kernel is 0 at theta = 0 too; the five block values are computed on the lattice for the model's 45 channels (master_readout); the essential spectrum [eps, 256 + eps] is the ledger's 'essential spectrum and the isolated zero (section 4)' (band.edge and Weyl's theorem; conditional, not computed)", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 2, Theorem S1b): the regulator-free spine", "S0 = J^* H^-1 J finite in d = 8 (h(k) = 30|k|^2 + O(|k|^4)), K_rf = H + J (F19 - S0^-1) J^*, psi0 = H^-1 J S0^-1 q0 with dim ker K_rf = 1 at the threshold, sigma_ess(K_rf) = [0, 256], Z_rf = q0^* S0^-1 (J^* H^-2 J) S0^-1 q0 'different' from the regulated 1 + |C_eps^-1 B^* q0|^2; the 90D fixture gives Z_rf = 1.009725 and pole weight 0.9903686647; the theta-family K_theta^rf", "new here, the note's 90D fixture replayed exactly (flower_residues): Z_rf = 1 + 389/200^2 = 40389/40000 with pole weight 40000/40389, and on that comparator K_rf is the regulated completion at eps = 0 entry for entry (J^T H J - B C0^-1 B^T = S0^-1), so the two residues are one function of eps there; the same completion on schur_zero_mode's root-site instance (the 02:04 note's K0 as the eps = 0 member, its kernel lift and norm) is multipole_k0_threshold's, and on generic symbolic blocks threshold_action's; the band's 30|k|^2 is band_expansion's; K_theta^rf is K_theta's family at eps = 0; conditional, as the ledger's 'the single regulator-free threshold action' (one-parent note, sec. 6) is, on the infinite-lattice analysis (S0 finite by d = 8 integrability, the l2 threshold eigenstate, sigma_ess(K_rf) = [0, 256]), which is analytic and not computed", gates.CONDITIONAL, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 2, Theorem S2): the nonlinear pullback action", "L_theta(q, h) = (1/2) q'^T M_s q' + (1/2)|Phi'|^2 - V_s(q) - (1/2)<Phi, K_theta Phi>, Phi = E6 g(q) + h; h'' + C h + B^* g = 0 and (M_s + J_g^T J_g) q'' + J_g^T D^2 g[q', q'] + grad V_s + J_g^T (A g + B h) = 0; the geometric term compulsory; E_theta conserved; the SO(2) charge l = (1/4)(-a'^T W b + b'^T W a)", "the compulsory term replayed symbolically on the model's port (flower_source); at theta = 0 these are layer 4's native equations (native.NativeSystem: inertia M_s + J^T J, the J^T Jdot v term, the h-equation, energy conserved in floating point), cited; the lane rotation's Dg(-b, a) = 0 and its Noether charge are notes_1534's (the note's l = (1/4)(-a'^T W b + b'^T W a) is the same expression, (a^T G b' - b^T G a')/4 with G = W = N^T N in sympy's basis, the charge of the generator (-b, a)); the energy identity is standard", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 2, Theorem S3): the vacuum", "g(tq) = t^2 g(q), Dg(0) = 0; under (q, h) -> (tq, t^2 h) the static potential is t^2 U2 + t^4 U4, so static points have q = 0 and h in ker K_theta and ran Q6, unique when that meets in 0; M_q0^-1 K_q0 = 4 I10; no linear q-bath transfer; cubic first response; a prepared free bath adds a Dg(q)^* source", "correct: the Euler argument needs only g quadratic and K >= 0 (checked by hand); Dg(0) = 0, J(q) q = 2 g(q) and q'' + 4q = 0 are layer 4's; the uniqueness condition is the legality of section 4.1's Schur reduction (by hand: for K >= 0 the complement block Q6 K Q6 on ran Q6 has kernel ker K and ran Q6 meeting); on the instance (flower_sections) the illegal six gives the static family (0, t psi0) at theta = 1 and the legal six's complement is positive definite", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 3.1): chiral19's spectrum and finite spectral action", "D19^2 = F19 = K_alpha + S S^T, sigma(F19) = {0, (alpha lam-)^4, (alpha lam+)^4, (3 + alpha lam-)^4, (3 + alpha lam+)^4, 8^2}, index 9 - 10 = -1, dim ker 1; Tr f(F19/Lambda^2) as the weighted sum; Tr F19 = 40 + 40 alpha, Tr F19^2 = 200 + 120 alpha + 120 alpha^2; not the Connes-Chamseddine action", "spectrum, kernel, index and the first moment already replayed (chiral_closures, deep_zero_pole); the second moment new (flower_source: Tr D^4 = 200, Tr D^2 L = 60, Tr L^2 = 90, Tr (S1^T S1)^2 = 30); the finite spectral action is the spectrum read through f; the note's disclaimer stands", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 3.2): the dressed zero pole", "K19 = [[F19 + B C^-1 B^*, B], [B^*, C]], psi0 = (q0, -C^-1 B^* q0), Z0 = 1 + |C^-1 B^* q0|^2, S_K(z) = q0 q0^*/(Z0 z) + regular; 90D comparator at alpha = 1, eps = 3: Z0 ~ 1.0094396855, residue ~ 0.9906485889", "the law is deep_zero_pole's (generic blocks; its eps = 7 receipt 43238/42849); the numbers replayed exactly: Z0 = 41598/41209 = 1 + 389/203^2 and its inverse (flower_residues)", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 3.3): the golden time-line and the typed carriers", "R = [[2, -1], [-1, -2]], R^2 = 5I, P- = (I - R/sqrt5)/2, eta = I - 2 P_t of signature (5, 1); D = [[0, -1], [1, 0]] sends R to -R and swaps the golden lines; Fock32 = Lambda C^5, a selected finite D23 and H96 = Fock32 (x) C^3 are carriers separate from chiral19; no D19 = D23 or D19 = D_phys", "already replayed: grand_lorentz (eta = P6 - 2 Pt is the hub's Lorentz reference), notes_2137 and f20_schur (D R D^-1 = -R, the line's stabilizer D10), grand_fock (D32's nullity 12 against D19's 1, the 36 in H96); the 'selected finite D23' is not a model object (not checked)", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 4): the leaf's resolvent and memory", "G_theta(z) = [z + A_theta - B (z + C_theta)^-1 B^*]^-1; G_theta^-1 - G^0_theta^-1 = theta U V19 U^* against the baseline H + theta eps I, z-independent of rank <= 19; Sigma(z) ~ D/z - M1/z^2 + M2/z^3; block Lanczos with coupling D^(1/2) and M2 - M1 D^-1 M1 >= 0; non-atomic native memory; the cosine leakage u^4 D/4; the Loewner matrix >= 0", "already in the model: the Feshbach/Woodbury source law (master_response; theta scales eps and V), the u^4 D/4 law (chiral_time), the Loewner kernel (loewner_kernel), absolutely continuous port measures (free_chain); M2 - M1 D^-1 M1 is the Schur complement of the Gram of (B^*, C B^*), PSD (by hand); the matrix Jacobi tower on the 45 channels (A_0 = D^-1/2 M1 D^-1/2, T_1^2 = D^-1/2 (M2 - M1 D^-1 M1) D^-1/2) is jacobi_channels', not repeated", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 4.1): illegal and legal six-sections", "the first six coordinates of the 19D source give a complement with a zero eigenvalue; a section containing the zero vector has complement smallest eigenvalue ~1.3500734; Schur_6(K19) = Schur_6(Schur_19(K19)) = Schur_6(F19); the choice of six is a parent-selection obligation", "replayed exactly (flower_sections): illegal in D19's 9 + 10 order, legal (positive definite complement) in the K_alpha + S S^T order; the nested identity on the section [q0, vertices]; 1.3500734 is the dressed auxiliary gap x- in (1.3500734237156, 1.3500734237157) (also K19's own gap) to within 10^-13; the parent-selection remark is interpretive", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 5.1): the nine-dimensional source shape", "(a, b) mod the common phase is locally R_{>0} x CP^4 (nine); the six-dimensional map g has Jacobian rank at most 6, so at least 3 shape directions are missed by any reading through g; the 160 x 091 chart adds independent readings; the Routhian adds l A(y).y' and -l^2/(2I(y)), -2 l^2/e0 for I = e0/4; pullback inertia added once", "the quotient, charts and no-go are six_ref_source's and six_ref_shape's; g's generic Jacobian rank 6 is view_closures' (rank 6 at notes_1616's witness, code_closures), the wedge's rank 7 and SL(2) fibre observer_completion's and notes_1222's; new (flower_source): g is linear in Im(z z*), and at a rational witness its derivative kernel is the SL(2) frame plus one direction (rank 6 on the nine shape directions); the moment of inertia of the full metric M_s + J_g^T J_g along the phase is that of M_s alone, since J_g kills the phase direction (notes_1534), so -l^2/(2I) = -2 l^2/e0 for I = e0/4; the 160 x 091 chart is not in the model", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 5.2): 67 outcomes against tomography", "T67: R^45 -> R^67 of rank 45 with zero column sums, p(u) = 1/67 + beta T67 z(u), L67 T67 = I45; 45 real coordinates, not a 45 x 45 density matrix (2024 parameters, LIC needs 2025 outcomes); a 7-level realization with 67 effects", "already replayed: bridge_comparator (T of rank 45 with zero column sums, the exact seven-level POVM), grand_tomography (N >= d^2 = 2025; 66 < 2024; the 67 effects span 46 of Herm(7)'s 49)", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 5.3): the timed six-petal flower", "Q12 = [[3I + L6, -I], [-I, 2I]] > 0 with det 385385; O_f = [I + W6, 0] has present rank 5 and sees 10 of 12 through all history; gated single-row leaf readings give cumulative ranks (5, 11, 11, 12); the -117 test on the remaining stripe vector; an analogy, not Q12 = K19 or a common clock", "replayed (flower_twelve): det = prod (5 + 2 lam) = 5 x 7^2 x 11^2 x 13, the blind pair is the stripe (a, 0), (0, a); the note states no phases or leaf rows, and one exact gating (O_f Q12^k at each context, a single leaf row at k = 1, 3) reproduces (5, 11, 11, 12) and -117 on r = (2a, a); O_f's block is notes_1751's positional flower; a comparator joined to no dot", T, "23"),
+    ("the canon staging integration, root to flower (filed 2 Nov 02:29 UTC, section 6.2-6.3): the time map and the arrow defects", "t = rho u with rho = tau/sqrt kappa and the indistinguishability (tau, kappa) -> (c tau, c^2 kappa); for linear arrows delta(g f) = delta(g) f + g delta(f); for the nonlinear source the intertwining is tested at the jet/action level, as Dg(0) = 0 forbids a linear intertwiner at q = 0", "the scalings are chiral_time's, and reading them as physical time is the ledger's 'section 5: the SI time no-go (2 Nov; certificate)' (conditional on a calibrated realization); the defect rule replayed symbolically (flower_twelve); Dg(0) = 0 is layer 4's", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section I: the root parent, the shell and the finite models", "H = 240 I - sum T_r >= 0 with sigma(H) = [0, 256] (inherited), h(k) = sum_r (1 - cos r.k); sum r r^T = 60 I8; root-site adjacency 56^1 28^8 8^35 (-2)^112 (-4)^84; tau(H), tau(H^2), tau(H^3) = 240, 57840, 13983360 with 13440 ordered zero-sum triples; the 256-point quotient's moments differ; the 240-root shell a compression; on K5 M M^T = 3I5 + J5, dim P5 = 5, dim L6 = 6, D15 square spectrum 0^5 3^8 8^2 with moments 40, 200, 1240; lam+- = (5 +- sqrt5)/2; W_AS of rank 6 with a four-dimensional dark kernel and three residual SL2 degrees", "replayed, nothing failed: band.edge ([0, 256]), triangle_port and notes_1250 (the frame 60 I, the 13440 triples), master_readout (the root-site spectrum; D15's spectrum, moments and heat trace), walks_join and notes_0255 (the moments), notes_1340 (58080 on E8/2E8 against 57840), shell_channels (the leak 184), chiral_closures (lam+-), source_port, observer_completion and the sibling replay's flower_source (W_AS, its kernel, the SL2 fibre). New: the closed forms, the heat coefficients 28920, 2330560, 141210930 and the compression's per-site moments 240, 57656, 13862808 (usm_bulk_heat)", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section II: the spine", "D19 odd self-adjoint on 9+ + 10-; F19 = D19^2 with spectrum {0, (alpha lam+-)^4, (3 + alpha lam+-)^4, 8^2}; Z19(t) in closed form; Tr F19 = 40 + 40 alpha, Tr F19^2 = 200 + 120 alpha + 120 alpha^2, Tr F19^3 = 1240 + 540 alpha + 540 alpha^2 + 400 alpha^3, pdet F19 = 64 (5 alpha^2)^4 (9 + 15 alpha + 5 alpha^2)^4; Tr Gamma19 e^-tF19 = -1 for every t > 0", "replayed: chiral_closures (D19, the spectrum, the pseudodeterminant, nullity 1 and index -1), deep_zero_pole (the trace), the sibling replay's flower_source (the second moment). New: the third moment, symbolic in alpha, and the receipt's 80, 440, 2720 at alpha = 1 (usm_spine_cubic)", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section III: the regulated and the regulator-free source-dressed operator", "J = Y U isometric; K_eps = H + eps I + J V19 J^T with V19 = F19 + X - A_J - eps I, static Schur complement F19, dim ker K_eps = 1, the zero isolated below [eps, eps + 256]; S0 = J^T H^-1 J finite in d = 8 (h(k) ~ 30|k|^2), K_rf = H + J (F19 - S0^-1) J^T >= 0, psi0 = H^-1 J S0^-1 q0 with K_rf psi0 = 0 and J^T psi0 = q0, Z_rf; only the essential spectrum [0, 256] preserved; the positive-parameter Feshbach map Z_E(z), z > 0", "cited, not repeated: master_response and schur_zero_mode (the congruence K = L diag(F19, C_eps) L^T and the lifted kernel), the sibling replays' flower_homotopy and flower_residues (the same completion on the 90D comparator, Z0 = 1 + 389/203^2 and Z_rf = 40389/40000, the receipt's regfree 1.009725) and threshold replay (the regulator-free algebra; multipole_k0_threshold), band_expansion (30|k|^2); the infinite-lattice statements (essential spectra, d = 8 integrability, the limit z -> 0) are recorded, not computed", SR, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section IV: the wave action and the canonical doubled wave-Dirac", "A_wave = (1/2) int (|Phi'|^2 - <Phi, K Phi>) du with Phi'' + K Phi = 0 and conserved energy; D_wave = [[0, i sqrt K], [-i sqrt K, 0]] with D_wave^2 = K + K, self-adjoint, odd, its unitary group the first-order flow of Z = (sqrt K Phi, Phi'), which loses the static kernel value; index 0 when regulated, undefined when regulator-free; neither D19 nor D_M6; the doubled heat difference twice the scalar one", "replayed on the carrier's K = D^2 with an exact square root (usm_wave_dirac): the square, the grading, the flow e^(-iu D_wave) = e^(uG) carrying Z with |Z|^2 conserved, the lost kernel value, ker D_wave = ker K + ker K and index 0 against D19's -1 (chiral_closures), on finite instances forced by the graded dimensions (15 - 15 against 9 - 10); the wave field and its energy are master_response's; the Fredholm statements on the infinite lattice are recorded, not computed", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section V: the 45 x 45 spectral measure", "d mu_Y = Y^T E_K Y normalized and positive; G_Y(z) = Y^T (z + K)^-1 Y with G_Y^-1 = z + A - Sigma(z), Sigma = B (z + C)^-1 B^T = D/z - M1/z^2 + M2/z^3 + ...; mu_1..mu_4 in A, D, M1, M2; Q K Y = Q H Y, so D = 2117 I1 + 967 I8 + 389 I26 + 127 I6 + 83 I4 with trace 21061; complete monotonicity and the block Loewner Gram", "cited, not repeated: master_readout (D45 and its trace), master_response and chiral_time (Q K Y = Q H Y), deep_wave_memory and the sibling replay's jacobi_channels (the block moments through A_4 with M2), deep_softening (complete monotonicity), loewner_kernel (the Loewner Gram, exactly on the comparator), the sibling threshold replay (the self-energy series)", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section VI: the bulk, relative and observed heat", "tau(e^-tH) = 1 - 240t + 28920t^2 - 2330560t^3 + O(t^4); Theta_rel(t) = Tr(e^-tK - e^-tH0) trace class with |Theta_rel(t)| <= t |V|_1; Delta_1..Delta_3 as in (26) with 3 Tr(W D) in Delta_3 and Theta_rel = -t Delta_1 + t^2 Delta_2/2 - t^3 Delta_3/6 + O(t^4); the relative spectral action S_rel[f] = int w(t) Theta_rel(t/L^2) dt; Z_Y(t) = 45 - t Tr A + t^2 Tr(A^2 + D)/2 - ...; tau, Theta_rel and Z_Y not to be equated", "replayed and sharpened: the heat coefficients (usm_bulk_heat); (26) by cyclic words with Delta_4 added, D entering Theta_rel first at t^3 as -Tr(W D)/2 and unchanged by eps, and the observed relative heat agreeing with Theta_rel through t^2 and differing at t^3 by -Tr(W D)/6 (usm_relheat_words, generic symbolic instance); the receipt's comparator done exactly, Delta_1..Delta_4 from the matrices, the receipt's four relative-heat numbers to 10^-12 and Duhamel's bound at the receipt's two times with an exact remainder (usm_relheat_comparator); trace class on the infinite lattice and S_rel are recorded, not computed", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section VI: the relative determinant and the spectral shift", "S_K(z)^-1 - S_0(z)^-1 = V, d(z) = det_19(I + V S_0(z)), Tr[(z + K)^-1 - (z + H0)^-1] = d/dz log d(z); Tr(f(K) - f(H0)) = int f' xi; the trace per volume of finite-volume exhaustions differs by O(volume^-1)", "replayed: master_response (the source law, the finite rank of G_K - G_0 and the log-derivative, exactly at z = 1 on the root-site instance). New: the same on the 19-source comparator, as series in 1/z through z^-7 and exactly at the receipt's z = 3/10, 2, 19, 85, the determinant as det(z + K)/det(z + H + 3), and its log-derivative as the Laplace image of Theta_rel, the z^-4 coefficient carrying -3 Tr(W D) (usm_relheat_laplace); the spectral-shift and finite-volume statements are recorded, not computed", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section VI: the wave fingerprint", "(I + C_Y(2u))/2 - C_Y(u)^2 = (Q cos(u sqrt K) Y)^T (Q cos(u sqrt K) Y) = u^4 D/4 + O(u^6), and the chain Lagrangian -> K -> 45D Green and cosine -> D -> Jacobi moments -> relative heat", "cited, not repeated: chiral_time, onemodel_closures and deep_wave_memory (through u^10 in the moments and through u^8 in the blocks); the chain's last link is this unit's usm_relheat_words", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), section VII: the nonlinear K5 Lagrangian", "q = (a, b) in P5 + P5, g(q) = W_AS(a ^ b), M_s = diag(W5, W5)/4, V_s = q^T (4 M_s) q/2 + g^T W_p g/2; J_g(0) = 0 and the kinetic metric M_s + J_g^T J_g; the source Hessian 4 M_s, mass-normalized 4 I10; the Hessian blocks (34) and the response (35), (s^2 + 4) M_s at the vacuum; the SO(2) phase symmetry and its Noether charge", "cited, not repeated: layer 4's source dot q'' + 4q = 0 with Dg(0) = 0 and the inertia M_s + J^T J (native.NativeSystem), join_e8_source (the 4 is the action's stiffness over its mass), the sibling replay's flower_source (the pullback metric and its Euler-Lagrange term), notes_1534 (the lane rotation and its Noether charge); with J_g(0) = 0 and g(0) = 0 the quartic and the bath terms of (34)-(35) vanish at the vacuum", T, "23"),
+    ("the unified spectral model and action (filed 2 Nov 03:01 UTC), sections VIII-X: branch, petal and flower", "the finite K5 septuple; the Fock32/H96 candidate (D23, a Hodge-middle D32 with a 20-dimensional nonzero square sector and index 0, so no graded unitary equality with D19); M6(5,1) and the physical spectral action; quantization; time a = kappa/tau^2 and C_phys''''(0) - C_phys''(0)^2 = a^2 D45; FOAM67 a classical affine codec, 2024 state parameters and a 2025-outcome IC POVM; the 12D flower ranks 5, 11, 11, 12; the observable court and the execution priorities", "cited: grand_fock (D32 = * P23 of rank 20 and nullity 12 on grades 0, 1, 4, 5; its index 0 computed in usm_wave_dirac), bridge_comparator, video_ten_codes and grand_tomography (the 67-label code, the 2025-outcome POVM, the count obstruction), chiral_time, video_ten_fisher and deep_observer_algebra (a = kappa/tau^2, the gauge, rho = (21061/tr)^(1/4)), the sibling replay's flower_twelve (5, 11, 11, 12); the physical interface (M6, H96 as physics, Seeley-DeWitt coefficients, BRST/BV, Q31/SCR6, SI time) has absent operands and is recorded, not checked", gates.CONDITIONAL, "23"),
+    ("the unified spectral model's arrow ledger (OES_UNIFIED_SPECTRAL_MODEL_ARROW_LEDGER_20261102.csv, filed 2 Nov 03:01 UTC): its 27 rows", "D15 0^5 3^8 8^2; the K5 cycles of rank 6; E8 H essential [0, 256]; the shell's 56, 28, 8, -2, -4; E8/2E8 levels 0, 224, 256; D19 index -1; F19 one zero and 18 nonzero modes; K_eps essential [eps, 256 + eps]; K_rf essential [0, 256] with a threshold bound state; the wave-Dirac square K + K; the nonlinear source vacuum 4^10; the H96 Fock candidate; G45 Stieltjes; D45 2117[1], 967[8], 389[26], 127[6], 83[4]; the bulk moments 240, 57840, 13983360; the relative heat; det(I + V S0); Z45; FOAM67 of rank 45; 2024 parameters and 2025 effects; flower ranks 5, 11, 11, 12; 21600 address pairs; three ABSENT_PHYSICAL rows", "every finite spectrum and rank agrees with the model: master_readout (D15, the shell, D45), source_port (rank 6), band.edge ([0, 256]), notes_0255 (0, 224, 256 on 1, 120, 135 classes), chiral_closures (D19, F19), layer 4 and join_e8_source (4^10), grand_fock, deep_softening and loewner_kernel, walks_join and notes_0255 (the moments), bridge_comparator (rank 45), grand_tomography (2024, 2025), the sibling replay's flower_twelve, chiral_time (21600); the wave-Dirac, relative heat, determinant and Z45 rows are this unit's (usm_wave_dirac, usm_relheat_words, usm_relheat_comparator, usm_relheat_laplace); the essential-spectrum rows rest on Weyl's theorem, recorded; the rows' proof grades are the note's own; no row is contradicted", T, "23"),
+    ("the unified spectral model's verification receipt (OES_UNIFIED_SPECTRAL_MODEL_VERIFICATION_20261102.json, filed 2 Nov 03:01 UTC) and verifier (oes_unified_spectral_model_verify_20261102.py, filed 03:17 UTC, read as text, not run)", "115 of 115 named float checks pass; results: E8 bulk 240 roots, degree 56, 13440 triplets, tau 240, 57840, 13983360; chiral alpha = 1 traces 80, 440, 2720 and index -1; regulator-free Z = 1.009725 and residue 0.99036866; relative heat TrV = -4109.3005, TrK2 - H2 = -955649.629, TrK3 - H3 = -224347636.542, 3 Tr(W D) = -8537240.039; nonlinear vacuum 4; the status gates all closed", "the receipt's numbers replay exactly: the relative-heat block as -834188/203, -39381365560/41209, -1876763776116296/8365427 and -1733059728/203 (usm_relheat_comparator, on the verifier's comparator identified as bridge_comparator's H90 with flower_homotopy's chiral completion), its source-resolvent and log-determinant checks at z = 0.3, 2, 19, 85 exactly (usm_relheat_laplace), the chiral traces (usm_spine_cubic), the regulator-free Z (flower_residues), the E8 block (walks_join, notes_0255, notes_1250, master_readout); the verifier's degree-8 root sums 28.5 and 39 are notes_1250's and notes_1757's 57/2 and 39; four of its checks are arithmetic only (the index comparison abs(n//2 - n//2) == 0, Ks = 4 Ms set by hand, 32 x 3 == 96, 67 < 2025)", T, "23"),
+    ("the joined motifs' executive result (joined-motifs note, 2 Nov 03:15 UTC)", "K5 source geometry -> exterior/cycle coordinates -> native field injection -> selected observation -> spectral measure and retained hidden memory -> compatible views, reflections and transports -> encoded records; D = J* K (I - J J*) K J = M2 - M1^2 is the initial hidden coupling, the leading heat and wave composition defects and the first large-s Schur coefficient; the six odd A4 currents' entire 6 x 6 moment matrices through order four; six overlapping C5 views, six nested projectors, the Hodge operator, its orientation covariance and its modular preflight; seventeen verification groups pass", "replayed (joined_defect_series, joined_current_lattice, joined_views, joined_hodge_859, joined_port_compare), with the model's earlier checks cited in each (the common leading D is sibling L5's threshold_five_faces); the note's verifier and its seventeen groups are not run (nothing from Drive is executed); the chain of objects is recorded as the note's organization", T, "23"),
+    ("a literal geometry-to-field map (joined-motifs note, 2 Nov 03:15 UTC, section 2)", "V = sum-zero R^5 with f_i = e_i - e_4; Phi(u ^ v)_ij = u_i v_j - u_j v_i; B Phi = 0, rank 6, a concrete equivariant isomorphism; G = Phi^T Phi with det G = 125; W: Lambda^2 P5 -> V6 by commutators, rank 6, kernel 4, a nonzero a ^ b keeps its SL(2) frame freedom; S z = sum c_ij (delta(e_i - e_j) - delta(e_j - e_i)) on twenty A4 roots, S*S = 2G, J_w = S (2G)^(-1/2) isometric", "Phi is grand_lorentz's W (B W = 0 is exterior's; W^T W = Q6 of determinant 125 grand_lorentz's) and the commutator map's rank 6 and kernel 4 are source_port's, notes_0204's and chiral_dark's, as is the 7-dimensional cone of decomposables, and S^T S = 2G is parity_ports' T_O isometry (notes_0204's Sg^T Sg = 2 Gp in its basis) (cited); new: Phi's equivariance for all 120 permutations (joined_hodge_859), S = Od Phi row by row on exactly the twenty A4 roots and the exact (2G)^(-1/2) = (P1 + P5/sqrt5)/sqrt2 making J_w an isometry (joined_current_lattice)", T, "23"),
+    ("six overlapping views are not six nested shells (joined-motifs note, 2 Nov 03:15 UTC, section 3)", "E_i = (1/5) sum_(g in C5_i) rho(g): E_i^2 = E_i, E_i^T G = G E_i, rank 2, sum 2I, E_i E_j E_i = E_i/5; a tight redundant family z = (1/2) sum E_i z with V*V = 2I and |delta z| <= |eta|/sqrt2; the first pair's commutator has rank 4; nested N_k = Z_k (Z_k^T G Z_k)^-1 Z_k^T G with rank k and N_i N_j = N_min(i,j); coordinate flags need not be spectral; a Riesz projector needs its own gap hypothesis", "the views are notes_1751's petals (idempotent, rank 2, G-self-adjoint, sum 2I, E_i E_j E_i = E_i/5, pairwise rank 4, F_i/2 a resolution of the identity), with tr F_i F_j = 2/5 notes_0951's, through Phi pair_frame's Sylow fixed planes, and every view commutes with the Hodge operator (view_closures' Curl through sibling L4's Curl W = W H6) (cited); new (joined_views): all 15 commutators have rank 4, V V* has spectrum 2^6 0^30 so the noise bound is attained, the nested N_k form a flag and N_1..N_5 do not commute with the Hodge operator; the Riesz remark is recorded", T, "23"),
+    ("reflections, Hodge and the 430 preflight (joined-motifs note, 2 Nov 03:15 UTC, section 4)", "R6 = S_wedge G: R6^2 = 5I, R6^T G = G R6, tr R6 = 0, R6 rho(p) = sign(p) rho(p) R6 for all 120; h = R6/sqrt5 a self-adjoint involution with 3 + 3 eigenspaces; every E_i commutes with h and splits into one positive and one negative line; 2 x 430 = 1 and 306^2 = 5 mod 859; h_bar = 306^-1 R6, P_bar+- = 430 (I +- h_bar) of rank 3, rank(P_bar+- E_i) = 1; 553 exchanges the sign convention; R_out T = sigma T R_in, so for sigma = -1 the same-parity blocks vanish (a synthetic 15 + 15 counterexample)", "R6 is the model's Curl in the note's coordinates (Curl Phi = Phi R6: sibling L4's Curl W = W H6 in open_hodge_marker, on the same matrices, R6 = H6) and notes_1751's KH, so its square, self-adjointness and 3 + 3 split are notes_2137's H6 checks and its trace and orientation covariance hodge_star's, the views' commuting with it view_closures' (cited, not recomputed); 859 prime and 430 = 2^-1 mod 859 are motif_reflection_859's (sibling L1); new (joined_hodge_859): Phi's equivariance with the note's rho, tr(R6 E_i) = 0 and the split of every view over Q(sqrt5) and mod 859 (one line each), the two roots 306 and 553 and the swap, the ranks 3 and 3 mod 859, and the sigma rule on the 120 permutations (odd ones: zero same-parity blocks, nonzero cross blocks), the model's own instance in place of the note's synthetic shell; no physical D_F is tested, as the note says", T, "23"),
+    ("fresh infinite-parent replay (joined-motifs note, 2 Nov 03:15 UTC, section 5)", "sum_r (r.x)^2 = 60|x|^2, (r.x)^4 = 36|x|^4, (r.x)^6 = 30|x|^6 (36, 330, 1716 coefficients); epsilon(k) = 30|k|^2 - (3/2)|k|^4 + (1/24)|k|^6 + O(|k|^8); supports S 20, KS 2330, K^2 S 54170; all 180 entries of M0..M4 = 2G mu_n, mu = 1, 242, 58691, 14259954, 3470101592; M2 again by the two-root convolution (support 9361); A_w = 242 I6, D_w = 127 I6", "the root moments and the symbol are e8_anisotropy's and notes_0255's (cited; motif_spray's covariance in sibling L1); the matrix identity is parity_ports' on the edges through order 4 (with its root-pair route), band_closures' cubic sector at every order and notes_0204's for one current, the 9361 two-root sums walk_convolutions', and the root graph's -2 on the currents (H_R S = 242 S on the 240-root compression) notes_0204's and onemodel_closures' (cited, not recomputed); new (joined_current_lattice): the note's lattice route with its supports 20, 2330, 54170, re-deriving the identity once in the note's coordinates, and the comparison of the compression's moments 2G x 242^n (B = 0) with the lattice's at M2, where D_w = 127 I6 appears", T, "23"),
+    ("the old six-site packet against the six currents (joined-motifs note, 2 Nov 03:15 UTC, sections 1 and 5)", "D_old = 183 I6 + 52 J6 with eigenvalues 495, 183^5 and trace 1410 against tr D_w = 762; an orthonormal port equivalence preserving the parent and the observation would preserve this covariance, so it is impossible; the two readers live in the same parent as inequivalent observations", "D_old and its spectrum are schur_memory's, M1 = 241 I - J and its spectrum port_moments', the six-site matrices M0..M4 sibling L2's six_ref_residual's with port_leak's walk moments, the currents' mu_n I6 joined_current_lattice's and parity_ports' (cited, not recomputed); new (joined_port_compare): the inequivalence already at the first moment (numerical range [235, 241] against 242), the traces 1410 against 762 and the differing spectra at every order 1..4", OB, "23"),
+    ("one positive operator joins spray, waves, memory and autonomy (joined-motifs note, 2 Nov 03:15 UTC, section 6)", "(1) J* f(K)^2 J - (J* f(K) J)^2 = J* f(K) Q f(K) J >= 0; (2) X(2t) - X(t)^2 = t^2 D + O(t^3); (3) (I + W(2t))/2 - W(t)^2 = (t^4/4) D + O(t^6); (4) I - U*U = t^2 D + O(t^3); an exact reducing observation needs B = 0, i.e. D = 0; N44's sectors (1: 184, 2117; 10: 232, 389; 6: 242, 127; 4: 243, 83), D21 >= 83 I21, tr D21 = 7101; the 45-port ranks 1, 8, 26, 6, 4 with variances 2117, 967, 389, 127, 83, tr D45 = 21061", "(3), (4) and the insertion of Q behind (1) are onemodel_closures', chiral_time's and bridge_unitary_port's; (2) through total order 4 and D as the common leading coefficient of the four defects are sibling L5's threshold_five_faces (its heat face at t = s); the sector data and 7101 notes_1512's (and master_readout's), 21061 master_readout's (cited); new (joined_defect_series): (2) as a Gram form at t^5..t^8 in the free algebra on the blocks, its explicit t^3 and t^4 coefficients, and that the four defects part after D (heat t^3 = 24 times the wave's u^6, ADA and D^2 ratios 144 and 240 at order 4); the autonomy remark is exhibited by joined_current_lattice (B = 0 on the 240-root compression, D_w = 127 I6 on the lattice)", T, "23"),
+    ("tissue is the retained reaction of the same parent (joined-motifs note, 2 Nov 03:15 UTC, section 7)", "G(s) = [s + A - Sigma(s)]^-1, Sigma(s) = B (s + C)^-1 B* = D/s - B C B*/s^2 + O(s^-3); the wave memory equation with K_ret(t) = B sin(t sqrt C)/sqrt C B* and the hidden initial data; the heat kernel B exp(-tC) B*; D/(s + 256) <= Sigma(s) <= D/s; g_j(s) - 1/(s + a_j) >= b_j/[(s + 256)(s + a_j)^2] > 0 with the common floor 83/[(s + 256)(s + 243)^2]; rational Stieltjes intervals at s = 1, 16, 256 from five moments; the Riesz perturbation bound for a shelf", "the Schur law is master_response's, the memory equation with its echo bridge_memory_echo's, the band bounds schur_memory's and master_readout's, the first two Laurent terms D/z - B C B^T/z^2 on the root-site instance bridge_memory_echo's, the resolvent face G^-1 = z + A - D/z + B C B^T/z^2 - B C^2 B^T/z^3 in noncommuting blocks sibling L5's threshold_five_faces (cited); new (joined_defect_series): Sigma's coefficients at s^-4..s^-7 in the free algebra ((s + A - Sigma) G = I at s^-5..s^-8), the Schur recursion on the root-site instance through n = 8 with tr B C B^T = 163860, and the per-channel floor with the source-dark sector's bound common to all four (the sectors' (a, b) notes_1512's and master_readout's); the Stieltjes intervals and the Riesz bound are recorded, not replayed", T, "23"),
+    ("nested bubbles and source actions (joined-motifs note, 2 Nov 03:15 UTC, section 8)", "D_P = P D_R P + P K E K P for P <= R, E = R - P; eliminating V2 then V1 equals eliminating V1 + V2; K_V = K + J V J* has A_V = A + V, B_V = B, C_V = C, so the whole Sigma(s) and retarded kernel are unchanged; 21-versus-45 invariance does not transfer blindly", "the invariance of B, C, the hidden moments and the Krylov spaces under a source update inside the observer is master_response's and deep_wave_memory's (Theorem 2) (cited); the nested identity and the staged elimination are standard block identities, recorded, not replayed", SR, "23"),
+    ("the six views lift through the native memory (joined-motifs note, 2 Nov 03:15 UTC, section 9)", "dM_w = I6 dmu_w; H_w = L2(mu_w) (x) V6 with K acting as lambda (x) I6; T_up[p(K) S z] = p(K) S T z is bounded with norm |T| and commutes with K; all E_i, N_k and h lift, with sum E_i_up = 2 P_w", "the note makes the lift conditional on a scalar matrix measure; in the model that hypothesis holds: the six currents lie in the root graph's cubic sector and the bath between roots depends only on their inner product at every order (band_closures, as sibling L4's jacobi_channels uses it), so S^T f(Delta) S = 2G mu_w(f) for every polynomial f (through order 4 directly, joined_current_lattice); given it the lift is the standard tensor construction; recorded, not replayed", SR, "23"),
+    ("finite shelves are controlled prefixes (joined-motifs note, 2 Nov 03:15 UTC, section 10)", "a0 = 242, beta1^2 = 127, a1 = 25998/127, beta2^2 = 15930273/16129, fourth-moment deficit 15930273/127; Hankels 14357066531, 219823907, 15930273, 4115587; block Hankel ranks 63 (M0..M4) and 42 (M0..M2); rank 21n at n Krylov stages", "the wedge's Jacobi data and the four Hankels are sibling L4's jacobi_channels (with notes_1512), the deficit H3/H2 is the identity of sibling L1's motif_mode_floor read at the wedge (15930273/127), the ranks follow from the positive Hankels and the block-scalar structure (jacobi_channels' 45, 90, 135 for the 45 channels); cited, not separately replayed", T, "23"),
+    ("records, Gray residuals and return (joined-motifs note, 2 Nov 03:15 UTC, section 11)", "T42 an injective 42 x 21 zero-column-sum encoder, L = (T42^T T42)^-1 T42^T, p(z) = 1/42 + beta T42 z, 21 signal + 20 residual + 1 normalization; L (T42 X T42^T) L^T = X; X star Y = X L^T L Y", "the 42-outcome codec and its census are notes_0204's (cited); the left-inverse identities are general linear algebra, tested by the note on a synthetic codec; recorded, not replayed; the original 42 x 21 array is not in the model", SR, "23"),
+    ("rolls and coiled loops (joined-motifs note, 2 Nov 03:15 UTC, section 12)", "six non-tree edges of a spanning tree of K5; trivial holonomy on the six fundamental loops is equivalent to global trivialization for invertible transports; compressed transports need extra hypotheses", "replayed by sibling L1's motif_k5_gluing on a stated noncommuting instance (cited); the compressed case is recorded", T, "23"),
+    ("what a same-parent identification requires (joined-motifs note, 2 Nov 03:15 UTC, section 13)", "equal marked moments J1* K1^m J1 = J2* K2^m J2 for every m give a canonical unitary equivalence of the cyclic spans; finite prefixes do not; a finite cyclic clock cannot be the unloaded native propagator on a non-atomic cyclic space", "standard arguments, recorded; joined_port_compare uses the converse (an equivalence preserves every moment matrix); the non-atomicity is free_chain's (every port measure a.c. on [0, 256]), so the clock remark is consistent with the model", SR, "23"),
+    ("the motif typing table (joined-motifs note, 2 Nov 03:15 UTC, section 1)", "034: the invariant-kernel condition for autonomous descent; 430: the source requirement for literal compatible maps and the inverse of 2 in F859; h = 30: the auxiliary root/Coxeter normalization, not strict fermionic H30 and not 30 flag labels; White/Stripe: invariant/noninvariant representation sectors; Gray: a defect or residual, with Gray42, the 20-dimensional FOAM residual, the four-dimensional source-dark sector and an operator-valued defect not one object; the old six-site boundary, the six odd currents, the six K5 cycle coordinates, six C5 views and a J7 shell distinct until maps are supplied", "recorded as the note's typing, and kept: 034's B = 0 holds for the currents on the 240-root compression and fails on the lattice (joined_current_lattice); 430 = 2^-1 mod 859 (motif_reflection_859; used by joined_hodge_859); h = 30 enters as motif_spray's 60 = 2h; each view's White plane is its C5-fixed rank-2 range (joined_views); the source-dark four is notes_0204's kernel; Gray42 and the 20-dimensional residual are not built here; the maps supplied (cycles -> currents, cycles -> views) are checked and the six-site and six-current ports are shown inequivalent", SR, "23"),
+    ("the note's status line (joined-motifs note, 2 Nov 03:15 UTC, section 14)", "AUTH = NOT_PASS; ScientificGold = FALSE; G_OES = FALSE; TIME_BIND = UNBOUND; DYN_BIND = NOT_INSTALLED; BIND_Q31 = UNBOUND; SCR6 = NOT_RUN_OPERAND_ABSENT; physical_residual null; R6/A40/A52 frozen; no Matrix IDs allocated; N44 the current reference, the 45/67 extension N44P research, the N33 manifest historical", "recorded as stated; nothing here moves a gate", SR, "23"),
+    ("the protected mass clock (reference-clock note, filed 2 Nov 03:16 UTC as TIME_BIND_REFERENCE_CLOCK.md, section 2)", "f_m = (1/sqrt240) sum_r delta_r has a Weyl-invariant, inversion-even cyclic space C_m; the fifteen zero-sum K5 root functions W15 and the four inversion-odd dark columns annihilate every H^n f_m; C_m reduces H, K|C_m = H|C_m and <f_m, cos(u sqrt K) f_m> = <f_m, cos(u sqrt H) f_m> for every fixed V19 with K = H + J19 V19 J19^* >= 0", "replayed for master_readout's J15 and dark four (refclock_protected): J19^* H^n f_m = 0 exactly on the lattice for n <= 5 through N_1..N_6 at the 360 sites (and directly against master_readout's 22 raw readings, J15 = raw S Cr, and its four dark currents), and at every n by W(E8)-transitivity on the roots (join_e8_measure) and the dark four's oddness under x -> -x (multipole_filtration's parity); the reducing-subspace and functional-calculus step is the note's analytic argument, recorded; the note's own W15 is not in the repository; holds for the selected image only (the model's bond-root stand-in is not protected)", T, "23"),
+    ("the selected 19-source image (reference-clock note, filed 2 Nov 03:16 UTC, section 1)", "the image is W15 (eight linear and seven harmonic/trace-free quadratic root functions) plus the four inversion-odd N44 source-dark columns on a separate 120-site orbit; a C5-marked change of basis inside it changes nothing", "master_readout's J15 has this shape (image 8-dimensional in the linear root sector, 7 in the quadratic, J^T B_R J = 28 P3 + 8 (P0 + P8)) and its dark four, on the orbit of (-2, -1, 0, 1, 2, 0, 0, 0), are odd under x -> -x (multipole_filtration's parity; notes_0204's reader) and annihilate the cyclic space (refclock_protected); their span is N44's dark reader (master_readout); the theorem depends only on the image", T, "23"),
+    ("the mass moments m0..m4 (reference-clock note, filed 2 Nov 03:16 UTC, section 3; receipt mass_m0_m4_inherited)", "m0..m4 = 1, 184, 35973, 7355136, 1556789920; m1 and m2 recomputed from the two-step convolution, the higher numbers inherited", "all five hold and were already lattice checks (notes_0101, join_e8_triangle, band_closures): cited, not rechecked; the walk route from W_2..W_8 (refclock_halfreturn) adds m5 = 338685591840 and m6 = 75335064498405, new, and the shell route at depth 5 (refclock_protected) agrees with it through n = 5", T, "23"),
+    ("the certified half-return (reference-clock note, filed 2 Nov 03:16 UTC, section 4; receipt half_return_model_interval_exact)", "with P8(u) = sum_(j <= 4) (-1)^j m_j u^(2j)/(2j)! and |c_m - P8| <= 256 m4 u^10/10!, the first crossing of 1/2 lies in (892853037828096677, 892854727289957321)/11529215046068469760, displayed 0.0774426562 < u_half < 0.0774428029; c_m' < 0 on (0, pi/16)", "replayed exactly in Fractions (refclock_halfreturn): both endpoint signs, the 60-step bisection of [0, 1/10], the printed decimals and the outward-rounded display; first crossing by strict decrease (the integral step recorded; its ingredients support [0, 256], m1 > 0 and hi < 3/16 < pi/16 checked); sharpened about 116 times with the exact m5 and m6", T, "23"),
+    ("the 3/4 and 1/4 events and the scale-free ratios (reference-clock note, filed 2 Nov 03:16 UTC, sections 4-5; receipt clock_level_model_intervals, scale_free_clock_level_ratios)", "u_3/4 in [0.05335636587276071, 0.05335637047112366], u_1/4 in [0.09768660551250209, 0.09768795254620495]; T_3/4/T_1/2 in [0.6889777221552335, 0.6889790852206521] and T_1/4/T_1/2 in [1.2614032805678825, 1.2614230613528714] as zero-parameter predictions", "the intervals (exact dyadic endpoints with certified signs) and the bounds on the model ratios u_3/4/u_1/2, u_1/4/u_1/2 are replayed exactly (refclock_halfreturn, a T join for the model ratios) and sharpened to (0.68897892, 0.68897894) and (1.26140666, 1.26140693); as predictions of the observed ratios T_3/4/T_1/2, T_1/4/T_1/2 they hold only for a realization r(t) = c_m((t - t0)/rho), an external input (join 'one half-return fixes rho')", gates.CONDITIONAL, "23"),
+    ("physical calibration and constant-gain removal (reference-clock note, filed 2 Nov 03:16 UTC, section 5)", "r(t) = (y(t) - b)/(y(t0) - b) cancels a constant gain; rho = T_half/u_half with T_half/u_upper <= rho <= T_half/u_lower and the budget (T_half -+ e_t)/u at the levels 1/2 -+ e_r; the protected sector cannot be excited by driving only the nineteen source ports", "replayed in its finite parts: the bracket on rho, its relative width and the level-error widening (refclock_calibration), the scalar gain as the 1 x 1 case of the gain identity (refclock_gain), the port blindness from J19^* H^n f_m = 0 (refclock_protected); the realization, preparation and readout are external", gates.CONDITIONAL, "23"),
+    ("the curvature route (reference-clock note, filed 2 Nov 03:16 UTC, section 5)", "rho^2 = -184/r''(t0) and r''''(t0)/r''(t0)^2 = 35973/33856", "already in the model: the fingerprint m2/m1^2 = 35973/33856 (master_readout) and the derivative route with the gain-free falsifier 35973/33856 (notes_1512); cited, not repeated", gates.CONDITIONAL, "23"),
+    ("gain-independent full-matrix validation (reference-clock note, filed 2 Nov 03:16 UTC, section 6; receipt gain_removal)", "M(t) = L C(t) R, N(t) = M(t) M(0)^-1 = L C(t) L^-1, Tr[N4 - N2^2] = 21061/rho^4; Xi_N need not be Euclidean symmetric or positive; mock rho = 4/3 recovered from nonorthogonal rational L, R", "replayed (refclock_gain): the identity symbolically (3 x 3 symmetric symbols, nonorthogonal rational L, R), on the 45 channels with our L = I + 5U, R = I + 3U^T and mock rho = 4/3 (the receipt's L, R are not given), with an indefinite x^T Xi_N x; rho = (21061/tr)^(1/4) itself is deep_observer_algebra's; its use on a physical transfer is conditional", gates.CONDITIONAL, "23"),
+    ("the 19-source hidden covariance (reference-clock note, filed 2 Nov 03:16 UTC, section 6; receipt source19_hidden_covariance_trace and _eigenvalues)", "eigenvalues 967 (eight), 389 (seven) and 83 (four), trace 10791, rho = (10791/Tr Xi19)^(1/4)", "replayed (refclock_gain): the dark currents decouple from the roots in H (master_readout's zero root-dark block) and pointwise in H^2 (H^2 d = 0 on all 240 roots, new), and their block is scalar with variance 83 (master_readout, notes_0204), so the hidden covariance is diag(967 P3 + 389 (P0 + P8), 83 I4): the linear, quadratic and dark channels of master_readout; 21061 - 10791 = 2117 + 19 x 389 + 6 x 127", T, "23"),
+    ("what counts as TIME_BIND (reference-clock note, filed 2 Nov 03:16 UTC, section 7)", "one measured interval fixes rho = tau/sqrt(kappa) without the golden coupling; the gauge (tau, kappa) -> (c tau, c^2 kappa) remains; the Canon boundary tick must not be renamed rho; SI seconds need a traceable measurement; AUTH NOT_PASS, TIME_BIND UNBOUND, DYN_BIND NOT_INSTALLED", "agreed; finite parts replayed (refclock_calibration, refclock_protected); the gauge and its Fisher null vector are video_ten_fisher's and chiral_time's; no measured T_half, mass-mode preparation, calibrated record or intertwiner exists in the model, so the route is conditional and TIME_BIND stays UNBOUND", gates.CONDITIONAL, "23"),
+    ("the unwrapped history and the 4320 address (reference-clock note, filed 2 Nov 03:16 UTC, section 7; receipt 'unwrapped history n = ...')", "n = 4320 w + j: an address j alone loses elapsed time; cosine data choose no temporal orientation", "replayed (refclock_calibration): (w, j) for the receipt's n = -4321, -1, 0, 1, 4319, 4320, 4321, 9001, three of them at the address 4319; c_m is even; 4320 and 21600 as addresses, not periods, are chiral_time's", T, "23"),
+    ("the receipt's 39 checks (verification(20261102-030733).json, reference-clock note, filed 2 Nov 03:16 UTC)", "39 checked groups, all passing", "each replayed or cited: zero shell sums and ranks of the 19 columns (multipole_k5_source, master_readout, chiral_dark), inversion oddness (multipole_filtration), the curvature/fourth-derivative independence of the source (refclock_protected), root reflections and transitivity (join_e8_measure), support 9361 (walks_by_angle, walk_convolutions), mean 184, second moment 35973, variance 2117 (master_readout), endpoint signs, outward rounding, level ordering (refclock_halfreturn), level-error widening and unwrapped histories (refclock_calibration), gain cancellation, nonorthogonal mixing, non-symmetric covariance, mock rho = 4/3 and trace 10791 (refclock_gain, our own L, R), the time gauges (video_ten_fisher, chiral_time); the two 'exact mock strength' checks only in kind; the source hashes are not checked", T, "23"),
+    ("the canon's root-to-flower editions of 2 Nov (02:29 UTC, 29504 bytes, against 04:19 UTC, 51152 bytes): the diff", "the 04:19 edition rewrites the 02:29 note (re-filed 04:18) in eight parts, root I to provenance VIII, with a six-level ontology table, and is filed with a 39-row source-arrow table, a 27-row arrow ledger, a 98-check receipt and two verifiers", "read section by section (the 02:29 text through the Drive connector): new in 04:19 are the header's 98/98 and Library certificates, the executive two-action framing and (E0), the ontology table, in I.1 d d^T = 5I - J, the cycle projector, the exterior map, M U_E = U_V M and lam+ lam- = 5, in I.3 the symbol, the quotient spectrum and the 224 saddle, II.1's six-site form (S1)-(S2) and II.3's (S6)-(S8) (both recasting 02:29's Theorems S2-S3, Phi = E6 g + h in ran Q6 and its vacuum, now with x = iota g through the cycles and h in ran Q_J), II.3's (S9)-(S12), II.2's 15D no-go and square completion (S4), II.4, III.1's (B1) and (B3), all of III.2 and III.2b, IV.1's table and nested remark, IV.1b, IV.2's two-sided bound, IV.4's u^6 term, unitary and buffer remark, IV.5's 16-digit numbers, V.1's (P1), V.2's explicit POVM, V.3b, V.4's leaf row and vector, V.5, VI.1-VI.4 and VII-VIII; dropped from 02:29 are Theorem S1's theta-homotopy, section 4.1's illegal and legal six-sections, section 5.1's Routhian, section 6.3's six-part arrow test with its Leibniz rule and section A's workbook sizes (all replayed or recorded by the sibling replay of the 02:29 edition); each new claim is placed below", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), header: the 98-check packet and the located certificates", "98/98 checks in oes_root_spine_flower_verify_20261102.py; same-day Library certificates (an exact 360-site / two-shift reconstruction of the 45 means and hidden variances, a degree-7 multipole filtration) located and not re-executed; N44 the latest complete numbered release; the gates unchanged", "the count is the single verifier's: its 98 test names are the receipt's 98 entries, all passing (the 02:29 edition's 174 and 148 match the dual verifier's count with and without its regulator-free block, below); the certificates' content is already replayed on the lattice: master_readout (the 45 means and variances, 21061), walk_convolutions and the sibling replay's multipole_two_step (the 9361-point two-step kernel, not the truncated square), multipole_filtration (degree 7); the gates as recorded agree with onemodel_gates", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), executive theorem: two actions and one response", "V20 (q in P5 + P5, g = W_AS(a ^ b), six marked sites, the source decoupled from the bath to linear order, vacuum squared frequencies 4) and the 19D Schur-completed reference (F19, H = 240I - sum Shift_r, K = H + eps I + J V J^*, one isolated dressed zero for alpha, eps > 0; the regulator-free K0 with the zero at threshold) are distinct; G45(z) = Y^*(z + K)^-1 Y with G45^-1 = z + A - B (z + C)^-1 B^* (E0)", "the 02:29 content in new words: (E0) is master_response's Schur law, the 4 I10 vacuum layer 4's (native) and join_e8_source's, Dg(0) = 0 layer 4's, the dressed zero deep_zero_pole's and the sibling replay's flower_homotopy, the threshold variant multipole_k0_threshold's and flower_residues'; the pullback joining the two actions is replayed in canon_flower_pullback", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section I.1: the two K5 incidence kernels", "M+ M+^T = 3I + 11^T and d d^T = 5I - 11^T; rank M+ = 5, dim P5 = 5, rank d = 4, dim L6 = 6, P_L6 = I - d^T d/5; x ^ y -> (x_i y_j - x_j y_i) is an isomorphism Lambda^2 A4 -> L6; W_AS: Lambda^2 P5 -> L6 of rank 6 with dark kernel 4; sigma(D15^2) = 0^5 3^8 8^2 with traces 40, 200, 1240; M+ U_E = U_V M+; lam+ lam- = 5 and (I + L_V)^2 - 7(I + L_V) + 11I = 11^T", "nothing new to replay: k5_roots (B B^T = 5I - J), edge_tick and grand_lorentz (I - B^T B/5 the rank-6 cycle projector, W (W^T W)^-1 W^T), exterior and grand_lorentz (ker B = Lambda^2 H, the wedge chart), chiral_closures (M U_E = U_V M, sum and product 5, the golden polynomial, the D15 spectrum), source_port (rank 6, kernel 4), carrier and master_readout (the traces), the sibling replay's canon_gram_traces (3I + J against 5I - J); the two kernels are different six- and five-spaces, ker M meeting the cycles in a three-space (canon_flower_pullback)", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section I.2: the golden line", "R = [[2, -1], [-1, -2]], R^2 = 5I, P_t = (I - R/sqrt5)/2, eta = I - 2 P_t of signature (5, 1) on the cycles; the F20 normalizer swaps the +-sqrt5 lines; L_perp is not a seventh axis", "carried over from the 02:29 section 3.3: grand_lorentz (eta = P6 - 2 Pt), notes_2137 and f20_schur (D R D^-1 = -R); the L_perp remark is interpretive", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section I.3: the infinite parent and its saddles", "h(k) = sum_r (1 - cos r.k) on the eight-torus; the root-shell compression and the E8/2E8 quotient (0^1 224^120 256^135) differ in spectral measure and second moment; the 224 half-period is an index-one Morse saddle with Hessian 12I - 32 r r^T (eigenvalues -52, 12^7); the order-five saddles at 250 with H^2 + 5H - 25I = 0", "nothing new to replay: band (the symbol), notes_0255 (0, 224, 256 on 1, 120, 135; -52 and 12^7), saddle_density (12I - 32 r r^T at the 120 half-periods), notes_1340 (58080 on E8/2E8 against 57840), the sibling replay's usm_bulk_heat (the shell's 57656 against 57840), census_stabilizers and torsion_golden (the 250 family); the edition's 98 checks do not touch the order-five grid, as it says", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section II.1: the October action", "(S1) with M_s = diag(W, W)/4 and V_s = q^T diag(W, W) q/2 + g^T W_p g/2 on the six marked sites, (S2) with blocks A0, B0, C0 and the compulsory J_g^T D^2 g[q', q'], the SO(2) charge by Noether, a unique finite-energy static vacuum, squared frequencies 4, and 'the source-induced bath force is at least cubic in q'", "the equations are the 02:29 Theorem S2 at theta = 0, replayed there (the sibling replay's flower_source: the compulsory term; layer 4's native system; notes_1534: the charge (a^T G b' - b^T G a')/4, the same expression); uniqueness for the bare H is the l2 argument the sibling replay records; the order count (canon_flower_pullback): the bath is forced by -B0^* g(q), quadratic in q, and the bath's force back on the source is cubic, which is what the note's 'at least cubic' with its reason J_g = O(q) means (the 02:29 edition's 'cubic first response'); a precision on the wording, not an error", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section II.2: the chiral square and the positive completion", "the 5 + 10 grading admits no odd Dirac with one zero (nullity >= 5); sigma(F19), index -1; K = H + eps I + J V19 J^* (S3); <(x, h), K (x, h)> = <x, F19 x> + |C^1/2 (h + C^-1 B^* x)|^2 (S4); the wave action (S5); a rotating frame is a frame change", "nothing new to replay: chiral_closures (Theorem 1's no-go, the spectrum, kernel and index), deep_zero_pole (Theorem 5, K = T^T diag(F, C) T on generic blocks: (S4)), schur_zero_mode (the root-site instance), the sibling replays' flower_homotopy (the completion on the comparator) and usm_wave_dirac (the wave action's first-order form); the frame remark is recorded", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section II.2b: the regulator-free threshold spine", "K0 = H + J (F19 - S_H(0)^-1) J^* with S_H(0) a finite source form (h(k) = 30|k|^2 + O(|k|^4); integrands r^5, r^3); essential support [0, 256] with the zero at threshold, against [eps, 256 + eps] and an isolated zero for eps > 0; positivity and a one-dimensional kernel 'source-claimed, not independently replayed here'", "carried over from the 02:29 Theorem S1b: replayed on finite instances by the sibling replays (multipole_k0_threshold: congruence, positivity, kernel dimension 1; flower_residues: K_rf as the eps = 0 completion; threshold_action, threshold_moments: the 30|k|^2 and the heat constant); the dual verifier filed beside the note also checks them numerically (26 regulator-free checks); the infinite-lattice integrability and threshold eigenstate are analytic, not computed", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section II.3: the conditional nonlinear pullback", "for an isometric iota: L6 -> R^19 (absent from the canon) and x = iota g: (S7) L_pull with kinetic metric M_s + J_g^T J_g; (S8) its Euler-Lagrange equations; h* = -C^-1 B^* x and V_static = V_s + x^T F19 x/2 (S9); a unique static vacuum with squared frequencies 4 irrespective of F19's zero; D_q* = J_x^T B B^* J_x >= 0 of rank <= 6, D_(lambda q) = lambda^2 D_q (S10); M19 = I + B C^-2 B^* >= I (S11); the graph metric M_s + J_x^T M19 J_x (S12)", "(S6)-(S8) and the vacuum theorem recast the 02:29 edition's Theorems S2-S3 (Phi = E6 g + h with h in ran Q6; flower_source, flower_sections) with x = iota g and h in ran Q_J; (S9)-(S12) are new; replayed exactly on an instance (canon_flower_pullback): iota the cycles' inclusion into R^19's edge block, the model's commutator source, F19 symbolic in alpha, the comparator's bath: the metric, (S9), the vacuum (Euler's identity, Hessian 4 I10, no cross block) and, stronger than the note, F19 positive definite on the cycles for alpha > 0, so the zero mode is never reached; D_q = 389 J_g^T J_g of rank 6 at a witness, the graph metric M_s + Z0 J_g^T J_g with Z0 = 41598/41209 the dressed pole's norm; (S8)'s inertia term is flower_source's with iota isometric and its force term the chain rule; (S11) is deep_zero_pole's G(0); the S7 vacuum is unique for every isometric iota since its hidden block C_eps >= eps, unlike the 02:29 Theorem S2's six-section (flower_sections); the conserved energy (an autonomous Lagrangian), 'h = h*(q(t)) violates the h equation' and 'not an autonomous mass' are recorded", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section II.4: what equating the actions needs", "V20 = (S7) needs the original K5 chart and W_AS, an authenticated iota with J19 iota the native six-site field, equal pulled-back tensors (with W_p and units), one common operator (no omitted eps-shift) and same-provenance measurement", "new; conditions, recorded: no model object supplies the native six-site intertwiner; the eps-shift is the 02:29 replay's (K19 - H) x = eps x off ran J (flower_homotopy), and a six-section orthogonal to the chiral zero makes the static reduction illegal (flower_sections); the identification stays conditional", gates.CONDITIONAL, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section III.1: the chiral heat trace, moments and supertrace", "Z19(t; alpha) = 1 + 2 e^-8t + 4 sum [e^-t alpha lam + e^-t(3 + alpha lam)] (B1), Tr F19 = 40 + 40 alpha, Tr F19^2 = 200 + 120 alpha + 120 alpha^2 (B2), Tr(Gamma e^-tF19) = -1 for t >= 0 (B3), checked at three alpha", "(B2) carried over (deep_zero_pole, flower_source; Tr F19^3 is usm_spine_cubic's); (B1) and (B3) new and replayed for every alpha and t (canon_flower_spectral: the edge half's characteristic polynomial is x times the vertex half's times the auxiliaries', so Tr Gamma f(F19) = -f(0) for every f); the verifier's alpha = 0.5, 1, 1.75 are floating point", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section III.2: the relative heat action", "Tr e^-tH is infinite; tau_vol(e^-tH) = int e^-t h(k) dk; Z_rel(t) = Tr(e^-tK - e^-tH_eps) (B4); d/dz log det(I + V19 S0(z)) = Tr[(z + K)^-1 - (z + H_eps)^-1] = int e^-zt Z_rel(t) dt (B5); |Tr(e^-tK_N - e^-tH_eps,N)| <= C_t and the per-volume relative heat tends to 0 (B6)", "(B5) already replayed (master_response at z = 1 on the root-site instance; the sibling replay's usm_relheat_laplace as the Laplace image on the comparator; the verifier's z = 0.5, 3, 23 in floating point); tau_vol is usm_bulk_heat's trace per site; (B4) and (B6) replayed on the comparator (canon_flower_spectral): the spectral shift lies in [0, 19] and reaches 19, so C_t may be taken equal to the rank 19 for every t; the infinite-volume limit itself is analytic", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section III.2b: the representation's quartic", "Tr_(Lambda C^4) dGamma(A)^4 - Tr (A (x) I4)^4 = 24 det A for traceless A (B7), so a source action does not choose the fermionic representation or the higher spectral coefficients", "new against 02:29, from the six-reference joint closure; replayed symbolically by the sibling replay's six_ref_quartic (general traceless A, dGamma a Lie homomorphism); the conclusion is interpretive", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section IV.1: the 45-observer's first hidden covariance", "sectors 1, 8, 26, 6, 4 with means 184, 212, 232, 242, 243 and variances 2117, 967, 389, 127, 83; D45 = Y^* K Q K Y = B B^* of trace 21061, independent of J V J^* and eps as Q J = 0; a nested 21 can change; N44's 21 has sectors (1, 10, 6, 4) and trace 7101", "the values are master_readout's (on the lattice) and bridge_comparator's (blocks), the independence chiral_time's (Q K Y = Q H Y), 7101 master_readout's and notes_1512's; the nested change is replayed as an obstruction (canon_flower_nested)", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section IV.1b: the multipole hierarchy", "the certificates' 360-site two-shift moments (9361 support points), the filtration (degrees 0, 1, 2, 3, 7; cumulative ranks 1, 9, 35, 41, 41, 41, 41, 45), the heat returns t^-(4 + l) and the first logarithmic orders 3, 4, 5, 6, 10 under the band's quadratic minimum (L1b)", "new against 02:29; replayed by the sibling replays: multipole_filtration (orders, ranks, cumulative ranks), multipole_dark_parity (why degree 7), multipole_two_step (the 9361-point kernel), multipole_heat_law (exponents and branch orders, conditional on the Laplace asymptotics); nothing new here", gates.CONDITIONAL, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section IV.1b: nested observer control", "a rational 19-supported source correction changes D15 10459 -> 10464 and D21 7101 -> 7106 while D19 = 10791 and D45 = 21061 stay; the proved invariant is the full containing observer's", "replayed (canon_flower_nested): the edition's correction is not given, and one rational V on the comparator reproduces all four numbers (3I + V positive definite); there the change is the Gram V_(S cap J, J - S) V_(J - S, S cap J), so a nested observer's hidden trace can only grow; 10791 is the sibling replay's refclock_gain", OB, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section IV.2: resolvent, memory and positivity", "G(z) = [z + A - Sigma(z)]^-1, D45/(z + 256 + eps) <= Sigma(z) <= D45/(z + eps), (-1)^n Sigma^(n)(z) >= 0, (L3) the z-independent rank <= 19 inverse correction, the Loewner matrix >= 0; higher dressed moments change", "nothing new: schur_memory (V/(s + 256) <= Sigma(s) <= V/s, shifted by eps as C = Q (H + eps) Q), deep_softening (complete monotonicity), master_response (L3), loewner_kernel (the Gram factorization); carried over from 02:29 except the two-sided bound", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section IV.3: the block-Jacobi tower", "M2 - M1 D^-1 M1 >= 0 (L4), A0 = D^-1/2 M1 D^-1/2 and the next block from the Schur variance, an infinite matrix Jacobi tower; finite 90D/135D comparators match lower moments only", "carried over; the sibling replays' jacobi_channels (the bath's chain on the 45 channels, A0 and T1^2 per sector) and jacobi_two_rung (the two comparators share A, D, M1); nothing new", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section IV.4: the wave fingerprint and the unitary", "(I + C_Y(2u))/2 - C_Y(u)^2 = (u^4/4) D45 - (u^6/48)({A, D45} + 2 M1) + O(u^8) (L5), C^(4)(0) - C''(0)^2 = D45, the Volterra memory B C^-1/2 sin((u - s) sqrt C) B^*, pi/(2 sqrt83) no universal buffer, the compatible unitary e^-iu sqrt K, zero modes drift, F19's frequencies are not the compressed sqrt K's", "the u^4 term carried over (chiral_time); the rest already in the model: deep_wave_memory (M1 = -L^(6)(0)/30 - {A, D}/2 is the u^6 law), deep_observer_algebra and refclock_gain (C'''' - C''^2 = D), video_ten_buffer (pi/(2 sqrt b) read as a time has the wrong scaling), usm_wave_dirac (the first-order flow, the kernel value carried separately), deep_softening (the compressed sqrt against the sqrt of the compression); the last claim by hand: K J q0 has the hidden part B^* q0 != 0, so <J q0, sqrt K J q0> > 0 = <q0, F19 q0>; the Volterra kernel is standard, recorded", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section IV.5: the dressed zero pole's numbers", "Psi0 = (q0, -C^-1 B^* q0), Z0 = 1 + |C^-1 B^* q0|^2, lim z J^*(z + K)^-1 J = q0 q0^*/Z0 (L6); on the 90D comparator (eps = 3, alpha = 1) Z0 = 1.0094396855055936, residue 0.9906485888744649, positive gap 1.3500734237153602", "the law and the ten-digit values carried over and replayed (deep_zero_pole, flower_residues); the 16-digit values new (canon_flower_receipt): Z0 and the residue lie within 2 x 10^-16 of 41598/41209 and 41209/41598 but are one and two units in the last place off the nearest doubles, and the gap is right to 12 significant digits only (K19's least positive eigenvalue lies in (1.3500734237156, 1.3500734237157), the double auxiliary level x-, flower_sections; the verifier's value is scipy's eigh on the 90 x 90 K): floating-point rounding, a precision", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), sections V.1-V.2: decoded labels and the seven-level family", "p(u) = 1/67 + beta T67 z(u) with 1^T T67 = 0, rank 45, L67 T67 = I45, and C_Y(u) = beta^-1 L67 [P(u) - 1 1^T/67] Z^-1 for 45 independent preparations (P1); Herm_0(7) has 48 dimensions, rho(z), E_j with sum E_j = I and Born probabilities 1/67 + delta eta (T67 z)_j; tomography of 45 levels needs 2025 effects", "bridge_comparator (T of rank 45 with zero column sums; the seven-level POVM on an exact rational instance) and grand_tomography (2025); (P1) is linear algebra from L67 T67 = I, recorded; the verifier's T = [I45; -1^T] is the synthetic stand-in the edition names", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section V.3: the nine-shape chart", "nine shape/intensity coordinates after the common U(1); a rank-nine Jacobian and gauge section are needed; g has rank <= 6 and keeps the SL2 fibre; 160 x 091 a nine-chart witness", "carried over (02:29 section 5.1): six_ref_source (rank 9 off the phase line, five charts), flower_source (g's derivative kernel at a witness), observer_completion (the SL(2) fibre); the 160 x 091 chart is absent", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section V.3b: no universal nine-scalar leaf", "the nonzero source mod phase is R_{>0} x CP^4; no global rank-nine smooth coordinates into R^9, since p1(T CP^4) = 5u^2 != 0; the identifier 099 unresolved", "new against 02:29; already an obstruction in the sibling replay's six_ref_shape (p1 = 5u^2, the tangent bundle not stably trivial, so no nine readings of rank nine everywhere; the weaker 'not an open subset of R^9' also follows); the 099/990 stopline is six_ref_decoder's record", OB, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section V.4: the six-petal tissue with its leaf row", "Q12 with det 385385; O_f rank 5 and history rank 10; O_ell = [e_0^T, 0] at phases 1 and 3 gives 5 -> 11 -> 11 -> 12; O_ell Q12^3 (a, 7a) = -117; C6 is not C5", "the leaf row and the vector are new and replayed exactly (canon_flower_leaf: blind line (a, 7a) after the third context, -117); Q12, the flower ranks and the stripe pair are flower_twelve's, whose own leaf row (the second copy) gives the line (2a, a); the C6/C5 remark is interpretive", T, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section VI.2: time as a parameter", "C_phys(t) = Y^* cos(t sqrt K/rho) Y with rho = tau/sqrt kappa gives C'''' - C''^2 = D45/rho^4 and rho = (21061/Tr[C'''' - C''^2])^(1/4) under the same-parent normalized hypothesis; (tau, kappa) -> (s tau, s^2 kappa) leaves it; C4320 and the order-five rotations are addresses", "already replayed: deep_observer_algebra (rho = (21061/tr)^(1/4)), refclock_gain (the same through constant gains), video_ten_fisher and chiral_time (the Fisher null direction; 4320 as an address); conditional on a measured same-parent response", gates.CONDITIONAL, "23"),
+    ("the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC), section VII: the fixed point", "eight achieved items under the declared hypotheses: the K5 distinction and golden algebra, the 19D Dirac with its heat trace and supertrace, one positive Schur stiffness with one dressed pole and a fixed rank-19 correction, the relative heat action against the diluted bulk, the nonlinear pullback with its dressing metric and 4^10 vacuum, the 45 observer's fingerprints, the multipole exponents, the flower12 leaf", "each item is replayed: chiral_closures and k5_roots (1), chiral_closures and canon_flower_spectral (2), deep_zero_pole, master_response and flower_homotopy (3), usm_relheat_laplace and canon_flower_spectral (4), canon_flower_pullback (5), master_readout, deep_softening, loewner_kernel, chiral_time and bridge_comparator (6), multipole_heat_law (7, conditional), flower_twelve and canon_flower_leaf (8); the 'not achieved' list and the priority objects are recorded", T, "23"),
+    ("the canon's source-arrow table (OES_ROOT_TO_FLOWER_SOURCE_ARROWS_20261102.csv, filed 2 Nov 04:18 UTC, 6023 bytes)", "39 typed arrows R01-R07, S01-S07, B01-B05, L01-L04, L07-L09, P01-P08, F01-F05 (no L05, L06) with proof grades, physical binding NO (F05: NOT_PHYSICAL) and statuses", "every numeric row agrees with the model: R01-R02 (k5_roots, exterior), R03 (observer_completion), R04 (source_port), R05 (band.edge), R06 (grand_lorentz), S01 (chiral_closures), S02 (master_readout), S03 (deep_zero_pole, schur_zero_mode), S05-S06 (canon_flower_pullback), S07 (multipole_k0_threshold), B03 (master_response, usm_relheat_laplace, canon_flower_spectral), B04 (usm_bulk_heat; the powers 4, 5, 6, 7, 11 multipole_heat_law's, conditional), B05 (six_ref_quartic), L01 and L04 (master_response), L02 and R07 (master_readout and multipole_two_step replay the certificate the table calls not rerun), L03 (jacobi_channels), L07 (multipole_filtration), L08 (multipole_heat_law), L09 (canon_flower_nested), P01-P03 (bridge_comparator, grand_tomography), P04 (flower_twelve, canon_flower_leaf), P08 (six_ref_shape); the open rows S04, B01, B02, P05-P07 and F01-F05 agree with onemodel_gates", T, "23"),
+    ("the canon's arrow ledger (OES_ROOT_SPINE_FLOWER_ARROW_LEDGER_20261102.csv, filed 2 Nov 04:18 UTC)", "27 rows ROOT to FLOWER with grades and missing inputs: M M^T = 3I + J and rank 5; dim L6 = 6; W_AS 6 + 4; spec [0, 256]; Dg(0) = 0; (R^10 - 0)/SO2 = R+ x CP4; 9 + 10, index -1, one zero; eta (5, 1); 96 = 32 x 3; 21 = 1 + 10 + 6 + 4; 45 = 1 + 8 + 26 + 6 + 4; rank <= 19; trace 21061, min 83; u^4 D45/4; L67 T67 = I45; rank <= 6 with >= 3 blind; 5, 11, 11, 12 and 385385; Xi = a^2 D45 with a = kappa/tau^2", "every number agrees with the model (k5_roots, exterior, source_port, band.edge, layer 4, six_ref_source, chiral_closures, grand_lorentz, grand_fock, master_readout, notes_1512, master_response, chiral_time, bridge_comparator, flower_source, flower_twelve); Xi = a^2 D45 with a = kappa/tau^2 = 1/rho^2 is (F2)'s D45/rho^4 (deep_observer_algebra); its 'not replayed' 45 columns are master_readout's; its SPINE rows K_theta = (1 - theta) H + theta K19 >= 0, H + theta J (F19 - S0^-1) J^* >= 0, the six-site E6 and 'the pulled-back master action, correct J_g D^2 g term and conserved energy' are the 02:29 edition's Theorems S1, S1b and S2 (flower_homotopy, flower_residues, flower_source; the regulator-free member is a convex combination of H and K_rf >= 0), which the 04:19 note no longer states: the ledger was carried over", T, "23"),
+    ("the verification receipt (OES_ROOT_SPINE_FLOWER_VERIFICATION_20261102.json, filed 2 Nov 04:18 UTC, 16051 bytes)", "num_checks 98, num_pass 98; reference values 80, 440, 21061 and the five channels; the comparator's Z0, residue and gap; the flower's 385385, (5, 11, 11, 12), 10, -117; the certificates' 9361, filtration, powers, [0, 256], D21 7101 -> 7106 and D45 21061 -> 21061; 'separate certificates not folded into count'", "the counts as recorded: 98 named entries, all passing, the single verifier's 98 test names (ROOT 10; SPINE 4 + 3 x 8 + 13; BRANCH 8 + 2; SPINE-LEAF 2; LEAF 9 + 2 + 12; PETAL 7 + 4; FLOWER 1), as the note's 98/98 says; 80 and 440 are 40 + 40 alpha and 200 + 120 alpha + 120 alpha^2 at alpha = 1 (deep_zero_pole, flower_source), 21061 master_readout's; the gap's last digits corrected (canon_flower_receipt); the other values replayed above", T, "23"),
+    ("the canon's verifier (oes_root_spine_flower_verify_20261102.py, filed 2 Nov 04:18 UTC), read as text", "98 checks: exact sympy K5 identities; floating-point 19D Dirac at alpha = 0.5, 1, 1.75; the 90D comparator; a six-row wedge with Iota the first six coordinates of R^19; a synthetic T67; a seven-level POVM; the rho reconstruction", "not run (nothing from Drive is executed); its comparator is the model's (identified as in flower_homotopy); its nonlinear fixture is the six coordinates x_i y_j - x_j y_i of the first six pairs (not W_AS, and not in the cycles), placed by Iota on the five vertices and the first auxiliary of the 9 + 10 order, the six that flower_sections finds orthogonal to q0; the nonlinear checks are replayed here on the model's commutator source with iota onto the edge block (canon_flower_pullback)", T, "23"),
+    ("the canon's dual verifier (oes_root_spine_flower_dual_verify_20261102.py, filed 2 Nov 04:18 UTC), read as text", "the 98 checks plus HODGE, HOMOTOPY, SCHUR, SOURCE, SPECTRAL, TIME and REGFREE blocks", "not run; by its text 174 named checks (98 + 5 + 20 + 10 + 3 + 11 + 1 + 26): the 02:29 edition's 174; without its 26 REGFREE checks it has 148, that edition's other count, which accounts for both of that edition's numbers; the 04:19 edition cites only the 98; its blocks are replayed in the model: grand_lorentz and f20_schur (HODGE), flower_homotopy (HOMOTOPY), flower_sections (SCHUR), flower_source and canon_flower_pullback (SOURCE), chiral_closures and canon_flower_spectral (SPECTRAL), video_ten_fisher (TIME), flower_residues and multipole_k0_threshold (REGFREE)", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -36030,7 +40571,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,

@@ -775,6 +775,12 @@ def test_the_drive_replays_of_2_nov():
         assert all(out.values()), out
 
 
+def test_the_drive_replays_of_2_nov_b():
+    for check in (dots.canon_gram_traces, dots.motif_source_moments, dots.motif_mode_floor, dots.motif_spray, dots.motif_k5_gluing, dots.motif_reflection_859, dots.motif_d14_table, dots.six_ref_source, dots.six_ref_shape, dots.six_ref_court, dots.six_ref_residual, dots.six_ref_decoder, dots.six_ref_quartic, dots.multipole_filtration, dots.multipole_dark_parity, dots.multipole_heat_law, dots.multipole_two_step, dots.multipole_k5_source, dots.multipole_k0_threshold, dots.jacobi_channels, dots.jacobi_two_rung, dots.jacobi_fractional, dots.open_clock_word, dots.open_hodge_marker, dots.open_golden_coupling, dots.threshold_moments, dots.threshold_action, dots.threshold_pole_toy, dots.threshold_five_faces, dots.flower_homotopy, dots.flower_residues, dots.flower_sections, dots.flower_source, dots.flower_twelve, dots.usm_bulk_heat, dots.usm_spine_cubic, dots.usm_relheat_words, dots.usm_relheat_comparator, dots.usm_relheat_laplace, dots.usm_wave_dirac, dots.joined_defect_series, dots.joined_current_lattice, dots.joined_views, dots.joined_hodge_859, dots.joined_port_compare, dots.refclock_protected, dots.refclock_halfreturn, dots.refclock_gain, dots.refclock_calibration, dots.canon_flower_pullback, dots.canon_flower_spectral, dots.canon_flower_receipt, dots.canon_flower_nested, dots.canon_flower_leaf):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out

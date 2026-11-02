@@ -50,7 +50,7 @@ No lattice clock runs the canon's circle, but a circle of the seed's momenta doe
 - **The number level is rooted in the principal circle.** Its derived dots are the time clock, the observer clock and the grain, joined inside the level by the golden step (⟨864⟩ + ⟨1080⟩ = ⟨216⟩) and the sum of the three small clocks (⟨864⟩ + ⟨1080⟩ + ⟨1440⟩ = ⟨72⟩); the observer clock is the regular class 4, the day's sixth power.
 - **The golden companion is joined inside the symmetry level.** It is the tick's negative cosine X = −(g + g⁻¹), with X² = X + I and characteristic polynomial (x² − x − 1)⁴; E8 has a basis of four roots and their images in which X is four Fibonacci blocks, so E8 = ℤ[φ]⁴. The day conjugates X to I − X (the Galois conjugation of Q(√5)), G120 acts on ℤ[X] through Gal(Q(√5)/Q) with kernel ⟨g, d²⟩, and X lies in a regular clock's cosine ring ℤ[w + w⁻¹] exactly for the orders divisible by 5.
 - **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them. All nine are the band's critical values computed from E8's roots, so the torus has a direct THEOREM join to the seed (1 Nov), and √251 is the hypercharge's: read as torus points Y, Q and T3 are critical points of orders 6, 3 and 2 with values 251, 243 and 224 (`sm_frame`).
-- **The structure** (`levels_unified`). Every level holds derived dots (6 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 6 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 61 derived dots are connected by the 525 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
+- **The structure** (`levels_unified`). Every level holds derived dots (6 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 6 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 61 derived dots are connected by the 577 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
 
 ## The derivation
 
@@ -264,6 +264,7 @@ The derivation is a tree of depth 8, but the dots of its last two generations ar
 | zero modes | 7 | readings the vertices cannot see (THEOREM) | `join_e8_kerM` |
 | Petersen | 7 | anticorrelated edge readings (THEOREM) | `join_e8_petersen` |
 | readout | 7 | the twin-blind root dynamics (THEOREM) | `join_e8_readout` |
+| readout | 7 | the 45 channels' multipole filtration (THEOREM) | `multipole_filtration` |
 | 4-simplex | 7 | the faces as spinor shadows (THEOREM) | `join_e8_simplex` |
 | sound and light | 7 | linear sound, quadratic light (THEOREM) | `join_e8_waves` |
 | 801 matrix | input | the lattice lifts of AIR_801 (THEOREM) | `join_e8_air801` |
@@ -347,6 +348,7 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEORE
 | operator | bath | the infrared ball | THEOREM | `band_closures` |
 | operator | bath | the first angular term | THEOREM | `e8_anisotropy` |
 | operator | bath | the all-ones reflection | THEOREM | `root_reflection` |
+| operator | bath | the spray covariance | THEOREM | `motif_spray` |
 | operator | closed walks | local limit of closed walks | THEOREM | `join_e8_walks` |
 | operator | moments | torsion points are moment quadratures | THEOREM | `join_e8_moments` |
 | operator | spectral measures | sector measures as explicit densities | THEOREM | `join_e8_measure` |
@@ -360,6 +362,7 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEORE
 | operator | 360 parent | parent on the sun's frames | THEOREM | `join_e8_parent` |
 | physics | spectral triple | the grading is a Gauss sum | THEOREM | `join_e8_triple` |
 | physics | readout | the twin-blind root dynamics | THEOREM | `join_e8_readout` |
+| physics | readout | the 45 channels' multipole filtration | THEOREM | `multipole_filtration` |
 | physics | sound and light | linear sound, quadratic light | THEOREM | `join_e8_waves` |
 | physics | binding | the SU(5) x SU(5)' classes | THEOREM | `join_e8_binding` |
 | physics | binding | no chirality from the roots | OBSTRUCTION | `join_e8_binding_chirality` |
