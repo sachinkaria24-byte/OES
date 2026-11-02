@@ -2138,28 +2138,32 @@ New here:
 - **The separate model's moments and band** (`notes_1757`). The roots' eighth moments are 57/2, 39, 179/6 and 179/6 along the axis, a root, the charge (1, 1, 1, 0, −3, 0, 0, 0) and the color (1, 1, 1, 0, …). Twice the color and the charge have one dominant representative, so a Weyl element of E8 explains their equal profiles. The band's Taylor remainder after degree 8 lies in [0, q⁵/30240]. Its critical values are 224 (layer 22's E7 + A1 saddle), 256 (D8-type maxima, Hessian −4I) and 250 (the tick's fixed momenta).
 - **Recorded (REPORTED).** The canon's N36 adds the Level Join and Degree Moment tabs and N37 the dispersion tabs (3770 and 3725 sheets), keeping every prior cell; its pending claims K04, X01 and X02 stay unformed. The separate model's reconciled branches (4242 artifacts, 682 relationships), N37 source integration and source aliases add no new mathematics. The claim ledgers' cubic-node, syntheme and two-snapshot rows need the hub's definitions of the trace cubic and the snapshot maps, which the notes do not give, and stay reported.
 
-**The Drive checks of 2 Nov, 00:18–01:51: eight replayed sources.** Each source was replayed as checks by its own unit, and each unit was reviewed adversarially. All eight passed after fixes. Together they add 40 checks, 43 joins (35 THEOREM, 5 OBSTRUCTION, 2 CONDITIONAL, 1 SELECTED_REFERENCE) and 109 ledger rows. No checked number in any source failed. The corrections are about wording, conventions and identifications. The scripts, zips and HTML on Drive were read as data and not run.
+**The Drive checks of 2 Nov, 00:18–01:51: eight replayed sources.** Eight units replayed the eight sources as checks (the ten-video review in two units, the ten-frontier bridges and the canon's root-to-branch note in one), and each unit was reviewed adversarially. All eight units passed after fixes. Together they add 40 checks, 43 joins (35 THEOREM, 5 OBSTRUCTION, 2 CONDITIONAL, 1 SELECTED_REFERENCE) and 109 ledger rows. No checked number failed in the W0 note, the deep-unification master, the zero-pole note, the bridges, the root-to-branch note, the torsion census or the grand adapter join; their corrections are about wording, conventions, identifications and slips that change no checked number. The ten-video review has wrong formulas and numbers, listed under its corrections. The scripts and the HTML workbench on Drive were read as data and not run; the packet zips were neither run nor unpacked.
 - **The canon's W0, Spanda and Firefly note (00:09)** (`w0_spanda`, `w0_oscillator`, `w0_subsets`, `w0_firefly`).
-  - **Spanda is not the Lagrangian.** The turn and spanda Laplacians on the ten edges are layer 22's 2I − R − R⁻¹ and 2I − R² − R⁻² = GᵀG. Their sum 5(I − Π_C5) shares the power sums 40 and 200 with the carrier's D², but not 1000 against 1240. Every intertwiner vanishes on the eight moving directions (an OBSTRUCTION).
-  - **Turn and spanda are B² and B⁻².** On the golden directions the two Laplacians minus I are the images of B² and B⁻², so L_turn·L_spanda = L_turn + L_spanda.
-  - **The subset swap.** It is a pentagon reflection, a double transposition, which fixes one face in each of the tick's seven orbits.
+  - **Spanda is not the Lagrangian.** The note does not define the turn and spanda Laplacians; read on layer 22's edge tick R they are 2I − R − R⁻¹ and 2I − R² − R⁻² = GᵀG (G = R − R⁴, layer 22's Spanda). Their sum 5(I − Π_C5) shares the power sums 40 and 200 with the carrier's D², but not the third, 1000 against 1240. Every intertwiner vanishes on the eight moving directions (an OBSTRUCTION).
+  - **Turn and spanda minus I are B² and B⁻².** On the eight golden edge directions L_turn − I and L_spanda − I are the images of B² and B⁻², and both are −I on the rotor plane, so (L_turn − I)(L_spanda − I) = I and L_turn·L_spanda = L_turn + L_spanda.
+  - **The subset swap.** The note does not name it; its counts (order 2, 7 fixed faces, 12 pairs) make it a double transposition of the vertices, up to conjugacy. The pentagon reflections x ↦ c − x are such, and each fixes one face in each of the tick's seven orbits.
   - **The flash.** The flash and golden steps span the seam, and their step subgroups meet in the observer clock ⟨1080⟩.
 - **The ten-video review (1 Nov 23:48)** (`video_ten_arithmetic`, `video_ten_defect`, `video_ten_reduction`, `video_ten_chiral`, `video_ten_elsewhere`, `video_ten_codes`, `video_ten_fisher`, `video_ten_mandala`, `video_ten_buffer`).
   - **The defect's ceiling.** 0 ≤ L(u) ≤ I.
   - **The first-order twin's cubic term.** For a source update inside the observer the compressed mismatch Yᵀ(KQH − HQK)Y vanishes. The θ³ term of I − F*F is (i/2)[V′, D45]: on the 45 channels it is zero exactly when the compressed source has no entries between different variance groups, as for the undressed bath.
-  - **D19's characteristic polynomial.** It is computed, and its one α-free ratio, φ, misses the warped tower's j₁,₁/j₀,₁ by more than 1.5 %.
+  - **D19's characteristic polynomial.** It is computed, and the one α-free ratio of its singular values, φ, misses the warped tower's j₁,₁/j₀,₁ by more than 1.5 %.
   - **The golden gram as the Penrose splitting.** The gram is √5(P₂ − P₁) on the Penrose planes.
   - **Corrections:**
-    - The warped graviton mode is e^{2ky}(J₂ + bY₂), not J₁.
+    - The warped graviton mode is e^{2ky}(J₂ + bY₂), not e^{2ky}J₁.
     - The free-fall phase has the wrong sign.
-    - (2117/83)^{1/4} = 2.2473, not 25.506.
+    - The Zeno form halves the leading exponent: P = (1 − ΔE²t²/N² + O(N⁻⁴))^N; the limit 1 holds.
+    - 3.5/3.044 = 875/761 is not exactly 256/224 = 8/7 (they differ by 0.61 %).
+    - The displayed cubic coefficient i(κt/τ)³Yᵀ(KQH − HQK)Y is identically zero, and the bound (2117/4)|Δq_m|²u⁴ fails for u > (4/2117)^{1/4}, u_OR included when |Δq_m| < 1.
+    - 8/λ₋ = 4(5 + √5)/5, not 8(5 + √5)/5; √((3 + λ₊)/λ₋) = 2.1883451…, not 2.188346, and it misses the CMS range 2.07–2.15.
     - √(8/λ₋) ≈ j₀,₁ is a coincidence at a chosen α.
+    - "25.5 times faster" is a ratio of quartic coefficients; in time the mass channel is (2117/83)^{1/4} ≈ 2.247 times faster (the bridge audit's remark).
 - **The separate model's deep-unification master (00:21)** (`deep_wave_memory`, `deep_energy_exchange`, `deep_softening`, `deep_zero_pole`, `deep_saddles`, `deep_observer_algebra`).
   - **The wave-memory defect to u⁸.** The new term is M₂/320 + … with M₂ = BC²Bᵀ. A source update inside the observer leaves the six-site port's whole 51-dimensional Krylov reach unchanged.
   - **Energy exchange runs both ways.**
-  - **Bath-induced softening.** The bound d/(8M^{3/2}) is certified on the comparator. The receipt's "certified bound" is this formula at M = ‖H90 + 7I‖, not at 256 + ε.
-  - **Z0 is exact.** The receipt's Z0 is exactly 43238/42849 = 1 + 389/207².
-  - **Every root half-period is a saddle.** All 240 roots' half-periods are index-one saddles at 224, with Hessian 12I − 32 r rᵀ.
+  - **Bath-induced softening.** The bound d/(8M^{3/2}) with M = 256 + ε holds on the comparator at ε = 0 and 7 (outward-rounded intervals); the theorem's operator steps are the note's. The receipt's "certified bound" is this formula at M = ‖H90 + 7I‖, not at 256 + ε.
+  - **Z0 identified.** Reading the comparator's hidden block as (200 + 7)I and |Bᵀq₀|² = 389, Z0 = 1 + 389/207² = 43238/42849, and the receipt's Z0 = 1.0090783915610633 and residue agree with 43238/42849 and its inverse to within 10⁻¹⁵.
+  - **Every root half-period is a saddle.** All 240 roots' half-periods are index-one saddles at 224, with Hessian 12I − 32 r rᵀ in k = 2πx.
   - **No five-fold plane lattice** (an OBSTRUCTION).
   - **Quasi-locality in root hops.**
   - **Two CONDITIONAL readings.** The effective wave speed √30 ℓ/ρ needs a five-dimensional reduction that is not built. The scale identity C'''' − C''² = D/ρ⁴ needs a calibration.
@@ -2174,19 +2178,19 @@ New here:
   - **Corrections:**
     - 27 × 8 × 20 = 4320 holds only as integers, not as groups.
     - The branch values (5 ∓ √5)/2 are squared frequencies.
-- **The separate model's all-dots theorems: the torsion census (01:17)** (`torsion_census`, `torsion_golden`, `torsion_index`, `saddle_density`, `loewner_kernel`).
-  - **The census at orders 3, 4 and 5 is exact.** Every family's energy and index match the model's census, and every one of the 48384 A4 + A4 points has the golden Hessian H² + 5H − 25I = 0.
-  - **The Poincaré–Hopf count balances.** The torsion points are exactly 8 of the census's 11 families, with signed index +28800. The other three families (A5 + A2 + A1, A6 + A1, A7) carry exactly −28800, so the "further critical points" the note leaves open are already the census's.
-  - **The saddles' log term.** The (E − 224)³ log term's coefficient is −5/[64π⁵√(26·6⁷)].
+- **The separate model's all-dots theorems: the torsion census (01:17–01:18)** (`torsion_census`, `torsion_golden`, `torsion_index`, `saddle_density`, `loewner_kernel`).
+  - **The census at orders 3, 4 and 5 replays exactly.** Every family's energy and index match the model's census, and every one of the 48384 A4 + A4 points has the golden Hessian H² + 5H − 25I = 0.
+  - **The Poincaré–Hopf count balances.** The stationary points of orders 2 to 5 are exactly the points of 8 of the census's 11 families, with signed index +28800. The other three families (A5 + A2 + A1, A6 + A1, A7) carry exactly −28800, so the census already holds critical points that balance the count the note leaves open (whether the census is complete is not decided).
+  - **The saddles' log term.** The 120 E7 + A1 saddles contribute −5/[64π⁵√(26·6⁷)] (E − 224)³ log|E − 224| to the density (on the quadratic model; the Morse-lemma transfer is cited, and other critical points at 224 are not excluded).
   - **The Loewner kernel.** It is positive semidefinite, and singular, of rank 90 of 135, on the comparator.
-- **The separate model's grand adapter join (01:19–01:21)** (`grand_lorentz`, `grand_fock`, `grand_qec`, `grand_tomography`, `grand_sat6`, `grand_registry`).
+- **The separate model's grand adapter join (01:19–01:20)** (`grand_lorentz`, `grand_fock`, `grand_qec`, `grand_tomography`, `grand_sat6`, `grand_registry`).
   - **The golden-marked edge form.** η = P6 − 2Pt is exactly the model's Lorentz reference.
-  - **The Hodge star then the boundary is Curl.** The Fock Hodge–Dirac ★P23 has the KO-dimension 6 signs.
+  - **The Hodge star then the boundary is Curl.** The Fock Hodge–Dirac ★P23 has the KO-dimension 6 signs (a candidate only: no algebra or order-one condition is given).
   - **The [[5,1,3]] code.** It is exact over ℤ[i], covariant under the tick, and of distance exactly 3.
-  - **No 67-label tomography (an OBSTRUCTION).** It would need 2025 outcomes, and the model's 67 effects on ℂ⁷ span only 46 of 49 dimensions.
+  - **No 67-label tomography (an OBSTRUCTION).** On ℂ⁴⁵ it would need at least 2025 outcomes, and the model's 67 effects on ℂ⁷ span only 46 of 49 dimensions.
   - **The SAT6 intertwiner.** It is C5-equivariant, with det Gram 1/5 for this choice of map.
   - **No D10 map of sites to cycles (an OBSTRUCTION).** The characters already differ on the reflections.
-  - **The 54-node dependency graph.** It agrees with `onemodel_gates` on every row.
+  - **The 54-node dependency graph.** Its ids, statuses and dependencies are identical to `onemodel_gates`' copy (compared outside the checks); `grand_registry` checks its open-root column, its topological order and its dependents (selected_parent 27, time_scale 10, quantum_state 5).
 
 **Unifying the model fully, part 2 (1–2 Nov): the Standard-Model frame is derived, the nine-torus joins the seed, and the replay sweep lands.** Nine units, each written as exact checks and then adversarially reviewed (every reviewer accepted after fixes), add 23 checks, 71 joins (60 THEOREM, 8 CONDITIONAL, 2 SELECTED_REFERENCE, 1 OBSTRUCTION) and 89 ledger rows. The partition of the 73 dots is now the seed, 60 derived dots, 9 inputs and 3 dots built from inputs (the miss set, the atlas and FLRW).
 - **The charges are the seed's** (`sm_frame`). Take T3 = α/2 for a root α of the carrier's A4, the colour as the A2 of the carrier roots orthogonal to α, Y as the commutant line of A1(α) + A2, and Q = T3 + Y vanishing on a site. This gives 40 triples, exactly one S5 × {±1}-orbit. The 24192 A4 subsystems of E8 are one W(E8)-orbit, and the stabilizer of (T3, Y) is S3 × W(A4′) of order 720, so the 967680 frames are one W(E8)-orbit. The charges and the root assignment move into the derivation (charges at depth 6, the assignment at 7). What stays recorded is the Levi type, 3 + 2 against 4 + 1: two Aut(A4)-orbits, a selection that carries no number (a new `uniqueness` statement). Read as torus points, Y, Q and T3 are critical points of orders 6, 3 and 2 with band values 251, 243 and 224, so the hypercharge carries the frequency √251.

@@ -31727,8 +31727,6 @@ def e8_anisotropy():
     }
 
 
-# ------------------------------------------------------------------- the canon's W0, Spanda and Firefly note (2 Nov 00:09)
-
 # ------------------------------------------------------------------- the canon's W0 / Spanda / Firefly note (2 Nov, 00:09)
 
 def w0_spanda():
@@ -32784,8 +32782,6 @@ def video_ten_buffer():
     }
 
 
-# ------------------------------------------------------------------- the separate model's deep-unification master (2 Nov 00:21)
-
 # ------------------------------------------------------------------- the separate model's deep-unification master (filed 2 Nov 00:21 UTC)
 
 def deep_wave_memory():
@@ -33649,8 +33645,6 @@ def zero_pole_instance():
     }
 
 
-# ------------------------------------------------------------------- the ten-frontier bridges (00:23) and the canon's root to branch (00:25)
-
 # ------------------------------------------------------------------- the ten-frontier bridges and the root-to-branch note (2 Nov)
 
 def _bridge_port():
@@ -34473,8 +34467,6 @@ def loewner_kernel():
             and sum(n * v for _, v, n in sect) == 21061,
     }
 
-
-# ------------------------------------------------------------------- the separate model's grand adapter join (2 Nov 01:19-01:21)
 
 # ------------------------------------------------------------------- the separate model's grand adapter join (2 Nov 01:19-01:21): typed adapters, replayed exactly
 
@@ -36851,6 +36843,10 @@ def run():
     rep.add("Drive check 14:11: the canon's N34 release (the four-copy receipt, the claims CSV, the current-release "
             "manifests and the Locked Memory handover note read as data, the workbooks not opened); the sibling's MODEL "
             "edition of 14:06 read as text with its spine29.ts read as data, not run; the OES-paper PDF not read", RP, True)
+    used = {ck for *_, ck in JOINS}
+    for key in [k for k in results if k not in used and k != "onemodel_gates"]:
+        rep.add(f"the ledger check {key} (layer 23's ledger rows cite it; no join uses it) holds", T, held[key],
+                results[key])
     og = results["onemodel_gates"]
     rep.add("the separate model's N44 54-node obligation graph and frozen gates against the model's checks and gate "
             "ledger: 18 nodes covered, 12 touched in part, 24 reached by none (onemodel_gates)", T, all(og.values()), og)
