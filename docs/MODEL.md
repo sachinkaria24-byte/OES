@@ -2140,9 +2140,9 @@ New here:
 
 **Unifying the model fully, part 2 (1–2 Nov): the Standard-Model frame is derived, the nine-torus joins the seed, and the replay sweep lands.** Nine units, each written as exact checks and then adversarially reviewed (every reviewer accepted after fixes), add 23 checks, 71 joins (60 THEOREM, 8 CONDITIONAL, 2 SELECTED_REFERENCE, 1 OBSTRUCTION) and 89 ledger rows. The partition of the 73 dots is now the seed, 60 derived dots, 9 inputs and 3 dots built from inputs (the miss set, the atlas and FLRW).
 - **The charges are the seed's** (`sm_frame`). Take T3 = α/2 for a root α of the carrier's A4, the colour as the A2 of the carrier roots orthogonal to α, Y as the commutant line of A1(α) + A2, and Q = T3 + Y vanishing on a site. This gives 40 triples, exactly one S5 × {±1}-orbit. The 24192 A4 subsystems of E8 are one W(E8)-orbit, and the stabilizer of (T3, Y) is S3 × W(A4′) of order 720, so the 967680 frames are one W(E8)-orbit. The charges and the root assignment move into the derivation (charges at depth 6, the assignment at 7). What stays recorded is the Levi type, 3 + 2 against 4 + 1: two Aut(A4)-orbits, a selection that carries no number (a new `uniqueness` statement). Read as torus points, Y, Q and T3 are critical points of orders 6, 3 and 2 with band values 251, 243 and 224, so the hypercharge carries the frequency √251.
-- **The nine-torus is joined to E8 by THEOREM.** Its nine squared frequencies are the band's critical values computed from the 240 roots. Only the memory clock is now joined to the seed by an obstruction alone (`STAR_OBSTRUCTED = ("memory",)`); the star has 66 direct THEOREM joins, and 16 deepest dots.
+- **The nine-torus is joined to E8 by THEOREM.** Its nine squared frequencies are the band's critical values computed from the 240 roots. Only the memory clock is now joined to the seed by an obstruction alone (`STAR_OBSTRUCTED = ("memory",)`); 66 of the other 72 dots are now one THEOREM join from the seed (`star`), and the derivation's last two generations hold 16 dots (`deepest_dots`).
 - **The time unit and the product geometry** (`native_onset`, CONDITIONAL). The time unit is one positive real τ, and the product geometry's mass scale is the same scale, m = 1/τ. Read natively, the datum's energy 2 + 12 + 20 starts every flat FLRW background at ρ = 34m², p = −30m²: w₀ = −15/17 and q₀ = −14/17 − (3/17)Ω_Λ for every G and m. At this order the spectral action gives only two observables from four inputs: G m² = π/(5F₁l²) and Λ/m² = 6(F₂/F₁)l² − 16 + 40(F₀/F₁)/l².
-- **Four inputs split into a derived part and a recorded selection.**
+- **Four inputs split into a derived part and what stays recorded:** a selection for the datum, the literal and the words, and external integers for AIR_801.
   - The datum (`datum_frame`): all 600 data of its type have energy 34 and the same D² sectors. The stabilizer of the reading is W(A4) × W(A4′) (14400), acting as S5 with five free orbits; the canon's is the one with ⟨r, a⟩⟨r, b⟩ = −1.
   - The literal (`literal_chart`): the owner's port is the derived commutator read in the time clock's integral chart. It is one of 480 integral charts, which make one orbit; the bath leaves two orbits of 240, separated by the apex sign. The literal's input interface is now this THEOREM join.
   - The words (`word_frames`): the clocks act on the fifteen Coxeter frames as AGL(1, ℤ/15). Only ℤ/4 commutes with the words' D3, so the canon's identification is one of 18 classes of 4.
@@ -2160,11 +2160,11 @@ New here:
   - The N33 six-view frame is tight at c = √6/2 with sum (12/5)I₁₀. It moves from "not joined" to a THEOREM join; its four-view condition number is √6 (N34-006).
   - The odd and dark ports' cubic and quartic onsets are exact; their infrared densities are CONDITIONAL on the standard Fourier asymptotics.
 - **The codes** (`code_closures`).
-  - The word code [12, 6, 6] has distances 1, 2, 5 over F₂, F₃, F₅.
-  - The edge reader is [10, 5, 4], and its 15 failures are K5's four-cycles.
+  - The word code [12, 6, 6] (on an inferred generator; the hub's is not stored) has distances 1, 2, 5 over F₂, F₃, F₅.
+  - The native chart is a [10, 5, 4] code (read as the hub's edge reader, an inferred identification), and its 15 failures are K5's four-cycles.
   - The 37-channel convolution reader has condition number 3.
   - 4805 = cof₄₄(TTᵀ) = det(T)²/5 on the literal adapter (closing layer 8's label item).
-  - The 4_21 facets, the pentagon code [22, 10, 6] and the 5/6 of the hypercharge.
+  - The 4_21 facets, the pentagon code [22, 10, 6] (on the natural generator [I10 | Pᵀ]) and the 5/6 of the hypercharge.
 - **The video review** (`video_heterotic`, `video_lattices`, `video_operators`).
   - The SO(n) trace laws, with the sextic coefficient n − 32.
   - E8's adjoint trace is 30 times the D8 vector trace, and 30 is the Coxeter number.
@@ -2173,15 +2173,15 @@ New here:
   - The four-term correlator on the four-cube.
   - Corrections:
     - The sextic residue vanishes for a single E8, so the anomaly arithmetic alone does not single out SO(32) and E8 × E8.
-    - The one-loop electron running gives 1/α(M_Z) = 134.47, not 128.
-- **The separate model's chiral join and one model (2 Nov 22:21)** (`chiral_closures`, `chiral_dark`, `chiral_time`, `onemodel_closures`, `onemodel_clock`, `onemodel_gates`).
+    - The one-loop electron running gives 1/α(M_Z) = 134.47, not 128 (computed in the unit's audit, not a check of the model).
+- **The separate model's chiral join and one model (filed 1 Nov 22:21, dated 2 Nov)** (`chiral_closures`, `chiral_dark`, `chiral_time`, `onemodel_closures`, `onemodel_clock`, `onemodel_gates`).
   - The chiral floor: every odd Dirac on the triple has nullity at least 5, while the golden stiffness has one zero mode.
   - The 19-dimensional odd Dirac and its minimality.
   - The zero-mode wedge onto the source's dark four.
   - The doubling as the Galois conjugation √5 → −√5.
-  - The wave-memory defect (I + C(2u))/2 − C(u)² ≥ 0, whose leading u⁴ trace is 21061.
+  - The wave-memory defect (I + C(2u))/2 − C(u)² ≥ 0, whose leading term on the 45 channels is u⁴ D45/4 (tr D45 = 21061).
   - The fiber-product clock ℤ/4320 × ℤ/5.
-  - The separate model's 54 gate nodes against the model's gates: 18 covered, 12 touched in part, 24 open (`onemodel_gates`).
+  - The separate model's N44 obligation graph (54 nodes) against the model's checks: 18 covered, 12 touched in part, 24 reached by none (2 of them source-bytes nodes N44 counts as established); its frozen admission state agrees with `gates.GATES` on the 19 gates both name (`onemodel_gates`).
   - Corrections:
     - The receipt's clock symmetry (κ, τ) ~ (aκ, aτ) is the first-order law's. The wave law's symmetry is (τ, κ) → (cτ, c²κ).
     - The six-dimensional winding lives on the mixed sixteen, not on ℝ⁸.

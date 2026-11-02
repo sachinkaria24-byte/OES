@@ -45,12 +45,13 @@ words, the integers of the 801 matrix, the time unit and the product geometry. T
 built from the cofactor 36, are derived since 1 Nov), and FLRW from the product geometry. The time unit is one
 positive real tau, and the product geometry's mass scale is the same scale, m = 1/tau (cosmos_calibration); the
 rest of the product geometry is M4 and the dimensionless l = L/m, F0, F1 and F2, of which only G m^2 and
-Lambda/m^2 are observable at this order (native_onset). Four of the inputs split into a derived part and a recorded
-selection (1 Nov): the datum's type and representative are the seed's and only its S5-orbit (one of five) is selected;
+Lambda/m^2 are observable at this order (native_onset). Four of the inputs split into a derived part and a part the
+canon adds (1 Nov), a recorded selection for three and external integers for AIR_801: the datum's type and
+representative are the seed's and only its S5-orbit (one of five) is selected;
 the literal operands are the derived port in the time clock's integral chart up to one sign and the owner's basis; the
 words are the seed's Coxeter frames up to one of 18 identifications; AIR_801's residue is forced by the day and only
 its integers are external. Two of the inputs meet the seed exactly: the circle is
-the principal circle k -> k rho/4320, sampled at 4320 = 36 x 120 points, and mod 5 the 801 matrix is minus the day.
+the principal circle k -> k rho/4320, sampled at 4320 = 36 x 120 points, and mod 5 the 801 matrix is conjugate to minus the day.
 The memory clock meets the circle through the circle's 24 maps onto it, all conjugate under its symmetry, so its
 stepping is unique up to that symmetry.
 
@@ -117,7 +118,7 @@ INPUTS = {
     "literal": ("the owner's native source matrices: the derived port in the time clock's integral chart, up to one "
                 "sign and the basis N_source", "source", "literal_chart"),
     "words": ("the canon's words 088, 086 and 980", "A4", "words_c5"),
-    "air801": ("the integers of AIR_801; mod 5 it is minus the day on the residue plane", "residue", "clock_residues"),
+    "air801": ("the integers of AIR_801; mod 5 it is conjugate to minus the day on the residue plane", "residue", "clock_residues"),
     "calibration": ("the time unit tau of t = tau u, one positive real (TIME_BIND unbound)", "readout", "calibration"),
     "gravity": ("the product geometry M4 x F: M4, the cutoff's moments F0, F1, F2 and l = L/m, with m = 1/tau "
                 "(conditional)", "triple", "product_geometry"),
@@ -215,7 +216,7 @@ def derivation(held=None):
             all(j is not None and j[4] in (T, CN) and held[j[5]] for j in built.values())
             and all(r in INPUTS for r, _ in roots_in.values()),
         "every input meets the derived part or another input at a held interface join, and two meet the seed exactly: "
-        "the circle is the principal circle sampled at 4320 points, and the 801 matrix mod 5 is minus the day":
+        "the circle is the principal circle sampled at 4320 points, and the 801 matrix mod 5 is conjugate to minus the day":
             all(j is not None and j[4] != OB and held[j[5]] for j in faces.values())
             and faces["circle"][4] == T and faces["air801"][4] == T,
         "the time clock, the observer clock and the grain are the seed's, at depth 2: the principal circle's points of order "
@@ -361,7 +362,8 @@ def deepest_dots(held=None):
             all(direct(d, st) for d, st in DEEP_INPUTS.items()),
         "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within two "
         "THEOREM joins of the seed; the star at the seed (`star`) brings all but four of them within one":
-            all(d in dist and dist[d] <= 2 for d in rest) and "gravity" not in dist and "cosmology" not in dist,
+            all(d in dist and dist[d] <= 2 for d in rest) and "gravity" not in dist and "cosmology" not in dist
+            and sorted(d for d in rest if dist[d] == 2) == sorted(STAR_OBSTRUCTED + STAR_SELECTED + ("calibration",)),
     }
 
 
@@ -419,7 +421,7 @@ def star(held=None):
             all(direct[d] for d in others) and len(others) == 72 and len(theorem) == 66
             and rest == sorted(STAR_OBSTRUCTED + STAR_SELECTED + STAR_CONDITIONAL)
             and all(OB in direct[d] for d in STAR_OBSTRUCTED) and all(SR in direct[d] for d in STAR_SELECTED)
-            and all(gates.CONDITIONAL in direct[d] for d in STAR_CONDITIONAL),
+            and all(gates.CONDITIONAL in direct[d] for d in STAR_CONDITIONAL) and {T, OB} <= direct["torus"],
         "so the THEOREM joins make a star at the seed: 66 dots one join from E8, and the memory clock, "
         "the operand file, the words and the calibration two (the seed's eccentricity in the THEOREM graph is 2)":
             all(dist[d] == 1 for d in theorem)
@@ -431,16 +433,20 @@ def star(held=None):
     }
 
 
-def uniqueness():
-    """Each choice on the trunk, and each stepping of an input by the circle, is unique up to symmetry."""
+def uniqueness(results=None):
+    """Each choice on the trunk, and each stepping of an input by the circle, is unique up to symmetry, and so is the
+    Standard-Model frame (up to W(E8)); what is left is counted: the recorded selections (the day, the golden clock,
+    the datum's orbit, the literal's apex sign, the words' identification) and AIR_801's external integers. With
+    results (dots.check_results()), the five frame checks are read from layer 23 instead of being run again."""
     lines = cyclotomic.tick_normalizer()
     galois = cyclotomic.galois_clocks()
     memory = dots.memory_quotients()
     circle = principal.principal_uniqueness()
     classes = _clock_classes()
     c, cp, r, rp, g, w = spine.spine_clock()
-    frame, datum, lit, words, air = (dots.sm_frame(), dots.datum_frame(), dots.literal_chart(),
-                                      dots.word_frames(), dots.air801_classes())
+    get = (lambda k: results[k]) if results is not None else (lambda k: getattr(dots, k)())
+    frame, datum, lit, words, air = (get(k) for k in ("sm_frame", "datum_frame", "literal_chart", "word_frames",
+                                                      "air801_classes"))
     return {
         "the seed has no parameters: E8 is the only even unimodular lattice of rank 8 (cited), and the Coxeter element "
         "c' is a conjugate w c w^-1 of c = s1 ... s8 (layer 19's w)":
@@ -668,7 +674,7 @@ def run():
         rep.add(name, T, ok)
     for name, ok in levels_unified(held).items():
         rep.add(name, T, ok)
-    for name, ok in uniqueness().items():
+    for name, ok in uniqueness(dots.check_results()).items():
         rep.add(name, T, ok)
     for name, ok in deepest_dots(held).items():
         rep.add(name, T, ok)
