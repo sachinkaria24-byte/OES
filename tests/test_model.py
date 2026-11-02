@@ -769,6 +769,12 @@ def test_the_full_unification():
     assert not any(name.startswith("the N33 six-view frame") for name, *_ in dots.NOT_JOINED)
 
 
+def test_the_drive_replays_of_2_nov():
+    for check in (dots.w0_spanda, dots.w0_oscillator, dots.w0_subsets, dots.w0_firefly, dots.video_ten_arithmetic, dots.video_ten_defect, dots.video_ten_reduction, dots.video_ten_chiral, dots.video_ten_elsewhere, dots.video_ten_codes, dots.video_ten_fisher, dots.video_ten_mandala, dots.video_ten_buffer, dots.deep_wave_memory, dots.deep_energy_exchange, dots.deep_softening, dots.deep_zero_pole, dots.deep_saddles, dots.deep_observer_algebra, dots.zero_pole_parity, dots.zero_pole_toy, dots.zero_pole_instance, dots.bridge_memory_echo, dots.bridge_unitary_port, dots.shell_channels, dots.root_reflection, dots.branch_flips, dots.branch_counts, dots.bridge_workbench, dots.torsion_census, dots.torsion_golden, dots.torsion_index, dots.saddle_density, dots.loewner_kernel, dots.grand_lorentz, dots.grand_fock, dots.grand_qec, dots.grand_tomography, dots.grand_sat6, dots.grand_registry):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out
