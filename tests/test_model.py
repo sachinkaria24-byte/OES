@@ -752,8 +752,21 @@ def test_the_principal_circle():
     assert unify.DERIVATION["principal"] == ("E8", "principal.circle") and "circle" in unify.INPUTS
     assert unify.INPUTS["circle"][1:] == ("principal", "principal.circle")
     assert all(unify._root(d, unify.DERIVATION)[0] == "E8" for d in ("time", "observer", "grain", "c27", "vortex", "coil"))
-    assert set(unify.FROM_INPUTS) == {"miss", "atlas", "assignment", "cosmology"}
+    assert set(unify.FROM_INPUTS) == {"miss", "atlas", "cosmology"}
     assert 4320 // gcd(144, 4320) == 30 and 4320 // gcd(864, 4320) == 5
+
+
+def test_the_full_unification():
+    for check in (dots.datum_frame, dots.literal_chart, dots.word_frames, dots.air801_classes, dots.sm_frame, dots.native_onset, dots.band_closures, dots.view_closures, dots.code_closures, dots.video_heterotic, dots.video_lattices, dots.video_operators, dots.chiral_closures, dots.chiral_dark, dots.chiral_time, dots.onemodel_closures, dots.onemodel_clock, dots.onemodel_gates, dots.f20_schur, dots.schur_zero_mode, dots.localization_bound, dots.bridge_comparator, dots.e8_anisotropy):
+        out = check()
+        assert all(out.values()), out
+    # the Standard-Model frame is derived; the nine-torus joins E8 by THEOREM; only the memory clock is obstructed
+    assert unify.DERIVATION["charges"] == ("A4", "sm_frame")
+    assert unify.DERIVATION["assignment"] == ("charges", "assignment.standard_model")
+    assert "charges" not in unify.INPUTS and unify.INPUTS["literal"][1:] == ("source", "literal_chart")
+    assert unify.STAR_OBSTRUCTED == ("memory",)
+    assert (len(unify.DERIVATION), len(unify.INPUTS), len(unify.FROM_INPUTS)) == (60, 9, 3)
+    assert not any(name.startswith("the N33 six-view frame") for name, *_ in dots.NOT_JOINED)
 
 
 def test_the_free_chain():

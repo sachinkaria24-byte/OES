@@ -2138,7 +2138,66 @@ New here:
 - **The separate model's moments and band** (`notes_1757`). The roots' eighth moments are 57/2, 39, 179/6 and 179/6 along the axis, a root, the charge (1, 1, 1, 0, −3, 0, 0, 0) and the color (1, 1, 1, 0, …). Twice the color and the charge have one dominant representative, so a Weyl element of E8 explains their equal profiles. The band's Taylor remainder after degree 8 lies in [0, q⁵/30240]. Its critical values are 224 (layer 22's E7 + A1 saddle), 256 (D8-type maxima, Hessian −4I) and 250 (the tick's fixed momenta).
 - **Recorded (REPORTED).** The canon's N36 adds the Level Join and Degree Moment tabs and N37 the dispersion tabs (3770 and 3725 sheets), keeping every prior cell; its pending claims K04, X01 and X02 stay unformed. The separate model's reconciled branches (4242 artifacts, 682 relationships), N37 source integration and source aliases add no new mathematics. The claim ledgers' cubic-node, syntheme and two-snapshot rows need the hub's definitions of the trace cubic and the snapshot maps, which the notes do not give, and stay reported.
 
-**Unifying the model fully, part 1 (1 Nov, 18:00–23:00): the seed closes on the circle, and the evening's notes join.** A survey classified every canon input as a frame choice or an external datum and triaged the 179 recorded claims (59 now replayable). This first part lands the circle side of the seed closure and the replays of the Drive items of 18:19–21:48; the second part (the remaining inputs and the replay sweep) follows.
+**Unifying the model fully, part 2 (1–2 Nov): the Standard-Model frame is derived, the nine-torus joins the seed, and the replay sweep lands.** Nine units, each written as exact checks and then adversarially reviewed (every reviewer accepted after fixes), add 23 checks, 71 joins (60 THEOREM, 8 CONDITIONAL, 2 SELECTED_REFERENCE, 1 OBSTRUCTION) and 89 ledger rows. The partition of the 73 dots is now the seed, 60 derived dots, 9 inputs and 3 dots built from inputs (the miss set, the atlas and FLRW).
+- **The charges are the seed's** (`sm_frame`). Take T3 = α/2 for a root α of the carrier's A4, the colour as the A2 of the carrier roots orthogonal to α, Y as the commutant line of A1(α) + A2, and Q = T3 + Y vanishing on a site. This gives 40 triples, exactly one S5 × {±1}-orbit. The 24192 A4 subsystems of E8 are one W(E8)-orbit, and the stabilizer of (T3, Y) is S3 × W(A4′) of order 720, so the 967680 frames are one W(E8)-orbit. The charges and the root assignment move into the derivation (charges at depth 6, the assignment at 7). What stays recorded is the Levi type, 3 + 2 against 4 + 1: two Aut(A4)-orbits, a selection that carries no number (a new `uniqueness` statement). Read as torus points, Y, Q and T3 are critical points of orders 6, 3 and 2 with band values 251, 243 and 224, so the hypercharge carries the frequency √251.
+- **The nine-torus is joined to E8 by THEOREM.** Its nine squared frequencies are the band's critical values computed from the 240 roots. Only the memory clock is now joined to the seed by an obstruction alone (`STAR_OBSTRUCTED = ("memory",)`); the star has 66 direct THEOREM joins, and 16 deepest dots.
+- **The time unit and the product geometry** (`native_onset`, CONDITIONAL). The time unit is one positive real τ, and the product geometry's mass scale is the same scale, m = 1/τ. Read natively, the datum's energy 2 + 12 + 20 starts every flat FLRW background at ρ = 34m², p = −30m²: w₀ = −15/17 and q₀ = −14/17 − (3/17)Ω_Λ for every G and m. At this order the spectral action gives only two observables from four inputs: G m² = π/(5F₁l²) and Λ/m² = 6(F₂/F₁)l² − 16 + 40(F₀/F₁)/l².
+- **Four inputs split into a derived part and a recorded selection.**
+  - The datum (`datum_frame`): all 600 data of its type have energy 34 and the same D² sectors. The stabilizer of the reading is W(A4) × W(A4′) (14400), acting as S5 with five free orbits; the canon's is the one with ⟨r, a⟩⟨r, b⟩ = −1.
+  - The literal (`literal_chart`): the owner's port is the derived commutator read in the time clock's integral chart. It is one of 480 integral charts, which make one orbit; the bath leaves two orbits of 240, separated by the apex sign. The literal's input interface is now this THEOREM join.
+  - The words (`word_frames`): the clocks act on the fifteen Coxeter frames as AGL(1, ℤ/15). Only ℤ/4 commutes with the words' D3, so the canon's identification is one of 18 classes of 4.
+  - AIR_801 (`air801_classes`): the day forces its residue. Its discriminant 968473 has narrow class number 4, one class per genus.
+- **The band's recorded closures** (`band_closures`).
+  - The sum-of-squares lock r² = 9/40 is sharp.
+  - ε > 100 on the alcove wherever |k|² ≥ 6, by a Taylor bound and 346 outward-rounded simplex pieces (least bound 100.108). This closes layer 8's 7,523-piece item.
+  - The exact 1/n corrections at the λ = −12 families.
+  - Miller's eighth-power recurrence reproduces W₀..W₁₂ (closing layer 16's item).
+  - The root-line Hessian, the root-wedge Green scalar from below, and the N33 sector sheet's moments as the square port's.
+- **The views** (`view_closures`).
+  - The six golden petals have commutant ℚ(√5) and generate M₃(ℚ(√5)).
+  - The hemi-icosahedron is RP², with heat spectrum 0, 3, 6, 3 ± √5.
+  - The six Sylow views are the six synthematic totals.
+  - The N33 six-view frame is tight at c = √6/2 with sum (12/5)I₁₀. It moves from "not joined" to a THEOREM join; its four-view condition number is √6 (N34-006).
+  - The odd and dark ports' cubic and quartic onsets are exact; their infrared densities are CONDITIONAL on the standard Fourier asymptotics.
+- **The codes** (`code_closures`).
+  - The word code [12, 6, 6] has distances 1, 2, 5 over F₂, F₃, F₅.
+  - The edge reader is [10, 5, 4], and its 15 failures are K5's four-cycles.
+  - The 37-channel convolution reader has condition number 3.
+  - 4805 = cof₄₄(TTᵀ) = det(T)²/5 on the literal adapter (closing layer 8's label item).
+  - The 4_21 facets, the pentagon code [22, 10, 6] and the 5/6 of the hypercharge.
+- **The video review** (`video_heterotic`, `video_lattices`, `video_operators`).
+  - The SO(n) trace laws, with the sextic coefficient n − 32.
+  - E8's adjoint trace is 30 times the D8 vector trace, and 30 is the Coxeter number.
+  - The shells of E8 + E8.
+  - The Penrose scheme as the A4 slice of E8's golden projection.
+  - The four-term correlator on the four-cube.
+  - Corrections:
+    - The sextic residue vanishes for a single E8, so the anomaly arithmetic alone does not single out SO(32) and E8 × E8.
+    - The one-loop electron running gives 1/α(M_Z) = 134.47, not 128.
+- **The separate model's chiral join and one model (2 Nov 22:21)** (`chiral_closures`, `chiral_dark`, `chiral_time`, `onemodel_closures`, `onemodel_clock`, `onemodel_gates`).
+  - The chiral floor: every odd Dirac on the triple has nullity at least 5, while the golden stiffness has one zero mode.
+  - The 19-dimensional odd Dirac and its minimality.
+  - The zero-mode wedge onto the source's dark four.
+  - The doubling as the Galois conjugation √5 → −√5.
+  - The wave-memory defect (I + C(2u))/2 − C(u)² ≥ 0, whose leading u⁴ trace is 21061.
+  - The fiber-product clock ℤ/4320 × ℤ/5.
+  - The separate model's 54 gate nodes against the model's gates: 18 covered, 12 touched in part, 24 open (`onemodel_gates`).
+  - Corrections:
+    - The receipt's clock symmetry (κ, τ) ~ (aκ, aτ) is the first-order law's. The wave law's symmetry is (τ, κ) → (cτ, c²κ).
+    - The six-dimensional winding lives on the mixed sixteen, not on ℝ⁸.
+- **The F20 / chiral / Schur join and the N44 bridge addendum (1 Nov 23:13)** (`f20_schur`, `schur_zero_mode`, `localization_bound`, `bridge_comparator`, `e8_anisotropy`).
+  - The F20 intertwiner between ker M's moving four and N44's dark four.
+  - The golden stiffness keeps exactly D10.
+  - The negative golden line's ray is kept by exactly the translations.
+  - The Schur source's single zero mode on the root-site instance.
+  - The Neumann localization (CONDITIONAL in its analytic step).
+  - The comparator's erasure leakage (SELECTED_REFERENCE).
+  - Each channel's comparator measure is two atoms (an OBSTRUCTION to reading it as the channel's measure).
+  - The degree-8 anisotropy (the model already had M2, M4, M6 and H8 exactly; the series of ω to r⁷ is new).
+
+The survey items 6, 8, 28 and 161 are closed; layer 8's and layer 16's records now point to the replays. Twenty-one more are closed in part, and the ledger rows say which part.
+
+**Unifying the model fully, part 1 (1 Nov, 18:00–23:00): the seed closes on the circle, and the evening's notes join.** A survey classified every canon input as a frame choice or an external datum and triaged the 179 recorded claims (59 now replayable). This first part lands the circle side of the seed closure and the replays of the Drive items of 18:19–21:48; the second part (the remaining inputs and the replay sweep) is above.
 - **The 27-clock, the vortex and the coil are the seed's** (`principal.singular_primary`). The principal points of 3-power order that fix a root are exactly ⟨ρ/27⟩ (ρ/81 is regular; 27 is the largest power of 3 dividing a root height), and its subgroups fix the roots of type E8, A8, A3 + A2 + A1 and A1. The sun's A8 sees it modulo ⟨ρ/3⟩, which is the vortex ℤ/9, and the grain plus ⟨ρ/27⟩ is ⟨ρ/540⟩, the coil. All three move into the derivation (58 derived dots, 10 inputs, 4 dots built from inputs). The canon's cofactor 36 = 2²3² shrinks to its 2-part: the miss set and the atlas need the circle's 2⁵, which no rule of the seed names (the singular, regular and fusion rules give 16, 32 and 32 at 2, but 27, 81 and none at 3).
 - **The circle's labelling is the seed's; the stages fix an orientation** (`principal.stage_frame`). E8 conjugacy has 2137 classes on the principal circle, each closed under k → −k; ρ/4320 is, up to sign, the generator of least band. The stage set {0, …, 14} is not closed under −1 (an OBSTRUCTION join E8 → stages): it fixes the positive system and is then the fifteen least-band points of the half-circle.
 - **Three new obstructions.** The seed's group of order 4320 (the decad's stabilizer in C_W(s)) has exponent 120 and no element of order 9, so it is not the circle (`principal.decad_stabilizer`). W(E8) has no element of order 36 although GL₈(ℤ) does (`principal.no_order_36`, through the class E6(a1)). The memory clock's A¹⁰ fixes 111 of 120 states while a hyperplane holds at most 63 root lines, so no Weyl action on the root lines carries it (`memory_not_seed`).

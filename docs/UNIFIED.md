@@ -49,8 +49,8 @@ No lattice clock runs the canon's circle, but a circle of the seed's momenta doe
 
 - **The number level is rooted in the principal circle.** Its derived dots are the time clock, the observer clock and the grain, joined inside the level by the golden step (⟨864⟩ + ⟨1080⟩ = ⟨216⟩) and the sum of the three small clocks (⟨864⟩ + ⟨1080⟩ + ⟨1440⟩ = ⟨72⟩); the observer clock is the regular class 4, the day's sixth power.
 - **The golden companion is joined inside the symmetry level.** It is the tick's negative cosine X = −(g + g⁻¹), with X² = X + I and characteristic polynomial (x² − x − 1)⁴; E8 has a basis of four roots and their images in which X is four Fibonacci blocks, so E8 = ℤ[φ]⁴. The day conjugates X to I − X (the Galois conjugation of Q(√5)), G120 acts on ℤ[X] through Gal(Q(√5)/Q) with kernel ⟨g, d²⟩, and X lies in a regular clock's cosine ring ℤ[w + w⁻¹] exactly for the orders divisible by 5.
-- **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them.
-- **The structure** (`levels_unified`). Every level holds derived dots (6 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 4 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 59 derived dots are connected by the 418 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
+- **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them. All nine are the band's critical values computed from E8's roots, so the torus has a direct THEOREM join to the seed (1 Nov), and √251 is the hypercharge's: read as torus points Y, Q and T3 are critical points of orders 6, 3 and 2 with values 251, 243 and 224 (`sm_frame`).
+- **The structure** (`levels_unified`). Every level holds derived dots (6 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 6 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 61 derived dots are connected by the 490 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
 
 ## The derivation
 
@@ -114,6 +114,8 @@ flowchart TB
     c27["27-clock"]
     vortex["vortex"]
     coil["coil"]
+    charges["five-site charges"]
+    assignment["root assignment"]
     E8["E8"]
     E8 --> cyclo
     cyclo --> clocks
@@ -173,6 +175,8 @@ flowchart TB
     principal --> c27
     c27 --> vortex
     grain --> coil
+    A4 --> charges
+    charges --> assignment
 ```
 
 | dot | built from | by the join | check | depth |
@@ -218,9 +222,11 @@ flowchart TB
 | D5 | A4 | inclusion | `k5_roots` | 6 |
 | K5 edges | A4 | B | `k5_roots` | 6 |
 | S5 | A4 | W(A4) | `s5_weyl` | 6 |
+| five-site charges | A4 | the Standard-Model frame | `sm_frame` | 6 |
 | Penrose planes | A4 | the two golden planes | `penrose_planes` | 6 |
 | spectral triple | carrier | D | `triple` | 6 |
 | K5 vertices | K5 edges | contraction | `exterior` | 7 |
+| root assignment | five-site charges | charges on the roots | `assignment.standard_model` | 7 |
 | binding | spectral triple | commutant | `binding_joins` | 7 |
 | four-cube | K5 edges | the cuts mod 2 | `cube_cuts` | 7 |
 | cycles | K5 edges | Lambda^2 H | `exterior` | 7 |
@@ -250,6 +256,7 @@ The derivation is a tree of depth 8, but the dots of its last two generations ar
 | triangle port | 8 | the cubic root harmonic (THEOREM) | `join_e8_triangle` |
 | root-wedge port | 8 | the unique quadratic S5 copy (THEOREM) | `join_e8_wedgeport` |
 | K5 vertices | 7 | the vertices as vector shadows (THEOREM) | `join_e8_V` |
+| root assignment | 7 | the second moment (THEOREM) | `assignment.moments` |
 | binding | 7 | the SU(5) x SU(5)' classes (THEOREM) | `join_e8_binding` |
 | binding | 7 | no chirality from the roots (OBSTRUCTION) | `join_e8_binding_chirality` |
 | four-cube | 7 | the cells by lattice parity (THEOREM) | `join_e8_cube` |
@@ -261,12 +268,13 @@ The derivation is a tree of depth 8, but the dots of its last two generations ar
 | sound and light | 7 | linear sound, quadratic light (THEOREM) | `join_e8_waves` |
 | 801 matrix | input | the lattice lifts of AIR_801 (THEOREM) | `join_e8_air801` |
 | datum | input | three roots of the A4 (THEOREM) | `join_e8_datum` |
+| datum | input | four Gram classes (THEOREM) | `datum_frame` |
 | memory clock | input | no Weyl clock of order 45 (OBSTRUCTION) | `join_e8_memory` |
 | memory clock | input | the memory clock off the root lines (OBSTRUCTION) | `memory_not_seed` |
 
 ## Every dot one join from the seed (1 Nov)
 
-Each of the other 72 dots has a direct checked join to E8 (`star`): 65 by THEOREM, the nine-torus and the memory clock by obstructions, the owner's operand file and the fifteen words by selected references, and the calibration, the product geometry and FLRW by conditional joins that name the binding still missing. In the THEOREM graph the seed has eccentricity 2.
+Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEOREM, the memory clock by an obstruction, the owner's operand file and the fifteen words by selected references, and the calibration, the product geometry and FLRW by conditional joins that name the binding still missing. In the THEOREM graph the seed has eccentricity 2.
 
 | level | dot | its direct join to E8 | status | check |
 |---|---|---|---|---|
@@ -286,6 +294,7 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 65 by THEORE
 | number | memory clock | no Weyl clock of order 45 | OBSTRUCTION | `join_e8_memory` |
 | number | memory clock | the memory clock off the root lines | OBSTRUCTION | `memory_not_seed` |
 | symmetry | W(E8) clocks | the mirror coset's orthogonal reflections | THEOREM | `join_e8_clocks` |
+| symmetry | W(E8) clocks | the heterotic normalization 30 | THEOREM | `video_heterotic` |
 | symmetry | day-Coxeter group | the clocks that fix the sun | THEOREM | `join_e8_G120` |
 | symmetry | AGL(1,5) | the tick's symmetry on the pentagon | THEOREM | `join_e8_AGL` |
 | symmetry | S5 | the commutant of the twin | THEOREM | `join_e8_S5` |
@@ -307,13 +316,16 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 65 by THEORE
 | combinatorics | synthemes | quaternion structures commuting with the tick | THEOREM | `join_e8_synthemes` |
 | lattice | A4 | embedding | THEOREM | `embed` |
 | lattice | D5 | embedding | THEOREM | `embed` |
+| lattice | D5 | the sextic coefficient n - 32 | THEOREM | `video_heterotic` |
 | lattice | A4 + A4' | the intersection with the 5-neighbour | THEOREM | `join_e8_L0` |
 | lattice | eight-root frame | a maximal clique | THEOREM | `eight_roots` |
 | lattice | tick momenta | the dual torus | THEOREM | `dual_torus` |
 | lattice | half-periods | mod 2 | THEOREM | `counts.folded_bath` |
 | lattice | critical census | the band on the alcove | THEOREM | `census` |
 | lattice | nine-torus | no periodic lattice carries it | OBSTRUCTION | `join_e8_torus` |
+| lattice | nine-torus | the nine frequencies are E8's | THEOREM | `torus_places` |
 | lattice | root graph | inner product 1 | THEOREM | `root_scheme` |
+| lattice | root graph | the 4_21 facets | THEOREM | `code_closures` |
 | lattice | cyclotomic line | the cyclotomic line | THEOREM | `cyclotomic_line` |
 | lattice | residue plane | the lines as reflection axes | THEOREM | `join_e8_residue` |
 | lattice | sun's decad | the hexagons as complex reflections | THEOREM | `join_e8_sun` |
@@ -324,11 +336,14 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 65 by THEORE
 | operator | carrier | D squared is the reflection sum | THEOREM | `join_e8_carrier` |
 | operator | zero modes | readings the vertices cannot see | THEOREM | `join_e8_kerM` |
 | operator | datum | three roots of the A4 | THEOREM | `join_e8_datum` |
+| operator | datum | four Gram classes | THEOREM | `datum_frame` |
 | operator | source | the even reading of the source | THEOREM | `join_e8_source` |
 | operator | source | the dark four off the roots | THEOREM | `notes_0204` |
 | operator | literal operands | operand file is D5 roots | SELECTED_REFERENCE | `join_e8_literal` |
 | operator | bath | Delta | THEOREM | `triangle_port` |
 | operator | bath | 7-design | THEOREM | `band_expansion` |
+| operator | bath | the infrared ball | THEOREM | `band_closures` |
+| operator | bath | the first angular term | THEOREM | `e8_anisotropy` |
 | operator | closed walks | local limit of closed walks | THEOREM | `join_e8_walks` |
 | operator | moments | torsion points are moment quadratures | THEOREM | `join_e8_moments` |
 | operator | spectral measures | sector measures as explicit densities | THEOREM | `join_e8_measure` |
@@ -358,12 +373,11 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 65 by THEORE
 | circle | the canon's circle Z/4320: the principal circle k -> k rho/4320 sampled at 4320 = 36 x 120 points, the seam Z/120 its regular steps generate refined by the cofactor 36 = 2^2 3^2; its step 144 goes to c', one of eight choices, all conjugate under the Galois clocks | principal circle (k -> k rho / 4320) | THEOREM | psi(4320) = 38 > 8, so no lattice clock runs Z/4320 (layer 27); but it is the principal circle k -> k rho/4320 of the seed's momenta, whose step 144 is the Coxeter clock's lift, whose steps of order 2 to 5 are the band's critical vertices (the time and observer clocks) and whose regular steps generate the seam Z/120; only the 2-part 32 = 2^5 of the sampling (the cofactor's 2^2 over the seam's 2^3; the miss set and the atlas need it; the 3-part is the seed's singular 3-primary points <rho/27>, which build the 27-clock, the vortex and the coil, and no single rule of the seed gives 2^5 3^3 5) and the orientation fixed by the stage indices are the canon's (layer 28, 30 Oct) |
 | stages | the canon's fifteen stage indices on the circle | circle (k -> k) | THEOREM | the count fifteen and the one-sided segment: every E8 class on the circle is closed under k -> -k, so the stages fix an orientation; given it they are the fifteen least-band points of the half-circle, and their landing pattern is the seed's (stage_frame, 1 Nov) |
 | memory clock | the 120-state memory clock; the circle maps onto it in 24 ways, all conjugate under its symmetry, and the canon's stepping is one of them (a selection) | circle (24 maps, one orbit) | THEOREM | order 90 and psi(90) = 10 > 8, so no lattice clock of the seed runs it (layer 27); its group Z/90 = <rho/9> + <rho/10> is the seed's, but its 120 states are the canon's: A^10 fixes 111 of them, and no Weyl action on the 120 root lines can (a hyperplane holds at most 63), nor does the seed's own 90-set, the sun's hyperbolic D4 lines (memory_not_seed, 1 Nov) |
-| datum | the canon's datum (psi0, v0) of energy 34: psi0 = (r + u, M^T r) for the A4 root r = e0 - e1 and the all-ones u (psi0 D^2 psi0 = 64, not a zero mode), and v0 the alternating 4-cycle 0-1-2-3, a zero mode of norm 4 | zero modes (v0) | THEOREM | the relative position of an A4 root and a 4-cycle of K5, chosen by the canon; its S5-orbit is regular (layer 23) |
-| literal operands | the owner's native source matrices | source (U) | THEOREM | the owner's matrices; they match the derived source up to an explicit isometry (layer 10) |
-| fifteen words | the canon's words 088, 086 and 980 | A4 (the Coxeter five-cycle) | THEOREM | the canon's words; isometric to the oriented duads of K6 only over Q(sqrt2) (layer 23) |
-| 801 matrix | the integers of AIR_801; mod 5 it is minus the day on the residue plane | residue plane (the Singer cycle) | THEOREM | determinant 12402, so no lattice clock; only its residue mod 5 is the seed's (layer 27) |
-| five-site charges | the Standard-Model split of the five sites, colour 0, 1, 2 and weak 3, 4 | K5 vertices (a charge on the sites) | THEOREM | the 3 + 2 split chooses the Standard-Model gauge group; once chosen it is unique up to W(E8) (layer 24) |
-| calibration | the time unit tau of t = tau u (TIME_BIND unbound) | readout (Salina-Prema) | THEOREM | no internal number binds physical time (an obstruction, layer 23) |
-| product geometry | the product geometry M4 x F with M4, f, L and m free (conditional) | spectral triple (heat coefficients) | CONDITIONAL | M4, f, L and m are free parameters; conditional (layer 6) |
+| datum | the canon's datum (psi0, v0) of energy 34: psi0 = (r + u, M^T r) for the A4 root r = e0 - e1 and the all-ones u (psi0 D^2 psi0 = 64, not a zero mode), and v0 the alternating 4-cycle 0-1-2-3, a zero mode of norm 4 | zero modes (v0) | THEOREM | the type and the representative are the seed's: the 600 data of its type (20 A4 roots x 30 norm-4 zero modes) all have energy 34 and are alike in every D^2 sector, and the stabilizer of their reading in W(E8) is W(A4) x W(A4') (14400), acting as S5 with five free orbits; the canon picks the orbit with <r, a><r, b> = -1, one of five (W(E8) leaves 4 Gram classes of the bare root triples, 3 with time reversal): a recorded selection, and dynamically inert (datum_frame, 1 Nov) |
+| literal operands | the owner's native source matrices: the derived port in the time clock's integral chart, up to one sign and the basis N_source | source (the time clock's chart) | THEOREM | one sign and one basis: the owner's port is the derived commutator read in the time clock's integral chart (the pentagon edges and the pentagram circulation, W_p = 2 F^T F), one of 480 integral W_p-charts that S5 and the 40 symmetries of W_p make one orbit; the bath's 20 site symmetries leave two orbits, so the apex sign (the pentagram read along R^2, not R^3) is the owner's, and so is the basis N_source of ker M, five of the fifteen K4 matching modes (literal_chart, 1 Nov) |
+| fifteen words | the canon's words 088, 086 and 980 | A4 (the Coxeter five-cycle) | THEOREM | as a D3-set the words are the seed's fifteen Coxeter frames, but the clocks act on the frames as AGL(1, Z/15) and only Z/4 = {1, 4, 7, 13} of it commutes with the D3, so the canon's identification is one of 18 classes of 4 (a recorded selection); the digits 0, 6, 8, 9 and their flip 6 <-> 9 (order 2, against order 4 for the seed's orbit-swapping maps) are decimal data (word_frames, 1 Nov) |
+| 801 matrix | the integers of AIR_801; mod 5 it is minus the day on the residue plane | residue plane (the Singer cycle) | THEOREM | only its residue is the seed's, and the day forces it (one of the 20 GL(2,5)-conjugates of -d); its integers are external: trace 1009 and det 12402 != +-1 (no lattice clock), discriminant 968473 squarefree with narrow class number 4, one class per genus, so even its polynomial leaves four integral classes; its columns are 180-degree digit rotations (air801_classes, 1 Nov) |
+| calibration | the time unit tau of t = tau u, one positive real (TIME_BIND unbound) | readout (Salina-Prema) | THEOREM | one positive real tau: every derived number is invariant under tau -> lambda tau (calibration; notes_1340: the tick is a symmetry of the native flow, not a step of it), one measured rate fixes it (an antisymmetric-Pauli rate Gamma gives tau = 224/Gamma, join_e8_calibration), and the product geometry's and FLRW's mass scale is the same scale, m = 1/tau (cosmos_calibration) |
+| product geometry | the product geometry M4 x F: M4, the cutoff's moments F0, F1, F2 and l = L/m, with m = 1/tau (conditional) | spectral triple (heat coefficients) | CONDITIONAL | M4 (a closed spin Riemannian 4-manifold), the cutoff's moments F0, F1, F2 and l = L/m are free, with m = 1/tau the calibration's scale; at this order only G m^2 = pi/(5 F1 l^2) and Lambda/m^2 = 6 (F2/F1) l^2 - 16 + 40 (F0/F1)/l^2 are observable, two numbers from four inputs (native_onset); conditional (layer 6) |
 
-Built from the inputs: atlas (from circle), miss set (from circle), root assignment (from five-site charges), FLRW (from product geometry).
+Built from the inputs: atlas (from circle), miss set (from circle), FLRW (from product geometry).

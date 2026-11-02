@@ -7,7 +7,7 @@ at a named interface.
 
 The seed. E8 with c' is the cyclotomic line Z[zeta30] with the trace form Tr(alpha x ybar) (oes/cyclotomic.py (a)).
 
-The derivation (DERIVATION) builds 55 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
+The derivation (DERIVATION) builds 60 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
   - the trunk: E8 -> the cyclotomic line -> the clocks (the Galois group) -> the tick's residue plane F25 -> one
     residue line, the carrier's A4 + A4' -> either factor, A4 -> K5 (its positive roots) -> the vertices, the zero
     modes, the cycles and the source;
@@ -25,19 +25,31 @@ The derivation (DERIVATION) builds 55 dots from the seed, each by one THEOREM jo
   - the lattice's harmonic analysis: the bath, the walks, the moments and measures, the half-periods with the Pauli
     algebra and GKSL, the Hodge 70, the momenta, the census and its torus, the root graph and its frame;
   - the carrier: the shadows of the mixed roots, then the triple, the readout, the binding, sound and light, the
-    simplex, the cube, the ports and the six-site cone.
+    simplex, the cube, the ports and the six-site cone;
+  - the Standard-Model frame (1 Nov): the five-site charges from the carrier's A4 (T3 = alpha/2 for a root alpha,
+    the colour the A2 of the carrier roots orthogonal to it, Y the commutant line of A1(alpha) + A2, Q = T3 + Y
+    vanishing on a site: 40 triples, one S5 x {+-1}-orbit; the 967680 frames of E8 are one W(E8)-orbit, with
+    stabilizer S3 x W(A4') of order 720), and from them the root assignment.
 Each choice on the trunk is unique up to the symmetry already built, with one recorded selection. The six lines are
 one orbit of the tick's normalizer, the line's stabilizer exchanges its two factors, and the circle's selection
 144 -> c' is one of eight choices that the Galois clocks permute. But the stored day and golden clock are each one
 of two conjugacy classes of the normalizer <c', d, v> over their Galois automorphisms (10 + 10 of order 24, 12 + 12
 of order 20), with one characteristic polynomial, so conjugate in W(E8) but not relative to c'; the mirror's class
-is unique (30 Oct).
+is unique (30 Oct). The Standard-Model frame is unique up to W(E8) too (sm_frame); what it records is its Levi type,
+3 + 2 (weak = a root A1, colour = its orthogonal A2) against 4 + 1, two different Aut(A4)-orbits: a recorded
+selection, like the day and the golden clock, that carries no number (1 Nov).
 
-The inputs (INPUTS) are ten: the circle Z/4320 with its stages and memory clock, the datum, the literal operands, the
-words, the integers of the 801 matrix, the Standard-Model split of the five sites, the time unit and the product
-geometry. Four more dots are built from them (FROM_INPUTS): the miss set and the atlas from the circle's 2-part 2^5
-(the 27-clock, the vortex and the coil, once built from the cofactor 36, are derived since 1 Nov), the root
-assignment from the split and FLRW from the product geometry. Two of the inputs meet the seed exactly: the circle is
+The inputs (INPUTS) are nine: the circle Z/4320 with its stages and memory clock, the datum, the literal operands, the
+words, the integers of the 801 matrix, the time unit and the product geometry. Three more dots are built from them
+(FROM_INPUTS): the miss set and the atlas from the circle's 2-part 2^5 (the 27-clock, the vortex and the coil, once
+built from the cofactor 36, are derived since 1 Nov), and FLRW from the product geometry. The time unit is one
+positive real tau, and the product geometry's mass scale is the same scale, m = 1/tau (cosmos_calibration); the
+rest of the product geometry is M4 and the dimensionless l = L/m, F0, F1 and F2, of which only G m^2 and
+Lambda/m^2 are observable at this order (native_onset). Four of the inputs split into a derived part and a recorded
+selection (1 Nov): the datum's type and representative are the seed's and only its S5-orbit (one of five) is selected;
+the literal operands are the derived port in the time clock's integral chart up to one sign and the owner's basis; the
+words are the seed's Coxeter frames up to one of 18 identifications; AIR_801's residue is forced by the day and only
+its integers are external. Two of the inputs meet the seed exactly: the circle is
 the principal circle k -> k rho/4320, sampled at 4320 = 36 x 120 points, and mod 5 the 801 matrix is minus the day.
 The memory clock meets the circle through the circle's 24 maps onto it, all conjugate under its symmetry, so its
 stepping is unique up to that symmetry.
@@ -88,6 +100,7 @@ DERIVATION = {
     "grain": ("principal", "grain_steps"),
     "c27": ("principal", "principal.singular_primary"), "vortex": ("c27", "principal.singular_primary"),
     "coil": ("grain", "principal.singular_primary"),
+    "charges": ("A4", "sm_frame"), "assignment": ("charges", "assignment.standard_model"),
 }
 
 # input: (what the canon supplies, the derived dot it meets, the check of that interface join)
@@ -101,12 +114,13 @@ INPUTS = {
     "datum": ("the canon's datum (psi0, v0) of energy 34: psi0 = (r + u, M^T r) for the A4 root r = e0 - e1 and the all-ones "
               "u (psi0 D^2 psi0 = 64, not a zero mode), and v0 the alternating 4-cycle 0-1-2-3, a zero mode of norm 4",
               "kerM", "counts.tick_tock"),
-    "literal": ("the owner's native source matrices", "source", "literal_port"),
+    "literal": ("the owner's native source matrices: the derived port in the time clock's integral chart, up to one "
+                "sign and the basis N_source", "source", "literal_chart"),
     "words": ("the canon's words 088, 086 and 980", "A4", "words_c5"),
     "air801": ("the integers of AIR_801; mod 5 it is minus the day on the residue plane", "residue", "clock_residues"),
-    "charges": ("the Standard-Model split of the five sites, colour 0, 1, 2 and weak 3, 4", "V", "charges"),
-    "calibration": ("the time unit tau of t = tau u (TIME_BIND unbound)", "readout", "calibration"),
-    "gravity": ("the product geometry M4 x F with M4, f, L and m free (conditional)", "triple", "product_geometry"),
+    "calibration": ("the time unit tau of t = tau u, one positive real (TIME_BIND unbound)", "readout", "calibration"),
+    "gravity": ("the product geometry M4 x F: M4, the cutoff's moments F0, F1, F2 and l = L/m, with m = 1/tau "
+                "(conditional)", "triple", "product_geometry"),
 }
 
 # input: why it stays an input
@@ -125,19 +139,37 @@ WHY = {
               "<rho/10> is the seed's, but its 120 states are the canon's: A^10 fixes 111 of them, and no Weyl action on the 120 "
               "root lines can (a hyperplane holds at most 63), nor does the seed's own 90-set, the sun's hyperbolic D4 lines "
               "(memory_not_seed, 1 Nov)",
-    "datum": "the relative position of an A4 root and a 4-cycle of K5, chosen by the canon; its S5-orbit is regular (layer 23)",
-    "literal": "the owner's matrices; they match the derived source up to an explicit isometry (layer 10)",
-    "words": "the canon's words; isometric to the oriented duads of K6 only over Q(sqrt2) (layer 23)",
-    "air801": "determinant 12402, so no lattice clock; only its residue mod 5 is the seed's (layer 27)",
-    "charges": "the 3 + 2 split chooses the Standard-Model gauge group; once chosen it is unique up to W(E8) (layer 24)",
-    "calibration": "no internal number binds physical time (an obstruction, layer 23)",
-    "gravity": "M4, f, L and m are free parameters; conditional (layer 6)",
+    "datum": "the type and the representative are the seed's: the 600 data of its type (20 A4 roots x 30 norm-4 zero modes) "
+             "all have energy 34 and are alike in every D^2 sector, and the stabilizer of their reading in W(E8) is "
+             "W(A4) x W(A4') (14400), acting as S5 with five free orbits; the canon picks the orbit with <r, a><r, b> = -1, "
+             "one of five (W(E8) leaves 4 Gram classes of the bare root triples, 3 with time reversal): a recorded "
+             "selection, and dynamically inert (datum_frame, 1 Nov)",
+    "literal": "one sign and one basis: the owner's port is the derived commutator read in the time clock's integral chart "
+               "(the pentagon edges and the pentagram circulation, W_p = 2 F^T F), one of 480 integral W_p-charts that S5 and "
+               "the 40 symmetries of W_p make one orbit; the bath's 20 site symmetries leave two orbits, so the apex sign "
+               "(the pentagram read along R^2, not R^3) is the owner's, and so is the basis N_source of ker M, five of the "
+               "fifteen K4 matching modes (literal_chart, 1 Nov)",
+    "words": "as a D3-set the words are the seed's fifteen Coxeter frames, but the clocks act on the frames as AGL(1, Z/15) "
+             "and only Z/4 = {1, 4, 7, 13} of it commutes with the D3, so the canon's identification is one of 18 classes "
+             "of 4 (a recorded selection); the digits 0, 6, 8, 9 and their flip 6 <-> 9 (order 2, against order 4 for the "
+             "seed's orbit-swapping maps) are decimal data (word_frames, 1 Nov)",
+    "air801": "only its residue is the seed's, and the day forces it (one of the 20 GL(2,5)-conjugates of -d); its integers "
+              "are external: trace 1009 and det 12402 != +-1 (no lattice clock), discriminant 968473 squarefree with narrow "
+              "class number 4, one class per genus, so even its polynomial leaves four integral classes; its columns are "
+              "180-degree digit rotations (air801_classes, 1 Nov)",
+    "calibration": "one positive real tau: every derived number is invariant under tau -> lambda tau (calibration; "
+                   "notes_1340: the tick is a symmetry of the native flow, not a step of it), one measured rate fixes "
+                   "it (an antisymmetric-Pauli rate Gamma gives tau = 224/Gamma, join_e8_calibration), and the product "
+                   "geometry's and FLRW's mass scale is the same scale, m = 1/tau (cosmos_calibration)",
+    "gravity": "M4 (a closed spin Riemannian 4-manifold), the cutoff's moments F0, F1, F2 and l = L/m are free, with "
+               "m = 1/tau the calibration's scale; at this order only G m^2 = pi/(5 F1 l^2) and Lambda/m^2 = "
+               "6 (F2/F1) l^2 - 16 + 40 (F0/F1)/l^2 are observable, two numbers from four inputs (native_onset); "
+               "conditional (layer 6)",
 }
 
 # dot built from an input: (the dot it is built from, the check of the join that builds it)
 FROM_INPUTS = {
-    "atlas": ("circle", "atlas"), "miss": ("circle", "tick_miss"), "assignment": ("charges", "assignment.standard_model"),
-    "cosmology": ("gravity", "friedmann"),
+    "atlas": ("circle", "atlas"), "miss": ("circle", "tick_miss"), "cosmology": ("gravity", "friedmann"),
 }
 
 
@@ -174,7 +206,7 @@ def derivation(held=None):
         f"the {len(dots.DOTS)} dots split into the seed, {len(DERIVATION)} derived dots, {len(INPUTS)} canon inputs and "
         f"{len(FROM_INPUTS)} dots built from the inputs, with no dot left over or counted twice":
             set.union(*names) == set(dots.DOTS) and sum(len(n) for n in names) == len(dots.DOTS)
-            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (58, 10, 4),
+            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (60, 9, 3),
         "every derived dot is built by a THEOREM join of layer 23 whose check holds, and its parents lead back to E8 "
         "without a cycle":
             all(j is not None and j[4] == T and held[j[5]] for j in edges.values())
@@ -195,7 +227,7 @@ def derivation(held=None):
             and all(120 % len(S(x)) == 0 for x in (864, 1080, 72)) and all(120 % n for n in (864, 36))
             and {d: depth[d] for d in ("time", "observer", "grain", "c27", "vortex", "coil")}
             == {"time": 2, "observer": 2, "grain": 2, "c27": 2, "vortex": 3, "coil": 3}
-            and set(FROM_INPUTS) == {"miss", "atlas", "assignment", "cosmology"} and 36 == (32 // 8) * (27 // 3),
+            and set(FROM_INPUTS) == {"miss", "atlas", "cosmology"} and 36 == (32 // 8) * (27 // 3),
         f"the trunk E8 -> cyclotomic line -> clocks -> residue plane -> A4 + A4' -> A4 -> K5 edges -> zero modes -> "
         f"source has depth {depth['source']}, and no dot is deeper than {max(depth.values())}":
             roots["source"][1] == ["source", "kerM", "E", "A4", "L0", "residue", "clocks", "cyclo", "E8"]
@@ -320,7 +352,7 @@ def deepest_dots(held=None):
     return {
         f"the {len(deep)} dots of the derivation's last two generations (depth 7 and 8: {names}) each have a direct "
         "THEOREM join to the seed whose check holds":
-            len(deep) == 15 and max(depth.values()) == 8 and all(direct(d, T) for d in deep),
+            len(deep) == 16 and max(depth.values()) == 8 and all(direct(d, T) for d in deep),
         "so every derived dot is within two THEOREM joins of the seed, and the deepest within one":
             max(dist[d] for d in DERIVATION) <= 2 and all(dist[d] == 1 for d in deep),
         "the deepest of the canon's inputs meet the seed directly: AIR_801 (its lattice lifts in the tick's normalizer) "
@@ -328,14 +360,14 @@ def deepest_dots(held=None):
         "order 45); the coil, once among them, is now derived (1 Nov)":
             all(direct(d, st) for d, st in DEEP_INPUTS.items()),
         "every dot but the product geometry and FLRW (which attach only through CONDITIONAL joins) is within two "
-        "THEOREM joins of the seed; the star at the seed (`star`) brings all but five of them within one":
+        "THEOREM joins of the seed; the star at the seed (`star`) brings all but four of them within one":
             all(d in dist and dist[d] <= 2 for d in rest) and "gravity" not in dist and "cosmology" not in dist,
     }
 
 
 # the dots that meet the seed directly only by an obstruction, through the owner's selected operand file, or through a
 # binding the model does not supply (1 Nov, the star at the seed)
-STAR_OBSTRUCTED = ("torus", "memory")
+STAR_OBSTRUCTED = ("memory",)
 STAR_SELECTED = ("literal", "words")
 STAR_CONDITIONAL = ("calibration", "gravity", "cosmology")
 
@@ -364,7 +396,7 @@ def _bfs(adj, s):
 
 def star(held=None):
     """Every dot joined directly to the seed (1 Nov, "join all dots"): each of the other 72 dots has a direct join to
-    E8 whose check holds, by THEOREM for all but seven: the nine-torus and the memory clock (obstructions), the owner's
+    E8 whose check holds, by THEOREM for all but six: the memory clock (an obstruction), the owner's
     operand file and the fifteen words (selected references) and the three dots that need a binding (conditional). held: check name -> bool,
     from dots.check_results() when None."""
     if held is None:
@@ -379,15 +411,16 @@ def star(held=None):
     ecc = {d: max(_bfs(adj, d).values()) for d in reach}
     return {
         f"each of the {len(others)} other dots has a direct join to the seed whose check holds: {len(theorem)} by "
-        "THEOREM; the nine-torus (no periodic lattice E8/mE8 carries its two non-integral frequencies) and the memory "
-        "clock (no Weyl clock of order 45) by OBSTRUCTIONS; the owner's operand file and the fifteen words (E8 fixes "
+        "THEOREM, the nine-torus among them (its nine frequencies are the band's critical values on E8's roots, though "
+        "no periodic lattice E8/mE8 carries its two non-integral ones); the memory clock (no Weyl clock of order 45) "
+        "by an OBSTRUCTION; the owner's operand file and the fifteen words (E8 fixes "
         "their frames, not which digit goes where) by SELECTED_REFERENCES; and the calibration, the product geometry "
         "and FLRW by CONDITIONAL joins that name the binding still missing":
-            all(direct[d] for d in others) and len(others) == 72 and len(theorem) == 65
+            all(direct[d] for d in others) and len(others) == 72 and len(theorem) == 66
             and rest == sorted(STAR_OBSTRUCTED + STAR_SELECTED + STAR_CONDITIONAL)
             and all(OB in direct[d] for d in STAR_OBSTRUCTED) and all(SR in direct[d] for d in STAR_SELECTED)
             and all(gates.CONDITIONAL in direct[d] for d in STAR_CONDITIONAL),
-        "so the THEOREM joins make a star at the seed: 65 dots one join from E8, and the nine-torus, the memory clock, "
+        "so the THEOREM joins make a star at the seed: 66 dots one join from E8, and the memory clock, "
         "the operand file, the words and the calibration two (the seed's eccentricity in the THEOREM graph is 2)":
             all(dist[d] == 1 for d in theorem)
             and sorted(d for d in dist if dist[d] == 2) == sorted(STAR_OBSTRUCTED + STAR_SELECTED + ("calibration",))
@@ -406,6 +439,8 @@ def uniqueness():
     circle = principal.principal_uniqueness()
     classes = _clock_classes()
     c, cp, r, rp, g, w = spine.spine_clock()
+    frame, datum, lit, words, air = (dots.sm_frame(), dots.datum_frame(), dots.literal_chart(),
+                                      dots.word_frames(), dots.air801_classes())
     return {
         "the seed has no parameters: E8 is the only even unimodular lattice of rank 8 (cited), and the Coxeter element "
         "c' is a conjugate w c w^-1 of c = s1 ... s8 (layer 19's w)":
@@ -435,6 +470,29 @@ def uniqueness():
                                       "picked in one class": True}
             and classes["mirror"] == {"order": 2, "elements": 30, "classes": [30], "one charpoly": True, "picked": 0,
                                       "picked in one class": True},
+        "the Standard-Model frame is unique up to W(E8) (sm_frame): its 40 triples (T3, Y, Q) in the carrier's A4 are "
+        "one S5 x {+-1}-orbit, the 24192 A4 subsystems of E8 are one W(E8)-orbit and the stabilizer of (T3, Y) is "
+        "S3 x W(A4'), of order 720, so the 967680 frames are one W(E8)-orbit; its Levi type, 3 + 2 against 4 + 1, is "
+        "a recorded selection that carries no number":
+            all(frame.values()),
+        "the datum's orbit is a recorded selection: the stabilizer of its reading in W(E8) is W(A4) x W(A4') (14400), "
+        "acting on the atoms as S5 with five free orbits of 120 on the 600 data of its type (all of energy 34, alike in "
+        "every D^2 sector); the canon's is the one with <r, a><r, b> = -1, its representative a frame choice, and W(E8) "
+        "leaves 4 Gram classes of the bare root triples, 3 with time reversal":
+            all(datum.values()),
+        "the literal's apex sign is a recorded selection: the owner's port is the derived commutator in the time clock's "
+        "integral chart, one of 480 integral W_p-charts that S5 and the 40 symmetries of W_p make one orbit; the bath's 20 "
+        "site symmetries leave two orbits of 240, separated by the apex sign (the pentagram along R^2, not R^3), and "
+        "N_source is one of 2652 bases of ker M by K4 matching modes":
+            all(lit.values()),
+        "the words' identification is a recorded selection: the clocks act on the 15 Coxeter frames as AGL(1, Z/15) "
+        "(120 maps), only x -> ax, a = 1, 4, 7, 13, commute with the words' D3, so the canon's 808 -> 0, 086 -> 1, "
+        "980 -> 2 is one of 18 classes of 4; the digit flip 6 <-> 9 is conjugate to none of the 120 maps":
+            all(words.values()),
+        "AIR_801's residue is forced by the day: mod 5 it is one of the 20 GL(2,5)-conjugates of -d, and of the "
+        "generators d^k only k = 1, 5 give it; its integers are external (det 12402, discriminant 968473 of narrow class "
+        "number 4, one class per genus)":
+            all(air.values()),
     }
 
 
@@ -547,7 +605,10 @@ def unified_page():
              "ℤ[w + w⁻¹] exactly for the orders divisible by 5.",
              "- **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps "
              "(256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the "
-             "sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them.",
+             "sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them. "
+             "All nine are the band's critical values computed from E8's roots, so the torus has a direct THEOREM "
+             "join to the seed (1 Nov), and √251 is the hypercharge's: read as torus points Y, Q and T3 are critical "
+             "points of orders 6, 3 and 2 with values 251, 243 and 224 (`sm_frame`).",
              f"- **The structure** (`levels_unified`). Every level holds derived dots ({levels}); inside every level they are "
              "joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the "
              f"{len(DERIVATION) + 1} derived dots are connected by the {maps} THEOREM maps between them, no one such map and "
@@ -573,8 +634,8 @@ def unified_page():
             if {j[0], j[1]} == {SEED, d} and j[4] in (T, OB):
                 lines.append(f"| {name(d)} | {depth.get(d, 'input')} | {j[2]} ({j[4]}) | `{j[5]}` |")
     lines += ["", "## Every dot one join from the seed (1 Nov)", "",
-              "Each of the other 72 dots has a direct checked join to E8 (`star`): 65 by THEOREM, the nine-torus and the "
-              "memory clock by obstructions, the owner's operand file and the fifteen words by selected references, and the calibration, the "
+              "Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEOREM, the "
+              "memory clock by an obstruction, the owner's operand file and the fifteen words by selected references, and the calibration, the "
               "product geometry and FLRW by conditional joins that name the binding still missing. In the THEOREM graph "
               "the seed has eccentricity 2.", "", "| level | dot | its direct join to E8 | status | check |",
               "|---|---|---|---|---|"]

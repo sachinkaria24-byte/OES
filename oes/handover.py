@@ -274,7 +274,8 @@ def run():
     rep.add("'W0..W84 exact, W6 = 17,141,798,400' is inside the repository's exact W0..W90", T,
             len(W) >= 91 and W[6] == 17141798400)
     rep.add("bivariate J.C.P. Miller eighth-power recurrence", RP, True,
-            note="not given; the walk counts it produced agree with layer 14")
+            note="not given; the walk counts it produced agree with layer 14; Miller's rule for K(t, z)^8 is "
+                 "replayed in layer 23 (band_closures, 1 Nov: W_0..W_12 equal data/walks90.json)")
     rep.add("'order-11, degree-5 operator L11' as an exact recurrence for W_n is excluded", OB,
             bool(recurrence.excluded(W, 11, 5)),
             note="shape (11, 5) has (r+1)(d+2) = 84 <= 92 and fails on the exact W0..W90; mod p "

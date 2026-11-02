@@ -40,7 +40,8 @@ REPORTED_ITEMS = [
     ("band [0,256] exact: alcove branch-and-bound, 247,920 pieces, margin > 1e-6",
      "computer-assisted; pieces not in this repository; proved here independently by oes/band.py"),
     ("eps > 100 on the alcove outside |k|^2 <= 6 (7,523 pieces)",
-     "computer-assisted; removes the single-ball dependency"),
+     "computer-assisted; removes the single-ball dependency; proved here independently in layer 23 "
+     "(band_closures, 1 Nov: a Taylor bound and 346 outward-rounded simplex pieces, least bound 100.108)"),
     ("W_n recurrence order is 11: (x+12)^2 divides the leading coefficient",
      "Morse indices 7 and 8 at lambda=-12, corrections -16/3 vs -17/8; "
      "the line 'at least 10, not 11' should be deleted. Layer 14: the operator found has "
@@ -48,7 +49,8 @@ REPORTED_ITEMS = [
      "(z+12)^2 among them, and 5 outside"),
     ("155 vs 4805 is a label error: 155 = det T = 5*31 (6x6 adapter); "
      "4805 = 5*31^2 is the 4th cofactor of T T^T",
-     "T operand (eq. 27) is garbled in the PDF text; not rebuilt here"),
+     "T operand (eq. 27) is garbled in the PDF text; replayed on the literal adapter T_OMSOON293 in layer 10 "
+     "and layer 23 (code_closures, 1 Nov: 4805 = cof_44(T T^T) = det(T)^2/5)"),
     ("rotor hex6: m1 = 242 >= 241.36, Hankel determinants positive",
      "operand not in this repository"),
     ("collar to 224: alcove reduction; min curvature positive up to 223.999 "
