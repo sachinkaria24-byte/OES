@@ -799,6 +799,12 @@ def test_the_gate_protocol():
         assert all(out.values()), out
 
 
+def test_the_evidence():
+    for check in (dots.evd_firefly_canon, dots.evd_flash_arithmetic, dots.evd_byte_receipt):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out

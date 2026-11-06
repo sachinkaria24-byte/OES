@@ -10393,6 +10393,11 @@ JOINS = [
     ("carrier", "readout", "loaded observability", "the separate model's vNext12 four-star / spanning-tree theorem replayed exactly on the model's K5: with B = carrier.signed_incidence() in carrier.edges()' lexicographic order (B B^T = 5I - J, k5_roots), P4 = B^T B/5 is the rank-4 cut projector and P6 = I - P4 the rank-6 cycle projector with P4 e_j = B^T (B e_j)/5; for G0 = g6 P6 + g4 P4 and the edge load kappa e_j e_j^T the Woodbury form G_j = G0 - kappa (G0 e_j)(e_j^T G0)/(1 + kappa e_j^T G0 e_j) satisfies G_j^-1 - G0^-1 = kappa e_j e_j^T exactly, symbolic in g6, g4, kappa, on every edge (bind_dynamics_dyadic's load identity on the ten-port); for every one of the 1024 edge subsets S the stacked rows [P6; e_j^T P4, j in S] have rank 11 - c(S), c(S) the number of connected components of (V5, S), in exact arithmetic; so a loaded set is full rank iff the loaded graph is connected (728 of 1024) (6 Nov)", T, "gpr_loaded_observability"),
     ("carrier", "measure", "four loads on a spanning tree", "the measurement design for the pilot's loaded runs, a theorem on the model's K5 under the two-projector hypothesis G0 = g6 P6 + g4 P4 (the free response's form, not a measured fact): among the 210 four-edge sets of K5 exactly the 125 spanning trees (5 stars, 60 paths, 60 forks by degree sequence; 5^3 = 125 labelled trees) give full rank 10 and the other 85 give rank 9; every tree has Gram determinant det(E_T^T P4 E_T) = 1/125 (matrix-tree: det(B_T^T B_T) = 5); the star at vertex 0 has Gram (I4 + J4)/5 with inverse 5 I4 - J4, eigenvalues 1 and 1/5 (x3) and geometric condition number sqrt5 = 2.23607, the path's Gram is the A4 Cartan matrix (eigenvalues 2 - 2 cos(k pi/5), among them bind_time_units' dressed gap (5 - sqrt5)/2) with condition number sqrt(5 + 2 sqrt5) = 3.07768, the fork's eigenvalues are 1 and the roots of x^3 - 7x^2 + 13x - 5 with condition number 2.83511 (exact algebraic numbers), and over all 125 trees the five best conditioned are exactly the five stars; more than four loads are full rank iff the loaded graph is connected (603 of the 638 larger sets) (6 Nov)", T, "gpr_loaded_observability"),
     ("cycles", "measure", "the five-load pentagon", "the separate model's vNext13 design note (6 Nov 15:48, read as data) replayed on the model's K5: the tree cut Grams have the stated characteristic polynomials (star (x - 1)(5x - 1)^3/125, fork (5x - 1)(25x^3 - 35x^2 + 13x - 1)/125, path (5x^2 - 5x + 1)(25x^2 - 15x + 1)/125); K5's twelve five-cycles give a five-load design that survives any one failed load (every one-edge deletion is a spanning tree), and its Cut4 frame B_C^T B_C/5 is the pentagon Laplacian over 5, characteristic polynomial x (5x^2 - 5x + 1)^2/25 with nonzero eigenvalues (5 -+ sqrt5)/10 twice, five times the roots of one_quadratic's x^2 - 5x + 5, so its condition number is the golden ratio (1 + sqrt5)/2 exactly, below the star's sqrt5 and the path's sqrt(5 + 2 sqrt5), the best conditioned of the three; with the Invariant master's (15:54) band fingerprint 4 z^2 e(z) -> B B^T (e(4z)/e(z) -> 1/16 per band, ratios 967/389 and 389/83), the noise optimum 4^N = sqrt(beta/(z^2 eps)) and the port-adapter no-go (U^T G U)^-1 - U^T G^-1 U = -b^2/(z + c) (11/4 against 3 on K = [[2, 1], [1, 3]]), all symbolic on bind_dynamics_dyadic's block (6 Nov)", T, "gpr_designs"),
+    ("cycles", "A4", "the Firefly tick is the A4 five-cycle", "the OMSOON5 handover's 'Firefly structural tick', the companion R4 of (x^5 - 1)/(x - 1), is the model's own vertex five-cycle i -> i + 1 (w0_spanda's P) restricted to the A4 contrasts e_i - e_4: the restriction T keeps Gamma4 = I4 + J4, the Gram of the contrasts (det 5, the A4 Cartan determinant, k5_roots), and is conjugate to R4 over Z by the unimodular cyclic basis b, Tb, T^2 b, T^3 b; R4^5 = I, sum_j R4^j = 0, Smith(I - R4) = diag(1, 1, 1, 5), coker Z/5; B B^T = 5I - J on the vertices (k5_roots, notes_2055); the handover itself calls these 'dimensionless algebraic cycles, not SI time ticks' and TIME_BIND stays UNBOUND: a selected comparator named after the firefly, not a measurement (6 Nov)", SR, "evd_firefly_canon"),
+    ("V", "AGL", "the rate swap against the doubling", "R32's directed five-state generator Q_dir = -7I + 2S + 3S^2 + S^3 + S^4 (near rates 2/1, far 3/1) and R31's W = -7I + 3S + 2S^2 + S^3 + S^4 (near 3/1, far 2/1), both circulant in the shift S with zero column sums, rank 4, the uniform stationary law and sigma = ln 2 + 2 ln 3 = ln 18 (the entropy production, sum over the edges of the stationary current times ln(forward/backward rate); currents 1/5 near and 2/5 far for Q_dir, 2/5 and 1/5 for W; H5 of rank 5 with det -31375 = -5^3 x 251 for Q_dir and 13981 = 11 x 31 x 41 for W), are NOT conjugate by the doubling i -> 2i, by i -> 3i, by the reversal i -> -i or by any product of them (the four multipliers), nor by any of the 120 vertex permutations, nor to each other's transpose; their characteristic polynomials differ (x^4 + 35x^3 + 465x^2 + 2775x + 6275 against ... + 2785x + 6355), so no similarity relates them; exactly, D2 Q_dir D2^-1 = W - 2(S - S^T): the doubling swaps near and far (the join 'the blind clock subsets': the doubling carries the near sets onto the far ones) but reverses the near current, D3 Q_dir D3^-1 = W - (S^2 - S^3) reverses the far current instead, Dm Q_dir Dm^-1 = Q_dir^T is time reversal, and the doubling does conjugate the reversible parts, D2 (Q_dir + Q_dir^T) D2^-1 = W + W^T; so the two notes' rate swap is the doubling on the reversible part only and not a symmetry of the comparator; R32 itself records that Q_dir commutes with the C5 shift but not with the F20 doubling (S Q_dir = Q_dir S, D2 Q_dir D2^-1 != Q_dir, checked), and both notes say their rates are not measurements ('No rate value is an experimental enzyme estimate'; 'THESE rates are NOT measurements of real luciferase', the reader extracts' quotations); R32's oxygen regulator, the same five-state circulant family in the shift S, replayed as the 6 x 6 symbolic determinant det O6(delta) = -(4/5) delta^7 (1 + delta)^6 (3 delta^2 - 4 delta + 16)(delta^4 + 25 delta^2 + 125) with both polynomial factors positive on the reals (observable for every real delta not in {0, -1}), det O6(1/2) = -90366111/655360, det O6(1) = -115968, Markov parameters 0, 0, delta (1 + delta)/5 = 3/20 at delta = 1/2 (6 Nov)", T, "evd_firefly_canon"),
+    ("circle", "clocks", "the flash is circle arithmetic", "the model's only flash content: 4320/180 = 24 (the flash step's order), 8 x 180 = 1440 (the sun arc), 4 x 180 + 144 = 864 (one tick), gcd(180, 216) = 36 (spine.join(180, 216), the generator of <180> + <216>: counts.CLAIMS' FIREFLY_OSC row 'the atlas step', order 120), lcm(24, 20) = 120 (that order), 6 x 180 = 5 x 216 = 1080 (spine.meet: the observer clock), carried by counts.CLAIMS' FIREFLY_OSC and KU_CALENDAR rows and by w0_firefly's join 'two lifts of the observer step' (cited, not repeated); the W0 / Spanda / Firefly note's three power sums recomputed: the spanda sum {0^2, 5^8} and the carrier D^2 {0^5, 3^8, 8^2} share 40 and 200 and have cubes 1000 and 1240 (the join 'spanda is not the Lagrangian', cited); every FIREFLY_OSC value is an integer on the 4320-circle and no row names a hertz or a second; no flash statistic maps to any of these numbers (the register's canonical bytes carry no flash, firefly, species, period or insect token) (6 Nov)", SR, "evd_firefly_canon"),
+    ("calibration", "measure", "the public flash statistics", "the public flash CSV (sha256 ae895e56..., clone 0f28787..., 30 fps; 65,389 rows, 57 night IDs, 7 species) as reported literals, recomputed once from the clone and never read by the unit: per-species median periods (gap + duration) 0.300, 0.433, 0.510, 0.533, 0.570, 0.660, 0.922 s (bethaniensis, knulli, forresti, obscurellus, carolinus, frontalis, wickershamorum); the 21 pairwise ratios span 1.046 to 3.074 with largest consecutive gap G = 0.397 (2.200 to 3.074, where 8/3 and phi^2 fall) and next 0.120, so every target in the span is within G/(2 + G) = 16.6% of some pair by |t/r - 1| (attained at the harmonic midpoint of the widest gap; a fortiori within G/2 = 19.9%) and every target in [1.046, 2.200] within 5.7% (a fortiori 6.0%); WITH ITS BRACKET LEADING, the +-1 frame bracket on the two medians, a deliberately conservative bound, puts wickershamorum/carolinus in [1.47, 1.78] (the frame rule would have to be sealed on per-flash integer frames before averaging; the carolinus median is 17.1 frames), inside which the ratio is 1.618, within 0.01% of phi and 0.9% below the register's sqrt(8/3); by |r/t - 1| the nearest pair to 2 is 1.900 (-5.0%), to 8/3 3.074 (+15.3%), to phi^2 2.200 (-16.0%), to sqrt5 2.200 (-1.6%), to 241/235 1.046 (+2.0%); WITH ITS SPREAD LEADING, the tent data of the authors of the eLife paper (corrected files, 1.5 s burst rule, onset to onset, medians throughout; the Tf medians at N = 15 and 20 exactly 0.45045 and 0.5005 s) give Tb/Tf = 28.9, 26.9, 26.2, 25.2 at N = 5, 10, 15, 20, a 14.8% spread across N, the last +4.9% from the flash order 24 and +0.7% from 25 = 5^2 and the first +20.4% and +15.5% (the mean-based 1.579, the ratio of two Tb means, is a different statistic, not used; the single-insect train statistic 0.534 s gives 1.87 Hz, -6.3% from '~2 Hz'); two species lie below the canon's 'period in [0.5, 2] s' (0.300, 0.433 s) and carolinus gives 1/0.570 = 1.754 Hz against '~2 Hz' (-12.3%); the canon's v1.3 counts 65,389 / 57 / 7 equal the CSV's rows, night IDs and species labels ('sources' = night IDs is this unit's reading); every one a comparison and not a pass: no map from a flash statistic to a model quantity is declared anywhere (the register carries no flash, firefly, species or period token) and the gates stay shut (6 Nov)", gates.CONDITIONAL, "evd_flash_arithmetic"),
+    ("calibration", "literal", "the byte receipt's identification", "the dEchorate byte receipt as arithmetic on reported facts: gatework.DECHORATE_MAINTAINER_SHA256 = c39bc27f...0794 and _MD5 = 6f7aa37d...ea08 cited, 1,724,358 bytes (gatework's ledger text), T3081 UNOPENED (the model's one label); the reported inner metadata (GLOBAL_Title dEchorate_room020002_src9_arr6_mics26-30, loudspeaker_id 9, array_id 5, sofar v1.2.1, history 2022-04-21 then 2023-01-26) against the maintainer's reported current writer (src0..8, arr0..5, mics 5a..5a+4, ids equal to the 0-based indices, 11 x 9 x 6 = 594 files): 9 is outside 0..8, 6 outside 0..5, 26-30 is no 5a..5a+4 while src 8 / arr 5 / mics 25-29 are (the 1-based reading), and the inner ids are mutually inconsistent (loudspeaker_id 9 = src9, array_id 5 = arr6 - 1), so no file of the current build can carry loudspeaker_id 9, the official counterpart must be identified by inner metadata in the 2022-04-21 build or an intermediate writer, and the act-11 outcome table is {match, mismatch, no counterpart = NOT TESTABLE}; the uncompressed bound 5 x 19556 x 8 = 782,240 < 1,724,358 says the copy is not a v3-constant build; 6 x 10 x 30 = 1800 published RIRs and 11 x 9 x 6 x 5 = 2970 are different objects (an index product is not a count); with the millimetre rounding bracket (under 0.05% on each ratio) leading and nine register targets in [1.0255, 8], the room ratios 2.4225, 2.5329, 1.0456 have as nearest target 241/235 at +2.0% for the last and phi^2 at -7.5% and -3.3% for the others (sqrt5 at +8.3%, +13.3%), a comparison only with host_to_OES among gates.UNFORMED_OPERANDS; T3081 is the only entry gatework's own text marks as blocked by the network policy and MODEL.md section 13 files it as a 'binary receipt', not a measured input; the hosts were not reached and no file was opened; CONDITIONAL on the reported inputs (6 Nov)", gates.CONDITIONAL, "evd_byte_receipt"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -42172,6 +42177,525 @@ def gpr_designs():
     }
 
 
+# ------------------------------------------------------------------- existing data and the gates (6 Nov): the canon's firefly comparators replayed, the public flash statistics as reported arithmetic, the byte receipt
+
+
+def _evd_reported():
+    """The reported literals of this unit, as data: nothing here opens a data file (the data are not in the repository).
+    The public flash CSV (FireflyClassification, data/real_data/flash_sequence_data.csv, sha256 ae895e56..., clone commit
+    0f28787..., 30 fps): the row count, the distinct night IDs, the seven species with their row counts, and the
+    per-species MEDIAN of (gap + duration) in seconds, recomputed once from the clone on 6 Nov with Fractions of the
+    file's 8-decimal strings and embedded to six decimals (bethaniensis 3/10, knulli 0.43333333, forresti 51/100,
+    obscurellus 0.53333333, carolinus 57/100, frontalis 33/50, wickershamorum 0.92222222 exactly; the 3-decimal
+    roundings 0.300, 0.433, 0.510, 0.533, 0.570, 0.660, 0.922 agree with the web agents' report). The tent data of the
+    authors of the eLife paper (EmergentPeriodicity, clone commit 91a3fad..., Experimental_Results/Corrected/{05,10,15,20}ff:
+    the aggregate ibsNNff.csv for Tb, the three nsNNff*.csv per N for Tf as onset-to-onset gaps inside bursts under a
+    1.5 s burst rule), medians recomputed once on 6 Nov and embedded exactly where the median is a terminating decimal (Tb at every N;
+    Tf at N = 15 and 20: 0.45045 and 0.5005 s) and to six decimals otherwise; the N = 1 figures are a train statistic
+    under the same rule, not the authors' Tb/Tf definition, and are not compared as Tb/Tf. The canon's v1.3 court counts and literature paraphrases
+    (reader extracts of the Drive notes, read as data). The dEchorate maintainer copy's inner metadata and the
+    maintainer's current writer (the web agents' extract, read as data): REPORTED, not checked here."""
+    F = Fraction
+    return {
+        "csv": {"file": "data/real_data/flash_sequence_data.csv",
+                "sha256": "ae895e56b315e77377ff2516047db0c1dbfb21494813e47bf44496d016d4959b",
+                "commit": "0f2878779b978de7a9519a0763e5677dea213ad7", "fps": 30, "rows": 65389, "night_ids": 57,
+                "species": 7, "labels": tuple(range(7)), "dataset_list": "data/dataset_list.csv", "dataset_list_rows": 57,
+                "dataset_list_lines": 58},
+        "median_period": {"bethaniensis": F("0.300000"), "knulli": F("0.433333"), "forresti": F("0.510000"),
+                          "obscurellus": F("0.533333"), "carolinus": F("0.570000"), "frontalis": F("0.660000"),
+                          "wickershamorum": F("0.922222")},
+        "n": {"carolinus": 39550, "frontalis": 9609, "wickershamorum": 8085, "knulli": 4301, "obscurellus": 2716,
+              "bethaniensis": 581, "forresti": 547},
+        "tent": {"commit": "91a3fad8aa1ba17a42d87048e64cafe88644569e", "burst_rule_s": F("1.5"), "statistic": "median",
+                 "Tb_median": {5: F("12.5290"), 10: F("12.5630"), 15: F("11.8115"), 20: F("12.5960")},
+                 "Tf_median": {5: F("0.433767"), 10: F("0.467133"), 15: F("0.45045"), 20: F("0.5005")},
+                 "Tb_n": {5: 87, 10: 109, 15: 116, 20: 184}, "Tf_n": {5: 388, 10: 595, 15: 846, 20: 1336},
+                 "ns_files_per_N": 3,
+                 "ibs_sha256": {5: "c287f9e63c9cffc85c2a5578b9cd7c7deb22eb85f12e8bfd56662049a60380c7",
+                                10: "e70ed8d1c51bcf979a0f5e6efb6e235349dac82cd37ca23e705b7c0075096b0d",
+                                15: "90ae03f7afbd319eb04ede331f977da33bda398c5131f28c7cb61eb0d7ae9ede",
+                                20: "bed5e1330d4cac9d46723cc94a8f23866c0e6b5c043bb79e4302cf4a16f1a749"},
+                 "single_insect": {"Tb_median": F("68.051"), "Tf_median": F("0.533867"), "Tb_n": 142, "Tf_n": 368,
+                                   "ibs_sha256": "f799b95c89540ef7eec3cbb9e61273e79927290b8c5f7a5c3b5febefb13235f1"},
+                 "means_not_used": {"Tb_mean_5": F("20.56"), "Tb_mean_20": F("13.02"),       # the reported two-decimal means (ratio 1.579)
+                                   "Tb_mean_5_4dp": F("20.5644"), "Tb_mean_20_4dp": F("13.0190")}},   # recomputed to four decimals (ratio 1.5796)
+        "canon_v13": {"sequences": 65389, "sources": 57, "species": 7},
+        "canon_literature": {"flash_rate_Hz": 2, "period_s": (F(1, 2), 2), "duration_ms": 100,
+                             "warning": "Do NOT fix the flash duration universally at 100ms or the period at [0.5,2]s "
+                                        "without species-specific observations."},
+        "handover_quote": "These are dimensionless algebraic cycles, not SI time ticks.",
+        "dechorate": {"bytes": 1724358, "title": "dEchorate_room020002_src9_arr6_mics26-30", "loudspeaker_id": 9,
+                      "array_id": 5, "convention": "SingleRoomSRIR", "writer": "sofar v1.2.1",
+                      "history": ("2022-04-21 Creation SOFA", "2023-01-26 New Sofa"),
+                      "current_writer": {"src": range(9), "arr": range(6), "mics": tuple((5 * a, 5 * a + 4) for a in range(6)),
+                                         "ids_equal_indices": True, "rooms": 11},
+                      "rir_length_v3": 19556, "float_bytes": 8, "receivers": 5,
+                      "published_rirs": (6, 10, 30), "index_ranges": (11, 9, 6, 5),
+                      "room_m": (F("5.705"), F("5.965"), F("2.355")), "rt60_s": {"journal": (F("0.73"), F("0.14")),
+                                                                                "preprint": (F("0.60"), F("0.14"))},
+                      "outcomes": ("match", "mismatch", "no counterpart (NOT TESTABLE)")},
+    }
+
+
+def _evd_register_targets():
+    """The register's own ratios, read from gatework.register() (no flash and no room number is among its leaves): the
+    carrier's frequency ratio sqrt(8/3), the native port-to-source ratio 2 and band-edge ratio 8, the boundary block's
+    241/235, the exterior coupling's 495/183, and the port metric's top-over-third (5 + sqrt5)/(5 - sqrt5) = phi^2;
+    phi, sqrt5 and 8/3 are added as the comparators the crosswalk named (not register leaves, said so)."""
+    reg = gatework.register()
+    car, nat = reg["carrier"], reg["native"]
+    pm = [float(sp.Rational(s)) for s in nat["port_metric_spectrum"]]      # "2/5", "2", "2.7639...", "7.2360..."
+    phi = (1 + sp.sqrt(5)) / 2
+    tied = (abs(float(car["frequency_ratio_8_over_3"]) - float(sp.sqrt(sp.Rational(8, 3)))) < 1e-12
+            and nat["port_to_source_frequency_ratio"] == 2 and nat["band_edge_to_source_frequency_ratio"] == 8
+            and nat["boundary_block_eigenvalues"] == {"contrast": 241, "uniform": 235}
+            and nat["exterior_coupling_eigenvalues"] == [183, 495] and abs(pm[3] / pm[2] - float(phi ** 2)) < 1e-12)
+    targets = {"sqrt(8/3)": sp.sqrt(sp.Rational(8, 3)), "2": sp.Integer(2), "8": sp.Integer(8),
+               "241/235": sp.Rational(241, 235), "495/183": sp.Rational(495, 183), "phi^2": phi ** 2,
+               "phi": phi, "sqrt5": sp.sqrt(5), "8/3": sp.Rational(8, 3)}
+    text = gatework.canonical_bytes(reg).decode().lower()
+    no_map = all(k not in text for k in ("flash", "firefly", "species", "period", "insect", "room"))
+    return targets, tied, no_map
+
+
+def _evd_shut():
+    """The standing of the gates this unit reads and never writes: every comparison below is made with these shut."""
+    G = gates.GATES
+    return (G["ScientificGold"] == "FALSE" and G["PredictionFreeze"] == "NOT_TRIGGERED" and G["TIME_BIND"] == "UNBOUND"
+            and G["AUTH"] == "NOT_PASS" and G["GoldDepth"] == 0 and G["DYN_BIND"] == "NOT_INSTALLED")
+
+
+def _evd_generators():
+    """R32's directed five-state generator Q_dir (near rates 2/1, far 3/1), R31's W (near 3/1, far 2/1), both with
+    zero column sums (column i is the exit of state i, Q[j, i] the rate i -> j), the cyclic shift S (S e_i = e_(i+1))
+    in which both are circulant, and the permutation matrices of the affine multipliers i -> a i mod 5."""
+    Q = sp.Matrix([[-7, 1, 1, 3, 2], [2, -7, 1, 1, 3], [3, 2, -7, 1, 1], [1, 3, 2, -7, 1], [1, 1, 3, 2, -7]])
+    W = sp.Matrix([[-7, 1, 1, 2, 3], [3, -7, 1, 1, 2], [2, 3, -7, 1, 1], [1, 2, 3, -7, 1], [1, 1, 2, 3, -7]])
+    S = sp.Matrix(5, 5, lambda i, j: int(i == (j + 1) % 5))
+    perm = lambda a: sp.Matrix(5, 5, lambda i, j: int(i == (a * j) % 5))
+    return Q, W, S, perm
+
+
+def evd_firefly_canon():
+    """The canon's firefly comparators replayed exactly: the identities are THEOREM, the comparators themselves are
+    selected references named after the firefly. (a) The OMSOON5 handover's 'Firefly structural tick': Gamma4 = I4 + J4,
+    det 5, and the companion R4 of (x^5 - 1)/(x - 1), shown to be the model's own vertex five-cycle (w0_spanda's P) on
+    the A4 contrasts; the handover says 'dimensionless algebraic cycles, not SI time ticks'. (b) R32's directed
+    generator Q_dir and R31's W: rank, column sums, stationary law, the site-4 history H5, the cycle affinity / entropy
+    production sigma = ln 18 (R32's definition: sum over the edges of the stationary current times ln(forward rate /
+    backward rate), local detailed balance, reference units), and the NEW exact statement: whether the two notes' rate
+    swap is the doubling acting on the comparator (it is not: no permutation conjugates them, the spectra differ; the
+    exact relation is W = D Q_dir D^-1 + 2(S - S^T)). (c) R32's oxygen regulator: det O6(delta) symbolically, its
+    factors' positivity, the two values, the Markov parameters. (d) The model's own flash content, circle arithmetic
+    only, cited from counts and dots; the W0 / Spanda note's three power sums. Nothing here is a time tick or a
+    measurement; the gates stay shut."""
+    from sympy.matrices.normalforms import smith_normal_form
+    I4, I5, J4, J5 = sp.eye(4), sp.eye(5), sp.ones(4, 4), sp.ones(5, 5)
+    x, d = sp.symbols("x delta")
+    R = _evd_reported()
+    # (a) the structural tick
+    Gamma4 = I4 + J4
+    R4 = sp.Matrix([[0, 0, 0, -1], [1, 0, 0, -1], [0, 1, 0, -1], [0, 0, 1, -1]])      # the companion of (x^5 - 1)/(x - 1)
+    P5 = sp.Matrix(5, 5, lambda r, c: int(r == (c + 1) % 5))                          # the vertex five-cycle i -> i + 1
+    Bc = sp.Matrix(5, 4, lambda r, c: int(r == c) - int(r == 4))                       # the A4 contrasts e_i - e_4
+    T = sp.Matrix([[-1, -1, -1, -1], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]])       # P5 on the contrasts
+    Cb = sp.Matrix([[1, -1, 0, 0], [0, 1, -1, 0], [0, 0, 1, -1], [0, 0, 0, 1]])       # the cyclic basis b, Tb, T^2 b, T^3 b
+    smith = smith_normal_form(I4 - R4, domain=sp.ZZ)
+    Bs = sp.Matrix(carrier.signed_incidence())
+    # (b) the two generators
+    Q, W, S, perm = _evd_generators()
+    E = carrier.edges()
+    row1, pi = sp.ones(1, 5), sp.ones(5, 1) / 5
+    e4 = sp.zeros(1, 5)
+    e4[0, 4] = 1
+    hist = lambda G: sp.Matrix.vstack(*[e4 * G ** k for k in range(5)])
+    H5q, H5w = hist(Q), hist(W)
+    sigma = lambda G: sum((sp.Rational(1, 5) * (G[j, i] - G[i, j]) * sp.log(sp.Rational(G[j, i], G[i, j]))
+                           for i in range(5) for j in range(i + 1, 5)), sp.Integer(0))
+    sigma18 = sp.log(2) + 2 * sp.log(3)
+    current = lambda G: sp.Matrix([sp.Rational(1, 5) * (G[b, a] - G[a, b]) for a, b in E])   # oriented a -> b, a < b
+    step = lambda k: sp.Matrix([(1 if (b - a) % 5 == k else -1 if (b - a) % 5 == 5 - k else 0) for a, b in E])
+    f_near, f_far = step(1), step(2)                                                          # the oriented near and far five-cycles
+    D2, D3, Dm = perm(2), perm(3), perm(4)
+    conj = lambda P, G: P * G * P.T
+    named = {"i -> 2i": D2, "i -> 3i": D3, "i -> -i": Dm, "(2)(3)": D2 * D3, "(2)(-1)": D2 * Dm, "(3)(-1)": D3 * Dm,
+             "(2)(2)": D2 * D2, "(3)(3)": D3 * D3}
+    group = {tuple(M) for M in (I5, D2, D3, Dm, D2 * D3, D2 * Dm, D3 * Dm, D2 * D2, D3 * D3, D2 * D2 * D2)}
+    Qn, Wn = np.array(Q.tolist(), dtype=np.int64), np.array(W.tolist(), dtype=np.int64)
+    hits = []
+    for p in itertools.permutations(range(5)):
+        Pm = np.zeros((5, 5), dtype=np.int64)
+        for j in range(5):
+            Pm[p[j], j] = 1
+        C = Pm @ Qn @ Pm.T
+        if np.array_equal(C, Wn) or np.array_equal(C, Wn.T):
+            hits.append(p)
+    cq, cw = Q.charpoly(x).as_expr(), W.charpoly(x).as_expr()
+    blind = [j for j in JOINS if j[2] == "the blind clock subsets"]
+    # (c) the oxygen regulator
+    Qd = -5 * I5 + J5 + d * (S - S.T)
+    bvec = sp.Matrix([0, 0, -1, 1, 0]) / 5
+    A6 = sp.Matrix.vstack(sp.Matrix.hstack(Qd, bvec), sp.Matrix.hstack(sp.zeros(1, 5), sp.Matrix([[-1]])))
+    C6 = sp.Matrix([[0, 0, 0, 0, 1 + d, 0]])
+    B6 = sp.Matrix([0, 0, 0, 0, 0, 1])
+    rows = [C6]
+    for k in range(5):
+        rows.append(rows[-1] * A6)
+    O6 = sp.Matrix.vstack(*rows).applyfunc(sp.expand)                 # expanded entries: the LU determinant takes 0.4 s
+    detO6 = sp.factor(O6.det(method="lu"))
+    q2, q4 = 3 * d ** 2 - 4 * d + 16, d ** 4 + 25 * d ** 2 + 125
+    target = -sp.Rational(4, 5) * d ** 7 * (1 + d) ** 6 * q2 * q4
+    m0, m1, m2 = (C6 * B6)[0], (C6 * A6 * B6)[0], sp.factor((C6 * A6 ** 2 * B6)[0])
+    # (d) the flash as circle arithmetic, and the power sums
+    claims = {(r[0], r[1], r[2]) for r in counts.CLAIMS}
+    lifts = [j for j in JOINS if j[2] == "two lifts of the observer step"]
+    spanda, carr = {0: 2, 5: 8}, {0: 5, 3: 8, 8: 2}
+    ps = lambda m, k: sum(c * v ** k for v, c in m.items())
+    notlag = [j for j in JOINS if j[2] == "spanda is not the Lagrangian"]
+    no_map = _evd_register_targets()[2]
+    return {
+        "(a) the 'Firefly structural tick' of the OMSOON5 handover is the model's own vertex five-cycle on the A4 "
+        "contrasts: Gamma4 = I4 + J4 is the Gram of the contrasts e_i - e_4 (i = 0..3), det 5 (the A4 Cartan "
+        "determinant, k5_roots), and the five-cycle P: i -> i + 1 (w0_spanda) acts on them as a T with T^T Gamma4 T = "
+        "Gamma4 that is conjugate over Z, by the unimodular cyclic basis b, Tb, T^2 b, T^3 b, to the companion R4 of "
+        "(x^5 - 1)/(x - 1): R4^5 = I, sum_j R4^j = 0, Smith(I - R4) = diag(1, 1, 1, 5), coker Z/5 (order |det(I - "
+        "R4)| = 5); B B^T = 5I - J on the vertices (k5_roots, notes_2055); the handover itself says 'These are "
+        "dimensionless algebraic cycles, not SI time ticks' (the reader extract's quotation, reported, not checked) and "
+        "TIME_BIND stays UNBOUND: a selected comparator, not a measurement":
+            Gamma4.det() == 5 and Bc.T * Bc == Gamma4 and P5 * Bc == Bc * T and T.T * Gamma4 * T == Gamma4
+            and Cb.det() == 1 and Cb.inv() * T * Cb == R4
+            and sp.expand(R4.charpoly(x).as_expr() - (x ** 4 + x ** 3 + x ** 2 + x + 1)) == 0
+            and R4 ** 5 == I4 and sum((R4 ** j for j in range(5)), sp.zeros(4)) == sp.zeros(4)
+            and smith == sp.diag(1, 1, 1, 5) and abs((I4 - R4).det()) == 5 and Bs * Bs.T == 5 * I5 - J5
+            and gates.GATES["TIME_BIND"] == "UNBOUND",
+        "(b) R32's directed generator Q_dir = -7I + 2S + 3S^2 + S^3 + S^4 (near rates 2/1, far 3/1): zero column "
+        "sums, rank 4, stationary law (1/5)^5 (the one-dimensional kernel), the site-4 history H5 = stack(e4^T Q_dir^k, "
+        "k = 0..4) of rank 5 and det -31375 = -5^3 x 251; the stationary current is j* = f_near/5 + 2 f_far/5 on the "
+        "oriented near and far five-cycles, divergence-free (B j* = 0), and the note's entropy production sigma = sum "
+        "over the edges of the current times ln(forward/backward rate) (local detailed balance, reference units) is "
+        "exactly ln 2 + 2 ln 3 = ln 18":
+            Q == -7 * I5 + 2 * S + 3 * S ** 2 + S ** 3 + S ** 4 and row1 * Q == sp.zeros(1, 5) and Q.rank() == 4
+            and Q * pi == sp.zeros(5, 1) and len(Q.nullspace()) == 1
+            and H5q.rank() == 5 and H5q.det() == -31375 and sp.factorint(31375) == {5: 3, 251: 1}
+            and current(Q) == f_near / 5 + 2 * f_far / 5 and Bs * current(Q) == sp.zeros(5, 1)
+            and (f_near.T * f_near)[0] == 5 == (f_far.T * f_far)[0] and (f_near.T * f_far)[0] == 0
+            and sigma(Q) == sigma18 and sp.simplify(sp.exp(sigma(Q))) == 18,
+        "(b) R31's generator W = -7I + 3S + 2S^2 + S^3 + S^4 (near 3/1, far 2/1) shares the zero column sums, the "
+        "rank 4 and the uniform stationary law, its current is R31's j = 2 f_near/5 + f_far/5, and its sigma is the "
+        "same ln 18 (rerun, not asserted); its site-4 history has rank 5 too but det 13981 = 11 x 31 x 41, not "
+        "-31375":
+            W == -7 * I5 + 3 * S + 2 * S ** 2 + S ** 3 + S ** 4 and row1 * W == sp.zeros(1, 5) and W.rank() == 4
+            and W * pi == sp.zeros(5, 1) and current(W) == 2 * f_near / 5 + f_far / 5
+            and sigma(W) == sigma18 and H5w.rank() == 5 and H5w.det() == 13981
+            and sp.factorint(13981) == {11: 1, 31: 1, 41: 1},
+        "(b) the rate swap is NOT the doubling acting on the comparator: the permutation matrices of i -> 2i, i -> 3i, "
+        "i -> -i and all their products (the four multipliers {1, 2, 3, 4}) conjugate Q_dir neither to W nor to W^T, "
+        "no permutation of the five states does (all 120 tried, both targets), and the characteristic polynomials "
+        "differ, x(x^4 + 35x^3 + 465x^2 + 2775x + 6275) against x(x^4 + 35x^3 + 465x^2 + 2785x + 6355), so no "
+        "similarity at all relates them; what holds exactly: D2 Q_dir D2^-1 = W - 2(S - S^T) (the doubling swaps near "
+        "and far and reverses the near current), D3 Q_dir D3^-1 = W - (S^2 - S^3) (i -> 3i reverses the far current "
+        "instead), Dm Q_dir Dm^-1 = Q_dir^T (the reversal i -> -i is time reversal), and the doubling does conjugate "
+        "the reversible parts, D2 (Q_dir + Q_dir^T) D2^-1 = W + W^T (the model's doubling carries the near sets onto "
+        "the far ones, the join 'the blind clock subsets' on V-AGL, cited): the two notes' swap is the doubling on "
+        "the reversible part only; R32 itself records that Q_dir commutes with the C5 shift but not with the F20 doubling "
+        "(S Q_dir = Q_dir S and D2 Q_dir D2^-1 != Q_dir, checked), and both notes say their rates are not measurements "
+        "('No rate value is an experimental enzyme estimate'; 'THESE rates are NOT measurements of real luciferase': "
+        "the reader extracts' quotations, reported)":
+            all(conj(P, Q) != W and conj(P, Q) != W.T for P in named.values()) and len(group) == 4
+            and D2 * D3 == I5 and D2 * D2 == Dm and hits == []
+            and conj(D2, Q) == W - 2 * (S - S.T) and conj(D3, Q) == W - (S ** 2 - S ** 3) and conj(Dm, Q) == Q.T
+            and conj(D2, Q + Q.T) == W + W.T and D2 * S * D2.T == S ** 2 and S * Q == Q * S and conj(D2, Q) != Q
+            and sp.expand(cq - x * (x ** 4 + 35 * x ** 3 + 465 * x ** 2 + 2775 * x + 6275)) == 0
+            and sp.expand(cw - x * (x ** 4 + 35 * x ** 3 + 465 * x ** 2 + 2785 * x + 6355)) == 0
+            and sp.expand(cq - cw) == -10 * x ** 2 - 80 * x
+            and len(blind) == 1 and blind[0][:2] == ("V", "AGL") and "near sets onto the far ones" in blind[0][3],
+        "(c) R32's oxygen regulator: with S the cyclic shift, Q_delta = -5I + J + delta (S - S^T), b = (0, 0, -1, 1, "
+        "0)/5, A6 = [[Q_delta, b], [0, -1]] and C6 = (0, 0, 0, 0, 1 + delta, 0), the 6 x 6 symbolic determinant of "
+        "the observability matrix is det O6(delta) = -(4/5) delta^7 (1 + delta)^6 (3 delta^2 - 4 delta + 16) "
+        "(delta^4 + 25 delta^2 + 125) exactly; the quadratic factor has discriminant -176 < 0 and minimum 44/3 on "
+        "the reals, the quartic has minimum 125, so the real zeros are exactly delta = 0 and delta = -1 and the "
+        "cartoon is observable for every other real delta; det O6(1/2) = -90366111/655360 and det O6(1) = -115968":
+            sp.expand(detO6 - target) == 0 and sp.discriminant(q2, d) == -176
+            and sp.minimum(q2, d, sp.Reals) == sp.Rational(44, 3) and sp.minimum(q4, d, sp.Reals) == 125
+            and set(sp.real_roots(sp.Poly(sp.expand(target), d))) == {-1, 0}
+            and detO6.subs(d, sp.Rational(1, 2)) == sp.Rational(-90366111, 655360) and detO6.subs(d, 1) == -115968,
+        "(c) the Markov parameters: C B6 = 0, C A6 B6 = 0 and C A6^2 B6 = delta (1 + delta)/5 symbolically, which is "
+        "3/20 at delta = 1/2 (the synthesis's value, confirmed): the regulator's first nonzero Markov parameter is the "
+        "third, relative degree 3":
+            m0 == 0 and m1 == 0 and sp.expand(m2 - d * (d + 1) / 5) == 0 and m2.subs(d, sp.Rational(1, 2)) == sp.Rational(3, 20),
+        "(d) the model's own flash content is circle arithmetic only: 4320/180 = 24 (the flash step's order), 8 x 180 "
+        "= 1440 (the sun arc), 4 x 180 + 144 = 864 (one tick), gcd(180, 216) = 36 (spine.join(180, 216), the generator "
+        "of <180> + <216>: counts.CLAIMS' FIREFLY_OSC row 'the atlas step', order 120), lcm(24, 20) = 120 (that "
+        "order), 6 x 180 = 5 x 216 = 1080 (spine.meet: the observer clock); counts.CLAIMS carries the FIREFLY_OSC row "
+        "('one flash', 180, order 24) and the KU_CALENDAR rows ('the sun arc', 1440; 'eights in the sun arc, the "
+        "flash', 180), and dots carries w0_firefly's join 'two lifts of the observer step' (clocks-observer) with the "
+        "same arithmetic; every FIREFLY_OSC value is an integer on the 4320-circle and no row names a hertz or a "
+        "second, and no flash statistic maps to any of these numbers (the register's canonical bytes carry no flash, "
+        "firefly, species, period or insect token)":
+            N == 4320 and 4320 % 180 == 0 and 4320 // 180 == 24 and 8 * 180 == 1440 and 4 * 180 + 144 == 864
+            and gcd(180, 216) == 36 and lcm(24, 20) == 120 and 6 * 180 == 5 * 216 == 1080
+            and spine.join(180, 216) == 36 and spine.meet(180, 216) == 1080
+            and ("FIREFLY_OSC", "one flash", 180) in claims
+            and any(r[0] == "FIREFLY_OSC" and r[1] == "one flash" and ("order", 24) in r[4] for r in counts.CLAIMS)
+            and ("KU_CALENDAR", "the sun arc", 1440) in claims and ("KU_CALENDAR", "eights in the sun arc, the flash", 180) in claims
+            and any(r[0] == "FIREFLY_OSC" and r[1] == "the atlas step" and r[2] == 36 and ("order", 120) in r[4] for r in counts.CLAIMS)
+            and 4320 // 36 == 120 and all(isinstance(r[2], int) and 0 < r[2] < 4320 for r in counts.CLAIMS if r[0] == "FIREFLY_OSC")
+            and not any(tok in r[1].lower() for r in counts.CLAIMS if r[0] == "FIREFLY_OSC" for tok in ("hz", "second", "millisecond", " ms"))
+            and no_map
+            and len(lifts) == 1 and lifts[0][:2] == ("clocks", "observer") and lifts[0][5] == "w0_firefly"
+            and "1080 = 6 x 180 = 5 x 216" in lifts[0][3],
+        "(d) the W0 / Spanda / Firefly note's power sums, recomputed only as the three sums: the spanda sum on the ten "
+        "edges {0^2, 5^8} and the carrier D^2 {0^5, 3^8, 8^2} (carrier.spectrum_multiplicities) share sum 40 and sum "
+        "of squares 200 but have cubes 1000 and 1240; this is the existing join 'spanda is not the Lagrangian' "
+        "(E-carrier, OBSTRUCTION, w0_spanda), cited and not redone":
+            [ps(spanda, k) for k in (1, 2, 3)] == [40, 200, 1000] and [ps(carr, k) for k in (1, 2, 3)] == [40, 200, 1240]
+            and sum(spanda.values()) == 10 and sum(carr.values()) == 15 and carrier.spectrum_multiplicities() == carr
+            and len(notlag) == 1 and notlag[0][:2] == ("E", "carrier") and notlag[0][4] == gates.OBSTRUCTION
+            and notlag[0][5] == "w0_spanda" and "40 and 200 but not 1000 and 1240" in notlag[0][3],
+    }
+
+
+def evd_flash_arithmetic():
+    """The public flash statistics as reported numbers: arithmetic on the literals of _evd_reported (recomputed once
+    from the clones on 6 Nov, never read here), each statement a comparison and never a pass, CONDITIONAL on the
+    reported values. The critics' corrections are honoured: every coincidence leads with its frame bracket, one
+    statistic (the median) is used throughout, two species lie below 0.5 s, the look-elsewhere gap is computed, the
+    nearest-ratio metric is stated, the identification 'sources' = night IDs is marked as this unit's reading. No map
+    from a flash statistic to a model quantity is declared anywhere: the register's canonical bytes carry no flash,
+    firefly, species, period or insect token, and the gates stay shut."""
+    F = Fraction
+    R = _evd_reported()
+    med, n = R["median_period"], R["n"]
+    names = sorted(med, key=lambda s: med[s])
+    ratios = sorted((med[b] / med[a], b, a) for a, b in itertools.combinations(names, 2))   # larger over smaller
+    vals = [r for r, b, a in ratios]
+    gaps = [vals[i + 1] / vals[i] - 1 for i in range(20)]
+    G = max(gaps)
+    iG = gaps.index(G)
+    G2 = max(g for i, g in enumerate(gaps) if i != iG)
+    grid = lambda lo, hi, m: [lo + (hi - lo) * k / m for k in range(m + 1)]
+    hm = lambda a, b: 2 * a * b / (a + b)                                     # the harmonic midpoint, where |t/r - 1| peaks
+    dist = lambda t: min(abs(float(t) / float(r) - 1) for r in vals)
+    targets, tied, no_map = _evd_register_targets()
+    pct = lambda r, t: round(100 * (float(r) / float(t) - 1), 1)
+    nearest = {k: min(ratios, key=lambda z: abs(float(z[0]) / float(t) - 1)) for k, t in targets.items()}   # by |r/t - 1|
+    by_log = {k: min(ratios, key=lambda z: abs(np.log(float(z[0]) / float(t)))) for k, t in targets.items()}
+    w, c = med["wickershamorum"], med["carolinus"]
+    f = F(1, 30)
+    wc, lo, hi = w / c, (w - f) / (c + f), (w + f) / (c - f)
+    phi, root83 = targets["phi"], targets["sqrt(8/3)"]
+    tent = R["tent"]
+    ratio = {k: tent["Tb_median"][k] / tent["Tf_median"][k] for k in (5, 10, 15, 20)}
+    means = tent["means_not_used"]
+    below = [s for s in names if med[s] < F(1, 2)]
+    car_hz = 1 / med["carolinus"]
+    single_hz = 1 / tent["single_insect"]["Tf_median"]
+    lit = R["canon_literature"]
+    shut = _evd_shut()
+    hexs = lambda s, k: len(s) == k and all(ch in "0123456789abcdef" for ch in s)
+    return {
+        "(i) the 21 pairwise ratios of the seven median periods (larger over smaller) span 1.046 to 3.074, and the "
+        "largest relative gap between consecutive sorted ratios is G = 0.397, between 2.200 (frontalis/bethaniensis) "
+        "and 3.074 (wickershamorum/bethaniensis); the next largest is 0.120 (1.900 to 2.128); so every target in the "
+        "span is within G/(2 + G) = 16.6% of some pair by |t/r - 1| (the bound is attained at the harmonic midpoint of "
+        "the widest gap, checked exactly, and holds on a 3000-point grid; a fortiori within the brief's G/2 = 19.9%), "
+        "and every target in [1.046, 2.200] within G2/(2 + G2) = 5.7% (a fortiori 6.0%): the look-elsewhere fact the "
+        "critics asked for (the widest gap is where 8/3 and phi^2 fall, which is why those two are 15-16% off): a "
+        "comparison, not a pass, and no map from a flash statistic to a model quantity is declared anywhere":
+            len(ratios) == 21 and round(float(vals[0]), 3) == 1.046 and round(float(vals[-1]), 3) == 3.074
+            and round(float(G), 3) == 0.397 and (round(float(vals[iG]), 3), round(float(vals[iG + 1]), 3)) == (2.2, 3.074)
+            and ratios[iG][1:] == ("frontalis", "bethaniensis") and ratios[iG + 1][1:] == ("wickershamorum", "bethaniensis")
+            and round(float(G2), 3) == 0.12 and round(float(G / 2), 3) == 0.199 and round(float(G2 / 2), 3) == 0.06
+            and round(float(G / (2 + G)), 3) == 0.166 and round(float(G2 / (2 + G2)), 3) == 0.057
+            and hm(vals[iG], vals[iG + 1]) / vals[iG] - 1 == G / (2 + G) == 1 - hm(vals[iG], vals[iG + 1]) / vals[iG + 1]
+            and all(dist(t) <= float(G / (2 + G)) + 1e-12 for t in grid(vals[0], vals[-1], 3000))
+            and all(dist(t) <= float(G2 / (2 + G2)) + 1e-12 for t in grid(vals[0], F("2.2"), 3000))
+            and all(dist(t) <= G / 2 for t in grid(vals[0], vals[-1], 3000))
+            and float(vals[iG]) < float(targets["8/3"]) < float(vals[iG + 1]) and float(vals[iG]) < float(targets["phi^2"]) < float(vals[iG + 1])
+            and no_map and tied and shut,
+        "(ii) WITH ITS FRAME BRACKET LEADING: the +-1 frame (1/30 s) bracket on each of the two medians, a deliberately "
+        "conservative bound, puts wickershamorum/carolinus in [1.47, 1.78] (lo = (w - 1/30)/(c + 1/30), hi = (w + "
+        "1/30)/(c - 1/30)), and the "
+        "sealed frame rule would have to be stated on per-flash integer frame counts before averaging (the CSV's "
+        "durations and gaps are per-sequence averages: the carolinus median is 17.1 frames, not an integer); inside "
+        "that bracket the ratio itself is 0.922222/0.570000 = 1.618, within 0.01% of phi and 0.9% below sqrt(8/3) "
+        "(the register's carrier frequency ratio), the bracket holding both; by the metric |r/t - 1| the nearest "
+        "pair to 2 is 1.900 (carolinus/bethaniensis, -5.0%), to 8/3 it is 3.074 (+15.3%), to phi^2 it is 2.200 "
+        "(-16.0%; by log distance 3.074 at +17.4% would be nearer, the metric is stated), to sqrt5 it is 2.200 "
+        "(-1.6%), to 241/235 it is 1.046 (+2.0%): a comparison, not a pass, and no map from a flash statistic to a "
+        "model quantity is declared anywhere":
+            round(float(lo), 2) == 1.47 and round(float(hi), 2) == 1.78 and lo < wc < hi
+            and float(lo) < float(phi) < float(hi) and float(lo) < float(root83) < float(hi) and float(hi) < 2
+            and med["carolinus"] * 30 == F("17.1") and any(m * 30 != int(m * 30) for m in med.values())
+            and round(float(wc), 3) == 1.618 and abs(float(wc) / float(phi) - 1) < 1e-4 and pct(wc, root83) == -0.9
+            and nearest["phi"][1:] == ("wickershamorum", "carolinus") == nearest["sqrt(8/3)"][1:]
+            and nearest["2"][1:] == ("carolinus", "bethaniensis") and pct(nearest["2"][0], targets["2"]) == -5.0
+            and round(float(nearest["2"][0]), 3) == 1.9
+            and nearest["8/3"][1:] == ("wickershamorum", "bethaniensis") and pct(nearest["8/3"][0], targets["8/3"]) == 15.3
+            and nearest["phi^2"][1:] == ("frontalis", "bethaniensis") and pct(nearest["phi^2"][0], targets["phi^2"]) == -16.0
+            and by_log["phi^2"][1:] == ("wickershamorum", "bethaniensis") and pct(by_log["phi^2"][0], targets["phi^2"]) == 17.4
+            and nearest["sqrt5"][1:] == ("frontalis", "bethaniensis") and pct(nearest["sqrt5"][0], targets["sqrt5"]) == -1.6
+            and nearest["241/235"][1:] == ("obscurellus", "forresti") and pct(nearest["241/235"][0], targets["241/235"]) == 2.0
+            and no_map and tied and shut,
+        "(iii) WITH ITS SPREAD LEADING: the tent data of the authors of the eLife paper (the corrected files, 1.5 s "
+        "burst rule, onset to onset, the SAME statistic throughout: medians) give Tb/Tf = 28.9, 26.9, 26.2, 25.2 at N "
+        "= 5, 10, 15, 20, a 14.8% spread across N that is the bracket on any 'Tb/Tf near 25' reading (from the "
+        "embedded medians 12.529/0.433767, 12.563/0.467133, 11.8115/0.45045, 12.596/0.5005; the Tf medians at N = 15 "
+        "and 20 are exactly 0.45045 and 0.5005 s), decreasing in N and all above 25; against 24 (the flash order) the "
+        "N = 20 value is +4.9% and the N = 5 value +20.4%, against 25 = 5^2 they are +0.7% and +15.5%; the mean-based "
+        "1.579 (the ratio of the reported two-decimal Tb means 20.56/13.02 at N = 5 and 20; the four-decimal means "
+        "20.5644/13.0190 give 1.5796) is a different statistic, the ratio of two means of Tb and not a Tb/Tf, and is "
+        "not used; the N = 1 figures are a train statistic under the group rule and are not compared as Tb/Tf: a "
+        "comparison, not a pass, and no map from a flash statistic to a model quantity is declared anywhere":
+            {k: round(float(v), 1) for k, v in ratio.items()} == {5: 28.9, 10: 26.9, 15: 26.2, 20: 25.2}
+            and pct(ratio[5], ratio[20]) == 14.8 and max(ratio, key=ratio.get) == 5 and min(ratio, key=ratio.get) == 20
+            and all(ratio[a] > ratio[b] for a, b in ((5, 10), (10, 15), (15, 20))) and min(ratio.values()) > 25
+            and pct(ratio[20], 24) == 4.9 and pct(ratio[20], 25) == 0.7 and pct(ratio[5], 24) == 20.4 and pct(ratio[5], 25) == 15.5
+            and tent["Tf_median"][15] == F(9009, 20000) and tent["Tf_median"][20] == F(1001, 2000) and tent["statistic"] == "median"
+            and round(float(means["Tb_mean_5"] / means["Tb_mean_20"]), 3) == 1.579
+            and abs(float(means["Tb_mean_5_4dp"] / means["Tb_mean_20_4dp"]) - 1.5796) < 5e-5
+            and tent["burst_rule_s"] == F(3, 2)
+            and all(hexs(tent["ibs_sha256"][k], 64) for k in ratio) and hexs(tent["commit"], 40)
+            and no_map and tied and shut,
+        "(iv) two species have median periods below 0.5 s, bethaniensis 0.300 and knulli 0.433, against the canon's "
+        "literature paraphrase 'period in [0.5, 2] s' (which the other five satisfy, and which the canon itself warns "
+        "not to fix universally); carolinus, the largest sample, has 1/0.570 = 1.754 Hz against the canon's '~2 Hz' "
+        "(-12.3%), and the single-insect Tf median 0.534 s (0.533867 embedded) of the tent data gives 1.87 Hz (-6.3%) "
+        "under the same burst rule, a train statistic: a comparison, not a pass, and no map from a flash statistic "
+        "to a model quantity is declared anywhere":
+            below == ["bethaniensis", "knulli"] and len(below) == 2
+            and all(lit["period_s"][0] <= med[s] <= lit["period_s"][1] for s in names if s not in below)
+            and (round(float(med["bethaniensis"]), 3), round(float(med["knulli"]), 3)) == (0.3, 0.433)
+            and round(float(car_hz), 3) == 1.754 and pct(car_hz, lit["flash_rate_Hz"]) == -12.3
+            and round(float(tent["single_insect"]["Tf_median"]), 3) == 0.534
+            and round(float(single_hz), 2) == 1.87 and pct(single_hz, lit["flash_rate_Hz"]) == -6.3
+            and "without species-specific observations" in lit["warning"] and n["carolinus"] == max(n.values())
+            and no_map and tied and shut,
+        "(v) the canon's v1.3 court counts (65,389 sequences, 57 sources, 7 species) equal the CSV's row count, its "
+        "distinct night IDs and its species labels 0..6 (the seven per-species counts sum to 65,389; data/dataset_list.csv "
+        "has 57 data rows in 58 lines, the last without a newline, so a newline count reports 57); the identification "
+        "'sources' = night IDs is this unit's reading, not the "
+        "canon's, and the agreement is of three counts, not of a court result; the file is named by its sha256 "
+        "ae895e56... and clone commit 0f28787..., and nothing here opened it: a comparison, not a pass, and no map "
+        "from a flash statistic to a model quantity is declared anywhere":
+            R["canon_v13"]["sequences"] == R["csv"]["rows"] == 65389 == sum(n.values())
+            and R["canon_v13"]["sources"] == R["csv"]["night_ids"] == 57
+            and R["canon_v13"]["species"] == R["csv"]["species"] == 7 == len(med) == len(n) == len(R["csv"]["labels"])
+            and R["csv"]["labels"] == tuple(range(7)) and R["csv"]["dataset_list"] == "data/dataset_list.csv"
+            and R["csv"]["dataset_list_rows"] == 57 and R["csv"]["dataset_list_lines"] == 58 == R["csv"]["dataset_list_rows"] + 1
+            and R["csv"]["sha256"].startswith("ae895e56") and hexs(R["csv"]["sha256"], 64)
+            and R["csv"]["commit"].startswith("0f28787") and hexs(R["csv"]["commit"], 40) and R["csv"]["fps"] == 30
+            and no_map and tied and shut,
+    }
+
+
+def evd_byte_receipt():
+    """The dEchorate byte receipt as arithmetic on reported facts (REPORTED / CONDITIONAL): the maintainer hashes the
+    model holds (gatework.DECHORATE_MAINTAINER_SHA256 / _MD5, cited), the reported inner metadata of the maintainer
+    copy and the maintainer's current writer naming (the web agents' extract, read as data), and what follows from
+    them by arithmetic alone: the current build cannot carry loudspeaker_id 9, so the official counterpart must be
+    identified by inner metadata in the 2022-04-21 build or an intermediate writer, and the act-11 outcome table has
+    three entries; the uncompressed size bound; the two RIR counts as different objects; the room ratios against the
+    register as a comparison only. T3081 keeps the model's one label, UNOPENED. The official hosts were not reached
+    and no downloaded file was opened here (the repository's docs/MODEL.md and docs/GATES.md are read as text)."""
+    import inspect
+    import pathlib
+    import re
+    F = Fraction
+    R = _evd_reported()["dechorate"]
+    docs = pathlib.Path(gatework.ROOT) / "docs"
+    model_md, gates_md = (docs / "MODEL.md").read_text(), (docs / "GATES.md").read_text()
+    sha, md5 = gatework.DECHORATE_MAINTAINER_SHA256, gatework.DECHORATE_MAINTAINER_MD5
+    hexs = lambda s, k: len(s) == k and all(ch in "0123456789abcdef" for ch in s)
+    gsrc = inspect.getsource(gatework)
+    m = re.fullmatch(r"dEchorate_room(\d{6})_src(\d+)_arr(\d+)_mics(\d+)-(\d+)", R["title"])
+    room, src, arr, mic0, mic1 = m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4)), int(m.group(5))
+    cw = R["current_writer"]
+    srcs, arrs, mics = cw["src"], cw["arr"], set(cw["mics"])
+    files = cw["rooms"] * len(srcs) * len(arrs)
+    bound = R["receivers"] * R["rir_length_v3"] * R["float_bytes"]
+    a, b, c = R["published_rirs"]
+    i1, i2, i3, i4 = R["index_ranges"]
+    L, Wd, H = R["room_m"]
+    h = F(1, 2000)                                                                   # half a millimetre, in metres
+    r1, r2, r3 = L / H, Wd / H, Wd / L
+    targets, tied, no_map = _evd_register_targets()
+    pct = lambda r, t: round(100 * (float(r) / float(t) - 1), 1)
+    nearest = lambda r: min(targets.items(), key=lambda kv: abs(float(r) / float(kv[1]) - 1))
+    rt = R["rt60_s"]
+    shut = _evd_shut()
+    return {
+        "the model's receipt, cited: gatework.DECHORATE_MAINTAINER_SHA256 = c39bc27f...0794 (64 hex) and _MD5 = "
+        "6f7aa37d...ea08 (32 hex), and gatework's own ledger text records the maintainer side as 1,724,358 bytes "
+        "replayed on a second host, with the official-host side open; the state label is the model's one key, "
+        "gates.GATES['T3081'] = UNOPENED (the canon's 'NOT TESTABLE' is the same state under one label here); in "
+        "gatework's own text the entry is the only one blocked by the network policy (every line naming the policy "
+        "names T3081 or its SOFA host; the other gates wait on an owner, laboratory or adjudicator input, docs/GATES.md's "
+        "supplier column), and MODEL.md section 13 files it as a 'binary receipt', bytes against a hash and not a "
+        "measured input":
+            sha == "c39bc27f42174f7dc7cf24e3145d8ac4c835e8f4460fefaa95b6f7502ae60794" and hexs(sha, 64)
+            and md5 == "6f7aa37d319ec8898e4547aec1acea08" and hexs(md5, 32) and R["bytes"] == 1724358
+            and "1,724,358 bytes" in gsrc and "DECHORATE_MAINTAINER_SHA256" in gsrc
+            and "the official-host side stays open" in gsrc and gates.GATES["T3081"] == "UNOPENED"
+            and "blocked by network" in gsrc and any("network" in ln.lower() for ln in gsrc.splitlines())
+            and all("T3081" in ln or "SOFA" in ln for ln in gsrc.splitlines() if "network" in ln.lower())
+            and "| laboratory |" in gates_md and "| owner |" in gates_md
+            and "| **T3081** | binary receipt |" in model_md and "denied by this environment's network policy" in model_md
+            and shut,
+        "the identification, as arithmetic on the reported inner metadata and the reported current writer: the "
+        "copy's GLOBAL_Title parses as room 020002, src 9, arr 6, mics 26-30 with loudspeaker_id 9 and array_id 5 "
+        "inside (sofar v1.2.1, history 2022-04-21 then 2023-01-26); the current writer emits src0..8, arr0..5 and "
+        "mics 5a..5a+4 (a = 0..5) with the ids equal to those 0-based indices, 11 x 9 x 6 = 594 files; 9 is not in "
+        "0..8, 6 is not in 0..5 and 26-30 is no 5a..5a+4, while src 8, arr 5 and mics 25-29 are (the 1-based reading); "
+        "the inner ids are inconsistent with each other under either reading (loudspeaker_id 9 = src9, 1-based-like; "
+        "array_id 5 = arr6 - 1, 0-based-like): hence no file of the current build can carry loudspeaker_id 9, the "
+        "official counterpart must be identified by inner metadata in the 2022-04-21 build or an intermediate "
+        "writer, and the act-11 outcome table is {match, mismatch, no counterpart = NOT TESTABLE}, three outcomes "
+        "with 'no counterpart' distinct from a mismatch; no counterpart was sought here and T3081 stays UNOPENED":
+            room == "020002" and (src, arr, mic0, mic1) == (9, 6, 26, 30) and R["loudspeaker_id"] == 9 == src
+            and R["array_id"] == 5 == arr - 1 and cw["ids_equal_indices"] and files == 594
+            and src not in srcs and arr not in arrs and (mic0, mic1) not in mics
+            and src - 1 in srcs and arr - 1 in arrs and (mic0 - 1, mic1 - 1) in mics and (mic0 - 1) == 5 * (arr - 1)
+            and R["loudspeaker_id"] not in srcs and R["array_id"] in arrs
+            and R["history"][0] < R["history"][1] and R["history"][0].startswith("2022-04-21")
+            and R["writer"] == "sofar v1.2.1" and len(R["outcomes"]) == 3 and len(set(R["outcomes"])) == 3
+            and "NOT TESTABLE" in R["outcomes"][2] and "mismatch" not in R["outcomes"][2]
+            and gates.GATES.get("T3081") == "UNOPENED" and shut,
+        "the uncompressed size bound: a build at the v3 constant rir_length 19556 holds Data.IR of 1 x 5 x 19556 "
+        "float64 = 5 x 19556 x 8 = 782,240 bytes uncompressed, below the copy's 1,724,358 bytes (ratio 2.2), so the "
+        "copy is not a v3-constant build (the web agents' argument, as arithmetic): REPORTED inputs, exact arithmetic":
+            bound == 782240 and bound < R["bytes"] and round(R["bytes"] / bound, 1) == 2.2
+            and R["rir_length_v3"] == 19556 and R["float_bytes"] == 8 and R["receivers"] == 5,
+        "the counts are different objects: the published count 6 sources x 10 rooms x 30 capsules = 1800 RIRs, and "
+        "the index product 11 room codes x 9 source ids x 6 arrays x 5 mics = 2970 = 594 x 5 channels; 2970 is an "
+        "index product, not a count of published RIRs":
+            (a, b, c) == (6, 10, 30) and a * b * c == 1800 and (i1, i2, i3, i4) == (11, 9, 6, 5)
+            and i1 * i2 * i3 * i4 == 2970 and i1 * i2 * i3 == 594 and 2970 == 594 * 5 and 2970 != 1800,
+        "WITH ITS BRACKET LEADING, a comparison only: the published room dimensions are given to the millimetre, so "
+        "the +-0.5 mm rounding bracket on each ratio is under 0.05% wide (checked exactly), and the nine register "
+        "targets (sqrt(8/3), 2, 8, 241/235, 495/183, phi^2; with phi, sqrt5 and 8/3 added) lie in [1.0255, 8]; the "
+        "room ratios 5.705/2.355 = 2.4225, 5.965/2.355 = 2.5329 and 5.965/5.705 = 1.0456 have as nearest target "
+        "241/235 = 1.0255 at +2.0% for the last and phi^2 for the other two (-7.5%, -3.3%; sqrt5 lies +8.3% and "
+        "+13.3% away on the other side); the RT60 ratio is 5.21 (journal, 0.73/0.14) or 4.29 (preprint, 0.60/0.14), "
+        "two published numbers 21.7% apart; host_to_OES (5 x 18) is among gates.UNFORMED_OPERANDS, so the acoustic "
+        "lane's map is undeclared and no room number is a register leaf: a comparison, not a pass":
+            (round(float(r1), 4), round(float(r2), 4), round(float(r3), 4)) == (2.4225, 2.5329, 1.0456)
+            and all((a + h) / (b - h) / (a / b) - 1 < F(5, 10000) and 1 - (a - h) / (b + h) / (a / b) < F(5, 10000)
+                    for a, b in ((L, H), (Wd, H), (Wd, L)))
+            and min(targets.items(), key=lambda kv: float(kv[1]))[0] == "241/235" and max(float(v) for v in targets.values()) == 8
+            and pct(r1, targets["sqrt5"]) == 8.3 and pct(r2, targets["sqrt5"]) == 13.3
+            and nearest(r3)[0] == "241/235" and pct(r3, targets["241/235"]) == 2.0
+            and round(float(targets["241/235"]), 4) == 1.0255
+            and nearest(r1)[0] == "phi^2" and pct(r1, targets["phi^2"]) == -7.5
+            and nearest(r2)[0] == "phi^2" and pct(r2, targets["phi^2"]) == -3.3
+            and round(float(rt["journal"][0] / rt["journal"][1]), 2) == 5.21
+            and round(float(rt["preprint"][0] / rt["preprint"][1]), 2) == 4.29
+            and pct(rt["journal"][0] / rt["journal"][1], rt["preprint"][0] / rt["preprint"][1]) == 21.7
+            and any("host_to_OES" in s for s in gates.UNFORMED_OPERANDS) and tied and no_map and shut,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -43135,6 +43659,13 @@ LEDGER_ROWS = [
     ("the Drive gate corpus (6 Nov), read as data, nothing run", "PHYSICAL_OPEN_GATE_LEDGER.csv; OES_PHYSICAL_GATE_CONTRACT_20261106.json; OES_FAINT_BIND_MINCUT_20261106.csv; OES_AllDots_vNext9_Physical_Handoff_20261106.csv; SEVEN_COURT_FAIL_CLOSED_PREFLIGHT_RECEIPT_20261106.json; PROSPECTIVE_SIGNATURE_MANIFEST_UNFORMED_20261106.json; OES_Prospective_Physical_Intake_UNSIGNED_20261106.json; OES_vNext10_ACTUAL_PHYSICAL_INTAKE_REQUIRED.json; OES_vNext10_TYPE_AND_CLOSURE_LEDGER.csv; A_MASTER_MODEL_SELECTION_UNFORMED_20261106.json; A_MASTER_UNFORMED_REQUIRED_OPERANDS_20261106.json; PROSPECTIVE_A_MASTER_ACTION_SKELETON_UNSIGNED.md; PROSPECTIVE_FREEZE_DRAFT_NOT_FROZEN.json; UNFROZEN_Prospective_PredictionFreeze_v1.json; UNSIGNED_MEASUREMENT_FREEZE_NULL_CONTRACT_20261106.json; OES_vNext4_DeepWide_20261106_Unsigned_19Group_Physical_Intake.json; OES_vNext4_DeepWide_20261106_Unclosed_Physical_Proof_Cut.csv; PHYSICAL_ACTUAL_DATA_NULL_STATUS.json; OES_GATE_PREFLIGHT_NULL_RECEIPT_20261106.json; OES_Prospective_NO_PHYSICAL_PROMOTION_Receipt_20261106.json; the Google Docs 'OES \u2014 All-Dots Physical Execution and Seven-Court Gate Dossier \u2014 2026-11-06', 'OES \u2014 E111\u2013E130 Prospective Gate and S0\u2013S8 Typed-Spine Audit \u2014 2026-11-06', 'OES \u2014 Verified Core Installation & Open Physical Gates \u2014 2026-11-04' and 'OES \u2014 vNext12 Twelfth-Pass Integrated Master' (the controlling court order C0..C6 and the loaded-observability theorem); TIME_BIND_COMPLETE_CONTRACT.md and TIME_BIND_IDENTIFIABILITY.md; OES_ACTION_SCALES_TRANSDUCERS_MEASUREMENTS_BUILD_SPEC_20261106.md with holdout_UNMEASURED_TEMPLATE.csv, HOLDOUT_REAL_DATA_HEADER_ONLY.csv, rate_plans_PROSPECTIVE_ONLY.csv and OES_R12B_SYNTHETIC_SENSOR_EVENTS_NOT_MEASURED_20261105.csv", "recorded (REPORTED): every file keeps every gate shut (AUTH NOT_PASS, SCR6 absent, TIME_BIND UNBOUND, DYN_BIND NOT_INSTALLED, PredictionFreeze NOT_TRIGGERED, ScientificGold FALSE, 0/19) and agrees with gates.GATES; their interfaces, suppliers and court order are the data of gpr_poset; their mincuts count the cut differently in every file (9 rows, 6 classes, 25 obligations, 18 interfaces, 35 null fields, 26 intake fields, 63 court items), so the poset is one reading, marked as a selection; the vNext12 theorem is the one thing in them replayed (gpr_loaded_observability)", RP, "23"),
     ("the datum verdict (the Drive search of 6 Nov)", "no SI-traceable datum bound to the model exists anywhere on the Drive: 42 searches, every candidate a synthetic fixture (sensor events labelled SYNTHETIC with arbitrary units; a nominal 0.25 kg and 1 N/m marked not metrology; a mock rho = 4/3), an empty template (holdout tables with no rows, contracts with every measured value null, a signature manifest with every hash null, freeze drafts that say they are not frozen) or a literature benchmark disclaimed as a prediction; the 19 original evidence groups are 0/19 in every source and no source names a single group", "recorded, not checkable (REPORTED): the search is the separate model's corpus read as data; what the model itself holds is checked instead: its register carries no datum and no per-group entry (gpr_hashes) and its gates are shut as listed (gpr_poset); nothing in this unit binds time, installs dynamics or moves a gate", RP, "23"),
     ("the gate-crossing protocol (6 Nov): the designs (vNext13 and the Invariant master, 15:46-15:54)", "tree Gram characteristic polynomials; the twelve five-cycles as a one-failure design with the golden ratio as frame condition number; 4 z^2 e(z) -> B B^T; the noise optimum; compression does not commute with inversion", "replayed (gpr_designs): exact on carrier.signed_incidence() and symbolic on the generic block; the pentagon frame is the pentagon Laplacian over 5 (one_quadratic); the notes' statements beyond these (the Gram25 source map L L* = (5/9) P_cycle + (2/15) P_cut, the sqrt95 eta bound, the minimal-realization theorem) are read as data, logged for a later batch", T, "23"),
+    ("existing data and the gates (6 Nov): the canon's firefly comparators replayed", "the OMSOON5 handover's Firefly structural tick (Gamma4 det 5; R4^5 = I, sum R4^j = 0, Smith diag(1, 1, 1, 5), coker Z/5) is the model's vertex five-cycle on the A4 contrasts; R32's Q_dir and R31's W have rank 4, zero column sums, stationary 1/5, sigma = ln 18, H5 of rank 5 with det -31375 (Q_dir) and 13981 (W); the two are conjugate by no permutation and by no similarity (different spectra): the rate swap is the doubling on the reversible part only, W = D Q_dir D^-1 + 2(S - S^T), and R32's own 'commutes with the C5 shift, not with the F20 doubling' holds; det O6(delta) factors as stated, both polynomial factors positive, det O6(1/2) = -90366111/655360, det O6(1) = -115968, C A^2 B = delta (1 + delta)/5 = 3/20; the flash is circle arithmetic (24, 1440, 864, 36, 120, 1080); the spanda and carrier power sums 40, 200 and 1000 vs 1240", "replayed exactly with sympy (evd_firefly_canon, 5 s): integer and symbolic matrices, the Smith form over Z, the unimodular conjugation, the entropy production summed edge by edge from the stationary current, the permutation matrices of i -> 2i, i -> 3i, i -> -i and their products tested against W and W^T together with all 120 permutations and the characteristic polynomials, the 6 x 6 symbolic determinant (LU on expanded entries), sp.minimum and the real roots of the factors; counts.CLAIMS and the existing joins are cited by name; the comparators are selected references, named after the firefly by the notes, which say their rates are not measurements ('No rate value is an experimental enzyme estimate') and their cycles dimensionless; every gate shut", SR, "23"),
+    ("existing data and the gates (6 Nov): the public flash statistics as reported arithmetic", "per-species median periods 0.300 to 0.922 s (seven species, 65,389 rows, 57 night IDs, sha256 ae895e56..., clone 0f28787...); 21 ratios in [1.046, 3.074], largest gap 0.397 then 0.120, so any target is within 16.6% = G/(2 + G) of a pair (19.9% = G/2 a fortiori) and any below 2.2 within 5.7%; wickershamorum/carolinus bracket [1.47, 1.78] around 1.618 (phi to 0.01%, sqrt(8/3) to 0.9%); nearest pairs to 2, 8/3, phi^2, sqrt5, 241/235 at -5.0, +15.3, -16.0, -1.6, +2.0%; tent Tb/Tf 28.9, 26.9, 26.2, 25.2 (medians; a 14.8% spread across N leading) against 24 (+4.9%) and 25 (+0.7%) at N = 20; two species below 0.5 s; 1.754 Hz against ~2 Hz; the v1.3 counts agree", "arithmetic on reported literals (evd_flash_arithmetic, 0.1 s): the medians were recomputed once from the clone with Fractions of the file's 8-decimal strings and embedded to six decimals (the 3-decimal roundings are the web agents'), the tent medians recomputed once with the same 1.5 s rule (the aggregate ibs files' sha256 recorded; the Tf medians at N = 15 and 20 are exact terminating decimals, 0.45045 and 0.5005 s, the others embedded to six decimals; the single-insect figure is -6.3% from '~2 Hz' on the exact median, where the three-decimal rounding gave -6.4%); the unit opens no data file; the look-elsewhere bound G/(2 + G) is checked exactly at the harmonic midpoint of the widest gap and on a 3000-point grid; the nearest-ratio metric is |r/t - 1| and the log-distance alternative is stated where it differs (phi^2); every statement says 'a comparison, not a pass' and checks that the register carries no flash, firefly, species, period or insect token and that the gates are shut; CONDITIONAL on the reported values", gates.CONDITIONAL, "23"),
+    ("existing data and the gates (6 Nov): the byte receipt", "the maintainer hashes c39bc27f... / 6f7aa37d... and 1,724,358 bytes cited from gatework; the reported inner metadata (title src9_arr6_mics26-30, loudspeaker_id 9, array_id 5, sofar v1.2.1, 2022-04-21 / 2023-01-26) cannot come from the maintainer's reported current writer (src0..8, arr0..5, 0-based ids, 594 files), so the counterpart must be identified by inner metadata in the 2022-04-21 build or an intermediate writer and the outcome table is {match, mismatch, no counterpart = NOT TESTABLE}; 782,240 < 1,724,358 (not a v3-constant build); 1800 published RIRs vs the index product 2970; room ratios 2.4225, 2.5329, 1.0456 vs the register with the millimetre bracket (under 0.05%) leading (241/235 at +2.0% nearest to the last); T3081 UNOPENED", "arithmetic on reported facts (evd_byte_receipt, 0.0 s): the title parsed, the ranges compared, the products and ratios computed, the register's ratios read from gatework.register(), gates.UNFORMED_OPERANDS searched for host_to_OES, gatework's network-policy lines and MODEL.md's 'binary receipt' row read as text; the inner metadata and the writer's naming are the web agents' extract (REPORTED) and the official hosts were not reached; CONDITIONAL on those inputs; T3081 binds no physical input and is the only entry blocked by the session's network policy", gates.CONDITIONAL, "23"),
+    ("the datasets register (6 Nov)", "analysed (no longer held out for the statistics computed): FireflyClassification data/real_data/flash_sequence_data.csv (sha256 ae895e56b315e77377ff2516047db0c1dbfb21494813e47bf44496d016d4959b, clone commit 0f2878779b978de7a9519a0763e5677dea213ad7; 65,389 rows, 57 night IDs, 7 species, dataset_list.csv 57 data rows) and EmergentPeriodicity Experimental_Results/Corrected (clone commit 91a3fad8aa1ba17a42d87048e64cafe88644569e; ibs05ff.csv c287f9e6..., ibs10ff.csv e70ed8d1..., ibs15ff.csv 90ae03f7..., ibs20ff.csv bed5e133..., ibs01ff.csv f799b95c..., three ns files per N); untouched: Dryad doi:10.5061/dryad.2547d7wvn (3-D flash coordinates), Dryad doi:10.5061/dryad.3n5tb2rmb / Zenodo 7158484 (frontalis video), Zenodo 7855600 / Dryad gb5mkkwvd (crowdsourced swarms)", "recorded (REPORTED): the two GitHub files are named by hash and commit and are the only data any number here comes from; the three releases were not downloaded (hosts blocked), their file lists, licences, recording campaigns and species coverage are unverified, and they are held-out only if provenance (independence from the two analysed files' recordings) and species coverage are established first, which no sealed test on the wickershamorum/carolinus pair can skip; the 2024 expression of concern and 2025 correction of the eLife paper are why the Corrected files are used and the mislabeled Original 20ff recording is excluded", RP, "23"),
+    ("the arXiv channel (6 Nov)", "arxiv.org is unresolvable from the session, so no arXiv search was run; the datasets' papers, by identifier as reported: the Science Advances 2021 self-organization paper (the classification repository's sequences), the eLife 2023 emergent-periodicity paper (with its 2024 expression of concern and 2025 correction; the tent data), the Scientific Reports 2024 classification paper (the CSV); dEchorate arXiv:2104.13168; NuFIT 6.0 arXiv:2410.05380", "recorded (REPORTED): identifiers and titles from the web agents' and readers' extracts; nothing fetched; the identifiers answer the arXiv question instead of silently skipping it", RP, "23"),
+    ("the canon's firefly empirical court (v1.3, v2.2)", "the canon's only firefly empirical court (the v1.3 dataset of 65,389 sequences, 57 sources, 7 species; the v2.2 LED frequency-pulling and phase-concentration tests) is reported NOT_PASS, and no number from the dataset is carried into any note; the three counts agree with the public CSV (evd_flash_arithmetic), which is the only link between the canon's court and the file", "recorded (REPORTED) from the reader extracts of the Drive notes; the count agreement is of three counts, not of a court result, and 'sources' = night IDs is this unit's reading; the canon's own warning not to fix '~100 ms' or 'period in [0.5, 2] s' universally is borne out by the file's medians (two species below 0.5 s), a comparison and not a court result", RP, "23"),
+    ("literature, not data (6 Nov)", "the R12 sensor and transduction references (cochlear and tactile channels, retina and event cameras, taste and olfactory receptors, multisensory inference, the preregistered consciousness test, homodyne tomography), the Schumann resonance comparisons, the NOS gene-expression versus flash-interval dataset (a public flash-interval dataset the canon cites as non-supporting), and the standards (the SI second, metrological traceability, IEEE 1588, BIDS)", "recorded (REPORTED): none is a realisation of the ten-channel R12C schema or of the phase-referenced bench, no number from them is carried into a note, the standards are standards and not data, and no dataset in the crosswalk carries an SI-traceable timestamp except by instrument frame clocks; none serves a gate", RP, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -43400,7 +43931,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "gpr_poset": gpr_poset, "gpr_hashes": gpr_hashes, "gpr_falsifiers": gpr_falsifiers, "gpr_loaded_observability": gpr_loaded_observability, "gpr_designs": gpr_designs, "bind_time_map": bind_time_map, "bind_time_units": bind_time_units, "bind_dynamics_dyadic": bind_dynamics_dyadic, "bind_selections": bind_selections, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "evd_firefly_canon": evd_firefly_canon, "evd_flash_arithmetic": evd_flash_arithmetic, "evd_byte_receipt": evd_byte_receipt, "gpr_poset": gpr_poset, "gpr_hashes": gpr_hashes, "gpr_falsifiers": gpr_falsifiers, "gpr_loaded_observability": gpr_loaded_observability, "gpr_designs": gpr_designs, "bind_time_map": bind_time_map, "bind_time_units": bind_time_units, "bind_dynamics_dyadic": bind_dynamics_dyadic, "bind_selections": bind_selections, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
