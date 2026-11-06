@@ -10386,6 +10386,13 @@ JOINS = [
     ("source", "calibration", "the selection table", "DYN_BIND's content as a checked table: the dynamics is the declared native action (the 'source' dot, q'' + 4q = 0 on ker M + ker M, native.run) and its completion family K_theta = H + theta (eps + J V J^T) = (1 - theta) H + theta K19 (flower_homotopy) carries named selections each tagged with a model function: theta (flower_homotopy), eps, alpha and J (schur_zero_mode), the mark (mgm_marks), W_p and the adapter (literal_port, parent_readers), iota (canon_flower_pullback), the parity (zero_pole_parity), the readout (master_readout); the check is that every named function exists in oes.dots (the tags' content is those functions' own statements, not rechecked), and gates.GATES keeps TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED: the solution installs maps, not data (the selections are the separate model's, read as data) (6 Nov)", SR, "bind_selections"),
     ("readout", "bath", "the scale-free memory shape", "with the generator K/rho^2 the measured secant is E_phys(s) = e((rho s)^2) exactly (E_phys(2^n s* x) = e(4^n z* x^2), rho-free), and at x = s/s* with rho s* = sqrt(z*) the dyadic sum 3 z* x^2 sum_(n < N) 4^n E_phys(2^n s* x) = Sigma(z* x^2) - Sigma(4^N z* x^2) (symbolic on the generic block, N = 2): the memory's shape in model units is read from rate ratios alone once the crossover s* is found, before a second is assigned, while the absolute Sigma_phys(s) = rho^-2 Sigma((rho s)^2) still needs rho (the three-route doc, 6 Nov 08:44, section 4); one full normalized G(z0) then fixes A = G(z0)^-1 - z0 I + Sigma(z0) and G(z)^-1 = G(z0)^-1 + (z - z0) I + Sigma(z0) - Sigma(z) for every z (its txt, section 2; symbolic, and exact on a rational instance at z0 = 1, z = 3): the compressed Green function on the visible block, not the hidden realization (the note's own caveat; the model's comparator non-uniqueness is notes_1418's) (6 Nov)", T, "bind_dynamics_dyadic"),
     ("calibration", "measure", "the dressed clock and the 19-source bands", "the separate model's three-route doc (6 Nov 08:44; its txt and exact receipt in OES_CLOCK_RHO_DYADIC_THREE_ROUTE_20261106, 08:45), read as data: a dressed zero-bulk-velocity source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md, 2 Nov, filed 3 Nov) and the 19-source bands at z* (e_l in (0.014725747504511457, 0.014725754281094184), e_q = 1/200, e_d in (0.000842972528942191, 0.000842972653468548), multiplicities 8, 7, 4) are its certificates, not replayed; its brackets T_s/T_m in (4.77669338477, 4.77676420538), s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward roundings of the exact products of the stated endpoints (Fractions), its tr E(s*) bracket (0.156177870151860420, 0.156177924862627664) is 8 e_l + 7/200 + 4 e_d to the last digit, and its receipt's exact I2 fractions equal the model's 389/z_hi^2, 389/z_lo^2; the invariants carry one relation I2 = (389/2117) I1/I3^4, so the independent rho-free set is the exact ratio 2117/389 with I1 and I3 (the doc's own I1 = 10791/389 is refclock_gain's 19-source trace over the quadratic variance); D19 = 967 P8 + 389 P7 + 83 P4 (norm 967) is the 19-source dyadic tail, and the doc's odd-ten port value 127 P6 + 392 P4 is a different reader of its own (392 is no model number) (6 Nov)", SR, "bind_time_map"),
+    ("calibration", "source", "the gate poset", "the physical gates as a poset: 35 nodes (the model's gate keys together with the Drive ledger's interfaces) in the separate model's controlling court order C0 provenance < C1 source/action < C2 time < C3 dynamics pilot < C4 observer < C5 freeze < C6 evidence (vNext12, 6 Nov, read as data), each with one input TYPE and one supplier, 48 depends_on edges (40 from the brief, 8 stated selections of this unit: BIND_Q31's readout half after the independent readout and the owner's map, P, W_E, E, I after the external warrant, GoldDepth and G_OES after ScientificGold), three conditional; acyclic (an in-degree-zero queue), and refining the court order except for exactly two edges, AUTH <- A_MASTER and P_WIT_BIND_TX <- A_MASTER (the signatures are over the manifest bytes); the 18 keys of gates.GATES each mapped to a node, a scoped leaf (W_L for the particle child, T3081 for the acoustic lane; MODEL.md section 14's three children) or listed as a label (x_executed, R6/A40/A52, numbered_baseline), every value shut as the standing list says; ScientificGold's unconditional dependencies are the external warrant and the freeze only (MODEL.md section 13's definition), not W_L or T3081; TIME_BIND's ancestors are the timebase and the signed port (docs/BINDING.md: the SI second enters nowhere else); the adapter half of PORT_ORDER is binding.py's B0 obstruction, cited and not rerun; the gates stay (6 Nov)", SR, "gpr_poset"),
+    ("source", "calibration", "the minimal external acts", "eleven external acts, 9 unconditional (declare the child; sign the prepared transaction as-is, sha256 73b32ebe...; the owner manifest; witness + verifier, the act that would cross AUTH; a clock certificate + one SI interval; the pilot; the freeze; the 19 groups' data and warrants; the blind holdout and the warrant, where the quartet P, W_E, E, I, ScientificGold, GoldDepth and G_OES are assigned by selection) and 2 conditional (the Q readout if source-family identities are claimed; the T3081 host receipt on the acoustic lane): each node is crossed by at most one act, 34 of 35 by exactly one, W_L by none (only a theory act reopens it), no act is redundant, every unconditional dependency is crossed by an earlier act or the same act, the per-child act graph is acyclic (on the acoustic lane the receipt precedes the warrant act); 7 signatures plus 19 per-group warrants, 8 decisions (child, port policy, branch, H_sel, multiplicity, chirality, theta, chart), exactly one measured scalar (the clock datum, at the first act that carries a model check, bind_time_map's invariants; every node crossed before it a signature, a decision, bytes, a gate or the group names); crossable_by_mathematics is False everywhere but the certificate half of the spectral branch and the adapter half B0 has decided; CONDITIONAL on those inputs, none of which is in the model or the Drive (6 Nov)", gates.CONDITIONAL, "gpr_poset"),
+    ("calibration", "readout", "the transaction's bindings", "data/owner_transaction.json replayed exactly: sha256(data/prediction_register.json) = 7b59e592... = sha256(gatework.canonical_bytes(gatework.register())) = its G_role.prediction_register, sha256(data/native_matrices_input.json) = literal.SHA256 = literal.sha256() = 73e07429... = its P_cl.native_operands, sha256(verify.py) and sha256(data/walks.json) = its G_role.verifier and G_role.walks, gatework.transaction(register sha) = the file, and the file's own bytes hash to 73b32ebe..., the literal bytes act A2 signs; not_supplied_here is literally the owner's three supplies (the AUTH signature, H_sel, the six SCR6 operands); the register has 5 kinds and 30 leaves, none a datum and none per evidence group (0/19 is the model's own count); the verifier hash covers verify.py only, the oes/ package is not hashed (G_role has no key for it: a limitation checked as a fact); AUTH NOT_PASS and PredictionFreeze NOT_TRIGGERED while every hash replays: a checksum is not a signature or a freeze (6 Nov)", T, "gpr_hashes"),
+    ("calibration", "measure", "the model's own falsifiers", "the numbers an act must pass, recomputed from _bind_brackets' data without recomputing certificates: I1 = 2117 u_half^4 in (2117 lo^4, 2117 hi^4) from refclock_halfreturn's P8 endpoints (THEOREM grade; 0.07614507 < I1 < 0.07614566), the exact ratio Xi_mass/Xi_q = 2117/389 with tr D19 = 10791 and tr D45 = 21061 (master_readout, refclock_gain, deep_observer_algebra), I2 and I3 on the crossover certificate read as data (SELECTED_REFERENCE grade: 0.20705257 < I2 < 0.20705268, 0.50985587 < I3 < 0.50985691), the rho-free load relation d^2/Xi_q = delta^2/389 at the model's dressed gap lam- = (5 - sqrt5)/2 (bind_time_units, deep_zero_pole): (15 - 5 sqrt5)/778, about 0.00491, not the three-route note's 64/389; W_L replayed from gatework.pmns_court: pulls 2.594, -1.975, chi2 = 10.63, p = 0.0049 (2 dof), chi2_3 = 26.29 from NuFIT's three reported pulls (1.0, -1.5, -4.8) alone, the Bari pair plus -4.8 would give 33.7 (the code is the authority; MODEL.md section 13's row says so); countermodel A (gatework.countermodel_A, 0.02 s): identical native records at tau = 1 and 2, frequencies in ratio 2; none of the synthesis's non-model numbers (392, gap 8 and 64/389, 1/4, 7/4, 19/4, 98/53, 242/237, 3.5293) is among them (6 Nov)", T, "gpr_falsifiers"),
+    ("carrier", "readout", "loaded observability", "the separate model's vNext12 four-star / spanning-tree theorem replayed exactly on the model's K5: with B = carrier.signed_incidence() in carrier.edges()' lexicographic order (B B^T = 5I - J, k5_roots), P4 = B^T B/5 is the rank-4 cut projector and P6 = I - P4 the rank-6 cycle projector with P4 e_j = B^T (B e_j)/5; for G0 = g6 P6 + g4 P4 and the edge load kappa e_j e_j^T the Woodbury form G_j = G0 - kappa (G0 e_j)(e_j^T G0)/(1 + kappa e_j^T G0 e_j) satisfies G_j^-1 - G0^-1 = kappa e_j e_j^T exactly, symbolic in g6, g4, kappa, on every edge (bind_dynamics_dyadic's load identity on the ten-port); for every one of the 1024 edge subsets S the stacked rows [P6; e_j^T P4, j in S] have rank 11 - c(S), c(S) the number of connected components of (V5, S), in exact arithmetic; so a loaded set is full rank iff the loaded graph is connected (728 of 1024) (6 Nov)", T, "gpr_loaded_observability"),
+    ("carrier", "measure", "four loads on a spanning tree", "the measurement design for the pilot's loaded runs, a theorem on the model's K5 under the two-projector hypothesis G0 = g6 P6 + g4 P4 (the free response's form, not a measured fact): among the 210 four-edge sets of K5 exactly the 125 spanning trees (5 stars, 60 paths, 60 forks by degree sequence; 5^3 = 125 labelled trees) give full rank 10 and the other 85 give rank 9; every tree has Gram determinant det(E_T^T P4 E_T) = 1/125 (matrix-tree: det(B_T^T B_T) = 5); the star at vertex 0 has Gram (I4 + J4)/5 with inverse 5 I4 - J4, eigenvalues 1 and 1/5 (x3) and geometric condition number sqrt5 = 2.23607, the path's Gram is the A4 Cartan matrix (eigenvalues 2 - 2 cos(k pi/5), among them bind_time_units' dressed gap (5 - sqrt5)/2) with condition number sqrt(5 + 2 sqrt5) = 3.07768, the fork's eigenvalues are 1 and the roots of x^3 - 7x^2 + 13x - 5 with condition number 2.83511 (exact algebraic numbers), and over all 125 trees the five best conditioned are exactly the five stars; more than four loads are full rank iff the loaded graph is connected (603 of the 638 larger sets) (6 Nov)", T, "gpr_loaded_observability"),
+    ("cycles", "measure", "the five-load pentagon", "the separate model's vNext13 design note (6 Nov 15:48, read as data) replayed on the model's K5: the tree cut Grams have the stated characteristic polynomials (star (x - 1)(5x - 1)^3/125, fork (5x - 1)(25x^3 - 35x^2 + 13x - 1)/125, path (5x^2 - 5x + 1)(25x^2 - 15x + 1)/125); K5's twelve five-cycles give a five-load design that survives any one failed load (every one-edge deletion is a spanning tree), and its Cut4 frame B_C^T B_C/5 is the pentagon Laplacian over 5, characteristic polynomial x (5x^2 - 5x + 1)^2/25 with nonzero eigenvalues (5 -+ sqrt5)/10 twice, five times the roots of one_quadratic's x^2 - 5x + 5, so its condition number is the golden ratio (1 + sqrt5)/2 exactly, below the star's sqrt5 and the path's sqrt(5 + 2 sqrt5), the best conditioned of the three; with the Invariant master's (15:54) band fingerprint 4 z^2 e(z) -> B B^T (e(4z)/e(z) -> 1/16 per band, ratios 967/389 and 389/83), the noise optimum 4^N = sqrt(beta/(z^2 eps)) and the port-adapter no-go (U^T G U)^-1 - U^T G^-1 U = -b^2/(z + c) (11/4 against 3 on K = [[2, 1], [1, 3]]), all symbolic on bind_dynamics_dyadic's block (6 Nov)", T, "gpr_designs"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -41279,6 +41286,892 @@ def bind_selections():
     }
 
 
+# ------------------------------------------------------------------- the gate-crossing protocol (6 Nov): the physical gates as a poset, the minimal external acts, the model's own falsifiers, loaded observability
+
+
+def _gpr_protocol():
+    """The gate-crossing protocol as literal data, for the checks of gpr_poset and for the docs: the physical gates as
+    nodes in the separate model's controlling court order C0..C6 (the vNext12 twelfth-pass master of 6 Nov, read as
+    data), each with the model key it maps to, the TYPE of its required input and its supplier; the dependency edges
+    (conditional ones carry their condition); the external acts in order, each with the nodes it crosses, its
+    signatures, decisions and the model functions whose numbers it is tested against; the per-child scope table
+    (MODEL.md section 14's three children); the keys that are states or labels, not gates; and the standing values of
+    gates.GATES. Selections of this unit, stated as such: the quartet P, W_E, E, I (listed by the model with no court)
+    is assigned to the warrant act; GoldDepth and G_OES follow ScientificGold; BIND_Q31's readout half follows the
+    independent readout and the owner's map. Nothing here writes gates.GATES."""
+    courts = ("C0 provenance", "C1 source/action", "C2 time", "C3 dynamics pilot", "C4 observer", "C5 freeze",
+              "C6 evidence")
+    N = lambda court, keys, kind, inp, supplier, math=False: {
+        "court": court, "keys": keys, "kind": kind, "input": inp, "supplier": supplier, "math": math}
+    nodes = {
+        # C0 provenance
+        "O0_OWNER": N(0, ("AUTH",), "signature", "identity record + owner signature over the prepared transaction "
+                      "bytes (data/owner_transaction.json)", "owner"),
+        "P_WIT_BIND_TX": N(0, ("AUTH",), "signature", "witness signature + binding transaction receipt + anchored "
+                           "verifier keys", "independent witness + verifier"),
+        "AUTH": N(0, ("AUTH",), "gate", "the model's AUTH gate: the signatures verify over the literal bytes whose "
+                  "hashes gatework.transaction records", "model"),
+        # C1 source and action
+        "PHYSICAL_CHILD": N(1, ("DYN_BIND", "SCR6"), "decision", "particle physics | engineered network | acoustic "
+                            "lane (MODEL.md section 14; the DYN_BIND/SCR6 'name the physical child' decision)",
+                            "owner"),
+        "A_MASTER": N(1, (), "bytes", "literal action bytes + SHA-256 + port policy + matter branch", "owner"),
+        "ROOT_NATIVE": N(1, (), "decision", "adoption of the model's root chart (layer 24, assignment) or an "
+                         "owner-verified chart", "owner"),
+        "PORT_ORDER": N(1, (), "bytes", "the ten marked K5 edges 01,02,03,04,12,13,14,23,24,34 with transducer "
+                        "positions; the adapter question is already decided by binding.py's B0 obstruction (no S5- or "
+                        "D5-equivariant adapter, C5 maximal)", "owner + laboratory",
+                        "the adapter half: decided by B0 (binding.adapter_symmetry_obstruction), not rerun"),
+        "SCR6": N(1, ("SCR6",), "bytes", "six operand files with shapes 2x2, 55x55, 169x69 complex, 24x24 skew, "
+                  "31x7, 5x18 + SHA-256; the RUN criterion is UNFORMED in the model (no code consumes them)",
+                  "owner"),
+        "BIND_Q31_MAP": N(1, ("BIND_Q31",), "bytes", "the 31-to-10 mapping bytes (the owner half of BIND_Q31)",
+                          "owner"),
+        "DYN_BIND_CHOICE": N(1, ("DYN_BIND",), "decision", "H_sel, generation multiplicity, chirality index, "
+                             "completion member theta (the choice half of DYN_BIND; bind_selections' table)",
+                             "owner"),
+        "SPECTRAL_KO6_GS": N(1, (), "decision", "the branch choice (decision half); the certificate half is owed only "
+                             "on the strict 6D branch", "owner / derivation",
+                             "the certificate half: a derivation, owed only on the strict 6D branch"),
+        "GROUP_NAMES": N(1, (), "data", "the identities of the 19 original evidence groups (no source names any)",
+                         "owner"),
+        # C2 time
+        "TIMEBASE": N(2, ("TIME_BIND",), "certificate", "clock certificate, traceable seconds",
+                      "metrology laboratory"),
+        "TIME_BIND_DATUM": N(2, ("TIME_BIND",), "measured scalar", "exactly one SI interval: T_half in s, or Xi in "
+                             "s^-4, or s* in s^-1, on a preparation that first passes the rho-free invariants "
+                             "(bind_time_map); route (i) needs a pure mass preparation blind to V19 "
+                             "(refclock_calibration); route (iii) needs the secant convention declared "
+                             "(bind_dynamics_dyadic); the owner labels the native mode",
+                             "laboratory + the owner's mode label"),
+        # C3 dynamics pilot
+        "MASS_STIFFNESS_GAIN": N(3, ("DYN_BIND",), "measured records", "m kg, k N/m, delta_k N/m, gains, phase, "
+                                 "delay, covariance with nonzero uncertainties (bind_time_units' units)",
+                                 "laboratory"),
+        "RAW_FREE": N(3, ("DYN_BIND",), "measured records", "the free ten-port responses at dyadic rates",
+                      "laboratory"),
+        "RAW_LOADED": N(3, ("DYN_BIND",), "measured records", "loads on an edge set S; four loads suffice iff S is a "
+                        "spanning tree of K5 and the five stars are best conditioned (gpr_loaded_observability)",
+                        "laboratory"),
+        "RAW_SHAM": N(3, ("DYN_BIND",), "measured records", "the sham responses", "laboratory"),
+        "DYADIC_TIMES": N(3, ("DYN_BIND",), "measured records", "rates 2^n s* x with one anchor G(z0) "
+                          "(bind_dynamics_dyadic)", "laboratory"),
+        "DYN_BIND_PILOT": N(3, ("DYN_BIND",), "gate", "DYN_BIND's measurement half: the pilot against the model's "
+                            "dynamics (bind_time_units, bind_dynamics_dyadic, gpr_loaded_observability)", "model"),
+        # C4 observer
+        "SOURCE_Q": N(4, ("BIND_Q31",), "measured records", "an independent source-sensitive readout; required only "
+                      "if source-family identities are claimed", "laboratory in separate custody"),
+        "BIND_Q31_READOUT": N(4, ("BIND_Q31",), "gate", "BIND_Q31's readout half: the owner's map read against the "
+                              "independent readout", "model"),
+        # C5 freeze
+        "PREDICTION_FREEZE": N(5, ("PredictionFreeze",), "signature", "owner signature + independent custodian "
+                               "seal, UTC-timestamped before any holdout, over the register bytes (sha256 "
+                               "7b59e592347f1db16e3f88909d6ef625a3f4651dbaaa60ed4cbccac549ec4ca0), the numeric "
+                               "tolerances, the dyadic depth N, the secant convention, in the model's "
+                               "dimensionless form x = s/s*, z = rho^2 s^2, and the per-group predictions, which "
+                               "the register does not contain", "owner + custodian"),
+        # C6 evidence
+        "EMPIRICAL_19": N(6, (), "warrant", "raw data per named group + SI unit + uncertainty + independent source "
+                          "control + per-group warrant (0/19 everywhere)", "owner + 19 warrants"),
+        "HOLDOUT": N(6, (), "measured records", "the blind FREE/LOADED/SHAM run after the seal, "
+                     "custodian-randomized identifiers", "laboratory + custodian"),
+        "EXTERNAL_WARRANT": N(6, (), "warrant", "independent adjudicator's signed warrant over the freeze, the raw "
+                              "hashes, the uncertainties and the absence of retrospective fitting; the model's "
+                              "quartet P, W_E, E, I is assigned to this act by SELECTION of this unit",
+                              "adjudicator"),
+        "P": N(6, ("P",), "gate", "the model's P (no court in the model; assigned to the warrant act by selection)",
+               "model"),
+        "W_E": N(6, ("W_E",), "gate", "the model's W_E (no court in the model; assigned to the warrant act by "
+                 "selection)", "model"),
+        "E": N(6, ("E",), "gate", "the model's E (no court in the model; assigned to the warrant act by selection)",
+               "model"),
+        "I": N(6, ("I",), "gate", "the model's I (no court in the model; assigned to the warrant act by selection)",
+               "model"),
+        "ScientificGold": N(6, ("ScientificGold",), "gate", "'a frozen prediction, independent data and a "
+                            "preregistered test on a declared physical system' (MODEL.md section 13); NOT a "
+                            "conjunction with W_L or T3081", "independent review"),
+        "GoldDepth": N(6, ("GoldDepth",), "gate", "the model's GoldDepth (0): follows ScientificGold", "model"),
+        "G_OES": N(6, ("G_OES",), "gate", "the model's G_OES (FALSE): follows ScientificGold", "model"),
+        # scoped leaves
+        "W_L": N("scoped", ("W_L",), "gate", "the lepton likelihood, in scope only for the particle-physics child; "
+                 "NOT_PASS by evidence (gatework.pmns_court); no external act reopens it, only a new lepton-sector "
+                 "candidate, a theory act", "theory"),
+        "T3081": N("scoped", ("T3081",), "bytes", "the official bytes against the maintainer hash c39bc27f... "
+                   "(gatework.DECHORATE_MAINTAINER_SHA256), itself REPORTED, so adjudicating a mismatch needs a "
+                   "third copy; the two hosts are network-blocked here; in scope only for the acoustic lane",
+                   "the two official hosts + a third copy"),
+    }
+    # depends_on edges (node, dependency, condition or None); the three conditional edges carry their condition
+    edges = [("AUTH", "O0_OWNER", None), ("AUTH", "P_WIT_BIND_TX", None), ("AUTH", "A_MASTER", None),
+             ("P_WIT_BIND_TX", "A_MASTER", None), ("P_WIT_BIND_TX", "O0_OWNER", None),
+             ("A_MASTER", "PHYSICAL_CHILD", None)]
+    edges += [(n, "A_MASTER", None) for n in ("ROOT_NATIVE", "PORT_ORDER", "SCR6", "BIND_Q31_MAP", "DYN_BIND_CHOICE",
+                                              "SPECTRAL_KO6_GS", "GROUP_NAMES")]
+    edges += [("TIME_BIND_DATUM", "TIMEBASE", None), ("TIME_BIND_DATUM", "PORT_ORDER", None)]
+    edges += [("DYN_BIND_PILOT", d, None) for d in ("TIME_BIND_DATUM", "MASS_STIFFNESS_GAIN", "RAW_FREE",
+                                                    "RAW_LOADED", "RAW_SHAM", "DYADIC_TIMES", "DYN_BIND_CHOICE",
+                                                    "AUTH")]
+    edges += [("SOURCE_Q", "BIND_Q31_MAP", None), ("SOURCE_Q", "DYN_BIND_PILOT", None),
+              ("PREDICTION_FREEZE", "AUTH", None), ("PREDICTION_FREEZE", "DYN_BIND_PILOT", None),
+              ("PREDICTION_FREEZE", "GROUP_NAMES", None), ("HOLDOUT", "PREDICTION_FREEZE", None),
+              ("EMPIRICAL_19", "GROUP_NAMES", None), ("EMPIRICAL_19", "PREDICTION_FREEZE", None),
+              ("EXTERNAL_WARRANT", "HOLDOUT", None), ("EXTERNAL_WARRANT", "EMPIRICAL_19", None),
+              ("ScientificGold", "EXTERNAL_WARRANT", None), ("ScientificGold", "PREDICTION_FREEZE", None),
+              ("ScientificGold", "W_L", "particle physics"), ("ScientificGold", "T3081", "acoustic lane"),
+              ("ScientificGold", "SOURCE_Q", "source-family identities claimed"),
+              ("W_L", "PHYSICAL_CHILD", None), ("T3081", "PHYSICAL_CHILD", None)]
+    # the unit's own additions (selections), kept apart so the docs can say so
+    added = [("BIND_Q31_READOUT", "SOURCE_Q", None), ("BIND_Q31_READOUT", "BIND_Q31_MAP", None),
+             ("P", "EXTERNAL_WARRANT", None), ("W_E", "EXTERNAL_WARRANT", None), ("E", "EXTERNAL_WARRANT", None),
+             ("I", "EXTERNAL_WARRANT", None), ("GoldDepth", "ScientificGold", None), ("G_OES", "ScientificGold", None)]
+    A = lambda name, crosses, conditional=None, signatures=(), decisions=(), checks=(), warrants=0, note="": {
+        "name": name, "crosses": crosses, "conditional": conditional, "signatures": signatures,
+        "decisions": decisions, "checks": checks, "warrants": warrants, "note": note}
+    acts = [
+        ("A1", A("declare the child", ("PHYSICAL_CHILD",), decisions=("child",))),
+        ("A2", A("sign the prepared transaction as-is", ("O0_OWNER",),
+                 signatures=("the owner's signature over the literal bytes of data/owner_transaction.json",),
+                 note="sha256 73b32ebe6d317c2f0aead02877621ec802a7e7a8f4d1464b4ba2e3daef037fba")),
+        ("A3", A("the owner manifest", ("A_MASTER", "ROOT_NATIVE", "PORT_ORDER", "SCR6", "BIND_Q31_MAP",
+                                        "DYN_BIND_CHOICE", "SPECTRAL_KO6_GS", "GROUP_NAMES"),
+                 signatures=("the owner's signature over the manifest, a second document whose bytes differ from "
+                             "A2's",),
+                 decisions=("port policy", "branch", "H_sel", "multiplicity", "chirality", "theta", "chart"))),
+        ("A4", A("witness + verifier", ("P_WIT_BIND_TX", "AUTH"),
+                 signatures=("the witness's signature", "the verifier's receipt over anchored keys"))),
+        ("A5", A("clock certificate + one SI interval", ("TIMEBASE", "TIME_BIND_DATUM"),
+                 checks=("bind_time_map",), note="the rho-free invariants on the preparation; one measured scalar")),
+        ("A6", A("the pilot", ("MASS_STIFFNESS_GAIN", "RAW_FREE", "RAW_LOADED", "RAW_SHAM", "DYADIC_TIMES",
+                               "DYN_BIND_PILOT"),
+                 checks=("bind_time_units", "bind_dynamics_dyadic", "gpr_loaded_observability"))),
+        ("A7", A("the Q readout", ("SOURCE_Q", "BIND_Q31_READOUT"), conditional="source-family identities claimed")),
+        ("A8", A("the freeze", ("PREDICTION_FREEZE",),
+                 signatures=("the owner's signature over the freeze", "the custodian's seal"),
+                 checks=("gpr_hashes",))),
+        ("A9", A("the 19 groups' data and warrants", ("EMPIRICAL_19",), warrants=19)),
+        ("A10", A("the blind holdout and the warrant", ("HOLDOUT", "EXTERNAL_WARRANT", "P", "W_E", "E", "I",
+                                                        "ScientificGold", "GoldDepth", "G_OES"),
+                  signatures=("the adjudicator's signed warrant",))),
+        ("A11", A("the T3081 host receipt", ("T3081",), conditional="acoustic lane")),
+    ]
+    scope = {"particle physics": ("W_L",), "engineered network": (), "acoustic lane": ("T3081",)}
+    theory_acts = {"W_L": "a new lepton-sector candidate (no external act)"}
+    not_gates = ("x_executed", "R6/A40/A52", "numbered_baseline")
+    standing = {"AUTH": "NOT_PASS", "ScientificGold": "FALSE", "GoldDepth": 0, "G_OES": "FALSE",
+                "SCR6": "NOT_RUN_OPERAND_ABSENT", "TIME_BIND": "UNBOUND", "DYN_BIND": "NOT_INSTALLED",
+                "BIND_Q31": "UNBOUND", "PredictionFreeze": "NOT_TRIGGERED", "P": "NOT_PASS", "W_E": "NOT_PASS",
+                "W_L": "NOT_PASS", "E": "NOT_PASS", "I": "NOT_PASS", "T3081": "UNOPENED", "x_executed": "000000",
+                "R6/A40/A52": "FROZEN", "numbered_baseline": "OMSOON736"}
+    port_edges = ("01", "02", "03", "04", "12", "13", "14", "23", "24", "34")
+    scr6_shapes = ("2x2", "55x55", "169x69 complex", "24x24 skew", "31x7", "5x18")
+    return {"courts": courts, "nodes": nodes, "edges": edges, "added_edges": added, "acts": acts, "scope": scope,
+            "theory_acts": theory_acts, "not_gates": not_gates, "standing": standing, "port_edges": port_edges,
+            "scr6_shapes": scr6_shapes}
+
+
+def _gpr_rank(rows):
+    """Exact rank of a list of integer rows by Gaussian elimination over the rationals (Fractions)."""
+    M = [[Fraction(x) for x in r] for r in rows]
+    r = 0
+    for c in range(len(M[0]) if M else 0):
+        piv = next((i for i in range(r, len(M)) if M[i][c] != 0), None)
+        if piv is None:
+            continue
+        M[r], M[piv] = M[piv], M[r]
+        for i in range(len(M)):
+            if i != r and M[i][c] != 0:
+                f = M[i][c] / M[r][c]
+                M[i] = [a - f * b for a, b in zip(M[i], M[r])]
+        r += 1
+    return r
+
+
+def _gpr_components(S, E, n=5):
+    """The number of connected components of the graph (range(n), [E[j] for j in S]) by union-find."""
+    par = list(range(n))
+
+    def find(v):
+        while par[v] != v:
+            par[v] = par[par[v]]
+            v = par[v]
+        return v
+    for j in S:
+        a, b = E[j]
+        par[find(a)] = find(b)
+    return len({find(v) for v in range(n)})
+
+
+def gpr_poset():
+    """The physical gates as a poset with the external acts: finite checks on _gpr_protocol's data. The nodes sit in
+    the separate model's controlling court order C0..C6 (vNext12, 6 Nov, read as data), each with one input TYPE and
+    one supplier; the model's 18 gate keys (gates.GATES, read, never written) are each mapped to a node, a scoped leaf
+    or a label; the acts are external and in order; the per-child scope follows MODEL.md section 14; the adapter half
+    of PORT_ORDER is cited from binding.py's B0 obstruction without rerunning it; TIME_BIND depends on the timebase
+    and the signed port only (docs/BINDING.md: one number rho, the SI second enters nowhere else)."""
+    import inspect
+    from pathlib import Path
+    P = _gpr_protocol()
+    nodes, edges, added, acts = P["nodes"], P["edges"], P["added_edges"], P["acts"]
+    all_edges = edges + added
+    names = list(nodes)
+    deps = {n: [d for m, d, c in all_edges if m == n] for n in names}
+    uncond = {n: [d for m, d, c in all_edges if m == n and c is None] for n in names}
+    # acyclicity and a topological order (a queue of in-degree-zero nodes)
+    def topo(ns, dep):
+        indeg = {n: len([d for d in dep[n] if d in ns]) for n in ns}
+        order, ready = [], [n for n in ns if indeg[n] == 0]
+        while ready:
+            n = ready.pop(0)
+            order.append(n)
+            for m in ns:
+                if n in dep[m] and m in indeg:
+                    indeg[m] -= 1
+                    if indeg[m] == 0:
+                        ready.append(m)
+        return order if len(order) == len(ns) else None
+    order = topo(names, deps)
+    acyclic = order is not None and all(order.index(d) < order.index(n) for n in names for d in deps[n])
+    # the court order: the edges that run from a higher court into a lower one, and the refinement without them
+    court = lambda n: 6 if nodes[n]["court"] == "scoped" else nodes[n]["court"]
+    downward = [(n, d) for n, d, c in all_edges if court(d) > court(n)]              # over all 48 edges
+    deps_up = {n: [d for d in deps[n] if (n, d) not in downward] for n in names}     # the other 46, conditional ones included
+    by_court = []
+    for k in range(7):
+        sub = [n for n in names if court(n) == k]
+        by_court += topo(sub, {n: [d for d in deps_up[n] if d in sub] for n in sub}) or ["?"]
+    refines = (sorted(by_court) == sorted(names) and len(downward) + sum(len(v) for v in deps_up.values()) == len(all_edges)
+               and all(by_court.index(d) < by_court.index(n) for n in names for d in deps_up[n]))
+    # the acts: who crosses what
+    crossed = {n: [a for a, act in acts if n in act["crosses"]] for n in names}
+    once = all(len(v) <= 1 for v in crossed.values())
+    uncrossed = sorted(n for n, v in crossed.items() if not v)
+    act_index = {a: i for i, (a, act) in enumerate(acts)}
+    conditional_acts = [a for a, act in acts if act["conditional"]]
+    violations = []
+    for a, act in acts:
+        for n in act["crosses"]:
+            for m, d, c in all_edges:
+                if m != n:
+                    continue
+                earlier = crossed[d] and act_index[crossed[d][0]] <= act_index[a]      # the same act's own order is internal
+                if c is None and not earlier:
+                    violations.append((a, n, d))
+                if c is not None and not (earlier or d in P["theory_acts"]
+                                          or (crossed[d] and crossed[d][0] in conditional_acts)):
+                    violations.append((a, n, d, c))
+    redundant = [a for a, act in acts if not any(crossed[n] == [a] for n in act["crosses"])]
+    # the act-level graph per child (the conditional act A7 counted as in scope: its edge is a claim, not a child)
+    child_orders = {}
+    for child, leaves in P["scope"].items():
+        out = {l for ls in P["scope"].values() for l in ls} - set(leaves)
+        in_scope = [n for n in names if n not in out]
+        active = [(n, d) for n, d, c in all_edges if n in in_scope and d in in_scope
+                  and (c is None or c == child or c == "source-family identities claimed")]
+        act_nodes = [a for a, act in acts if any(n in in_scope for n in act["crosses"])
+                     and (act["conditional"] is None or act["conditional"] != "acoustic lane" or child == "acoustic lane")]
+        adeps = {a: sorted({crossed[d][0] for n, d in active if crossed[n] and crossed[n][0] == a and crossed[d]
+                            and crossed[d][0] != a}) for a in act_nodes}
+        child_orders[child] = (act_nodes, adeps, topo(act_nodes, adeps))
+    listed_ok = {child: (o is not None and all(act_index[d] < act_index[a] for a in an for d in ad[a]))
+                 for child, (an, ad, o) in child_orders.items()}
+    acoustic_an, acoustic_ad, acoustic_o = child_orders["acoustic lane"]
+    # the 18 keys
+    scoped = {n for n in names if nodes[n]["court"] == "scoped"}
+    node_keys = {k for n in names if n not in scoped for k in nodes[n]["keys"]}
+    scoped_keys = {k for n in scoped for k in nodes[n]["keys"]}
+    G = gates.GATES
+    # counts
+    sig = sum(len(act["signatures"]) for a, act in acts)
+    sig_by_act = {a: len(act["signatures"]) for a, act in acts if act["signatures"]}
+    war = sum(act["warrants"] for a, act in acts)
+    dec = [d for a, act in acts for d in act["decisions"]]
+    scalars = [n for n in names if nodes[n]["kind"] == "measured scalar"]
+    first_check = next(a for a, act in acts if act["checks"])
+    before = [n for a, act in acts[:act_index[first_check] + 1] for n in act["crosses"]]
+    kinds_before = {nodes[n]["kind"] for a, act in acts[:act_index[first_check]] for n in act["crosses"]}
+    # mathematics
+    math_nodes = sorted(n for n in names if nodes[n]["math"])
+    bsrc = inspect.getsource(binding)
+    b0 = ('S5- or D5-equivariant port adapter exists; C5 is maximal", gates.OBSTRUCTION' in bsrc
+          and callable(binding.adapter_symmetry_obstruction))
+    # the documents, read as text
+    model = (Path(gatework.ROOT) / "docs" / "MODEL.md").read_text()
+    s13 = model[model.index("## 13."):model.index("## 14.")]
+    s14 = model[model.index("## 14."):model.index("## 15.")]
+    rows14 = [l for l in s14.splitlines() if l.startswith("| ") and "---" not in l and "| Child |" not in l]
+    binding_md = (Path(gatework.ROOT) / "docs" / "BINDING.md").read_text()
+    # TIME_BIND's ancestors
+    def ancestors(n):
+        seen, stack = set(), list(uncond[n])
+        while stack:
+            d = stack.pop()
+            if d not in seen:
+                seen.add(d)
+                stack += uncond[d]
+        return seen
+    anc = ancestors("TIME_BIND_DATUM")
+    gold_uncond = sorted(uncond["ScientificGold"])
+    return {
+        "the gate graph is a DAG: 35 nodes (33 in the courts C0..C6 and the two scoped leaves W_L, T3081), 48 "
+        "depends_on edges of which 40 are the brief's and 8 are this unit's stated selections (BIND_Q31's readout "
+        "half after the independent readout and the owner's map; P, W_E, E, I after the external warrant; GoldDepth "
+        "and G_OES after ScientificGold), three of them conditional; an in-degree-zero queue orders every node and every "
+        "edge points backward in that order (the courts are the separate model's vNext12 controlling order, read as "
+        "data)":
+            len(names) == 35 and len(scoped) == 2 and len(edges) == 40 and len(added) == 8
+            and sum(1 for e in all_edges if e[2]) == 3 and acyclic,
+        "the court order C0 < C1 < ... < C6 is refined by a topological order except for exactly two edges, AUTH <- "
+        "A_MASTER and P_WIT_BIND_TX <- A_MASTER (the witness and the AUTH signature are over the manifest bytes, so "
+        "the provenance court closes only after the source court has opened); with those two edges set aside a "
+        "topological order that lists C0 before C1 before ... before C6 exists and respects every other edge, and "
+        "with them the act sequence A1..A10 visits the courts as C1, C0, C1, C0, C2, C3, C4, C5, C6, C6 (the two "
+        "downward edges are found among all 48 edges, and the refinement is checked on the other 46, the three "
+        "conditional ones included)":
+            downward == [("AUTH", "A_MASTER"), ("P_WIT_BIND_TX", "A_MASTER")] and refines
+            and [max(court(n) for n in act["crosses"]) for a, act in acts[:10]] == [1, 0, 1, 0, 2, 3, 4, 5, 6, 6],
+        "every node is crossed by at most one act, 34 of the 35 by exactly one, and the only uncrossed node is the "
+        "scoped leaf W_L, which no external act reopens (gatework.pmns_court's NOT_PASS by evidence; only a new "
+        "lepton-sector candidate, a theory act); the other leaf T3081 is crossed by the conditional act A11":
+            once and sum(1 for v in crossed.values() if len(v) == 1) == 34 and uncrossed == ["W_L"]
+            and set(P["theory_acts"]) == {"W_L"} and crossed["T3081"] == ["A11"],
+        "the act order respects the edges: for every act, every unconditional dependency of every node it crosses is "
+        "crossed by an earlier act, and every conditional dependency is crossed earlier, is a conditional act's, or "
+        "is the theory leaf; per child the act-level graph is acyclic, the listed order A1..A10 is a topological "
+        "order for the particle-physics and engineered-network children, and on the acoustic lane every topological "
+        "order puts the host receipt A11 before the warrant act A10 (ScientificGold <- T3081 there)":
+            violations == [] and all(o is not None for an, ad, o in child_orders.values())
+            and listed_ok["particle physics"] and listed_ok["engineered network"]
+            and "A11" in acoustic_ad["A10"] and acoustic_o.index("A11") < acoustic_o.index("A10"),
+        "no act is redundant: each of the 11 acts is the sole crosser of at least one node, so removing any one "
+        "leaves a node uncrossed; 9 acts are unconditional and 2 are conditional (A7 on a claim of source-family "
+        "identities, A11 on the acoustic lane): 11 acts in all, not the brief's '10 + 2', since A7 is among A1..A10":
+            redundant == [] and len(acts) == 11 and conditional_acts == ["A7", "A11"]
+            and len(acts) - len(conditional_acts) == 9,
+        "the 18 keys of gates.GATES are each mapped to a node (AUTH, SCR6, BIND_Q31, DYN_BIND, TIME_BIND, "
+        "PredictionFreeze, P, W_E, E, I, ScientificGold, GoldDepth, G_OES), to a scoped leaf (W_L, T3081) or listed "
+        "as not a gate (x_executed, R6/A40/A52, numbered_baseline: states and labels), the three lists disjoint, and "
+        "every value is shut exactly as the standing list says (AUTH NOT_PASS, ScientificGold FALSE, GoldDepth 0, "
+        "G_OES FALSE, SCR6 NOT_RUN_OPERAND_ABSENT, TIME_BIND UNBOUND, DYN_BIND NOT_INSTALLED, BIND_Q31 UNBOUND, "
+        "PredictionFreeze NOT_TRIGGERED, P/W_E/W_L/E/I NOT_PASS, T3081 UNOPENED, x_executed 000000, R6/A40/A52 "
+        "FROZEN, numbered_baseline OMSOON736); the unit reads them and writes nothing":
+            len(G) == 18 and node_keys == {"AUTH", "SCR6", "BIND_Q31", "DYN_BIND", "TIME_BIND", "PredictionFreeze",
+                                           "P", "W_E", "E", "I", "ScientificGold", "GoldDepth", "G_OES"}
+            and scoped_keys == {"W_L", "T3081"} and not node_keys & scoped_keys
+            and not (node_keys | scoped_keys) & set(P["not_gates"])
+            and node_keys | scoped_keys | set(P["not_gates"]) == set(G) and dict(G) == P["standing"]
+            and all(nodes[n]["kind"] == "gate" and nodes[n]["keys"] == (n,) for n in ("P", "W_E", "E", "I",
+                                                                                     "ScientificGold", "GoldDepth",
+                                                                                     "G_OES")),
+        "the per-child scope table (particle physics: W_L; acoustic lane: T3081; engineered network: neither) names "
+        "exactly the three children of MODEL.md section 14's table (particle physics, engineered network, acoustic "
+        "lane with dEchorate and T3081), the particle row carrying the PMNS branch that W_L judges and the acoustic "
+        "row carrying T3081; ScientificGold's unconditional dependencies are the external warrant and the freeze "
+        "only, as MODEL.md section 13 defines it ('a frozen prediction, independent data and a preregistered test on "
+        "a declared physical system'), so Gold is not a conjunction with W_L or T3081":
+            len(rows14) == 3 and all(any(c.split(" (")[0].lower() in r.lower() for r in rows14) for c in P["scope"])
+            and any("Particle" in r and "PMNS" in r for r in rows14)
+            and any("Acoustic" in r and "T3081" in r for r in rows14)
+            and set(P["scope"]["particle physics"]) == {"W_L"} and set(P["scope"]["acoustic lane"]) == {"T3081"}
+            and P["scope"]["engineered network"] == ()
+            and gold_uncond == ["EXTERNAL_WARRANT", "PREDICTION_FREEZE"]
+            and "A frozen prediction, independent data and a preregistered test on a declared physical system" in s13
+            and "NOT_PASS by evidence" in s13,
+        "the counts: 7 signatures (the owner's two, over the transaction and over the manifest; the witness's and the "
+        "verifier's receipt; the owner's freeze signature and the custodian's seal; the adjudicator's warrant) plus "
+        "19 per-group warrants; 8 decisions (child, port policy, branch, H_sel, multiplicity, chirality, theta, chart; "
+        "the adapter is not among them, B0 having decided it); and exactly one measured scalar, the clock datum "
+        "TIME_BIND_DATUM, entering at A5, the first act that carries a model check (bind_time_map's rho-free "
+        "invariants on the preparation), every node crossed before it being a signature, a decision, bytes, a gate "
+        "or the group names (data): no measured record precedes the datum":
+            sig == 7 and sig_by_act == {"A2": 1, "A3": 1, "A4": 2, "A8": 2, "A10": 1} and war == 19
+            and sorted(dec) == sorted(["child", "port policy", "branch", "H_sel", "multiplicity", "chirality",
+                                       "theta", "chart"])
+            and scalars == ["TIME_BIND_DATUM"] and first_check == "A5" and crossed["TIME_BIND_DATUM"] == [first_check]
+            and kinds_before == {"signature", "decision", "bytes", "gate", "data"}
+            and all(nodes[n]["kind"] != "measured records" for n in before),
+        "crossable_by_mathematics is False for every node except two halves: the certificate half of SPECTRAL_KO6_GS "
+        "(a derivation, owed only on the strict 6D branch) and the adapter half of PORT_ORDER, which binding.py's B0 "
+        "has already decided (its source records 'no S5- or D5-equivariant port adapter exists; C5 is maximal' with "
+        "gates.OBSTRUCTION; binding.adapter_symmetry_obstruction is cited, not rerun); PORT_ORDER's ten edges are "
+        "carrier.edges() in lexicographic order, and SCR6's six shapes are gates.UNFORMED_OPERANDS' first entry":
+            math_nodes == ["PORT_ORDER", "SPECTRAL_KO6_GS"] and b0
+            and list(P["port_edges"]) == ["%d%d" % e for e in carrier.edges()]
+            and all(s in gates.UNFORMED_OPERANDS[0] for s in P["scr6_shapes"]),
+        "TIME_BIND does not depend on the kg/N/m chain: the ancestors of TIME_BIND_DATUM are TIMEBASE, PORT_ORDER, "
+        "A_MASTER and PHYSICAL_CHILD, none in the dynamics court C3 (docs/BINDING.md: 'the SI second enters nowhere "
+        "else'), while DYN_BIND_PILOT depends on the datum, the SI chain, the three runs, the dyadic rates, the "
+        "choice half and AUTH: time first, then dynamics (bind_time_units, bind_dynamics_dyadic)":
+            anc == {"TIMEBASE", "PORT_ORDER", "A_MASTER", "PHYSICAL_CHILD"}
+            and all(court(n) != 3 for n in anc) and "the SI second enters nowhere else" in binding_md
+            and set(uncond["DYN_BIND_PILOT"]) == {"TIME_BIND_DATUM", "MASS_STIFFNESS_GAIN", "RAW_FREE", "RAW_LOADED",
+                                                  "RAW_SHAM", "DYADIC_TIMES", "DYN_BIND_CHOICE", "AUTH"},
+    }
+
+
+def gpr_hashes():
+    """The prepared transaction's bindings replayed, cheaply and exactly: the register file, gatework.register()
+    through gatework.canonical_bytes, the native operand file (literal.SHA256, literal.sha256), verify.py and
+    data/walks.json against data/owner_transaction.json's recorded values (its actual key names, read from the JSON);
+    the transaction itself replayed from gatework.transaction; the owner's three supplies; the register's 5 kinds and
+    30 leaves, none a datum and none per evidence group; and the limitation that the verifier hash covers verify.py
+    only (the oes/ package is not hashed)."""
+    import hashlib
+    import inspect
+    import json
+    from pathlib import Path
+    root = Path(gatework.ROOT)
+    sha = lambda p: hashlib.sha256((root / p).read_bytes()).hexdigest()
+    tx = json.loads((root / "data" / "owner_transaction.json").read_text())
+    reg_file = json.loads((root / "data" / "prediction_register.json").read_text())
+    reg_sha = sha("data/prediction_register.json")
+    reg_replay = hashlib.sha256(gatework.canonical_bytes(gatework.register())).hexdigest()
+    native_sha = sha("data/native_matrices_input.json")
+    REG = "7b59e592347f1db16e3f88909d6ef625a3f4651dbaaa60ed4cbccac549ec4ca0"
+    NAT = "73e07429d7733ae43055723cd59756eb1d1989300f161a1d6ab14cb02413ffea"
+    TX = "73b32ebe6d317c2f0aead02877621ec802a7e7a8f4d1464b4ba2e3daef037fba"
+    act2 = dict(_gpr_protocol()["acts"])["A2"]["note"]
+    leaves, paths = [], []
+
+    def walk(d, path):
+        for k, v in d.items():
+            if isinstance(v, dict):
+                walk(v, path + (k,))
+            else:
+                leaves.append(v)
+                paths.append(path + (k,))
+    walk(reg_file, ())
+    text = " ".join(" ".join(p) for p in paths) + " " + " ".join(str(v) for v in leaves)
+    tokens = ("group", "datum", "measur", "uncertain", "sigma", " kg", " hz", "second", "newton", "metre", "meter",
+              "joule", "kelvin", "ampere")
+    tsrc = inspect.getsource(gatework.transaction)
+    return {
+        "sha256(data/prediction_register.json) = 7b59e592347f1db16e3f88909d6ef625a3f4651dbaaa60ed4cbccac549ec4ca0 = "
+        "sha256(gatework.canonical_bytes(gatework.register())) = the transaction's G_role.prediction_register (the "
+        "JSON's own key names), so the register the freeze would seal is the model's, regenerated from its code":
+            reg_sha == REG == reg_replay == tx["G_role"]["prediction_register"]
+            and json.loads(gatework.canonical_bytes(gatework.register())) == reg_file,
+        "sha256(data/native_matrices_input.json) = literal.SHA256 = literal.sha256() = "
+        "73e07429d7733ae43055723cd59756eb1d1989300f161a1d6ab14cb02413ffea = the transaction's P_cl.native_operands: "
+        "the literal action bytes the owner manifest (A3) names are the canon's saved native operand file":
+            native_sha == literal.SHA256 == literal.sha256() == NAT == tx["P_cl"]["native_operands"],
+        "sha256(verify.py) and sha256(data/walks.json) equal the transaction's G_role.verifier and G_role.walks, "
+        "gatework.transaction(register sha) replays the whole file data/owner_transaction.json as a dict, and the "
+        "file's own bytes hash to 73b32ebe6d317c2f0aead02877621ec802a7e7a8f4d1464b4ba2e3daef037fba, the literal "
+        "bytes act A2 signs as-is (_gpr_protocol); its status is PREPARED_FOR_OWNER_SIGNATURE and gates.GATES keeps "
+        "AUTH NOT_PASS: a hash is not a signature":
+            sha("verify.py") == tx["G_role"]["verifier"] and sha("data/walks.json") == tx["G_role"]["walks"]
+            and gatework.transaction(reg_sha) == tx and sha("data/owner_transaction.json") == TX and TX in act2
+            and tx["status"] == "PREPARED_FOR_OWNER_SIGNATURE" and gates.GATES["AUTH"] == "NOT_PASS",
+        "the transaction's not_supplied_here is literally ['owner signature (AUTH)', 'physical child H_sel', 'six "
+        "SCR6 physical operands H_D2, C55, F_phys, Omega24, Z7, host_to_OES']: exactly the owner's three supplies, "
+        "the AUTH signature, the physical child H_sel and the six SCR6 operands, which acts A2, A3 and A3 carry in "
+        "the protocol, the six operand names being those of gates.UNFORMED_OPERANDS' first entry":
+            tx["not_supplied_here"] == ["owner signature (AUTH)", "physical child H_sel",
+                                        "six SCR6 physical operands H_D2, C55, F_phys, Omega24, Z7, host_to_OES"]
+            and all(op in gates.UNFORMED_OPERANDS[0] for op in ("H_D2", "C55", "F_phys", "Omega24", "Z7",
+                                                                 "host_to_OES")),
+        "the register has 5 kinds (its top-level keys, read, not hard-coded) and 30 leaves (non-dict values, a list "
+        "counting once: integers, floats, strings and lists only), none a datum and none per evidence group: no key "
+        "path or value mentions a group, a datum, a measurement, an uncertainty, a sigma or an SI unit (kg, Hz, "
+        "second, newton, metre, joule, kelvin, ampere), so 0/19 is the model's own count too, and the per-group "
+        "predictions the freeze needs are a theory act the register does not contain (gatework.register)":
+            len(reg_file) == 5 and len(leaves) == 30 and all(isinstance(v, (int, float, str, list)) for v in leaves)
+            and not any(t in text.lower() for t in tokens),
+        "the limitation, checked as a fact: the transaction's G_role block has exactly the keys verifier, walks and "
+        "prediction_register and no key for the oes/ package, and gatework.transaction hashes exactly three files "
+        "(data/native_matrices_input.json, data/walks.json, verify.py): the verifier hash covers verify.py only, "
+        "the package it imports is not hashed, so a signed transaction binds the verifier script and not the code "
+        "the script runs":
+            set(tx["G_role"]) == {"verifier", "walks", "prediction_register"}
+            and not any("oes" in k.lower() for k in tx["G_role"])
+            and all(f in tsrc for f in ('"data/native_matrices_input.json"', '"data/walks.json"', '"verify.py"'))
+            and tsrc.count('"oes/') == 0 and tsrc.count("sha(ROOT / p)") == 1,
+        "the freeze is not triggered by any hash: gates.GATES keeps PredictionFreeze NOT_TRIGGERED and ScientificGold "
+        "FALSE while every hash above replays, so the register's bytes are frozen only by act A8 (the owner's "
+        "signature and the custodian's seal over them), a checksum or a draft being no freeze":
+            gates.GATES["PredictionFreeze"] == "NOT_TRIGGERED" and gates.GATES["ScientificGold"] == "FALSE"
+            and reg_sha == REG,
+    }
+
+
+def gpr_falsifiers():
+    """The model's own numbers an act must pass, cited and recomputed cheaply from _bind_brackets' data (the
+    certificates are not recomputed): I1's THEOREM-grade bracket from refclock_halfreturn's P8 endpoints, the exact
+    ratio Xi_mass/Xi_q = 2117/389 with tr D19 = 10791 and tr D45 = 21061 (master_readout, refclock_gain), I2 and I3 on
+    the crossover certificate read as data (SELECTED_REFERENCE), the load relation d^2/Xi_q = delta^2/389 at the
+    model's dressed gap lam- = (5 - sqrt5)/2 (bind_time_units, deep_zero_pole) against the three-route note's gap 8,
+    W_L's arithmetic replayed from gatework.pmns_court, and gatework.countermodel_A timed."""
+    import time
+    F = Fraction
+    data = _bind_brackets()
+    lo, hi = data["u8"]
+    zlo, zhi = data["z"]
+    slo, shi = data["sqrt_z"]
+    D45, D45m, D19, D19m = data["D45"], data["D45_mult"], data["D19"], data["D19_mult"]
+    i1 = (2117 * lo ** 4, 2117 * hi ** 4)
+    i2 = (389 / zhi ** 2, 389 / zlo ** 2)
+    i3 = (lo * slo, hi * shi)
+    ratio = F(D45["mass"], D45["quadratic"])
+    tr19 = sum(D19[k] * D19m[k] for k in D19)
+    tr45 = sum(D45[k] * D45m[k] for k in D45)
+    rho, delta = sp.symbols("rho delta", positive=True)
+    d = delta / rho ** 2
+    Xq = 389 / rho ** 4
+    lam = (5 - sp.sqrt(5)) / 2
+    dressed = sp.radsimp(lam ** 2 / 389)
+    ledger = {r[0]: r for r in LEDGER_ROWS}
+    half_row = ledger.get("the certified half-return (reference-clock note, filed 2 Nov 03:16 UTC, section 4; "
+                          "receipt half_return_model_interval_exact)")
+    cross_row = ledger.get("the binding solution (6 Nov): the crossover binding (TIME_BIND_RESOLUTION, 2 Nov; the "
+                           "three-route doc, 6 Nov 08:44)")
+    pulls, chi2, p2, chi2_3, p3 = gatework.pmns_court()
+    nufit = gatework.NUFIT6_PULLS_REPORTED
+    from pathlib import Path
+    model = (Path(gatework.ROOT) / "docs" / "MODEL.md").read_text()
+    s13 = model[model.index("## 13."):model.index("## 14.")]
+    t0 = time.time()
+    diff, freq = gatework.countermodel_A()
+    elapsed = time.time() - t0
+    cited = "Countermodel A" in s13 and "ratio 2:1" in s13 and "no internal clock" in str(JOINS)
+    table = {"I1": i1, "Xi_mass/Xi_q": ratio, "tr D19": tr19, "tr D45": tr45, "I2": i2, "I3": i3,
+             "d^2/Xi_q at the dressed gap": dressed, "lam-": lam, "chi2": chi2, "p": p2, "chi2_3": chi2_3,
+             "countermodel frequency ratio": freq[1.0] / freq[2.0]}
+    vals = set()
+    for v in table.values():
+        vals |= set(v) if isinstance(v, tuple) else {v}
+    foreign = {392, F(64, 389), F(1, 4), F(7, 4), F(19, 4), F(98, 53), F(242, 237), 3.5293, 8}
+    out = {
+        "I1 = Xi_mass T_half^4 = 2117 u_half^4 lies in (2117 lo^4, 2117 hi^4) with lo, hi = 892853037828096677/"
+        "11529215046068469760, 892854727289957321/11529215046068469760, refclock_halfreturn's exact P8 endpoints "
+        "read from _bind_brackets (THEOREM grade: LEDGER_ROWS' certified half-return row), so 0.07614507 < I1 < "
+        "0.07614566, and 2117 = m2 - m1^2 = 35973 - 184^2 is D45's mass entry (master_readout)":
+            (lo, hi) == (F(892853037828096677, 11529215046068469760), F(892854727289957321, 11529215046068469760))
+            and F("0.07614507") < i1[0] < i1[1] < F("0.07614566")
+            and data["m_mass"][2] - data["m_mass"][1] ** 2 == 2117 == D45["mass"]
+            and half_row is not None and half_row[3] == gates.THEOREM,
+        "the exact ratio needs no bracket: Xi_mass/Xi_q = 2117/389 (D45's mass over quadratic entry, master_readout; "
+        "389 = 54213 - 232^2, notes_1512), tr D19 = 8 x 967 + 7 x 389 + 4 x 83 = 10791 (refclock_gain's hid19 "
+        "eigenvalues) and tr D45 = 2117 + 8 x 967 + 26 x 389 + 6 x 127 + 4 x 83 = 21061 (deep_observer_algebra), "
+        "so tr Xi_19/Xi_q = 10791/389 and tr Xi/Xi_q = 21061/389 exactly":
+            ratio == F(2117, 389) and data["m_quad"][2] - data["m_quad"][1] ** 2 == 389 == D45["quadratic"]
+            and tr19 == 10791 and tr45 == 21061 and sum(D19m.values()) == 19 and sum(D45m.values()) == 45,
+        "I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*) rest on the crossover certificate z* in "
+        "(12200402860332943, 12200405718556069)/2^48 with 6.583656896344280 < sqrt(z*) < 6.583657667530262, read as "
+        "data (SELECTED_REFERENCE grade: LEDGER_ROWS' crossover-binding row; its certificate needs m0..m17, not in "
+        "the model), giving 0.20705257 < I2 < 0.20705268 and 0.50985587 < I3 < 0.50985691 (bind_time_map)":
+            (zlo, zhi) == (F(12200402860332943, 2 ** 48), F(12200405718556069, 2 ** 48))
+            and (slo, shi) == (F("6.583656896344280"), F("6.583657667530262")) and slo ** 2 < zlo < zhi < shi ** 2
+            and F("0.20705257") < i2[0] < i2[1] < F("0.20705268") and F("0.50985587") < i3[0] < i3[1] < F("0.50985691")
+            and cross_row is not None and cross_row[3] == gates.SELECTED_REFERENCE,
+        "the load relation: with d = delta/rho^2 (the gauge-invariant shift, bind_time_units) and Xi_q = 389/rho^4, "
+        "d^2/Xi_q = delta^2/389 is rho-free, and at the MODEL's dressed gap delta = lam- = (5 - sqrt5)/2 "
+        "(deep_zero_pole's floor at alpha = 1, zero_pole_instance; in (1.3819, 1.3820) as in bind_time_units) it "
+        "equals (15 - 5 sqrt5)/778, about 0.00491, while the three-route note's static gap 8 gives 64/389, the "
+        "note's number and not the model's":
+            sp.simplify(d ** 2 / Xq - delta ** 2 / 389) == 0 and sp.expand(dressed - (15 - 5 * sp.sqrt(5)) / 778) == 0
+            and abs(float(dressed) - 0.00491) < 2e-5 and sp.Rational(13819, 10000) < lam < sp.Rational(13820, 10000)
+            and sp.Integer(8) ** 2 / 389 == sp.Rational(64, 389) and dressed != sp.Rational(64, 389),
+        "W_L's arithmetic replayed from gatework.pmns_court: the Bari pulls are 2.594 and -1.975 on the frozen "
+        "sin^2 th12 = 1199/3759 and sin^2 th13 = 27/1280, chi2 = 10.63 with p = 0.0049 (2 dof); chi2_3 = 26.29 = "
+        "1.0^2 + 1.5^2 + 4.8^2 comes from NuFIT's three reported pulls (1.0, -1.5, -4.8) ALONE, and the Bari pair plus "
+        "-4.8 would give 33.7, so 'adding the theta23 pull' to the 2-dof number is the wrong reading; the code is the "
+        "authority and MODEL.md section 13's W_L row now says the two numbers are two comparisons ('on their own', "
+        "33.7); W_L stays NOT_PASS by evidence":
+            (round(pulls["sin2_th12"], 3), round(pulls["sin2_th13"], 3)) == (2.594, -1.975)
+            and gatework.FROZEN_PMNS == {"sin2_th12": (1199, 3759), "sin2_th13": (27, 1280)}
+            and round(chi2, 2) == 10.63 and round(p2, 4) == 0.0049
+            and nufit == {"sin2_th12": 1.0, "sin2_th13": -1.5, "sin2_th23_strict": -4.8}
+            and abs(chi2_3 - 26.29) < 1e-9 and abs(chi2_3 - sum(v * v for v in nufit.values())) < 1e-12
+            and round(chi2 + 4.8 ** 2, 1) == 33.7 and abs(chi2_3 - (chi2 + 4.8 ** 2)) > 7
+            and "on their own" in s13 and "33.7" in s13 and "Adding the reported NuFIT" not in s13
+            and gates.GATES["W_L"] == "NOT_PASS",
+        "the model's falsifiers are its own numbers: none of the synthesis's non-model numbers (392, the static gap 8 "
+        "and its 64/389, the ratios 1/4, 7/4, 19/4, the null count 98/53, the leakage 242/237, the Bonferroni "
+        "3.5293) occurs among the values above, which are I1, 2117/389, 10791, 21061, I2, I3, (15 - 5 sqrt5)/778, "
+        "lam-, chi2, p, chi2_3 and the countermodel's frequency ratio":
+            not any(any(v == f for v in vals) for f in foreign) and len(table) == 12,
+    }
+    if elapsed < 2:
+        out["countermodel A (gatework.countermodel_A, replayed here in under 2 s): the calibrations tau = 1 and "
+            "tau = 2 give identical native records at the 15 labels (maximum difference below 1e-9) while the "
+            "physical frequencies sqrt8/tau are in ratio 2, so no internal number binds time and the clock datum "
+            "of act A5 is an external input (calibration's OBSTRUCTION join 'no internal clock'; MODEL.md section 13's "
+            "TIME_BIND row records the same replay)"] = (
+            diff < 1e-9 and abs(freq[1.0] / freq[2.0] - 2) < 1e-12 and abs(freq[1.0] ** 2 - 8) < 1e-9
+            and gates.GATES["TIME_BIND"] == "UNBOUND" and cited)
+    else:
+        out["countermodel A was not replayed here (gatework.countermodel_A took 2 s or more on this run): it is "
+            "cited from MODEL.md section 13's TIME_BIND row ('Countermodel A', 'ratio 2:1') and from calibration's "
+            "OBSTRUCTION join 'no internal clock', and gates.GATES keeps TIME_BIND UNBOUND"] = (
+            cited and callable(gatework.countermodel_A) and gates.GATES["TIME_BIND"] == "UNBOUND")
+    return out
+
+
+def gpr_loaded_observability():
+    """The separate model's vNext12 four-star / spanning-tree theorem (the loaded-observability theorem of its 6 Nov
+    controlling update, read as data) replayed exactly on the model's K5: B = carrier.signed_incidence() in
+    carrier.edges()' lexicographic order (B B^T = 5I - J, k5_roots' Coxeter identity), P4 = B^T B/5 the cut projector,
+    P6 = I - P4 the cycle projector, G0 = g6 P6 + g4 P4 symbolic, loads kappa e_j e_j^T; the Woodbury identity cites
+    bind_dynamics_dyadic's load identity; ranks over all 1024 edge subsets in exact arithmetic; the 125 spanning trees
+    and their Gram determinants; the star, path and fork condition numbers as algebraic numbers."""
+    import itertools
+    B = carrier.signed_incidence()
+    E = carrier.edges()
+    BtB = B.T * B
+    P4 = BtB / 5
+    P6 = sp.eye(10) - P4
+    g6, g4, kappa = sp.symbols("g6 g4 kappa", positive=True)
+    G0 = g6 * P6 + g4 * P4
+    G0inv = P6 / g6 + P4 / g4
+    unit = lambda j: sp.Matrix(10, 1, lambda i, _: 1 if i == j else 0)
+    cut_cols = all(P4 * unit(j) == B.T * (B * unit(j)) / 5 for j in range(10))
+    # (b) Woodbury, as a polynomial identity: (1 + kappa c) G_j times g6 g4 (G0^-1 + kappa e e^T)
+    wood = True
+    for j in range(10):
+        e = unit(j)
+        u = G0 * e
+        c = (e.T * G0 * e)[0]
+        Nj = (1 + kappa * c) * G0 - kappa * u * u.T
+        Mj = g4 * P6 + g6 * P4 + kappa * g6 * g4 * e * e.T
+        wood = wood and (Nj * Mj).applyfunc(sp.expand) == ((1 + kappa * c) * g6 * g4 * sp.eye(10)).applyfunc(sp.expand)
+    e0 = unit(0)
+    Gj0 = G0 - kappa * (G0 * e0) * (e0.T * G0) / (1 + kappa * (e0.T * G0 * e0)[0])
+    wood0 = (Gj0 * (G0inv + kappa * e0 * e0.T)).applyfunc(sp.cancel) == sp.eye(10)
+    # (c) ranks over all 1024 subsets, exactly (rows scaled by 5: integers)
+    P6i = [[int(x) for x in (5 * P6).row(i)] for i in range(10)]
+    P4i = [[int(x) for x in BtB.row(i)] for i in range(10)]
+    rk, cc = {}, {}
+    for mask in range(1024):
+        S = [j for j in range(10) if mask >> j & 1]
+        rk[mask] = _gpr_rank(P6i + [P4i[j] for j in S])
+        cc[mask] = _gpr_components(S, E)
+    rank_law = all(rk[m] == 11 - cc[m] for m in range(1024))
+    fours = [m for m in range(1024) if bin(m).count("1") == 4]
+    trees = [m for m in fours if rk[m] == 10]
+    nontrees = [m for m in fours if rk[m] == 9]
+
+    def degrees(m):
+        d = [0] * 5
+        for j in range(10):
+            if m >> j & 1:
+                d[E[j][0]] += 1
+                d[E[j][1]] += 1
+        return tuple(sorted(d, reverse=True))
+    shapes = {}
+    for m in trees:
+        shapes[degrees(m)] = shapes.get(degrees(m), 0) + 1
+    # (e) the Gram determinants
+    def gram(m):
+        S = [j for j in range(10) if m >> j & 1]
+        ET = sp.Matrix(10, len(S), lambda i, k: 1 if i == S[k] else 0)
+        BT = B.extract(list(range(5)), S)
+        return ET.T * P4 * ET, BT.T * BT
+    dets = {gram(m)[0].det() for m in trees} | {gram(m)[1].det() / 625 for m in trees}
+    dets_B = {gram(m)[1].det() for m in trees}
+    # (f) the star at vertex 0, a path and a fork
+    idx = {e: k for k, e in enumerate(E)}
+    mask_of = lambda es: sum(1 << idx[e] for e in es)
+    star = gram(mask_of([(0, 1), (0, 2), (0, 3), (0, 4)]))[1]
+    path = gram(mask_of([(0, 1), (1, 2), (2, 3), (3, 4)]))[1]
+    fork = gram(mask_of([(0, 1), (0, 2), (0, 3), (3, 4)]))[1]
+    x = sp.Symbol("x")
+    cartan = sp.Matrix(4, 4, lambda i, j: 2 if i == j else (-1 if abs(i - j) == 1 else 0))
+    path_ev = path.eigenvals()
+    path_cond = sp.sqrt(sp.radsimp(max(path_ev, key=lambda v: float(v)) / min(path_ev, key=lambda v: float(v))))
+    fork_cp = sp.factor(fork.charpoly(x).as_expr())
+    cubic = sp.Poly(sp.cancel(fork_cp / (x - 1)), x)
+    roots = cubic.all_roots()
+    fork_cond = sp.sqrt(roots[-1] / roots[0])
+    star_cond = sp.sqrt(max(star.eigenvals()) / min(star.eigenvals()))
+    star_m = mask_of([(0, 1), (0, 2), (0, 3), (0, 4)])
+    path_m = mask_of([(0, 1), (1, 2), (2, 3), (3, 4)])
+    fork_m = mask_of([(0, 1), (0, 2), (0, 3), (3, 4)])
+    conds = {}
+    for m in trees:                                   # every tree's geometric condition number, as floats
+        ev = np.linalg.eigvalsh(np.array(gram(m)[1].tolist(), dtype=float))
+        conds[m] = float(np.sqrt(ev[-1] / ev[0]))
+    best = sorted(trees, key=lambda m: conds[m])[:5]
+    by_shape = {(4, 1, 1, 1, 1): float(star_cond), (3, 2, 1, 1, 1): float(fork_cond), (2, 2, 2, 1, 1): float(path_cond)}
+    stars_best = (all(degrees(m) == (4, 1, 1, 1, 1) for m in best)
+                  and all(abs(conds[m] - by_shape[degrees(m)]) < 1e-9 for m in trees)
+                  and all(conds[m] > float(star_cond) + 0.5 for m in trees if degrees(m) != (4, 1, 1, 1, 1)))
+    # (g) more than four loads
+    connected = [m for m in range(1024) if cc[m] == 1]
+    iff = all((rk[m] == 10) == (cc[m] == 1) for m in range(1024))
+    more = [m for m in range(1024) if bin(m).count("1") >= 5]
+    return {
+        "B = carrier.signed_incidence() is the signed 5 x 10 incidence of K5 with columns in carrier.edges()' "
+        "lexicographic order 01, 02, 03, 04, 12, 13, 14, 23, 24, 34 (B e_k = e_j - e_i for the edge (i, j)), and "
+        "B B^T = 5I - J (k5_roots' Coxeter identity h(A4) P = 5I - J, cited)":
+            E == list(itertools.combinations(range(5), 2)) and B.shape == (5, 10)
+            and all(B * unit(k) == sp.Matrix(5, 1, lambda i, _: 1 if i == j else (-1 if i == a else 0))
+                    for k, (a, j) in enumerate(E))
+            and B * B.T == 5 * sp.eye(5) - sp.ones(5, 5),
+        "(a) P4 = B^T B/5 is a projector of rank 4 (the cut space, B^T B squared equals 5 B^T B since J B = 0) and P6 "
+        "= I10 - P4 a projector of rank 6 (the cycle space), P4 P6 = 0, and P4 e_j = B^T (B e_j)/5 for every edge":
+            P4 * P4 == P4 and P4.rank() == 4 and P6 * P6 == P6 and P6.rank() == 6 and P4 * P6 == sp.zeros(10, 10)
+            and BtB * BtB == 5 * BtB and cut_cols,
+        "(b) Woodbury: for G0 = g6 P6 + g4 P4 (symbols g6, g4 > 0; G0^-1 = P6/g6 + P4/g4) and the edge load K_j = "
+        "kappa e_j e_j^T, G_j = G0 - kappa (G0 e_j)(e_j^T G0)/(1 + kappa e_j^T G0 e_j) satisfies G_j^-1 - G0^-1 = "
+        "kappa e_j e_j^T exactly, symbolic in g6, g4, kappa, for every one of the ten edges (as the polynomial "
+        "identity (1 + kappa c_j) G_j x g6 g4 (G0^-1 + kappa e_j e_j^T) = (1 + kappa c_j) g6 g4 I with c_j = 3 g6/5 + "
+        "2 g4/5, and by direct cancellation on edge 01): the load identity G_L^-1 - G_0^-1 = L of "
+        "bind_dynamics_dyadic (master_response's source law) on the ten-port":
+            (G0 * G0inv).applyfunc(sp.cancel) == sp.eye(10) and wood and wood0
+            and sp.expand((e0.T * G0 * e0)[0] - (3 * g6 + 2 * g4) / 5) == 0,
+        "(c) for every one of the 1024 edge subsets S the stacked rows [P6; e_j^T P4, j in S] have rank 11 - c(S), "
+        "c(S) the number of connected components of (V5, S), in exact rational arithmetic (the rows scaled by 5 to "
+        "integers, _gpr_rank; components by union-find, _gpr_components): the cycle reader's 6 plus the rank of the "
+        "loaded cuts, which is the incidence rank 5 - c(S)":
+            rank_law and rk[0] == 6 and rk[1023] == 10 and cc[0] == 5 and cc[1023] == 1,
+        "(d) among the 210 four-edge sets exactly 125 are spanning trees (rank 10) and 85 are not (rank 9), and the "
+        "125 split by degree sequence as 5 stars (4, 1, 1, 1, 1), 60 paths (2, 2, 2, 1, 1) and 60 forks (3, 2, 1, "
+        "1, 1): the 5^3 = 125 labelled trees on five vertices":
+            len(fours) == 210 and len(trees) == 125 and len(nontrees) == 85 and len(trees) + len(nontrees) == 210
+            and shapes == {(4, 1, 1, 1, 1): 5, (2, 2, 2, 1, 1): 60, (3, 2, 1, 1, 1): 60} and 5 ** 3 == 125,
+        "(e) every spanning tree T has det(E_T^T P4 E_T) = 1/125, the matrix-tree value det(B_T^T B_T) = 5 (the "
+        "number of vertices, by Cauchy-Binet each of the five 4 x 4 minors of B_T being +-1) divided by 5^4":
+            dets == {sp.Rational(1, 125)} and dets_B == {5},
+        "(f) the star at vertex 0 has E^T P4 E = (I4 + J4)/5 with inverse 5 I4 - J4, eigenvalues 1 and 1/5 (x3) and "
+        "geometric condition number sqrt5 = 2.23607; the path 0-1-2-3-4 has Gram B_T^T B_T = the A4 Cartan matrix "
+        "(2 on the diagonal, -1 on the off-diagonals), eigenvalues 2 - 2 cos(k pi/5) among which (5 - sqrt5)/2 is "
+        "bind_time_units' dressed gap lam-, and condition number sqrt(5 + 2 sqrt5) = 3.07768; the fork (degree "
+        "sequence 3, 2, 1, 1, 1) has Gram eigenvalues 1 and the three real roots of x^3 - 7x^2 + 13x - 5, condition "
+        "number sqrt(largest/smallest) = 2.83511 (exact algebraic numbers, CRootOf, evaluated to 5 decimals); over "
+        "all 125 trees (floating eigenvalues) every tree's condition number is its shape's, the five best are exactly "
+        "the five stars and every path and fork exceeds sqrt5 by more than 0.5: the five stars are the best "
+        "conditioned four-load sets":
+            degrees(star_m) == (4, 1, 1, 1, 1) and degrees(path_m) == (2, 2, 2, 1, 1) and degrees(fork_m) == (3, 2, 1, 1, 1)
+            and stars_best
+            and star == sp.eye(4) + sp.ones(4, 4) and (star / 5).inv() == 5 * sp.eye(4) - sp.ones(4, 4)
+            and (star / 5).eigenvals() == {1: 1, sp.Rational(1, 5): 3} and star_cond == sp.sqrt(5)
+            and path == cartan and set(path_ev) == {2 - 2 * sp.cos(k * sp.pi / 5) for k in range(1, 5)}
+            and (5 - sp.sqrt(5)) / 2 in path_ev and path_cond == sp.sqrt(5 + 2 * sp.sqrt(5))
+            and abs(float(path_cond) - 3.07768) < 5e-6 and fork_cp == (x - 1) * (x ** 3 - 7 * x ** 2 + 13 * x - 5)
+            and len(roots) == 3 and all(r.is_real for r in roots) and abs(float(fork_cond) - 2.83511) < 5e-6
+            and abs(float(star_cond) - 2.23607) < 5e-6 and float(star_cond) < float(fork_cond) < float(path_cond),
+        "(g) a loaded edge set is full rank (rank 10) iff the loaded graph is connected, checked on all 1024 subsets "
+        "(it follows from (c)); 728 of the 1024 subsets are connected (the connected spanning subgraphs of K5), and "
+        "among the 638 sets of more than four loads the 603 connected ones are full rank and the 35 disconnected "
+        "ones are not (5 x 7: the sets that isolate one vertex and carry five or all six edges of the remaining K4, "
+        "since a 2 + 3 split carries at most 4 edges); four loads are the minimum":
+            iff and len(connected) == 728 and len(more) == 638 and sum(1 for m in more if rk[m] == 10) == 603
+            and sum(1 for m in more if rk[m] < 10) == 35 and min(bin(m).count("1") for m in connected) == 4
+            and all(min(cc[m], 2) == 2 and any(all(not (m >> j & 1) for j in range(10) if v in E[j])
+                                                for v in range(5)) for m in more if rk[m] < 10),
+    }
+
+
+def gpr_designs():
+    """The separate model's design additions of 6 Nov 15:46-15:54 (vNext13's Gram25 / Golden-tree / noise note and its
+    All-Dots Invariant x Dyadic Memory x Port-Adapter master, read as data), replayed exactly on the model's K5 and on
+    bind_dynamics_dyadic's generic block: the three characteristic polynomials of the tree cut Grams; the five-load
+    pentagon (the twelve five-cycles of K5), full rank after any one failed load, whose Cut4 frame is the pentagon
+    Laplacian over 5 (one_quadratic's x^2 - 5x + 5 at the roots (5 -+ sqrt5)/2) with condition number the golden ratio;
+    the dyadic band fingerprint 4 z^2 e(z) -> B B^T; the noise optimum 4^N = sqrt(beta/(z^2 eps)); and the port-adapter
+    no-go, compression does not commute with inversion (the Schur term of bind_dynamics_dyadic's Sigma)."""
+    import itertools
+    B = carrier.signed_incidence()
+    E = carrier.edges()
+    idx = {e: k for k, e in enumerate(E)}
+    x = sp.Symbol("x")
+
+    def gram(es):                                                               # E_S^T P4 E_S = B_S^T B_S / 5
+        S = [idx[e] for e in es]
+        BT = B.extract(list(range(5)), S)
+        return BT.T * BT / 5
+    star = gram([(0, 1), (0, 2), (0, 3), (0, 4)])
+    path = gram([(0, 1), (1, 2), (2, 3), (3, 4)])
+    fork = gram([(0, 1), (0, 2), (0, 3), (3, 4)])
+    cp = lambda M: sp.expand(M.charpoly(x).as_expr())
+    star_cp = sp.expand((x - 1) * (5 * x - 1) ** 3 / 125)
+    fork_cp = sp.expand((5 * x - 1) * (25 * x ** 3 - 35 * x ** 2 + 13 * x - 1) / 125)
+    path_cp = sp.expand((5 * x ** 2 - 5 * x + 1) * (25 * x ** 2 - 15 * x + 1) / 125)
+    # the twelve five-cycles of K5 and their frames
+    cycles = set()
+    for perm in itertools.permutations(range(1, 5)):
+        verts = (0,) + perm
+        es = frozenset(tuple(sorted((verts[i], verts[(i + 1) % 5]))) for i in range(5))
+        cycles.add(es)
+    failover = all(_gpr_components([idx[e] for e in es if e != drop], E) == 1 for es in cycles for drop in es)
+    frames = [gram(sorted(es)) for es in cycles]
+    frame_cp = sp.expand(x * (5 * x ** 2 - 5 * x + 1) ** 2 / 25)
+    frames_ok = all(cp(F) == frame_cp for F in frames)
+    lam_lo, lam_hi = (5 - sp.sqrt(5)) / 10, (5 + sp.sqrt(5)) / 10
+    quad = sp.Poly(x ** 2 - 5 * x + 5, x)
+    on_quadratic = quad.eval(5 * lam_lo).simplify() == 0 and quad.eval(5 * lam_hi).simplify() == 0
+    cond = sp.sqrt(sp.radsimp(lam_hi / lam_lo))
+    golden = sp.simplify(cond - (1 + sp.sqrt(5)) / 2) == 0
+    path_cond = sp.sqrt(sp.radsimp(max(path.eigenvals(), key=lambda v: float(v)) / min(path.eigenvals(), key=lambda v: float(v))))
+    # the dyadic band fingerprint on bind_dynamics_dyadic's generic block
+    z, beta, eps, c, y = sp.symbols("z beta epsilon c y", positive=True)
+    Bs = sp.Matrix(2, 2, sp.symbols("b11 b12 b21 b22", real=True))
+    Cs = sp.Matrix(2, 2, lambda i, j: sp.Symbol("c%d%d" % (min(i, j), max(i, j)), real=True))
+    Sig = lambda w: Bs * (w * sp.eye(2) + Cs).inv() * Bs.T
+    e_of = (Sig(z) - Sig(4 * z)) / (3 * z)
+    e_prod = Bs * (z * sp.eye(2) + Cs).inv() * (4 * z * sp.eye(2) + Cs).inv() * Bs.T
+    product_form = (e_of - e_prod).applyfunc(sp.cancel) == sp.zeros(2, 2)
+    fingerprint = (4 * z ** 2 * e_prod).applyfunc(lambda v: sp.limit(v, z, sp.oo)) == Bs * Bs.T
+    e_scalar = beta / ((z + c) * (4 * z + c))
+    band_ratio = sp.limit(e_scalar.subs(z, 4 * z) / e_scalar, z, sp.oo) == sp.Rational(1, 16)
+    masses = _bind_brackets()["D19"]
+    # the noise optimum
+    env = z * eps * (y - 1) + beta / (y * z)                                     # y = 4^N
+    y_opt = sp.solve(sp.Eq(sp.diff(env, y), 0), y)
+    optimum = y_opt == [sp.sqrt(beta / eps) / z]
+    # the port-adapter no-go: compression does not commute with inversion
+    a, b, cc = sp.symbols("a b c_hid", real=True)
+    K = sp.Matrix([[a, b], [b, cc]])
+    G = (z * sp.eye(2) + K).inv()
+    U = sp.Matrix([1, 0])
+    comp_inv = sp.cancel(1 / (U.T * G * U)[0])
+    inv_comp = (U.T * (z * sp.eye(2) + K) * U)[0]
+    schur = sp.cancel(comp_inv - inv_comp + b ** 2 / (z + cc)) == 0
+    Kn = sp.Matrix([[2, 1], [1, 3]])
+    Gn = (sp.eye(2) + Kn).inv()
+    example = ((U.T * Gn * U)[0] == sp.Rational(4, 11) and 1 / (U.T * Gn * U)[0] == sp.Rational(11, 4)
+               and (U.T * Gn.inv() * U)[0] == 3 and sp.Rational(11, 4) - 3 == -sp.Rational(1, 4))
+    return {
+        "the three tree types' cut Grams E_T^T P4 E_T = B_T^T B_T/5 have the characteristic polynomials the vNext13 "
+        "note states: star (x - 1)(5x - 1)^3/125, fork (5x - 1)(25x^3 - 35x^2 + 13x - 1)/125 and path (5x^2 - 5x + 1)"
+        "(25x^2 - 15x + 1)/125 (on the star at vertex 0, the fork 01, 02, 03, 34 and the path 01, 12, 23, 34 of "
+        "carrier.edges(); gpr_loaded_observability's Grams)":
+            cp(star) == star_cp and cp(fork) == fork_cp and cp(path) == path_cp,
+        "the five-load pentagon: K5 has exactly twelve five-cycles, and deleting any one edge of any of them leaves a "
+        "connected four-edge set, a spanning tree, so the remaining four loads with the free reader still read rank 10 "
+        "(gpr_loaded_observability's rank law 11 - c(S)): one failed load is survived":
+            len(cycles) == 12 and all(len(es) == 5 for es in cycles) and failover,
+        "the pentagon frame is the pentagon Laplacian over 5: every five-cycle's Cut4 frame Gram B_C^T B_C/5 has "
+        "characteristic polynomial x (5x^2 - 5x + 1)^2/25, so its nonzero eigenvalues are (5 -+ sqrt5)/10, each twice, "
+        "and five times them are the roots (5 -+ sqrt5)/2 of one_quadratic's x^2 - 5x + 5 (the pentagon Laplacian's "
+        "eigenvalues, k5_roots); the path Gram carries the same factor 5x^2 - 5x + 1":
+            frames_ok and on_quadratic and sp.Poly(path_cp, x).rem(sp.Poly(5 * x ** 2 - 5 * x + 1, x)) == 0,
+        "the pentagon frame's geometric condition number sqrt(((5 + sqrt5)/10)/((5 - sqrt5)/10)) is the golden ratio "
+        "(1 + sqrt5)/2 = 1.6180 exactly, below the star's sqrt5 = 2.2361 and the path's sqrt(5 + 2 sqrt5) = 3.0777 (the "
+        "five-setting frame is the best conditioned of the three; the note's own ordering): the golden ratio enters "
+        "the design as a frame condition number, not as a measured constant":
+            golden and sp.simplify(path_cond ** 2 - (5 + 2 * sp.sqrt(5))) == 0
+            and float(cond) < float(sp.sqrt(5)) < float(path_cond),
+        "the dyadic band fingerprint (the Invariant master, section 7): on bind_dynamics_dyadic's generic block e(z) = "
+        "[Sigma(z) - Sigma(4z)]/(3z) = B (z + C)^-1 (4z + C)^-1 B^T, so 4 z^2 e(z) -> B B^T as z -> oo (symbolic limit "
+        "entrywise), and on a scalar band beta/((z + c)(4z + c)) the dyadic ratio e(4z)/e(z) -> 1/16; the 19-source "
+        "band masses 967, 389, 83 (refclock_gain's D19) give the limiting band ratios 967/389 and 389/83":
+            product_form and fingerprint and band_ratio
+            and Fraction(masses["linear"], masses["quadratic"]) == Fraction(967, 389)
+            and Fraction(masses["quadratic"], masses["dark"]) == Fraction(389, 83),
+        "the noise optimum: the reconstruction envelope z eps (4^N - 1) + beta/(4^N z) (bind_dynamics_dyadic's tail "
+        "bound with a uniform sample error eps) is stationary in y = 4^N exactly at y = sqrt(beta/eps)/z, i.e. 4^N = "
+        "sqrt(beta/(z^2 eps)): infinite doubling at fixed noise is not the optimum, and the sealed depth N is a "
+        "declared choice (docs/GATES.md act 8)":
+            optimum,
+        "the port-adapter no-go (the Invariant master, section 9): for G(z) = (z + K)^-1 with K = [[a, b], [b, c]] and U "
+        "the first coordinate, (U^T G U)^-1 = z + a - b^2/(z + c) while U^T G^-1 U = z + a, so compression commutes "
+        "with inversion only when b = 0 (the Schur term is bind_dynamics_dyadic's Sigma); on K = [[2, 1], [1, 3]] at "
+        "z = 1: U^T G U = 4/11, its inverse 11/4, U^T G^-1 U = 3, difference -1/4":
+            schur and example,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -42234,6 +43127,14 @@ LEDGER_ROWS = [
     ("the binding solution (6 Nov): the one relation and the gauge-invariant shift", "I2 = (389/2117) I1/I3^4 identically; the load shift (delta/rho^2) e e^T fixes rho only, and d^2/Xi_q = delta^2/389 is rho-free (64/389 at the note's gap 8)", "replayed (bind_time_map, bind_time_units): symbolic identities; 2117/389, 10791/389 and 21061/389 exact; the static gap 8 is the three-route note's, read as data, a check and not a definition, and not the model's dressed gap (deep_zero_pole's floor at alpha = 1 is (5 - sqrt5)/2); tau, kappa apart stay unidentified", T, "23"),
     ("the separate model's three-route doc (6 Nov 08:44) and its exact receipt (OES_CLOCK_RHO_DYADIC_THREE_ROUTE_20261106)", "three native event types (the mass half-return, a dressed source half-return, the crossover) constrain one rho_t; ratio brackets T_s/T_m, s* T_m, s* T_s; 19-source bands at z* with a trace bracket; the scale-free dyadic form at x = s/s*; the one-anchor recovery; 65 receipt checks all_pass; the gates stay", "arithmetic replayed from the stated endpoints (bind_time_map: the three brackets are outward roundings, the trace is the weighted band sum, the receipt's I2 fractions equal the model's); the scale-free form and the anchor replayed symbolically and on a rational instance (bind_dynamics_dyadic); the dressed half-return and the band values are its certificates, read as data; its verify_rho_dyadic.py read as text, not run; its type firewall (rho_t the time conversion, rho_src the source intensity) adopted in the wording", SR, "23"),
     ("the 19-source hidden covariance as the dyadic tail", "D19 = 967 P8 + 389 P7 + 83 P4, norm 967, trace 10791; the doc's odd ten-port 127 P6 + 392 P4 is a different reader", "refclock_gain's eigenvalues cited and the arithmetic replayed (bind_time_map); the doc's warning not to substitute one tail for the other recorded; 392 is the doc's number, not the model's", T, "23"),
+    ("the gate-crossing protocol (6 Nov): the gates as a poset", "the physical gates and the Drive ledger's interfaces form a poset in the separate model's controlling court order C0..C6 with one input type and one supplier per node; the 18 keys of gates.GATES are each a node, a scoped leaf or a label; W_L is the particle child's and T3081 the acoustic lane's; ScientificGold is not a conjunction with either; TIME_BIND does not depend on the kg/N/m chain", "finite checks on the literal data (gpr_poset): acyclic, 35 nodes, 48 edges (40 from the brief, 8 stated selections), three conditional; the court order is refined except for the two edges AUTH, P_WIT_BIND_TX <- A_MASTER (the signatures are over the manifest), checked and named rather than asserted; the keys, the standing values, MODEL.md sections 13 and 14, docs/BINDING.md and binding.py's B0 text read and matched; the court order and the interfaces are the separate model's, read as data (a selection of this unit)", SR, "23"),
+    ("the gate-crossing protocol (6 Nov): the minimal external acts", "11 acts (9 unconditional, 2 conditional) cross 34 of the 35 nodes, W_L only by a theory act; each act is the sole crosser of a node; the order respects every dependency (on the acoustic lane the T3081 receipt precedes the warrant act); 7 signatures + 19 warrants, 8 decisions, one measured scalar before and at the first model check; nothing is crossable by mathematics except two halves", "finite checks on the literal data (gpr_poset); the counts corrected from the brief's '10 unconditional + 2 conditional' to 9 + 2 = 11 (A7 is among A1..A10); CONDITIONAL on inputs none of which exists in the model or the Drive", gates.CONDITIONAL, "23"),
+    ("the gate-crossing protocol (6 Nov): the transaction's bindings", "sha256(prediction_register.json) = 7b59e592... = the canonical bytes of gatework.register() = the transaction's G_role.prediction_register; the native file = literal.SHA256 = 73e07429... = P_cl.native_operands; verify.py and walks.json hashes as recorded; the transaction replays from gatework.transaction; its own bytes hash to 73b32ebe...; the register has 5 kinds, 30 leaves, no datum, no per-group entry; the verifier hash covers verify.py only", "replayed with hashlib (gpr_hashes): every hash equal, the transaction dict equal to the file, the register's leaves counted and searched, G_role's keys read; the gates stay AUTH NOT_PASS and PredictionFreeze NOT_TRIGGERED", T, "23"),
+    ("the gate-crossing protocol (6 Nov): the model's own falsifiers", "I1's THEOREM bracket, the exact ratio 2117/389, tr D19 = 10791, tr D45 = 21061, I2 and I3 on the crossover certificate (SELECTED_REFERENCE), the load relation at the dressed gap (15 - 5 sqrt5)/778 against the note's 64/389, W_L's chi2 = 10.63 (p = 0.0049) and chi2_3 = 26.29 from the three NuFIT pulls alone (the Bari pair plus -4.8 would give 33.7), countermodel A", "recomputed from _bind_brackets' data and gatework.pmns_court, gatework.countermodel_A (0.02 s), the grades read from LEDGER_ROWS (gpr_falsifiers); the certificates are cited, not recomputed; the synthesis's non-model numbers are checked absent", T, "23"),
+    ("the gate-crossing protocol (6 Nov): loaded observability (the separate model's vNext12 theorem on the model's K5)", "P4 = B^T B/5 and P6 = I - P4 are the cut and cycle projectors; Woodbury G_j^-1 - G0^-1 = kappa e_j e_j^T; rank [P6; e_j^T P4, j in S] = 11 - c(S) for all 1024 S; 125 of 210 four-edge sets are spanning trees (5 stars, 60 paths, 60 forks), each with Gram determinant 1/125; the star's Gram (I4 + J4)/5 has condition number sqrt5, the fork's 2.83511, the path's sqrt(5 + 2 sqrt5) = 3.07768; more than four loads are full rank iff connected", "replayed exactly (gpr_loaded_observability): symbolic Woodbury on every edge as a polynomial identity, exact ranks over all 1024 subsets with Fractions and union-find, the trees enumerated, the determinants and eigenvalues exact (CRootOf for the fork), the path's Gram the A4 Cartan matrix, every tree's condition number computed and the five stars the five best", T, "23"),
+    ("the Drive gate corpus (6 Nov), read as data, nothing run", "PHYSICAL_OPEN_GATE_LEDGER.csv; OES_PHYSICAL_GATE_CONTRACT_20261106.json; OES_FAINT_BIND_MINCUT_20261106.csv; OES_AllDots_vNext9_Physical_Handoff_20261106.csv; SEVEN_COURT_FAIL_CLOSED_PREFLIGHT_RECEIPT_20261106.json; PROSPECTIVE_SIGNATURE_MANIFEST_UNFORMED_20261106.json; OES_Prospective_Physical_Intake_UNSIGNED_20261106.json; OES_vNext10_ACTUAL_PHYSICAL_INTAKE_REQUIRED.json; OES_vNext10_TYPE_AND_CLOSURE_LEDGER.csv; A_MASTER_MODEL_SELECTION_UNFORMED_20261106.json; A_MASTER_UNFORMED_REQUIRED_OPERANDS_20261106.json; PROSPECTIVE_A_MASTER_ACTION_SKELETON_UNSIGNED.md; PROSPECTIVE_FREEZE_DRAFT_NOT_FROZEN.json; UNFROZEN_Prospective_PredictionFreeze_v1.json; UNSIGNED_MEASUREMENT_FREEZE_NULL_CONTRACT_20261106.json; OES_vNext4_DeepWide_20261106_Unsigned_19Group_Physical_Intake.json; OES_vNext4_DeepWide_20261106_Unclosed_Physical_Proof_Cut.csv; PHYSICAL_ACTUAL_DATA_NULL_STATUS.json; OES_GATE_PREFLIGHT_NULL_RECEIPT_20261106.json; OES_Prospective_NO_PHYSICAL_PROMOTION_Receipt_20261106.json; the Google Docs 'OES \u2014 All-Dots Physical Execution and Seven-Court Gate Dossier \u2014 2026-11-06', 'OES \u2014 E111\u2013E130 Prospective Gate and S0\u2013S8 Typed-Spine Audit \u2014 2026-11-06', 'OES \u2014 Verified Core Installation & Open Physical Gates \u2014 2026-11-04' and 'OES \u2014 vNext12 Twelfth-Pass Integrated Master' (the controlling court order C0..C6 and the loaded-observability theorem); TIME_BIND_COMPLETE_CONTRACT.md and TIME_BIND_IDENTIFIABILITY.md; OES_ACTION_SCALES_TRANSDUCERS_MEASUREMENTS_BUILD_SPEC_20261106.md with holdout_UNMEASURED_TEMPLATE.csv, HOLDOUT_REAL_DATA_HEADER_ONLY.csv, rate_plans_PROSPECTIVE_ONLY.csv and OES_R12B_SYNTHETIC_SENSOR_EVENTS_NOT_MEASURED_20261105.csv", "recorded (REPORTED): every file keeps every gate shut (AUTH NOT_PASS, SCR6 absent, TIME_BIND UNBOUND, DYN_BIND NOT_INSTALLED, PredictionFreeze NOT_TRIGGERED, ScientificGold FALSE, 0/19) and agrees with gates.GATES; their interfaces, suppliers and court order are the data of gpr_poset; their mincuts count the cut differently in every file (9 rows, 6 classes, 25 obligations, 18 interfaces, 35 null fields, 26 intake fields, 63 court items), so the poset is one reading, marked as a selection; the vNext12 theorem is the one thing in them replayed (gpr_loaded_observability)", RP, "23"),
+    ("the datum verdict (the Drive search of 6 Nov)", "no SI-traceable datum bound to the model exists anywhere on the Drive: 42 searches, every candidate a synthetic fixture (sensor events labelled SYNTHETIC with arbitrary units; a nominal 0.25 kg and 1 N/m marked not metrology; a mock rho = 4/3), an empty template (holdout tables with no rows, contracts with every measured value null, a signature manifest with every hash null, freeze drafts that say they are not frozen) or a literature benchmark disclaimed as a prediction; the 19 original evidence groups are 0/19 in every source and no source names a single group", "recorded, not checkable (REPORTED): the search is the separate model's corpus read as data; what the model itself holds is checked instead: its register carries no datum and no per-group entry (gpr_hashes) and its gates are shut as listed (gpr_poset); nothing in this unit binds time, installs dynamics or moves a gate", RP, "23"),
+    ("the gate-crossing protocol (6 Nov): the designs (vNext13 and the Invariant master, 15:46-15:54)", "tree Gram characteristic polynomials; the twelve five-cycles as a one-failure design with the golden ratio as frame condition number; 4 z^2 e(z) -> B B^T; the noise optimum; compression does not commute with inversion", "replayed (gpr_designs): exact on carrier.signed_incidence() and symbolic on the generic block; the pentagon frame is the pentagon Laplacian over 5 (one_quadratic); the notes' statements beyond these (the Gram25 source map L L* = (5/9) P_cycle + (2/15) P_cut, the sqrt95 eta bound, the minimal-realization theorem) are read as data, logged for a later batch", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -42499,7 +43400,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "bind_time_map": bind_time_map, "bind_time_units": bind_time_units, "bind_dynamics_dyadic": bind_dynamics_dyadic, "bind_selections": bind_selections, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "gpr_poset": gpr_poset, "gpr_hashes": gpr_hashes, "gpr_falsifiers": gpr_falsifiers, "gpr_loaded_observability": gpr_loaded_observability, "gpr_designs": gpr_designs, "bind_time_map": bind_time_map, "bind_time_units": bind_time_units, "bind_dynamics_dyadic": bind_dynamics_dyadic, "bind_selections": bind_selections, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,

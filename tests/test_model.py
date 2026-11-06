@@ -793,6 +793,12 @@ def test_the_binding_solution():
         assert all(out.values()), out
 
 
+def test_the_gate_protocol():
+    for check in (dots.gpr_poset, dots.gpr_hashes, dots.gpr_falsifiers, dots.gpr_loaded_observability, dots.gpr_designs):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out
