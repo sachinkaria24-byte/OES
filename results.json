@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.41,
+  "1-carrier": 0.43,
   "2-spectral": 0.0,
-  "3-spacetime": 4.26,
-  "4-native": 33.03,
-  "5-observer": 0.13,
-  "6-gravity": 2.89,
-  "7-cosmology": 0.81,
-  "8-frontier": 25.22,
-  "9-joins": 4.69,
-  "10-literal": 13.51,
-  "11-glue": 0.08,
+  "3-spacetime": 5.25,
+  "4-native": 46.06,
+  "5-observer": 0.18,
+  "6-gravity": 3.17,
+  "7-cosmology": 0.9,
+  "8-frontier": 27.12,
+  "9-joins": 5.19,
+  "10-literal": 17.88,
+  "11-glue": 0.1,
   "12-binding": 0.02,
-  "13-gates": 0.13,
-  "14-recurrence": 30.99,
-  "15-court": 1.16,
-  "16-handover": 0.72,
-  "17-waves": 0.31,
-  "18-snapshot": 0.45,
-  "19-spine": 1.94,
+  "13-gates": 0.14,
+  "14-recurrence": 33.84,
+  "15-court": 1.23,
+  "16-handover": 0.85,
+  "17-waves": 0.32,
+  "18-snapshot": 0.48,
+  "19-spine": 1.95,
   "20-canon": 4.39,
-  "21-ledger": 20.61,
-  "22-counts": 12.38,
-  "23-dots": 684.1,
-  "24-assignment": 1.86,
-  "25-unify": 2.65,
-  "26-primes": 2.4,
-  "27-places": 1.0,
-  "28-principal": 1.91
+  "21-ledger": 21.33,
+  "22-counts": 14.6,
+  "23-dots": 730.71,
+  "24-assignment": 2.01,
+  "25-unify": 2.92,
+  "26-primes": 2.72,
+  "27-places": 1.22,
+  "28-principal": 2.11
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 1243,
-   "total": 1243
+   "passed": 1248,
+   "total": 1248
   },
   "OBSTRUCTION": {
    "passed": 108,
@@ -105,16 +105,16 @@
    "total": 45
   },
   "SELECTED_REFERENCE": {
-   "passed": 37,
-   "total": 37
+   "passed": 38,
+   "total": 38
   },
   "UNFORMED": {
    "passed": 24,
    "total": 24
   },
   "CONDITIONAL": {
-   "passed": 57,
-   "total": 57
+   "passed": 58,
+   "total": 58
   },
   "REPORTED": {
    "passed": 154,
@@ -16394,6 +16394,126 @@
   },
   {
    "layer": "23-dots",
+   "name": "calibration -> source: the physical gates as a poset: 35 nodes (the model's gate keys together with the Drive ledger's interfaces) in the separate model's controlling court order C0 provenance < C1 source/action < C2 time < C3 dynamics pilot < C4 observer < C5 freeze < C6 evidence (vNext12, 6 Nov, read as data), each with one input TYPE and one supplier, 48 depends_on edges (40 from the brief, 8 stated selections of this unit: BIND_Q31's readout half after the independent readout and the owner's map, P, W_E, E, I after the external warrant, GoldDepth and G_OES after ScientificGold), three conditional; acyclic (an in-degree-zero queue), and refining the court order except for exactly two edges, AUTH <- A_MASTER and P_WIT_BIND_TX <- A_MASTER (the signatures are over the manifest bytes); the 18 keys of gates.GATES each mapped to a node, a scoped leaf (W_L for the particle child, T3081 for the acoustic lane; MODEL.md section 14's three children) or listed as a label (x_executed, R6/A40/A52, numbered_baseline), every value shut as the standing list says; ScientificGold's unconditional dependencies are the external warrant and the freeze only (MODEL.md section 13's definition), not W_L or T3081; TIME_BIND's ancestors are the timebase and the signed port (docs/BINDING.md: the SI second enters nowhere else); the adapter half of PORT_ORDER is binding.py's B0 obstruction, cited and not rerun; the gates stay (6 Nov)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the gate graph is a DAG: 35 nodes (33 in the courts C0..C6 and the two scoped leaves W_L, T3081), 48 depends_on edges of which 40 are the brief's and 8 are this unit's stated selections (BIND_Q31's readout half after the independent readout and the owner's map; P, W_E, E, I after the external warrant; GoldDepth and G_OES after ScientificGold), three of them conditional; an in-degree-zero queue orders every node and every edge points backward in that order (the courts are the separate model's vNext12 controlling order, read as data)": true,
+    "the court order C0 < C1 < ... < C6 is refined by a topological order except for exactly two edges, AUTH <- A_MASTER and P_WIT_BIND_TX <- A_MASTER (the witness and the AUTH signature are over the manifest bytes, so the provenance court closes only after the source court has opened); with those two edges set aside a topological order that lists C0 before C1 before ... before C6 exists and respects every other edge, and with them the act sequence A1..A10 visits the courts as C1, C0, C1, C0, C2, C3, C4, C5, C6, C6 (the two downward edges are found among all 48 edges, and the refinement is checked on the other 46, the three conditional ones included)": true,
+    "every node is crossed by at most one act, 34 of the 35 by exactly one, and the only uncrossed node is the scoped leaf W_L, which no external act reopens (gatework.pmns_court's NOT_PASS by evidence; only a new lepton-sector candidate, a theory act); the other leaf T3081 is crossed by the conditional act A11": true,
+    "the act order respects the edges: for every act, every unconditional dependency of every node it crosses is crossed by an earlier act, and every conditional dependency is crossed earlier, is a conditional act's, or is the theory leaf; per child the act-level graph is acyclic, the listed order A1..A10 is a topological order for the particle-physics and engineered-network children, and on the acoustic lane every topological order puts the host receipt A11 before the warrant act A10 (ScientificGold <- T3081 there)": true,
+    "no act is redundant: each of the 11 acts is the sole crosser of at least one node, so removing any one leaves a node uncrossed; 9 acts are unconditional and 2 are conditional (A7 on a claim of source-family identities, A11 on the acoustic lane): 11 acts in all, not the brief's '10 + 2', since A7 is among A1..A10": true,
+    "the 18 keys of gates.GATES are each mapped to a node (AUTH, SCR6, BIND_Q31, DYN_BIND, TIME_BIND, PredictionFreeze, P, W_E, E, I, ScientificGold, GoldDepth, G_OES), to a scoped leaf (W_L, T3081) or listed as not a gate (x_executed, R6/A40/A52, numbered_baseline: states and labels), the three lists disjoint, and every value is shut exactly as the standing list says (AUTH NOT_PASS, ScientificGold FALSE, GoldDepth 0, G_OES FALSE, SCR6 NOT_RUN_OPERAND_ABSENT, TIME_BIND UNBOUND, DYN_BIND NOT_INSTALLED, BIND_Q31 UNBOUND, PredictionFreeze NOT_TRIGGERED, P/W_E/W_L/E/I NOT_PASS, T3081 UNOPENED, x_executed 000000, R6/A40/A52 FROZEN, numbered_baseline OMSOON736); the unit reads them and writes nothing": true,
+    "the per-child scope table (particle physics: W_L; acoustic lane: T3081; engineered network: neither) names exactly the three children of MODEL.md section 14's table (particle physics, engineered network, acoustic lane with dEchorate and T3081), the particle row carrying the PMNS branch that W_L judges and the acoustic row carrying T3081; ScientificGold's unconditional dependencies are the external warrant and the freeze only, as MODEL.md section 13 defines it ('a frozen prediction, independent data and a preregistered test on a declared physical system'), so Gold is not a conjunction with W_L or T3081": true,
+    "the counts: 7 signatures (the owner's two, over the transaction and over the manifest; the witness's and the verifier's receipt; the owner's freeze signature and the custodian's seal; the adjudicator's warrant) plus 19 per-group warrants; 8 decisions (child, port policy, branch, H_sel, multiplicity, chirality, theta, chart; the adapter is not among them, B0 having decided it); and exactly one measured scalar, the clock datum TIME_BIND_DATUM, entering at A5, the first act that carries a model check (bind_time_map's rho-free invariants on the preparation), every node crossed before it being a signature, a decision, bytes, a gate or the group names (data): no measured record precedes the datum": true,
+    "crossable_by_mathematics is False for every node except two halves: the certificate half of SPECTRAL_KO6_GS (a derivation, owed only on the strict 6D branch) and the adapter half of PORT_ORDER, which binding.py's B0 has already decided (its source records 'no S5- or D5-equivariant port adapter exists; C5 is maximal' with gates.OBSTRUCTION; binding.adapter_symmetry_obstruction is cited, not rerun); PORT_ORDER's ten edges are carrier.edges() in lexicographic order, and SCR6's six shapes are gates.UNFORMED_OPERANDS' first entry": true,
+    "TIME_BIND does not depend on the kg/N/m chain: the ancestors of TIME_BIND_DATUM are TIMEBASE, PORT_ORDER, A_MASTER and PHYSICAL_CHILD, none in the dynamics court C3 (docs/BINDING.md: 'the SI second enters nowhere else'), while DYN_BIND_PILOT depends on the datum, the SI chain, the three runs, the dyadic rates, the choice half and AUTH: time first, then dynamics (bind_time_units, bind_dynamics_dyadic)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> calibration: eleven external acts, 9 unconditional (declare the child; sign the prepared transaction as-is, sha256 73b32ebe...; the owner manifest; witness + verifier, the act that would cross AUTH; a clock certificate + one SI interval; the pilot; the freeze; the 19 groups' data and warrants; the blind holdout and the warrant, where the quartet P, W_E, E, I, ScientificGold, GoldDepth and G_OES are assigned by selection) and 2 conditional (the Q readout if source-family identities are claimed; the T3081 host receipt on the acoustic lane): each node is crossed by at most one act, 34 of 35 by exactly one, W_L by none (only a theory act reopens it), no act is redundant, every unconditional dependency is crossed by an earlier act or the same act, the per-child act graph is acyclic (on the acoustic lane the receipt precedes the warrant act); 7 signatures plus 19 per-group warrants, 8 decisions (child, port policy, branch, H_sel, multiplicity, chirality, theta, chart), exactly one measured scalar (the clock datum, at the first act that carries a model check, bind_time_map's invariants; every node crossed before it a signature, a decision, bytes, a gate or the group names); crossable_by_mathematics is False everywhere but the certificate half of the spectral branch and the adapter half B0 has decided; CONDITIONAL on those inputs, none of which is in the model or the Drive (6 Nov)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "the gate graph is a DAG: 35 nodes (33 in the courts C0..C6 and the two scoped leaves W_L, T3081), 48 depends_on edges of which 40 are the brief's and 8 are this unit's stated selections (BIND_Q31's readout half after the independent readout and the owner's map; P, W_E, E, I after the external warrant; GoldDepth and G_OES after ScientificGold), three of them conditional; an in-degree-zero queue orders every node and every edge points backward in that order (the courts are the separate model's vNext12 controlling order, read as data)": true,
+    "the court order C0 < C1 < ... < C6 is refined by a topological order except for exactly two edges, AUTH <- A_MASTER and P_WIT_BIND_TX <- A_MASTER (the witness and the AUTH signature are over the manifest bytes, so the provenance court closes only after the source court has opened); with those two edges set aside a topological order that lists C0 before C1 before ... before C6 exists and respects every other edge, and with them the act sequence A1..A10 visits the courts as C1, C0, C1, C0, C2, C3, C4, C5, C6, C6 (the two downward edges are found among all 48 edges, and the refinement is checked on the other 46, the three conditional ones included)": true,
+    "every node is crossed by at most one act, 34 of the 35 by exactly one, and the only uncrossed node is the scoped leaf W_L, which no external act reopens (gatework.pmns_court's NOT_PASS by evidence; only a new lepton-sector candidate, a theory act); the other leaf T3081 is crossed by the conditional act A11": true,
+    "the act order respects the edges: for every act, every unconditional dependency of every node it crosses is crossed by an earlier act, and every conditional dependency is crossed earlier, is a conditional act's, or is the theory leaf; per child the act-level graph is acyclic, the listed order A1..A10 is a topological order for the particle-physics and engineered-network children, and on the acoustic lane every topological order puts the host receipt A11 before the warrant act A10 (ScientificGold <- T3081 there)": true,
+    "no act is redundant: each of the 11 acts is the sole crosser of at least one node, so removing any one leaves a node uncrossed; 9 acts are unconditional and 2 are conditional (A7 on a claim of source-family identities, A11 on the acoustic lane): 11 acts in all, not the brief's '10 + 2', since A7 is among A1..A10": true,
+    "the 18 keys of gates.GATES are each mapped to a node (AUTH, SCR6, BIND_Q31, DYN_BIND, TIME_BIND, PredictionFreeze, P, W_E, E, I, ScientificGold, GoldDepth, G_OES), to a scoped leaf (W_L, T3081) or listed as not a gate (x_executed, R6/A40/A52, numbered_baseline: states and labels), the three lists disjoint, and every value is shut exactly as the standing list says (AUTH NOT_PASS, ScientificGold FALSE, GoldDepth 0, G_OES FALSE, SCR6 NOT_RUN_OPERAND_ABSENT, TIME_BIND UNBOUND, DYN_BIND NOT_INSTALLED, BIND_Q31 UNBOUND, PredictionFreeze NOT_TRIGGERED, P/W_E/W_L/E/I NOT_PASS, T3081 UNOPENED, x_executed 000000, R6/A40/A52 FROZEN, numbered_baseline OMSOON736); the unit reads them and writes nothing": true,
+    "the per-child scope table (particle physics: W_L; acoustic lane: T3081; engineered network: neither) names exactly the three children of MODEL.md section 14's table (particle physics, engineered network, acoustic lane with dEchorate and T3081), the particle row carrying the PMNS branch that W_L judges and the acoustic row carrying T3081; ScientificGold's unconditional dependencies are the external warrant and the freeze only, as MODEL.md section 13 defines it ('a frozen prediction, independent data and a preregistered test on a declared physical system'), so Gold is not a conjunction with W_L or T3081": true,
+    "the counts: 7 signatures (the owner's two, over the transaction and over the manifest; the witness's and the verifier's receipt; the owner's freeze signature and the custodian's seal; the adjudicator's warrant) plus 19 per-group warrants; 8 decisions (child, port policy, branch, H_sel, multiplicity, chirality, theta, chart; the adapter is not among them, B0 having decided it); and exactly one measured scalar, the clock datum TIME_BIND_DATUM, entering at A5, the first act that carries a model check (bind_time_map's rho-free invariants on the preparation), every node crossed before it being a signature, a decision, bytes, a gate or the group names (data): no measured record precedes the datum": true,
+    "crossable_by_mathematics is False for every node except two halves: the certificate half of SPECTRAL_KO6_GS (a derivation, owed only on the strict 6D branch) and the adapter half of PORT_ORDER, which binding.py's B0 has already decided (its source records 'no S5- or D5-equivariant port adapter exists; C5 is maximal' with gates.OBSTRUCTION; binding.adapter_symmetry_obstruction is cited, not rerun); PORT_ORDER's ten edges are carrier.edges() in lexicographic order, and SCR6's six shapes are gates.UNFORMED_OPERANDS' first entry": true,
+    "TIME_BIND does not depend on the kg/N/m chain: the ancestors of TIME_BIND_DATUM are TIMEBASE, PORT_ORDER, A_MASTER and PHYSICAL_CHILD, none in the dynamics court C3 (docs/BINDING.md: 'the SI second enters nowhere else'), while DYN_BIND_PILOT depends on the datum, the SI chain, the three runs, the dyadic rates, the choice half and AUTH: time first, then dynamics (bind_time_units, bind_dynamics_dyadic)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "calibration -> readout: data/owner_transaction.json replayed exactly: sha256(data/prediction_register.json) = 7b59e592... = sha256(gatework.canonical_bytes(gatework.register())) = its G_role.prediction_register, sha256(data/native_matrices_input.json) = literal.SHA256 = literal.sha256() = 73e07429... = its P_cl.native_operands, sha256(verify.py) and sha256(data/walks.json) = its G_role.verifier and G_role.walks, gatework.transaction(register sha) = the file, and the file's own bytes hash to 73b32ebe..., the literal bytes act A2 signs; not_supplied_here is literally the owner's three supplies (the AUTH signature, H_sel, the six SCR6 operands); the register has 5 kinds and 30 leaves, none a datum and none per evidence group (0/19 is the model's own count); the verifier hash covers verify.py only, the oes/ package is not hashed (G_role has no key for it: a limitation checked as a fact); AUTH NOT_PASS and PredictionFreeze NOT_TRIGGERED while every hash replays: a checksum is not a signature or a freeze (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "sha256(data/prediction_register.json) = 7b59e592347f1db16e3f88909d6ef625a3f4651dbaaa60ed4cbccac549ec4ca0 = sha256(gatework.canonical_bytes(gatework.register())) = the transaction's G_role.prediction_register (the JSON's own key names), so the register the freeze would seal is the model's, regenerated from its code": true,
+    "sha256(data/native_matrices_input.json) = literal.SHA256 = literal.sha256() = 73e07429d7733ae43055723cd59756eb1d1989300f161a1d6ab14cb02413ffea = the transaction's P_cl.native_operands: the literal action bytes the owner manifest (A3) names are the canon's saved native operand file": true,
+    "sha256(verify.py) and sha256(data/walks.json) equal the transaction's G_role.verifier and G_role.walks, gatework.transaction(register sha) replays the whole file data/owner_transaction.json as a dict, and the file's own bytes hash to 73b32ebe6d317c2f0aead02877621ec802a7e7a8f4d1464b4ba2e3daef037fba, the literal bytes act A2 signs as-is (_gpr_protocol); its status is PREPARED_FOR_OWNER_SIGNATURE and gates.GATES keeps AUTH NOT_PASS: a hash is not a signature": true,
+    "the transaction's not_supplied_here is literally ['owner signature (AUTH)', 'physical child H_sel', 'six SCR6 physical operands H_D2, C55, F_phys, Omega24, Z7, host_to_OES']: exactly the owner's three supplies, the AUTH signature, the physical child H_sel and the six SCR6 operands, which acts A2, A3 and A3 carry in the protocol, the six operand names being those of gates.UNFORMED_OPERANDS' first entry": true,
+    "the register has 5 kinds (its top-level keys, read, not hard-coded) and 30 leaves (non-dict values, a list counting once: integers, floats, strings and lists only), none a datum and none per evidence group: no key path or value mentions a group, a datum, a measurement, an uncertainty, a sigma or an SI unit (kg, Hz, second, newton, metre, joule, kelvin, ampere), so 0/19 is the model's own count too, and the per-group predictions the freeze needs are a theory act the register does not contain (gatework.register)": true,
+    "the limitation, checked as a fact: the transaction's G_role block has exactly the keys verifier, walks and prediction_register and no key for the oes/ package, and gatework.transaction hashes exactly three files (data/native_matrices_input.json, data/walks.json, verify.py): the verifier hash covers verify.py only, the package it imports is not hashed, so a signed transaction binds the verifier script and not the code the script runs": true,
+    "the freeze is not triggered by any hash: gates.GATES keeps PredictionFreeze NOT_TRIGGERED and ScientificGold FALSE while every hash above replays, so the register's bytes are frozen only by act A8 (the owner's signature and the custodian's seal over them), a checksum or a draft being no freeze": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "calibration -> spectral measures: the numbers an act must pass, recomputed from _bind_brackets' data without recomputing certificates: I1 = 2117 u_half^4 in (2117 lo^4, 2117 hi^4) from refclock_halfreturn's P8 endpoints (THEOREM grade; 0.07614507 < I1 < 0.07614566), the exact ratio Xi_mass/Xi_q = 2117/389 with tr D19 = 10791 and tr D45 = 21061 (master_readout, refclock_gain, deep_observer_algebra), I2 and I3 on the crossover certificate read as data (SELECTED_REFERENCE grade: 0.20705257 < I2 < 0.20705268, 0.50985587 < I3 < 0.50985691), the rho-free load relation d^2/Xi_q = delta^2/389 at the model's dressed gap lam- = (5 - sqrt5)/2 (bind_time_units, deep_zero_pole): (15 - 5 sqrt5)/778, about 0.00491, not the three-route note's 64/389; W_L replayed from gatework.pmns_court: pulls 2.594, -1.975, chi2 = 10.63, p = 0.0049 (2 dof), chi2_3 = 26.29 from NuFIT's three reported pulls (1.0, -1.5, -4.8) alone, the Bari pair plus -4.8 would give 33.7 (the code is the authority; MODEL.md section 13's row says so); countermodel A (gatework.countermodel_A, 0.02 s): identical native records at tau = 1 and 2, frequencies in ratio 2; none of the synthesis's non-model numbers (392, gap 8 and 64/389, 1/4, 7/4, 19/4, 98/53, 242/237, 3.5293) is among them (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "I1 = Xi_mass T_half^4 = 2117 u_half^4 lies in (2117 lo^4, 2117 hi^4) with lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760, refclock_halfreturn's exact P8 endpoints read from _bind_brackets (THEOREM grade: LEDGER_ROWS' certified half-return row), so 0.07614507 < I1 < 0.07614566, and 2117 = m2 - m1^2 = 35973 - 184^2 is D45's mass entry (master_readout)": true,
+    "the exact ratio needs no bracket: Xi_mass/Xi_q = 2117/389 (D45's mass over quadratic entry, master_readout; 389 = 54213 - 232^2, notes_1512), tr D19 = 8 x 967 + 7 x 389 + 4 x 83 = 10791 (refclock_gain's hid19 eigenvalues) and tr D45 = 2117 + 8 x 967 + 26 x 389 + 6 x 127 + 4 x 83 = 21061 (deep_observer_algebra), so tr Xi_19/Xi_q = 10791/389 and tr Xi/Xi_q = 21061/389 exactly": true,
+    "I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*) rest on the crossover certificate z* in (12200402860332943, 12200405718556069)/2^48 with 6.583656896344280 < sqrt(z*) < 6.583657667530262, read as data (SELECTED_REFERENCE grade: LEDGER_ROWS' crossover-binding row; its certificate needs m0..m17, not in the model), giving 0.20705257 < I2 < 0.20705268 and 0.50985587 < I3 < 0.50985691 (bind_time_map)": true,
+    "the load relation: with d = delta/rho^2 (the gauge-invariant shift, bind_time_units) and Xi_q = 389/rho^4, d^2/Xi_q = delta^2/389 is rho-free, and at the MODEL's dressed gap delta = lam- = (5 - sqrt5)/2 (deep_zero_pole's floor at alpha = 1, zero_pole_instance; in (1.3819, 1.3820) as in bind_time_units) it equals (15 - 5 sqrt5)/778, about 0.00491, while the three-route note's static gap 8 gives 64/389, the note's number and not the model's": true,
+    "W_L's arithmetic replayed from gatework.pmns_court: the Bari pulls are 2.594 and -1.975 on the frozen sin^2 th12 = 1199/3759 and sin^2 th13 = 27/1280, chi2 = 10.63 with p = 0.0049 (2 dof); chi2_3 = 26.29 = 1.0^2 + 1.5^2 + 4.8^2 comes from NuFIT's three reported pulls (1.0, -1.5, -4.8) ALONE, and the Bari pair plus -4.8 would give 33.7, so 'adding the theta23 pull' to the 2-dof number is the wrong reading; the code is the authority and MODEL.md section 13's W_L row now says the two numbers are two comparisons ('on their own', 33.7); W_L stays NOT_PASS by evidence": true,
+    "the model's falsifiers are its own numbers: none of the synthesis's non-model numbers (392, the static gap 8 and its 64/389, the ratios 1/4, 7/4, 19/4, the null count 98/53, the leakage 242/237, the Bonferroni 3.5293) occurs among the values above, which are I1, 2117/389, 10791, 21061, I2, I3, (15 - 5 sqrt5)/778, lam-, chi2, p, chi2_3 and the countermodel's frequency ratio": true,
+    "countermodel A (gatework.countermodel_A, replayed here in under 2 s): the calibrations tau = 1 and tau = 2 give identical native records at the 15 labels (maximum difference below 1e-9) while the physical frequencies sqrt8/tau are in ratio 2, so no internal number binds time and the clock datum of act A5 is an external input (calibration's OBSTRUCTION join 'no internal clock'; MODEL.md section 13's TIME_BIND row records the same replay)": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "carrier -> readout: the separate model's vNext12 four-star / spanning-tree theorem replayed exactly on the model's K5: with B = carrier.signed_incidence() in carrier.edges()' lexicographic order (B B^T = 5I - J, k5_roots), P4 = B^T B/5 is the rank-4 cut projector and P6 = I - P4 the rank-6 cycle projector with P4 e_j = B^T (B e_j)/5; for G0 = g6 P6 + g4 P4 and the edge load kappa e_j e_j^T the Woodbury form G_j = G0 - kappa (G0 e_j)(e_j^T G0)/(1 + kappa e_j^T G0 e_j) satisfies G_j^-1 - G0^-1 = kappa e_j e_j^T exactly, symbolic in g6, g4, kappa, on every edge (bind_dynamics_dyadic's load identity on the ten-port); for every one of the 1024 edge subsets S the stacked rows [P6; e_j^T P4, j in S] have rank 11 - c(S), c(S) the number of connected components of (V5, S), in exact arithmetic; so a loaded set is full rank iff the loaded graph is connected (728 of 1024) (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B = carrier.signed_incidence() is the signed 5 x 10 incidence of K5 with columns in carrier.edges()' lexicographic order 01, 02, 03, 04, 12, 13, 14, 23, 24, 34 (B e_k = e_j - e_i for the edge (i, j)), and B B^T = 5I - J (k5_roots' Coxeter identity h(A4) P = 5I - J, cited)": true,
+    "(a) P4 = B^T B/5 is a projector of rank 4 (the cut space, B^T B squared equals 5 B^T B since J B = 0) and P6 = I10 - P4 a projector of rank 6 (the cycle space), P4 P6 = 0, and P4 e_j = B^T (B e_j)/5 for every edge": true,
+    "(b) Woodbury: for G0 = g6 P6 + g4 P4 (symbols g6, g4 > 0; G0^-1 = P6/g6 + P4/g4) and the edge load K_j = kappa e_j e_j^T, G_j = G0 - kappa (G0 e_j)(e_j^T G0)/(1 + kappa e_j^T G0 e_j) satisfies G_j^-1 - G0^-1 = kappa e_j e_j^T exactly, symbolic in g6, g4, kappa, for every one of the ten edges (as the polynomial identity (1 + kappa c_j) G_j x g6 g4 (G0^-1 + kappa e_j e_j^T) = (1 + kappa c_j) g6 g4 I with c_j = 3 g6/5 + 2 g4/5, and by direct cancellation on edge 01): the load identity G_L^-1 - G_0^-1 = L of bind_dynamics_dyadic (master_response's source law) on the ten-port": true,
+    "(c) for every one of the 1024 edge subsets S the stacked rows [P6; e_j^T P4, j in S] have rank 11 - c(S), c(S) the number of connected components of (V5, S), in exact rational arithmetic (the rows scaled by 5 to integers, _gpr_rank; components by union-find, _gpr_components): the cycle reader's 6 plus the rank of the loaded cuts, which is the incidence rank 5 - c(S)": true,
+    "(d) among the 210 four-edge sets exactly 125 are spanning trees (rank 10) and 85 are not (rank 9), and the 125 split by degree sequence as 5 stars (4, 1, 1, 1, 1), 60 paths (2, 2, 2, 1, 1) and 60 forks (3, 2, 1, 1, 1): the 5^3 = 125 labelled trees on five vertices": true,
+    "(e) every spanning tree T has det(E_T^T P4 E_T) = 1/125, the matrix-tree value det(B_T^T B_T) = 5 (the number of vertices, by Cauchy-Binet each of the five 4 x 4 minors of B_T being +-1) divided by 5^4": true,
+    "(f) the star at vertex 0 has E^T P4 E = (I4 + J4)/5 with inverse 5 I4 - J4, eigenvalues 1 and 1/5 (x3) and geometric condition number sqrt5 = 2.23607; the path 0-1-2-3-4 has Gram B_T^T B_T = the A4 Cartan matrix (2 on the diagonal, -1 on the off-diagonals), eigenvalues 2 - 2 cos(k pi/5) among which (5 - sqrt5)/2 is bind_time_units' dressed gap lam-, and condition number sqrt(5 + 2 sqrt5) = 3.07768; the fork (degree sequence 3, 2, 1, 1, 1) has Gram eigenvalues 1 and the three real roots of x^3 - 7x^2 + 13x - 5, condition number sqrt(largest/smallest) = 2.83511 (exact algebraic numbers, CRootOf, evaluated to 5 decimals); over all 125 trees (floating eigenvalues) every tree's condition number is its shape's, the five best are exactly the five stars and every path and fork exceeds sqrt5 by more than 0.5: the five stars are the best conditioned four-load sets": true,
+    "(g) a loaded edge set is full rank (rank 10) iff the loaded graph is connected, checked on all 1024 subsets (it follows from (c)); 728 of the 1024 subsets are connected (the connected spanning subgraphs of K5), and among the 638 sets of more than four loads the 603 connected ones are full rank and the 35 disconnected ones are not (5 x 7: the sets that isolate one vertex and carry five or all six edges of the remaining K4, since a 2 + 3 split carries at most 4 edges); four loads are the minimum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "carrier -> spectral measures: the measurement design for the pilot's loaded runs, a theorem on the model's K5 under the two-projector hypothesis G0 = g6 P6 + g4 P4 (the free response's form, not a measured fact): among the 210 four-edge sets of K5 exactly the 125 spanning trees (5 stars, 60 paths, 60 forks by degree sequence; 5^3 = 125 labelled trees) give full rank 10 and the other 85 give rank 9; every tree has Gram determinant det(E_T^T P4 E_T) = 1/125 (matrix-tree: det(B_T^T B_T) = 5); the star at vertex 0 has Gram (I4 + J4)/5 with inverse 5 I4 - J4, eigenvalues 1 and 1/5 (x3) and geometric condition number sqrt5 = 2.23607, the path's Gram is the A4 Cartan matrix (eigenvalues 2 - 2 cos(k pi/5), among them bind_time_units' dressed gap (5 - sqrt5)/2) with condition number sqrt(5 + 2 sqrt5) = 3.07768, the fork's eigenvalues are 1 and the roots of x^3 - 7x^2 + 13x - 5 with condition number 2.83511 (exact algebraic numbers), and over all 125 trees the five best conditioned are exactly the five stars; more than four loads are full rank iff the loaded graph is connected (603 of the 638 larger sets) (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "B = carrier.signed_incidence() is the signed 5 x 10 incidence of K5 with columns in carrier.edges()' lexicographic order 01, 02, 03, 04, 12, 13, 14, 23, 24, 34 (B e_k = e_j - e_i for the edge (i, j)), and B B^T = 5I - J (k5_roots' Coxeter identity h(A4) P = 5I - J, cited)": true,
+    "(a) P4 = B^T B/5 is a projector of rank 4 (the cut space, B^T B squared equals 5 B^T B since J B = 0) and P6 = I10 - P4 a projector of rank 6 (the cycle space), P4 P6 = 0, and P4 e_j = B^T (B e_j)/5 for every edge": true,
+    "(b) Woodbury: for G0 = g6 P6 + g4 P4 (symbols g6, g4 > 0; G0^-1 = P6/g6 + P4/g4) and the edge load K_j = kappa e_j e_j^T, G_j = G0 - kappa (G0 e_j)(e_j^T G0)/(1 + kappa e_j^T G0 e_j) satisfies G_j^-1 - G0^-1 = kappa e_j e_j^T exactly, symbolic in g6, g4, kappa, for every one of the ten edges (as the polynomial identity (1 + kappa c_j) G_j x g6 g4 (G0^-1 + kappa e_j e_j^T) = (1 + kappa c_j) g6 g4 I with c_j = 3 g6/5 + 2 g4/5, and by direct cancellation on edge 01): the load identity G_L^-1 - G_0^-1 = L of bind_dynamics_dyadic (master_response's source law) on the ten-port": true,
+    "(c) for every one of the 1024 edge subsets S the stacked rows [P6; e_j^T P4, j in S] have rank 11 - c(S), c(S) the number of connected components of (V5, S), in exact rational arithmetic (the rows scaled by 5 to integers, _gpr_rank; components by union-find, _gpr_components): the cycle reader's 6 plus the rank of the loaded cuts, which is the incidence rank 5 - c(S)": true,
+    "(d) among the 210 four-edge sets exactly 125 are spanning trees (rank 10) and 85 are not (rank 9), and the 125 split by degree sequence as 5 stars (4, 1, 1, 1, 1), 60 paths (2, 2, 2, 1, 1) and 60 forks (3, 2, 1, 1, 1): the 5^3 = 125 labelled trees on five vertices": true,
+    "(e) every spanning tree T has det(E_T^T P4 E_T) = 1/125, the matrix-tree value det(B_T^T B_T) = 5 (the number of vertices, by Cauchy-Binet each of the five 4 x 4 minors of B_T being +-1) divided by 5^4": true,
+    "(f) the star at vertex 0 has E^T P4 E = (I4 + J4)/5 with inverse 5 I4 - J4, eigenvalues 1 and 1/5 (x3) and geometric condition number sqrt5 = 2.23607; the path 0-1-2-3-4 has Gram B_T^T B_T = the A4 Cartan matrix (2 on the diagonal, -1 on the off-diagonals), eigenvalues 2 - 2 cos(k pi/5) among which (5 - sqrt5)/2 is bind_time_units' dressed gap lam-, and condition number sqrt(5 + 2 sqrt5) = 3.07768; the fork (degree sequence 3, 2, 1, 1, 1) has Gram eigenvalues 1 and the three real roots of x^3 - 7x^2 + 13x - 5, condition number sqrt(largest/smallest) = 2.83511 (exact algebraic numbers, CRootOf, evaluated to 5 decimals); over all 125 trees (floating eigenvalues) every tree's condition number is its shape's, the five best are exactly the five stars and every path and fork exceeds sqrt5 by more than 0.5: the five stars are the best conditioned four-load sets": true,
+    "(g) a loaded edge set is full rank (rank 10) iff the loaded graph is connected, checked on all 1024 subsets (it follows from (c)); 728 of the 1024 subsets are connected (the connected spanning subgraphs of K5), and among the 638 sets of more than four loads the 603 connected ones are full rank and the 35 disconnected ones are not (5 x 7: the sets that isolate one vertex and carry five or all six edges of the remaining K4, since a 2 + 3 split carries at most 4 edges); four loads are the minimum": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "cycles -> spectral measures: the separate model's vNext13 design note (6 Nov 15:48, read as data) replayed on the model's K5: the tree cut Grams have the stated characteristic polynomials (star (x - 1)(5x - 1)^3/125, fork (5x - 1)(25x^3 - 35x^2 + 13x - 1)/125, path (5x^2 - 5x + 1)(25x^2 - 15x + 1)/125); K5's twelve five-cycles give a five-load design that survives any one failed load (every one-edge deletion is a spanning tree), and its Cut4 frame B_C^T B_C/5 is the pentagon Laplacian over 5, characteristic polynomial x (5x^2 - 5x + 1)^2/25 with nonzero eigenvalues (5 -+ sqrt5)/10 twice, five times the roots of one_quadratic's x^2 - 5x + 5, so its condition number is the golden ratio (1 + sqrt5)/2 exactly, below the star's sqrt5 and the path's sqrt(5 + 2 sqrt5), the best conditioned of the three; with the Invariant master's (15:54) band fingerprint 4 z^2 e(z) -> B B^T (e(4z)/e(z) -> 1/16 per band, ratios 967/389 and 389/83), the noise optimum 4^N = sqrt(beta/(z^2 eps)) and the port-adapter no-go (U^T G U)^-1 - U^T G^-1 U = -b^2/(z + c) (11/4 against 3 on K = [[2, 1], [1, 3]]), all symbolic on bind_dynamics_dyadic's block (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the three tree types' cut Grams E_T^T P4 E_T = B_T^T B_T/5 have the characteristic polynomials the vNext13 note states: star (x - 1)(5x - 1)^3/125, fork (5x - 1)(25x^3 - 35x^2 + 13x - 1)/125 and path (5x^2 - 5x + 1)(25x^2 - 15x + 1)/125 (on the star at vertex 0, the fork 01, 02, 03, 34 and the path 01, 12, 23, 34 of carrier.edges(); gpr_loaded_observability's Grams)": true,
+    "the five-load pentagon: K5 has exactly twelve five-cycles, and deleting any one edge of any of them leaves a connected four-edge set, a spanning tree, so the remaining four loads with the free reader still read rank 10 (gpr_loaded_observability's rank law 11 - c(S)): one failed load is survived": true,
+    "the pentagon frame is the pentagon Laplacian over 5: every five-cycle's Cut4 frame Gram B_C^T B_C/5 has characteristic polynomial x (5x^2 - 5x + 1)^2/25, so its nonzero eigenvalues are (5 -+ sqrt5)/10, each twice, and five times them are the roots (5 -+ sqrt5)/2 of one_quadratic's x^2 - 5x + 5 (the pentagon Laplacian's eigenvalues, k5_roots); the path Gram carries the same factor 5x^2 - 5x + 1": true,
+    "the pentagon frame's geometric condition number sqrt(((5 + sqrt5)/10)/((5 - sqrt5)/10)) is the golden ratio (1 + sqrt5)/2 = 1.6180 exactly, below the star's sqrt5 = 2.2361 and the path's sqrt(5 + 2 sqrt5) = 3.0777 (the five-setting frame is the best conditioned of the three; the note's own ordering): the golden ratio enters the design as a frame condition number, not as a measured constant": true,
+    "the dyadic band fingerprint (the Invariant master, section 7): on bind_dynamics_dyadic's generic block e(z) = [Sigma(z) - Sigma(4z)]/(3z) = B (z + C)^-1 (4z + C)^-1 B^T, so 4 z^2 e(z) -> B B^T as z -> oo (symbolic limit entrywise), and on a scalar band beta/((z + c)(4z + c)) the dyadic ratio e(4z)/e(z) -> 1/16; the 19-source band masses 967, 389, 83 (refclock_gain's D19) give the limiting band ratios 967/389 and 389/83": true,
+    "the noise optimum: the reconstruction envelope z eps (4^N - 1) + beta/(4^N z) (bind_dynamics_dyadic's tail bound with a uniform sample error eps) is stationary in y = 4^N exactly at y = sqrt(beta/eps)/z, i.e. 4^N = sqrt(beta/(z^2 eps)): infinite doubling at fixed noise is not the optimum, and the sealed depth N is a declared choice (docs/GATES.md act 8)": true,
+    "the port-adapter no-go (the Invariant master, section 9): for G(z) = (z + K)^-1 with K = [[a, b], [b, c]] and U the first coordinate, (U^T G U)^-1 = z + a - b^2/(z + c) while U^T G^-1 U = z + a, so compression commutes with inversion only when b = 0 (the Schur term is bind_dynamics_dyadic's Sigma); on K = [[2, 1], [1, 3]] at z = 1: U^T G U = 4/11, its inverse 11/4, U^T G^-1 U = 3, difference -1/4": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -16457,7 +16577,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 792 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 799 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -16717,7 +16837,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 17, symmetry-combinatorics 38, combinatorics-lattice 24, lattice-operator 63, operator-physics 87 joins",
+   "name": "each level is joined to the next: number-symmetry 17, symmetry-combinatorics 38, combinatorics-lattice 24, lattice-operator 63, operator-physics 91 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -16958,7 +17078,11 @@
      "bath -> calibration",
      "source -> calibration",
      "readout -> bath",
-     "calibration -> measure"
+     "calibration -> measure",
+     "calibration -> source",
+     "source -> calibration",
+     "calibration -> measure",
+     "carrier -> readout"
     ]
    ],
    "note": ""
@@ -16969,10 +17093,10 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 676,
+    "THEOREM": 681,
     "OBSTRUCTION": 54,
-    "SELECTED_REFERENCE": 24,
-    "CONDITIONAL": 38
+    "SELECTED_REFERENCE": 25,
+    "CONDITIONAL": 39
    },
    "note": ""
   },
@@ -16989,19 +17113,19 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 17, number-combinatorics 11, number-lattice 33, number-operator 9, number-physics 9, symmetry-combinatorics 38, symmetry-lattice 53, symmetry-operator 26, symmetry-physics 21, combinatorics-lattice 24, combinatorics-operator 42, combinatorics-physics 17, lattice-operator 63, lattice-physics 20, operator-physics 87",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 17, number-combinatorics 11, number-lattice 33, number-operator 9, number-physics 9, symmetry-combinatorics 38, symmetry-lattice 53, symmetry-operator 26, symmetry-physics 21, combinatorics-lattice 24, combinatorics-operator 43, combinatorics-physics 17, lattice-operator 63, lattice-physics 20, operator-physics 91",
    "status": "THEOREM",
    "passed": true,
    "value": {
     "(2, 3)": 24,
     "(3, 4)": 63,
-    "(2, 4)": 42,
+    "(2, 4)": 43,
     "(1, 3)": 53,
     "(1, 2)": 38,
     "(0, 1)": 17,
     "(0, 2)": 11,
     "(1, 4)": 26,
-    "(4, 5)": 87,
+    "(4, 5)": 91,
     "(2, 5)": 17,
     "(3, 5)": 20,
     "(0, 3)": 33,
@@ -19710,7 +19834,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 61 derived dots are connected by the 591 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 61 derived dots are connected by the 594 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
