@@ -50,7 +50,7 @@ No lattice clock runs the canon's circle, but a circle of the seed's momenta doe
 - **The number level is rooted in the principal circle.** Its derived dots are the time clock, the observer clock and the grain, joined inside the level by the golden step (⟨864⟩ + ⟨1080⟩ = ⟨216⟩) and the sum of the three small clocks (⟨864⟩ + ⟨1080⟩ + ⟨1440⟩ = ⟨72⟩); the observer clock is the regular class 4, the day's sixth power.
 - **The golden companion is joined inside the symmetry level.** It is the tick's negative cosine X = −(g + g⁻¹), with X² = X + I and characteristic polynomial (x² − x − 1)⁴; E8 has a basis of four roots and their images in which X is four Fibonacci blocks, so E8 = ℤ[φ]⁴. The day conjugates X to I − X (the Galois conjugation of Q(√5)), G120 acts on ℤ[X] through Gal(Q(√5)/Q) with kernel ⟨g, d²⟩, and X lies in a regular clock's cosine ring ℤ[w + w⁻¹] exactly for the orders divisible by 5.
 - **The nine-torus is placed.** Six of its nine frequencies are the band at the principal circle's critical steps (256, 252, 248, 250), at the half-periods (256 on the 135 of type D8, 224 on the 120 of type E7 + A1), at the sun's 80 momenta (243) and at the tick's 24 (250); √251, √(4025/16) and √(6800/27) are at none of them. All nine are the band's critical values computed from E8's roots, so the torus has a direct THEOREM join to the seed (1 Nov), and √251 is the hypercharge's: read as torus points Y, Q and T3 are critical points of orders 6, 3 and 2 with values 251, 243 and 224 (`sm_frame`).
-- **The structure** (`levels_unified`). Every level holds derived dots (6 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 6 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 61 derived dots are connected by the 595 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
+- **The structure** (`levels_unified`). Every level holds derived dots (6 on the number level, 8 on the symmetry level, 10 on the combinatorics level, 16 on the lattice level, 15 on the operator level, 7 on the physics level); inside every level they are joined by THEOREM maps with both ends in the level; the derived part stands without the inputs: the 62 derived dots are connected by the 604 THEOREM maps between them, no one such map and no one derived dot holds them together, and every derived dot lies on at least three of them; every pair of the six levels is joined directly by at least two of them; and the derivation tree is THEOREM to depth 8.
 
 ## The derivation
 
@@ -116,6 +116,7 @@ flowchart TB
     coil["coil"]
     charges["five-site charges"]
     assignment["root assignment"]
+    chiral["chiral completion"]
     E8["E8"]
     E8 --> cyclo
     cyclo --> clocks
@@ -177,6 +178,7 @@ flowchart TB
     grain --> coil
     A4 --> charges
     charges --> assignment
+    carrier --> chiral
 ```
 
 | dot | built from | by the join | check | depth |
@@ -223,6 +225,7 @@ flowchart TB
 | K5 edges | A4 | B | `k5_roots` | 6 |
 | S5 | A4 | W(A4) | `s5_weyl` | 6 |
 | five-site charges | A4 | the Standard-Model frame | `sm_frame` | 6 |
+| chiral completion | carrier | the chiral completion | `chiral_closures` | 6 |
 | Penrose planes | A4 | the two golden planes | `penrose_planes` | 6 |
 | spectral triple | carrier | D | `triple` | 6 |
 | K5 vertices | K5 edges | contraction | `exterior` | 7 |
@@ -275,7 +278,7 @@ The derivation is a tree of depth 8, but the dots of its last two generations ar
 
 ## Every dot one join from the seed (1 Nov)
 
-Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEOREM, the memory clock by an obstruction, the owner's operand file and the fifteen words by selected references, and the calibration, the product geometry and FLRW by conditional joins that name the binding still missing. In the THEOREM graph the seed has eccentricity 2.
+Each of the other 75 dots has a direct checked join to E8 (`star`): 69 by THEOREM, the memory clock by an obstruction, the owner's operand file and the fifteen words by selected references, and the calibration, the product geometry and FLRW by conditional joins that name the binding still missing. In the THEOREM graph the seed has eccentricity 2.
 
 | level | dot | its direct join to E8 | status | check |
 |---|---|---|---|---|
@@ -361,6 +364,7 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEORE
 | operator | root-wedge port | the unique quadratic S5 copy | THEOREM | `join_e8_wedgeport` |
 | operator | dark ports | dark port at the band top | THEOREM | `join_e8_darkport` |
 | operator | 360 parent | parent on the sun's frames | THEOREM | `join_e8_parent` |
+| operator | one action | the smallest ball is the root-site instance | THEOREM | `brg_bonds` |
 | physics | spectral triple | the grading is a Gauss sum | THEOREM | `join_e8_triple` |
 | physics | readout | the twin-blind root dynamics | THEOREM | `join_e8_readout` |
 | physics | readout | the 45 channels' multipole filtration | THEOREM | `multipole_filtration` |
@@ -372,6 +376,23 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEORE
 | physics | FLRW | E8 data fix the onset | CONDITIONAL | `join_e8_cosmology` |
 | physics | five-site charges | charges traced over E8's 248 | THEOREM | `join_e8_charges` |
 | physics | root assignment | the second moment | THEOREM | `assignment.moments` |
+| physics | one spectrum | the bulk heat series of the theta = 0 member | THEOREM | `usm_bulk_heat` |
+| physics | chiral completion | the chiral vertex stiffness is the tick's | THEOREM | `spc_penrose_chiral` |
+
+## The one action and the one spectrum (6 Nov)
+
+Three dots carry the Lagrangian and the spectral side (`one_model`). The one action, the declared native action with its port multiplier and the reference completion K_θ = H + θ(ε + J V Jᵀ), is a canon input: a family whose selections are recorded (θ, ε, α, the mark, the instance, J, Π, ι, the unit of M_s, W_p, the adapter, the datum F), meeting the source at `act_native`. The one spectrum, the vacuum Hessian 4M_s ⊕ K_θ with its spectral functionals, is built from the action (`spc_oneloop`: the one loop is the spectral action). The chiral completion D19 is derived from the carrier (`chiral_closures`, depth 6), and the ten D19 joins sit on it rather than on the fifteen-dimensional triple. Each of the three has a direct THEOREM join to E8. Every relation below names its J (cone-J15 = `master_response`'s 15 bond roots; J19 = cone-J15 plus the auxiliaries e_i + e_6; COMP-J19 = the first 19 channels of `bridge_comparator`'s comparator); its identity is THEOREM and its selections stay CONDITIONAL or SELECTED_REFERENCE.
+
+| id | dot | relation | domain and J | identity | checks | identity status | selection | selection status |
+|---|---|---|---|---|---|---|---|---|
+| R0 | bath | restriction | q = 0, lambda = 0, theta = 0; on ROOT with cone-J15 (master_response) and on a generic block with Y = [I; 0] (chiral_time) | L = (1/2)\|Phi'\|^2 - (1/2)<Phi, H Phi> and Phi'' + H Phi = 0: K_0 = H entry by entry, and the update theta (eps + Y V Y^T) is invisible to the hidden side for every theta, Q K_theta Y = Q H Y (ran J in ran Y), so the hidden rows, the first hidden covariance Y^T K Q K Y = B B^T and the Krylov spaces are the bath's | `chiral_time`, `master_response` | THEOREM | the instance stands in for Delta: ROOT is a compression of the bath (usm_bulk_heat) and the LATTICE instance is analytic: SELECTED_REFERENCE | SELECTED_REFERENCE |
+| R1 | chiral completion | completion | theta = 1; cone-J15 at eps = 0, 1 for every symmetric F (act_no_reduction, master_response with F = D^2), J19 at eps = 1 with F19(alpha = 1) (schur_zero_mode) and regulator-free at eps = 0 (threshold_action, multipole_k0_threshold), COMP-J19 at eps = 3 (flower_homotopy) | Schur_J(K_1) = F at z = 0, K_1 = L diag(F, C_eps) L^T with an F-independent lift L = [I; -C_eps^-1 B^T], so nullity K_1 = nullity F (1 for F19 at alpha > 0, 5 for diag(D^2, B2, B2)) and K0 = H + J (F - S0^-1) J^T is congruent to diag(F, C) without a regulator; the convex family K_theta = (1 - theta) H + theta K_1 is positive semidefinite with a kernel only at theta = 1 | `master_response`, `schur_zero_mode`, `flower_homotopy`, `threshold_action` | THEOREM | alpha and the mark: CONDITIONAL (no dot fixes them; unify.uniqueness); the J19 placement e_i + e_6: SELECTED_REFERENCE (by our choice, schur_zero_mode; brg_symmetry: it breaks C5); eps: CONDITIONAL | CONDITIONAL |
+| R2 | chiral completion | reduction: Gaussian elimination of the hidden roots at frequency z, then the limit eps -> infinity | q = 0, lambda = 0, theta = 1; generic blocks symbolic (deep_zero_pole, Theorem 6) and cone-J15 exact at eps = 1, 10, 100, z = 1 (act_dressing) | S_K(z)^-1 = F + z [I + B C_eps^-1 (z + C_eps)^-1 B^T] = F + z + X(eps) - X(eps + z); the kinetic dressing M_W(eps) = I + B C_eps^-2 B^T = S_eps^-1 T_eps S_eps^-1 (in this order only) = d/dz S_K(z)^-1 at 0, with B B^T/(244 + eps)^2 <= M_W - I <= B B^T/(184 + eps)^2 and tr B B^T = 760; as eps -> infinity M_W -> I, V -> -infinity and the memory -> 0: the bath freezes and the reduced action tends to (1/2)\|x'\|^2 - (1/2) x^T F x with whatever datum F was put in | `deep_zero_pole`, `act_dressing` | THEOREM | eps: CONDITIONAL (at finite eps the kinetic term is dressed); F := D^2: CONDITIONAL (the limit returns every F, so it derives neither the carrier nor the chiral action: the critique's O2) | CONDITIONAL |
+| R7 | source | static reduction with the dressed metric (no dynamical equation is compared: the critique's F5) | COMP-J19: Pi = the first 19 channels, iota = the cycles' inclusion into the edge block (R^10 -> R^19, isometric on L6), W_p = I, M_s = diag(W, W)/4, eps = 3, alpha = 1 (canon_flower_pullback); the model's port g = W_AS(a ^ b) (flower_source) | the reduced static potential V_s + x^T F19 x/2 (x = iota g) obeys Euler's identity q . grad V = q^T diag(W, W) q + 2\|g\|^2 + 2 g^T F_E g, so q = 0 is its only critical point with h* = 0, Hessian diag(W, W), M_s^-1 diag(W, W) = 4 I10 and a vanishing source-bath cross block; the static dressing graph q -> (x(q), h*(q)) has metric M_s + Z0 J_g^T J_g with Z0 = 41598/41209, the dressed zero pole's norm, not M_s + J_g^T J_g; the pullback metric's Christoffel term is 2 J_g^T g(v), and layer 4's native equations are the theta = 0 case with the same term | `canon_flower_pullback`, `flower_source` | THEOREM | iota, theta = 1 and the six-section E6 containing q0 (flower_sections): CONDITIONAL; R5 = R7, the native system against the pullback: CONDITIONAL (LEDGER section II.4; W_p against I and the ball bath against the comparator differ) | CONDITIONAL |
+
+The recorded selections (`ONE_SELECTIONS`): theta (`flower_homotopy`: the convex family K_theta = (1 - theta) H + theta K19 at the note's five theta); eps (`schur_zero_mode`: eps = 1 on the root-site instance (master_response's regulator)); alpha (`schur_zero_mode`: the admissible S_alpha at alpha = 1 (chiral_closures' F19 = D19^2 symbolic in alpha)); the mark (`mgm_marks`: the twelve Golden marks, their zero lines and their average); J (`schur_zero_mode`: J19 into the 45-channel section (master_readout's J15 and the dark four)); W_p (`literal_port`: the owner's W_p in boundary order); the adapter (`literal_port`: the reconstructed port up to a commutant element (parent_readers' marked adapter)); iota (`canon_flower_pullback`: the cycles' inclusion into the edge block of R^19, an isometry on L6); the parity (`zero_pole_parity`: the D10 parity of the zero-mode line against the golden time line); the readout (`master_readout`: the 45 channels and D45 = (2117, 967^8, 389^26, 127^6, 83^4)); the instance (`master_response`: ROOT (the 240-root shell with the 15 bond atoms), BALL r2 = 8 or COMP (the 90-channel comparator): act_native, flower_homotopy); the cone point (`brg_bonds`: the origin x0 under the bond bridge w, the site W_p's corner 2/5 singles out and boundary_rotation fixes); the datum F (`act_no_reduction`: the datum put into V := F - S_eps^-1; Schur_J(K_1) = F for every F, so F = D^2 is data, not a reduction of the bath).
+
+Dots with no held map to the one action or the one spectrum, nor to a dot that has one (`ONE_NONE`): memory clock: the memory clock's held maps go to the circle, the 27-clock, the grain, the vortex, the time clock and the miss set (memory_clock, memory_quotients, join_c27_memory, join_grain_memory, join_memory_miss), none of which is one held map from the one action or the one spectrum, and it meets the seed only by obstructions (join_e8_memory, memory_not_seed): three joins from the action, through the circle and the seed.
 
 ## The canon's inputs
 
@@ -386,5 +407,6 @@ Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEORE
 | 801 matrix | the integers of AIR_801; mod 5 it is conjugate to minus the day on the residue plane | residue plane (the Singer cycle) | THEOREM | only its residue is the seed's, and the day forces it (one of the 20 GL(2,5)-conjugates of -d); its integers are external: trace 1009 and det 12402 != +-1 (no lattice clock), discriminant 968473 squarefree with narrow class number 4, one class per genus, so even its polynomial leaves four integral classes; its columns are 180-degree digit rotations (air801_classes, 1 Nov) |
 | calibration | the time unit tau of t = tau u, one positive real (TIME_BIND unbound) | readout (Salina-Prema) | THEOREM | one positive real tau: every derived number is invariant under tau -> lambda tau (calibration; notes_1340: the tick is a symmetry of the native flow, not a step of it), one measured rate fixes it (an antisymmetric-Pauli rate Gamma gives tau = 224/Gamma, join_e8_calibration), and the product geometry's and FLRW's mass scale is the same scale, m = 1/tau (cosmos_calibration) |
 | product geometry | the product geometry M4 x F: M4, the cutoff's moments F0, F1, F2 and l = L/m, with m = 1/tau (conditional) | spectral triple (heat coefficients) | CONDITIONAL | M4 (a closed spin Riemannian 4-manifold), the cutoff's moments F0, F1, F2 and l = L/m are free, with m = 1/tau the calibration's scale; at this order only G m^2 = pi/(5 F1 l^2) and Lambda/m^2 = 6 (F2/F1) l^2 - 16 + 40 (F0/F1)/l^2 are observable, two numbers from four inputs (native_onset); conditional (layer 6) |
+| one action | the declared native action of layer 4 (native.NativeSystem: q = (a, b) on ker M + ker M, the six-site port Pi with iota = I6, M_s, W_p and the adapter) with its port multiplier, plus the reference completion K_theta = H + theta (eps + J V J^T), theta = 1 the reference (master_response): a family, not one action | source (the native system is the Euler-Lagrange system of the declared action) | THEOREM | the declared action is the canon's (layer 4; native.run's UNFORMED 'physical action selection' stands) and its completion is a family: theta (flower_homotopy), eps, alpha and the placement J (schur_zero_mode), the mark (mgm_marks), the instance (ROOT, BALL r2 = 8 or COMP: master_response, act_native, flower_homotopy), the port Pi and the cone point (brg_bonds), iota (canon_flower_pullback), the unit of M_s and W_p with the adapter (literal_chart, literal_port) and the datum F put into V := F - S_eps^-1 (act_no_reduction) are selections that no join promotes; theta > 0 adds the reference term, so theta = 1 is labelled the reference completion and no term is added to the declared action |
 
-Built from the inputs: atlas (from circle), miss set (from circle), FLRW (from product geometry).
+Built from the inputs: atlas (from circle), miss set (from circle), FLRW (from product geometry), one spectrum (from one action).

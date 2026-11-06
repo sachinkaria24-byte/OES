@@ -752,7 +752,7 @@ def test_the_principal_circle():
     assert unify.DERIVATION["principal"] == ("E8", "principal.circle") and "circle" in unify.INPUTS
     assert unify.INPUTS["circle"][1:] == ("principal", "principal.circle")
     assert all(unify._root(d, unify.DERIVATION)[0] == "E8" for d in ("time", "observer", "grain", "c27", "vortex", "coil"))
-    assert set(unify.FROM_INPUTS) == {"miss", "atlas", "cosmology"}
+    assert set(unify.FROM_INPUTS) == {"miss", "atlas", "cosmology", "spectrum"}
     assert 4320 // gcd(144, 4320) == 30 and 4320 // gcd(864, 4320) == 5
 
 
@@ -765,7 +765,7 @@ def test_the_full_unification():
     assert unify.DERIVATION["assignment"] == ("charges", "assignment.standard_model")
     assert "charges" not in unify.INPUTS and unify.INPUTS["literal"][1:] == ("source", "literal_chart")
     assert unify.STAR_OBSTRUCTED == ("memory",)
-    assert (len(unify.DERIVATION), len(unify.INPUTS), len(unify.FROM_INPUTS)) == (60, 9, 3)
+    assert (len(unify.DERIVATION), len(unify.INPUTS), len(unify.FROM_INPUTS)) == (61, 10, 4)
     assert not any(name.startswith("the N33 six-view frame") for name, *_ in dots.NOT_JOINED)
 
 
@@ -803,6 +803,27 @@ def test_the_evidence():
     for check in (dots.evd_firefly_canon, dots.evd_flash_arithmetic, dots.evd_byte_receipt):
         out = check()
         assert all(out.values()), out
+
+
+def test_the_one_action_and_the_one_spectrum():
+    for check in (dots.act_native, dots.act_literal, dots.act_port_c2, dots.act_dressing, dots.act_no_reduction, dots.brg_bonds, dots.brg_symmetry, dots.spc_oneloop, dots.spc_gksl, dots.spc_product, dots.spc_penrose_chiral):
+        out = check()
+        assert all(out.values()), out
+    # the classification (the critique's primary route): the action a canon input, the spectrum built from it, the
+    # chiral completion derived from the carrier at depth 6
+    assert unify.DERIVATION["chiral"] == ("carrier", "chiral_closures")
+    assert unify.INPUTS["action"][1:] == ("source", "act_native")
+    assert unify.FROM_INPUTS["spectrum"] == ("action", "spc_oneloop")
+    assert len(unify._root("chiral", unify.DERIVATION)[1]) - 1 == 6
+    # the ten D19 joins (M4) each join the chiral completion and none joins the triple
+    for label, check in unify.M4_JOINS:
+        js = [j for j in dots.JOINS if (j[2], j[5]) == (label, check)]
+        assert len(js) == 1 and "chiral" in js[0][:2] and "triple" not in js[0][:2], (label, check, js)
+    held = unify._held()
+    out = unify.one_model(held)
+    assert all(out.values()), out
+    assert gates.GATES["TIME_BIND"] == "UNBOUND" and gates.GATES["DYN_BIND"] == "NOT_INSTALLED"
+    assert len(dots.DOTS) == 76
 
 
 def test_the_free_chain():

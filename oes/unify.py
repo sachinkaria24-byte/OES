@@ -7,7 +7,7 @@ at a named interface.
 
 The seed. E8 with c' is the cyclotomic line Z[zeta30] with the trace form Tr(alpha x ybar) (oes/cyclotomic.py (a)).
 
-The derivation (DERIVATION) builds 60 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
+The derivation (DERIVATION) builds 61 dots from the seed, each by one THEOREM join of layer 23 whose check holds:
   - the trunk: E8 -> the cyclotomic line -> the clocks (the Galois group) -> the tick's residue plane F25 -> one
     residue line, the carrier's A4 + A4' -> either factor, A4 -> K5 (its positive roots) -> the vertices, the zero
     modes, the cycles and the source;
@@ -39,10 +39,12 @@ is unique (30 Oct). The Standard-Model frame is unique up to W(E8) too (sm_frame
 3 + 2 (weak = a root A1, colour = its orthogonal A2) against 4 + 1, two different Aut(A4)-orbits: a recorded
 selection, like the day and the golden clock, that carries no number (1 Nov).
 
-The inputs (INPUTS) are nine: the circle Z/4320 with its stages and memory clock, the datum, the literal operands, the
-words, the integers of the 801 matrix, the time unit and the product geometry. Three more dots are built from them
+The inputs (INPUTS) are ten: the circle Z/4320 with its stages and memory clock, the datum, the literal operands, the
+words, the integers of the 801 matrix, the time unit, the product geometry and the declared action with its
+reference completion (6 Nov; a family: its selections are recorded). Four more dots are built from them
 (FROM_INPUTS): the miss set and the atlas from the circle's 2-part 2^5 (the 27-clock, the vortex and the coil, once
-built from the cofactor 36, are derived since 1 Nov), and FLRW from the product geometry. The time unit is one
+built from the cofactor 36, are derived since 1 Nov), FLRW from the product geometry, and the one spectrum from the
+action (its one loop, spc_oneloop). The time unit is one
 positive real tau, and the product geometry's mass scale is the same scale, m = 1/tau (cosmos_calibration); the
 rest of the product geometry is M4 and the dimensionless l = L/m, F0, F1 and F2, of which only G m^2 and
 Lambda/m^2 are observable at this order (native_onset). Four of the inputs split into a derived part and a part the
@@ -62,6 +64,7 @@ dot lies on at least three of them; every pair of levels is joined by at least t
 is THEOREM to depth 8.
 """
 
+import collections
 import functools
 import itertools
 from collections import Counter
@@ -102,6 +105,7 @@ DERIVATION = {
     "c27": ("principal", "principal.singular_primary"), "vortex": ("c27", "principal.singular_primary"),
     "coil": ("grain", "principal.singular_primary"),
     "charges": ("A4", "sm_frame"), "assignment": ("charges", "assignment.standard_model"),
+    "chiral": ("carrier", "chiral_closures"),
 }
 
 # input: (what the canon supplies, the derived dot it meets, the check of that interface join)
@@ -122,6 +126,10 @@ INPUTS = {
     "calibration": ("the time unit tau of t = tau u, one positive real (TIME_BIND unbound)", "readout", "calibration"),
     "gravity": ("the product geometry M4 x F: M4, the cutoff's moments F0, F1, F2 and l = L/m, with m = 1/tau "
                 "(conditional)", "triple", "product_geometry"),
+    "action": ("the declared native action of layer 4 (native.NativeSystem: q = (a, b) on ker M + ker M, the six-site port "
+               "Pi with iota = I6, M_s, W_p and the adapter) with its port multiplier, plus the reference completion "
+               "K_theta = H + theta (eps + J V J^T), theta = 1 the reference (master_response): a family, not one action",
+               "source", "act_native"),
 }
 
 # input: why it stays an input
@@ -166,11 +174,19 @@ WHY = {
                "m = 1/tau the calibration's scale; at this order only G m^2 = pi/(5 F1 l^2) and Lambda/m^2 = "
                "6 (F2/F1) l^2 - 16 + 40 (F0/F1)/l^2 are observable, two numbers from four inputs (native_onset); "
                "conditional (layer 6)",
+    "action": "the declared action is the canon's (layer 4; native.run's UNFORMED 'physical action selection' stands) and "
+              "its completion is a family: theta (flower_homotopy), eps, alpha and the placement J (schur_zero_mode), the "
+              "mark (mgm_marks), the instance (ROOT, BALL r2 = 8 or COMP: master_response, act_native, flower_homotopy), "
+              "the port Pi and the cone point (brg_bonds), iota (canon_flower_pullback), the unit of M_s and W_p with the "
+              "adapter (literal_chart, literal_port) and the datum F put into V := F - S_eps^-1 (act_no_reduction) are "
+              "selections that no join promotes; theta > 0 adds the reference term, so theta = 1 is labelled the "
+              "reference completion and no term is added to the declared action",
 }
 
 # dot built from an input: (the dot it is built from, the check of the join that builds it)
 FROM_INPUTS = {
     "atlas": ("circle", "atlas"), "miss": ("circle", "tick_miss"), "cosmology": ("gravity", "friedmann"),
+    "spectrum": ("action", "spc_oneloop"),
 }
 
 
@@ -207,7 +223,7 @@ def derivation(held=None):
         f"the {len(dots.DOTS)} dots split into the seed, {len(DERIVATION)} derived dots, {len(INPUTS)} canon inputs and "
         f"{len(FROM_INPUTS)} dots built from the inputs, with no dot left over or counted twice":
             set.union(*names) == set(dots.DOTS) and sum(len(n) for n in names) == len(dots.DOTS)
-            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (60, 9, 3),
+            and (len(DERIVATION), len(INPUTS), len(FROM_INPUTS)) == (61, 10, 4),
         "every derived dot is built by a THEOREM join of layer 23 whose check holds, and its parents lead back to E8 "
         "without a cycle":
             all(j is not None and j[4] == T and held[j[5]] for j in edges.values())
@@ -223,12 +239,13 @@ def derivation(held=None):
         "5, of order 4, and the subgroup its critical steps generate, inside the seam <36> = Z/120 that the thirteen regular "
         "steps generate (their gcd is 36); the 27-clock is the seed's singular 3-primary points <rho/27> at depth 2, with "
         "the vortex (its image on the sun's A8) and the coil (<rho/60> + <rho/27>) at depth 3; only the miss set (864 = "
-        "32 x 27 points) and the atlas (36 = (32/8)(27/3)) are still built from the circle, needing its 2-part 32 = 2^5":
+        "32 x 27 points) and the atlas (36 = (32/8)(27/3)) are still built from the circle, needing its 2-part 32 = 2^5, "
+        "and the one spectrum is built from the action (spc_oneloop, 6 Nov)":
             functools.reduce(gcd, [4320 // d for d in primes.regular()]) == 36 and len(S(36)) == 120
             and all(120 % len(S(x)) == 0 for x in (864, 1080, 72)) and all(120 % n for n in (864, 36))
             and {d: depth[d] for d in ("time", "observer", "grain", "c27", "vortex", "coil")}
             == {"time": 2, "observer": 2, "grain": 2, "c27": 2, "vortex": 3, "coil": 3}
-            and set(FROM_INPUTS) == {"miss", "atlas", "cosmology"} and 36 == (32 // 8) * (27 // 3),
+            and set(FROM_INPUTS) == {"miss", "atlas", "cosmology", "spectrum"} and 36 == (32 // 8) * (27 // 3),
         f"the trunk E8 -> cyclotomic line -> clocks -> residue plane -> A4 + A4' -> A4 -> K5 edges -> zero modes -> "
         f"source has depth {depth['source']}, and no dot is deeper than {max(depth.values())}":
             roots["source"][1] == ["source", "kerM", "E", "A4", "L0", "residue", "clocks", "cyclo", "E8"]
@@ -373,6 +390,99 @@ STAR_OBSTRUCTED = ("memory",)
 STAR_SELECTED = ("literal", "words")
 STAR_CONDITIONAL = ("calibration", "gravity", "cosmology")
 
+# the one action and the one spectrum (6 Nov). A relation of the completed action K_theta = H + theta (eps + J V J^T) to a
+# dot: (id, dot, relation, the domain and the J it is stated on, the identity, the checks that hold it, the identity's
+# status, the selection it rests on and that selection's status). The J's: cone-J15 = master_response's 15 bond roots
+# e_i + e_5, e_i - e_j; J19 = cone-J15 plus the auxiliaries e_i + e_6 (i < 4, schur_zero_mode's choice); COMP-J19 = the
+# first 19 channels of bridge_comparator's 90D comparator in D19's order; glue-J15 = master_readout's invariant injection.
+Relation = collections.namedtuple("Relation", "id dot relation domain identity checks identity_status selection selection_status")
+ONE_RELATIONS = (
+    Relation("R0", "bath", "restriction",
+             "q = 0, lambda = 0, theta = 0; on ROOT with cone-J15 (master_response) and on a generic block with Y = [I; 0] "
+             "(chiral_time)",
+             "L = (1/2)|Phi'|^2 - (1/2)<Phi, H Phi> and Phi'' + H Phi = 0: K_0 = H entry by entry, and the update theta "
+             "(eps + Y V Y^T) is invisible to the hidden side for every theta, Q K_theta Y = Q H Y (ran J in ran Y), so the "
+             "hidden rows, the first hidden covariance Y^T K Q K Y = B B^T and the Krylov spaces are the bath's",
+             ("chiral_time", "master_response"), T,
+             "the instance stands in for Delta: ROOT is a compression of the bath (usm_bulk_heat) and the LATTICE instance "
+             "is analytic: SELECTED_REFERENCE", SR),
+    Relation("R1", "chiral", "completion",
+             "theta = 1; cone-J15 at eps = 0, 1 for every symmetric F (act_no_reduction, master_response with F = D^2), "
+             "J19 at eps = 1 with F19(alpha = 1) (schur_zero_mode) and regulator-free at eps = 0 (threshold_action, "
+             "multipole_k0_threshold), COMP-J19 at eps = 3 (flower_homotopy)",
+             "Schur_J(K_1) = F at z = 0, K_1 = L diag(F, C_eps) L^T with an F-independent lift L = [I; -C_eps^-1 B^T], so "
+             "nullity K_1 = nullity F (1 for F19 at alpha > 0, 5 for diag(D^2, B2, B2)) and K0 = H + J (F - S0^-1) J^T is "
+             "congruent to diag(F, C) without a regulator; the convex family K_theta = (1 - theta) H + theta K_1 is "
+             "positive semidefinite with a kernel only at theta = 1",
+             ("master_response", "schur_zero_mode", "flower_homotopy", "threshold_action"), T,
+             "alpha and the mark: CONDITIONAL (no dot fixes them; unify.uniqueness); the J19 placement e_i + e_6: "
+             "SELECTED_REFERENCE (by our choice, schur_zero_mode; brg_symmetry: it breaks C5); eps: CONDITIONAL", CN),
+    Relation("R2", "chiral", "reduction: Gaussian elimination of the hidden roots at frequency z, then the limit eps -> infinity",
+             "q = 0, lambda = 0, theta = 1; generic blocks symbolic (deep_zero_pole, Theorem 6) and cone-J15 exact at "
+             "eps = 1, 10, 100, z = 1 (act_dressing)",
+             "S_K(z)^-1 = F + z [I + B C_eps^-1 (z + C_eps)^-1 B^T] = F + z + X(eps) - X(eps + z); the kinetic dressing "
+             "M_W(eps) = I + B C_eps^-2 B^T = S_eps^-1 T_eps S_eps^-1 (in this order only) = d/dz S_K(z)^-1 at 0, with "
+             "B B^T/(244 + eps)^2 <= M_W - I <= B B^T/(184 + eps)^2 and tr B B^T = 760; as eps -> infinity M_W -> I, V -> "
+             "-infinity and the memory -> 0: the bath freezes and the reduced action tends to (1/2)|x'|^2 - (1/2) x^T F x "
+             "with whatever datum F was put in",
+             ("deep_zero_pole", "act_dressing"), T,
+             "eps: CONDITIONAL (at finite eps the kinetic term is dressed); F := D^2: CONDITIONAL (the limit returns every "
+             "F, so it derives neither the carrier nor the chiral action: the critique's O2)", CN),
+    Relation("R7", "source", "static reduction with the dressed metric (no dynamical equation is compared: the critique's F5)",
+             "COMP-J19: Pi = the first 19 channels, iota = the cycles' inclusion into the edge block (R^10 -> R^19, isometric "
+             "on L6), W_p = I, M_s = diag(W, W)/4, eps = 3, alpha = 1 (canon_flower_pullback); the model's port g = "
+             "W_AS(a ^ b) (flower_source)",
+             "the reduced static potential V_s + x^T F19 x/2 (x = iota g) obeys Euler's identity q . grad V = q^T "
+             "diag(W, W) q + 2|g|^2 + 2 g^T F_E g, so q = 0 is its only critical point with h* = 0, Hessian diag(W, W), "
+             "M_s^-1 diag(W, W) = 4 I10 and a vanishing source-bath cross block; the static dressing graph q -> (x(q), "
+             "h*(q)) has metric M_s + Z0 J_g^T J_g with Z0 = 41598/41209, the dressed zero pole's norm, not M_s + J_g^T "
+             "J_g; the pullback metric's Christoffel term is 2 J_g^T g(v), and layer 4's native equations are the theta = "
+             "0 case with the same term",
+             ("canon_flower_pullback", "flower_source"), T,
+             "iota, theta = 1 and the six-section E6 containing q0 (flower_sections): CONDITIONAL; R5 = R7, the native "
+             "system against the pullback: CONDITIONAL (LEDGER section II.4; W_p against I and the ball bath against the "
+             "comparator differ)", CN),
+)
+
+# the recorded selections of the one action: (tag, the model function that fixes or records it, what it is); the first
+# ten are bind_selections' table, then the instance, the cone point and the datum F (the critique's M7)
+ONE_SELECTIONS = (
+    ("theta", "flower_homotopy", "the convex family K_theta = (1 - theta) H + theta K19 at the note's five theta"),
+    ("eps", "schur_zero_mode", "eps = 1 on the root-site instance (master_response's regulator)"),
+    ("alpha", "schur_zero_mode", "the admissible S_alpha at alpha = 1 (chiral_closures' F19 = D19^2 symbolic in alpha)"),
+    ("the mark", "mgm_marks", "the twelve Golden marks, their zero lines and their average"),
+    ("J", "schur_zero_mode", "J19 into the 45-channel section (master_readout's J15 and the dark four)"),
+    ("W_p", "literal_port", "the owner's W_p in boundary order"),
+    ("the adapter", "literal_port", "the reconstructed port up to a commutant element (parent_readers' marked adapter)"),
+    ("iota", "canon_flower_pullback", "the cycles' inclusion into the edge block of R^19, an isometry on L6"),
+    ("the parity", "zero_pole_parity", "the D10 parity of the zero-mode line against the golden time line"),
+    ("the readout", "master_readout", "the 45 channels and D45 = (2117, 967^8, 389^26, 127^6, 83^4)"),
+    ("the instance", "master_response", "ROOT (the 240-root shell with the 15 bond atoms), BALL r2 = 8 or COMP (the "
+                                        "90-channel comparator): act_native, flower_homotopy"),
+    ("the cone point", "brg_bonds", "the origin x0 under the bond bridge w, the site W_p's corner 2/5 singles out and "
+                                    "boundary_rotation fixes"),
+    ("the datum F", "act_no_reduction", "the datum put into V := F - S_eps^-1; Schur_J(K_1) = F for every F, so F = D^2 "
+                                        "is data, not a reduction of the bath"),
+)
+
+# the dots with no held map (THEOREM, SELECTED_REFERENCE or CONDITIONAL) to the one action or the one spectrum, nor to a
+# dot that has one, with the reason (the critique's M7; computed from the joins, then recorded)
+ONE_NONE = (
+    ("memory", "the memory clock's held maps go to the circle, the 27-clock, the grain, the vortex, the time clock and the "
+               "miss set (memory_clock, memory_quotients, join_c27_memory, join_grain_memory, join_memory_miss), none of which "
+               "is one held map from the one action or the one spectrum, and it meets the seed only by obstructions "
+               "(join_e8_memory, memory_not_seed): three joins from the action, through the circle and the seed"),
+)
+
+# the ten D19 joins moved from the triple onto the chiral completion (the critique's M4): (label, check)
+M4_JOINS = (
+    ("the chiral floor and its completion", "chiral_closures"), ("the one alpha-free ratio", "video_ten_chiral"),
+    ("the chiral source's floor", "deep_zero_pole"), ("the convex chiral homotopy", "flower_homotopy"),
+    ("the relative heat of the chiral completion", "usm_relheat_comparator"), ("the spine's cubic moment", "usm_spine_cubic"),
+    ("the pullback's vacuum misses the chiral zero", "canon_flower_pullback"), ("no golden-to-Hodge intertwiner", "ff5_intertwiner"),
+    ("the averaged Golden stiffness", "mgm_marks"), ("the averaged chiral completion", "mgm_dirac20"),
+)
+
 
 def _theorem_graph(held):
     adj = {d: set() for d in dots.DOTS}
@@ -397,7 +507,7 @@ def _bfs(adj, s):
 
 
 def star(held=None):
-    """Every dot joined directly to the seed (1 Nov, "join all dots"): each of the other 72 dots has a direct join to
+    """Every dot joined directly to the seed (1 Nov, "join all dots"): each of the other 75 dots has a direct join to
     E8 whose check holds, by THEOREM for all but six: the memory clock (an obstruction), the owner's
     operand file and the fifteen words (selected references) and the three dots that need a binding (conditional). held: check name -> bool,
     from dots.check_results() when None."""
@@ -418,18 +528,74 @@ def star(held=None):
         "by an OBSTRUCTION; the owner's operand file and the fifteen words (E8 fixes "
         "their frames, not which digit goes where) by SELECTED_REFERENCES; and the calibration, the product geometry "
         "and FLRW by CONDITIONAL joins that name the binding still missing":
-            all(direct[d] for d in others) and len(others) == 72 and len(theorem) == 66
+            all(direct[d] for d in others) and len(others) == 75 and len(theorem) == 69
             and rest == sorted(STAR_OBSTRUCTED + STAR_SELECTED + STAR_CONDITIONAL)
             and all(OB in direct[d] for d in STAR_OBSTRUCTED) and all(SR in direct[d] for d in STAR_SELECTED)
             and all(gates.CONDITIONAL in direct[d] for d in STAR_CONDITIONAL) and {T, OB} <= direct["torus"],
-        "so the THEOREM joins make a star at the seed: 66 dots one join from E8, and the memory clock, "
+        "so the THEOREM joins make a star at the seed: 69 dots one join from E8, and the memory clock, "
         "the operand file, the words and the calibration two (the seed's eccentricity in the THEOREM graph is 2)":
             all(dist[d] == 1 for d in theorem)
             and sorted(d for d in dist if dist[d] == 2) == sorted(STAR_OBSTRUCTED + STAR_SELECTED + ("calibration",))
             and ecc[SEED] == 2,
-        f"the THEOREM joins reach {len(reach)} of the 73 dots, any two of them at most {max(ecc.values())} joins apart "
+        f"the THEOREM joins reach {len(reach)} of the 76 dots, any two of them at most {max(ecc.values())} joins apart "
         "(the diameter), and the product geometry and FLRW meet the seed only through CONDITIONAL joins":
-            len(reach) == 71 and max(ecc.values()) == 3 and "gravity" not in dist and "cosmology" not in dist,
+            len(reach) == 74 and max(ecc.values()) == 3 and "gravity" not in dist and "cosmology" not in dist,
+    }
+
+
+def one_partition(held):
+    """The three-way partition of the other dots by their held maps (THEOREM, SELECTED_REFERENCE or CONDITIONAL) to
+    the one action or the one spectrum: direct, through one held map to a direct dot, or none."""
+    one = {"action", "spectrum"}
+    ok = lambda j: j[4] in (T, SR, CN) and held[j[5]]
+    direct = {d for j in dots.JOINS if ok(j) for d in j[:2] if d not in one and set(j[:2]) & one}
+    via = {}
+    for j in dots.JOINS:
+        if ok(j):
+            for x, y in ((j[0], j[1]), (j[1], j[0])):
+                if x not in one and x not in direct and y in direct:
+                    via.setdefault(x, (y, j[2], j[5]))
+    none = sorted(d for d in dots.DOTS if d not in one and d not in direct and d not in via)
+    return sorted(direct), via, none
+
+
+def one_model(held=None):
+    """The one action and the one spectrum (6 Nov): the three dots' classification, the relations of ONE_RELATIONS, the
+    M4 re-pointing, the gates and the partition of the dots by their routes to the one action or the one spectrum.
+    held: check name -> bool, from dots.check_results() when None."""
+    held = _held() if held is None else held
+    depth = {d: len(_root(d, DERIVATION)[1]) - 1 for d in DERIVATION}
+    e8 = {d: _join(SEED, d, ck) for d, ck in (("action", "brg_bonds"), ("spectrum", "usm_bulk_heat"),
+                                              ("chiral", "spc_penrose_chiral"))}
+    m4 = {lc: [j for j in dots.JOINS if (j[2], j[5]) == lc] for lc in M4_JOINS}
+    tdeg = Counter(x for j in dots.JOINS if j[4] == T and held[j[5]] for x in j[:2])
+    direct, via, none = one_partition(held)
+    others = [d for d in dots.DOTS if d not in ("action", "spectrum")]
+    return {
+        "the three dots: action is a canon input meeting source at act_native, spectrum is built from it by spc_oneloop, "
+        "chiral is derived from the carrier by chiral_closures at depth 6, and each has a direct THEOREM join to E8 whose "
+        "check holds (brg_bonds, usm_bulk_heat, spc_penrose_chiral)":
+            INPUTS["action"][1:] == ("source", "act_native") and FROM_INPUTS["spectrum"] == ("action", "spc_oneloop")
+            and DERIVATION["chiral"] == ("carrier", "chiral_closures") and depth["chiral"] == 6
+            and all(j is not None and j[4] == T and held[j[5]] for j in e8.values()),
+        "every row of ONE_RELATIONS holds with its recorded status: each named check is held, the identity is THEOREM, "
+        "and each selection carries CONDITIONAL or SELECTED_REFERENCE, so no selection is promoted":
+            all(held[c] for r in ONE_RELATIONS for c in r.checks)
+            and all(r.identity_status == T and r.selection_status in (CN, SR) for r in ONE_RELATIONS),
+        "the ten D19 joins sit on the chiral completion (M4), and the triple still lies on at least three THEOREM maps":
+            all(len(js) == 1 and "chiral" in js[0][:2] and "triple" not in js[0][:2] for js in m4.values())
+            and tdeg["triple"] >= 3,
+        "the one action is a family and the gates stand: TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED, with "
+        "onemodel_gates and bind_selections held":
+            gates.GATES["TIME_BIND"] == "UNBOUND" and gates.GATES["DYN_BIND"] == "NOT_INSTALLED"
+            and held["onemodel_gates"] and held["bind_selections"],
+        "every dot is joined to the one action or the one spectrum directly by a held map, or through one held map to "
+        "a dot that is, or lies in ONE_NONE with its reason":
+            sorted(list(direct) + list(via) + none) == sorted(others) and len(direct) + len(via) + len(none) == len(others)
+            and none == sorted(d for d, _ in ONE_NONE),
+        "the recorded selections of the one action (ONE_SELECTIONS: theta, eps, alpha, the mark, J, W_p, the adapter, "
+        "iota, the parity, the readout, the instance, the cone point and the datum F) each name a held model function":
+            all(f in held and held[f] for _, f, _ in ONE_SELECTIONS) and len(ONE_SELECTIONS) == 13,
     }
 
 
@@ -447,6 +613,7 @@ def uniqueness(results=None):
     get = (lambda k: results[k]) if results is not None else (lambda k: getattr(dots, k)())
     frame, datum, lit, words, air = (get(k) for k in ("sm_frame", "datum_frame", "literal_chart", "word_frames",
                                                       "air801_classes"))
+    chi, marks, d20 = (get(k) for k in ("chiral_closures", "mgm_marks", "mgm_dirac20"))
     return {
         "the seed has no parameters: E8 is the only even unimodular lattice of rank 8 (cited), and the Coxeter element "
         "c' is a conjugate w c w^-1 of c = s1 ... s8 (layer 19's w)":
@@ -499,6 +666,12 @@ def uniqueness(results=None):
         "generators d^k only k = 1, 5 give it; its integers are external (det 12402, discriminant 968473 of narrow class "
         "number 4, one class per genus)":
             all(air.values()),
+        "the chiral completion is not a unique derived object (the critique's O6): it needs a mark, one of the twelve "
+        "Golden five-cycles over the six order-five subgroups, each with its own zero line (mgm_marks), and a stiffness "
+        "alpha that no dot fixes (chiral_closures, symbolic in alpha), and the S5-averaged D20 with five auxiliaries, "
+        "nullity 0 and index 0 (mgm_dirac20) is a second completion of the averaged stiffness: the mark and alpha are "
+        "recorded selections":
+            all(chi.values()) and all(marks.values()) and all(d20.values()),
     }
 
 
@@ -639,8 +812,10 @@ def unified_page():
         for j in dots.JOINS:
             if {j[0], j[1]} == {SEED, d} and j[4] in (T, OB):
                 lines.append(f"| {name(d)} | {depth.get(d, 'input')} | {j[2]} ({j[4]}) | `{j[5]}` |")
+    others = [d for d in D if d != SEED]
+    by_theorem = sum(1 for d in others if any({j[0], j[1]} == {SEED, d} and j[4] == T for j in dots.JOINS))
     lines += ["", "## Every dot one join from the seed (1 Nov)", "",
-              "Each of the other 72 dots has a direct checked join to E8 (`star`): 66 by THEOREM, the "
+              f"Each of the other {len(others)} dots has a direct checked join to E8 (`star`): {by_theorem} by THEOREM, the "
               "memory clock by an obstruction, the owner's operand file and the fifteen words by selected references, and the calibration, the "
               "product geometry and FLRW by conditional joins that name the binding still missing. In the THEOREM graph "
               "the seed has eccentricity 2.", "", "| level | dot | its direct join to E8 | status | check |",
@@ -652,6 +827,26 @@ def unified_page():
             for j in dots.JOINS:
                 if {j[0], j[1]} == {SEED, d}:
                     lines.append(f"| {lv} | {name(d)} | {j[2]} | {j[4]} | `{j[5]}` |")
+    lines += ["", "## The one action and the one spectrum (6 Nov)", "",
+              "Three dots carry the Lagrangian and the spectral side (`one_model`). The one action, the declared native action "
+              "with its port multiplier and the reference completion K_θ = H + θ(ε + J V Jᵀ), is a canon input: a family whose "
+              "selections are recorded (θ, ε, α, the mark, the instance, J, Π, ι, the unit of M_s, W_p, the adapter, the "
+              "datum F), meeting the source at `act_native`. The one spectrum, the vacuum Hessian 4M_s ⊕ K_θ with its "
+              "spectral functionals, is built from the action (`spc_oneloop`: the one loop is the spectral action). The "
+              "chiral completion D19 is derived from the carrier (`chiral_closures`, depth 6), and the ten D19 joins sit on "
+              "it rather than on the fifteen-dimensional triple. Each of the three has a direct THEOREM join to E8. Every "
+              "relation below names its J (cone-J15 = `master_response`'s 15 bond roots; J19 = cone-J15 plus the "
+              "auxiliaries e_i + e_6; COMP-J19 = the first 19 channels of `bridge_comparator`'s comparator); its identity "
+              "is THEOREM and its selections stay CONDITIONAL or SELECTED_REFERENCE.", "",
+              "| id | dot | relation | domain and J | identity | checks | identity status | selection | selection status |",
+              "|---|---|---|---|---|---|---|---|---|"]
+    cell = lambda x: x.replace("|", "\\|")
+    for r in ONE_RELATIONS:
+        lines.append(f"| {r.id} | {name(r.dot)} | {cell(r.relation)} | {cell(r.domain)} | {cell(r.identity)} | "
+                     + ", ".join(f"`{c}`" for c in r.checks) + f" | {r.identity_status} | {cell(r.selection)} | {r.selection_status} |")
+    lines += ["", "The recorded selections (`ONE_SELECTIONS`): " + "; ".join(f"{t} (`{f}`: {w})" for t, f, w in ONE_SELECTIONS)
+              + ".", "", "Dots with no held map to the one action or the one spectrum, nor to a dot that has one "
+              "(`ONE_NONE`): " + "; ".join(f"{name(d)}: {why}" for d, why in ONE_NONE) + "."]
     lines += ["", "## The canon's inputs", "", "| input | what the canon supplies | it meets | status | why it stays an input |",
               "|---|---|---|---|---|"]
     for d, (what, m, ck) in INPUTS.items():
@@ -679,6 +874,8 @@ def run():
     for name, ok in deepest_dots(held).items():
         rep.add(name, T, ok)
     for name, ok in star(held).items():
+        rep.add(name, T, ok)
+    for name, ok in one_model(held).items():
         rep.add(name, T, ok)
     rep.add("cited: E8 is the unique even unimodular lattice of rank 8; Coxeter elements are conjugate; a transitive "
             "A5 on six points is the icosahedral action on the axes", gates.SELECTED_REFERENCE, True)

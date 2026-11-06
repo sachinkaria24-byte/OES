@@ -9568,6 +9568,9 @@ DOTS = {
     "regular": ("regular clocks", "the thirteen regular classes of W(E8), powers of c', d and v with characteristic polynomials Phi_d^(8/phi(d)) and centralizers of order prod_(d | d_i) d_i", "26"),
     "sun": ("sun's decad", "E8/(1 - s)E8 = F81 = F9^2 for the sun s = c'^10, with the form <x, (s - s^2) y> mod 3; its ten F9-lines pull back to ten 4A2 frames", "26, 27"),
     "principal": ("principal circle", "k -> k rho / 4320 in the momentum torus R^8 / E8, rho the Weyl vector; unique up to W(E8)", "28"),
+    "action": ("one action", "the declared native action with its port multiplier, L = (1/2) q'^T M_s q' - 2 q^T M_s q - (1/2) g^T W_p g + (1/2)|Phi'|^2 - (1/2)<Phi, Delta Phi> + <lambda, Pi^T Phi - g(q)> (theta = 0, layer 4), with the reference completion K_theta = H + theta (eps + J V J^T) (theta = 1 the reference, master_response; no term is added to the declared action): a family whose selections are recorded (canon input)", "4, 23"),
+    "spectrum": ("one spectrum", "the vacuum Hessian 4 M_s (+) K_theta of the one action and its spectral functionals: the one loop (1/2) log det(z + K), the heat trace, zeta, the moments, the relative spectral determinant and the spectral shift", "2, 6, 23"),
+    "chiral": ("chiral completion", "D19 on (5 + 4) + 10 with D19^2 = F19 = (D^2 + alpha L) (+) alpha S1 S1^T, nullity 1, index -1; N = [M; 0] at alpha = 0; the mark and alpha are selections", "2, 23"),
 }
 
 # the levels of the model, from the integers up: (name, what lives there, its dots)
@@ -9583,9 +9586,10 @@ LEVELS = [
       "principal", "icosians", "penrose"]),
     ("operator", "spaces with operators, ports and moments",
      ["carrier", "kerM", "datum", "source", "literal", "bath", "walks", "moments", "measure", "triangle", "sixsite",
-      "pauli", "gksl", "goldenport", "wedgeport", "darkport", "parent"]),
+      "pauli", "gksl", "goldenport", "wedgeport", "darkport", "parent", "action"]),
     ("physics", "geometry, readout, waves, binding and the conditional cosmos",
-     ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges", "assignment"]),
+     ["triple", "readout", "waves", "binding", "calibration", "gravity", "cosmology", "charges", "assignment",
+      "spectrum", "chiral"]),
 ]
 LEVEL_OF = {dot: k for k, (_, _, dots) in enumerate(LEVELS) for dot in dots}
 
@@ -10223,7 +10227,7 @@ JOINS = [
     ("E8", "clocks", "the heterotic normalization 30", "E8's adjoint trace is 30 times the vector trace of the SO(16) on its 112 integer roots, Tr_248 h^2 = 30 tr_16 h^2 = 60 |h|^2, and 30 = 240/8 is the order of the Coxeter clock c' (characteristic polynomial Phi_30), the same factor SO(32) has (n - 2 = 30); the exponents of c', the eight units mod 30, give the degrees 2, 8, 12, 14, 18, 20, 24, 30 (cited as the invariant degrees of W(E8)) with product 696729600 = |W(E8)| and exponent sum 120, the positive roots, and no degree 4 or 6, matching the quartic and sextic adjoint traces (Tr h^2)^2/100 and (Tr h^2)^3/7200 checked coefficient by coefficient (1 Nov)", T, "video_heterotic"),
     ("penrose", "icosians", "the Penrose scheme as the A4 slice of E8's golden projection", "the phi-eigenspace E2 + E2' of the golden companion X = -(g + g^-1) (characteristic polynomial (x^2 - x - 1)^4, orthogonal projector P = (X - (1 - phi))/sqrt5 of trace 4, injective on E8, with Galois conjugate I - P, so |x|^2 = |Px|^2 + sigma(|Px|^2)) carries E8's 240 roots onto two 600-cells: the 120 with alpha . g alpha = 0 at |P alpha|^2 = 1 - 1/sqrt5 and the 120 with alpha . g alpha = -1 at 1 + 1/sqrt5, every point seeing the 600-cell's cosines 1, phi/2, 1/2, 1/(2 phi), 0, ... exactly 1, 12, 20, 12, 30, 12, 20, 12, 1 times, X mapping the inner 120 onto the outer (P X = phi P; the 600-cell is named by this distance distribution, its uniqueness cited); X is an integer matrix, so E8 is a Z[phi]-module; the carrier's A4, kept by g, is X-stable with X there an integer 4 x 4 matrix of characteristic polynomial (x^2 - x - 1)^2, so P maps A4 onto a plane (trace 2), the Penrose plane E2 (penrose -> golden), its 10 near roots outer and its 10 far roots inner: the planar Penrose scheme (rank 4 into 2 dimensions over Q(sqrt5)) is the carrier's slice of E8's golden projection (rank 8 into 4), whose two 600-cells at ratio phi match in count and shape the icosian folding's roots = H4 u phi^-1 H4 (the two maps are not identified here) (1 Nov)", T, "video_lattices"),
     ("cube", "pauli", "the four-term correlator", "through the existing reading of the four-cube's vertices as four qubits (four_cube: vertex v is |v>, Z_k reads (-1)^(v_k)), the correlator ab + ab' + a'b - a'b' on the 16 vertices is the diagonal Pauli sum Z_1 Z_3 + Z_1 Z_4 + Z_2 Z_3 - Z_2 Z_4, entry by entry, with values +-2, 8 each, so its maximum there is 2; in the same real four-qubit Pauli algebra the correlator with A = Z_1, A' = X_1 and B, B' = (Z_2 +- X_2)/sqrt2 (symmetric involutions, the A's commuting with the B's) is sqrt2 (Z_1 Z_2 + X_1 X_2), with eigenvalues 2 sqrt2, 0, -2 sqrt2 four, eight and four times (2 sqrt2 at |00> + |11> on the first two qubits): the bound 2 on the cube's vertices and the value 2 sqrt2 on its qubits (optional; a mathematical reading, no physics claimed) (1 Nov)", T, "video_operators"),
-    ("kerM", "triple", "the chiral floor and its completion", "every odd Dirac on the triple's grading (5 vertices +, 10 edges -) has nullity >= 5 (the odd symmetric matrices are the 50 off-diagonal ones), while the golden stiffness K_alpha = D^2 + alpha diag(L_V, L_E) has one zero mode, q = pentagon minus pentagram in ker M, so no odd D on the 15 atoms squares to it; four positive auxiliaries spanned by the moving four of ker M (minimal: nullity >= |k+ - k- - 5| with the parity of the dimension) give D19 = [[0, N], [N^T, 0]], N = [C_alpha M; sqrt(alpha) S1], with D19^2 = K_alpha + alpha S1 S1^T identically in alpha (auxiliary eigenvalues alpha lam+-, twice each), nullity 1 on q and index -1 against the triple's -5 (the separate model's chiral completion, 2 Nov)", T, "chiral_closures"),
+    ("kerM", "chiral", "the chiral floor and its completion", "every odd Dirac on the triple's grading (5 vertices +, 10 edges -) has nullity >= 5 (the odd symmetric matrices are the 50 off-diagonal ones), while the golden stiffness K_alpha = D^2 + alpha diag(L_V, L_E) has one zero mode, q = pentagon minus pentagram in ker M, so no odd D on the 15 atoms squares to it; four positive auxiliaries spanned by the moving four of ker M (minimal: nullity >= |k+ - k- - 5| with the parity of the dimension) give D19 = [[0, N], [N^T, 0]], N = [C_alpha M; sqrt(alpha) S1], with D19^2 = K_alpha + alpha S1 S1^T identically in alpha (auxiliary eigenvalues alpha lam+-, twice each), nullity 1 on q and index -1 against the triple's -5 (the separate model's chiral completion, 2 Nov)", T, "chiral_closures"),
     ("golden", "carrier", "the golden stiffness", "lam+- = (5 +- sqrt5)/2 = sqrt5 phi^(+-1), the eigenvalues of B^2 + I = [[3, 1], [1, 2]] (x^2 - 5x + 5), are the moving eigenvalues of the tick's cycle Laplacians L = 2I - U - U^-1 on the vertices and the edges; L commutes with D and K_alpha = D^2 + alpha L has characteristic polynomial x (x - 8)^2 (x^2 - 5 alpha x + 5 alpha^2)^2 ((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^4: the golden quadratic scaled by alpha on ker M and shifted by the carrier's 3 on the bright modes, with one zero mode for alpha > 0, whose vertex matrix A(q) is minus the golden gram (2 Nov)", T, "chiral_closures"),
     ("kerM", "source", "the zero-mode wedge", "x -> Pi_D(x ^ q)/2, the dark part of the source bivector of a zero mode x with the fixed mode q, is an isometry (X^T G2 X = 4 G P_moving) from the moving four of ker M, the chiral auxiliaries' row space, onto the source's dark four ker W_AS (character sign(p)(fix(p) - 1)); it commutes with D5, the symmetry of the golden stiffness and of D19, and anticommutes with the doubling; the C5 intertwiners form a 4-dimensional space (the note's free Fourier phases), the D5 ones a 2-dimensional space, so under D5 the note's selected isometry is fixed up to two signs and the wedge gives one (2 Nov)", T, "chiral_dark"),
     ("AGL", "carrier", "the doubling as Galois conjugation", "all twenty affine maps keep D^2, but only D5 (the rotations and i -> -i) keeps the golden stiffness: the doubling i -> 2i takes L_V to 5I - J - L_V and L to 5(I - Pi_C5) - L on the 15 atoms, exchanging the lam- and lam+ spectral projectors (sqrt5 -> -sqrt5), so it carries K_alpha to its Galois conjugate; ker M is S5-irreducible ([3, 2]), so the auxiliaries' moving four is F20-stable and not S5-stable (2 Nov)", T, "chiral_dark"),
@@ -10252,7 +10256,7 @@ JOINS = [
     ("clocks", "observer", "two lifts of the observer step", "the day d (order 24) and the golden clock v (order 20) meet only in {I, -I}, v^10 = d^12 = -I, and their step maps d^j -> 180 j and v^j -> 216 j agree there, both sending -I to the half-turn 2160; on the circle their step subgroups meet in the whole observer clock <1080> = <180> n <216> (spine.meet(180, 216) = 1080), whose generator 1080 = 6 x 180 = 5 x 216 has the two lifts d^6 and v^5: the same characteristic polynomial (x^2 + 1)^4, different elements of W(E8), so the circle's meeting of the flash and the golden step is not a meeting of their clocks (the canon's W0 / Spanda / Firefly note, 2 Nov)", T, "w0_firefly"),
     ("bath", "readout", "the defect's ceiling", "for an isometric readout Y of a stiffness K >= 0 (moments A_n = Y^T K^n Y) the wave-memory defect L(u) = (Q cos(u sqrt K) Y)^T (Q cos(u sqrt K) Y) satisfies I - L(u) = (sin(u sqrt K) Y)^T (sin(u sqrt K) Y) + C(u)^T C(u), C(u) = Y^T cos(u sqrt K) Y (checked as power series through u^10 in noncommuting moments; for every u it is Y^T (cos^2 + sin^2)(u sqrt K) Y = I with Q = I - Y Y^T, not computed), so 0 <= L(u) <= I at every u: on the bath's 45 channels tr L(u) <= 45 and on the mass channel L_mm(u) <= 1, while the leading laws 21061 u^4/4 and 2117 u^4/4 pass those ceilings at u = (180/21061)^(1/4), in (0.3040, 0.3041), and u = (4/2117)^(1/4), in (0.2084, 0.2085): the quartic law is a short-time law only (the ten-video review, 2 Nov)", T, "video_ten_defect"),
     ("bath", "readout", "the first-order cubic term", "for K = H + eps I + Y R V R^T Y^T the compressed mismatch Y^T (K Q H - H Q K) Y vanishes identically (Q K Y = Q H Y, chiral_time's source-update invariance; generic symmetric 4 x 4 H, symbolic); on a two-channel instance with block-scalar Y^T H Y and hidden coupling D = diag(beta1^2, beta2^2) the first-order twin I - F^* F, F = Y^T exp(-i theta K) Y, has theta^2 coefficient D and theta^3 coefficient (i/2)[A_1, A_2] = (i/2)[V, D], off-diagonal -(i/2) v1 (beta1^2 - beta2^2); on the 45 channels, whose hidden variances 2117, 967, 389, 127, 83 are distinct, d_j - d_i vanishes exactly on the 793 pairs inside one channel group, so the theta^3 term (i/2)[V', D45] is zero exactly when the compressed source V' has no entries between different groups (zero for the undressed bath, onemodel_closures) (the ten-video review, 2 Nov)", T, "video_ten_reduction"),
-    ("triple", "golden", "the one alpha-free ratio", "the 19-dimensional chiral Dirac D19 (chiral_closures) has characteristic polynomial x (x^2 - 8)(x^4 - 5 alpha x^2 + 5 alpha^2)^2 ((x^2 - 3)^2 - 5 alpha (x^2 - 3) + 5 alpha^2)^2, the odd monic square root of its square's, so for every alpha > 0 its singular values are 0, sqrt(alpha lam-)^4, sqrt(alpha lam+)^4, sqrt(3 + alpha lam-)^4, sqrt(3 + alpha lam+)^4 and sqrt8^2; of the ten ratios among the five distinct nonzero ones exactly one does not move with alpha, sqrt(lam+/lam-) = phi, the golden companion's eigenvalue (lam+- = sqrt5 phi^(+-1), chiral_closures); the other nine depend on the free coupling alpha, so their agreements with outside numbers are readings, not joins (2 Nov)", T, "video_ten_chiral"),
+    ("chiral", "golden", "the one alpha-free ratio", "the 19-dimensional chiral Dirac D19 (chiral_closures) has characteristic polynomial x (x^2 - 8)(x^4 - 5 alpha x^2 + 5 alpha^2)^2 ((x^2 - 3)^2 - 5 alpha (x^2 - 3) + 5 alpha^2)^2, the odd monic square root of its square's, so for every alpha > 0 its singular values are 0, sqrt(alpha lam-)^4, sqrt(alpha lam+)^4, sqrt(3 + alpha lam-)^4, sqrt(3 + alpha lam+)^4 and sqrt8^2; of the ten ratios among the five distinct nonzero ones exactly one does not move with alpha, sqrt(lam+/lam-) = phi, the golden companion's eigenvalue (lam+- = sqrt5 phi^(+-1), chiral_closures); the other nine depend on the free coupling alpha, so their agreements with outside numbers are readings, not joins (2 Nov)", T, "video_ten_chiral"),
     ("penrose", "V", "the golden gram's two signs", "on the vertex space the golden gram of the five-cycle, Gamma(U) = (U^2 + U^3) - (U + U^4), is sqrt5 (P2 - P1), with P1 and P2 the projectors onto the Penrose planes E1 (where U turns by 72 degrees, U + U^-1 = phi - 1) and E2 (144 degrees, U + U^-1 = -phi): -sqrt5 on E1, +sqrt5 on E2 and 0 on the constants, so the spectrum 0, +-sqrt5 of the golden gram on every five-cycle (notes_2137) is the Penrose splitting with a sign on each plane (2 Nov)", T, "video_ten_mandala"),
     ("bath", "readout", "the defect's hidden moments to M2", "in noncommuting blocks A = Y^T K Y, B = Y^T K Q, C = Q K Q the wave-memory defect L(u) = (I + C(2u))/2 - C(u)^2 has u^4 coefficient D/4, u^6 coefficient -(A D + D A + 2 M1)/48 and u^8 coefficient M2/320 + 7 (A M1 + M1 A)/2880 + (A^2 D + D A^2)/1440 + A D A/576 + D^2/720 (D = B B^T, M1 = B C B^T, M2 = B C^2 B^T): C''''(0) - C''(0)^2 = D, M1 = -L^(6)(0)/30 - (A D + D A)/2 and L^(8)(0) = 126 M2 + terms in A, D, M1, and a source update A -> A + V inside the observer changes the visible moments but returns the same D, M1 and M2 (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", T, "deep_wave_memory"),
     ("sixsite", "bath", "the port's Krylov reach", "on the root-site instance the six-site port's 15 bond roots span Krylov spaces of dimension 15, 30, 45, 51, 51 under H_R = 240 I - B_R, and the same spaces under the source update K = H_R + Y V Y^T (V = D^2, exact ranks over Q), stable from depth 3: a source update inside the observer leaves its whole 51-dimensional Krylov reach unchanged at every depth (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", T, "deep_wave_memory"),
@@ -10260,7 +10264,7 @@ JOINS = [
     ("bath", "readout", "bath-induced softening", "Theorem 4, sqrt(Y^T K Y) - Y^T sqrt(K) Y >= d/(8 M^(3/2)) I for 0 <= K <= M and Y^T K Q K Y >= d: its scalar ingredients are exact (sqrt(lambda) = (1/pi) int sqrt z (1/z - 1/(z + lambda)) dz, int_0^oo sqrt z/(z + M)^3 dz = pi/(8 M^(3/2)), t/(1 - t) - t = t^2/(1 - t)), the operator steps are the note's; with d = 83 (D45's least eigenvalue) and M = 256 the bound is 83/32768; complete monotonicity (-1)^n Sigma^(n) = n! B (z + C)^-(n + 1) B^T and the positive-frequency polarization i a' = sqrt(k) a are checked symbolically (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", T, "deep_softening"),
     ("measure", "readout", "the comparator's softening", "on the 90 x 90 comparator H90 + eps I (bridge_comparator) the softening is diagonal, sqrt(a + eps) - (sqrt K)_11 per channel (sqrt of a 2 x 2 block in closed form), above 83/(8 (256 + eps)^(3/2)) for every channel at eps = 0 and 7 (outward-rounded intervals), least on the dark channel (243, 83); at eps = 7 the receipt's certified bound 0.002595814472536955 is 83/(8 M^(3/2)) with M = 7 + 443/2 + sqrt(2181)/2 the dark block's top, and its softening minimum 0.0028794513075120526 agrees with the undressed dark channel's value to 3 x 10^-14 (the receipt's 19-source dressing is not reconstructed); the positive-frequency leakage coefficient (sqrt K)_12^2 = v/(a + 200 + 2 sqrt(200 a - v)) (2.79 to 0.094) is not the variance v (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", SR, "deep_softening"),
     ("kerM", "bath", "the dressed pole residue", "Theorems 5 and 6 on generic blocks: K = T^T diag(F, C) T with T = [[I, 0], [C^-1 B^T, I]], ker K the lift (q0, -C^-1 B^T q0) of ker F, S_K(z)^-1 = F + z [I + B C^-1 (z + C)^-1 B^T] and z S_K(z) -> q0 q0^T/Z0, Z0 = 1 + |C^-1 B^T q0|^2 (symbolic); on the root-site instance (schur_zero_mode) the note's gap argument gives at least 99/100 (|B|_F^2 = 944 visible-hidden root adjacencies, C_eps >= 185 by Gershgorin, lam- > 69/50) against the general formula's 1/66049 (the gap itself, in (1.3808, 1.3809), is the zero-pole note's replay, zero_pole_instance); the receipt's comparator Z0 = 1.0090783915610633 and residue 0.9910032841482029 are 43238/42849 = 1 + 389/207^2 and its inverse; a real C5-invariant line is fixed (s^5 = 1 with s = +-1 forces s = 1) (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", T, "deep_zero_pole"),
-    ("golden", "triple", "the chiral source's floor", "the 19-dimensional source stiffness F19 = D19^2 (spectrum 0, (alpha lam-)^4, (alpha lam+)^4, (3 + alpha lam-)^4, (3 + alpha lam+)^4, 8^2, lam+- = (5 +- sqrt5)/2: video_ten_chiral, from chiral_closures' factors) has trace 40 + 40 alpha (its characteristic polynomial's x^18 coefficient) and least positive eigenvalue m = min(alpha lam-, 8), the floor in the dressed gap; at alpha = 6/5 the polynomial's roots are 0, 3 -+ 3 sqrt5/5, 6 -+ 3 sqrt5/5 (four each) and 8 (twice), and the receipt's 19 eigenvalues lie within 10^-13 of them (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", T, "deep_zero_pole"),
+    ("golden", "chiral", "the chiral source's floor", "the 19-dimensional source stiffness F19 = D19^2 (spectrum 0, (alpha lam-)^4, (alpha lam+)^4, (3 + alpha lam-)^4, (3 + alpha lam+)^4, 8^2, lam+- = (5 +- sqrt5)/2: video_ten_chiral, from chiral_closures' factors) has trace 40 + 40 alpha (its characteristic polynomial's x^18 coefficient) and least positive eigenvalue m = min(alpha lam-, 8), the floor in the dressed gap; at alpha = 6/5 the polynomial's roots are 0, 3 -+ 3 sqrt5/5, 6 -+ 3 sqrt5/5 (four each) and 8 (twice), and the receipt's 19 eigenvalues lie within 10^-13 of them (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", T, "deep_zero_pole"),
     ("halfper", "bath", "every root half-period saddles", "for every one of the 240 roots r0, 112 roots have r0.s odd, sum_odd s s^T = 24 I + 16 r0 r0^T, and at r0/2 the band is 224 with vanishing gradient and (2 pi)^-2 Hess = 12 I - 32 r0 r0^T, spectrum -52, 12^7: every root half-period r0/2 (the 120 norm-2 classes of notes_0255) is an index-one saddle at 224 (notes_0255 and band_closures check one root, notes_0255 and gksl_census the value 224 on all 120 classes); the receipt's 24 I + 32 v v^T and 12 I - 64 v v^T are these with v = r0/sqrt2 (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", T, "deep_saddles"),
     ("bath", "calibration", "the effective wave speed", "if a physical five-dimensional reduction exists (not constructed), the wave partial_u^2 + H, of leading symbol sum_s (p.s)^2/2 = 30|p|^2, read with p = ell k and u = t/rho, carries plane waves at c_eff = sqrt30 ell/rho (checked: f_tt = c^2 f_XX; a change of units); neither ell nor rho is fixed internally, and a real spatial pullback of 30 I8 is positive semidefinite (30 |iota x|^2), so the (5, 1) sign comes only from the time derivative (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", gates.CONDITIONAL, "deep_saddles"),
     ("A4", "golden", "no five-fold plane lattice", "2 cos(2 pi/5) = (sqrt5 - 1)/2, a root of x^2 + x - 1, is irrational and Phi5 is irreducible of degree 4, so no integer 2 x 2 matrix has order 5 (the orders with phi(n) <= 2 are 1, 2, 3, 4, 6): a five-fold lattice rotation needs rank 4, as the A4 five-cycle has; the golden C5 plane is not a periodic planar lattice (the separate model's deep-unification master, filed 2 Nov 00:21 UTC)", OB, "deep_saddles"),
@@ -10319,7 +10323,7 @@ JOINS = [
     ("AGL", "rotor", "the F20-invariant coupling", "C = G5 (x) R on the five vertices and the rotor plane (R = [[2, -1], [-1, -2]], Curl on the near and far cycles) has spectrum -5 (four times), 0 (twice), 5 (four times), so kappa I + gamma C >= 0 exactly when kappa >= 5|gamma| (> 0 when >); it commutes with P_p (x) rho(p) for all 20 elements of F20 (rho the signed action on the near and far cycles), while the ten with m = 2, 3 negate G5 and R separately; among couplings G (x) R with G symmetric the F20-invariant ones are exactly the multiples of G5 (the separate model's open-item closures (OES_OPEN_ITEMS_EXACT_CLOSURES_20261102.md, filed 2 Nov 02:05 UTC, with oes_open_items_exact_receipt_20261102.json), Closure D; a selected reference stiffness, not a derived action) (2 Nov)", T, "open_golden_coupling"),
     ("golden", "bath", "the dressed golden levels", "on schur_zero_mode's root-site instance at eps = 0 the regulator-free threshold action K0 = H_R + J (F19 - S0^-1) J^T (multipole_k0_threshold's) has, by exact inertia of its source Schur complement F19 - S0^-1 + G(-g)^-1 (C >= 184; zero_pole_instance's method, there at eps = 1), an isolated zero, gap in (1.380839, 1.38084), exactly four eigenvalues in (1.380839, 1.3819) below lam- = (5 - sqrt5)/2 and four in (3.6079, 3.618) below lam+ = (5 + sqrt5)/2: F19's golden quadruplets lam-^4, lam+^4 (the eigenvalues of B^2 + I, B the golden companion; chiral_closures), lowered by the bath by less than 0.0012 and 0.011; the note's kinetic metric M0 = S0^-1 T0 S0^-1 is I + W0^T W0, the Gram matrix of the 19 lifts H_R^-1 J S0^-1 (zero_pole_instance's Z = I + W^T W, at eps = 0), with spectrum in (1 + 1/5500, 1 + 1/131); exact on this finite instance, whose zero is gapped, while the infinite lattice's K0 has essential spectrum [0, 256] and no gap (analytic, not computed) (the separate model's single-action threshold note (OES_SINGLE_ACTION_THRESHOLD_UNIFICATION_20261102.md, filed 2 Nov 02:18 UTC, sections 3-4) (2 Nov)", T, "threshold_action"),
     ("bath", "readout", "five faces of one D", "the heat, unitary, erasure, wave and resolvent readouts of an observer Y of a symmetric K all start from one matrix D = Y^T K Q K Y = B B^T: in noncommuting blocks, coefficientwise through total order 4, F(t + s) - F(t) F(s) = Y^T e^(-tK) Q e^(-sK) Y (the heat face, which the grand join had stated but not replayed), its two-time unitary form and the two-time wave double-angle defect (C(t + s) + C(t - s))/2 - C(t) C(s) hold with leading terms + ts D, - ts D and + t^2 s^2 D/4, and Y^T (z + K)^-1 Y has inverse z + A - D/z + B C B^T/z^2 - B C^2 B^T/z^3 + ...; the erasure I - F*F = (Q U Y)*(Q U Y) with leading t^2 D is chiral_time's and onemodel_closures' (cited); on master_readout's 45 channels of the bath D is D45 with trace 21061 and tr D45^2 = 16021077, and on the six-site port's 15 bond roots it has trace 760 (bridge_unitary_port's, cited) (the separate model's five-face join script (verify_five_face_join.py, filed 2 Nov 02:18 UTC, read as text, not run)) (2 Nov)", T, "threshold_five_faces"),
-    ("triple", "bath", "the convex chiral homotopy", "the 19-dimensional chiral source (F19 = D19^2 at alpha = 1 with schur_zero_mode's admissible auxiliary square) placed on the first 19 channels of bridge_comparator's 90D comparator H90 in D19's order (vertices on channels 0-4, auxiliaries on the linear channels 5-8, edges on the quadratic channels 9-18) and completed at eps = 3 by V19 = F19 + B C^-1 B^T - J^T H J - 3I = F19 - (J^T (H + 3)^-1 J)^-1 (negative definite) has zero-frequency Schur complement F19 on the source; the convex family K_theta = (1 - theta) H90 + theta K19 is positive semidefinite at theta = 0, 1/10, 1/2, 9/10, 1 with nullity 0, 0, 0, 0, 1 (exact inertia through the rational congruence D = diag(I45, sqrt v)), and its five-sector covariance Y^T K_theta Q K_theta Y is diag(2117, 967 I8, 389 I26, 127 I6, 83 I4) at the five theta (at every theta by chiral_time's Q K Y = Q H Y) (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, Theorem S1; 2 Nov)", T, "flower_homotopy"),
+    ("chiral", "bath", "the convex chiral homotopy", "the 19-dimensional chiral source (F19 = D19^2 at alpha = 1 with schur_zero_mode's admissible auxiliary square) placed on the first 19 channels of bridge_comparator's 90D comparator H90 in D19's order (vertices on channels 0-4, auxiliaries on the linear channels 5-8, edges on the quadratic channels 9-18) and completed at eps = 3 by V19 = F19 + B C^-1 B^T - J^T H J - 3I = F19 - (J^T (H + 3)^-1 J)^-1 (negative definite) has zero-frequency Schur complement F19 on the source; the convex family K_theta = (1 - theta) H90 + theta K19 is positive semidefinite at theta = 0, 1/10, 1/2, 9/10, 1 with nullity 0, 0, 0, 0, 1 (exact inertia through the rational congruence D = diag(I45, sqrt v)), and its five-sector covariance Y^T K_theta Q K_theta Y is diag(2117, 967 I8, 389 I26, 127 I6, 83 I4) at the five theta (at every theta by chiral_time's Q K Y = Q H Y) (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, Theorem S1; 2 Nov)", T, "flower_homotopy"),
     ("kerM", "bath", "one residue for both spines", "the zero mode q0 (pentagon minus pentagram, in ker M) dressed on that comparator: at eps = 3 the kernel vector (q0, -C^-1 B^T q0) of K19 has Z0 = 1 + 389/203^2 = 41598/41209 (the note's 1.0094396855 and 0.9906485889 to 10^-10; at eps = 7 deep_zero_pole's 1 + 389/207^2); the regulator-free spine K_rf = H90 + J (F19 - S0^-1) J^T, S0 = J^T H90^-1 J, is entry for entry the regulated completion at eps = 0, with the one zero mode H90^-1 J S0^-1 q0 and Z_rf = 1 + 389/200^2 = 40389/40000 = 1.009725 (weight 40000/40389, the note's 0.9903686647): on the comparator both residues are 1 + 389/(200 + eps)^2, at eps = 3 and at eps = 0 (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, section 3.2 and Theorem S1b; 2 Nov)", T, "flower_residues"),
     ("triple", "readout", "no Schur reduction on a blind six", "OBSTRUCTION: on the comparator (alpha = 1, eps = 3) the six-section of the first six coordinates in D19's 9 + 10 order (the five vertices and the first auxiliary) is orthogonal to q0, so the zero mode psi0 lies in its 84-dimensional complement and the complement block of K19 is singular (inertia 83 positive, 1 zero): no zero-frequency Schur reduction onto that six; with E6 = J19 on it, (q, h) = (0, t psi0) are static solutions, so Theorem S3's vacuum is not unique there; the first six in the K_alpha + S S^T order (the vertices and edge 01) meet q0 and their complement is positive definite (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, section 4.1 and Theorem S3; 2 Nov)", OB, "flower_sections"),
     ("triple", "readout", "the legal six and the auxiliary gap", "the six-section spanned by q0 and the five vertices has a positive definite complement in the comparator, and Schur_6(K19) = Schur_6(F19) exactly (6 x 6 rational, with the q0 direction in its kernel), the nested Schur identity; its least complement eigenvalue and K19's least positive eigenvalue both lie in (1.3500734237156, x-], x- the smaller root of x^2 - (lam- + 967/203 + 203) x + 203 lam- (lam- = (5 - sqrt5)/2) on the invariant auxiliary block [[diag(B2, B2) + (967/203) I, sqrt967 I], [sqrt967 I, 203 I]], with x- in (1.3500734237156, 1.3500734237157): the note's 1.3500734 is the auxiliaries' dressed gap on the linear channels, to 10^-13 (the canon staging integration, OES_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 02:29 UTC, section 4.1; 2 Nov)", T, "flower_sections"),
@@ -10329,11 +10333,11 @@ JOINS = [
     ("rootgraph", "bath", "the shell as a compression", "The root-site compression 240 I - B_R has the same diagonal at every root and per-site moments 240, 57656 = 240^2 + 56 and 13862808 = 240^3 + 3 x 240 x 56 - 1512, against the bath's 240, 57840, 13983360: the second moments differ by 184, the root steps that leave the shell, and the third by 120552, so the 240-root shell is a compression, not the operator (the unified spectral model and action (filed 2 Nov 03:01 UTC), section I; 2 Nov)", T, "usm_bulk_heat"),
     ("bath", "readout", "the relative heat hierarchy", "For a finite-rank update K = H + Y W Y^T inside an isometric observer Y, Theta_rel(t) = Tr(e^-tK - e^-tH) = sum_n (-1)^n Delta_n t^n/n!, and Delta_n = Tr(K^n - H^n) is a sum over cyclic words in H and X: Delta_1 = Tr W, Delta_2 = 2 Tr(W A) + Tr W^2, Delta_3 = 3 Tr[W (A^2 + D)] + 3 Tr(W^2 A) + Tr W^3, Delta_4 = 4 Tr[W (A^3 + A D + D A + M1)] + 4 Tr[W^2 (A^2 + D)] + 2 Tr(W A W A) + 4 Tr(W^3 A) + Tr W^4 (A = Y^T H Y, D = Y^T H Q H Y, M1 = Y^T H Q H Q H Y). At fixed W the t and t^2 coefficients do not see the bath coupling (a Schur-completed W itself depends on it, the note's caveat); the hidden covariance D first enters at t^3, as -Tr(W D)/2 (the note's 3 Tr(W D) in Delta_3), and is unchanged by a shift H + eps I; through t^8 the part linear in W is the series of -t Tr(W Y^T e^-tH Y) (generic symbolic instance and exact word counts; the unified spectral model and action (filed 2 Nov 03:01 UTC), eqs (24)-(27); 2 Nov)", T, "usm_relheat_words"),
     ("readout", "measure", "observed against global relative heat", "The observed relative heat Tr Y^T (e^-tK - e^-tH) Y differs from Theta_rel(t) by the hidden trace Tr Q (e^-tK - e^-tH) Q, whose coefficients Tr Q (K^n - H^n) Q are 0, 0, Tr(W D) and Tr(W (A D + D A)) + 2 Tr(W M1) + Tr(W^2 D) for n = 1..4: the two agree through t^2 and first differ at t^3, by -Tr(W D) t^3/6, so the observed trace sees two of the three Tr(W D) of Delta_3 (generic symbolic instance, and exactly on the 90D comparator; the unified spectral model and action (filed 2 Nov 03:01 UTC), eqs (24) and (30); 2 Nov)", T, "usm_relheat_words"),
-    ("triple", "bath", "the relative heat of the chiral completion", "On bridge_comparator's 90D comparator at eps = 3 with the chiral source F19 on its first 19 channels and the completion V19 = F19 - (J^T (H + 3)^-1 J)^-1 (flower_homotopy), the relative traces computed directly from the 90 x 90 matrices are Delta_1 = Tr V19 = -834188/203, Delta_2 = -39381365560/41209, Delta_3 = -1876763776116296/8365427 and Delta_4 = -91201900742411145656/1698181681, equal to the word formula with D = diag(2117, 967 I8, 389 I26, 127 I6, 83 I4) and M1 = 203 D; the bath's share of Delta_3 is 3 Tr(W D) = -1733059728/203; the receipt's four relative-heat floats are these to 10^-12 of their size; and |Theta_rel(t)| < t |Tr V19| <= t |V19|_1 at t = 10^-5 and 3 x 10^-5 with an exact remainder bound (the unified spectral model and action (filed 2 Nov 03:01 UTC) and its verification receipt, OES_UNIFIED_SPECTRAL_MODEL_VERIFICATION_20261102.json, filed 2 Nov 03:01 UTC; 2 Nov)", T, "usm_relheat_comparator"),
+    ("chiral", "bath", "the relative heat of the chiral completion", "On bridge_comparator's 90D comparator at eps = 3 with the chiral source F19 on its first 19 channels and the completion V19 = F19 - (J^T (H + 3)^-1 J)^-1 (flower_homotopy), the relative traces computed directly from the 90 x 90 matrices are Delta_1 = Tr V19 = -834188/203, Delta_2 = -39381365560/41209, Delta_3 = -1876763776116296/8365427 and Delta_4 = -91201900742411145656/1698181681, equal to the word formula with D = diag(2117, 967 I8, 389 I26, 127 I6, 83 I4) and M1 = 203 D; the bath's share of Delta_3 is 3 Tr(W D) = -1733059728/203; the receipt's four relative-heat floats are these to 10^-12 of their size; and |Theta_rel(t)| < t |Tr V19| <= t |V19|_1 at t = 10^-5 and 3 x 10^-5 with an exact remainder bound (the unified spectral model and action (filed 2 Nov 03:01 UTC) and its verification receipt, OES_UNIFIED_SPECTRAL_MODEL_VERIFICATION_20261102.json, filed 2 Nov 03:01 UTC; 2 Nov)", T, "usm_relheat_comparator"),
     ("measure", "bath", "the spectral determinant and the relative heat", "On the same comparator S_K(z)^-1 - S_0(z)^-1 = V19 holds as a series in 1/z through z^-7 and exactly at the receipt's frequencies z = 3/10, 2, 19, 85, where also Tr[(z + K)^-1 - (z + H + 3)^-1] = d/dz log det(I + V19 S_0(z)) and the spectral determinant det(I + V19 S_0(z)) = det(z + K)/det(z + H + 3) > 0; log det(I + V19 S_0(z)) = sum_m (-1)^(m + 1) Delta_m z^-m/m through z^-4 with the directly computed Delta_m, so its log-derivative is int_0^oo e^-zt Theta_rel(t) dt term by term: the Laplace image of the relative heat trace, whose z^-4 coefficient -Delta_3 carries the bath as -3 Tr(W D) (the unified spectral model and action (filed 2 Nov 03:01 UTC) and its verification receipt (filed 2 Nov 03:01 UTC), eqs (28)-(29); 2 Nov)", T, "usm_relheat_laplace"),
     ("carrier", "readout", "the doubled wave-Dirac", "On the carrier's K = D^2, sqrt K = sqrt3 P3 + 2 sqrt2 P8, and D_wave = [[0, i sqrt K], [-i sqrt K, 0]] is Hermitian, odd for diag(I, -I) and squares to diag(K, K) (the real form [[0, sqrt K], [sqrt K, 0]] is carried to it by the even unitary diag(I, iI)); e^(-iu D_wave) = e^(uG), G = [[0, sqrt K], [-sqrt K, 0]], carries Z = (sqrt K Phi, Phi') along the wave Phi'' + K Phi = 0 with |Z|^2 conserved, and a static kernel field has Z = 0, so the static kernel value must be carried separately (the unified spectral model and action (filed 2 Nov 03:01 UTC), eqs (14)-(15); 2 Nov)", T, "usm_wave_dirac"),
     ("triple", "carrier", "the wave-Dirac against the chiral index", "OBSTRUCTION: the doubled wave-Dirac has graded kernel ker K + ker K (5 and 5 on the carrier), index 0 and supertrace Tr Gamma e^(-t D_wave^2) = 0 for every t, and grand_fock's Hodge-middle D32 (kernel on grades 0, 1, 4, 5: 6 even, 6 odd) has index 0 too, while D19 has index -1; a graded unitary equivalence keeps graded kernel dimensions, so neither is gradedly equivalent to D19, as the note says. On finite instances the index is forced by rank-nullity to be the graded dimension difference (15 - 15, 16 - 16, 9 - 10), so there the obstruction is the graded dimension count (the verifier's own index check compares a number with itself; the unified spectral model and action (filed 2 Nov 03:01 UTC), sections II, IV and VIII; 2 Nov)", OB, "usm_wave_dirac"),
-    ("golden", "triple", "the spine's cubic moment", "With F19 = K_alpha + alpha S1 S1^T, Tr F19^3 = Tr D^6 + 3 alpha Tr(D^4 L) + 3 alpha^2 Tr(D^2 L^2) + alpha^3 (Tr L^3 + Tr (P0 L_E P0)^3) = 1240 + 540 alpha + 540 alpha^2 + 400 alpha^3, symbolic in alpha, where Tr (P0 L_E P0)^3 = 2 (lam-^3 + lam+^3) = 100 from the golden pair lam+- = (5 +- sqrt5)/2; at alpha = 1 the three moments are the receipt's 80, 440, 2720 (the unified spectral model and action (filed 2 Nov 03:01 UTC), eq (7); 2 Nov)", T, "usm_spine_cubic"),
+    ("golden", "chiral", "the spine's cubic moment", "With F19 = K_alpha + alpha S1 S1^T, Tr F19^3 = Tr D^6 + 3 alpha Tr(D^4 L) + 3 alpha^2 Tr(D^2 L^2) + alpha^3 (Tr L^3 + Tr (P0 L_E P0)^3) = 1240 + 540 alpha + 540 alpha^2 + 400 alpha^3, symbolic in alpha, where Tr (P0 L_E P0)^3 = 2 (lam-^3 + lam+^3) = 100 from the golden pair lam+- = (5 +- sqrt5)/2; at alpha = 1 the three moments are the receipt's 80, 440, 2720 (the unified spectral model and action (filed 2 Nov 03:01 UTC), eq (7); 2 Nov)", T, "usm_spine_cubic"),
     ("bath", "moments", "the defects past their common D", "past the common leading coefficient D = J* K Q K J = B B* of the heat, unitary, erasure, wave and resolvent defects (threshold_five_faces' 'five faces of one D', through total order 4; cited), the visible moments A_n = J* K^n J keep carrying the bath's hidden moments B C^k B*: in the free algebra on the blocks of K the heat composition defect X(2t) - X(t)^2 (X(t) = J* exp(-tK) J) stays the Gram form H H* (H = J* exp(-tK) Q) at t^5..t^8, with t^3 and t^4 coefficients -(AD + DA)/2 - B C B* and ADA/4 + 5(A M1 + M1 A)/12 + (A^2 D + D A^2)/6 + D^2/3 + 7 M2/12, and the Schur self-energy Sigma(s) = sum (-1)^k B C^k B*/s^(k+1) solves (s + A - Sigma) G = I at s^-5..s^-8 as well; the defects part after D (heat t^3 = 24 times the wave's u^6, deep_wave_memory's; unitary (i/2)[A, D], onemodel_closures'; Schur -B C B*) and heat and wave part at order 4 (ADA and D^2 coefficient ratios 144 and 240); on master_response's root-site instance the Schur recursion A_n = A_1 A_(n-1) + sum_k B C^k B^T A_(n-2-k) holds through n = 8, with tr B C B^T = 163860 (tr B B^T = 760 is bridge_unitary_port's) (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), sections 6-7; 2 Nov)", T, "joined_defect_series"),
     ("bath", "readout", "the dark floor of the memory", "for a scalar channel g(s) = 1/(s + a - Sigma(s)) with Sigma(s) >= b/(s + 256) (the band bound), g(s) - 1/(s + a) >= b/[(s + 256)(s + a)^2] > 0 for every s > 0; over the four N44 sectors (a, b) = (m1, m2 - m1^2) = (184, 2117), (232, 389), (242, 127), (243, 83) (notes_1512's (a0, b1^2), master_readout's (a, m2 - a^2); cited) the least is the source-dark sector's 83/[(s + 256)(s + 243)^2], a common floor that excludes replacing any channel by its zero-memory response 1/(s + a) (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), section 7; 2 Nov)", T, "joined_defect_series"),
     ("cycles", "A4", "the literal native current", "the note's current S = Od Phi (Phi the literal wedge map Lambda^2 V -> cycles in the basis e_i - e_4, grand_lorentz's W; Od the hub's odd port e_ij -> delta(e_i - e_j) - delta(e_j - e_i)) is supported on exactly the twenty A4 roots with S^T S = 2G (parity_ports' T_O = Od/sqrt2 an isometry of the cycles; notes_0204's Sg^T Sg = 2 Gp in its basis); G = 5 P5 + P1 with complementary rank-3 projectors, so (2G)^(-1/2) = (P1 + P5/sqrt5)/sqrt2 exactly and J_w = S (2G)^(-1/2) is an isometry of the six cycle coordinates into l2 of the lattice (the separate model's joined-motifs note (OES_JOINED_MOTIFS_NATIVE_MEMORY_20261102.txt, filed 2 Nov 03:15 UTC in PAGE_0001), section 2; 2 Nov)", T, "joined_current_lattice"),
@@ -10349,7 +10353,7 @@ JOINS = [
     ("source", "readout", "the nineteen-port hidden covariance", "the selected 19-source (master_readout's J15 and dark four) has block-diagonal hidden covariance: the dark currents meet the roots neither in H (master_readout's zero root-dark block) nor in H^2 (H^2 d vanishes on all 240 roots, though the root-dark block of H^2 does not) and their block is scalar (mean 243, second moment 59132, variance 83: master_readout, notes_0204), so J19^T H Q19 H J19 = diag(967 P3 + 389 (P0 + P8), 83 I4), eigenvalues 967^8 (the linear channel), 389^7 (the quadratic) and 83^4 (the dark), trace 10791 = 8 x 967 + 7 x 389 + 4 x 83; the 45 channels' 21061 exceeds it by 10270 = 2117 + 19 x 389 + 6 x 127, the mass channel, the other 19 quadratics and the six wedge currents (reference-clock note, filed 2 Nov 03:16 UTC, section 6; 2 Nov)", T, "refclock_gain"),
     ("readout", "calibration", "the gain cancels", "if background-subtracted raw transfers are M(t) = L C(t) R with constant invertible L, R and C(0) = I, the zero-time normalization N(t) = M(t) M(0)^-1 = L C(t) L^-1 removes R, and Xi_N = N''''(0) - N''(0)^2 = L D L^-1/rho^4: on the 45 channels tr Xi_N = 21061/rho^4, so deep_observer_algebra's rho = (21061/tr Xi_N)^(1/4) holds for every such gain and mixing (mock rho = 4/3 recovered exactly with L = I + 5U, R = I + 3U^T), and on the 19-source rho = (10791/tr Xi_19)^(1/4); Xi_N need not be symmetric or Euclidean-positive (x^T Xi_N x < 0 on that instance, spectrum >= 83/rho^4); a physical transfer of this form is an external input (reference-clock note, filed 2 Nov 03:16 UTC, section 6; 2 Nov)", gates.CONDITIONAL, "refclock_gain"),
     ("bath", "calibration", "one half-return fixes rho", "if a verified realization reads r(t) = c_m((t - t0)/rho) from a pure mass preparation (not reachable through the 19 source ports), one measured proper-time interval T to the first r = 1/2 gives T/hi <= rho <= T/lo, a relative width < 1.9 x 10^-6 (< 1.7 x 10^-8 with P10), with no golden coupling (the clock is blind to V19) and no fourth derivative; the observed ratios T_3/4/T_1/2 and T_1/4/T_1/2 then lie in the model ratios' intervals [0.68897772, 0.68897909] and [1.26140328, 1.26142307] (refclock_halfreturn), the note's zero-parameter predictions; a level error e_r widens the bracket as the note's calculator says; tau and kappa stay apart unidentified ((c tau, c^2 kappa) keeps rho, video_ten_fisher), an address n mod 4320 forgets the winding, and the interval, preparation and readout are external inputs: TIME_BIND stays UNBOUND (reference-clock note, filed 2 Nov 03:16 UTC, sections 5 and 7; 2 Nov)", gates.CONDITIONAL, "refclock_calibration"),
-    ("source", "triple", "the pullback's vacuum misses the chiral zero", "pulling the 19D action back to the ten-dimensional source through an isometry iota of the cycles into R^19 (the edition's conditional construction; on the instance iota is the cycles' inclusion into the edge block, the source is the model's commutator port and W_p = I), the reduced static potential V_s + x^T F19 x/2 (x = iota g) satisfies Euler's identity q . grad V = q^T diag(W, W) q + 2|g|^2 + 2 g^T F_E g with W positive definite, so q = 0 is its only critical point; there its Hessian is diag(W, W), M_s^-1 diag(W, W) = 4 I10 and the source-bath cross block vanishes; and F19 on the cycles, F_E = M^T M + alpha L_E, has determinant (96/125) alpha^3 (7 alpha + 8)(2 alpha^2 + 12 alpha + 9) > 0 for alpha > 0 (nullity 3 at alpha = 0, where ker M meets the cycles in a three-space), so the chiral zero mode is never a direction of the pullback and the October vacuum's 4^10 survives (the canon's expanded root-to-flower edition (OES_CANON_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 04:19 UTC in PAGE_0001), section II.3; 2 Nov)", T, "canon_flower_pullback"),
+    ("source", "chiral", "the pullback's vacuum misses the chiral zero", "pulling the 19D action back to the ten-dimensional source through an isometry iota of the cycles into R^19 (the edition's conditional construction; on the instance iota is the cycles' inclusion into the edge block, the source is the model's commutator port and W_p = I), the reduced static potential V_s + x^T F19 x/2 (x = iota g) satisfies Euler's identity q . grad V = q^T diag(W, W) q + 2|g|^2 + 2 g^T F_E g with W positive definite, so q = 0 is its only critical point; there its Hessian is diag(W, W), M_s^-1 diag(W, W) = 4 I10 and the source-bath cross block vanishes; and F19 on the cycles, F_E = M^T M + alpha L_E, has determinant (96/125) alpha^3 (7 alpha + 8)(2 alpha^2 + 12 alpha + 9) > 0 for alpha > 0 (nullity 3 at alpha = 0, where ker M meets the cycles in a three-space), so the chiral zero mode is never a direction of the pullback and the October vacuum's 4^10 survives (the canon's expanded root-to-flower edition (OES_CANON_ROOT_SPINE_BRANCH_LEAF_PETAL_FLOWER_UNIFIED_20261102.md, filed 2 Nov 04:19 UTC in PAGE_0001), section II.3; 2 Nov)", T, "canon_flower_pullback"),
     ("source", "bath", "the dressing graph carries the zero pole's norm", "on the verifier's 90D comparator (eps = 3; the source's ten edges on quadratic channels of variance 389, hidden partners at 203) the pulled-back source's frozen-background bath coupling is D_q = J_x^T B B^T J_x = 389 J_g^T J_g, homogeneous of degree 2, zero at the vacuum and of rank 6 at a rational witness; the static dressing graph q -> (x(q), -C^-1 B^T x(q)) has metric M_s + J_x^T (I + B C^-2 B^T) J_x = M_s + (41598/41209) J_g^T J_g, the factor being the dressed zero pole's norm Z0 (flower_residues), the q0-entry of deep_zero_pole's G(0) = I + B C^-2 B^T; and the bath is driven at second order (|B^T x|^2 = 389 |g|^2) and acts back on the source at third (the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC, sections II.1 and II.3 (S9)-(S12); 2 Nov)", T, "canon_flower_pullback"),
     ("triple", "golden", "the chiral supertrace", "the two chiral halves of D19^2 are M M^T + alpha L_V with the auxiliary block alpha S1 S1^T (vertices and auxiliaries) and M^T M + alpha L_E (edges), and det(x - M^T M - alpha L_E) = x det(x - M M^T - alpha L_V) (x^2 - 5 alpha x + 5 alpha^2)^2 with det(x - M M^T - alpha L_V) = (x - 8)((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^2, symbolic in alpha: the golden cycle Laplacians give both halves one nonzero spectrum, so Tr Gamma f(F19) = -f(0) for every f, the supertrace Tr(Gamma e^-tF19) is -1 at every t and the heat trace is 1 + 2 e^-8t + 4 sum [e^-t alpha lam + e^-t(3 + alpha lam)] (the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC, section III.1, (B1) and (B3); 2 Nov)", T, "canon_flower_spectral"),
     ("bath", "measure", "the source's spectral shift reaches its rank", "on the verifier's comparator (alpha = 1, eps = 3) the completion V19 = F19 + B C^-1 B^T - J^T H J - 3I is negative definite and the spectral shift xi(lambda) = #{K19 < lambda} - #{H + 3I < lambda} (exact inertia) is 1, 5, 9, 19, 19, 18, 0, 0 at lambda = 1, 3/2, 4, 9, 148, 150, 200, 260, reaching the rank 19; with Weyl interlacing (0 <= xi <= 19 everywhere) the relative heat action Z_rel(t) = t int xi(l) e^-tl dl lies in [0, 19] for every t, a uniform bound for the edition's dilution theorem: the relative heat per site of an N-site box is at most 19/N (the canon's expanded root-to-flower edition (filed 2 Nov 04:19 UTC, section III.2, (B4) and (B6); 2 Nov)", T, "canon_flower_spectral"),
@@ -10361,7 +10365,7 @@ JOINS = [
     ("source", "bath", "the clock-scaled source law", "with R(s) = J^T (s^2 + a K0)^-1 J = a^-1 S_K(s^2/a) the inferred correction a^-1 R(s)^-1 - S_H(s^2/a)^-1 is V at every s > 0 (master_response's S_K^-1 - S_H^-1 = V; exact on the court's comparator as rational functions of s), while a trial scale a' gives V + (a/a' - 1)(A + V) + B (s^2/a' + C)^-1 B^T - (a/a') B (s^2/a + C)^-1 B^T, whose s^2-derivative (1/a') B [(s^2/a + C)^-2 - (s^2/a' + C)^-2] B^T has, channel by channel, the sign of a - a': for a coupled channel (b != 0) two distinct frequencies already reject every wrong scale (the separate model's time and dynamics binding court (OES_TIME_DYNAMICS_BINDING_COURT_20261102.md, filed 2 Nov 05:18 UTC), theorem 3) (2 Nov)", T, "tdc_frequency"),
     ("bath", "calibration", "the frequency law fixes the clock", "if a physically normalized source response R19(s) = J^T (s^2 + a K0)^-1 J were measured in seconds, the inferred a'^-1 R19(s)^-1 - S_H(s^2/a')^-1 would be frequency-independent only at a' = a (two distinct frequencies decide on a coupled channel), a determination of a = kappa/tau^2 apart from theorem 1's sqrt(tr Xi/21061), so the two can be cross-checked; like it, it fixes rho = tau/sqrt(kappa) only (the separate model's time and dynamics binding court (OES_TIME_DYNAMICS_BINDING_COURT_20261102.md, filed 2 Nov 05:18 UTC), theorem 3; DYN_BIND stays NOT_INSTALLED: no measured response or evaluated S0 is in the model) (2 Nov)", gates.CONDITIONAL, "tdc_frequency"),
     ("source", "readout", "the nested traces do not fix the correction", "OBSTRUCTION: on master_readout's 45 channel moments the court's literal source correction (V[1, 41] = 1, V[2, 42] = 2 and diagonal shifts, inside the 19-source) moves the hidden covariance traces of the 15-, 19-, 21- and 45-channel observers exactly as the court's table says (10459 -> 10464, 10791 -> 10791, 7101 -> 7106, 21061 -> 21061; increments diag(1, 4) of rank 2), and canon_flower_nested's different correction (channel 41 against channels 1 and 2) gives the same four traces with rank-one increments (its Gram law): the table cannot identify the source correction, only the increment matrices can (the no-go that a nested observer's covariance moves is canon_flower_nested's) (the separate model's time and dynamics binding court (OES_TIME_DYNAMICS_BINDING_COURT_20261102.md, filed 2 Nov 05:18 UTC), section F) (2 Nov)", OB, "tdc_nested"),
-    ("triple", "simplex", "no golden-to-Hodge intertwiner", "OBSTRUCTION: the golden stiffness K_1 = D^2 + L on the triple's carrier (chiral_closures' K_alpha at alpha = 1, one zero mode q) and the Hodge-Dirac square D32^2 = P23 on the 32 faces of the simplex (grand_fock: 20 ones in grades 2 and 3, 12 zeros) admit no injective intertwiner at any scale: as det(K_1 - I) = -7^2 x 19^4, the solutions of D32^2 X = X K_1 form a 12-dimensional space of rank-one maps e_f q^T (f a face of grade 0, 1, 4 or 5), and for any c > 0 an intertwiner of c K_1 has rank at most 1 + 4 = 5 < 15 (no nonzero eigenvalue of K_1 has multiplicity above 4: chiral_closures' polynomial, cited); the same holds for the 19-dimensional odd Dirac's square D19^2 = K_1 (+) S1 S1^T (chiral_closures), whose characteristic polynomial x (x - 8)^2 (x^2 - 5x + 5)^4 (x^2 - 11x + 29)^4 (video_ten_chiral's at alpha = 1, cited) again has no nonzero root of multiplicity above 4 (the separate model's five-face theorems note (OES_N44_ALL_DOTS_FIVE_FACE_THEOREMS.md, filed 2 Nov 05:18 UTC, 22281 bytes), section 5.3) (2 Nov)", OB, "ff5_intertwiner"),
+    ("chiral", "simplex", "no golden-to-Hodge intertwiner", "OBSTRUCTION: the golden stiffness K_1 = D^2 + L on the triple's carrier (chiral_closures' K_alpha at alpha = 1, one zero mode q) and the Hodge-Dirac square D32^2 = P23 on the 32 faces of the simplex (grand_fock: 20 ones in grades 2 and 3, 12 zeros) admit no injective intertwiner at any scale: as det(K_1 - I) = -7^2 x 19^4, the solutions of D32^2 X = X K_1 form a 12-dimensional space of rank-one maps e_f q^T (f a face of grade 0, 1, 4 or 5), and for any c > 0 an intertwiner of c K_1 has rank at most 1 + 4 = 5 < 15 (no nonzero eigenvalue of K_1 has multiplicity above 4: chiral_closures' polynomial, cited); the same holds for the 19-dimensional odd Dirac's square D19^2 = K_1 (+) S1 S1^T (chiral_closures), whose characteristic polynomial x (x - 8)^2 (x^2 - 5x + 5)^4 (x^2 - 11x + 29)^4 (video_ten_chiral's at alpha = 1, cited) again has no nonzero root of multiplicity above 4 (the separate model's five-face theorems note (OES_N44_ALL_DOTS_FIVE_FACE_THEOREMS.md, filed 2 Nov 05:18 UTC, 22281 bytes), section 5.3) (2 Nov)", OB, "ff5_intertwiner"),
     ("E8", "bath", "the instant reach of 2r", "OBSTRUCTION: the bounded lattice propagator has no strict light cone: for every root r the root walks from 0 to 2r number 1, 168 and 43936 for two, three and four steps (every three-step walk takes the step r exactly once: 168 = 3 x 56), so <delta_2r, e^(-itH) delta_0> = e^(-240it)(-t^2/2 - 28 i t^3 + (5492/3) t^4 + R(t)) with |R(t)| <= 240^4 t^5/(120(1 - 240t)), nonzero at every 0 < t <= 1/500 (exact Fractions); the two-step count and the t^2 term are grand_registry's; internal model time, no M6 causal structure is built (the separate model's five-face theorems note (OES_N44_ALL_DOTS_FIVE_FACE_THEOREMS.md, filed 2 Nov 05:18 UTC, 22281 bytes), section 5.2) (2 Nov)", OB, "ff5_light_cone"),
     ("bath", "readout", "the comparator never composes", "on bridge_comparator's 90 x 90 comparator of master_readout's 45 channels (a selected reference fixture, not the native bath: blocks [[a, sqrt b], [sqrt b, 200]] with the chosen hidden level 200), the compressed heat, unitary and wave evolutions have, channel by channel and to all orders, the two-time defects b e^(-(t+s)m) sinh(t Delta) sinh(s Delta)/Delta^2, -b e^(-i(t+s)m) sin(t Delta) sin(s Delta)/Delta^2 and b (cos t sqrt lam+ - cos t sqrt lam-)(cos s sqrt lam+ - cos s sqrt lam-)/(4 Delta^2) (leading b ts, -b ts, b t^2 s^2/4: threshold_five_faces' one D of the five faces, D = b); the heat defect is positive definite for all t, s > 0, and as only the mass and dark sectors have commensurable Delta (Delta^2 = 2181 and 2181/4 among 2181, 1003, 645, 568, 2181/4) the unitary defect and the erasure are nonzero on the 45 channels for all t, s > 0, though each channel returns up to a phase at t = pi/Delta_j: on this fixture the compressed heat and unitary evolutions compose at no positive times (the commensurability depends on its hidden level 200) (the separate model's five-face theorems note (OES_N44_ALL_DOTS_FIVE_FACE_THEOREMS.md, filed 2 Nov 05:18 UTC, 22281 bytes), sections 2-3) (2 Nov)", SR, "ff5_comparator"),
     ("circle", "time", "the tick words without A", "on Z/4320 with A = U^520, B = U^25 and the tick T = U^864, A = B^-152 (b = 712 = -152 mod 864, the least |b|) and the words B^b T^c = U are exactly those with b = 553 = 25^-1 mod 864 and c = 4 mod 5: the note's U = B^553 T^-1 (cost 554) is one, and B^-311 T^-1 (cost 312) is the only shortest, against open_clock_word's 10 with A; the 520/025 operator reading is the note's hypothesis (the separate model's 520/025 x N44/N44P exact all-dots join (OES_520_025_N44P_Exact_All_Dots_Join_20261102.md, filed 2 Nov 06:21 UTC), section A; 2 Nov)", T, "adj_clock_words"),
@@ -10374,10 +10378,10 @@ JOINS = [
     ("kerM", "readout", "the twelve-outcome code", "with F = H^T/sqrt12 = sqrt(5/6) V^T (sylow_lines' lines; F^T F = P_kerM, F F^T = I - J/6 cited), the code p_(i, +-) = 1/12 +- beta (F x)_i on ker M sums to 1 with each sign class 1/2, decodes exactly by x = F^T (p+ - p-)/(2 beta), has rank 5 and a six-dimensional residual (12 = 1 + 5 + 6), stays positive for |beta| |x| sqrt(5/6) < 1/12 (sharp at x = l_0), round-trips exactly at a rational zero mode and is S5-covariant, p_(sigma_p(i), sgn(p) s)(U(p) x) = p_(i, s)(x) for all 120 p, symbolic in x and beta (the separate model's six-line FOAM12 receipt (OES_SIX_LINE_FOAM12_FULL_S5_EXACT_20261102.json, filed 2 Nov 06:20 UTC); 2 Nov)", T, "adj_foam12"),
     ("bath", "circle", "no finite-order bath evolution", "OBSTRUCTION: for no tau > 0 is exp(-i tau Delta) of finite order dividing 4320: along k = t v* (v* = pi(1, 1, 1, 1, 0, 0, 0, 0)) the bath's multiplier is 156 - 128 cos(pi t) - 28 cos(2 pi t), increasing from 0 to 256, and for each tau > 0 some value lam in (0, 256] has exp(-4320 i tau lam) != 1, hence so does the multiplier on an open set of momenta (argued; free_chain's range cited); the clock of exact order 4320 lives on the finite quotient E8/2E8 (notes_1512) (the separate model's 520/025 x N44/N44P exact all-dots join (OES_520_025_N44P_Exact_All_Dots_Join_20261102.md, filed 2 Nov 06:21 UTC), section G; 2 Nov)", OB, "adj_bath_no_clock"),
     ("kerM", "golden", "the marked stiffnesses' six zero lines", "for each of the twelve Golden marks (the undirected five-cycles of K5) the stiffness K_m = D^2 + alpha L_m (alpha > 0) has kernel ker D^2 n fix(U_m), since L_m = (I - U_m)^T (I - U_m) and D^2 = D15^2 are positive semidefinite and commute; that is the line (0, h_i) of the mark's order-five subgroup (adj_six_lines' fixed line of every five-cycle in ker M, sylow_lines' lines; for the standard subgroup NEAR - FAR, zero_pole_parity's and f20_schur's); the two Golden partners over one subgroup, with L_1 + L_2 = 5 P_mov and (L_1 - L_2)^2 = 5 P_mov on all fifteen atoms (eigenvalues (5 +- sqrt5)/2 six times each; for the standard subgroup chiral_dark's doubling and notes_1611's rotor square), share that line, and so does their pair average D^2 + (5 alpha/2) P_mov: the twelve marked stiffnesses have exactly six zero lines, selected by the subgroup and not by the Golden sign (the separate model's unified marked-geometry note (OES_UNIFIED_MARKED_GEOMETRY_MEMORY_TIME_MODEL_20261102.md, filed 2 Nov 06:21 UTC in PAGE_0001), sections 1-2; 2 Nov)", T, "mgm_marks"),
-    ("pgl", "triple", "the averaged Golden stiffness", "averaged over the twelve marks (equivalently over the 120 relabellings of one mark) the Golden Laplacian on the triple's fifteen atoms is L_bar = (5/2)(P_vc + P_ec) + 2 P0 (vertex and edge contrasts, ranks 4 and 4, and the projector onto ker M); its kernel coefficient is the six-line frame's: L_bar = (5/12) sum_i (I - P_fix(i)) with sum_i P_fix(i) = 6 P_vconst + 6 P_econst + (6/5) P0 (sylow_lines' frame factor 12), so 2 = (5/12)(6 - 6/5); K_bar = D^2 + alpha L_bar = 8 (P_vconst + P_econst) + (3 + 5 alpha/2)(P_vc + P_ec) + 2 alpha P0 has spectrum 8^2, (3 + 5 alpha/2)^8, (2 alpha)^5 and no zero mode for alpha > 0 (marked note, filed 2 Nov 06:21 UTC, section 4; 2 Nov)", T, "mgm_marks"),
+    ("pgl", "chiral", "the averaged Golden stiffness", "averaged over the twelve marks (equivalently over the 120 relabellings of one mark) the Golden Laplacian on the triple's fifteen atoms is L_bar = (5/2)(P_vc + P_ec) + 2 P0 (vertex and edge contrasts, ranks 4 and 4, and the projector onto ker M); its kernel coefficient is the six-line frame's: L_bar = (5/12) sum_i (I - P_fix(i)) with sum_i P_fix(i) = 6 P_vconst + 6 P_econst + (6/5) P0 (sylow_lines' frame factor 12), so 2 = (5/12)(6 - 6/5); K_bar = D^2 + alpha L_bar = 8 (P_vconst + P_econst) + (3 + 5 alpha/2)(P_vc + P_ec) + 2 alpha P0 has spectrum 8^2, (3 + 5 alpha/2)^8, (2 alpha)^5 and no zero mode for alpha > 0 (marked note, filed 2 Nov 06:21 UTC, section 4; 2 Nov)", T, "mgm_marks"),
     ("S5", "kerM", "no S5-stable zero line", "OBSTRUCTION: ker M is S5-irreducible, the [3, 2] (<chi, chi> = 1, chiral_dark; its S5 commutant is the scalars, notes_1512), so it has no S5-stable line, and an S5-invariant operator on the atoms whose kernel lies in ker D^2 = 0 + ker M has nullity 0 or 5: none has exactly one zero mode; the averaged K_bar (0, mgm_marks) and D^2 itself (5) are the invariant cases, and a marked K_m's single zero needs the choice of one of the six order-five subgroups (mgm_marks) (marked note, filed 2 Nov 06:21 UTC, section 4, 'Interpretation'; 2 Nov)", OB, "chiral_dark"),
     ("golden", "readout", "selected against averaged", "for every one of the twelve marks Tr K_m^k = 40 + 30 alpha, 200 + 120 alpha + 90 alpha^2, 1240 + 540 alpha + 540 alpha^2 + 300 alpha^3 (k = 1, 2, 3; flower_source's and usm_spine_cubic's F19 moments less the auxiliary block, the same for every mark by S5 conjugation) against K_bar's 40 + 30 alpha, 200 + 120 alpha + 70 alpha^2, 1240 + 540 alpha + 450 alpha^2 + 165 alpha^3, so the traced cosine responses of the finite wave law q'' + K q = 0 in model time u differ by (5/6) alpha^2 u^4 - ((2 alpha^2 + 3 alpha^3)/16) u^6 + O(u^8): the selected and the averaged models share the first trace and are told apart at fourth order, dimensionlessly (the Schur-dressed infinite model is not compared) (marked note, filed 2 Nov 06:21 UTC, section 4, and its machine spec (OES_ONE_MARKED_MODEL_MACHINE_SPEC_20261102.json, filed 2 Nov 06:21 UTC), comparison block; 2 Nov)", T, "mgm_traces"),
-    ("S5", "triple", "the averaged chiral completion", "N_bar = [(P_vconst + sqrt(1 + 5 alpha/6) P_vcontrast) M; sqrt(2 alpha) Q0] (Q0 an orthonormal row basis of ker M) gives a 20-dimensional odd Dirac D20 on (5 vertices + 5 auxiliaries) + 10 edges with D20^2 = K_bar on the fifteen atoms and 2 alpha I5 on the auxiliaries, identically in alpha; it is S5-equivariant (checked on (01) and (01234)), the auxiliaries carrying ker M's [3, 2] by construction (chiral_dark); its chiral halves are isospectral (8, (3 + 5 alpha/2)^4, (2 alpha)^5), so nullity 0 and Tr Gamma f(D20^2) = 0 for every f, against D19's nullity 1 and supertrace -1 (chiral_closures, canon_flower_spectral), and its index 0 = 10 - 10 against D19's 9 - 10 is the graded dimension count that keeps the two from being gradedly equivalent (usm_wave_dirac); five auxiliaries are forced (the edge block of K_bar has determinant 8 (3 + 5 alpha/2)^4 (2 alpha)^5 > 0) where every marked edge block kills its zero line and four suffice; Tr D20^2 = Tr F19 = 40 + 40 alpha (deep_zero_pole) while the second traces are 200 + 120 alpha + 90 alpha^2 and Tr F19^2 = 200 + 120 alpha + 120 alpha^2 (flower_source) (marked note, filed 2 Nov 06:21 UTC, section 4; 2 Nov)", T, "mgm_dirac20"),
+    ("S5", "chiral", "the averaged chiral completion", "N_bar = [(P_vconst + sqrt(1 + 5 alpha/6) P_vcontrast) M; sqrt(2 alpha) Q0] (Q0 an orthonormal row basis of ker M) gives a 20-dimensional odd Dirac D20 on (5 vertices + 5 auxiliaries) + 10 edges with D20^2 = K_bar on the fifteen atoms and 2 alpha I5 on the auxiliaries, identically in alpha; it is S5-equivariant (checked on (01) and (01234)), the auxiliaries carrying ker M's [3, 2] by construction (chiral_dark); its chiral halves are isospectral (8, (3 + 5 alpha/2)^4, (2 alpha)^5), so nullity 0 and Tr Gamma f(D20^2) = 0 for every f, against D19's nullity 1 and supertrace -1 (chiral_closures, canon_flower_spectral), and its index 0 = 10 - 10 against D19's 9 - 10 is the graded dimension count that keeps the two from being gradedly equivalent (usm_wave_dirac); five auxiliaries are forced (the edge block of K_bar has determinant 8 (3 + 5 alpha/2)^4 (2 alpha)^5 > 0) where every marked edge block kills its zero line and four suffice; Tr D20^2 = Tr F19 = 40 + 40 alpha (deep_zero_pole) while the second traces are 200 + 120 alpha + 90 alpha^2 and Tr F19^2 = 200 + 120 alpha + 120 alpha^2 (flower_source) (marked note, filed 2 Nov 06:21 UTC, section 4; 2 Nov)", T, "mgm_dirac20"),
     ("calibration", "bath", "the time-binding map", "for the generator (kappa/tau^2) K the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y depends on (tau, kappa) only through rho = tau/sqrt(kappa) (invariant under (c tau, c^2 kappa), annihilated by tau d/dtau + 2 kappa d/dkappa, equal to its value at (rho, 1)), and the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (TIME_BIND_RESOLUTION) each invert to rho; the map rho = T_half/u_half has exactly one free symbol, the measured interval, so TIME_BIND = exactly one measured interval and the SI second enters only there ('no internal clock', calibration's OBSTRUCTION join; TIME_BIND stays UNBOUND: no interval is in the model) (6 Nov)", T, "bind_time_map"),
     ("calibration", "readout", "the rho-free invariants", "I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*) are identities of the binding map with rho cancelling, carrying one relation I2 = (389/2117) I1/I3^4 (four readings of one rho leave three rho-free numbers: the exact variance ratio 2117/389 with I1 and I3), and certified brackets: 2117 lo^4 < I1 < 2117 hi^4 with refclock_halfreturn's exact P8 endpoints lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760 (0.07614507 < I1 < 0.07614566; 0.07614511 < I1 < 0.07614513 with its P10 decimals), 389/z_hi^2 < I2 < 389/z_lo^2 (0.20705257 < I2 < 0.20705268) and lo x 6.583656896344280 < I3 < hi x 6.583657667530262 (0.50985587 < I3 < 0.50985691), where 2117 = 35973 - 184^2 (master_readout's D45 mass entry) and 389 = 54213 - 232^2 (its quadratic entry, notes_1512); the three-route doc's own I1 = v19/v_q = 10791/389 is refclock_gain's 19-source trace 8 x 967 + 7 x 389 + 4 x 83 over the quadratic variance; relations any realization reading all three routes must satisfy (6 Nov)", T, "bind_time_map"),
     ("calibration", "source", "the crossover binding", "the Drive note TIME_BIND_RESOLUTION (2 Nov, the separate model) certifies on the bare quadratic source (m0..m4 = 1, 232, 54213, 12740592, 3008062816; hidden measure total 389 = m2 - m1^2, int c dnu = 72928 = m3 - m1^3 - 2 m1 (m2 - m1^2), central third moment -17320, all checked as arithmetic from the stated moments) that the excess secant E(s) = [R(2s)^-1 - R(s)^-1]/(3 s^2) - 1 = e((rho s)^2) is strictly decreasing and crosses 1/200 at a unique z* in (12200402860332943, 12200405718556069)/2^48, so rho = sqrt(z*)/s* with 6.583656896344280 < sqrt(z*) < 6.583657667530262 (the decimals consistent with the bracket); the z* bracket is the note's certificate (it needs m0..m17, not in the model) and is read as SELECTED_REFERENCE data; the separate model's three-route doc (6 Nov 08:44, with its txt and exact receipt of 08:45) adds, read as data, the dressed source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md), whose three ratio brackets T_s/T_m, s* T_m (= I3) and s* T_s are outward roundings of the exact products of the stated endpoints (recomputed in Fractions), the receipt's exact I2 fractions (equal to the model's 389/z_hi^2, 389/z_lo^2), and its 19-source bands e_l, e_q = 1/200, e_d at z* with multiplicities 8, 7, 4 (refclock_gain's D19) summing to its trace bracket to the last digit (6 Nov)", SR, "bind_time_map"),
@@ -10398,6 +10402,49 @@ JOINS = [
     ("circle", "clocks", "the flash is circle arithmetic", "the model's only flash content: 4320/180 = 24 (the flash step's order), 8 x 180 = 1440 (the sun arc), 4 x 180 + 144 = 864 (one tick), gcd(180, 216) = 36 (spine.join(180, 216), the generator of <180> + <216>: counts.CLAIMS' FIREFLY_OSC row 'the atlas step', order 120), lcm(24, 20) = 120 (that order), 6 x 180 = 5 x 216 = 1080 (spine.meet: the observer clock), carried by counts.CLAIMS' FIREFLY_OSC and KU_CALENDAR rows and by w0_firefly's join 'two lifts of the observer step' (cited, not repeated); the W0 / Spanda / Firefly note's three power sums recomputed: the spanda sum {0^2, 5^8} and the carrier D^2 {0^5, 3^8, 8^2} share 40 and 200 and have cubes 1000 and 1240 (the join 'spanda is not the Lagrangian', cited); every FIREFLY_OSC value is an integer on the 4320-circle and no row names a hertz or a second; no flash statistic maps to any of these numbers (the register's canonical bytes carry no flash, firefly, species, period or insect token) (6 Nov)", SR, "evd_firefly_canon"),
     ("calibration", "measure", "the public flash statistics", "the public flash CSV (sha256 ae895e56..., clone 0f28787..., 30 fps; 65,389 rows, 57 night IDs, 7 species) as reported literals, recomputed once from the clone and never read by the unit: per-species median periods (gap + duration) 0.300, 0.433, 0.510, 0.533, 0.570, 0.660, 0.922 s (bethaniensis, knulli, forresti, obscurellus, carolinus, frontalis, wickershamorum); the 21 pairwise ratios span 1.046 to 3.074 with largest consecutive gap G = 0.397 (2.200 to 3.074, where 8/3 and phi^2 fall) and next 0.120, so every target in the span is within G/(2 + G) = 16.6% of some pair by |t/r - 1| (attained at the harmonic midpoint of the widest gap; a fortiori within G/2 = 19.9%) and every target in [1.046, 2.200] within 5.7% (a fortiori 6.0%); WITH ITS BRACKET LEADING, the +-1 frame bracket on the two medians, a deliberately conservative bound, puts wickershamorum/carolinus in [1.47, 1.78] (the frame rule would have to be sealed on per-flash integer frames before averaging; the carolinus median is 17.1 frames), inside which the ratio is 1.618, within 0.01% of phi and 0.9% below the register's sqrt(8/3); by |r/t - 1| the nearest pair to 2 is 1.900 (-5.0%), to 8/3 3.074 (+15.3%), to phi^2 2.200 (-16.0%), to sqrt5 2.200 (-1.6%), to 241/235 1.046 (+2.0%); WITH ITS SPREAD LEADING, the tent data of the authors of the eLife paper (corrected files, 1.5 s burst rule, onset to onset, medians throughout; the Tf medians at N = 15 and 20 exactly 0.45045 and 0.5005 s) give Tb/Tf = 28.9, 26.9, 26.2, 25.2 at N = 5, 10, 15, 20, a 14.8% spread across N, the last +4.9% from the flash order 24 and +0.7% from 25 = 5^2 and the first +20.4% and +15.5% (the mean-based 1.579, the ratio of two Tb means, is a different statistic, not used; the single-insect train statistic 0.534 s gives 1.87 Hz, -6.3% from '~2 Hz'); two species lie below the canon's 'period in [0.5, 2] s' (0.300, 0.433 s) and carolinus gives 1/0.570 = 1.754 Hz against '~2 Hz' (-12.3%); the canon's v1.3 counts 65,389 / 57 / 7 equal the CSV's rows, night IDs and species labels ('sources' = night IDs is this unit's reading); every one a comparison and not a pass: no map from a flash statistic to a model quantity is declared anywhere (the register carries no flash, firefly, species or period token) and the gates stay shut (6 Nov)", gates.CONDITIONAL, "evd_flash_arithmetic"),
     ("calibration", "literal", "the byte receipt's identification", "the dEchorate byte receipt as arithmetic on reported facts: gatework.DECHORATE_MAINTAINER_SHA256 = c39bc27f...0794 and _MD5 = 6f7aa37d...ea08 cited, 1,724,358 bytes (gatework's ledger text), T3081 UNOPENED (the model's one label); the reported inner metadata (GLOBAL_Title dEchorate_room020002_src9_arr6_mics26-30, loudspeaker_id 9, array_id 5, sofar v1.2.1, history 2022-04-21 then 2023-01-26) against the maintainer's reported current writer (src0..8, arr0..5, mics 5a..5a+4, ids equal to the 0-based indices, 11 x 9 x 6 = 594 files): 9 is outside 0..8, 6 outside 0..5, 26-30 is no 5a..5a+4 while src 8 / arr 5 / mics 25-29 are (the 1-based reading), and the inner ids are mutually inconsistent (loudspeaker_id 9 = src9, array_id 5 = arr6 - 1), so no file of the current build can carry loudspeaker_id 9, the official counterpart must be identified by inner metadata in the 2022-04-21 build or an intermediate writer, and the act-11 outcome table is {match, mismatch, no counterpart = NOT TESTABLE}; the uncompressed bound 5 x 19556 x 8 = 782,240 < 1,724,358 says the copy is not a v3-constant build; 6 x 10 x 30 = 1800 published RIRs and 11 x 9 x 6 x 5 = 2970 are different objects (an index product is not a count); with the millimetre rounding bracket (under 0.05% on each ratio) leading and nine register targets in [1.0255, 8], the room ratios 2.4225, 2.5329, 1.0456 have as nearest target 241/235 at +2.0% for the last and phi^2 at -7.5% and -3.3% for the others (sqrt5 at +8.3%, +13.3%), a comparison only with host_to_OES among gates.UNFORMED_OPERANDS; T3081 is the only entry gatework's own text marks as blocked by the network policy and MODEL.md section 13 files it as a 'binary receipt', not a measured input; the hosts were not reached and no file was opened; CONDITIONAL on the reported inputs (6 Nov)", gates.CONDITIONAL, "evd_byte_receipt"),
+    ("source", "action", "the native system is the Euler-Lagrange system of the declared action", "the declared native action of layer 4, written with its port constraint as a multiplier, L = (1/2) q'^T M_s q' - 2 q^T M_s q - (1/2) g^T W_p g + (1/2)|Phi'|^2 - (1/2)<Phi, Delta Phi> + <lambda, Pi^T Phi - g(q)>, has after eliminating lambda exactly the system native.NativeSystem.rhs integrates (its lines read from the source): (M_s + J^T J) q'' + J^T H[q', q'] + 4 M_s q + J^T ((W_p + A) g + B y) = 0 for the source and y'' + D y + B^T g = 0 for the bath, with NativeSystem.energies as its conserved energy: an identity of polynomials on a generic small instance of the same form (sympy), confirmed in floating point to 1e-12 on the 26635-site ball at three seeded states for NativeSource and for LiteralSource; theta = 0, so no term is added to the declared action (2 Nov)", T, "act_native"),
+    ("action", "spectrum", "the decoupling", "Dg(0) = 0 for both stored port operands (J = Dg and J(q) q = 2 g(q) as polynomial identities), so the vacuum Hessian of the declared action is 4 M_s on the source (mass-normalized 4 I10, frequency 2) direct sum Bath.D on the bath, with no linear coupling between source and bath: on a generic instance its potential Hessian [[4 M_s, 0], [0, D]] contains no symbol of the port g, W_p or the couplings A and B, so no spectral functional of the vacuum Hessian sees the port; NativeSystem.rhs at (0, 0, y, 0) returns (0, 0, 0, -Bath.D y) bit for bit (2 Nov)", T, "act_native"),
+    ("kerM", "action", "one space, two frequencies", "ker M (+) ker M is the source's configuration space (the owner's N_source spans ker M; one mass M_source = diag(W/4, W/4) for its kinetic term and its potential), on which every vacuum mode of the declared action has frequency 2 (the source block of the vacuum Hessian is exactly 4 times its kinetic metric), while the carrier's D^2 vanishes on 0 (+) ker M (on the five nullspace vectors of M and on the owner's N_source): the action holds the two operators side by side and identifies neither with the other, and the OBSTRUCTION source -> carrier (field: 4 is not in spec D^2 = {0, 3, 8}) stands (2 Nov)", T, "act_native"),
+    ("bath", "action", "the bath block", "on the action's ball instance native.Bath(r2=8) the field equation off the six-site port is y'' + D y + B^T g = 0, with Bath.A, Bath.B and Bath.D exactly the integer blocks on (clique, rest) of the ball's operator Delta_ball = 240 I - Adj (26641 sites; re-derived from the site set alone on the six port rows and 200 seeded bath rows), and the bath block of the vacuum Hessian is Bath.D, the bath restricted to the 26635 sites off the port with the outside dropped (2 Nov)", T, "act_native"),
+    ("literal", "action", "the port's two kinetic metrics", "with the owner's operands the declared action's port kinetic term is (1/2)|g'|^2 (the field on the six sites), while the edge field x = F g of the owner's Fedge_native_inverse F (10 x 6) has |x'|^2 = g'^T F^T F g' = (1/2) g'^T W_p g'; the generalized eigenvalues of (I, F^T F) are 5 (the apex), 1 (the uniform rim) and 1/2 +- sqrt5/10 twice each (the rim contrasts), exact in Q(sqrt5), and F^T F - I has four positive, one zero and one negative eigenvalue, so at a witness where J(q) has rank 6 the source's two kinetic metrics M_s + J^T J and M_s + J^T F^T F J differ by J^T (F^T F - I) J, of inertia (4, 1, 5) there: which kinetic term the port carries is a selection, the adapter F (the critique's F4 fix of the design's R6; 2 Nov)", T, "act_literal"),
+    ("sixsite", "action", "the ball's port through C1", "on the action's ball instance native.Bath(r2=8) the six-site port blocks are, in exact integers, A = 241 I - J, B B^T = 183 I + 52 J and B D B^T = 35366 I + 8134 J, the lattice's (cone), because every lattice neighbour of the six sites lies in the ball: each port row of the ball's operator has 240 entries -1 (2 Nov)", T, "act_port_c2"),
+    ("bath", "action", "the ball departs at C2", "the ball instance reproduces the lattice bath's port only through C1: its next block B D^2 B^T is the lattice's 7104445 I + 1381320 J (motif_source_moments) minus the Gram of the 10197 dropped sites two steps from the rim (31363 I + 2812 J on the rim, zero on the centre's row), with characteristic polynomial (x - 7073082)^4 (x^2 - 22451387 x + 108968761658830) against (x - 7104445)^5 (x - 15392365), and only the 120 permutations of the six sites that fix the centre x0 commute with it: S6 drops to S5 there (2 Nov)", OB, "act_port_c2"),
+    ("bath", "action", "the kinetic dressing and the frozen bath", "integrating out the 225 roots outside the six-site port's 15 bond roots (master_response's cone instance, the atoms on the port's bonds) dresses the port's kinetic term in the reference completion: M_W(eps) = I + B C_eps^-2 B^T = S_eps^-1 T_eps S_eps^-1 (S, T = Y^T (H_R + eps)^-1 Y, Y^T (H_R + eps)^-2 Y; in this order only, as S and T do not commute) = d/dz S_K(z)^-1 at z = 0, exact at eps = 1, 10, 100, with B B^T/(244 + eps)^2 <= M_W - I <= B B^T/(184 + eps)^2 and tr B B^T = 760; as eps -> infinity M_W -> I, the hidden response vanishes, V(eps) stays between -(244 + eps) and -(176 + eps), so V -> -infinity, and the memory vanishes: the bath freezes, and the reduced action tends to (1/2)|x'|^2 - (1/2) x^T F x with whatever datum F was put in (one action, one spectrum, 2 Nov)", T, "act_dressing"),
+    ("carrier", "action", "the reference completion's static Schur complement", "the bath's reference completion K_F = H_R + eps I + Y (F - S_eps^-1) Y^T on the cone atoms (master_response's; no term is added to the declared action) has the lift L = [I; -C_eps^-1 B^T], independent of F, with (H_R + eps) L = Y S_eps^-1, so K_F L = Y F and its z = 0 Schur complement on the cone atoms is F for every symmetric F (checked on the 240 root sites at eps = 0, 1 for F = D^2, 0, I, P0): the carrier's D^2 is that complement under the selection V := F - S_eps^-1 with F = D^2, as data put into the bath, not as a reduction of the bath (one action, one spectrum, 2 Nov)", T, "act_no_reduction"),
+    ("sixsite", "action", "the pinned vertex block", "OBSTRUCTION: under w exactly 5 of the 15 bonds are clique sites, the vertex atoms x_(i+1) (5 of 15 in either sign; no edge bond or its negative is a site), so on the constrained domain Sigma (the port displacement g_1..g_5 held at the vertex atoms, Dirichlet) the carrier's vertex block is pinned to g(q): on the root-site instance at theta = 1, eps = 1, F = D^2 (master_response's reference completion K_1 = H_R + I + Y V Y^T, V = D^2 - S_1^-1, S_1 equal to master_response's on its atoms, C W = B^T checked exactly) the operator on the 235 non-port roots has rank 230 (mod 2^31 - 1, pinned over Q by the 5 exact kernel vectors), its static Schur complement on the 10 free edge atoms is M^T M with characteristic polynomial x^5 (x - 3)^4 (x - 8), not D^2's x^5 (x - 3)^8 (x - 8)^2, the pinned field (g on the port, 0 on the edge atoms, -W g on the 225 hidden roots) is stationary for K_1 off the port with energy (1/2) g^T (3 I + J) g = (1/2) g^T M M^T g, the vertex block of D^2, a potential of g(q) and not a dynamical block, and statically the free edge atoms do not feel g (D^2 has no vertex-edge block) while at z = 1 the edge-vertex block of S_K(1)^-1 = S_2^-1 + V (master_response's Woodbury law) is (S_2^-1 - S_1^-1)_EV of rank 5, the bath's memory driving the free atoms: the 15-dimensional carrier block is not a free block of the completed action on Sigma (the critique's M2; the Sigma-reduction computed, not asserted) (6 Nov)", OB, "brg_bonds"),
+    ("E8", "action", "the smallest ball is the root-site instance", "native.Bath(r2=2), the declared bath on the smallest ball (|x|^2 <= 2: the origin and the 240 roots, 241 sites; spacetime.e8_ball(1) is the origin alone), has the six clique sites as its port with A = 241 I - J and the 235 other roots as its bath with D equal to H_R = 240 I - B_R on them exactly (integer entries), so master_response's root-site instance (the 240 roots) is that ball with the origin removed: under w the 5 vertex atoms are 5 of the ball's 6 port sites (x1..x5) and the 10 edge atoms are bath sites (the design's float oneb_ball dropped for this exact identity, as the critique allows) (6 Nov)", T, "brg_bonds"),
+    ("readout", "action", "the first-order form", "the readout's generator A = [[0, I], [-D^2, 0]] (observer.system_matrix; onemodel_closures) is the first-order form G_K = [[0, I], [-K, 0]] of the quadratic action (1/2)|Phi'|^2 - (1/2)<Phi, K Phi> at K = D^2, the member the stiff-bath limit of the completed action returns for the datum F = D^2 (act_dressing): A has characteristic polynomial x^10 (x^2 + 3)^8 (x^2 + 8)^2 and spectrum {0, +-i sqrt3, +-2i sqrt2} on the imaginary axis, ker A = ker D^2 (+) 0 of dimension 5, and on master_response's root-site instance (cone-J15, eps = 1) the same first-order form G_theta = [[0, I], [-K_theta, 0]] carries every member K_theta = H_R + theta (I + Y V Y^T) of the completion family, with (G_theta - c)(G_theta + c) = -diag(K_theta + c^2, K_theta + c^2) (symbolic on a generic block) invertible for every real c != 0 because K_theta >= 0 by exact inertia at theta = 0, 1/2, 1 and by convexity between them: the readout is the Hamiltonian flow of the carrier's quadratic action, and every member of the completed action has a flow of the same first-order form (spc_gksl) (6 Nov)", T, "spc_gksl"),
+    ("gksl", "action", "no decaying intertwiner into the completion family", "OBSTRUCTION: on master_response's root-site instance the completion family K_theta = (1 - theta) H_R + theta K_1 = H_R + theta (I + Y V Y^T) (the form of flower_homotopy's family, which lives on the 90D comparator, built here on the root site) is positive semidefinite exactly at theta = 0, 1/2, 1 with nullity 0, 0, 5: its hidden block C + theta >= 184 > 0 and its visible Schur complement S(theta) = A_J + theta + theta V - X(theta) (X from the sectors, certified) has exact inertia (15, 0, 0), (15, 0, 0), (10, 5, 0), with S(0) = G(0)^-1 and S(1) = D^2 (master_response's static Schur complement), and by convexity of the positive semidefinite cone at every theta in [0, 1]; hence (G_theta - c)(G_theta + c) = -diag(K_theta + c^2, K_theta + c^2) (symbolic on a generic block) is invertible for every real c != 0 and the first-order generator G_theta = [[0, I], [-K_theta, 0]] has no real nonzero eigenvalue, so no Pauli direction decaying at 224 or 256 has an intertwiner into the wave flow of any member of the family; the design's R12 argument ('the spectrum of a real linear generator of a quadratic action is closed under lambda -> -lambda') is insufficient, as the one-dimensional K = -224^2 shows (symmetric spectrum {224, -224} with an invariant line carrying exactly e^-224t): positivity of K_theta is what excludes the semigroup (the critique's F6) (6 Nov)", OB, "spc_gksl"),
+    ("calibration", "action", "model time", "CONDITIONAL (the critique's M3): the declared action and its reference completion are written in model time u, their field equations (M_s + J^T J) q'' + J^T H[q', q'] + 4 M_s q + J^T ((W_p + A) g + B y) = 0, y'' + D y + B^T g = 0 and Phi'' + K_theta Phi = 0 carrying no unit (act_native, master_response), and a calibration t = tau u, one positive real tau, intertwines the native flow with the physical one, S U(u) = U_tau(tau u) S, while calibrations tau and 2 tau give identical native records with frequencies in ratio 2 (calibration: the Salina-Prema statement and countermodel A): the action fixes no interval, so which physical time its u is stays the calibration's external datum, and TIME_BIND stays UNBOUND (6 Nov)", gates.CONDITIONAL, "calibration"),
+    ("cosmology", "action", "the decoupling limit", "CONDITIONAL: in the decoupling limit G -> 0 with Lambda_cc tuned to 0 the FLRW flow psi'' + 3 H psi' + m^2 D^2 psi = 0 keeps H = 0 and is the carrier's native flow in u = m t (checked at m = 1/2), the Euler-Lagrange flow of the quadratic action (1/2)|psi'|^2 - (1/2) psi^T D^2 psi that the stiff-bath limit of the completed action returns for the datum F = D^2 (act_dressing; the readout's first-order form, spc_gksl), with the free mass scale a calibration tau = 1/m and t -> tau t acting on the cosmos's inputs by m -> m/tau, Lambda_cc -> Lambda_cc/tau^2 (cosmos_calibration); M4, G, Lambda_cc and m stay the cosmos's free inputs (6 Nov)", gates.CONDITIONAL, "cosmos_calibration"),
+    ("action", "spectrum", "the one loop is the spectral action", "the one loop of every quadratic restriction of the action is the spectral action: for z > 0 the Gaussian integral over Phi of exp(-(1/2) Phi^T (z + K) Phi) is (2 pi)^(n/2) det(z + K)^(-1/2) (the line integral in sympy, the orthogonal change of variables cited), so Gamma(z) = (1/2) log det(z + K) = Tr f_z(K) with f_z(x) = log(z + x)/2, up to the constant -(n/2) log 2 pi (spectral.spectral_action, to 10^-12 at z = 1, 2 on the carrier); on the carrier block det(z + D^2) = z^5 (z + 3)^8 (z + 8)^2 and 2 Gamma'(z) = Tr (z + D^2)^-1 = 5/z + 8/(z + 3) + 2/(z + 8) exactly, and on master_response's root-site instance (cone-J15, eps = 1) the one loop of the reference completion K_1 = H_R + I + Y V Y^T factorizes as log det(z + K_1) = log det(z + C_1) + log det S_K(z)^-1 with S_K(z)^-1 = D^2 + z + X(1) - X(1 + z) exactly at z = 1, 2 (X(w) = B (w + C)^-1 B^T from the five sectors, certified by (w + C) W = B^T), the 225 x 225 hidden determinant exact by Chinese remaindering over 60 primes and the 240 x 240 float log determinants 1250.39174424308 (z = 1) and 1256.78365222709 (z = 2) agreeing with the determinant lemma's exact value det(z + 1 + H_R) det(I + V S_0(z + 1)) to 10^-9 (spc_oneloop) (6 Nov)", T, "spc_oneloop"),
+    ("E8", "spectrum", "the bulk heat series of the theta = 0 member", "at theta = 0 the one Hessian on the lattice is the bath Delta = 240 - sum_r T_r over the 240 roots, and its spectral functionals per site are E8 root-walk counts: tau(H^n) = <delta_0, H^n delta_0> = sum_k C(n, k) 240^(n - k) (-1)^k W_k is the binomial transform of the closed root walks W_k (data/walks90.json: W_2 = 240, W_3 = 13440, W_4 = 1260720), giving 240, 57840 = 240^2 + 240, 13983360 = 240^3 + 3 x 240^2 - 13440 (the 13440 ordered zero-sum root triples) and 3389062320, and the heat trace per site tau(e^-tH) = 1 - 240 t + 28920 t^2 - 2330560 t^3 + 141210930 t^4 - ... has integer coefficients (tau(H^n) divisible by n! through n = 4); the 240-root shell's compression 240 I - B_R (master_response's instance) has per-site moments 240, 57656, 13862808 instead, the second differing by the 184 root steps that leave the shell (usm_bulk_heat; the unified spectral model and action, filed 2 Nov 03:01 UTC, eqs (3) and (23)) (6 Nov)", T, "usm_bulk_heat"),
+    ("bath", "spectrum", "the Schur factorization of the one loop", "on master_response's root-site instance (H_R = 240 I - B_R, eps = 1, the 15 bond atoms visible, the 225 other roots hidden) the one loop of the completion K = H_R + I + Y V Y^T factorizes as log det(z + K) = log det(z + C_1) + log det S_K(z)^-1 with S_K(z)^-1 = S_0(z + 1)^-1 + V = D^2 + z + X(1) - X(1 + z) exactly at z = 1, 2 (X(w) = B (w + C)^-1 B^T by the five-sector block trick, certified by (w + C) W = B^T at w = 1, 2, 3): the 225 x 225 hidden determinant det(z + C_1), computed exactly by Chinese remaindering over exactly 60 30-bit primes whose product exceeds twice the row-norm bound (counted), equals det(z + 1 + H_R) det S_0(z + 1) with det(z + 1 + H_R) = prod (z + 1 + mu_k)^(r_k) over the sectors 184^1, 212^8, 232^35, 242^112, 244^84 (the complementary-minor identity on the instance), det(I + V S_0) = det S_0 det S_K^-1 (15 x 15, exact), and the 240 x 240 log determinant in floats agrees with the exact value given by the determinant lemma det(z + K) = det(z + 1 + H_R) det(I + V S_0(z + 1)) (master_response's source law), 1250.39174424308 at z = 1 and 1256.78365222709 at z = 2, to 10^-9; the lemma, the block determinant, the complement identity and S_K^-1 = S_0^-1 + V are checked symbolically on a generic 1 + 2 block (6 Nov)", T, "spc_oneloop"),
+    ("triple", "spectrum", "the carrier's one loop", "the carrier block of the one spectrum is the triple's D^2: det(z + D^2) = z^5 (z + 3)^8 (z + 8)^2 exactly, 2 Gamma'(z) = Tr (z + D^2)^-1 = 5/z + 8/(z + 3) + 2/(z + 8) whose partial fractions recover 0^5, 3^8, 8^2, the expansion at infinity sum_k (-1)^k Tr D^(2k)/z^(k + 1) = 15/z - 40/z^2 + 200/z^3 - 1240/z^4 + 8840/z^5 (spectral.moments) with alternating signs, converging only for |z| > 8 (the poles 0, -3, -8), zeta(s) = 8 x 3^-s + 2 x 8^-s (spectral.zeta) as the transform Gamma(s)^-1 int t^(s - 1) (Theta(t) - 5) dt of the heat trace Theta(t) = 5 + 8 e^-3t + 2 e^-8t (spectral.heat_trace, checked at three t) minus its kernel count, fixing the spectrum only together with the dimension (15 - zeta(0) = 5 is the nullity), and spectral.spectral_action(f_z, 1) equals (1/2) log det(z + D^2) up to -(15/2) log 2 pi at z = 1, 2 to 10^-12 (spc_oneloop) (6 Nov)", T, "spc_oneloop"),
+    ("chiral", "spectrum", "the chiral heat trace and supertrace", "the chiral block F19 = D19^2 of the one spectrum has heat trace Tr e^-tF19 = 1 + 2 e^-8t + 4 sum_(lam = lam-, lam+) [e^(-t alpha lam) + e^(-t (3 + alpha lam))] and supertrace Tr Gamma e^-tF19 = -1 at every t and alpha, because det(x - M^T M - alpha L_E) = x det(x - M M^T - alpha L_V) (x^2 - 5 alpha x + 5 alpha^2)^2 with det(x - M M^T - alpha L_V) = (x - 8)((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^2, symbolic in alpha: the two chiral halves share one nonzero spectrum, so Tr Gamma f(F19) = -f(0) for every f (canon_flower_spectral, section III.1's (B3)), and on the comparator (alpha = 1, eps = 3, COMP-J19) the spectral shift xi(lambda) = #{K19 < lambda} - #{H + 3I < lambda} of the completion against the bath is 1, 5, 9, 19, 19, 18, 0, 0 at lambda = 1, 3/2, 4, 9, 148, 150, 200, 260 by exact inertia, reaching the rank 19, so the relative heat action lies in [0, 19] for every t (6 Nov)", T, "canon_flower_spectral"),
+    ("measure", "spectrum", "the spectral determinant and the relative heat", "on the comparator (eps = 3, the chiral source on the first 19 channels: COMP-J19) the relative one loop of the completion against the bath is the spectral determinant log det(I + V19 S_0(z)) = log det(z + K) - log det(z + H + 3), with S_K(z)^-1 - S_0(z)^-1 = V19 as a series in 1/z through z^-7 and exactly at z = 3/10, 2, 19, 85, Tr[(z + K)^-1 - (z + H + 3)^-1] = d/dz log det(I + V19 S_0(z)) (Jacobi) and log det(I + V19 S_0(z)) = sum_m (-1)^(m + 1) Delta_m z^-m/m through z^-4 with the directly computed relative traces Delta_m = Tr(K^m - (H + 3)^m): the log-derivative of the relative spectral determinant is the Laplace image int_0^oo e^-zt Theta_rel(t) dt of the relative heat trace Theta_rel(t) = Tr(e^-tK - e^-t(H + 3)) term by term (usm_relheat_laplace); the comparator's bath is built from the six-port's sector measures (bridge_comparator), the same Stieltjes data read on the hidden side (6 Nov)", T, "usm_relheat_laplace"),
+    ("moments", "spectrum", "the return moments generate the heat trace", "the return moments E_n = tau(H^n) of the bath (1, 240, 57840, 13983360, 3389062320: the binomial transform of the closed root walks, walks_join) are the moments of the per-site spectral measure of the theta = 0 member of the one Hessian, and its heat trace per site is their exponential generating function with alternating signs, tau(e^-tH) = sum_n (-t)^n tau(H^n)/n! = 1 - 240 t + 28920 t^2 - 2330560 t^3 + 141210930 t^4 - ..., every coefficient an integer (usm_bulk_heat's eq (23)); the six-port's sector moments (court.sector_moments, the Stieltjes data of layer 15) are the same functional read through the port's channels, with the shell's per-site moments 240, 57656, 13862808 a compression of it (6 Nov)", T, "usm_bulk_heat"),
+    ("readout", "spectrum", "the transfer trace", "the readout's generator A = [[0, I], [-D^2, 0]] (observer.system_matrix) has transfer trace Tr (s - A)^-1 = 2 s Tr (s^2 + D^2)^-1 = 4 s Gamma'(s^2), twice the derivative of the one loop Gamma(z) = (1/2) log det(z + D^2) at z = s^2, with 2 Gamma'(z) = 5/z + 8/(z + 3) + 2/(z + 8) exactly: the readout's resolvent trace and the one loop are one function of the carrier block's spectrum 0^5 3^8 8^2, and the transfer function's poles at s^2 = 0, -3, -8 are the one loop's (spc_oneloop) (6 Nov)", T, "spc_oneloop"),
+    ("gksl", "spectrum", "the decay rates are no spectral values of the family", "OBSTRUCTION: the GKSL generator L = 240 I + 16 T - 16 vec(I) vec(I)^T on vec(M) (counts._generator) has spectrum 0, 224, 256 with multiplicities 1, 120, 135, fixed by L (L - 224)(L - 256) = 0 and its two traces 61440 and 14868480 (gksl_census, counts.pauli_quotient cited), while the first-order generators of the one action, G = [[0, I], [-K, 0]], have spectrum on the imaginary axis for every K >= 0: exactly {0, +-i sqrt3, +-2i sqrt2} for the carrier block, with characteristic polynomial x^10 (x^2 + 3)^8 (x^2 + 8)^2, and for the completion family K_theta = H_R + theta (I + Y V Y^T) on master_response's root-site instance (cone-J15; positive semidefinite at theta = 0, 1/2, 1 by exact inertia of the visible Schur complement, nullity 0, 0, 5, and between them by convexity) no real nonzero eigenvalue at all, as (G_theta - c)(G_theta + c) = -diag(K_theta + c^2, K_theta + c^2) is invertible for real c != 0; so the rates 224 and 256 are spectral values of no generator of the one action, and the semigroup's 255 decaying Pauli directions are no spectral functional of the one Hessian (the critique's F6: positivity, not the spectral symmetry of the design's R12, excludes them) (spc_gksl) (6 Nov)", OB, "spc_gksl"),
+    ("halfper", "spectrum", "the symbol at the half-periods", "the theta = 0 member of the one Hessian on the lattice, Delta = 240 - sum_r T_r, has Fourier symbol eps(k) = 240 - sum_r cos<r, k> on the dual torus, and at the 256 half-period momenta Lambda/2 Lambda the symbol is the character sum eps = 240 - sum_r chi(r) on the half-period quadric, where the roots are its nonsingular points two each and a character sums to -16 when q(y) = 0 and +16 when q(y) = 1: eps = 256 on the 135 singular half-periods (type D8, the band's top) and 224 on the 120 nonsingular ones (type E7 + A1, the saddle), every one a critical point (a clock without eigenvalue 1 fixes the gradient): the band values of the half-periods are spectral values of the theta = 0 Hessian at its 2-torsion momenta (places.band_at_places); the GKSL rates 224 and 256 are these values (gksl_census) and spectral values of no generator of the action (spc_gksl) (6 Nov)", T, "places.band_at_places"),
+    ("gravity", "spectrum", "the product spectral action", "CONDITIONAL: the product spectral action is the spectral functional Tr f(D_tot^2/Lambda^2) of a finite block F of the one Hessian on M4 x F, with the product rule Tr e^-tD^2 = Tr e^-tD_M^2 Tr e^(-t m^2 D_F^2) (massless_tower, cited) and the general heat coefficients a0 = 4n, a2 = -(4 T_2 m^2 + n R/3), a4 = 2 T_4 m^4 + T_2 m^2 R/3 for any finite D_F with n = Tr D_F^0 and T_k = Tr D_F^k (symbolic on a generic finite spectrum): 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3 for the carrier block (gravity.product_heat_coefficients; spectral.moments 15, 40, 200) and 76, -(160 (1 + alpha) m^2 + 19 R/3), (400 + 240 alpha + 240 alpha^2) m^4 + 40 (1 + alpha) m^2 R/3 for the chiral block D19(alpha), differing at alpha = 0 by (16, -4R/3, 0), the four auxiliary zero modes, and by 60 alpha^2 m^4 in a4 from mgm_dirac20's D20; M4, f, L, m, alpha and which block is F are free, and no gravitational normalization is derived (spc_product; gates.GATES keeps TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED) (6 Nov)", gates.CONDITIONAL, "spc_product"),
+    ("spectrum", "carrier", "the completion's spectrum is not the carrier's with the hidden block's", "OBSTRUCTION: spec K_1 is not spec D^2 together with spec C_1, so Tr f(K_1) is not Tr f(D^2) + Tr f(C_1): for g < 185 the hidden block C_1 - g is positive definite (C_1 >= 185 as a compression of H_R + 1, master_response) and the eigenvalues of K_1 below g are counted exactly by the negative pivots of the visible Schur complement S_g = D^2 - G(1)^-1 + G(1 - g)^-1 (inertia additivity; zero_pole_instance's method with exact rationals from the sectors), giving N_K = 5, 13, 13, 15, 15 at g = 2.99, 3, 7.9, 8, 184 against 5, 5, 13, 13, 15 for D^2 u C_1 (eight eigenvalues of K_1 in [2.99, 3) and two in [7.9, 8), none at 3 or 8); K_1 has nullity 5 (master_response's lifted kernel; five zero pivots at g = 0), its first positive eigenvalue lies in [2.9943, 2.9944) (counts 5 and 6), and the spectral shift xi = N_K - N_(H_R + 1), equal to N_K below 185, reaches its maximum 15, the rank of the update, at g = 8 already: the carrier's spectral data enter the completion as a z = 0 Schur complement, a functional of the operator and not of its spectrum (the critique's R-b and F7) (6 Nov)", OB, "spc_oneloop"),
+    ("carrier", "chiral", "the chiral completion", "the chiral completion of the carrier: the golden stiffness K_alpha = D^2 + alpha L (L = diag(L_V, L_E) the cycle Laplacians 2I - U - U^-1 of the mark U, commuting with D since M U_E = U_V M) has characteristic polynomial x (x - 8)^2 (x^2 - 5 alpha x + 5 alpha^2)^2 ((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^4, is positive semidefinite for alpha >= 0 and has one zero mode q = NEAR - FAR for alpha > 0; no odd Dirac on the triple's 5 + 10 grading squares to it (Theorem 1), and the 19-dimensional odd D19 = [[0, N], [N^T, 0]] with N = [C_alpha M; sqrt(alpha) S1] on (5 vertices + 4 auxiliaries) + 10 edges, C_alpha = (I + alpha L_V/3)^(1/2) and S1^T S1 = P0 L_E P0, squares to F19 = K_alpha (+) alpha S1 S1^T, symbolic in alpha, with nullity 1 and index -1 (Theorem 2; chiral_closures): the carrier builds the chiral dot at depth 6, with the mark U and alpha recorded as selections (unify.uniqueness) (6 Nov)", T, "chiral_closures"),
+    ("E8", "chiral", "the chiral vertex stiffness is the tick's", "on the sum-zero hyperplane H the chiral completion's vertex cycle Laplacian L_V = 2I - U_V - U_V^T (_chiral, chiral_closures; U_V = r, the K5 vertex rotation of carrier.edge_tick) is 2I + X with X = -(r + r^-1) the golden companion on the carrier's A4 (X^2 = X + I on H; penrose_planes, join_e8_golden), and on E8 the tick's 2I - g - g^-1 (cyclotomic.clocks, in penrose_planes' coordinates, where g acts on the carrier's A4 as r and X = -(g + g^-1) is join_e8_golden's companion with X^2 = X + I on all of E8) maps each of the 20 A4 roots v to L_V v: the vertex block alpha L_V of the golden stiffness K_alpha = D^2 + alpha L is E8's own, with L_V u = 0 on the constants; on the edges 2 L_E = 4I + 2 X_E with X_E = -(U_E + U_E^-1), X_E^2 = X_E + I on the rank-8 moving part I - Pavg, off the rank-2 rotor plane Pavg = (1/5) sum U_E^j (golden_split's X; M U_E = U_V M), the characteristic polynomials x^2 (x^2 - 5x + 5)^4 of L_E and x^2 (x^2 - 10x + 20)^4 of 2 L_E: one_quadratic's golden band 5 -+ sqrt5 = 2 lam-+ (6 Nov)", T, "spc_penrose_chiral"),
+    ("AGL", "chiral", "the doubling swaps the chiral planes", "the doubling i -> 2i of AGL(1,5) conjugates the mark's rotation r to r^2, swaps the Penrose planes E1 and E2 (penrose_planes) and carries the chiral completion's vertex Laplacian L_V = 2I - U_V - U_V^T to the pentagram Laplacian L_V' = 2I - U_V^2 - U_V^-2 with L_V + L_V' = 5I - J (one_quadratic), whose lam-+ = (5 -+ sqrt5)/2 eigenplanes are E2 and E1: on the chiral block the doubling is the Galois conjugation sqrt5 -> -sqrt5 of Q(sqrt5), exchanging the two spectral projectors Pi_1 = P1, Pi_2 = P2 of the dressing C_alpha = (I + alpha L_V/3)^(1/2) and the two Golden partners over one order-five subgroup (mgm_marks), so the completion at the mark U goes to the completion at the mark U^2 (spc_penrose_chiral; on the carrier chiral_dark's D5 statement) (6 Nov)", T, "spc_penrose_chiral"),
+    ("clocks", "chiral", "no five-cycle on the nineteen roots", "OBSTRUCTION: an orthogonal map of order 5 that permutes schur_zero_mode's 19 visible root lines (the 15 bond roots and the auxiliaries e_i + e_6, i < 4) and turns the 5 vertex lines must fix at least 4 of the other 14 lines (orbits of size 1 or 5, 14 = 4 mod 5), and a fixed line meets the five vertex roots at one |inner product|, which none of the 10 edge and 4 auxiliary lines does; on J15 the count is 10 = 0 mod 5 and r turns the 15 lines; the break is the placement's: the 8 roots orthogonal to all 15 atoms (4 lines) are fixed by r, so with them as auxiliaries r keeps the 19 lines (as lines; whether that placement serves the chiral target is not asked) (the critique's O5 and M4) (6 Nov)", OB, "brg_symmetry"),
+    ("penrose", "chiral", "the chiral dressing on the Penrose planes", "the lam-+ = (5 -+ sqrt5)/2 eigenplanes of the chiral completion's L_V are the Penrose planes E1 and E2: the chiral spectral projectors Pi_1, Pi_2 of _chiral equal penrose_planes' P1 = (r + r^-1 + phi)(I - J/5)/sqrt5 and P2 = (1/phi - r - r^-1)(I - J/5)/sqrt5 exactly over Q(sqrt5), Pi_0 = J/5, L_V P1 = lam- P1 and L_V P2 = lam+ P2 (so chiral_closures' factors x^2 - 5 alpha x + 5 alpha^2 of the golden stiffness are the planes' values alpha lam-+); the dressing C_alpha = (I + alpha L_V/3)^(1/2) = sum c_k Pi_k of chiral_closures' Theorem 2 is the scalar sqrt(1 + alpha lam-/3) on E1, sqrt(1 + alpha lam+/3) on E2 and 1 on the constants, so the vertex-edge block C_alpha M of the 19-dimensional odd operator D19 is diagonal across the Penrose planes; and the doubling i -> 2i conjugates r to r^2, swaps E1 and E2 (penrose_planes) and carries L_V to the pentagram Laplacian L_V' = 2I - U_V^2 - U_V^-2 with L_V + L_V' = 5I - J (one_quadratic), whose lam-+ planes are E2 and E1 (6 Nov)", T, "spc_penrose_chiral"),
+    ("chiral", "gravity", "the product action with the chiral completion", "CONDITIONAL: with the chiral completion D19(alpha) in place of the carrier's D in the product D = D_M (x) 1 + gamma (x) m D_F (massless_tower's product rule, cited), (4 - tR/3) Tr exp(-t m^2 D19^2) has heat coefficients a0 = 76, a2 = -(160 (1 + alpha) m^2 + 19 R/3), a4 = (400 + 240 alpha + 240 alpha^2) m^4 + 40 (1 + alpha) m^2 R/3: the general formula a0 = 4n, a2 = -(4 T_2 m^2 + nR/3), a4 = 2 T_4 m^4 + T_2 m^2 R/3 (symbolic on a generic finite spectrum) at n = 19 with Tr F19 = 40 + 40 alpha (deep_zero_pole), Tr F19^2 = 200 + 120 alpha + 120 alpha^2 (flower_source) and Tr F19^3 = 1240 + 540 alpha + 540 alpha^2 + 400 alpha^3 (usm_spine_cubic's, re-derived here from the roots of chiral_closures' characteristic polynomial), the heat trace Z19 of canon_flower_spectral's B1 equal to the sum over those roots; at alpha = 0 it exceeds product_geometry's 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3 (gravity.product_heat_coefficients, spectral.moments 15, 40, 200) by (16, -4R/3, 0), the four auxiliary zero modes of D19(0) = D (+) 0_4, and mgm_dirac20's D20 (Tr D20^4 = 200 + 120 alpha + 90 alpha^2) would give an a4 smaller by 60 alpha^2 m^4; M4, f, L, m, alpha and the choice of F are free (6 Nov)", gates.CONDITIONAL, "spc_product"),
+    ("chiral", "triple", "the no-go and the completion", "the chiral completion extends the triple and restricts to it: the real symmetric 15 x 15 matrices anticommuting with the triple's grading Gamma = diag(I5, -I10) form a 50 = 5 x 10 dimensional space with zero diagonal blocks, so an odd D' = [[0, N], [N^T, 0]] on the triple has rank at most 10 and nullity at least 5, while K_alpha has nullity 1 for alpha > 0: no odd Dirac on the triple's grading squares to the golden stiffness (Theorem 1, the 15-dimensional no-go), and the 19-dimensional D19 = [[0, N], [N^T, 0]] with N = [C_alpha M; sqrt(alpha) S1] does, symbolic in alpha, its alpha = 0 face being N = [M; 0] (C_0 = I, S = 0), the triple's D = [[0, M], [M^T, 0]] with four even auxiliaries in the kernel, and its index (kernel on the positive 9 minus the negative 10) 0 - 1 = -1 against the triple's -5 (chiral_closures, Theorems 1 and 2): the four even auxiliaries shift the index by 4 (6 Nov)", T, "chiral_closures"),
+    ("bath", "carrier", "no reduction of the bath to the carrier on the cone atoms", "on master_response's cone atoms (the six-site port's 15 bond roots in the root-site instance H_R = 240 I - B_R) the bath's static response S_w^-1 = (Y^T (H_R + w)^-1 Y)^-1 does not commute with D^2 for any regulator w > -184: from the sector expansion [S_w, D^2] = [G_J, D^2]/(2 (w + 212)(w + 242)) identically in w, G_J the cone roots' Gram matrix r.s, and [G_J, D^2] != 0; the compression Y^T H_R Y does not commute with D^2 either; so on that injection D^2 is no compression, Schur reduction or function of the bath's response (the best affine fit a S_w^-1 + b leaves residual^2 in (48.34, 48.35) at w = 0, 1); the bath-to-D^2 identity the model holds is master_readout's glue J15, D^2 = (1/4) J^T H_R J - 50 - 8 P0, an invariant injection with no hidden coupling, which needs the mark P0 (one action, one spectrum, 2 Nov)", OB, "act_no_reduction"),
+    ("sixsite", "carrier", "the bond bridge", "the signed permutation w (e_i -> -e_(i+1) for i < 5, e_5 -> e_0, e_6 -> -e_6, e_7 -> e_7; six sign changes, so in W(D8) inside W(E8), determinant -1) maps the 240 roots onto themselves and its site permutation keeps the root graph B_R, so it is a symmetry of H_R = 240 I - B_R; it carries cone's six sites {0, e_i + e_5} onto spacetime.clique_sites() in order (the cone point onto x0 = 0, the lifted vertex i onto x_(i+1)), hence master_response's 15 atom roots onto the 15 bonds of the native clique, each once (vertex atom i onto x_(i+1) - x0, edge atom ij onto x_(i+1) - x_(j+1)); it conjugates the coordinate five-cycle e_i -> e_(i+1) (i < 5; spine's r, clock_joins) to the five-cycle of e_1..e_5, which acts on the six clique sites as native.boundary_rotation(), and of the 720 bijections of the cone's sites onto the clique's exactly 5 intertwine the cone rotation with boundary_rotation, all with the cone point on x0 (they are the site maps of w c^k): the cone point is the origin, the one site boundary_rotation fixes and the one where port_metric's diagonal is 2/5 (22/5 at x1..x5); the design's sigma = diag(1, 1, 1, 1, 1, -1, -1, 1) also lands on the bonds but through x -> x5 - sigma x, with the cone point on x5, which boundary_rotation moves, so the design's 'cone at x5' was sigma's artifact (the critique's R-c and M2, rebuilt from its k1.py) (6 Nov)", T, "brg_bonds"),
+    ("kerM", "sixsite", "the zero modes pass the port", "the five lifts (0 on the vertex atoms, v in ker M on the edge atoms, -W v on the 225 hidden roots, W = C_1^-1 B^T with C W = B^T checked exactly) are the whole kernel of K_1 (rank 235) and vanish on the port sites, so they survive the port constraint and are annihilated by the Dirichlet operator on the 235 non-port roots (rank 230): the five dark modes live on the edge atoms, which w places in the ball's bath, and the port does not see them statically (D^2 has no vertex-edge block; schur_zero_mode's single lift is the alpha > 0 case) (6 Nov)", T, "brg_bonds"),
+    ("literal", "carrier", "the port metric's corner is the cone point", "the owner's port metric (literal_port ties the owner's W_p to native.port_metric in boundary order x0..x5; here native.port_metric is checked to 1e-12 against golden_port's circulant form, the row (22, -8, 2, 2, -8)/5 on x1..x5 and 2/5 at x0) singles out x0, which under w is the carrier's cone point: its diagonal is 2/5 there and 22/5 at the five vertex sites, boundary_rotation fixes x0 alone (_checks' native_port), and the design's sigma put the cone point on x5, where the diagonal is 22/5 and boundary_rotation moves it: the port metric and the bridge agree on which site is the cone point (6 Nov)", T, "brg_bonds"),
+    ("clocks", "carrier", "the clocks do not keep the atom roots", "OBSTRUCTION: the stored clocks g = r r', r, r' and c' (spine.spine_clock, made exact in standard coordinates through the half-integral frame) are orthogonal, map the 240 roots onto themselves and keep the root graph, so each is a symmetry of the root-site bath H_R, but of master_response's 15 atom roots they send only 6, 11, 10 and 2 onto atom roots (10, 15, 10 and 2 onto atom lines; g and r' send all five vertex atoms off the lines; only r, the coordinate five-cycle fixing e_5, e_6, e_7, keeps the 15 lines, flipping the four edge roots e_i - e_4; none keeps schur_zero_mode's nineteen roots); V = D^2 - S_1^-1 has a nonzero diagonal at every atom (every entry below -236), so K_theta = H_R + theta (eps + Y V Y^T) and its image under a clock differ by theta V_aa at the image of a moved atom for every theta != 0, and since the five vertex entries of S_1^-1's diagonal are distinct and none exceeds an edge entry by exactly 2, no permutation of the atoms that moves a vertex atom keeps the diagonal of V(alpha) = F(alpha) - S_1^-1 for any alpha: the tick is a symmetry of the theta = 0 member and of no completion on master_response's J15 (the critique's O5; the co-rotating field of the time-carrier join lives on the abstract atoms, not on the root sites) (6 Nov)", OB, "brg_symmetry"),
+    ("S5", "sixsite", "the port metric cuts the cone's S5 to D10", "on the bond lines (the six sites, cone_symmetry's labels) exactly the 120 permutations fixing the cone point keep F(0) = D^2, and every permutation moving the cone point changes D^2's diagonal (4 against 2) while keeping L's (all 2), so no alpha restores it; inside the 120, F(alpha) = D^2 + alpha L (L = diag(2 - U_V - U_V^T, 2 - U_E - U_E^T) of the coordinate five-cycle, schur_zero_mode's mark) is kept for alpha = 1 and 1/3 by exactly the 10 maps i -> +-i + b that keep L, and W_p on the six port sites (native.port_metric through w, the cone point at x0; literal_port) is kept by the same 10: the stabilizer of (atoms, F(alpha), W_p) is the dihedral D10 for every alpha >= 0, alpha = 0 included (D10 keeps D^2 and L, hence every F(alpha), and nothing outside D10 keeps W_p; its ten maps fix the cone point, so they keep the port's vertex split Pi), and the cone's S5 is the stabilizer of (atoms, F(0), Pi) only (refining the critique's O5 'the coordinate S5 at alpha = 0') (6 Nov)", T, "brg_symmetry"),
+    ("rootgraph", "carrier", "the orientation of the edge roots decides C5", "on the signed root sites the lines' groups do not act: master_response's 15 atom roots have exactly 2 Gram-preserving permutations (the identity and one that sends a vertex atom to an edge atom, moving the cone point); over the 1024 orientations of the ten edge roots the coordinate permutations that keep the 15 signed roots form a group of odd order at most 5 (a tournament has no automorphism of order 2): of order 1 for 840 orientations, 3 for 160 and 5 for exactly 24, and 1 for master_response's e_i - e_j (i < j); for the cyclic orientation e_i - e_(i+1), e_i - e_(i+2) it is <r>, and S_1 on those roots commutes with r's permutation of the atoms (as D^2 and L do), so r keeps K_theta (eps = 1) for every theta and alpha there: C5 on the cyclic bond roots, D10 on no orientation; which orientation the model uses is a selection it has not made (6 Nov)", T, "brg_symmetry"),
+    ("gksl", "readout", "no GKSL reduction of the carrier's flow", "OBSTRUCTION: the semigroup e^-tL (counts._generator's L = 240 I + 16 T - 16 vec(I) vec(I)^T on vec(M), symmetric with L (L - 224)(L - 256) = 0 and eigenvalues 0, 224, 256 of multiplicities 1, 120, 135 fixed by its two traces 61440 and 14868480; gksl_census, counts.pauli_bath, counts.pauli_quotient) is no flow of the readout's system x' = A x with A = [[0, I], [-D^2, 0]] (observer.system_matrix; onemodel_closures) and no quotient of it, on the class of linear intertwiners: A has characteristic polynomial x^10 (x^2 + 3)^8 (x^2 + 8)^2, its spectrum {0, +-i sqrt3, +-2i sqrt2} lies on the imaginary axis, A + 224 and A + 256 have determinants det(D^2 + 224^2), det(D^2 + 256^2) and trivial nullspaces and left nullspaces, ker A = ker D^2 (+) 0 and the left kernel 0 (+) ker D^2 are 5-dimensional (chiral_closures' nullity of D^2), so every linear T: R^256 -> R^30 with A T = T(-L) (e^(tA) T = T e^-tL) sends the rate-e Paulis into ker(A + e), every linear S: R^30 -> R^256 with S A = -L S has S^T sending them into ker(A^T + e), both vanish on the 255 decaying Pauli directions, and the two intertwiner spaces have dimension exactly 5 x 1 + 0 x 120 + 0 x 135 = 5, supported on the identity Pauli against the static kernel: only the trivial part of the semigroup meets the flow, and no other linear embedding or quotient exists (6 Nov)", OB, "spc_gksl"),
+    ("golden", "gravity", "the golden stiffness in the gravitational and vacuum terms", "CONDITIONAL: in gravity.py's normalization, which reads the curvature coefficient off a2 alone and leaves the T_2 m^2 R/3 cross term of a4 (times F0) out of it, the curvature term of the product spectral action gives 1/(16 pi G) = (n/3) F1 L^2/(16 pi^2), G = 3 pi/(n F1 L^2), which is gravity.newton_and_vacuum's pi/(5 F1 L^2) for the carrier's D (n = 15) and 3 pi/(19 F1 L^2) for D19 at every alpha (the completion rescales G by 15/19, independently of the golden stiffness), while the constant term gives Lambda_cc = 6 (F2/F1) L^2 - (6 T_2/n) m^2 + (3 T_4/n)(F0/F1) m^4/L^2: gravity.py's 6 (F2/F1) L^2 - 16 m^2 + 40 (F0/F1) m^4/L^2 at n = 15, and 6 (F2/F1) L^2 - (240 (1 + alpha)/19) m^2 + (3 (200 + 120 alpha + 120 alpha^2)/19)(F0/F1) m^4/L^2 for D19, where alpha enters through the golden stiffness alpha L whose traces 40 alpha and 120 alpha + 120 alpha^2 carry lam+- = (5 +- sqrt5)/2 (chiral_closures); Lambda_cc is affine in F2 with slope 6 L^2/F1, so F2/F1 tunes it to any value for every n and alpha (gravity.tuned_F2's nonidentifiability, checked at n = 15 and solved for D19): no gravitational normalization is derived, the 'gravity' dot stays conditional, and gates.GATES keeps TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED (6 Nov)", gates.CONDITIONAL, "spc_product"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -42696,6 +42743,1678 @@ def evd_byte_receipt():
     }
 
 
+# ------------------------------------------------------------------- the declared action and its vacuum spectrum (2 Nov, reviewed 6 Nov): the declared native action and its Euler-Lagrange system, the vacuum decoupling, the literal port's two kinetic metrics, the ball's port blocks against the lattice's
+
+@functools.lru_cache(maxsize=None)
+def _act_bath(lit):
+    """native.Bath(r2=8): the E8 ball |x|^2 <= 8 (26641 sites, the sites outside dropped: Dirichlet), split into the
+    six clique sites and 26635 bath sites, at layer 4's clique x0 = 0, x_j = e1 - e_(j+1) (lit False) or at layer 10's
+    clique 0, e_j - e6 (lit True, literal.literal_clique); built once."""
+    return native.Bath(8, clique=literal.literal_clique() if lit else None)
+
+
+@functools.lru_cache(maxsize=None)
+def _act_delta(lit):
+    """The operator of the whole ball, 240 I minus the root adjacency, rebuilt by spacetime.lattice_operator from the
+    ball's site list and so independent of the Bath's partition, with its site lookup."""
+    return spacetime.lattice_operator(_act_bath(lit).pts)
+
+
+def act_native():
+    """The declared native action of layer 4, written with its port constraint as a multiplier:
+    L = (1/2) q'^T M_s q' - 2 q^T M_s q - (1/2) g^T W_p g + (1/2)|Phi'|^2 - (1/2)<Phi, Delta Phi> + <lambda, Pi^T Phi - g(q)>,
+    with Phi the field on every site of the ball, Pi the six clique sites and g(q)_k = a^T N_k b. This is the declared
+    action at theta = 0: no completion term is added. Exact here: an identity of polynomials on a generic small instance
+    of the same form (sympy), Dg(0) = 0 and J(q) q = 2 g(q) for the stored port operands, and the decoupling of the
+    vacuum Hessian. A labelled float confirmation: native.NativeSystem.rhs and .energies on the actual 26635-site ball
+    satisfy the multiplier equations at three seeded states, for NativeSource and for LiteralSource. Cited, not repeated:
+    native.run and literal.run (J(q) q = 2 g(q) at one random q, q'' + 4q = 0, energy conservation of the flow);
+    flower_source (the pullback form of the same equations and its term J_g^T D^2 g[v, v] = 2 J_g^T g(v)); field (4 is not
+    in spec D^2, the OBSTRUCTION source -> carrier); triple (ker D^2 on the edges is ker M); literal.run (N_source spans
+    ker M, M_source = diag(W/4, W/4))."""
+    # (i) a generic small instance of the same form: q = (a, b) in R^2 + R^2, two port sites, two bath sites
+    def symm(name, n):
+        return sp.Matrix(n, n, lambda i, j: sp.Symbol("%s%d%d" % (name, min(i, j), max(i, j))))
+    a, b = sp.symbols("a0:2"), sp.symbols("b0:2")
+    q, qd, qdd = sp.Matrix(a + b), sp.Matrix(sp.symbols("u0:4")), sp.Matrix(sp.symbols("s0:4"))
+    Nk = [sp.Matrix(2, 2, sp.symbols("n%d_0:4" % k)) for k in range(2)]
+    Ms, Wp, Dl = symm("m", 4), symm("w", 2), symm("d", 4)          # Delta on (port 0, port 1, bath 0, bath 1)
+    A, B, D = Dl[:2, :2], Dl[:2, 2:], Dl[2:, 2:]
+    Phi, Phid, Phidd = (sp.Matrix(sp.symbols(t + "0:4")) for t in ("f", "fd", "fdd"))
+    lam = sp.Matrix(sp.symbols("l0:2"))
+    g = sp.Matrix([(sp.Matrix([a]) * Nk[k] * sp.Matrix(b))[0] for k in range(2)])
+    Hk = [sp.Matrix(sp.BlockMatrix([[sp.zeros(2), Nk[k]], [Nk[k].T, sp.zeros(2)]])) for k in range(2)]
+    J = g.jacobian(q)
+    L = ((qd.T * Ms * qd)[0] / 2 - 2 * (q.T * Ms * q)[0] - (g.T * Wp * g)[0] / 2 + (Phid.T * Phid)[0] / 2
+         - (Phi.T * Dl * Phi)[0] / 2 + (lam.T * (Phi[:2, :] - g))[0])
+    pos, vel, acc = list(q) + list(Phi), list(qd) + list(Phid), list(qdd) + list(Phidd)
+    ddt = lambda e: sum((sp.diff(e, x) * v for x, v in zip(pos + vel, vel + acc)), sp.Integer(0))
+    EL = sp.Matrix([ddt(sp.diff(L, v)) - sp.diff(L, x) for x, v in zip(pos, vel)])
+    lam_sol = sp.solve(list(EL[4:6]), list(lam), dict=True)[0]
+    gd = [sp.expand(ddt(g[k])) for k in range(2)]
+    con = {Phi[0]: g[0], Phi[1]: g[1], Phid[0]: gd[0], Phid[1]: gd[1], Phidd[0]: ddt(gd[0]), Phidd[1]: ddt(gd[1])}
+    red = EL.subs(lam_sol).subs(con, simultaneous=True).applyfunc(sp.expand)
+    y, yd, ydd = Phi[2:, :], Phid[2:, :], Phidd[2:, :]
+    Hvv = sp.Matrix([(qd.T * Hk[k] * qd)[0] for k in range(2)])
+    TQ = (Ms + J.T * J) * qdd + J.T * Hvv + 4 * Ms * q + J.T * ((Wp + A) * g + B * y)
+    TY = ydd + D * y + B.T * g
+    # the energies, by native.NativeSystem.energies' own code run on the symbolic arrays (only split is resized)
+    obj = lambda M: np.array(M.tolist(), dtype=object)
+    Nobj = np.array([obj(Nk[k]) for k in range(2)], dtype=object)
+    Hobj = np.array([obj(Hk[k]) for k in range(2)], dtype=object)
+
+    class _Small(native.NativeSystem):
+        def split(self, X):
+            return X[:4], X[4:8], X[8:10], X[10:]
+
+    class _Src:
+        def g(self, x):
+            return np.einsum("i,kij,j->k", x[:2], Nobj, x[2:])
+
+        def J(self, x):
+            return Hobj @ x
+    src_g, bath_g = _Src(), type("_Bath", (), {})()
+    src_g.Ms, src_g.Wp = obj(Ms), obj(Wp)
+    bath_g.A, bath_g.B, bath_g.BT, bath_g.D, bath_g.n = obj(A), obj(B), obj(B.T), obj(D), 2
+    small = object.__new__(_Small)
+    small.s, small.b = src_g, bath_g
+    en = small.energies(np.array(list(q) + list(qd) + list(y) + list(yd), dtype=object))
+    E = (sum(v * sp.diff(L, v) for v in vel) - L).subs(con, simultaneous=True)
+    Ec = sp.expand(en["total"])
+    ddt_c = lambda e: sum((sp.diff(e, x) * v for x, v in zip(list(q) + list(y) + list(qd) + list(yd),
+                                                               list(qd) + list(yd) + list(qdd) + list(ydd))), sp.Integer(0))
+    # the cited lines of native.NativeSystem, read from its source
+    import inspect
+    rhs_src, en_src, init_src = (inspect.getsource(f) for f in (native.NativeSystem.rhs, native.NativeSystem.energies,
+                                                               native.NativeSystem.__init__))
+    transcribed = (all(line in rhs_src for line in ('Jdot_v = np.einsum("i,kij,j->k", v, s.H, v)',
+                                                    "force = -4 * s.Ms @ q - J.T @ (self.Kp @ g + b.B @ y)",
+                                                    "Gm = s.Ms + J.T @ J", "acc = np.linalg.solve(Gm, force - J.T @ Jdot_v)",
+                                                    "yacc = -(b.D @ y) - b.BT @ g"))
+                   and "self.Kp = self.s.Wp + self.b.A" in init_src
+                   and all(line in en_src for line in ("src = 0.5 * v @ s.Ms @ v + 2 * q @ s.Ms @ q",
+                                                       "port = 0.5 * g @ s.Wp @ g",
+                                                       "field = (0.5 * gd @ gd + 0.5 * w @ w + 0.5 * g @ b.A @ g",
+                                                       "+ g @ (b.B @ y) + 0.5 * y @ (b.D @ y))")))
+    # (ii) the decoupling on the generic instance, from the constrained Lagrangian
+    Lc = sp.expand(L.subs(con, simultaneous=True))
+    cvel, cpos = list(qd) + list(yd), list(q) + list(y)
+    vac = {x: 0 for x in cpos + cvel + list(lam)}
+    metric0 = sp.hessian(Lc, cvel).subs(vac)
+    hess0 = -sp.hessian(Lc.subs({v: 0 for v in cvel}), cpos).subs(vac)
+    port_symbols = set().union(*(m.free_symbols for m in Nk + [Wp, A, B]))
+    # (iii) the stored operands of both sources
+    nat, lit = native.NativeSource(), literal.LiteralSource()
+    qs = np.array(sp.symbols("q0:10"), dtype=object)
+    qv = sp.Matrix(list(qs))
+
+    def euler(s):
+        H = s.H
+        blocks = ((H[:, :5, :5] == 0).all() and (H[:, 5:, 5:] == 0).all()
+                  and np.array_equal(H[:, 5:, :5], H[:, :5, 5:].transpose(0, 2, 1)) and np.array_equal(H[:, :5, 5:], s.N))
+        gq, Jq = sp.Matrix(list(s.g(qs))), sp.Matrix(s.J(qs).tolist())
+        z = np.zeros(10)
+        return (blocks and (gq.jacobian(list(qs)) - Jq).applyfunc(sp.expand).is_zero_matrix
+                and (Jq * qv - 2 * gq).applyfunc(sp.expand).is_zero_matrix
+                and not np.any(s.g(z)) and not np.any(s.J(z)))
+    # (iv) the actual 26635-site ball: float confirmation of the multiplier equations, and the vacuum
+    conf, vacuum = [], []
+    for src, lt in ((nat, False), (lit, True)):
+        bath = _act_bath(lt)
+        Dball = _act_delta(lt)[0].tocsr()
+        sysn = native.NativeSystem(bath=bath, source=src)
+        partition = (np.array_equal(bath.A, Dball[bath.bidx][:, bath.bidx].toarray())
+                     and (bath.B != Dball[bath.bidx][:, bath.iidx]).nnz == 0
+                     and (bath.D != Dball[bath.iidx][:, bath.iidx]).nnz == 0
+                     and np.array_equal(Dball.data, np.rint(Dball.data)) and bath.n == 26635 and len(bath.pts) == 26641)
+        # the operator re-derived from the site set alone, on the six port rows and 200 seeded bath rows
+        own_idx = {tuple(p): i for i, p in enumerate(bath.pts.tolist())}
+        roots_l = spacetime.e8_roots().tolist()
+        sample = np.concatenate([bath.bidx, np.random.default_rng(5).choice(bath.iidx, 200, replace=False)])
+        own_rows = []
+        for i in sample.tolist():
+            p = bath.pts[i].tolist()
+            nbrs = {own_idx[t] for t in (tuple(a + b for a, b in zip(p, r)) for r in roots_l) if t in own_idx}
+            row = Dball[i].toarray().ravel()
+            cols = set(np.flatnonzero(row).tolist())
+            own_rows.append(row[i] == 240 and cols == nbrs | {i} and i not in nbrs and all(row[j] == -1 for j in nbrs))
+        partition = partition and len(own_rows) == 206 and all(own_rows)
+        nb, ns = bath.n, len(bath.pts)
+        for seed in (0, 1, 2):
+            rng = np.random.default_rng(seed)
+            qq, vv = 0.5 * rng.standard_normal(10), 0.5 * rng.standard_normal(10)
+            yy, ww = 0.05 * rng.standard_normal(nb), 0.05 * rng.standard_normal(nb)
+            X = np.concatenate([qq, vv, yy, ww])
+            out = sysn.rhs(X)
+            qa, ya = out[10:20], out[20 + nb:]
+            gq, Jq = src.g(qq), src.J(qq)
+            Hv = np.einsum("i,kij,j->k", vv, src.H, vv)
+            F0, F1, F2 = np.zeros(ns), np.zeros(ns), np.zeros(ns)
+            F0[bath.bidx], F0[bath.iidx] = gq, yy
+            F1[bath.bidx], F1[bath.iidx] = Jq @ vv, ww
+            F2[bath.bidx], F2[bath.iidx] = Jq @ qa + Hv, ya
+            DF = Dball @ F0
+            lm = (F2 + DF)[bath.bidx]                                   # lambda from the port rows
+            r1 = src.Ms @ qa + 4 * src.Ms @ qq + Jq.T @ (src.Wp @ gq) + Jq.T @ lm
+            s1 = max(np.abs(src.Ms @ qa).max(), np.abs(4 * src.Ms @ qq).max(), np.abs(Jq.T @ lm).max())
+            r2 = (F2 + DF)[bath.iidx]
+            s2 = max(np.abs(ya).max(), np.abs(DF).max())
+            en_f = sysn.energies(X)
+            E_act = (0.5 * vv @ src.Ms @ vv + 2 * qq @ src.Ms @ qq + 0.5 * gq @ src.Wp @ gq + 0.5 * F1 @ F1
+                     + 0.5 * F0 @ DF)
+            E_fld = 0.5 * F1 @ F1 + 0.5 * F0 @ DF
+            conf.append(partition and np.abs(r1).max() < 1e-12 * s1 and np.abs(r2).max() < 1e-12 * s2
+                        and abs(en_f["total"] - E_act) < 1e-12 * abs(E_act) and abs(en_f["field"] - E_fld) < 1e-12 * abs(E_fld))
+        y0 = np.random.default_rng(7).standard_normal(nb)
+        zero_q = np.zeros(20)
+        vacuum.append(np.array_equal(sysn.rhs(np.concatenate([zero_q, y0, np.zeros(nb)])),
+                                     np.concatenate([zero_q, np.zeros(nb), -(bath.D @ y0)])))
+        u0 = np.random.default_rng(11).standard_normal(10)
+        steps = (1e-4, 2e-4)
+        acc_t = [sysn.rhs(np.concatenate([t * u0, np.zeros(10 + 2 * nb)])) for t in steps]
+        dev = [np.abs(o[10:20] / t + 4 * u0).max() / np.abs(4 * u0).max() for o, t in zip(acc_t, steps)]
+        vacuum.append(np.array_equal(acc_t[1][20 + nb:], 4 * acc_t[0][20 + nb:]) and dev[0] < 1e-4
+                      and 3.9 < dev[1] / dev[0] < 4.1)
+    # (v) ker M: the source's lane and the carrier's dark modes
+    d = literal.load()
+    Minc = sp.Matrix(carrier.signless_incidence())
+    K5 = sp.Matrix.hstack(*Minc.nullspace())
+    D2 = sp.Matrix(carrier.D2())
+    Msrc, Wsrc, Nsrc = d["M_source"], d["W_source"], d["N_source"]
+    return {
+        "exact, a sympy identity on a generic small instance of the same Lagrangian form (q = (a, b) in R^2 + R^2, "
+        "g_k = a^T N_k b on two port sites, two bath sites, and N_1, N_2, M_s, W_p and the 4 x 4 Delta = [[A, B], [B^T, "
+        "D]] all symbols, M_s, W_p and Delta symmetric): the Euler-Lagrange equations of the action with the multiplier, "
+        "with lambda = Pi^T (Phi'' + Delta Phi) from the port rows and the constraint differentiated twice (Pi^T Phi'' = "
+        "J q'' + H[q', q']), are identically (M_s + J^T J) q'' + J^T H[q', q'] + 4 M_s q + J^T ((W_p + A) g + B y) = 0 "
+        "and y'' + D y + B^T g = 0, the two equations native.NativeSystem.rhs solves, read here from its source (Gm = s.Ms + "
+        "J.T @ J, force = -4 s.Ms q - J^T (Kp g + B y) with Kp = Wp + A, acc = solve(Gm, force - J^T Jdot_v), Jdot_v = "
+        "H[v, v], yacc = -D y - B^T g); NativeSystem.energies' own code (src = (1/2) v^T M_s v + 2 q^T M_s q, port = "
+        "(1/2) g^T W_p g, field = (1/2)|g'|^2 + (1/2)|w|^2 + (1/2) g^T A g + g^T B y + (1/2) y^T D y, read from its "
+        "source) run on these symbolic arrays returns as its total the "
+        "action's energy (1/2) q'^T M_s q' + 2 q^T M_s q + (1/2) g^T W_p g + (1/2)|Phi'|^2 + (1/2)<Phi, Delta Phi> on the "
+        "constraint, and its time derivative is q'^T (first equation) + y'^T (second) identically, so it is conserved":
+            (red[:4, :] - TQ).applyfunc(sp.expand).is_zero_matrix and red[4:6, :].is_zero_matrix
+            and (red[6:, :] - TY).applyfunc(sp.expand).is_zero_matrix
+            and all(sp.expand(J.row(k).T - Hk[k] * q) == sp.zeros(4, 1) for k in range(2))
+            and sp.expand(Ec - E) == 0
+            and sp.expand(ddt_c(Ec) - (qd.T * TQ)[0] - (yd.T * TY)[0]) == 0 and transcribed,
+        "exact on the stored port operands: for NativeSource (the Reynolds-averaged float adapter) and LiteralSource "
+        "(the owner's operands), the stored H_k is [[0, N_k], [N_k^T, 0]] bit for bit, and their own g and J run on ten "
+        "symbols give J(q) = Dg(q), J(q) q = 2 g(q) identically in q, and g(0) = 0, J(0) = Dg(0) = 0 exactly (native.run "
+        "and literal.run check J(q) q = 2 g(q) at one random float q; here it is a polynomial identity)":
+            euler(nat) and euler(lit),
+        "THEOREM, the decoupling: on the generic instance the constrained Lagrangian (Phi = g(q) on the port) has, at "
+        "the vacuum q = 0, y = 0, the kinetic metric M_s (+) I and the potential Hessian [[4 M_s, 0], [0, D]], free of "
+        "every symbol of N, W_p, A and B: the (q, y) block J(q)^T B vanishes because J(0) = 0, so there is no linear "
+        "coupling and no quadratic-order trace of the port. With J(0) = 0 for both stored sources, the actual vacuum "
+        "Hessian is 4 M_s on the source (mass-normalized 4 I10, M_s = I/4 exactly for NativeSource) direct sum Bath.D on "
+        "the bath. Float confirmation, for both sources: NativeSystem.rhs at (q, q', y, y') = (0, 0, y, 0) returns (0, 0, "
+        "0, -Bath.D y) bit for bit for a seeded y; at (t u, 0, 0, 0), u seeded, its bath acceleration is exactly "
+        "quadratic in t (doubling t from 1e-4 multiplies it by 4 bit for bit), and its source acceleration is -4 t u with "
+        "a relative deviation below 1e-4 at t = 1e-4 that grows by a factor between 3.9 and 4.1 when t doubles (second "
+        "order)":
+            metric0 == sp.diag(Ms, sp.eye(2)) and hess0 == sp.diag(4 * Ms, D)
+            and not (hess0.free_symbols & port_symbols) and (J.T * B).subs(vac).is_zero_matrix
+            and np.array_equal(nat.Ms, np.eye(10) / 4) and len(vacuum) == 4 and all(vacuum),
+        "labelled float confirmation on the actual system (native.Bath(r2=8), 26635 bath sites and the six clique sites), "
+        "not a proof: Bath.A, Bath.B and Bath.D are exactly the integer blocks of the whole ball's operator Delta_ball = "
+        "240 I - Adj (rebuilt from the ball's site list by the same spacetime.lattice_operator, so this checks Bath's "
+        "partition into the clique and the rest), and on the six port rows and 200 seeded bath rows Delta_ball is "
+        "re-derived here from the site set alone, 240 on the diagonal and -1 exactly at the sites p + r in the ball, r "
+        "over the 240 roots; and for NativeSource at layer 4's clique and LiteralSource at "
+        "layer 10's, at three seeded states each, the output of NativeSystem.rhs satisfies the multiplier equations: with "
+        "Phi = (g(q), y), Phi'' = (J q'' + H[q', q'], y'') and lambda = Pi^T (Phi'' + Delta_ball Phi), the residuals of "
+        "M_s q'' + 4 M_s q + J^T W_p g + J^T lambda = 0 and of the bath rows of Phi'' + Delta_ball Phi = 0 are below "
+        "1e-12 of their terms, and NativeSystem.energies' total and field parts equal the action's energy and (1/2)|Phi'|^2 "
+        "+ (1/2)<Phi, Delta_ball Phi> to 1e-12":
+            len(conf) == 6 and all(conf),
+        "ker M carries frequency 2 in the source and 0 in the carrier, exactly. The source: its configuration space is "
+        "ker M (+) ker M (the owner's N_source spans ker M: M N = 0, rank 5), and one mass M_source = diag(W/4, W/4), W = "
+        "N^T N positive definite (det 8/9), is the metric of both its kinetic term (1/2) q'^T M_s q' and its potential "
+        "2 q^T M_s q (literal.run's identities, repeated because this rests on them), so on the generic instance the "
+        "vacuum potential Hessian of the source block is exactly 4 times its kinetic metric, every vacuum mode has "
+        "omega^2 = 4, and NativeSystem.rhs realizes it (the -4 t u of the decoupling). The carrier: D^2 vanishes on "
+        "0 (+) n for the five nullspace vectors n of M and for the owner's N_source, the source's own coordinates. One "
+        "space, two frequencies: the declared action holds the source and the carrier as two operators and identifies "
+        "neither with the other; the OBSTRUCTION source -> carrier at field (4 is not in spec D^2 = {0, 3, 8}) stands":
+            (Minc * Nsrc).is_zero_matrix and Nsrc.rank() == 5 and Wsrc == Nsrc.T * Nsrc
+            and Wsrc.det() == sp.Rational(8, 9) and Msrc == sp.diag(Wsrc / 4, Wsrc / 4)
+            and hess0[:4, :4] == 4 * metric0[:4, :4]
+            and K5.shape == (10, 5) and (D2 * sp.Matrix.vstack(sp.zeros(5, 5), K5)).is_zero_matrix
+            and (D2 * sp.Matrix.vstack(sp.zeros(5, 5), Nsrc)).is_zero_matrix
+            and 4 not in carrier.spectrum_multiplicities() and set(carrier.spectrum_multiplicities()) == {0, 3, 8},
+    }
+
+
+def act_literal():
+    """The literal port's kinetic metric, with the critique's F4 fix. The owner's Fedge_native_inverse F is 10 x 6 (rows
+    the K5 edges, columns the six native port coordinates), so x = F g is an edge vector, a cycle of K5 (B F = 0, Chi F =
+    I: join_literal_triangle, literal_chart), and the port metric is W_p = Wp_source_HS = 2 F^T F (literal.run). The
+    design's '(1/2)|g'|^2 = (1/2) x'^T (2 W_p^-1) x' on x = F g' pairs a 10-vector with a 6 x 6 matrix. The correct
+    statement compares two quadratic forms on g': the declared action's port kinetic term (1/2)|g'|^2, from (1/2)|Phi'|^2
+    on the six sites, and the edge field's (1/2)|x'|^2 = (1/2) g'^T (F^T F) g'. Cited, not repeated: the potential
+    identity (1/2) g^T W_p g = |F(a, b)|^2 (band_closures), W_p's spectrum {2/5, 2, 5 -+ sqrt5 twice} (native.run,
+    literal.run)."""
+    from sympy.polys.matrices import DomainMatrix
+    d = literal.load()
+    F, Wp, Pn = d["Fedge_native_inverse"], d["Wp_source_HS"], d["P_native_to_boundary_order"]
+    G = F.T * F
+    h = sp.Matrix(sp.symbols("h0:6"))
+    Fplus = G.inv() * F.T
+    lam = sp.Symbol("lambda")
+    Q5 = sp.QQ.algebraic_field(sp.sqrt(5))
+    roots = [sp.Integer(5), sp.Integer(1), sp.Rational(1, 2) + sp.sqrt(5) / 10, sp.Rational(1, 2) - sp.sqrt(5) / 10]
+    nullity = [6 - DomainMatrix.from_Matrix(sp.eye(6) - r * G).convert_to(Q5).rank() for r in roots]
+    v5, v1 = ((sp.eye(6) - r * G).nullspace() for r in roots[:2])
+    Gb = Pn * G * Pn.T                                                  # boundary order (x0, x1, ..., x5)
+    rim = sp.Matrix.hstack(*[sp.Matrix([0] + [int(k == i) - int(k == i + 1) for k in range(5)]) for i in range(4)])
+    # the literal port in native order: g = WAS_native (a ^ b) on the file's wedge order, at an integer witness
+    pairs = [tuple(p) for p in d["source_wedge_order"]]
+    qw = [2, 1, -1, 3, 1, 1, 3, 2, -1, 4]
+    qs = sp.symbols("q0:10")
+    wedge = sp.Matrix([qs[i] * qs[5 + j] - qs[j] * qs[5 + i] for i, j in pairs])
+    Jw = (d["WAS_native"] * wedge).jacobian(qs).subs(dict(zip(qs, qw)))
+    t = sp.Symbol("t")
+    Qw = Jw.T * (G - sp.eye(6)) * Jw
+
+    def inertia(Q):                       # exact: the sign changes of the real-rooted characteristic polynomial (Descartes)
+        c = sp.Poly(Q.charpoly(t).as_expr(), t).all_coeffs()
+        n = len(c) - 1
+        changes = lambda seq: sum(1 for a, b in zip(seq, seq[1:]) if a * b < 0)
+        pos = changes([x for x in c if x != 0])
+        neg = changes([x * (-1) ** (n - k) for k, x in enumerate(c) if x != 0])
+        return pos, neg, n - pos - neg
+    return {
+        "the F4 fix: F = Fedge_native_inverse is 10 x 6 and W_p is 6 x 6, so x = F g is a 10-vector and the design's "
+        "(1/2) x'^T (2 W_p^-1) x' is not defined; the identities are |x'|^2 = g'^T (F^T F) g' = (1/2) g'^T W_p g' "
+        "identically in the six symbols g', and conversely, on x' = F g', |g'|^2 = x'^T F+^T F+ x' with F+ = (F^T F)^-1 F^T, "
+        "F+ F = I6, "
+        "exact over Q":
+            F.shape == (10, 6) and Wp.shape == (6, 6) and Wp == 2 * G
+            and sp.expand(((F * h).T * (F * h))[0] - (h.T * G * h)[0]) == 0
+            and sp.expand((h.T * G * h)[0] - (h.T * Wp * h)[0] / 2) == 0
+            and Fplus * F == sp.eye(6) and sp.expand(((Fplus * F * h).T * (Fplus * F * h))[0] - (h.T * h)[0]) == 0,
+        "the generalized eigenvalues of (I, F^T F), the ratios |g'|^2 / |x'|^2 of the declared action's port kinetic "
+        "term to the edge field's, are 5, 1 and 1/2 +- sqrt5/10 twice each, exact in Q(sqrt5): det(lambda F^T F - I) = "
+        "5 (lambda - 5)(lambda - 1)(lambda^2 - lambda + 1/5)^2 over Q, and over Q(sqrt5) I - lambda F^T F has nullity 1, "
+        "1, 2, 2 at the four roots (sum 6). They are 2 / spec W_p; the ratio 5 sits on the apex x0 and 1 on the uniform "
+        "rim (boundary order, P_native_to_boundary_order), and the golden pair fills the four rim contrasts, on which "
+        "F^T F satisfies mu^2 - 5 mu + 5 = 0":
+            sp.expand((lam * G - sp.eye(6)).det() - 5 * (lam - 5) * (lam - 1) * (lam ** 2 - lam + sp.Rational(1, 5)) ** 2)
+            == 0 and nullity == [1, 1, 2, 2]
+            and sorted((sp.radsimp(2 / r) for r in roots), key=float)
+            == sorted([sp.Rational(2, 5), sp.Integer(2), 5 - sp.sqrt(5), 5 + sp.sqrt(5)], key=float)
+            and len(v5) == 1 and (Pn * v5[0])[0] != 0 and not any((Pn * v5[0])[1:])
+            and len(v1) == 1 and (Pn * v1[0])[0] == 0 and (Pn * v1[0])[1] != 0 and len(set((Pn * v1[0])[1:])) == 1
+            and rim.rank() == 4 and ((Gb ** 2 - 5 * Gb + 5 * sp.eye(6)) * rim).is_zero_matrix,
+        "so the two kinetic terms are not proportional and neither dominates: F^T F - I has characteristic polynomial "
+        "t (t + 4/5)(t^2 - 3t + 1)^2: four positive eigenvalues ((3 -+ sqrt5)/2, twice each), one zero and one negative, "
+        "-4/5; at the "
+        "integer witness q = (2, 1, -1, 3, 1, 1, 3, 2, -1, 4) the literal port's Jacobian J = D[WAS_native (a ^ b)] has "
+        "rank 6, and the source's two kinetic metrics, M_s + J^T J (the declared action) and M_s + J^T F^T F J (the "
+        "edge field), differ by J^T (F^T F - I) J, whose inertia there is (4 positive, 1 negative, 5 zero) exactly (the "
+        "sign changes of its characteristic polynomial, all roots real; Sylvester's law with J of rank 6), so neither "
+        "metric dominates the other. Which kinetic term the port carries is a selection (the adapter F), not a "
+        "consequence of the action":
+            sp.expand((G - sp.eye(6)).charpoly(t).as_expr() - t * (t + sp.Rational(4, 5)) * (t ** 2 - 3 * t + 1) ** 2) == 0
+            and Jw.shape == (6, 10) and Jw.rank() == 6 and inertia(Qw) == (4, 1, 5),
+    }
+
+
+def act_port_c2():
+    """The ball's port blocks against the lattice's. On native.Bath(r2=8) (|x|^2 <= 8, Dirichlet: sites outside are
+    dropped; layer 4's clique, its centre x0 = 0) the blocks A, B B^T and B D B^T are computed in exact integers (int64
+    sparse) and equal the lattice's C0 and C1, while the next block C2 = B D^2 B^T differs: the ball's boundary first
+    shows at C2, and there the six sites' symmetry drops from S6 to S5. Cited, not repeated: the lattice's 241 I - J, 183
+    I + 52 J and 35366 I + 8134 J (cone through counts.six_site_chain; port_leak, schur_memory), the lattice's C2 with
+    contrast 7104445 and uniform 15392365 (motif_source_moments), the lattice's affine S6 of the six sites
+    (join_pgl_sixsite)."""
+    bath = _act_bath(False)
+    Dball, lookup = _act_delta(False)
+    A = np.rint(bath.A).astype(np.int64)
+    B, Dm = bath.B.astype(np.int64), bath.D.astype(np.int64)
+    integral = (np.array_equal(A, bath.A) and (B != bath.B).nnz == 0 and (Dm != bath.D).nnz == 0)
+    DBt = Dm @ B.T
+    C0, C1, C2 = (B @ B.T).toarray(), (B @ DBt).toarray(), (DBt.T @ DBt).toarray()
+    I6, J6 = np.eye(6, dtype=np.int64), np.ones((6, 6), dtype=np.int64)
+    rows = (np.asarray((B != 0).sum(axis=1)).ravel() + (A != 0).sum(axis=1) - 1).tolist()
+    # the lattice sites two steps from the port that the ball drops: c_z(j) = common non-port neighbours of z and x_j
+    R, X = spacetime.e8_roots(), spacetime.clique_sites()
+    port = {tuple(s) for s in X.tolist()}
+    cz = {}
+    for j, s in enumerate(X):
+        cnt = Counter()
+        for yv in (s + R).tolist():
+            if tuple(yv) not in port:
+                cnt.update(map(tuple, (np.array(yv) + R).tolist()))
+        for z, n in cnt.items():
+            if sum(c * c for c in z) > 4 * 8:                                 # doubled coordinates: |z|^2 > 8
+                cz.setdefault(z, np.zeros(6, dtype=np.int64))[j] += n
+    Gram = sum((np.outer(v, v) for v in cz.values()), np.zeros((6, 6), dtype=np.int64))
+    lat_con, lat_uni = 7104445, 15392365
+    lattice = lat_con * I6 + (lat_uni - lat_con) // 6 * J6
+    x = sp.Symbol("x")
+    cp = sp.Matrix(C2.tolist()).charpoly(x).as_expr()
+    quad = x ** 2 - 22451387 * x + 108968761658830
+    disc = 22451387 ** 2 - 4 * 108968761658830
+    # the symmetry of the six sites at each block
+    perms = list(itertools.permutations(range(6)))
+    keeps = lambda C: [p for p in perms if np.array_equal(C[np.ix_(p, p)], C)]
+    s6 = all(len(keeps(C)) == 720 for C in (A, C0, C1))
+    k2 = keeps(C2)
+    # the S5 on the ball: coordinate permutations of e2, ..., e6 (indices 1..5) permute x1..x5 and fix x0 = 0
+
+    def coord(perm):
+        P = np.eye(8, dtype=np.int64)[:, perm]
+        idx = np.array([lookup[int(k)] for k in spacetime._key(bath.pts @ P)])
+        site = [int(np.flatnonzero((X @ P == X[i]).all(1))[0]) for i in range(6)]
+        return idx, site
+    gens = [[0, 2, 1, 3, 4, 5, 6, 7], [0, 2, 3, 4, 5, 1, 6, 7]]
+    ball_s5 = []
+    for perm in gens:
+        idx, site = coord(perm)
+        ball_s5.append(len(bath.pts) == 26641 and sorted(idx.tolist()) == list(range(len(bath.pts))) and site[0] == 0
+                       and (Dball[idx][:, idx] != Dball).nnz == 0)
+    return {
+        "on native.Bath(r2=8) the port blocks, in exact integers, are A = 241 I - J, B B^T = 183 I + 52 J and B D B^T = "
+        "35366 I + 8134 J: the lattice's M_1, C0 and C1 (cone, six_site_chain, port_leak), because every lattice "
+        "neighbour of the six sites lies in the ball (|x_j + r|^2 <= 8): each port row of the ball's operator has 240 "
+        "entries -1, 5 in A and 235 in B":
+            integral and np.array_equal(A, 241 * I6 - J6) and np.array_equal(C0, 183 * I6 + 52 * J6)
+            and np.array_equal(C1, 35366 * I6 + 8134 * J6) and rows == [240] * 6 and (B.data == -1).all(),
+        "the next block differs: on the ball B D^2 B^T is the lattice's 7104445 I + 1381320 J (contrast 7104445, uniform "
+        "15392365: motif_source_moments) minus the Gram sum c_z c_z^T of the 10197 lattice sites z with |z|^2 > 8 two "
+        "steps from the port, c_z(j) the number of common non-port neighbours of z and x_j; that Gram is 31363 I + 2812 "
+        "J on the rim x1..x5 and zero on the row of x0 (every site within two steps of the centre lies in the ball). So "
+        "B D^2 B^T has characteristic polynomial (x - 7073082)^4 (x^2 - 22451387 x + 108968761658830), the quadratic "
+        "irreducible over Q, against (x - 7104445)^5 (x - 15392365) on the lattice: the ball's Dirichlet boundary first "
+        "shows at C2":
+            len(cz) == 10197 and np.array_equal(C2 + Gram, lattice) and not Gram[0].any()
+            and np.array_equal(Gram[1:, 1:], 31363 * np.eye(5, dtype=np.int64) + 2812)
+            and sp.expand(cp - (x - 7073082) ** 4 * quad) == 0 and disc > 0 and sp.sqrt(disc).is_integer is False
+            and (lat_uni - lat_con) % 6 == 0 and not np.array_equal(C2, lattice),
+        "the symmetry drops from S6 to S5 at C2: all 720 permutations of the six sites commute with A, B B^T and B D B^T, "
+        "and exactly the 120 that fix x0 commute with the ball's B D^2 B^T. The 120 act on the ball: the coordinate "
+        "permutations of e2, ..., e6 permute x1..x5, fix the centre x0 = 0 and carry the ball's 26641 sites onto "
+        "themselves, commuting with the ball's operator (checked on the generators (e2 e3) and (e2 e3 e4 e5 e6)); the "
+        "lattice's S6 needs translations (join_pgl_sixsite), which move the centre":
+            s6 and len(k2) == 120 and all(p[0] == 0 for p in k2) and all(ball_s5),
+    }
+
+
+# ------------------------------------------------------------------- one action, one spectrum (2 Nov): the kinetic dressing, the stiff-bath limit, no bath-to-carrier reduction
+
+@functools.lru_cache(maxsize=None)
+def _act2_cone():
+    """master_response's cone instance: the 240 root sites with H_R = 240 I - B_R and the five sector projectors of
+    _master_shell (integer P_k with P_k^2 = s_k P_k, means mu_k = 184, 212, 232, 242, 244), the six-site port's 15 bond
+    roots e_i + e_5 (i < 5) and e_i - e_j (carrier's edge order) visible, the other 225 roots hidden. Returns (vis, hid,
+    mu, H_R, B_R, the integer projectors, their scales, the Gram matrix r.s)."""
+    R2, G, A, Pint, sc, *_ = _master_shell()
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    vis = [idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in carrier.edges()]
+    hid = [k for k in range(240) if k not in set(vis)]
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    mu = [240 - l for l in lam]
+    return vis, hid, mu, 240 * np.eye(240, dtype=np.int64) - A, A, Pint, sc, G
+
+
+@functools.lru_cache(maxsize=None)
+def _act2_res(t, p, part):
+    """(H_R + t)^-p from the sector expansion sum_k P_k/(s_k (t + mu_k)^p), restricted to the cone atoms (part 'vv':
+    a 15 x 15 list of Fractions) or to the hidden-visible block (part 'hv': an integer object array and its
+    denominator)."""
+    vis, hid, mu, HR, A, Pint, sc, G = _act2_cone()
+    rows = vis if part == "vv" else hid
+    cs = [Fraction(1, s * (t + m) ** p) for s, m in zip(sc, mu)]
+    d = lcm(*[c.denominator for c in cs])
+    N = sum((int(c * d) * P[np.ix_(rows, vis)].astype(object) for c, P in zip(cs, Pint)),
+            np.zeros((len(rows), 15), dtype=object))
+    if part == "vv":
+        return [[Fraction(int(x), d) for x in r] for r in N]
+    return N, d
+
+
+@functools.lru_cache(maxsize=None)
+def _act2_lift(t):
+    """The static lift on the cone instance at regulator t: S_t^-1 (Fractions) and W = -((H_R + t)^-1)_hv S_t^-1 as an
+    integer object array with its denominator (the hidden part of (H_R + t)^-1 Y S_t^-1 = [I; -W])."""
+    mul, tr, solve, inertia = _flower_linalg()
+    I15 = [[Fraction(int(i == j)) for j in range(15)] for i in range(15)]
+    Si = solve(_act2_res(t, 1, "vv"), I15)
+    Ghn, gd = _act2_res(t, 1, "hv")
+    sd = lcm(*[x.denominator for r in Si for x in r])
+    Sin = np.array([[int(x * sd) for x in r] for r in Si], dtype=object)
+    return Si, -(Ghn @ Sin), gd * sd
+
+
+def act_dressing():
+    """One action, one spectrum (2 Nov; the adversarial critique's corrected work plan, unit U2): the kinetic dressing
+    of the reference completion on master_response's cone instance (H_R = 240 I - B_R on the 240 root sites, the
+    six-site port's 15 bond roots visible, the other 225 hidden) at eps = 1, 10, 100, its two-sided bounds from the
+    sector means 184 and 244 and tr B B^T = 760, and the stiff-bath limit eps -> infinity, which freezes the bath and
+    returns whatever datum F was put into the completion. Already in the model and cited, not repeated: the generic
+    identity M0 = S0^-1 T0 S0^-1 = I + B C^-2 B^T (threshold_action, symbolic blocks, and on schur_zero_mode's 19-root
+    instance at eps = 0), Z = d/dz S(z)^-1 at 0 = I + W^T W (zero_pole_instance, the 19-root instance at eps = 1), G(0)
+    = I + B C^-2 B^T and S_K(z)^-1 = F + z [I + B C^-1 (z + C)^-1 B^T] (deep_zero_pole, symbolic), the comparator's
+    graph metric M_s + Z0 J_g^T J_g (canon_flower_pullback), M_eff on the comparators (jacobi_two_rung), and on this
+    instance at eps = 1 the self-energy bounds, the Schur-completed reference action and the Feshbach law S_K^-1 -
+    S_0^-1 = V (master_response). New here: the cone instance at three regulators, which ordering of S and T holds, the
+    Loewner bounds, and the limit. No term is added to the declared action: the completion is master_response's
+    reference completion."""
+    F = Fraction
+    mul, tr, solve, inertia = _flower_linalg()
+    vis, hid, mu, HR, A, Pint, sc, G = _act2_cone()
+    I15 = [[F(int(i == j)) for j in range(15)] for i in range(15)]
+    lin = lambda a, X, b, Y: [[a * x + b * y for x, y in zip(r, s)] for r, s in zip(X, Y)]
+    pd = lambda X: inertia(X) == (15, 0, 0)
+    trace = lambda X: sum(X[i][i] for i in range(15))
+    Bm = HR[np.ix_(vis, hid)].astype(object)                             # B = Y^T H_R Q
+    BBt = [[F(int(x)) for x in r] for r in Bm @ Bm.T]
+    D2 = [[F(int(x)) for x in r] for r in sp.Matrix(carrier.D2()).tolist()]
+    eps_list = (1, 10, 100)
+    MWf = lambda t: mul(mul(_act2_lift(t)[0], _act2_res(t, 2, "vv")), _act2_lift(t)[0])    # S_t^-1 T_t S_t^-1
+    ident, order, bnd, lim = [], [], [], []
+    for eps in eps_list:
+        S, T = _act2_res(eps, 1, "vv"), _act2_res(eps, 2, "vv")
+        Si, Wn, wd = _act2_lift(eps)
+        Ce = (HR[np.ix_(hid, hid)] + eps * np.eye(225, dtype=np.int64)).astype(object)
+        CW = np.array_equal(Ce @ Wn, wd * Bm.T)                          # C_eps W = B^T: W = C_eps^-1 B^T
+        WtW = Wn.T @ Wn
+        MW = [[F(int(WtW[i, j]), wd * wd) + int(i == j) for j in range(15)] for i in range(15)]
+        ident.append(CW and MW == mul(mul(Si, T), Si) and MW == tr(MW))
+        order.append(mul(S, T) != mul(T, S) and mul(T, mul(Si, Si)) != MW)
+        Mm = lin(1, MW, -1, I15)
+        bnd.append((pd(lin(1, Mm, -F(1, (244 + eps) ** 2), BBt)), pd(lin(F(1, (184 + eps) ** 2), BBt, -1, Mm)),
+                    F(760, (244 + eps) ** 2) <= trace(Mm) <= F(760, (184 + eps) ** 2), trace(Mm)))
+        V = lin(1, D2, -1, Si)                                           # V = F - S_eps^-1 with F = D^2
+        Si2, MW2 = _act2_lift(eps + 1)[0], MWf(eps + 1)
+        mem = lin(1, Si2, -1, Si)
+        mem = lin(1, mem, -1, I15)                                       # S_(eps+1)^-1 - S_eps^-1 - 1 at z = 1
+        lim.append(pd(lin(1, Si, -(184 + eps), I15)) and pd(lin(244 + eps, I15, -1, Si))
+                   and pd(lin(-1, V, -(176 + eps), I15)) and pd(lin(1, V, 244 + eps, I15))
+                   and pd(lin(1, mem, -1, lin(1, MW2, -1, I15))) and pd(lin(1, Mm, -1, mem)))
+    # d S_w/dw = -T_w term by term in the sector expansion (symbolic w)
+    w = sp.Symbol("w")
+    deriv = all(sp.simplify(sp.diff(1 / (s * (w + m)), w) + 1 / (s * (w + m) ** 2)) == 0 for s, m in zip(sc, mu))
+    # the sector bounds on the 225 hidden roots, as exact integer identities (240/s_k is an integer)
+    Chh = HR[np.ix_(hid, hid)]
+    sec = lambda c: sum((P[np.ix_(hid, hid)] * (c(m) * 240 // s) for P, s, m in zip(Pint, sc, mu)),
+                        np.zeros((225, 225), dtype=np.int64))
+    I225 = np.eye(225, dtype=np.int64)
+    c_lo = np.array_equal(sec(lambda m: m - 184), 240 * (Chh - 184 * I225))
+    c_hi = np.array_equal(sec(lambda m: 244 - m), 240 * (244 * I225 - Chh))
+    nonneg = min(mu) == 184 and max(mu) == 244 and all(240 % s == 0 for s in sc)
+    nb = int(np.trace(Bm @ Bm.T))
+    inner = int(A[np.ix_(vis, vis)].sum())
+    deg = set(A.sum(axis=1).tolist())
+    trs = [b[3] for b in bnd]
+    brk = [(F(165155, 10 ** 7), F(165156, 10 ** 7)), (F(152002, 10 ** 7), F(152003, 10 ** 7)),
+           (F(76984, 10 ** 7), F(76985, 10 ** 7))]
+    MW1 = lin(1, MWf(1), 0, I15)
+    lo1, hi1, crit = F(100018117, 10 ** 8), F(100625505, 10 ** 8), F(100625504, 10 ** 8)
+    e = sp.Symbol("epsilon", positive=True)
+    return {
+        "the kinetic dressing on master_response's cone instance (H_R = 240 I - B_R on the 240 root sites; the "
+        "six-site port's 15 bond roots e_i + e_5, e_i - e_j visible through Y, the other 225 hidden; B = Y^T H_R Q, "
+        "C_eps = Q^T (H_R + eps) Q), exactly at eps = 1, 10 and 100: with S_eps = Y^T (H_R + eps)^-1 Y and T_eps = Y^T "
+        "(H_R + eps)^-2 Y from the sector expansions sum_k P_k/(s_k (eps + mu_k)) and sum_k P_k/(s_k (eps + mu_k)^2), "
+        "the lift W = -((H_R + eps)^-1)_hv S_eps^-1 satisfies C_eps W = B^T on all 225 hidden rows, so W = C_eps^-1 "
+        "B^T, and M_W(eps) = I + W^T W = I + B C_eps^-2 B^T equals S_eps^-1 T_eps S_eps^-1; since d S_w/dw = -T_w term "
+        "by term, M_W(eps) is d/dw S_w^-1 at w = eps, the z-derivative at 0 of the reference completion's S_K(z)^-1 = "
+        "F + S_(eps + z)^-1 - S_eps^-1 (master_response's Feshbach law): to first order in z, the kinetic metric of "
+        "the low-frequency reduced Lagrangian (1/2) x'^T M_W x' - (1/2) x^T F x (generic and 19-root forms: "
+        "threshold_action, zero_pole_instance, deep_zero_pole)":
+            all(ident) and len(ident) == 3 and deriv,
+        "which identity holds: on the same instance S_eps and T_eps do not commute (at eps = 1, 10, 100), and T_eps "
+        "S_eps^-2 is not M_W(eps): the design's M_W = S^-1 T S^-1 holds in this symmetric order only":
+            all(order) and len(order) == 3,
+        "the dressing's bounds: C_eps - (184 + eps) I = sum_k (mu_k - 184) (P_k)_hh/s_k and (244 + eps) I - C_eps = "
+        "sum_k (244 - mu_k) (P_k)_hh/s_k (exact integer identities on the 225 hidden roots, mu = 184, 212, 232, 242, "
+        "244; P_k/s_k orthogonal projectors, master_response), so 184 + eps <= C_eps <= 244 + eps; tr B B^T = |B|_F^2 "
+        "= 760 = 15 x 56 - 80 (each root has 56 neighbours, and 80 ordered neighbour pairs lie inside the cone); "
+        "hence, by the spectral theorem, B B^T/(244 + eps)^2 <= M_W(eps) - I <= B B^T/(184 + eps)^2, both differences "
+        "positive definite by exact LDL^T inertia at eps = 1, 10, 100, and 760/(244 + eps)^2 <= tr(M_W - I) <= "
+        "760/(184 + eps)^2, with tr(M_W - I) in (0.0165155, 0.0165156), (0.0152002, 0.0152003) and (0.0076984, "
+        "0.0076985); at eps = 1 every eigenvalue of M_W lies in (1.00018117, 1.00625505) (exact inertia), and one "
+        "eigenvalue lies above 1.00625504":
+            c_lo and c_hi and nonneg and nb == 760 == 15 * 56 - inner and deg == {56} and inner == 80
+            and all(b[0] and b[1] and b[2] for b in bnd) and len(bnd) == 3
+            and all(lo < t < hi for t, (lo, hi) in zip(trs, brk))
+            and pd(lin(1, MW1, -lo1, I15)) and pd(lin(hi1, I15, -1, MW1))
+            and inertia(lin(crit, I15, -1, MW1)) == (14, 0, 1),
+        "the stiff-bath limit eps -> infinity freezes the bath: 0 <= tr(M_W - I) = |C_eps^-1 B^T|_F^2 <= 760/(184 + "
+        "eps)^2 -> 0, so M_W(eps) -> I and the static hidden response h* = -C_eps^-1 B^T x -> 0; S_eps^-1 lies "
+        "strictly between 184 + eps and 244 + eps, so the completion's V(eps) = F - S_eps^-1 with F = D^2 (0 <= D^2 <= "
+        "8) lies strictly between -(244 + eps) and -(176 + eps) and V -> -infinity; the memory S_K(z)^-1 - F - z = "
+        "S_(eps + z)^-1 - S_eps^-1 - z lies strictly between z (M_W(eps + z) - I) and z (M_W(eps) - I) (M_W decreases "
+        "in the regulator); all exact by LDL^T inertia at eps = 1, 10, 100 and z = 1; so S_K(z)^-1 -> F + z, the same "
+        "limit for every F: the stiff limit removes the bath and returns the datum F, it does not derive the carrier":
+            all(lim) and len(lim) == 3 and sp.limit(760 / (184 + e) ** 2, e, sp.oo) == 0,
+    }
+
+
+def act_no_reduction():
+    """One action, one spectrum (2 Nov; the adversarial critique's corrected work plan, unit U2, its missing piece M1):
+    the OBSTRUCTION. On master_response's cone atoms the bath's static response S_w^-1 (the Schur complement of H_R + w
+    on the 15 bond roots) does not commute with D^2 for any regulator, exactly through the sector formula, and neither
+    does the compression Y^T H_R Y; so the carrier is no compression or Schur reduction of the bath on that injection.
+    D^2 enters the reference completion only as data: its static Schur complement is F for every F (the tautology,
+    shown on the 240 sites with four F). The bath-to-D^2 identity the model holds (the critique's R-a) is
+    master_readout's glue J15 with the mark P0, an invariant injection with no hidden coupling and so no dressing.
+    Already in the model and cited, not repeated: the completion K = L diag(K_g, C_eps) L^T with Schur
+    complement K_g = D^2 at eps = 1 (master_response), its generic form K0 = [[F + B C^-1 B^T, B], [B^T, C]]
+    (threshold_action), the glue J15 itself, B_R J = J M, J^T H_R J = 212 P3 + 232 (P0 + P8), H_K = 10 - J^T B_R J/4 - 8
+    P0 and the cone map's Tr J^T B_R J = 0 (master_readout)."""
+    F = Fraction
+    mul, tr, solve, inertia = _flower_linalg()
+    vis, hid, mu, HR, A, Pint, sc, G = _act2_cone()
+    I15 = [[F(int(i == j)) for j in range(15)] for i in range(15)]
+    lin = lambda a, X, b, Y: [[a * x + b * y for x, y in zip(r, s)] for r, s in zip(X, Y)]
+    comm = lambda X, Y: lin(1, mul(X, Y), -1, mul(Y, X))
+    D2m = sp.Matrix(carrier.D2())
+    D2 = [[F(int(x)) for x in r] for r in D2m.tolist()]
+    Bm = HR[np.ix_(vis, hid)]                                            # B = Y^T H_R Q
+    Pk = carrier.spectral_projectors()
+    P0 = [[F(int(x)) for x in r] for r in Pk[0].tolist()]
+    # (1) the commutator of the static response with D^2, symbolic in the regulator w
+    w = sp.Symbol("w")
+    blk = [sp.Matrix(P[np.ix_(vis, vis)].tolist()) for P in Pint]
+    cb = [X * D2m - D2m * X for X in blk]
+    GJ = sp.Matrix(G[np.ix_(vis, vis)].tolist())
+    CG = GJ * D2m - D2m * GJ
+    Sw = sum((X / (s * (w + m)) for X, s, m in zip(blk, sc, mu)), sp.zeros(15, 15))
+    sym = (Sw * D2m - D2m * Sw - CG / (2 * (w + 212) * (w + 242))).applyfunc(sp.cancel).is_zero_matrix
+    split = ([c.is_zero_matrix for c in cb] == [True, False, True, False, True] and blk[1] == GJ
+             and cb[1] == CG and cb[3] == -CG
+             and [int(np.trace(P)) // s for P, s in zip(Pint, sc)] == [1, 8, 35, 112, 84]
+             and mu == [184, 212, 232, 242, 244])
+    cmax = max(abs(x) for x in CG)
+    ent, nrm = [], []
+    for t in (0, 1):
+        Ct = comm(_act2_lift(t)[0], D2)
+        ent.append(max(abs(x) for r in Ct for x in r))
+        CtC = mul(tr(Ct), Ct)
+        nrm.append(inertia(lin(1, CtC, -F(981, 100) ** 2, I15))[0] > 0
+                   and inertia(lin(F(982, 100) ** 2, I15, -1, CtC))[2] == 0)
+    # (2) no compression and no function of the response gives D^2; the best affine fits
+    AJ = [[F(int(x)) for x in r] for r in HR[np.ix_(vis, vis)]]
+    CA = comm(AJ, D2)
+
+    def fit(X):                                                          # least |D^2 - a X - b I|_F^2, exact
+        tX = sum(X[i][i] for i in range(15))
+        g = sp.Matrix([[sum(x * x for r in X for x in r), tX], [tX, 15]])
+        v = sp.Matrix([sum(X[i][j] * D2[j][i] for i in range(15) for j in range(15)), 40])
+        return sp.Rational(200) - (v.T * g.inv() * v)[0]
+    fits = [fit(AJ), fit(_act2_lift(0)[0]), fit(_act2_lift(1)[0])]
+    glue_cone = lin(F(1, 4), AJ, -1, lin(50, I15, 8, P0))
+    # (3) the tautology: K_F = H_R + eps + Y (F - S_eps^-1) Y^T has the F-independent lift L = [I; -W] and K_F L = Y F
+    Fs = [D2, lin(0, I15, 0, I15), I15, P0]
+    taut = []
+    for eps in (0, 1):
+        Si, Wn, wd = _act2_lift(eps)
+        Ce = (HR[np.ix_(hid, hid)] + eps * np.eye(225, dtype=np.int64)).astype(object)
+        CW = np.array_equal(Ce @ Wn, wd * HR[np.ix_(vis, hid)].astype(object).T)
+        Ln = np.zeros((240, 15), dtype=object)                           # wd L
+        Ln[vis, :] = wd * np.eye(15, dtype=np.int64).astype(object)
+        Ln[hid, :] = -Wn
+        HL = (HR + eps * np.eye(240, dtype=np.int64)).astype(object) @ Ln   # wd (H_R + eps) L
+        static = (not HL[hid, :].any()
+                  and all(F(int(HL[vis[i], j]), wd) == Si[i][j] for i in range(15) for j in range(15)))
+        ok = CW and static
+        for Fm in Fs:
+            V = lin(1, Fm, -1, Si)
+            dv = lcm(*[x.denominator for r in V for x in r])
+            Vn = np.array([[int(x * dv) for x in r] for r in V], dtype=object)
+            KL = HL * dv                                     # wd dv K_F L = wd dv (H_R + eps) L + Y (dv V)(wd Y^T L)
+            KL[vis, :] += Vn @ Ln[vis, :]
+            ok = (ok and not KL[hid, :].any()
+                  and all(F(int(KL[vis[i], j]), wd * dv) == Fm[i][j] for i in range(15) for j in range(15)))
+        taut.append(ok)
+    # (4) master_readout's glue J15: B_R J = J M, M = 28 P3 + 8 (P0 + P8), J^T B_R^2 J = M^2 (cited), so (H_R + w) J =
+    # J (240 + w - M), S_w^-1 = 240 + w - M, and the hidden coupling J^T H_R^2 J - (J^T H_R J)^2 vanishes there; on the
+    # cone the same coupling Y^T H_R^2 Y - (Y^T H_R Y)^2 is B B^T, of trace 760 (act_dressing)
+    M = 28 * Pk[3] + 8 * (Pk[0] + Pk[8])
+    JHJ = 240 * sp.eye(15) - M
+    glue = [(JHJ + t * sp.eye(15)) * D2m == D2m * (JHJ + t * sp.eye(15)) for t in (0, 1)]
+    HR2 = (HR @ HR)[np.ix_(vis, vis)] - HR[np.ix_(vis, vis)] @ HR[np.ix_(vis, vis)]
+    cone_coupling = np.array_equal(HR2, Bm @ Bm.T) and int(np.trace(HR2)) == 760
+    S0i = JHJ
+    return {
+        "on master_response's cone atoms the bath's static response does not commute with D^2, for any regulator: in "
+        "the sector expansion S_w = Y^T (H_R + w)^-1 Y = sum_k (P_k)_vv/(s_k (w + mu_k)) the cone blocks of the "
+        "sectors of ranks 1, 35 and 84 commute with D^2, while those of ranks 8 (P = G, the Gram matrix r.s) and 112 "
+        "give [G_J, D^2] and -[G_J, D^2], so [S_w, D^2] = [G_J, D^2]/(2 (w + 212)(w + 242)) identically in w "
+        "(symbolic), with [G_J, D^2] != 0 (largest entry 4): S_w^-1, the static Schur complement of H_R + w on the "
+        "cone atoms, commutes with D^2 for no w > -184; at w = 0 (the bath itself) and w = 1 the commutator [S_w^-1, "
+        "D^2] has largest entry in (2.2515, 2.2516) and (2.2503, 2.2504) and operator norm in (9.81, 9.82) (exact "
+        "inertia of its square)":
+            sym and split and cmax == 4
+            and F(22515, 10 ** 4) < ent[0] < F(22516, 10 ** 4) and F(22503, 10 ** 4) < ent[1] < F(22504, 10 ** 4)
+            and all(nrm) and len(nrm) == 2,
+        "so the carrier is no compression or Schur reduction of the bath on that injection: a function of S_w^-1 "
+        "commutes with S_w^-1, so none is D^2; the compression A_J = Y^T H_R Y = 240 I - (B_R)_vv (80 ordered "
+        "neighbour pairs, zero diagonal) has [A_J, D^2] != 0 (largest entry 2), and A_J/4 - 50 - 8 P0 != D^2 (the glue "
+        "identity below fails on the cone); the best Frobenius fit a X + b I to D^2 leaves residual^2 145/3 for X = "
+        "A_J and a residual^2 in (48.34, 48.35) for X = S_0^-1 and X = S_1^-1 (residual about 6.95), against 280/3 for "
+        "the best constant":
+            any(x for r in CA for x in r) and max(abs(x) for r in CA for x in r) == 2
+            and int(A[np.ix_(vis, vis)].sum()) == 80 and not np.diag(A[np.ix_(vis, vis)]).any()
+            and glue_cone != D2 and fits[0] == sp.Rational(145, 3)
+            and all(sp.Rational(4834, 100) < x < sp.Rational(4835, 100) for x in fits[1:])
+            and 200 - sp.Rational(40) ** 2 / 15 == sp.Rational(280, 3),
+        "D^2 enters the reference completion only as data: for every symmetric F the completion K_F = H_R + eps I + Y "
+        "(F - S_eps^-1) Y^T has the lift L = [I; -W] (C_eps W = B^T), which does not depend on F, with (H_R + eps) L = "
+        "Y S_eps^-1, hence K_F L = Y F (hidden rows 0, visible rows F): its static (z = 0) Schur complement on the "
+        "cone atoms is F; checked on the 240 root sites at eps = 0 and eps = 1 for F = D^2, 0, I and P0 with one L "
+        "each: Schur(K_1) = D^2 (master_response, eps = 1) holds for any F, so it is the selection V := F - S_eps^-1 "
+        "with F = D^2, not a reduction of the bath":
+            all(taut) and len(taut) == 2 and len(Fs) == 4,
+        "the bath-to-D^2 identity the model holds runs through master_readout's glue J15 (built there from the glue, "
+        "with the source mark; B_R J = J M, M = 28 P3 + 8 (P0 + P8), J^T B_R^2 J = M^2, cited): from it (H_R + w) J = "
+        "J (240 + w - M), so the static response S_w^-1 = J^T H_R J + w = 212 P3 + 232 (P0 + P8) + w commutes with D^2 "
+        "(both polynomials in P0, P3, P8; w = 0, 1 computed), and the hidden coupling J^T H_R^2 J - (J^T H_R J)^2 = "
+        "(240 - M)^2 - (240 - M)^2 vanishes, so B = 0, T_w = S_w^2 and M_W = I: no dressing on an invariant injection "
+        "(read off the cited identities, not recomputed on the roots), whereas on the cone atoms the same coupling "
+        "Y^T H_R^2 Y - (Y^T H_R Y)^2 is B B^T, of trace 760 (computed); and D^2 = (1/4) J^T H_R J - 50 - 8 P0 = "
+        "S_0^-1/4 - 50 - 8 P0 exactly (master_readout's 10 - J^T B_R J/4 - 8 P0); J^T H_R J takes the single value 232 "
+        "on P0 + P8 (rank 7), where D^2 is 0 and 8, so no a J^T H_R J + b I is D^2: the identity needs the mark P0 "
+        "(SELECTED_REFERENCE, master_readout's join carrier -> rootgraph) and the glue injection, not the cone":
+            all(glue) and len(glue) == 2 and cone_coupling and JHJ == 212 * Pk[3] + 232 * (Pk[0] + Pk[8])
+            and S0i / 4 - 50 * sp.eye(15) - 8 * Pk[0] == D2m
+            and 10 * sp.eye(15) - (240 * sp.eye(15) - JHJ) / 4 - 8 * Pk[0] == D2m
+            and JHJ * (Pk[0] + Pk[8]) == 232 * (Pk[0] + Pk[8]) and (Pk[0] + Pk[8]).trace() == 7
+            and D2m * (Pk[0] + Pk[8]) == 8 * Pk[8] and not Pk[0].is_zero_matrix and not Pk[8].is_zero_matrix,
+    }
+
+
+# ------------------------------------------------------------------- one action, one spectrum (2 Nov): the bond bridge w, the pinned vertex block, the symmetry of the completed action
+
+@functools.lru_cache(maxsize=None)
+def _brg_shell():
+    """master_response's root-site instance: the 240 roots (doubled coordinates, _master_shell's order), the root graph
+    B_R, the five integer sector projectors P_k (P_k^2 = s_k P_k) with their scales and the sector values mu_k of
+    H_R = 240 I - B_R, the root index, and master_response's 15 atom roots e_i + e_5 (i < 5) and e_i - e_j (i < j < 5, in
+    carrier.edges() order)."""
+    R2, G, A, Pint, sc, *_ = _master_shell()
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    idx = {tuple(int(c) for c in r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    atoms = [e2[i] + e2[5] for i in range(5)] + [e2[i] - e2[j] for i, j in carrier.edges()]
+    return R2, A, Pint, sc, [240 - l for l in lam], idx, atoms
+
+
+@functools.lru_cache(maxsize=None)
+def _brg_response(vis, t):
+    """For the visible root sites vis (a tuple of 15 indices) and the regulator t: S_t = Y^T (H_R + t)^-1 Y from the
+    sector expansion sum_k P_k/(s_k (t + mu_k)) and its exact inverse (lists of Fractions), and the hidden lift
+    W = C_t^-1 B^T as an integer object array with its denominator, read off (H_R + t)^-1 Y S_t^-1 = [I; -W]."""
+    R2, A, Pint, sc, mu, idx, atoms = _brg_shell()
+    mul, tr, solve, inertia = _flower_linalg()
+    vis = list(vis)
+    hid = [k for k in range(240) if k not in set(vis)]
+    cs = [Fraction(1, s * (t + m)) for s, m in zip(sc, mu)]
+    d = lcm(*[c.denominator for c in cs])
+    blk = lambda rows: sum((int(c * d) * P[np.ix_(rows, vis)].astype(object) for c, P in zip(cs, Pint)),
+                           np.zeros((len(rows), 15), dtype=object))
+    S = [[Fraction(int(x), d) for x in r] for r in blk(vis)]
+    Si = solve(S, [[Fraction(int(i == j)) for j in range(15)] for i in range(15)])
+    sd = lcm(*[x.denominator for r in Si for x in r])
+    Sin = np.array([[int(x * sd) for x in r] for r in Si], dtype=object)
+    return S, Si, hid, -(blk(hid) @ Sin), d * sd
+
+
+def _brg_rank_mod(Mx, pr):
+    """Rank of an integer matrix modulo the prime pr by Gauss-Jordan (products stay below 2^62); the rank over Q is at
+    least this."""
+    Mx, rk = Mx.copy() % pr, 0
+    for c in range(Mx.shape[1]):
+        piv = next((i for i in range(rk, Mx.shape[0]) if Mx[i, c]), None)
+        if piv is None:
+            continue
+        Mx[[rk, piv]] = Mx[[piv, rk]]
+        Mx[rk] = Mx[rk] * pow(int(Mx[rk, c]), pr - 2, pr) % pr
+        col = Mx[:, c].copy()
+        col[rk] = 0
+        Mx = (Mx - np.outer(col, Mx[rk]) % pr) % pr
+        rk += 1
+    return rk
+
+
+def brg_bonds():
+    """One action, one spectrum (2 Nov; the adversarial critique's corrected work plan, unit U3, its R-c and M2): the
+    bridge from master_response's 15 atom roots to the native clique, and what the port constraint does to them.
+
+    w is the signed permutation e_i -> -e_(i+1) (i < 5), e_5 -> e_0, e_6 -> -e_6, e_7 -> e_7 (the critic's k1.py, read
+    as data and rebuilt here). It carries cone's six sites {0, e_i + e_5} onto spacetime.clique_sites() (x0 = 0,
+    x_j = e1 - e_(j+1)), so the carrier's 15 atoms onto the 15 bonds of the native port, with the cone point on x0.
+    Cited, not repeated: the cone and its blocks (cone), the atoms as the bonds of K6 (cone_line_graph), the cone S5
+    (cone_symmetry), the unique A5 simplex, the cone as that simplex with one site as apex (join_e8_sixsite), the affine S6
+    (join_pgl_sixsite), W_p = 2 L + (2/5) J with the corner 2/5 (golden_port), boundary_rotation of order 5 fixing x0
+    and commuting with W_p (_checks' native_port, the source-sixsite join 'port'), the completion's static Schur complement, kernel and Woodbury law
+    (master_response), r as the coordinate five-cycle on the carrier (clock_joins). New: w and its conjugation, the
+    smallest native ball as the root-site instance, and the constrained (Sigma) reduction at theta = 1, computed.
+    Selections named: the root-site instance, eps = 1, F = D^2 (alpha = 0), theta = 1 (master_response's reference
+    completion; no term is added to the declared action), iota = the projection of g onto g_1..g_5 (x0 is not a root)."""
+    R2, A, Pint, sc, mu, idx, atoms = _brg_shell()
+    E = carrier.edges()
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    I8 = np.eye(8, dtype=np.int64)
+    roots = {tuple(int(c) for c in r) for r in spacetime.e8_roots()}
+    key = lambda v: tuple(int(c) for c in v)
+    w = np.zeros((8, 8), dtype=np.int64)
+    for i in range(5):
+        w[i + 1, i] = -1
+    w[0, 5], w[6, 6], w[7, 7] = 1, -1, 1
+    signed_perm = (np.abs(w).sum(0) == 1).all() and (np.abs(w).sum(1) == 1).all()
+    pw = [idx[key(w @ r)] for r in R2]
+    # (1) the bridge
+    X = spacetime.clique_sites()
+    cone_sites = [0 * e2[0]] + [e2[i] + e2[5] for i in range(5)]
+    img = [key(w @ a) for a in atoms]
+    bond_of = {key(X[a] - X[b]): (a, b) for a in range(6) for b in range(6) if a != b}
+    bonds = [bond_of.get(t) for t in img]
+    # (2) the rotation and the cone point
+    c5 = np.zeros((8, 8), dtype=np.int64)
+    for i in range(5):
+        c5[(i + 1) % 5, i] = 1
+    c5[5, 5] = c5[6, 6] = c5[7, 7] = 1
+    cw = w @ c5 @ w.T
+    site = {key(x): k for k, x in enumerate(X)}
+    Pcw = np.zeros((6, 6), dtype=np.int64)
+    for k in range(6):
+        Pcw[site[key(cw @ X[k])], k] = 1
+    Bnd = np.array(native.boundary_rotation())
+    Rb = np.rint(Bnd).astype(np.int64)
+    row = [22, -8, 2, 2, -8]
+    Wp = [[Fraction(0)] * 6 for _ in range(6)]
+    Wp[0][0] = Fraction(2, 5)
+    for a in range(5):
+        for b in range(5):
+            Wp[1 + a][1 + b] = Fraction(row[(b - a) % 5], 5)
+    Wp_stored = float(np.abs(native.port_metric() - np.array(Wp, dtype=float)).max()) < 1e-12
+    crot = [0] + [1 + (i + 1) % 5 for i in range(5)]                 # the cone rotation on the cone's sites
+    Rperm = [int(np.argmax(Rb[:, k])) for k in range(6)]              # boundary_rotation as a map of clique slots
+    inter = [p for p in itertools.permutations(range(6)) if all(p[crot[a]] == Rperm[p[a]] for a in range(6))]
+    wsite = tuple(site[key(w @ s)] for s in cone_sites)
+    wck = {tuple(site[key(w @ np.linalg.matrix_power(c5, k) @ s)] for s in cone_sites) for k in range(5)}
+    # (3) the design's sigma
+    sig = np.diag([1, 1, 1, 1, 1, -1, -1, 1]).astype(np.int64)
+    simg = [key(sig @ a) for a in atoms]
+    tau = [site.get(key(X[5] - sig @ s)) for s in cone_sites]       # the site map x -> x5 - sigma x
+    # (4) port sites and the smallest native ball
+    clique = {key(x) for x in X}
+    on_port_w = [t in clique for t in img]
+    on_port_s = [t in clique for t in simg]
+    on_port_either = sum(t in clique or key(-np.array(t)) in clique for t in img)   # k1.py's count, either sign
+    b2 = native.Bath(r2=2)
+    bpts = [key(p) for p in b2.pts]
+    interior = [bpts[k] for k in b2.iidx]
+    ii = [idx[t] for t in interior]
+    Dball = b2.D.toarray()
+    HR = 240 * np.eye(240, dtype=np.int64) - A
+    D_exact = np.array_equal(np.rint(Dball), Dball) and np.array_equal(np.rint(Dball).astype(np.int64), HR[np.ix_(ii, ii)])
+    Aball = np.rint(b2.A).astype(np.int64)
+    vis = [idx[t] for t in img]
+    # (5) and (6): the completion on the bond roots and the port constraint, theta = 1, eps = 1, F = D^2
+    eps = 1
+    S, Si, hid, Wn, wd = _brg_response(tuple(vis), eps)
+    S0, *_ = _brg_response(tuple(idx[key(a)] for a in atoms), eps)
+    D2 = np.array(carrier.D2().tolist(), dtype=np.int64)
+    V = [[Fraction(int(D2[i, j])) - Si[i][j] for j in range(15)] for i in range(15)]
+    dv = lcm(*[x.denominator for r in V for x in r])
+    Ce = (HR + eps * np.eye(240, dtype=np.int64))[np.ix_(hid, hid)].astype(object)
+    CW = np.array_equal(Ce @ Wn, wd * HR[np.ix_(hid, vis)].astype(object))
+    K = (HR + eps * np.eye(240, dtype=np.int64)).astype(object) * dv               # dv K_1, an integer matrix
+    for a in range(15):
+        for b in range(15):
+            K[vis[a], vis[b]] += int(V[a][b] * dv)
+    port = vis[:5]
+    free = [k for k in range(240) if k not in set(port)]
+    pr = 2 ** 31 - 1
+    modp = lambda Mx: np.array([[int(x) % pr for x in r] for r in Mx], dtype=np.int64)
+    rk_free, rk_full = _brg_rank_mod(modp(K[np.ix_(free, free)]), pr), _brg_rank_mod(modp(K), pr)
+
+    def lift(q):                                                      # q on the 15 atoms -> wd x (q, -W q) on the sites
+        phi = np.zeros(240, dtype=object)
+        phi[vis] = np.array(q, dtype=object) * wd
+        phi[hid] = -(Wn @ np.array(q, dtype=object))
+        return phi
+    M = np.array(carrier.signless_incidence().tolist(), dtype=np.int64)
+    kerM = [[int(x) for x in v] for v in sp.Matrix(M).nullspace()]
+    zero_modes = [lift([0] * 5 + v) for v in kerM]
+    kern = (len(kerM) == 5 and all(not (K @ z)[free].any() for z in zero_modes)
+            and all(not (K @ z).any() for z in zero_modes) and all(not z[port].any() for z in zero_modes))
+    BW = HR[np.ix_(vis, hid)].astype(object) @ Wn
+    Kvv = [[Fraction(int(HR[vis[i], vis[j]]) + eps * (i == j)) + V[i][j] for j in range(15)] for i in range(15)]
+    SchE = sp.Matrix(10, 10, lambda i, j: Kvv[5 + i][5 + j] - Fraction(int(BW[5 + i, 5 + j]), wd))
+    x = sp.symbols("x")
+    pinned = [lift([int(k == i) for k in range(15)]) for i in range(5)]
+    stationary = all(not (K @ p)[free].any() for p in pinned)
+    gram = sp.Matrix(5, 5, lambda i, j: sp.Rational(int(pinned[i] @ K @ pinned[j]), dv * wd * wd))
+    S2, S2i, *_ = _brg_response(tuple(vis), eps + 1)
+    driveEV = sp.Matrix(10, 5, lambda i, j: S2i[5 + i][j] - Si[5 + i][j])
+    return {
+        "the map: w (e_i -> -e_(i+1) for i < 5, e_5 -> e_0, e_6 -> -e_6, e_7 -> e_7) is a signed permutation with six "
+        "sign changes, so in W(D8) inside W(E8); it maps the 240 roots onto themselves (determinant -1), and its site "
+        "permutation of master_response's 240 root sites commutes with B_R, so it is a symmetry of H_R = 240 I - B_R":
+            signed_perm and int((w < 0).sum()) == 6 and {key(w @ r) for r in spacetime.e8_roots()} == roots
+            and {key(r) for r in R2} == roots and round(np.linalg.det(w)) == -1 and sorted(pw) == list(range(240))
+            and np.array_equal(A[np.ix_(pw, pw)], A) and np.array_equal(w.T @ w, I8),
+        "the bridge: w carries cone's six sites {0, e_i + e_5} onto spacetime.clique_sites() in order, the cone point onto "
+        "x0 = 0 and the lifted vertex i onto x_(i+1); so it carries master_response's 15 atoms onto the 15 bonds of the "
+        "native clique, each once: vertex atom i onto x_(i+1) - x0 and edge atom ij onto x_(i+1) - x_(j+1)":
+            [key(w @ s) for s in cone_sites] == [key(x) for x in X]
+            and bonds[:5] == [(i + 1, 0) for i in range(5)] and bonds[5:] == [(i + 1, j + 1) for i, j in E]
+            and len({frozenset(b) for b in bonds}) == 15,
+        "the cone point is the origin: w conjugates the coordinate five-cycle e_i -> e_(i+1) (i < 5; spine's r) to the "
+        "coordinate five-cycle of e_1, ..., e_5, which acts on the six clique sites as native.boundary_rotation(); the cone "
+        "point lands on x0, the one site boundary_rotation fixes and the one where port_metric's diagonal is 2/5 (it is "
+        "22/5 at the other five); of the 720 bijections of the cone's sites onto the clique's exactly 5 intertwine the "
+        "cone rotation with boundary_rotation, all five send the cone point to x0, and they are the site maps of w c^k":
+            np.array_equal(Bnd, Rb) and np.array_equal(Pcw, Rb) and np.array_equal(cw[1:6, 1:6], np.roll(np.eye(5, dtype=np.int64), 1, axis=0))
+            and cw[0, 0] == cw[6, 6] == cw[7, 7] == 1 and [k for k in range(6) if Rb[k, k]] == [0]
+            and Wp_stored and [Wp[k][k] for k in range(6)] == [Fraction(2, 5)] + [Fraction(22, 5)] * 5
+            and len(inter) == 5 and all(p[0] == 0 for p in inter) and set(inter) == wck and wsite in wck,
+        "the design's sigma = diag(1, 1, 1, 1, 1, -1, -1, 1), also in W(D8), carries the atoms onto the clique's bonds as "
+        "well, but through the site map x -> x5 - sigma x, which puts the cone point on x5: boundary_rotation moves x5 "
+        "and port_metric's diagonal is 22/5 there, so the 'cone at x5' was sigma's artifact (the critique's R-c) and no "
+        "bijection with the cone point on x5 intertwines the two rotations":
+            int((sig < 0).sum()) == 2 and {key(sig @ r) for r in spacetime.e8_roots()} == roots
+            and all(t in bond_of for t in simg)
+            and tau == [5, 0, 1, 2, 3, 4] and Rb[5, 5] == 0 and Wp[5][5] == Fraction(22, 5)
+            and not any(p[0] == 5 for p in inter),
+        "the port sites: of the 15 bonds w lands on, exactly 5 are themselves clique sites, x_(i+1) - x0 = x_(i+1) for "
+        "the 5 vertex atoms, and the count is 5 of 15 in either sign (no edge bond x_(i+1) - x_(j+1) or its negative is a "
+        "site; under sigma also 5: vertex atom 0 and the 4 edge atoms 0j); and native.Bath(r2=2), the declared bath on the "
+        "smallest ball (|x|^2 <= 2: the origin and the 240 roots, 241 sites; spacetime.e8_ball(1) is the origin alone), "
+        "has the six clique sites as its port (A = 241 I - J) and "
+        "the 235 other roots as its bath with D equal to H_R on them exactly: master_response's root-site instance (the "
+        "240 roots) is that ball with the origin removed, and under w the 5 vertex atoms are 5 of the ball's 6 port sites "
+        "(x1..x5) while the 10 edge atoms are bath sites":
+            on_port_w == [True] * 5 + [False] * 10 and on_port_either == 5
+            and sum(on_port_s) == 5 and on_port_s[:5] == [True] + [False] * 4
+            and [k - 5 for k in range(5, 15) if on_port_s[k]] == [E.index((0, j)) for j in range(1, 5)]
+            and len(b2.pts) == 241 and len(spacetime.e8_ball(1)) == 1 and b2.n == 235 and [bpts[k] for k in b2.bidx] == [key(x) for x in X]
+            and np.array_equal(Aball, 241 * np.eye(6, dtype=np.int64) - 1) and D_exact
+            and [vis[k] in set(ii) for k in range(15)] == [False] * 5 + [True] * 10
+            and [R2[k].tolist() for k in vis[:5]] == X[1:].tolist(),
+        "OBSTRUCTION, the pinned vertex block (computed at theta = 1): on the bond roots the reference completion K_1 = "
+        "H_R + I + Y V Y^T, V = D^2 - S_1^-1 (S_1 = Y^T (H_R + 1)^-1 Y, equal to master_response's on its atoms, C W = B^T "
+        "checked), meets the port constraint at the 5 vertex atoms; with them held (Dirichlet, the tangent of Sigma) the "
+        "operator on the 235 other roots has rank 230 mod 2^31 - 1 and kills the 5 edge zero modes ker M lifted by -W (which "
+        "vanish on the port and are K_1's whole kernel, K_1 of rank 235), and its static Schur complement on the 10 free "
+        "edge atoms is M^T M, characteristic polynomial x^5 (x - 3)^4 (x - 8), not D^2's x^5 (x - 3)^8 (x - 8)^2: the "
+        "15-dimensional carrier block is not a free block of the action on Sigma":
+            CW and S == S0 and rk_free == 230 and rk_full == 235 and kern and len(free) == 235
+            and SchE == sp.Matrix(M.T @ M)
+            and sp.expand(SchE.charpoly(x).as_expr() - x ** 5 * (x - 3) ** 4 * (x - 8)) == 0
+            and sp.expand(sp.Matrix(D2).charpoly(x).as_expr() - x ** 5 * (x - 3) ** 8 * (x - 8) ** 2) == 0,
+        "what the pinned block becomes (computed): with the port displacement g_1..g_5 held at the vertex atoms, the field "
+        "(g on the port, 0 on the edge atoms, -W g on the 225 hidden roots) is stationary for K_1 off the port, and its "
+        "energy is (1/2) g^T (3 I + J) g = (1/2) g^T M M^T g, the vertex block of D^2: a potential of g(q), not a "
+        "dynamical block; statically the free edge atoms do not feel g (D^2 has no vertex-edge block), but at z = 1 "
+        "the edge-vertex block of S_K(1)^-1 = S_2^-1 + V (master_response's Woodbury law) is (S_2^-1 - S_1^-1)_EV, of rank "
+        "5: through the bath's memory the pinned block drives the free atoms":
+            stationary and gram == 3 * sp.eye(5) + sp.ones(5, 5) and gram == sp.Matrix(M @ M.T)
+            and not (D2[:5, 5:]).any() and driveEV.rank() == 5,
+    }
+
+
+def brg_symmetry():
+    """One action, one spectrum (2 Nov; the adversarial critique's O5, unit U3): which symmetries the completed action
+    keeps. The completion K_theta = H_R + theta (eps + Y V Y^T), V = F(alpha) - S_eps^-1, on master_response's 15 atom
+    roots (schur_zero_mode adds e_i + e_6, i < 4, for J19); F(alpha) = D^2 + alpha L with the mark's L = diag(2 - U_V -
+    U_V^T, 2 - U_E - U_E^T) of the coordinate five-cycle (_chiral, schur_zero_mode). The critic's k4.py is read as data and
+    rebuilt here; the clocks are made exact through the half-integral frame (as master_response does).
+    Cited, not repeated: the stored clocks (spine.spine_clock), r as the vertex rotation and all twenty affine maps
+    commuting with D^2 on the atoms (clock_joins), the cone S5 keeping D (cone_symmetry), W_p's rotation invariance
+    (_checks' native_port, the source-sixsite join 'port'), the co-rotating field on the abstract atoms (master_response), the D5 action on the
+    auxiliaries of the abstract chiral completion (chiral_dark). New: how the clocks act on the atom roots, that the
+    completed action breaks them, the stabilizers with W_p, the orientation of the edge roots as the selection that
+    decides C5, and the count that excludes a five-cycle on schur_zero_mode's nineteen roots."""
+    R2, A, Pint, sc, mu, idx, atoms = _brg_shell()
+    E = carrier.edges()
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    key = lambda v: tuple(int(c) for c in v)
+    aset = {key(a) for a in atoms}
+    lines = aset | {key(-a) for a in atoms}
+    aux = [e2[i] + e2[6] for i in range(4)]
+    j19 = aset | {key(a) for a in aux}
+    # (1) the stored clocks on the atoms, exactly
+    Bf = spine.frame()[0]
+    Bm = sp.Matrix(8, 8, lambda i, j: sp.Rational(int(round(2 * Bf[i, j])), 2))
+    c_, cp, r, rp, g, w_ = spine.spine_clock()
+    clocks = {}
+    for name, Mr in (("g", g), ("r", r), ("r'", rp), ("c'", cp)):
+        Sx = Bm * sp.Matrix(Mr.tolist()) * Bm.inv()
+        S4 = np.array((4 * Sx).tolist(), dtype=np.int64)
+        quarter = all(not ((S4 @ v) % 4).any() for v in R2)
+        img = [key((S4 @ a) // 4) for a in atoms]
+        perm = [idx.get(key((S4 @ v) // 4)) for v in R2]
+        clocks[name] = dict(
+            weyl=bool(Sx.T * Sx == sp.eye(8) and quarter and sorted(perm) == list(range(240))
+                      and np.array_equal(A[np.ix_(perm, perm)], A)),
+            on_atoms=sum(t in aset for t in img), on_lines=sum(t in lines for t in img),
+            vertex_on_lines=sum(t in lines for t in img[:5]), S=S4,
+            j19=({key((S4 @ a) // 4) for a in atoms + aux} == j19), moved=[k for k in range(15) if img[k] not in aset])
+    rm = clocks["r"]["S"]
+    flipped = [E[k - 5] for k in clocks["r"]["moved"]]
+    # (2) the completion on master_response's atoms: V's diagonal and the vertex entries of S_1^-1
+    vis = tuple(idx[key(a)] for a in atoms)
+    S, Si, *_ = _brg_response(vis, 1)
+    D2 = np.array(carrier.D2().tolist(), dtype=np.int64)
+    Vd = [Fraction(int(D2[k, k])) - Si[k][k] for k in range(15)]
+    # (3) stabilizers on the bond lines: six sites, the cone point 5 (cone_symmetry's labels); W_p through w
+    K6 = [(i, 5) for i in range(5)] + E
+    bix = {frozenset(b): k for k, b in enumerate(K6)}
+    UV = sp.Matrix(5, 5, lambda i, j: int(i == (j + 1) % 5))
+    UE = _edge_perm([1, 2, 3, 4, 0])
+    L = sp.diag(2 * sp.eye(5) - UV - UV.T, 2 * sp.eye(10) - UE - UE.T)
+    D2m, Lm = sp.Matrix(D2), L
+    row = [22, -8, 2, 2, -8]
+    Wsite = sp.zeros(6, 6)                                             # site i <-> x_(i+1), cone point 5 <-> x0
+    Wsite[5, 5] = sp.Rational(2, 5)
+    for a in range(5):
+        for b in range(5):
+            Wsite[a, b] = sp.Rational(row[(b - a) % 5], 5)
+
+    D2n, Ln = D2, np.array(L.tolist(), dtype=np.int64)
+    bp = lambda s: [bix[frozenset((s[a], s[b]))] for a, b in K6]
+    keeps = lambda s, X_: np.array_equal(X_[np.ix_(bp(s), bp(s))], X_)
+    S6 = list(itertools.permutations(range(6)))
+    st_D2 = [s for s in S6 if keeps(s, D2n)]
+    st_L = [s for s in st_D2 if keeps(s, Ln)]
+    st_F1 = [s for s in S6 if keeps(s, D2n + Ln)]
+    st_F3 = [s for s in S6 if keeps(s, 3 * D2n + Ln)]                   # 3 F(1/3)
+    diag_moves = all(any(D2n[p, p] != D2n[k, k] for k, p in enumerate(bp(s)))
+                     and all(Ln[p, p] == Ln[k, k] for k, p in enumerate(bp(s))) for s in S6 if s[5] != 5)
+    st_W = [s for s in S6 if all(Wsite[s[a], s[b]] == Wsite[a, b] for a in range(6) for b in range(6))]
+    slot = [1, 2, 3, 4, 5, 0]                                          # site i -> x_(i+1), the cone point 5 -> x0
+    Wf = native.port_metric()
+    W_stored = max(abs(float(Wf[slot[a], slot[b]]) - float(Wsite[a, b])) for a in range(6) for b in range(6)) < 1e-12
+    dihedral = {tuple([(a * i + b) % 5 for i in range(5)] + [5]) for a in (1, 4) for b in range(5)}
+    # (4) the signed root sites: Gram automorphisms of the 15 atom roots, and the orientations of the edge roots
+    vert = atoms[:5]
+    coef = [[int(k == i) for i in range(5)] for k in range(5)] + [[int(m == i) - int(m == j) for m in range(5)] for i, j in E]
+    akeys = [key(a) for a in atoms]
+    G15 = [[int(a @ b) for b in atoms] for a in atoms]
+    autos = []
+
+    def extend(t):                                                    # images of the vertex atoms, a basis of the span
+        if len(t) == 5:
+            ims = [key(sum(c * atoms[t[q]] for q, c in enumerate(cf))) for cf in coef]
+            if set(ims) == aset:
+                autos.append([akeys.index(v) for v in ims])
+            return
+        for u in range(15):
+            if u not in t and all(G15[u][t[q]] == G15[len(t)][q] for q in range(len(t))):
+                extend(t + [u])
+    extend([])
+    O = np.array(list(itertools.product((1, -1), repeat=10)), dtype=np.int64)
+    stab = np.zeros(len(O), dtype=np.int64)
+    for p in itertools.permutations(range(5)):
+        tgt = [E.index(tuple(sorted((p[i], p[j])))) for i, j in E]
+        sgn = np.array([1 if p[i] < p[j] else -1 for i, j in E], dtype=np.int64)
+        stab += (O * sgn == O[:, tgt]).all(1)
+    cyc = np.array([1 if (j - i) % 5 in (1, 2) else -1 for i, j in E], dtype=np.int64)
+    ci = [k for k in range(len(O)) if np.array_equal(O[k], cyc)][0]
+    oi = [k for k in range(len(O)) if (O[k] == 1).all()][0]
+    jc = [e2[i] + e2[5] for i in range(5)] + [int(cyc[k]) * (e2[i] - e2[j]) for k, (i, j) in enumerate(E)]
+    visc = tuple(idx[key(a)] for a in jc)
+    Sc, *_ = _brg_response(visc, 1)
+    imgc = [key((rm @ a) // 4) for a in jc]
+    Pi = [[key(a) for a in jc].index(t) if t in {key(a) for a in jc} else None for t in imgc]
+    piv = [[int(Pi[b] == a) for b in range(15)] for a in range(15)] if None not in Pi else None
+    PiM = sp.Matrix(piv) if piv else sp.zeros(15, 15)
+    ScM = sp.Matrix(15, 15, lambda a, b: Sc[a][b])
+    # (5) J19: the five-cycle count, and the four lines orthogonal to the atoms
+    others = atoms[5:] + aux
+    const_ip = [len({abs(int(l @ s)) for s in vert}) == 1 for l in others]
+    orth = [v for v in R2 if all(int(v @ a) == 0 for a in atoms)]
+    return {
+        "the stored clocks do not keep the atoms: g = r r', r, r' and c' (spine.spine_clock, made exact in standard "
+        "coordinates) are orthogonal, map the 240 roots onto themselves and keep the root graph, so each is a symmetry of "
+        "H_R; of master_response's 15 atom roots they send 6, 11, 10 and 2 onto atom roots and 10, 15, 10 and 2 onto "
+        "atom lines; only r keeps the 15 lines (it is the coordinate five-cycle e_i -> e_(i+1), i < 5, fixing e_5, e_6, "
+        "e_7) and it flips the four edge roots e_i - e_4; g and r' send all five vertex atoms off the lines; none keeps "
+        "schur_zero_mode's nineteen roots":
+            all(clocks[n]["weyl"] for n in clocks)
+            and [clocks[n]["on_atoms"] for n in ("g", "r", "r'", "c'")] == [6, 11, 10, 2]
+            and [clocks[n]["on_lines"] for n in ("g", "r", "r'", "c'")] == [10, 15, 10, 2]
+            and clocks["g"]["vertex_on_lines"] == clocks["r'"]["vertex_on_lines"] == 0
+            and np.array_equal(rm, 4 * np.vstack([np.roll(np.eye(5, dtype=np.int64), 1, axis=0) @ np.eye(5, 8, dtype=np.int64),
+                                                  np.eye(8, dtype=np.int64)[5:]]))
+            and flipped == [(i, 4) for i in range(4)] and not any(clocks[n]["j19"] for n in clocks),
+        "so the tick is a symmetry of the root-site bath H_R (the theta = 0 member, master_response's instance; whether a "
+        "clock keeps the ball's port is not asked here) and of no completion: H_R is kept by every "
+        "clock, but V = D^2 - S_1^-1 has a nonzero (negative) diagonal entry at every atom, so K_theta and its image under "
+        "a clock differ by theta V_aa at the image of an atom a the clock moves off the atoms, for every theta != 0; and "
+        "the five vertex entries of S_1^-1's diagonal are distinct and none exceeds an edge entry by 2, so no permutation of "
+        "the atoms that moves a vertex atom keeps the diagonal of V(alpha) = F(alpha) - S_1^-1 for any alpha (F(alpha) is "
+        "4 + 2 alpha on the vertex diagonal and 2 + 2 alpha on the edge diagonal): on "
+        "master_response's J15 the completed action has no symmetry that turns the vertices, the tick's included":
+            all(clocks[n]["weyl"] and clocks[n]["moved"] for n in clocks) and all(v < -236 for v in Vd)
+            and len({Si[k][k] for k in range(5)}) == 5 and all(Si[a][a] - Si[b][b] != 2 for a in range(5) for b in range(5, 15))
+            and all(any(Vd[k] != 0 for k in clocks[n]["moved"]) for n in clocks),
+        "on the bond lines (the six sites, the cone point fixed or not; cone_symmetry's labels): exactly the 120 "
+        "permutations that fix the cone point keep F(0) = D^2; every permutation that moves the cone point changes D^2's "
+        "diagonal (4 against 2) and keeps L's (all 2), so no alpha restores it, and inside the 120 F(alpha) for alpha = 1 "
+        "and 1/3 is kept by exactly the 10 that keep L, i -> +-i + b; W_p on the six port sites (cone point = x0) is kept "
+        "(port_metric, through w) by the same 10; so the stabilizer of (atoms, F(alpha), W_p) is D10 for every alpha >= 0, alpha = 0 "
+        "included (D10 keeps D^2 and L, hence every F(alpha), and nothing outside D10 keeps W_p; its ten maps fix the cone point, so "
+        "they keep the port's vertex split, Pi), and the cone's S5 is the stabilizer of (atoms, F(0), Pi) only":
+            len(st_D2) == 120 and all(s[5] == 5 for s in st_D2) and diag_moves and len(st_L) == 10
+            and set(st_L) == dihedral and set(st_F1) == set(st_L) and set(st_F3) == set(st_L)
+            and W_stored and set(st_W) == dihedral and len(st_W) == 10,
+        "on the signed root sites the lines' groups do not act: master_response's 15 atom roots have exactly 2 "
+        "Gram-preserving permutations, the identity and one that sends a vertex atom to an edge atom (it moves the cone "
+        "point); over all 1024 orientations of the ten edge roots the coordinate permutations that keep the "
+        "15 signed roots form a group of odd order at most 5 (a tournament has no automorphism of order 2): of order 1 for 840 "
+        "orientations, 3 for 160 and 5 for exactly 24, and 1 for master_response's e_i - e_j (i < j); for the cyclic orientation e_i - e_(i+1), "
+        "e_i - e_(i+2) it is <r>, and S_1 on those roots commutes with r's permutation of the atoms (as D^2 and L do), so r "
+        "keeps K_theta (eps = 1) for every theta and alpha there: C5 on the cyclic bond roots, D10 on no orientation":
+            len(autos) == 2 and list(range(15)) in autos
+            and all(any(a[k] >= 5 for k in range(5)) for a in autos if a != list(range(15)))
+            and all(int(n) % 2 == 1 and int(n) <= 5 for n in stab) and int((stab == 5).sum()) == 24
+            and int((stab == 1).sum()) == 840 and int((stab == 3).sum()) == 160
+            and int(stab[oi]) == 1 and int(stab[ci]) == 5 and piv is not None
+            and PiM * ScM * PiM.T == ScM and PiM * D2m * PiM.T == D2m and PiM * Lm * PiM.T == Lm
+            and PiM ** 5 == sp.eye(15) and PiM != sp.eye(15),
+        "no five-cycle on schur_zero_mode's nineteen roots: an orthogonal map of order 5 that permutes the 19 visible root "
+        "lines and turns the 5 vertex lines must fix at least 4 of the other 14 (orbits of 1 or 5, and 14 = 4 mod 5), and "
+        "a fixed line meets the 5 vertex roots at one |inner product|; none of the 10 edge and 4 auxiliary lines does; on "
+        "J15 the count is 10 = 0 mod 5 and r turns the lines; the break is the placement's: the 8 roots orthogonal to all "
+        "15 atoms (the centralizer's 4 lines) are fixed by r, so with them as auxiliaries r keeps the 19 lines (as lines; whether "
+        "that placement serves schur_zero_mode's chiral target is not asked here)":
+            not any(const_ip) and len(others) == 14 and len(others) % 5 == 4 and (len(atoms) - len(vert)) % 5 == 0
+            and clocks["r"]["on_lines"] == 15 and [key((rm @ a) // 4) for a in vert] == [akeys[(k + 1) % 5] for k in range(5)]
+            and len(orth) == 8
+            and all(np.array_equal(rm @ v, 4 * v) for v in orth) and all(key(-v) in {key(u) for u in orth} for v in orth),
+    }
+
+
+# ------------------------------------------------------------------- the spectral side (6 Nov): one loop, the Schur factorization, no GKSL reduction, the product spectral action, the Penrose planes
+
+
+def _spc_inertia(M):
+    """(positive, zero, negative) of a symmetric rational sympy matrix, exactly: symmetric elimination in Fractions with
+    diagonal pivoting and, when every remaining diagonal entry vanishes, a 2 x 2 off-diagonal pivot [[0, b], [b, 0]]
+    (one positive and one negative direction); the counts are the inertia by the law of inertia (congruence)."""
+    n = M.shape[0]
+    a = [[Fraction(int(sp.fraction(M[i, j])[0]), int(sp.fraction(M[i, j])[1])) for j in range(n)] for i in range(n)]
+    left = list(range(n))
+    pos = zero = neg = 0
+    while left:
+        j = next((j for j in left if a[j][j] != 0), None)
+        if j is not None:
+            p = a[j][j]
+            pos, neg = (pos + 1, neg) if p > 0 else (pos, neg + 1)
+            left.remove(j)
+            for i in [i for i in left if a[i][j] != 0]:
+                f = a[i][j] / p
+                for l in left:
+                    if a[j][l]:
+                        a[i][l] -= f * a[j][l]
+            continue
+        pair = next(((i, j) for i in left for j in left if i < j and a[i][j] != 0), None)
+        if pair is None:
+            zero += len(left)
+            break
+        i, j = pair
+        b = a[i][j]
+        pos, neg = pos + 1, neg + 1
+        left.remove(i)
+        left.remove(j)
+        for k in left:
+            ci, cj = a[k][i], a[k][j]
+            if ci or cj:
+                for l in left:
+                    a[k][l] -= (ci * a[j][l] + cj * a[i][l]) / b
+    return pos, zero, neg
+
+
+def _spc_crt_primes(M):
+    """The 30-bit primes (descending from 2^30) whose product exceeds twice the row-norm (Hadamard) bound on |det M|,
+    enough for the Chinese remainder theorem to return the signed determinant of the integer matrix M."""
+    bound = 1
+    for row in np.asarray(M, dtype=np.int64):
+        bound *= sp.integer_nthroot(int(sum(int(x) * int(x) for x in row)), 2)[0] + 1
+    ps, p = [], 2 ** 30
+    while not ps or sp.prod(ps) <= 2 * bound:
+        p = int(sp.prevprime(p))
+        ps.append(p)
+    return ps
+
+
+def _spc_det_crt(M):
+    """The exact determinant of a square integer matrix: elimination modulo the primes of _spc_crt_primes, vectorized
+    over them, then recombined by the Chinese remainder theorem; None if a zero pivot appears modulo some prime (then
+    the caller must not trust it)."""
+    M = np.asarray(M, dtype=np.int64)
+    n = M.shape[0]
+    ps = _spc_crt_primes(M)
+    P = np.array(ps, dtype=np.int64)
+    A = M[None, :, :] % P[:, None, None]
+    det = np.ones(len(ps), dtype=np.int64)
+    for k in range(n):
+        piv = A[:, k, k].copy()
+        if (piv == 0).any():
+            return None
+        det = det * piv % P
+        inv = np.array([pow(int(x), int(q) - 2, int(q)) for x, q in zip(piv, ps)], dtype=np.int64)
+        row = A[:, k, k + 1:] % P[:, None]
+        f = (A[:, k + 1:, k] % P[:, None]) * inv[:, None] % P[:, None]
+        A[:, k + 1:, k + 1:] = (A[:, k + 1:, k + 1:] - f[:, :, None] * row[:, None, :]) % P[:, None, None]
+    x, mod = 0, 1
+    for d, q in zip(det.tolist(), ps):
+        x += mod * (((d - x) * pow(mod, -1, q)) % q)
+        mod *= q
+    return x - mod if x > mod // 2 else x
+
+
+def _spc_rootsite():
+    """master_response's root-site instance, rebuilt through its own machinery: H_R = 240 I - B_R on the 240 roots
+    (_master_shell), the 15 bond atoms e_i + e_5, e_i - e_j visible (master_response's and schur_zero_mode's placement)
+    and the 225 other roots hidden; the sector values mu and ranks; A_J = Y^T H_R Y; G(w) = Y^T (w + H_R)^-1 Y from the
+    five sector projectors; and X(w) = B (w + C)^-1 B^T exactly by the block trick (w + C)^-1 = G_hh - G_hv G_vv^-1
+    G_vh, each value certified by (w + C) W_w = B^T on all 225 hidden rows."""
+    R2, G, A, Pint, sc, *_ = _master_shell()
+    I = np.eye(240, dtype=np.int64)
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    mu = [240 - l for l in lam]
+    ranks = [int(np.trace(P)) // s for P, s in zip(Pint, sc)]
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    vis = [idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in carrier.edges()]
+    hid = [k for k in range(240) if k not in set(vis)]
+    HR = 240 * I - A
+    Bo = HR[np.ix_(vis, hid)].astype(object)
+    Co = HR[np.ix_(hid, hid)].astype(object)
+    I225 = np.eye(225, dtype=np.int64).astype(object)
+    Bm = sp.Matrix(Bo.tolist())
+    AJ = sp.Matrix(HR[np.ix_(vis, vis)].tolist())
+
+    def gblk(w):                                                         # G(w) = Y^T (w + H_R)^-1 Y, exact
+        return sum((sp.Matrix(P[np.ix_(vis, vis)].tolist()) / (s * (w + m)) for P, s, m in zip(Pint, sc, mu)),
+                   sp.zeros(15, 15))
+
+    def sigma(w):                                                        # X(w) = B (w + C)^-1 B^T, certified
+        w = sp.Rational(w)
+        cs = [sp.Rational(1, s) / (w + m) for s, m in zip(sc, mu)]
+        d = int(sp.ilcm(*[sp.fraction(c)[1] for c in cs]))
+        Gi = sum((int(c * d) * P.astype(object) for c, P in zip(cs, Pint)), np.zeros((240, 240), dtype=object))
+        Gvv = sp.Matrix(Gi[np.ix_(vis, vis)].tolist()) / d
+        Ghv = sp.Matrix(Gi[np.ix_(hid, vis)].tolist()) / d
+        W = sp.Matrix((Gi[np.ix_(hid, hid)] @ Bo.T).tolist()) / d - Ghv * Gvv.inv() * (Ghv.T * Bm.T)
+        dw = int(sp.ilcm(*[sp.fraction(v)[1] for v in W]))
+        Wi = np.array((W * dw).tolist(), dtype=object)
+        cert = np.array_equal((int(w.q) * Co + int(w.p) * I225) @ Wi, int(w.q) * dw * Bo.T)
+        return Bm * W, cert
+    return HR, vis, hid, mu, ranks, AJ, gblk, sigma
+
+
+def spc_oneloop():
+    """The spectral side, part one: the one loop of a quadratic action is half the log determinant, which is the
+    spectral action with f_z(x) = log(z + x)/2 (spectral.spectral_action), on the carrier exactly and against the
+    readout's transfer trace; the expansion at infinity with its signs and its radius (the design's unsigned list and
+    'zeta fixes the spectrum' corrected); on master_response's root-site instance the Schur factorization of the one
+    loop at z = 1, 2, exact in its 15- and 225-dimensional parts (the 240-dimensional log determinant in floats); and
+    the OBSTRUCTION that the completion's spectrum is not the carrier's together with the hidden block's, by exact
+    inertia. Cited, not repeated: K = L diag(D^2, C_eps) L^T, the source law and d/dz log det(I + V S_0) = Tr[G_K - G_0]
+    (master_response), the relative determinant as the transform of the relative heat (usm_relheat_laplace), the
+    eigenvalue counting by the
+    negative pivots of the visible Schur complement (zero_pole_instance's method), the complementary-minor identity and
+    the determinant lemma as general linear algebra (checked here symbolically on a generic 1 + 2 block)."""
+    z, s, t, u, xv, av = sp.symbols("z s t u x a", positive=True)
+    D2 = sp.Matrix(carrier.D2())
+    I15 = sp.eye(15)
+    # (0) one loop = 1/2 log det = Tr f_z: the carrier
+    gauss = sp.integrate(sp.exp(-av * xv ** 2 / 2), (xv, -sp.oo, sp.oo))
+    gauss_ok = sp.simplify(gauss - sp.sqrt(2 * sp.pi / av)) == 0
+    detz = (z * I15 + D2).det()
+    det_ok = sp.expand(detz - z ** 5 * (z + 3) ** 8 * (z + 8) ** 2) == 0
+    gamma_z = sp.log(detz) / 2
+    act_ok = all(abs(spectral.spectral_action(lambda xx, zv=zv: np.log(zv + xx) / 2, 1.0) - float(gamma_z.subs(z, zv)))
+                 < 1e-12 for zv in (1, 2))
+    tr = sp.cancel((z * I15 + D2).inv().trace())
+    partial = 5 / z + 8 / (z + 3) + 2 / (z + 8)
+    resolvent_ok = sp.simplify(tr - partial) == 0 and sp.simplify(sp.apart(tr, z) - partial) == 0 \
+        and sp.simplify(2 * sp.diff(gamma_z, z) - tr) == 0
+    Am = sp.Matrix(np.rint(observer.system_matrix()).astype(int).tolist())
+    block = sp.Matrix(sp.BlockMatrix([[sp.zeros(15), I15], [-D2, sp.zeros(15)]]))
+    trA = sp.cancel((s * sp.eye(30) - Am).inv().trace())
+    transfer_ok = Am == block and sp.simplify(trA - 2 * s * tr.subs(z, s ** 2)) == 0 \
+        and sp.simplify(trA - 4 * s * sp.diff(gamma_z, z).subs(z, s ** 2)) == 0
+    # (1) the signs, the radius and the dimension
+    ser = sp.series(tr.subs(z, 1 / u), u, 0, 6).removeO()
+    coeffs = [sp.expand(ser).coeff(u, k) for k in range(1, 6)]
+    mom = spectral.moments(4)
+    signs_ok = coeffs == [15, -40, 200, -1240, 8840] and coeffs == [(-1) ** k * mom[k] for k in range(5)] \
+        and sp.expand(ser).coeff(u, 0) == 0
+    poles = set(sp.roots(sp.Poly(sp.denom(sp.cancel(tr)), z)))
+    radius_ok = poles == {0, -3, -8} and max(abs(p) for p in poles) == 8 == max(spectral.SPEC)
+    zeta_s = spectral.zeta(s)
+    zeta_ok = sp.simplify(zeta_s - 8 * sp.Integer(3) ** (-s) - 2 * sp.Integer(8) ** (-s)) == 0 \
+        and spectral.zeta(0) == 10 and spectral.zeta(1) == sp.Rational(35, 12) and D2.rank() == 10
+    transform = sum(m * sp.simplify(sp.integrate(t ** (s - 1) * sp.exp(-l * t), (t, 0, sp.oo), conds="none") / sp.gamma(s))
+                    for l, m in spectral.SPEC.items() if l)                 # termwise: Theta(t) - 5 = 8 e^-3t + 2 e^-8t
+    mellin_ok = sp.simplify(transform - zeta_s) == 0 \
+        and all(abs(spectral.heat_trace(tv) - (5 + 8 * np.exp(-3 * tv) + 2 * np.exp(-8 * tv))) < 1e-14 for tv in (0.3, 1.0, 2.0))
+    nullity = len(D2.nullspace())
+    dim_ok = 15 - spectral.zeta(0) == 5 == nullity
+    # (2) the Schur factorization on the root site at z = 1, 2
+    HR, vis, hid, mu, ranks, AJ, gblk, sigma = _spc_rootsite()
+    eps = 1
+    X1, c1 = sigma(eps)
+    V = D2 + X1 - AJ - eps * I15
+    recipe_ok = X1 == AJ + eps * I15 - gblk(eps).inv()
+    detH = lambda w: sp.prod([sp.Integer(w + m) ** r for m, r in zip(mu, ranks)])
+    logs, schur_ok = {}, c1 and recipe_ok and mu == [184, 212, 232, 242, 244] and ranks == [1, 8, 35, 112, 84]
+    for zv in (1, 2):
+        w = eps + zv
+        Xz, cz = sigma(w)
+        S0 = gblk(w)
+        SKinv = D2 + zv * I15 + X1 - Xz
+        Mz = HR[np.ix_(hid, hid)] + w * np.eye(225, dtype=np.int64)
+        dC, nprimes = _spc_det_crt(Mz), len(_spc_crt_primes(Mz))
+        exact = detH(w) * (I15 + V * S0).det()                            # det(z + K) through the determinant lemma
+        Kf = (HR + eps * np.eye(240)).astype(float)
+        Kf[np.ix_(vis, vis)] += np.array(V.tolist(), float)
+        sgn, ld = np.linalg.slogdet(Kf + zv * np.eye(240))
+        logs[zv] = float(sp.log(sp.Integer(exact.p)) - sp.log(sp.Integer(exact.q)))
+        schur_ok = (schur_ok and cz and dC is not None and nprimes == 60 and dC == detH(w) * S0.det()
+                    and SKinv == S0.inv() + V and (I15 + V * S0).det() == S0.det() * SKinv.det()
+                    and sgn > 0 and abs(ld - logs[zv]) < 1e-9)
+    # the general identities on a generic 1 + 2 block (symbols)
+    ga, gv = sp.symbols("a v")
+    gb = sp.Matrix(1, 2, sp.symbols("b0:2"))
+    gc = sp.symbols("c0:3")
+    Cg = sp.Matrix([[gc[0], gc[1]], [gc[1], gc[2]]])
+    Hg = sp.Matrix(sp.BlockMatrix([[sp.Matrix([[ga]]), gb], [gb.T, Cg]]))
+    Ug = sp.Matrix([[1], [0], [0]])
+    zH = z * sp.eye(3) + Hg
+    S0g = Ug.T * zH.inv() * Ug
+    Kg = zH + Ug * sp.Matrix([[gv]]) * Ug.T
+    Sg = Kg[:1, :1] - Kg[:1, 1:] * Kg[1:, 1:].inv() * Kg[1:, :1]
+    generic_ok = (sp.simplify(Kg.det() - zH.det() * (sp.eye(1) + sp.Matrix([[gv]]) * S0g).det()) == 0
+                  and sp.simplify(Kg.det() - Kg[1:, 1:].det() * Sg.det()) == 0
+                  and sp.simplify(Sg - S0g.inv() - sp.Matrix([[gv]])) == sp.zeros(1)
+                  and sp.simplify(zH[1:, 1:].det() - zH.det() * S0g.det()) == 0)
+    value_ok = abs(logs[1] - 1250.39174424308) < 1e-10 and abs(logs[2] - 1256.78365222709) < 1e-10
+    # (3) OBSTRUCTION: the counting function of K_1 against D^2 u C_eps, exactly, below 185
+    G0i = gblk(eps).inv()
+    count = lambda g: _spc_inertia(D2 - G0i + gblk(eps - g).inv())
+    R = sp.Rational
+    points = [R(299, 100), 3, R(79, 10), 8, 184]
+    NK = [count(g)[2] for g in points]
+    ND = [sum(m for l, m in spectral.SPEC.items() if l < g) for g in points]
+    at_zero = _spc_inertia(D2 - G0i + gblk(eps).inv())
+    bracket = (count(R(29943, 10000))[2], count(R(29944, 10000))[2])
+    return {
+        "the one loop is the spectral action: for a > 0 the integral of exp(-a x^2/2) over the line is sqrt(2 pi/a) "
+        "(sympy), so by an orthogonal change of variables (cited) the integral of exp(-<Phi, (z + K) Phi>/2) over R^n "
+        "is (2 pi)^(n/2) det(z + K)^(-1/2), so the one loop Gamma(z) = -log of it is (1/2) log det(z + K) = Tr f_z(K) "
+        "with f_z(x) = log(z + x)/2 up to the constant -(n/2) log 2 pi, which no derivative in z or K sees; on "
+        "the carrier det(z + D^2) = z^5 (z + 3)^8 (z + 8)^2 exactly (carrier.D2), spectral.spectral_action(f_z, 1) "
+        "equals Gamma(z) at z = 1 and z = 2 to 10^-12, 2 Gamma'(z) = Tr (z + D^2)^-1 = 5/z + 8/(z + 3) + 2/(z + 8) whose "
+        "partial fractions recover 0^5, 3^8, 8^2, and the readout's generator A = [[0, I], [-D^2, 0]] "
+        "(observer.system_matrix, the triple -> readout join) has transfer trace Tr (s - A)^-1 = 2 s Tr (s^2 + D^2)^-1 "
+        "= 4 s Gamma'(s^2)":
+            gauss_ok and det_ok and act_ok and resolvent_ok and transfer_ok,
+        "the signs, the radius and the dimension: the expansion of 2 Gamma'(z) at infinity is sum_k (-1)^k Tr D^(2k) "
+        "/ z^(k + 1) = 15/z - 40/z^2 + 200/z^3 - 1240/z^4 + 8840/z^5 (spectral.moments; the design's list 15, 40, 200, "
+        "1240, 8840 lacked the alternating signs), it converges exactly for |z| > 8 = |D^2| (the poles 0, -3, -8 of the "
+        "resolvent trace), and the zeta function zeta(s) = 8 x 3^-s + 2 x 8^-s (spectral.zeta) is the transform "
+        "Gamma(s)^-1 int_0^oo t^(s - 1) (Theta(t) - 5) dt of the heat trace minus its kernel count, Theta(t) = 5 + 8 "
+        "e^-3t + 2 e^-8t (spectral.heat_trace, checked at t = 0.3, 1, 2; the transform termwise in sympy), with zeta(0) "
+        "= 10 = rank D^2 and zeta(1) = 35/12: the zeta function "
+        "fixes the nonzero spectrum with multiplicities, and the spectrum itself only together with the dimension, "
+        "15 - zeta(0) = 5 = the nullity":
+            signs_ok and radius_ok and zeta_ok and mellin_ok and dim_ok,
+        "the Schur factorization of the one loop on master_response's root-site instance (eps = 1; the 15 bond atoms "
+        "visible, 225 roots hidden, X(w) = B (w + C)^-1 B^T from the five sectors with (w + C) W = B^T certified at w = "
+        "1, 2, 3): with V = D^2 + X(1) - A_J - I and K = H_R + I + Y V Y^T, the visible Schur complement of z + K is "
+        "S_K(z)^-1 = S_0(z + 1)^-1 + V = D^2 + z + X(1) - X(1 + z) exactly at z = 1, 2 (S_0(w) = Y^T (w + H_R)^-1 Y); "
+        "the hidden determinant det(z + C_1), a 225 x 225 integer determinant computed exactly by Chinese remaindering "
+        "over exactly 60 30-bit primes whose product exceeds twice the row-norm bound (_spc_crt_primes, counted), "
+        "equals det(z + 1 + H_R) det S_0(z + 1) with det(z + 1 + H_R) = "
+        "prod (z + 1 + mu_k)^(r_k) from the sectors (the complementary-minor identity on the instance), and det(I + V "
+        "S_0) = det S_0 det S_K^-1 (15 x 15, exact), so log det(z + K) = log det(z + C_1) + log det S_K(z)^-1 holds "
+        "exactly through the determinant lemma det(z + K) = det(z + 1 + H_R) det(I + V S_0(z + 1)) (master_response's "
+        "source law; the lemma, the block determinant and the complement identity checked symbolically on a generic 1 + "
+        "2 block), and the 240 x 240 log determinant in floats agrees with the exact value, 1250.39174424308 at z = 1 "
+        "and 1256.78365222709 at z = 2, to 10^-9":
+            schur_ok and generic_ok and value_ok,
+        "OBSTRUCTION: the spectrum of the completion K_1 is not spec D^2 together with spec C_1. For g < 185 the hidden "
+        "block C_1 - g is positive definite (C_1 >= 185 as a compression of H_R + 1, master_response), so by inertia "
+        "additivity the eigenvalues of K_1 below g are counted exactly by the negative pivots of the visible Schur "
+        "complement S_g = D^2 - G(1)^-1 + G(1 - g)^-1 (G from the sectors; zero_pole_instance's method, _spc_inertia): "
+        "N_K = 5, 13, 13, 15, 15 at g = 2.99, 3, 7.9, 8, 184 while D^2 u C_1 has 5, 5, 13, 13, 15, so Tr f(K_1) differs "
+        "from Tr f(D^2) + Tr f(C_1) already for the indicator of (-inf, 3): eight eigenvalues of K_1 lie in [2.99, 3) "
+        "and two in [7.9, 8), none at 3 or 8; K_1 has nullity 5 (five zero pivots at g = 0, master_response's lifted "
+        "kernel) and its first positive eigenvalue lies in [2.9943, 2.9944) (counts 5 and 6; the design's 2.99434 "
+        "corrected to 2.9943...), and the spectral shift xi = N_K - N_(H_R + 1), which equals N_K below 185, reaches "
+        "15, the rank of the update, at g = 8 already: the carrier's spectrum enters K_1 as the z = 0 Schur complement, "
+        "a functional of the operator and not of its spectrum":
+            NK == [5, 13, 13, 15, 15] and ND == [5, 5, 13, 13, 15] and NK != ND and at_zero == (10, 5, 0)
+            and bracket == (5, 6) and min(mu) + eps == 185 and NK[-1] == 15 == len(vis) and NK[1] - NK[0] == 8
+            and NK[3] - NK[2] == 2,
+    }
+
+
+def spc_gksl():
+    """The spectral side, part two, an OBSTRUCTION: the GKSL semigroup e^-tL of the Pauli algebra is no flow of the one
+    action and no quotient of it, and the design's argument for that (R12: 'a real linear generator of a quadratic
+    action has spectrum closed under lambda -> -lambda') is insufficient; the argument that works is positivity. L's spectrum 0,
+    224^120, 256^135 is gksl_census's and counts.pauli_bath's (here certified exactly from its annihilating polynomial
+    and two traces); the first-order generator [[0, I], [-K, 0]] is observer.system_matrix's (onemodel_closures compares
+    it entrywise; usm_wave_dirac's doubled G = [[0, sqrt K], [-sqrt K, 0]] is a different, conjugate-off-the-kernel
+    form and is not used here); the completion family K_theta = (1 - theta) H + theta K_1 has the form of
+    flower_homotopy's (there on the 90D comparator) and is built here on master_response's root-site instance; the
+    class excluded is that of linear intertwiners T (semigroup into flow) and S (flow onto semigroup), and the theorem
+    that an intertwiner between operators with disjoint spectra vanishes is cited (here it reduces to the exact
+    nullspaces of G + 224, G + 256 and of their transposes)."""
+    x = sp.Symbol("x")
+    c, tt = sp.symbols("c t", positive=True)
+    # (0) the semigroup's generator, exactly
+    vec_i = np.eye(16, dtype=np.int64).ravel()
+    T = np.zeros((256, 256), dtype=np.int64)
+    for i in range(16):
+        for j in range(16):
+            T[16 * i + j, 16 * j + i] = 1
+    I256 = np.eye(256, dtype=np.int64)
+    Lsup = 240 * I256 + 16 * T - 16 * np.outer(vec_i, vec_i)
+    rng = np.random.default_rng(224)
+    gen_ok = all(np.array_equal(counts._generator(Mx).ravel(), Lsup @ Mx.ravel())
+                 for Mx in (rng.integers(-3, 4, (16, 16)) for _ in range(3)))
+    annihil = not (Lsup @ (Lsup - 224 * I256) @ (Lsup - 256 * I256)).any()
+    tr1, tr2 = int(np.trace(Lsup)), int(np.trace(Lsup @ Lsup))
+    mult = sp.Matrix([[224, 256], [224 ** 2, 256 ** 2]]).solve(sp.Matrix([tr1, tr2]))
+    m1, m2 = int(mult[0]), int(mult[1])
+    m0 = 256 - m1 - m2
+    sem_ok = (gen_ok and np.array_equal(Lsup, Lsup.T) and annihil and (tr1, tr2) == (61440, 14868480)
+              and (m0, m1, m2) == (1, 120, 135) and mult == sp.Matrix([120, 135]))
+    # (1) the carrier's first-order generator and the intertwiner spaces
+    D2 = sp.Matrix(carrier.D2())
+    I15, I30 = sp.eye(15), sp.eye(30)
+    Am = sp.Matrix(np.rint(observer.system_matrix()).astype(int).tolist())
+    block_ok = Am == sp.Matrix(sp.BlockMatrix([[sp.zeros(15), I15], [-D2, sp.zeros(15)]]))
+    cp = Am.charpoly(x).as_expr()
+    cp_ok = sp.expand(cp - x ** 10 * (x ** 2 + 3) ** 8 * (x ** 2 + 8) ** 2) == 0
+    imag_ok = all(sp.re(r) == 0 for r in sp.roots(sp.Poly(cp, x))) and cp.subs(x, -224) != 0 and cp.subs(x, -256) != 0
+    null = {e: (Am + e * I30).nullspace() for e in (0, 224, 256)}
+    lnull = {e: (Am.T + e * I30).nullspace() for e in (0, 224, 256)}
+    det_ok = all((Am + e * I30).det() == (D2 + e ** 2 * I15).det() for e in (224, 256))
+    kerD2 = D2.nullspace()
+    ker_ok = (len(null[0]) == 5 and all(v[15:, 0].is_zero_matrix and (D2 * v[:15, 0]).is_zero_matrix for v in null[0])
+              and sp.Matrix.hstack(*[v[:15, 0] for v in null[0]]).rank() == 5 == len(kerD2)
+              and len(lnull[0]) == 5 and all(v[:15, 0].is_zero_matrix and (D2 * v[15:, 0]).is_zero_matrix for v in lnull[0]))
+    decay_ok = null[224] == [] and null[256] == [] and lnull[224] == [] and lnull[256] == []
+    dim_T = sum(len(null[e]) * m for e, m in ((0, m0), (224, m1), (256, m2)))
+    dim_S = sum(len(lnull[e]) * m for e, m in ((0, m0), (224, m1), (256, m2)))
+    # (2) the root site: K_theta >= 0 at theta = 0, 1/2, 1, exactly, through the visible Schur complement
+    HR, vis, hid, mu, ranks, AJ, gblk, sigma = _spc_rootsite()
+    eps = 1
+    X1, c1 = sigma(eps)
+    V = D2 + X1 - AJ - eps * I15
+    inert, certs, S_at = [], [c1], {}
+    for th in (0, sp.Rational(1, 2), 1):
+        Xw, cw = sigma(th * eps)
+        S = AJ + th * eps * I15 + th * V - Xw
+        certs.append(cw)
+        inert.append(_spc_inertia(S))
+        S_at[th] = S
+    root_ok = (all(certs) and inert == [(15, 0, 0), (15, 0, 0), (10, 5, 0)] and S_at[1] == D2
+               and S_at[0] == gblk(0).inv() and min(mu) == 184)
+    K2 = sp.Matrix(2, 2, sp.symbols("k0:4"))
+    K2 = (K2 + K2.T) / 2
+    Gg = sp.Matrix(sp.BlockMatrix([[sp.zeros(2), sp.eye(2)], [-K2, sp.zeros(2)]]))
+    square_ok = sp.expand((Gg - c * sp.eye(4)) * (Gg + c * sp.eye(4))
+                          + sp.diag(K2 + c ** 2 * sp.eye(2), K2 + c ** 2 * sp.eye(2))) == sp.zeros(4)
+    # (3) the design's argument is insufficient: a negative K
+    Gneg = sp.Matrix([[0, 1], [224 ** 2, 0]])
+    Gpos = sp.Matrix([[0, 1], [-224 ** 2, 0]])
+    vneg = sp.Matrix([-sp.Rational(1, 224), 1])
+    flow = sp.simplify((Gneg * tt).exp() * vneg - sp.exp(-224 * tt) * vneg) == sp.zeros(2, 1)
+    f6_ok = (Gneg.eigenvals() == {224: 1, -224: 1} and (Gneg + 224 * sp.eye(2)) * vneg == sp.zeros(2, 1) and flow
+             and Gpos.eigenvals() == {224 * sp.I: 1, -224 * sp.I: 1} and (Gpos + 224 * sp.eye(2)).nullspace() == [])
+    return {
+        "the semigroup's generator exactly: counts._generator's L(M) = 240 M + 16 M^T - 16 tr(M) I is the 256 x 256 "
+        "integer matrix 240 I + 16 T - 16 vec(I) vec(I)^T on vec(M) (T the transposition; checked on three random "
+        "integer M), symmetric, with L (L - 224)(L - 256) = 0, tr L = 61440 and tr L^2 = 14868480, so its eigenvalues "
+        "are 0, 224, 256 with multiplicities 1, 120, 135 (the unique solution of the two trace equations; gksl_census's "
+        "and counts.pauli_bath's spectrum, counts.pauli_quotient's -L as a GKSL generator): e^-tL fixes the identity "
+        "and decays the 255 traceless Pauli directions at the rates 224 and 256":
+            sem_ok,
+        "OBSTRUCTION: e^-tL is no flow of the carrier's action and no quotient of it, on the class of linear "
+        "intertwiners. The first-order generator G = [[0, I], [-D^2, 0]] of Phi'' + D^2 Phi = 0 (observer.system_matrix; "
+        "onemodel_closures) has "
+        "characteristic polynomial x^10 (x^2 + 3)^8 (x^2 + 8)^2, so its spectrum {0, +-i sqrt3, +-2i sqrt2} lies on the "
+        "imaginary axis; G + 224 and G + 256 have determinants det(D^2 + 224^2), det(D^2 + 256^2) and trivial "
+        "nullspaces and left nullspaces, while ker G = ker D^2 (+) 0 and the left kernel is 0 (+) ker D^2, each of "
+        "dimension 5 (chiral_closures' nullity of D^2); a linear T: R^256 -> R^30 with G T = T(-L) (e^(tG) T = T e^-tL) "
+        "sends each Pauli direction of rate e into ker(G + e), and for a linear S: R^30 -> R^256 with S G = -L S (S "
+        "e^(tG) = e^-tL S) the transpose S^T sends each into the left kernel ker(G^T + e), so T and S^T vanish on the 255 "
+        "decaying directions and the two intertwiner spaces have dimension exactly 5 x 1 + 0 x 120 + 0 x 135 = 5, "
+        "supported on the identity Pauli against the static kernel: only the trivial part of the semigroup meets the "
+        "flow, and no other linear embedding or quotient exists":
+            block_ok and cp_ok and imag_ok and det_ok and ker_ok and decay_ok and dim_T == 5 and dim_S == 5,
+        "on master_response's root-site instance the whole completion family is nonnegative, exactly: K_theta = "
+        "(1 - theta) H_R + theta K_1 = H_R + theta (I + Y V Y^T) (the form of flower_homotopy's family, which lives on "
+        "the 90D comparator, built here on the root site; V = D^2 + X(1) - A_J - I) "
+        "has hidden block C + theta >= 184 > 0 (C a compression of H_R, sectors 184..244) and visible Schur complement "
+        "S(theta) = A_J + theta + theta V - X(theta) (X from the sectors, certified at theta = 0, 1/2, 1), whose exact "
+        "inertia (_spc_inertia) is (15, 0, 0), (15, 0, 0), (10, 5, 0): by inertia additivity K_theta >= 0 with "
+        "nullity 0, 0, 5 at theta = 0, 1/2, 1 (S(0) = G(0)^-1, S(1) = D^2, master_response's static Schur complement; "
+        "and between, by convexity of the positive semidefinite cone); so for every real c != 0, (G_theta - c)(G_theta "
+        "+ c) = -diag(K_theta + c^2, K_theta + c^2) (symbolic on a generic block) is invertible and G_theta = [[0, I], "
+        "[-K_theta, 0]] has no real nonzero eigenvalue: no decaying Pauli direction has an intertwiner into the "
+        "completion family either":
+            root_ok and square_ok,
+        "the design's argument (R12) is insufficient and positivity is what excludes the semigroup: for the "
+        "one-dimensional K = -224^2 the generator [[0, 1], [224^2, 0]] has the symmetric spectrum {224, -224}, yet "
+        "its invariant line through (-1/224, 1) carries exactly the decay e^-224t (sympy's matrix exponential), so "
+        "'spectrum closed under lambda -> -lambda' does not exclude a decaying invariant subspace; for K = +224^2 the "
+        "generator [[0, 1], [-224^2, 0]] has eigenvalues +-224 i and ker(G + 224) = 0, which is the statement that "
+        "carries over to K_theta >= 0":
+            f6_ok,
+    }
+
+
+def spc_product():
+    """The spectral side, part three, CONDITIONAL: the product spectral action on M4 x F with F the chiral completion
+    D19(alpha) in place of the carrier's D, its heat coefficients against product_geometry's
+    (gravity.product_heat_coefficients), the general formula in the traces of D_F (symbolic on a generic finite spectrum), the alpha = 0 face
+    (the four auxiliary zero modes), the gravitational constant and the vacuum term with their nonidentifiability
+    (gravity.newton_and_vacuum, gravity.tuned_F2), and why the whole is a conditional reading: M4, f, L, m, alpha and the
+    choice of F (D, D19 or mgm_dirac20's D20) are free, and gates.GATES stay. The product rule Tr e^-tD^2 = Tr e^-tD_M^2
+    Tr e^(-t m^2 D_F^2) is massless_tower's (cited); the spectrum of F19 = D19^2 is chiral_closures' and
+    deep_zero_pole's; its heat trace Z19 is canon_flower_spectral's (B1)."""
+    t, R, m, a = sp.symbols("t R m alpha", positive=True)
+    x = sp.Symbol("x")
+    F0, F1, F2, L = sp.symbols("F0 F1 F2 L", positive=True)
+    # (0) the general formula and the carrier's coefficients
+    ls = sp.symbols("l0:3", positive=True)
+    ns = sp.symbols("n0:3", positive=True)
+    Zg = sum(ni * sp.exp(-t * m ** 2 * li) for ni, li in zip(ns, ls))
+    serg = sp.expand(sp.series((4 - t * R / 3) * Zg, t, 0, 3).removeO())
+    cog = [serg.coeff(t, k) for k in range(3)]
+    nn, T2g, T4g = sum(ns), sum(ni * li for ni, li in zip(ns, ls)), sum(ni * li ** 2 for ni, li in zip(ns, ls))
+    general_ok = (sp.expand(cog[0] - 4 * nn) == 0 and sp.expand(cog[1] + 4 * T2g * m ** 2 + nn * R / 3) == 0
+                  and sp.expand(cog[2] - 2 * T4g * m ** 4 - T2g * m ** 2 * R / 3) == 0)
+    coeffs, (t0, R0, m0) = gravity.product_heat_coefficients()
+    mom = spectral.moments(2)
+    carrier_ok = (mom == {0: 15, 1: 40, 2: 200} and len(coeffs) == 3
+                  and all(sp.simplify(cv - ev) == 0 for cv, ev in
+                          zip(coeffs, [60, -(160 * m0 ** 2 + 5 * R0), 400 * m0 ** 4 + sp.Rational(40, 3) * m0 ** 2 * R0])))
+    # (1) D19(alpha)
+    r5 = sp.sqrt(5)
+    lm, lp = (5 - r5) / 2, (5 + r5) / 2
+    Z19 = 1 + 2 * sp.exp(-8 * t) + 4 * sum(sp.exp(-t * a * l) + sp.exp(-t * (3 + a * l)) for l in (lm, lp))
+    ser19 = sp.expand(sp.series((4 - t * R / 3) * Z19.subs(t, t * m ** 2), t, 0, 3).removeO())
+    co19 = [sp.expand(sp.radsimp(ser19.coeff(t, k))) for k in range(3)]
+    T2, T4 = 40 + 40 * a, 200 + 120 * a + 120 * a ** 2
+    want19 = [76, -(4 * T2 * m ** 2 + 19 * R / 3), 2 * T4 * m ** 4 + T2 * m ** 2 * R / 3]
+    d19_ok = all(sp.expand(cv - ev) == 0 for cv, ev in zip(co19, want19)) \
+        and sp.expand(co19[1] + 160 * (1 + a) * m ** 2 + 19 * R / 3) == 0 \
+        and sp.expand(co19[2] - (400 + 240 * a + 240 * a ** 2) * m ** 4 - sp.Rational(40, 3) * (1 + a) * m ** 2 * R) == 0
+    quad = x ** 2 - 5 * a * x + 5 * a ** 2
+    cpF = x * (x - 8) ** 2 * quad ** 4 * quad.subs(x, x - 3) ** 4
+    rts = sp.roots(sp.Poly(cpF, x))
+    Tk = lambda k: sp.expand(sp.radsimp(sum(mult * r ** k for r, mult in rts.items())))
+    traces_ok = (sum(rts.values()) == 19 and Tk(1) == sp.expand(T2) and Tk(2) == sp.expand(T4)
+                 and Tk(3) == 1240 + 540 * a + 540 * a ** 2 + 400 * a ** 3
+                 and sp.simplify(Z19 - sum(mult * sp.exp(-t * r) for r, mult in rts.items())) == 0)
+    face = [sp.expand(cv.subs(a, 0) - ev) for cv, ev in zip(co19, [60, -(160 * m ** 2 + 5 * R), 400 * m ** 4 + sp.Rational(40, 3) * m ** 2 * R])]
+    face_ok = face == [16, -4 * R / 3, 0] and sp.simplify(Z19.subs(a, 0) - 4 - (5 + 8 * sp.exp(-3 * t) + 2 * sp.exp(-8 * t))) == 0
+    T4_20 = 200 + 120 * a + 90 * a ** 2
+    d20_ok = sp.expand(2 * T4 * m ** 4 - 2 * T4_20 * m ** 4) == 60 * a ** 2 * m ** 4 and sp.expand(T4 - T4_20) == 30 * a ** 2
+    # (2) the gravitational constant and the vacuum term
+    Gn = lambda n: 3 * sp.pi / (n * F1 * L ** 2)
+    Lam = lambda n, T2v, T4v: 6 * (F2 / F1) * L ** 2 - sp.Rational(6) * T2v / n * m ** 2 + sp.Rational(3) * T4v / n * (F0 / F1) * m ** 4 / L ** 2
+    Gm, Lcc = gravity.newton_and_vacuum(F0, F1, F2, L, m)
+    g_ok = abs(float(sp.simplify(Gm * 5 * F1 * L ** 2)) - np.pi) < 1e-15 and sp.simplify(Gn(15) - sp.pi / (5 * F1 * L ** 2)) == 0 \
+        and sp.simplify(Gn(19) / Gn(15) - sp.Rational(15, 19)) == 0
+    lam_ok = sp.simplify(Lam(15, 40, 200) - Lcc) == 0 \
+        and sp.expand(Lam(15, 40, 200) - (6 * (F2 / F1) * L ** 2 - 16 * m ** 2 + 40 * (F0 / F1) * m ** 4 / L ** 2)) == 0 \
+        and sp.expand(Lam(19, T2, T4) - (6 * (F2 / F1) * L ** 2 - sp.Rational(240, 19) * (1 + a) * m ** 2
+                                          + sp.Rational(3, 19) * T4 * (F0 / F1) * m ** 4 / L ** 2)) == 0
+    target = sp.Symbol("Lambda_target", real=True)
+    tune15 = sp.simplify(gravity.newton_and_vacuum(F0, F1, gravity.tuned_F2(F0, F1, L, m, 0), L, m)[1]) == 0
+    sol19 = sp.solve(sp.Eq(Lam(19, T2, T4), target), F2)
+    tune_ok = tune15 and len(sol19) == 1 and sp.simplify(Lam(19, T2, T4).subs(F2, sol19[0]) - target) == 0 \
+        and sp.diff(Lam(19, T2, T4), F2) == 6 * L ** 2 / F1
+    gates_ok = gates.GATES["TIME_BIND"] == "UNBOUND" and gates.GATES["DYN_BIND"] == "NOT_INSTALLED" \
+        and DOTS["gravity"][1].endswith("(conditional)")
+    return {
+        "the general heat coefficients: for any finite D_F with n = Tr D_F^0 and T_k = Tr D_F^k, (4 - tR/3) Tr "
+        "exp(-t m^2 D_F^2) = 4n - (4 T_2 m^2 + n R/3) t + (2 T_4 m^4 + T_2 m^2 R/3) t^2 + O(t^3) (symbolic on a generic "
+        "three-level spectrum with symbolic multiplicities; the product rule Tr e^-tD^2 = Tr e^-tD_M^2 Tr e^(-t m^2 "
+        "D_F^2) is massless_tower's), and for the carrier's D (spectral.moments 15, 40, 200) this is "
+        "gravity.product_heat_coefficients' 60, -(160 m^2 + 5R), 400 m^4 + 40 m^2 R/3 (product_geometry's join)":
+            general_ok and carrier_ok,
+        "for F = D19(alpha), the chiral completion (chiral_closures; F19 = D19^2 with characteristic polynomial x (x - "
+        "8)^2 (x^2 - 5 alpha x + 5 alpha^2)^4 ((x - 3)^2 - 5 alpha (x - 3) + 5 alpha^2)^4, deep_zero_pole, and heat trace "
+        "Z19(t) = 1 + 2 e^-8t + 4 sum_s [e^(-t alpha lam_s) + e^(-t(3 + alpha lam_s))], canon_flower_spectral's B1, "
+        "equal to the sum over the 19 roots): a0 = 76, a2 = -(160 (1 + alpha) m^2 + 19 R/3), a4 = (400 + 240 alpha + "
+        "240 alpha^2) m^4 + 40 (1 + alpha) m^2 R/3, with Tr F19 = 40 + 40 alpha (deep_zero_pole), Tr F19^2 = 200 + 120 "
+        "alpha + 120 alpha^2 (flower_source) and Tr F19^3 = 1240 + 540 alpha + 540 alpha^2 + 400 alpha^3 "
+        "(usm_spine_cubic's, here re-derived from the roots); at alpha = 0 the coefficients exceed the carrier's by (16, "
+        "-4R/3, 0), the four auxiliary zero modes "
+        "(D19(0) = D (+) 0_4, Z19 = 4 + Theta at alpha = 0); and mgm_dirac20's D20 (Tr D20^4 = 200 + 120 alpha + 90 "
+        "alpha^2) would give an a4 smaller by 60 alpha^2 m^4: which F enters is a selection":
+            d19_ok and traces_ok and face_ok and d20_ok,
+        "CONDITIONAL: in gravity.py's normalization, which reads the curvature coefficient off a2 alone and leaves the "
+        "T_2 m^2 R/3 cross term of a4 (times F0) out of it, the curvature term gives 1/(16 pi G) = (n/3) F1 L^2/(16 "
+        "pi^2), G = 3 pi/(n F1 L^2), which is "
+        "gravity.newton_and_vacuum's pi/(5 F1 L^2) at n = 15 and 3 pi/(19 F1 L^2) for D19 at every alpha (the "
+        "completion rescales G by 15/19), and the constant term gives Lambda_cc = 6 (F2/F1) L^2 - (6 T_2/n) m^2 + (3 "
+        "T_4/n)(F0/F1) m^4/L^2: gravity.py's 6 (F2/F1) L^2 - 16 m^2 + 40 (F0/F1) m^4/L^2 at n = 15 and 6 (F2/F1) L^2 - "
+        "(240 (1 + alpha)/19) m^2 + (3 (200 + 120 alpha + 120 alpha^2)/19)(F0/F1) m^4/L^2 for D19; since Lambda_cc is "
+        "affine in F2 with slope 6 L^2/F1, the ratio F2/F1 tunes it to any value for every n and alpha "
+        "(gravity.tuned_F2's nonidentifiability, checked to give 0 at n = 15 and solved for D19 symbolically): the "
+        "product spectral action is a reading conditional on M4, f, L, m, alpha and the choice of F, no gravitational "
+        "normalization is derived (the 'gravity' dot is marked conditional), and gates.GATES keeps TIME_BIND UNBOUND "
+        "and DYN_BIND NOT_INSTALLED":
+            g_ok and lam_ok and tune_ok and gates_ok,
+    }
+
+
+def spc_penrose_chiral():
+    """The spectral side, part four: E8 -> the chiral completion. On the sum-zero hyperplane H the chiral completion's
+    vertex cycle Laplacian L_V = 2I - U_V - U_V^T (_chiral, chiral_closures) is 2I + X with X = -(r + r^-1) the golden
+    companion on the carrier's A4 (penrose_planes, golden_split, one_quadratic), so its lam-+ eigenplanes are the
+    Penrose planes E1 and E2 and the chiral spectral projectors are the Penrose projectors; on E8 the tick's 2I - g -
+    g^-1 (cyclotomic.clocks) acts on the A4 roots as L_V; the edge block carries the golden band 4I + 2X_E (one_quadratic);
+    the chiral dressing C_alpha = (I + alpha L_V/3)^(1/2) (chiral_closures' Theorem 2) is scalar on each Penrose plane;
+    and the doubling swaps the planes and the two golden Laplacians (penrose_planes, one_quadratic). The fixed part of
+    U_E, Pavg = (1/5) sum U_E^j, is the rank-2 rotor plane; the moving part I - Pavg has rank 8. Everything exact
+    over Q(sqrt5)."""
+    M, UV, UE, LV, LE, mu, Pi, P0, S1, q = _chiral()
+    s5 = sp.sqrt(5)
+    phi, phi_inv = (1 + s5) / 2, (s5 - 1) / 2
+    ex = lambda Mx: Mx.applyfunc(lambda v: sp.expand(sp.radsimp(v)))
+    zero = lambda Mx: ex(Mx).is_zero_matrix
+    x, y = sp.symbols("x y")
+    a = sp.Symbol("alpha", positive=True)
+    I5, I8, I10, J5 = sp.eye(5), sp.eye(8), sp.eye(10), sp.ones(5, 5)
+    u = sp.ones(5, 1)
+    PH = I5 - J5 / 5
+    # (0) the vertex block on the Penrose planes
+    Tk, R5 = carrier.edge_tick()
+    r = sp.Matrix(R5)
+    Y = r + r.T
+    X5 = -Y
+    P1 = ex((Y + phi * I5) * PH / s5)
+    P2 = ex((phi_inv * I5 - Y) * PH / s5)
+    planes_ok = (UV == r and r ** 5 == I5 and zero(Pi[0] - J5 / 5) and zero(Pi[1] - P1) and zero(Pi[2] - P2)
+                 and zero((LV - 2 * I5 - X5) * PH) and zero(LV * P1 - mu[1] * P1) and zero(LV * P2 - mu[2] * P2)
+                 and LV * u == sp.zeros(5, 1) and zero((X5 ** 2 - X5 - I5) * PH)
+                 and sp.expand(mu[1] - (5 - s5) / 2) == 0 and sp.expand(mu[2] - (5 + s5) / 2) == 0
+                 and zero(X5 * P1 - (1 - phi) * P1) and zero(X5 * P2 - phi * P2)
+                 and P1.trace() == 2 and P2.trace() == 2 and zero(P1 * P2))
+    k = cyclotomic.clocks()
+    S = sp.zeros(8, 8)
+    S[0, :] = sp.Matrix([[1, -1, -1, -1, -1, -1, -1, 1]]) / 2
+    S[1, 0] = S[1, 1] = 1
+    for j in range(2, 8):
+        S[j, j - 1], S[j, j - 2] = 1, -1
+    Bm = S.T
+    std = lambda Mx: Bm * sp.Matrix(np.asarray(Mx).tolist()) * Bm.inv()
+    g_std, r_std = std(k["g"]), std(k["r"])
+    X_std = -(g_std + g_std.inv())
+    LE8 = 2 * I8 - g_std - g_std.inv()
+    e = lambda i: _e(i % 5)
+    pad = lambda v: sp.Matrix.vstack(v, sp.zeros(3, 1))
+    roots = [e(i) - e(j) for i in range(5) for j in range(5) if i != j]
+    e8_ok = (all(LE8 * pad(v) == pad(LV * v) for v in roots) and all(g_std * pad(v) == pad(r * v) for v in roots)
+             and r_std == sp.diag(r, sp.eye(3)) and X_std ** 2 == X_std + I8 and g_std ** 5 == I8
+             and all(X_std * pad(v) == pad(X5 * v) for v in roots))
+    # (1) the edge block, the dressing and the doubling
+    XE = -(UE + UE.T)
+    Pavg = sum((UE ** j for j in range(5)), sp.zeros(10, 10)) / 5
+    Mov = I10 - Pavg
+    edge_ok = (2 * LE == 4 * I10 + 2 * XE and ((XE ** 2 - XE - I10) * Mov).is_zero_matrix and Pavg.rank() == 2
+               and Mov.rank() == 8 and Pavg * Pavg == Pavg and UE * Pavg == Pavg
+               and sp.expand(LE.charpoly(x).as_expr() - x ** 2 * (x ** 2 - 5 * x + 5) ** 4) == 0
+               and sp.expand((2 * LE).charpoly(x).as_expr() - x ** 2 * (x ** 2 - 10 * x + 20) ** 4) == 0
+               and set(sp.solve(y ** 2 - 10 * y + 20, y)) == {5 - s5, 5 + s5} == {sp.expand(2 * mu[1]), sp.expand(2 * mu[2])}
+               and M * UE == UV * M)
+    Cpos = sum((sp.sqrt(1 + a * mk / 3) * Pk for mk, Pk in zip(mu, Pi)), sp.zeros(5))
+    dress_ok = (zero(Cpos * P1 - sp.sqrt(1 + a * mu[1] / 3) * P1) and zero(Cpos * P2 - sp.sqrt(1 + a * mu[2] / 3) * P2)
+                and zero(Cpos * u - u) and zero(Cpos * Cpos - I5 - a * LV / 3))
+    delta = sp.Matrix(5, 5, lambda i, j: int(i == 2 * j % 5))
+    LVp = 2 * I5 - UV ** 2 - UV.T ** 2
+    double_ok = (delta * r * delta.T == r ** 2 and zero(delta * P1 * delta.T - P2) and delta * LV * delta.T == LVp
+                 and LV + LVp == 5 * I5 - J5 and zero(LVp * P1 - mu[2] * P1) and zero(LVp * P2 - mu[1] * P2))
+    return {
+        "on the sum-zero hyperplane H the chiral completion's vertex cycle Laplacian L_V = 2I - U_V - U_V^T (_chiral, "
+        "chiral_closures; U_V = r, the K5 vertex rotation of carrier.edge_tick) is 2I + X with X = -(r + r^-1) the "
+        "golden companion on the carrier's A4 (X^2 = X + I on H; penrose_planes, join_e8_golden), so the lam-+ = (5 -+ "
+        "sqrt5)/2 eigenplanes of L_V are the Penrose planes E1 = ker(X - (1 - phi)) and E2 = ker(X - phi): the chiral "
+        "spectral projectors Pi_1, Pi_2 of L_V (_chiral) equal penrose_planes' P1 = (r + r^-1 + phi)(I - J/5)/sqrt5 and "
+        "P2 = (1/phi - r - r^-1)(I - J/5)/sqrt5 exactly over Q(sqrt5), Pi_0 = J/5, L_V P1 = lam- P1, L_V P2 = lam+ P2 "
+        "and L_V u = 0; and on E8 the tick's 2I - g - g^-1 (cyclotomic.clocks, in penrose_planes' coordinates, where "
+        "g acts on the carrier's A4 as r and X = -(g + g^-1) is join_e8_golden's companion) maps each of the 20 A4 roots "
+        "v to L_V v: the vertex block alpha L_V of the golden stiffness K_alpha = D^2 + alpha L is E8's own":
+            planes_ok and e8_ok,
+        "the edge block and the dressing: 2 L_E = 4I + 2 X_E with X_E = -(U_E + U_E^-1) satisfying X_E^2 = X_E + I on "
+        "the moving part I - Pavg of rank 8 (one_quadratic's golden band and golden_split's X; the fixed part Pavg = "
+        "(1/5) sum U_E^j, the rotor plane of rank 2, excepted; M U_E = U_V M), L_E "
+        "has characteristic polynomial x^2 (x^2 - 5x + 5)^4 and 2 L_E has x^2 (x^2 - 10x + 20)^4, the band 5 -+ sqrt5 = 2 "
+        "lam-+ (one_quadratic's port-metric contrast block); the chiral dressing C_alpha = (I + alpha L_V/3)^(1/2) = sum "
+        "c_k Pi_k (chiral_closures' Theorem 2) is the scalar sqrt(1 + alpha lam-/3) on E1, sqrt(1 + alpha lam+/3) on E2 "
+        "and 1 on the constants, so D19's vertex-edge block C_alpha M is diagonal across the Penrose planes; and the "
+        "doubling i -> 2i conjugates r to r^2, swaps E1 and E2 (penrose_planes) and carries L_V to the pentagram "
+        "Laplacian L_V' = 2I - U_V^2 - U_V^-2 with L_V + L_V' = 5I - J (one_quadratic), whose lam-+ planes are E2 and "
+        "E1":
+            edge_ok and dress_ok and double_ok,
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -43666,6 +45385,36 @@ LEDGER_ROWS = [
     ("the arXiv channel (6 Nov)", "arxiv.org is unresolvable from the session, so no arXiv search was run; the datasets' papers, by identifier as reported: the Science Advances 2021 self-organization paper (the classification repository's sequences), the eLife 2023 emergent-periodicity paper (with its 2024 expression of concern and 2025 correction; the tent data), the Scientific Reports 2024 classification paper (the CSV); dEchorate arXiv:2104.13168; NuFIT 6.0 arXiv:2410.05380", "recorded (REPORTED): identifiers and titles from the web agents' and readers' extracts; nothing fetched; the identifiers answer the arXiv question instead of silently skipping it", RP, "23"),
     ("the canon's firefly empirical court (v1.3, v2.2)", "the canon's only firefly empirical court (the v1.3 dataset of 65,389 sequences, 57 sources, 7 species; the v2.2 LED frequency-pulling and phase-concentration tests) is reported NOT_PASS, and no number from the dataset is carried into any note; the three counts agree with the public CSV (evd_flash_arithmetic), which is the only link between the canon's court and the file", "recorded (REPORTED) from the reader extracts of the Drive notes; the count agreement is of three counts, not of a court result, and 'sources' = night IDs is this unit's reading; the canon's own warning not to fix '~100 ms' or 'period in [0.5, 2] s' universally is borne out by the file's medians (two species below 0.5 s), a comparison and not a court result", RP, "23"),
     ("literature, not data (6 Nov)", "the R12 sensor and transduction references (cochlear and tactile channels, retina and event cameras, taste and olfactory receptors, multisensory inference, the preregistered consciousness test, homodyne tomography), the Schumann resonance comparisons, the NOS gene-expression versus flash-interval dataset (a public flash-interval dataset the canon cites as non-supporting), and the standards (the SI second, metrological traceability, IEEE 1588, BIDS)", "recorded (REPORTED): none is a realisation of the ten-channel R12C schema or of the phase-referenced bench, no number from them is carried into a note, the standards are standards and not data, and no dataset in the crosswalk carries an SI-traceable timestamp except by instrument frame clocks; none serves a gate", RP, "23"),
+    ("the one-action design (unify_lsm/design.md, section 2.4, R5) and the critique's U1 act_native: the native system as the declared action", "(E1') and (E2') after eliminating lambda equal native.NativeSystem.rhs and the energies equal NativeSystem.energies, at three seeded states, relative error < 1e-12", "replayed (act_native): exact as an identity of polynomials on a generic small instance of the same Lagrangian (sympy, with NativeSystem.energies' own code run on the symbolic arrays, and the lines of NativeSystem.rhs, .energies and __init__ that the identity names read from their source), and confirmed in floating point on the 26635-site ball for NativeSource and LiteralSource at three seeded states each; the float part is labelled a confirmation, not a proof", T, "23"),
+    ("the design's section 3.1 and the critique's U1: the vacuum Hessian", "Dg(0) = 0, J(q) q = 2 g(q); the vacuum Hessian is 4 M_s (mass-normalized 4 I10) direct sum Bath.D on the ball at theta = 0, with no linear coupling", "replayed as a THEOREM (act_native): Dg(0) = 0 and J(q) q = 2 g(q) as polynomial identities for both stored port operands (native.run and literal.run check the latter at one float q), and the decoupling exact on a generic instance and bit for bit in NativeSystem.rhs; the carrier's D^2 is not a block of this Hessian (the critique's R-e)", T, "23"),
+    ("the design's R6 (the critique's F4): the literal port's kinetic metric", "(1/2)|g'|^2 = (1/2) x'^T (2 W_p^-1) x' on x = F g, with generalized eigenvalues 5, 1 and (5 -+ sqrt5)/10 twice", "corrected and replayed (act_literal): F is 10 x 6, so the form pairs a 10-vector with a 6 x 6 matrix; the checked forms are |x'|^2 = g'^T (F^T F) g' and, on x' = F g', |g'|^2 = x'^T F+^T F+ x', and the generalized eigenvalues of (I, F^T F) are 5, 1 and 1/2 +- sqrt5/10 twice each, exact in Q(sqrt5), the same numbers as the design's; the difference J^T (F^T F - I) J of the two kinetic metrics has inertia (4, 1, 5) at the integer witness, computed exactly", T, "23"),
+    ("the design's section 2.4 (obstructions kept) and its onea_ball: the ball against the lattice at C2", "B D^2 B^T gives 7073082 (four times), 7096839.797 and 15354547.203 on the ball against 7104445 (five times) and 15392365 on the lattice; the ball breaks S6 to S5", "replayed exactly (act_port_c2): characteristic polynomial (x - 7073082)^4 (x^2 - 22451387 x + 108968761658830), the design's decimals its roots; the departure is exactly the Gram of the 10197 dropped sites, zero on the centre's row; S5 is the stabilizer of x0 among the six sites' permutations, realized on the ball by coordinate permutations", OB, "23"),
+    ("the design's join 25 and the critique's U1: one lane, two blocks", "ker M carries 4 in the source block and 0 in the carrier block", "replayed as frequency 2 in the source (the source block of the vacuum Hessian is exactly 4 times its kinetic metric on the generic instance, -4 t u in NativeSystem.rhs; the owner's N_source spans ker M and M_source = diag(W/4, W/4) is its one mass, literal.run) and 0 under D^2 on 0 (+) ker M (act_native); the declared action has no carrier block at theta = 0, so this is the existing obstruction 'no mode' (field) read on ker M, not two blocks of one Hessian", T, "23"),
+    ("one action, one spectrum (2 Nov; design section 2.4 R2, critique U2): the kinetic dressing", "M_W(eps) = I + B C_eps^-2 B^T = S_eps^-1 T_eps S_eps^-1 with T_eps = J^T (eps + H)^-2 J", "holds exactly on master_response's cone J15 at eps = 1, 10, 100 (act_dressing); S_eps and T_eps do not commute, so this symmetric order is the identity and T_eps S_eps^-2 is not; it is d/dz S_K(z)^-1 at 0; the generic and 19-root forms are threshold_action's (eps = 0) and zero_pole_instance's (eps = 1), G(0) is deep_zero_pole's, the comparator's graph metric canon_flower_pullback's", T, "23"),
+    ("one action, one spectrum (2 Nov; design R2): the dressing's bounds", "lambda_min(C) >= 184, tr B B^T = 760 and tr(M_W - I) <= tr(B B^T)/(184 + eps)^2; M_W(1) has spectrum in (1.00018117, 1.00625505)", "holds, as the two-sided Loewner bound B B^T/(244 + eps)^2 <= M_W - I <= B B^T/(184 + eps)^2 from exact sector identities for C_eps (act_dressing); the design's interval for M_W(1) holds by exact inertia", T, "23"),
+    ("one action, one spectrum (2 Nov; design R2 'S19 = (1/2)|x'|^2 - (1/2) x^T F x is the limit eps -> infinity', critique O2): the stiff-bath limit", "the stiff-bath limit derives the chiral or carrier action from the one action", "the limit exists and freezes the bath: M_W -> I, the hidden response -> 0, V(eps) between -(244 + eps) and -(176 + eps) -> -infinity, the memory between z (M_W(eps + z) - I) and z (M_W(eps) - I) -> 0 (act_dressing); it returns the datum F for every F, so it removes the bath and does not derive the carrier; reading its limit as the carrier's action is the selection F = D^2", gates.CONDITIONAL, "23"),
+    ("one action, one spectrum (2 Nov; design section 3.1 'the carrier block, Schur_J15(K_1) at alpha = 0, equal to D^2', critique R-a and M1): the carrier as a reduction of the bath", "the carrier's D^2 is a block or static reduction of the one Hessian, i.e. of the bath", "on the cone J15 the bath's static response S_w^-1 commutes with D^2 for no regulator ([S_w, D^2] = [G_J, D^2]/(2 (w + 212)(w + 242)), exact and symbolic in w), nor does the compression J^T H_R J; so D^2 is no compression or Schur reduction of the bath on that injection; Schur(K_1) = F for every F, so D^2 enters only as the datum of V := F - S_eps^-1 (act_no_reduction)", OB, "23"),
+    ("one action, one spectrum (2 Nov; critique R-a): the glue identity", "D^2 = (1/4) J^T H_R J - 50 - 8 P0 on the glue J15", "holds: rearranged here from master_readout's checked J^T H_R J = 212 P3 + 232 (P0 + P8) (equivalently H_K = 10 - J^T B_R J/4 - 8 P0); the glue J15 is H_R-invariant (B_R J = J M, J^T B_R^2 J = M^2, cited), so its hidden coupling J^T H_R^2 J - (J^T H_R J)^2 vanishes and its static response J^T H_R J + w carries no dressing (M_W = I; read off the cited identities), against the cone's coupling B B^T of trace 760 (computed); J^T H_R J is 232 on all of P0 + P8, so the mark P0 is needed (act_no_reduction; the join carrier -> rootgraph stays SELECTED_REFERENCE)", SR, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the bond bridge w", "w in W(D8) carries the cone onto the native clique, the 15 atoms onto the 15 bonds, the cone point onto x0, and conjugates the coordinate five-cycle to boundary_rotation; 5 of the 720 site bijections intertwine the rotations, all with the cone point on x0", "replayed (brg_bonds): exact integer checks on the 240 roots and the root graph; the critic's k1.py rebuilt, its counts (determinant -1, vertex atoms on sites 1..5, 5 of 15 bonds on sites in either sign, sigma's 1 + 4) reproduced", T, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the pinned vertex block on Sigma", "with the port displacement held at the five vertex atoms the carrier's 15-dimensional block is not a free block of the completed action; the Sigma-reduction at theta = 1 is M^T M on the ten edge atoms", "computed (brg_bonds): ranks 230 and 235 mod 2^31 - 1 pinned over Q by the five exact kernel vectors, the Schur complement M^T M with x^5 (x - 3)^4 (x - 8), the pinned energy (1/2) g^T (3I + J) g, the rank-5 memory coupling (S_2^-1 - S_1^-1)_EV; OBSTRUCTION, attached to sixsite -> carrier until 'action' is a dot", OB, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the smallest ball", "native.Bath(r2=2) has the six clique sites as its port (A = 241 I - J) and D = H_R on its 235 bath roots exactly; the root-site instance is the ball with the origin removed", "replayed (brg_bonds): integer equality of D with H_R on the interior, the port block, the site counts, the vertex atoms as x1..x5", T, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the zero modes pass the port", "the five lifts of ker M vanish on the port, are K_1's whole kernel and are annihilated by the Dirichlet operator", "replayed (brg_bonds): exact kernel vectors through W = C^-1 B^T (C W = B^T), checked against K_1 and its Dirichlet block", T, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the port metric's corner", "W_p's 2/5 corner and boundary_rotation's fixed site are x0, the cone point under w; the design's x5 has 22/5 and is moved", "replayed (brg_bonds): the stored port_metric against the circulant form, boundary_rotation's fixed site, the site maps of w and of sigma", T, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the clocks and the completion", "the stored clocks keep H_R but not the atom roots (6, 11, 10, 2 of 15), so no completion K_theta (theta != 0) has the tick as a symmetry on master_response's J15", "replayed (brg_symmetry): the clocks made exact through the frame, their action on the 240 roots and the 15 atoms, V's diagonal below -236, the distinct vertex entries of S_1^-1; OBSTRUCTION; the critic's k4.py rebuilt", OB, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the stabilizers with W_p", "on the bond lines S5 keeps D^2 and D10 keeps F(alpha) for alpha > 0 and W_p; the stabilizer of (atoms, F(alpha), W_p) is D10 for every alpha >= 0, and its D10 fixes the cone point, so keeps Pi", "replayed (brg_symmetry): all 720 permutations of the six sites against D^2, L, F(1), F(1/3) and W_p (exact rationals)", T, "23"),
+    ("one action, one spectrum (U3, 6 Nov): the orientation of the edge roots", "on the signed root sites the stabilizer has odd order at most 5; order 1 for 840, 3 for 160 and 5 for 24 of the 1024 orientations, 1 for master_response's; the cyclic orientation gives <r>, which keeps S_1, D^2 and L, hence K_theta", "replayed (brg_symmetry): the Gram automorphisms by extension, the 1024 x 120 count with its three classes (840, 160, 24), the commutation of S_1 with r's permutation on the cyclic roots", T, "23"),
+    ("one action, one spectrum (U3, 6 Nov): no five-cycle on the nineteen roots", "no orthogonal map of order 5 turns the five vertex lines and keeps schur_zero_mode's 19 lines; the break is the placement of the auxiliaries e_i + e_6", "replayed (brg_symmetry): the inner-product test on the 14 other lines, the orbit count, the 8 roots orthogonal to the atoms fixed by r; OBSTRUCTION", OB, "23"),
+    ("the design's oneb_bonds, oneb_ball and OBSTRUCTION G2 (the cone point a selection on the ball)", "sigma maps the atoms to the bonds with the cone at x5; the ball's Schur equals D^2 to 1e-8 by CG; the cone point is a selection", "withdrawn or replaced (brg_bonds): the cone point is x0 under w and x5 was sigma's artifact, so G2 is spurious (the critique's R-c); oneb_ball is dropped for the exact ball identity; nothing of the design's U3 is replayed as a float", RP, "23"),
+    ("the spectral side (6 Nov): the one loop is the spectral action", "Gamma(z) = (1/2) log det(z + K) = Tr f_z(K) with f_z = log(z + .)/2, up to the constant -(n/2) log 2 pi; on the carrier det(z + D^2) = z^5 (z + 3)^8 (z + 8)^2, 2 Gamma' = Tr (z + D^2)^-1 = 5/z + 8/(z + 3) + 2/(z + 8) = the readout's transfer trace at s^2 = z; the expansion at infinity 15/z - 40/z^2 + 200/z^3 - 1240/z^4 + 8840/z^5 for |z| > 8; zeta fixes the spectrum only together with the dimension", "replayed (spc_oneloop): exact on the carrier (sympy), spectral.spectral_action to 10^-12, the readout's generator from observer.system_matrix, the signs and the radius from the poles, the transform of the heat trace termwise; the n-dimensional quadratic exponential integral is cited", T, "23"),
+    ("the spectral side (6 Nov): the Schur factorization on the root site", "log det(z + K) = log det(z + C_1) + log det S_K(z)^-1 with S_K(z)^-1 = D^2 + z + X(1) - X(1 + z) at z = 1, 2 on master_response's instance; 1250.39174424308 and 1256.78365222709", "replayed (spc_oneloop): the 15 x 15 parts exact from the sectors with X(w) certified by (w + C) W = B^T, the 225 x 225 hidden determinant exact by Chinese remaindering over exactly 60 primes (counted) and equal to the sector product times det S_0 (the complementary-minor identity on the instance), the 240 x 240 log determinant in floats to 10^-9 against the determinant lemma's exact value; the lemma, the block determinant and the complement identity symbolic on a generic 1 + 2 block", T, "23"),
+    ("the spectral side (6 Nov): the completion's spectrum is not a union", "spec K_1 != spec D^2 u spec C_1: N_K = 5, 13, 13, 15, 15 at 2.99, 3, 7.9, 8, 184 against 5, 5, 13, 13, 15; nullity 5; the first positive eigenvalue in [2.9943, 2.9944); xi reaches 15 at g = 8", "replayed exactly (spc_oneloop): the negative pivots of the visible Schur complement S_g for g < 185 (zero_pole_instance's method; _spc_inertia with diagonal and 2 x 2 pivoting); the design's 'Tr f(K_1) = Tr f(D^2) + Tr f(C_eps)' (R-b) and its 2.99434 (F7) corrected", OB, "23"),
+    ("the spectral side (6 Nov): no GKSL reduction", "e^-tL is no flow of the carrier's action, no quotient of it and no intertwiner target of the completion family, on the class of linear intertwiners: the generators [[0, I], [-K, 0]] have spectra on the imaginary axis (K = D^2 exactly; K_theta >= 0 on the root site at theta = 0, 1/2, 1 by exact inertia) while L has 224 and 256; the intertwiner spaces are the 5-dimensional trivial ones", "replayed (spc_gksl): L's spectrum and multiplicities from its annihilating polynomial and two traces, the carrier generator's characteristic polynomial and four nullspaces exactly, K_theta's inertia on the root site through its visible Schur complement, the generic (G - c)(G + c) identity; the design's R12 argument shown insufficient by the one-dimensional K = -224^2 (the critique's F6); the general intertwiner theorem is cited", OB, "23"),
+    ("the spectral side (6 Nov): the product spectral action with D19", "a0 = 76, a2 = -(160 (1 + alpha) m^2 + 19 R/3), a4 = (400 + 240 alpha + 240 alpha^2) m^4 + 40 (1 + alpha) m^2 R/3; (16, -4R/3, 0) over the carrier's at alpha = 0; G = 3 pi/(n F1 L^2) and Lambda_cc = 6 (F2/F1) L^2 - (6 T_2/n) m^2 + (3 T_4/n)(F0/F1) m^4/L^2; F2/F1 tunes Lambda_cc to any value", "replayed symbolically (spc_product): the general formula on a generic spectrum, the carrier's coefficients against gravity.product_heat_coefficients, D19's from canon_flower_spectral's Z19 and from the roots of chiral_closures' polynomial (Tr F19^3, usm_spine_cubic's, re-derived), D20's difference, the G and Lambda_cc formulas in gravity.py's normalization (the a4 cross term left out of the curvature coefficient, as there) against gravity.newton_and_vacuum and gravity.tuned_F2; CONDITIONAL on M4, f, L, m, alpha and the choice of F; the gates stay", gates.CONDITIONAL, "23"),
+    ("the spectral side (6 Nov): the Penrose planes carry the chiral vertex block", "on H, L_V = 2I + X with X the golden companion of the carrier's A4, so the lam-+ eigenplanes of L_V are E1 and E2 (Pi_1 = P1, Pi_2 = P2 exactly over Q(sqrt5)); 2I - g - g^-1 acts on the A4 roots as L_V; 2 L_E = 4I + 2 X_E is the golden band; C_alpha is scalar on each plane; the doubling swaps the planes and the two golden Laplacians", "replayed exactly over Q(sqrt5) (spc_penrose_chiral) with _chiral's objects, carrier.edge_tick's r, cyclotomic.clocks' g in penrose_planes' coordinates and one_quadratic's band", T, "23"),
+    ("the spectral side (6 Nov): what is cited and not replayed", "the n-dimensional quadratic exponential integral (an orthogonal change of variables), the complementary-minor identity, the determinant lemma and inertia additivity as general linear algebra (each checked symbolically on a generic small block or exactly on the instance, not proved), the intertwiner theorem for operators with disjoint spectra (reduced to the nullspaces of G + 224 and G + 256), the product rule's cross-term cancellation (massless_tower), gravity.py's reading of the curvature coefficient off a2 alone, and the convexity of the positive semidefinite cone between theta = 0, 1/2, 1", "recorded (REPORTED): nothing in them binds a physical input; the unit installs identities and two obstructions, no physical action, and gates.GATES is not written", RP, "23"),
+    ("one action, one spectrum (6 Nov): the three dots", "the declared native action with its reference completion (action), the vacuum Hessian's spectral functionals (spectrum) and the chiral completion D19 (chiral) are dots of layer 23, each joined to E8 directly by a THEOREM map (brg_bonds, usm_bulk_heat, spc_penrose_chiral) and classified in layer 25: the action a canon input meeting the source at act_native, the spectrum built from it by spc_oneloop, the chiral completion derived from the carrier by chiral_closures at depth 6, with the ten D19 joins moved from the triple onto it (the critique's M4)", "the 46 joins incident to the three dots or to the bath-carrier and sixsite-carrier pair replayed through the eleven units act_*, brg_*, spc_* and the existing checks; unify.derivation recounts (61, 10, 4) and unify.one_model holds every relation, selection and gate", T, "23, 25"),
+    ("the one action is a family (the critique's O1): theta, eps, alpha, the mark, the instance, J, Pi, iota, the unit of M_s, W_p, the adapter, the datum F; theta = 0 declared, theta = 1 the reference; no term is added to the declared action", "the completion K_theta = H + theta (eps + J V J^T) of the declared action carries recorded selections that no join promotes; theta = 1 is labelled the reference completion (master_response), so the standing line 'no term is added to the action' holds of the declared action, and native.run's UNFORMED physical action selection stands", "every selection tagged to a held model function (unify.ONE_SELECTIONS, bind_selections); the gates stay TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED (onemodel_gates)", gates.CONDITIONAL, "23"),
+    ("every spectral dot a functional of the one Hessian (the critique's O4): false for the carrier, spec K_1 is not spec D^2 u spec C_1 (spc_oneloop); the band-value dots are functionals of the LATTICE instance only", "the carrier's spectral data are the z = 0 Schur complement of the completion K_1, a functional of the operator and not of its spectrum; the one loop factorizes as log det(z + C_1) + log det S_K(z)^-1 but spec K_1 is not the union", "exact inertia on master_response's root-site instance (spc_oneloop: the completion's spectrum is not a union); the band-value joins to the spectrum (usm_bulk_heat, places.band_at_places) read the theta = 0 lattice member only", OB, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -43849,6 +45598,8 @@ NOT_JOINED = [
                                                        "attributions are wrong (the icosian folding and the index-5 A4 + A4 are classical results, "
                                                        "not those papers'), one is loose (2604.10574 restates A4 -> Penrose as background) and one "
                                                        "is right (Moody's model-sets survey for cut and project)", RP),
+    ("a fermionic action <psi, D psi>", "the index -1 of D19 and -5 of D live in the spectrum dot's supertrace only; "
+                                        "no fermionic term is formed (6 Nov)", gates.UNFORMED),
 ]
 
 
@@ -43931,7 +45682,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "evd_firefly_canon": evd_firefly_canon, "evd_flash_arithmetic": evd_flash_arithmetic, "evd_byte_receipt": evd_byte_receipt, "gpr_poset": gpr_poset, "gpr_hashes": gpr_hashes, "gpr_falsifiers": gpr_falsifiers, "gpr_loaded_observability": gpr_loaded_observability, "gpr_designs": gpr_designs, "bind_time_map": bind_time_map, "bind_time_units": bind_time_units, "bind_dynamics_dyadic": bind_dynamics_dyadic, "bind_selections": bind_selections, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "act_native": act_native, "act_literal": act_literal, "act_port_c2": act_port_c2, "act_dressing": act_dressing, "act_no_reduction": act_no_reduction, "brg_bonds": brg_bonds, "brg_symmetry": brg_symmetry, "spc_oneloop": spc_oneloop, "spc_gksl": spc_gksl, "spc_product": spc_product, "spc_penrose_chiral": spc_penrose_chiral, "evd_firefly_canon": evd_firefly_canon, "evd_flash_arithmetic": evd_flash_arithmetic, "evd_byte_receipt": evd_byte_receipt, "gpr_poset": gpr_poset, "gpr_hashes": gpr_hashes, "gpr_falsifiers": gpr_falsifiers, "gpr_loaded_observability": gpr_loaded_observability, "gpr_designs": gpr_designs, "bind_time_map": bind_time_map, "bind_time_units": bind_time_units, "bind_dynamics_dyadic": bind_dynamics_dyadic, "bind_selections": bind_selections, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,
