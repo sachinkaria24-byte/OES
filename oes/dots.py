@@ -10378,6 +10378,14 @@ JOINS = [
     ("S5", "kerM", "no S5-stable zero line", "OBSTRUCTION: ker M is S5-irreducible, the [3, 2] (<chi, chi> = 1, chiral_dark; its S5 commutant is the scalars, notes_1512), so it has no S5-stable line, and an S5-invariant operator on the atoms whose kernel lies in ker D^2 = 0 + ker M has nullity 0 or 5: none has exactly one zero mode; the averaged K_bar (0, mgm_marks) and D^2 itself (5) are the invariant cases, and a marked K_m's single zero needs the choice of one of the six order-five subgroups (mgm_marks) (marked note, filed 2 Nov 06:21 UTC, section 4, 'Interpretation'; 2 Nov)", OB, "chiral_dark"),
     ("golden", "readout", "selected against averaged", "for every one of the twelve marks Tr K_m^k = 40 + 30 alpha, 200 + 120 alpha + 90 alpha^2, 1240 + 540 alpha + 540 alpha^2 + 300 alpha^3 (k = 1, 2, 3; flower_source's and usm_spine_cubic's F19 moments less the auxiliary block, the same for every mark by S5 conjugation) against K_bar's 40 + 30 alpha, 200 + 120 alpha + 70 alpha^2, 1240 + 540 alpha + 450 alpha^2 + 165 alpha^3, so the traced cosine responses of the finite wave law q'' + K q = 0 in model time u differ by (5/6) alpha^2 u^4 - ((2 alpha^2 + 3 alpha^3)/16) u^6 + O(u^8): the selected and the averaged models share the first trace and are told apart at fourth order, dimensionlessly (the Schur-dressed infinite model is not compared) (marked note, filed 2 Nov 06:21 UTC, section 4, and its machine spec (OES_ONE_MARKED_MODEL_MACHINE_SPEC_20261102.json, filed 2 Nov 06:21 UTC), comparison block; 2 Nov)", T, "mgm_traces"),
     ("S5", "triple", "the averaged chiral completion", "N_bar = [(P_vconst + sqrt(1 + 5 alpha/6) P_vcontrast) M; sqrt(2 alpha) Q0] (Q0 an orthonormal row basis of ker M) gives a 20-dimensional odd Dirac D20 on (5 vertices + 5 auxiliaries) + 10 edges with D20^2 = K_bar on the fifteen atoms and 2 alpha I5 on the auxiliaries, identically in alpha; it is S5-equivariant (checked on (01) and (01234)), the auxiliaries carrying ker M's [3, 2] by construction (chiral_dark); its chiral halves are isospectral (8, (3 + 5 alpha/2)^4, (2 alpha)^5), so nullity 0 and Tr Gamma f(D20^2) = 0 for every f, against D19's nullity 1 and supertrace -1 (chiral_closures, canon_flower_spectral), and its index 0 = 10 - 10 against D19's 9 - 10 is the graded dimension count that keeps the two from being gradedly equivalent (usm_wave_dirac); five auxiliaries are forced (the edge block of K_bar has determinant 8 (3 + 5 alpha/2)^4 (2 alpha)^5 > 0) where every marked edge block kills its zero line and four suffice; Tr D20^2 = Tr F19 = 40 + 40 alpha (deep_zero_pole) while the second traces are 200 + 120 alpha + 90 alpha^2 and Tr F19^2 = 200 + 120 alpha + 120 alpha^2 (flower_source) (marked note, filed 2 Nov 06:21 UTC, section 4; 2 Nov)", T, "mgm_dirac20"),
+    ("calibration", "bath", "the time-binding map", "for the generator (kappa/tau^2) K the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y depends on (tau, kappa) only through rho = tau/sqrt(kappa) (invariant under (c tau, c^2 kappa), annihilated by tau d/dtau + 2 kappa d/dkappa, equal to its value at (rho, 1)), and the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (TIME_BIND_RESOLUTION) each invert to rho; the map rho = T_half/u_half has exactly one free symbol, the measured interval, so TIME_BIND = exactly one measured interval and the SI second enters only there ('no internal clock', calibration's OBSTRUCTION join; TIME_BIND stays UNBOUND: no interval is in the model) (6 Nov)", T, "bind_time_map"),
+    ("calibration", "readout", "the rho-free invariants", "I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*) are identities of the binding map with rho cancelling, and carry certified brackets: 2117 lo^4 < I1 < 2117 hi^4 with refclock_halfreturn's exact P8 endpoints lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760 (0.07614507 < I1 < 0.07614566; 0.07614511 < I1 < 0.07614513 with its P10 decimals), 389/z_hi^2 < I2 < 389/z_lo^2 (0.20705257 < I2 < 0.20705268) and lo x 6.583656896344280 < I3 < hi x 6.583657667530262 (0.50985587 < I3 < 0.50985691), where 2117 = 35973 - 184^2 (master_readout's D45 mass entry) and 389 = 54213 - 232^2 (its quadratic entry, notes_1512); falsifiers of any realization that reads all three routes (6 Nov)", T, "bind_time_map"),
+    ("calibration", "source", "the crossover binding", "the Drive note TIME_BIND_RESOLUTION (2 Nov, the separate model) certifies on the bare quadratic source (m0..m4 = 1, 232, 54213, 12740592, 3008062816; hidden measure total 389 = m2 - m1^2, int c dnu = 72928 = m3 - m1^3 - 2 m1 (m2 - m1^2), central third moment -17320, all checked as arithmetic from the stated moments) that the excess secant E(s) = [R(2s)^-1 - R(s)^-1]/(3 s^2) - 1 = e((rho s)^2) is strictly decreasing and crosses 1/200 at a unique z* in (12200402860332943, 12200405718556069)/2^48, so rho = sqrt(z*)/s* with 6.583656896344280 < sqrt(z*) < 6.583657667530262 (the decimals consistent with the bracket); the z* bracket is the note's certificate (it needs m0..m17, not in the model) and is read as SELECTED_REFERENCE data (6 Nov)", SR, "bind_time_map"),
+    ("bath", "measure", "the dyadic memory certificate", "P01 (TIME DYN P01-P20, 6 Nov): for Sigma(z) = B (z + C)^-1 B^T with C >= 0 and e(z) = [Sigma(z) - Sigma(4z)]/(3z) the dyadic partial sums leave the exact tail Sigma(z) - 3z sum_(j < N) 4^j e(4^j z) = Sigma(4^N z) (symbolic on a generic block for N = 1, 2, 3; the sum telescopes), with 0 <= Sigma(4^N z) <= B B^T/(4^N z) in Loewner order; on master_response's root-site instance (15 bond atoms visible, 225 roots hidden, exact rationals by its block trick, certified at z = 1 by (1 + C) W = B^T) the identity holds at z = 1, N = 1, 2 and the tail bound by exact inertia (15 positive pivots, no zero pivot, for Sigma(4), B B^T/4 - Sigma(4), Sigma(16), B B^T/16 - Sigma(16)); the load identity G_L^-1 - G_0^-1 = L is master_response's source law (6 Nov)", T, "bind_dynamics_dyadic"),
+    ("bath", "calibration", "time before dynamics", "the two bindings chain: a measured inverse-response shift d (s^-2) of a load delta_model e e^T gives tau^2 = delta_model/d exactly (R_L^-1 - R_0^-1 = (delta/tau^2) e e^T at every s), then kappa = tau^2/rho^2 needs rho from the time-binding map (gauge convention kappa = 1, tau = rho), and d^2/Xi_q = delta_model^2/(389 kappa^2) identically, so the shift and the quadratic jet bind kappa = delta_model sqrt(Xi_q)/(d sqrt(389)) and (T_half or s*, Xi_q, d) bind (tau, kappa) completely (with kappa = 1 and the three-route note's static gap 8, d^2/Xi_q = 64/389 is a fourth rho-free check, to be tested, not used to define rho); a stiffness step in N/m over d is a mass (kg), not s^2 (the T1-T5 audit, 6 Nov, sympy.physics.units); and the measured secant E_meas(s) = rho^2 e((rho s)^2) (P01's normalization B/rho, C/rho^2; e((rho s)^2) with the whole generator K/rho^2, the crossover note's form) needs rho to reconstruct Sigma_N at z = (rho s)^2: time first, then dynamics; CONDITIONAL on a measured interval and a measured shift, neither in the model (6 Nov)", gates.CONDITIONAL, "bind_time_units"),
+    ("source", "calibration", "the selection table", "DYN_BIND's content as a checked table: the dynamics is the declared native action (the 'source' dot, q'' + 4q = 0 on ker M + ker M, native.run) and its completion family K_theta = H + theta (eps + J V J^T) = (1 - theta) H + theta K19 (flower_homotopy) carries named selections each fixed or recorded by a model function: theta (flower_homotopy), eps, alpha and J (schur_zero_mode), the mark (mgm_marks), W_p and the adapter (literal_port, parent_readers), iota (canon_flower_pullback), the parity (zero_pole_parity), the readout (master_readout); every named function exists in oes.dots, and gates.GATES keeps TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED: the solution installs maps, not data (the selections are the separate model's, read as data) (6 Nov)", SR, "bind_selections"),
+    ("readout", "bath", "the scale-free memory shape", "with the generator K/rho^2 the measured secant is E_phys(s) = e((rho s)^2) exactly (E_phys(2^n s* x) = e(4^n z* x^2), rho-free), and at x = s/s* with rho s* = sqrt(z*) the dyadic sum 3 z* x^2 sum_(n < N) 4^n E_phys(2^n s* x) = Sigma(z* x^2) - Sigma(4^N z* x^2) (symbolic on the generic block, N = 2): the memory's shape in model units is read from rate ratios alone once the crossover s* is found, before a second is assigned, while the absolute Sigma_phys(s) = rho^-2 Sigma((rho s)^2) still needs rho (the separate model's three-route note, 6 Nov 08:44, section 4); one full normalized G(z0) then fixes A = G(z0)^-1 - z0 I + Sigma(z0) and G(z)^-1 = G(z0)^-1 + (z - z0) I + Sigma(z0) - Sigma(z) for every z (its txt, section 2; symbolic, and exact on a rational instance at z0 = 1, z = 3): the compressed Green function on the visible block, not the hidden realization (6 Nov)", T, "bind_dynamics_dyadic"),
+    ("calibration", "measure", "the dressed clock and the 19-source bands", "the separate model's three-route note (6 Nov 08:44; its txt and exact receipt in OES_CLOCK_RHO_DYADIC_THREE_ROUTE_20261106), read as data: a dressed zero-bulk-velocity source half-return 0.3699205238490600 < u_s < 0.3699253084202434 and the 19-source bands at z* (e_l in (0.014725747504511457, 0.014725754281094184), e_q = 1/200, e_d in (0.000842972528942191, 0.000842972653468548), multiplicities 8, 7, 4) are its certificates, not replayed; its brackets T_s/T_m in (4.77669338477, 4.77676420538), s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward roundings of the exact products of the stated endpoints (Fractions), its tr E(s*) bracket (0.156177870151860420, 0.156177924862627664) is 8 e_l + 7/200 + 4 e_d to the last digit, and its receipt's exact I2 fractions equal the model's 389/z_hi^2, 389/z_lo^2; the invariants carry one relation I2 = (389/2117) I1/I3^4, so the independent rho-free set is the exact ratio 2117/389 with I1 and I3 (the note's own I1 = 10791/389 is refclock_gain's 19-source trace over the quadratic variance); D19 = 967 P8 + 389 P7 + 83 P4 (norm 967) is the 19-source dyadic tail, and the ten-port's 127 P6 + 392 P4 (notes_1512) is a different reader (6 Nov)", SR, "bind_time_map"),
     ("cycles", "golden", "the one quadratic", "the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)", T, "one_quadratic"),
     ("rotor", "rootgraph", "the Golden measurement channel", "the rotor plane and its five S5 conjugates, the six Sylow petals F_i on the cycles (rank-2 idempotents, sum 2I, F_i F_j F_i = F_i/5), read as E_i = F_i/2 and prepared as sigma_j = (11I - 5F_j)/56, give tr(E_i sigma_j) = Q/56 exactly, the root graph's six-line chain on the residue plane (Q = 10J - 4I, so any matching of the labels works): a measure-and-prepare map of rank 6 with nonzero spectrum 1 and (-1/14)^5, equivariant at degree 2 though no linear S5-map L6 -> six labels exists (the hub's Rosebud deep join, 31 Oct)", T, "notes_1751"),
     ("AGL", "golden", "the five-cycle's golden companion", "on the carrier's 15 atoms the five-cycle U has three orbits (the vertices, the near edges, the far edges) and a moving part (I - P)R^15 of dimension 12, where X = -(U + U^-1) satisfies X^2 = X + I with eigenvalues phi and 1 - phi, six each: the golden companion acts there as it does on the golden edge directions and the five-site contrast; the doubling i -> 2i conjugates U to U^2 and carries X to I - X on the moving part (d X d^-1 + X = I - 5P), the Galois conjugation phi -> 1 - phi, as the day does to the tick's cosine on E8; the monograph's Golden15 stiffness R = 3I + X (notes_2033) is moved by the doubling exactly on the moving part (rank 12), so its F20 average is scalar there, P + (7/2)(I - P) (the 12:50 synthesis, 31 Oct)", T, "notes_1250"),
@@ -40822,6 +40830,431 @@ def mgm_delta_audit():
     }
 
 
+# ------------------------------------------------------------------- the binding solution (6 Nov): TIME_BIND and DYN_BIND as closed-form maps, rho-free invariants, the dyadic memory certificate
+
+
+def _bind_brackets():
+    """The certified data the binding maps use, read from the model's own checks and from the Drive notes, not
+    recertified: the mass clock's P8 half-return bracket (the exact Fractions of refclock_halfreturn), its narrower P10
+    bracket (the decimals refclock_halfreturn prints from m5, m6), the crossover z* bracket of TIME_BIND_RESOLUTION (2
+    Nov; its certificate needs m0..m17, not in the model) with the note's decimal bounds on sqrt(z*), the mass and
+    quadratic moments (notes_0101, join_e8_triangle, band_closures; wedge_port, notes_1512) and D45's diagonal
+    (master_readout, refclock_gain); and the separate model's three-route note of 6 Nov 08:44 with its txt and exact
+    receipt (OES_CLOCK_RHO_DYADIC_THREE_ROUTE_20261106), read as data: the dressed source half-return bracket u_s, the
+    note's three ratio brackets, the 19-source bands at z* and the receipt's exact I2 fractions."""
+    F = Fraction
+    den = 10 * 2 ** 60
+    return {
+        "u8": (F(892853037828096677, den), F(892854727289957321, den)),
+        "u10": (F("0.0774426666"), F("0.0774426679")),
+        "z": (F(12200402860332943, 2 ** 48), F(12200405718556069, 2 ** 48)),
+        "sqrt_z": (F("6.583656896344280"), F("6.583657667530262")),
+        "m_mass": [1, 184, 35973, 7355136, 1556789920],
+        "m_quad": [1, 232, 54213, 12740592, 3008062816],
+        "D45": {"mass": 2117, "linear": 967, "quadratic": 389, "wedge": 127, "dark": 83},
+        "D45_mult": {"mass": 1, "linear": 8, "quadratic": 26, "wedge": 6, "dark": 4},
+        "D19": {"linear": 967, "quadratic": 389, "dark": 83}, "D19_mult": {"linear": 8, "quadratic": 7, "dark": 4},
+        # the separate model's three-route note (6 Nov 08:44) and its exact receipt, read as data: the dressed
+        # zero-bulk-velocity source half-return, the note's three ratio brackets, the 19-source bands at z*
+        "u_s": (F("0.3699205238490600"), F("0.3699253084202434")),
+        "ratios_0844": {"Ts_over_Tm": (F("4.77669338477"), F("4.77676420538")),
+                        "s_Tm": (F("0.509855877996"), F("0.509856902472")),
+                        "s_Ts": (F("2.435429807938"), F("2.435461593195"))},
+        "bands19": {"linear": (F("0.014725747504511457"), F("0.014725754281094184")), "quadratic": (F(1, 200), F(1, 200)),
+                    "dark": (F("0.000842972528942191"), F("0.000842972653468548")),
+                    "trace": (F("0.156177870151860420"), F("0.156177924862627664"))},
+        "receipt_I2": (F(30819755218048827323888596680704, 148849899697375630338714296732761),
+                       F(30819755218048827323888596680704, 148849829954420257058944811041249)),
+    }
+
+
+def _bind_psd(M):
+    """Exact inertia certificate of a symmetric rational sympy matrix by symmetric Gaussian elimination without
+    pivoting: returns (positive pivots, zero pivots) when every pivot is >= 0 and every zero pivot has a zero residual
+    row (then M >= 0, and M > 0 when no pivot is zero), else None (a negative pivot or a zero pivot with a nonzero row:
+    then M is not positive semidefinite)."""
+    n = M.shape[0]
+    a = [[Fraction(int(sp.fraction(M[i, j])[0]), int(sp.fraction(M[i, j])[1])) for j in range(n)] for i in range(n)]
+    pos = zero = 0
+    for k in range(n):
+        p = a[k][k]
+        if p < 0:
+            return None
+        if p == 0:
+            if any(a[k][j] != 0 for j in range(k, n)):
+                return None
+            zero += 1
+            continue
+        pos += 1
+        for i in range(k + 1, n):
+            f = a[i][k] / p
+            if f:
+                for j in range(k, n):
+                    a[i][j] -= f * a[k][j]
+    return pos, zero
+
+
+def _bind_rootsite():
+    """master_response's root-site instance through its own machinery: H_R = 240 I - B_R on the 240 roots
+    (_master_shell), the 15 bond atoms e_i + e_5, e_i - e_j visible and the 225 other roots hidden, B = (H_R)_(vis, hid)
+    and C = (H_R)_(hid, hid), and Sigma(w) = B (w + C)^-1 B^T exactly by the block trick (w + H_R)^-1 = sum_s P_s /
+    (s (w + mu_s)) over the five sectors: (w + C)^-1 = G_hh - G_hv G_vv^-1 G_vh."""
+    R2, G, A, Pint, sc, *_ = _master_shell()
+    I = np.eye(240, dtype=np.int64)
+    lam = [int(np.trace(A @ P)) // int(np.trace(P)) for P in Pint]
+    mu = [240 - l for l in lam]
+    idx = {tuple(r): k for k, r in enumerate(R2)}
+    e2 = 2 * np.eye(8, dtype=np.int64)
+    vis = [idx[tuple(e2[i] + e2[5])] for i in range(5)] + [idx[tuple(e2[i] - e2[j])] for i, j in carrier.edges()]
+    hid = [k for k in range(240) if k not in set(vis)]
+    HR = 240 * I - A
+    B = HR[np.ix_(vis, hid)].astype(object)
+    C = HR[np.ix_(hid, hid)].astype(object)
+    Bm = sp.Matrix(B.tolist())
+
+    def res(w):
+        cs = [sp.Rational(1, s) / (w + m) for s, m in zip(sc, mu)]
+        d = int(sp.ilcm(*[sp.fraction(c)[1] for c in cs]))
+        return sum((int(c * d) * P.astype(object) for c, P in zip(cs, Pint)), np.zeros((240, 240), dtype=object)), d
+
+    def sigma(w):
+        Gi, d = res(w)
+        Gvv = sp.Matrix(Gi[np.ix_(vis, vis)].tolist()) / d
+        X = sp.Matrix((Gi[np.ix_(vis, hid)] @ B.T).tolist()) / d                  # G_vh B^T
+        return sp.Matrix((B @ Gi[np.ix_(hid, hid)] @ B.T).tolist()) / d - X.T * Gvv.inv() * X
+
+    def resolvent_columns(w):                                                    # (w + C)^-1 B^T and its check
+        Gi, d = res(w)
+        Gvv = sp.Matrix(Gi[np.ix_(vis, vis)].tolist()) / d
+        Ghv = sp.Matrix(Gi[np.ix_(hid, vis)].tolist()) / d
+        W = sp.Matrix((Gi[np.ix_(hid, hid)] @ B.T).tolist()) / d - Ghv * Gvv.inv() * (Ghv.T * Bm.T)
+        dw = int(sp.ilcm(*[sp.fraction(v)[1] for v in W]))
+        Wi = np.array((W * dw).tolist(), dtype=object)
+        Cw = C + w * np.eye(225, dtype=np.int64).astype(object)
+        return W, np.array_equal(Cw @ Wi, dw * B.T)
+
+    return B, C, Bm, vis, hid, lam, sigma, resolvent_columns
+
+
+def bind_time_map():
+    """TIME_BIND as a closed-form map. The gauge (tau, kappa) -> (c tau, c^2 kappa) and rho = tau/sqrt(kappa) are
+    video_ten_fisher's and chiral_time's; the half-return bracket is refclock_halfreturn's (its P8 Fractions and its
+    P10 decimals, cited, not recertified) and its reading T_half = rho u_half is refclock_calibration's conditional
+    join; the fourth jet Xi = D45/rho^4 with tr D45 = 21061 and D45's mass entry 2117 is deep_observer_algebra's and
+    refclock_gain's; the crossover bracket is the Drive note TIME_BIND_RESOLUTION's (2 Nov, SELECTED_REFERENCE data:
+    it needs m0..m17); 'no internal clock' is calibration's OBSTRUCTION join. New: the three routes as one map, its
+    rho-free invariants with exact brackets, their one relation, the no-go restated as a count of external inputs
+    (one), and the separate model's three-route note (6 Nov 08:44; its txt and exact receipt) reconciled: the dressed
+    source clock's ratios and the 19-source bands recomputed exactly from the stated endpoints."""
+    F = Fraction
+    data = _bind_brackets()
+    t, tau, kappa, c, rho, l1, l2 = sp.symbols("t tau kappa c rho l1 l2", positive=True)
+    th = sp.Symbol("theta", real=True)
+    Y = sp.Matrix(2, 2, sp.symbols("y11 y12 y21 y22", real=True))
+    R = sp.Matrix([[sp.cos(th), -sp.sin(th)], [sp.sin(th), sp.cos(th)]])
+    K = R * sp.diag(l1, l2) * R.T                                                # a generic symmetric 2 x 2 K >= 0
+    cosK = R * sp.diag(sp.cos(t * sp.sqrt(kappa * l1) / tau), sp.cos(t * sp.sqrt(kappa * l2) / tau)) * R.T
+    Cresp = Y.T * cosK * Y                                                       # C(t) = Y^T cos(t sqrt(kappa K)/tau) Y
+    ode = sp.simplify(cosK.diff(t, 2) + (kappa / tau ** 2) * K * cosK)
+    gauge = sp.simplify(Cresp.subs({tau: c * tau, kappa: c ** 2 * kappa}, simultaneous=True) - Cresp)
+    rho_form = sp.simplify(Cresp - Cresp.subs({kappa: 1, tau: rho}, simultaneous=True).subs(rho, tau / sp.sqrt(kappa)))
+    euler = sp.simplify(tau * Cresp.diff(tau) + 2 * kappa * Cresp.diff(kappa))
+    # the three routes as identities of one map in rho
+    u, z, D, Dq, Th, Xi, Xq, ss = sp.symbols("u z D D_q T_half Xi Xi_q s_star", positive=True)
+    T_of = rho * u
+    Xi_of = D / rho ** 4
+    s_of = sp.sqrt(z) / rho
+    routes = (sp.simplify(T_of / u - rho) == 0 and sp.simplify((D / Xi_of) ** sp.Rational(1, 4) - rho) == 0
+              and sp.simplify(sp.sqrt(z) / s_of - rho) == 0)
+    I1 = sp.simplify(Xi_of * T_of ** 4 - D * u ** 4) == 0
+    I2 = sp.simplify((Dq / rho ** 4) / s_of ** 4 - Dq / z ** 2) == 0
+    I3 = sp.simplify(T_of * s_of - u * sp.sqrt(z)) == 0
+    lo, hi = data["u8"]
+    l10, h10 = data["u10"]
+    zlo, zhi = data["z"]
+    slo, shi = data["sqrt_z"]
+    i1 = (2117 * lo ** 4, 2117 * hi ** 4)
+    i1_10 = (2117 * l10 ** 4, 2117 * h10 ** 4)
+    i2 = (389 / zhi ** 2, 389 / zlo ** 2)
+    i3 = (lo * slo, hi * shi)
+    i3_10 = (l10 * slo, h10 * shi)
+    mm, mq = data["m_mass"], data["m_quad"]
+    join = [j for j in JOINS if j[2] == "no internal clock"]
+    T_meas = sp.Symbol("T_half", positive=True)
+    rho_map = T_meas / sp.Rational(lo.numerator, lo.denominator)                 # one external input
+    # the one relation among the invariants, and the exact variance ratios (no bracket needed)
+    I1e, I2e, I3e = D * u ** 4, Dq / z ** 2, u * sp.sqrt(z)
+    relation = sp.simplify((Dq / D) * I1e / I3e ** 4 - I2e) == 0
+    D19, D19m = data["D19"], data["D19_mult"]
+    tr19 = sum(D19[k] * D19m[k] for k in D19)
+    # the 08:44 note's brackets from its own endpoints, exactly
+    us_lo, us_hi = data["u_s"]
+    r0844 = data["ratios_0844"]
+    exact = {"Ts_over_Tm": (us_lo / hi, us_hi / lo), "s_Tm": (lo * slo, hi * shi), "s_Ts": (us_lo * slo, us_hi * shi)}
+    outward = all(r0844[k][0] <= exact[k][0] < exact[k][1] <= r0844[k][1] for k in exact)
+    bands = data["bands19"]
+    tr_bands = tuple(sum(D19m[k] * bands[k][i] for k in D19m) for i in (0, 1))
+    return {
+        "the gauge: for the generator (kappa/tau^2) K on a generic symmetric 2 x 2 K = R(theta) diag(l1, l2) R(theta)^T "
+        "the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y solves C'' + (kappa/tau^2) K C = 0, is invariant under "
+        "(tau, kappa) -> (c tau, c^2 kappa), equals its own value at (tau, kappa) = (rho, 1) with rho = tau/sqrt(kappa), "
+        "and is annihilated by tau d/dtau + 2 kappa d/dkappa (video_ten_fisher's null vector (tau, 2 kappa)): the "
+        "physical response depends on (tau, kappa) only through rho":
+            ode == sp.zeros(2, 2) and gauge == sp.zeros(2, 2) and rho_form == sp.zeros(2, 2)
+            and euler == sp.zeros(2, 2),
+        "the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet "
+        "Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (the Drive note "
+        "TIME_BIND_RESOLUTION) each invert to rho = T_half/u_half = (D/Xi)^(1/4) = sqrt(z*)/s*, identically in rho":
+            routes,
+        "the rho-free invariants are identities of the map: I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = "
+        "389/z*^2 and I3 = T_half s* = u_half sqrt(z*), with rho cancelling symbolically":
+            I1 and I2 and I3,
+        "I1's certified bracket from the P8 half-return: 2117 lo^4 < I1 < 2117 hi^4 with lo, hi = 892853037828096677/"
+        "11529215046068469760, 892854727289957321/11529215046068469760 (refclock_halfreturn's exact endpoints, "
+        "printing 0.07744265626588037 and 0.07744280280333794), so 0.07614507 < I1 < 0.07614566 (decimals, labelled); "
+        "with the P10 decimals 0.0774426666 < u_half < 0.0774426679 (refclock_halfreturn's m5, m6 bracket, cited), "
+        "0.07614511 < I1 < 0.07614513":
+            lo < hi and (float(lo), float(hi)) == (0.07744265626588037, 0.07744280280333794)
+            and i1 == (2117 * F(892853037828096677, 11529215046068469760) ** 4,
+                       2117 * F(892854727289957321, 11529215046068469760) ** 4)
+            and F("0.07614507") < i1[0] < i1[1] < F("0.07614566")
+            and lo < l10 < h10 < hi and F("0.07614511") < i1_10[0] < i1_10[1] < F("0.07614513"),
+        "I2's bracket from the crossover note: with z* in (12200402860332943/281474976710656, 12200405718556069/"
+        "281474976710656) (denominator 2^48; the note's certificate, read as data), 389/z_hi^2 < I2 < 389/z_lo^2, so "
+        "0.20705257 < I2 < 0.20705268 (decimals, labelled)":
+            2 ** 48 == 281474976710656 and zlo < zhi and i2 == (389 / zhi ** 2, 389 / zlo ** 2)
+            and F("0.20705257") < i2[0] < i2[1] < F("0.20705268"),
+        "I3's bracket: the note's decimals 6.583656896344280 < sqrt(z*) < 6.583657667530262 are consistent with the z* "
+        "bracket (their squares lie outside it), so lo x 6.583656896344280 < I3 < hi x 6.583657667530262, giving "
+        "0.50985587 < I3 < 0.50985691 (decimals, labelled), and 0.50985594 < I3 < 0.50985602 with the P10 half-return":
+            slo ** 2 < zlo and zhi < shi ** 2 and i3 == (lo * slo, hi * shi)
+            and F("0.50985587") < i3[0] < i3[1] < F("0.50985691")
+            and F("0.50985594") < i3_10[0] < i3_10[1] < F("0.50985602"),
+        "the two variances from the stated moments: 2117 = m2 - m1^2 = 35973 - 184^2 of the mass clock (D45's mass "
+        "entry, master_readout) and 389 = m2 - m1^2 = 54213 - 232^2 of the quadratic source (D45's quadratic entry, "
+        "notes_1512), and D45 = (2117, 967^8, 389^26, 127^6, 83^4) has trace 21061 (deep_observer_algebra)":
+            mm[2] - mm[1] ** 2 == 2117 and mq[2] - mq[1] ** 2 == 389
+            and sum(data["D45"][k] * data["D45_mult"][k] for k in data["D45"]) == 21061
+            and sum(data["D45_mult"].values()) == 45,
+        "the no-go restated: 'no internal clock' is calibration's OBSTRUCTION join (circle-calibration) and gates.GATES "
+        "keeps TIME_BIND UNBOUND; the map rho = T_half/u_half has exactly one free symbol, the measured interval T_half, "
+        "so TIME_BIND = exactly one measured interval and the SI second enters only there (the preparation and the "
+        "readout being external inputs, refclock_calibration)":
+            len(join) == 1 and join[0][:2] == ("circle", "calibration") and join[0][4] == gates.OBSTRUCTION
+            and join[0][5] == "calibration" and gates.GATES["TIME_BIND"] == "UNBOUND"
+            and rho_map.free_symbols == {T_meas},
+        "the invariants carry one relation: I2 = (389/2117) I1/I3^4 identically (four readings T_half, Xi_mass, Xi_q, "
+        "s* of one rho leave three independent rho-free numbers), so the independent set is the exact variance ratio "
+        "Xi_mass/Xi_q = 2117/389 together with I1 and I3, and the three-route note's I1 = v19/v_q = 10791/389 is the "
+        "19-source trace 8 x 967 + 7 x 389 + 4 x 83 (refclock_gain's hid19 eigenvalues 967^8, 389^7, 83^4, cited) "
+        "over the quadratic variance, and tr D45/389 = 21061/389, both exact":
+            relation and tr19 == 10791 and max(D19.values()) == 967
+            and Fraction(2117, 389) == Fraction(35973 - 184 ** 2, 54213 - 232 ** 2),
+        "the separate model's three-route note (6 Nov 08:44), read as data: with its dressed zero-bulk-velocity source "
+        "half-return 0.3699205238490600 < u_s < 0.3699253084202434 (its certificate, not replayed) and the model's P8 "
+        "mass endpoints and the sqrt(z*) decimals, the note's three brackets T_s/T_m in (4.77669338477, 4.77676420538), "
+        "s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward "
+        "roundings of the exact products of the stated endpoints (Fractions: lo_s/hi_m < u_s/u_m < hi_s/lo_m, and "
+        "u sqrt(z*) with the outer sqrt(z*) decimals), and the receipt's exact I2 fractions 389/z_hi^2, 389/z_lo^2 "
+        "(30819755218048827323888596680704 over 148849899697375630338714296732761 and over "
+        "148849829954420257058944811041249) equal the model's":
+            outward and data["receipt_I2"] == i2,
+        "the note's 19-source bands at z* (read as data, not replayed: 0.014725747504511457 < e_l < "
+        "0.014725754281094184, e_q = 1/200 by definition, 0.000842972528942191 < e_d < 0.000842972653468548 with "
+        "multiplicities 8, 7, 4) sum to its trace bracket exactly: 8 e_l + 7/200 + 4 e_d has endpoints "
+        "0.156177870151860420 and 0.156177924862627664, the note's tr E(s*) bracket to the last digit; the "
+        "multiplicities are refclock_gain's 19-source hidden covariance D19 = 967 P8 + 389 P7 + 83 P4, a different "
+        "reader from the ten-port's 127 P6 + 392 P4 (notes_1512's odd ten-port), so neither tail substitutes for the "
+        "other":
+            tr_bands == bands["trace"] and bands["quadratic"] == (Fraction(1, 200), Fraction(1, 200))
+            and sum(D19m.values()) == 19 and 127 * 6 + 392 * 4 != tr19,
+    }
+
+
+def bind_time_units():
+    """The units-correct two-step binding (the Drive audit T1-T5, 6 Nov, read as data): a load's inverse-response shift
+    is exact (master_response's S_K^-1 - S_H^-1 = V; tdc_frequency's clock-scaled law), so a measured shift d in s^-2
+    gives tau^2 = delta_model/d, and kappa = tau^2/rho^2 then follows from rho (bind_time_map); the gauge lets one set
+    kappa = 1, tau = rho (video_ten_fisher). The dimension check uses sympy.physics.units and a plain exponent count."""
+    from sympy.physics.units import newton, meter, second, kilogram, convert_to
+    s, tau, delta, rho, kappa, d = sp.symbols("s tau delta rho kappa d", positive=True)
+    K = sp.Matrix(2, 2, lambda i, j: sp.Symbol("k%d%d" % (min(i, j), max(i, j)), real=True))
+    e = sp.Matrix([1, 0])
+    R0 = (s ** 2 * sp.eye(2) + K / tau ** 2).inv()
+    RL = (s ** 2 * sp.eye(2) + (K + delta * e * e.T) / tau ** 2).inv()
+    shift = sp.simplify(RL.inv() - R0.inv() - (delta / tau ** 2) * e * e.T)
+    tau2 = sp.solve(sp.Eq(d, delta / tau ** 2), tau ** 2)
+    kap = sp.solve(sp.Eq(rho, tau / sp.sqrt(kappa)), kappa)
+    units = convert_to((newton / meter) / (1 / second ** 2), kilogram)
+    units2 = convert_to(sp.Integer(1) / (1 / second ** 2), second ** 2)
+    exp_stiff, exp_d, exp_one = (1, 0, -2), (0, 0, -2), (0, 0, 0)                 # (M, L, T) exponents
+    quot = tuple(a - b for a, b in zip(exp_stiff, exp_d))
+    quot2 = tuple(a - b for a, b in zip(exp_one, exp_d))
+    Xq = 389 * kappa ** 2 / tau ** 4                                            # Xi_q = 389/rho^4 with rho^4 = tau^4/kappa^2
+    d_of = delta / tau ** 2
+    kappa_from = sp.solve(sp.Eq(d ** 2 / sp.Symbol("Xi_q", positive=True), delta ** 2 / (389 * kappa ** 2)), kappa)
+    gap8 = (d_of ** 2 / Xq).subs({delta: 8, kappa: 1})
+    return {
+        "kappa from the load and the jet: d = delta/tau^2 and Xi_q = 389/rho^4 = 389 kappa^2/tau^4 give d^2/Xi_q = "
+        "delta^2/(389 kappa^2) identically in tau, so the shift and the quadratic jet bind kappa = delta sqrt(Xi_q)/(d "
+        "sqrt(389)) and then tau = rho sqrt(kappa): the three numbers (T_half or s*, Xi_q, d) bind (tau, kappa) "
+        "completely; under the gauge convention kappa = 1 the ratio is a fourth rho-free check, d^2/Xi_q = delta^2/389, "
+        "which is the three-route note's 64/389 at its static gap delta = 8 (the note's gap, read as data; the model's "
+        "delta_F(alpha) = min(8, alpha (5 - sqrt5)/2) has the branch 8, chiral_closures), to be tested, not used to "
+        "define rho":
+            sp.simplify(d_of ** 2 / Xq - delta ** 2 / (389 * kappa ** 2)) == 0
+            and kappa_from == [delta * sp.sqrt(sp.Symbol("Xi_q", positive=True)) / (d * sp.sqrt(389))]
+            and gap8 == sp.Rational(64, 389),
+        "the load shift is exact and frequency-free: for R(s) = (s^2 I + tau^-2 (K + delta e e^T))^-1 on a generic "
+        "symmetric 2 x 2 K, R_L(s)^-1 - R_0(s)^-1 = (delta/tau^2) e e^T at every s (master_response's S_K^-1 - S_H^-1 = "
+        "V, tdc_frequency's clock-scaled law)":
+            shift == sp.zeros(2, 2),
+        "step one: the measured shift d := delta_model/tau^2 (in s^-2) gives tau^2 = delta_model/d; step two: kappa = "
+        "tau^2/rho^2 from rho = tau/sqrt(kappa) with rho from bind_time_map; under the gauge convention kappa = 1 the "
+        "binding is tau = rho, and the two steps are time first (rho) then the load (tau, kappa apart)":
+            tau2 == [delta / d] and kap == [tau ** 2 / rho ** 2]
+            and sp.simplify((tau / sp.sqrt(kappa)).subs({kappa: 1, tau: rho}) - rho) == 0,
+        "the dimensional statement: a dimensionless delta_model over d (s^-2) is s^2, tau^2's unit, while a stiffness "
+        "step in N/m over d (s^-2) is a mass, kg, not a time squared (sympy.physics.units and the (M, L, T) exponents "
+        "(1, 0, -2) - (0, 0, -2) = (1, 0, 0))":
+            units == kilogram and units2 == second ** 2 and quot == (1, 0, 0) and quot2 == (0, 0, 2),
+    }
+
+
+def bind_dynamics_dyadic():
+    """The Drive note P01 (TIME DYN P01-P20, 6 Nov 08:06), read as data, replayed: for Sigma(z) = B (z + C)^-1 B^T with
+    C >= 0 and e(z) = [Sigma(z) - Sigma(4z)]/(3z), the dyadic partial sums Sigma_N(z) = 3z sum_(j < N) 4^j e(4^j z)
+    leave the exact tail Sigma(4^N z), bounded in Loewner order by B B^T/(4^N z). Symbolic on a generic block and
+    exact on master_response's root-site instance (15 bond atoms visible, 225 roots hidden, through its own block
+    trick, _bind_rootsite); the load identity is master_response's source law (tdc_frequency cites it); the measured
+    secant needs rho from bind_time_map, so the two bindings chain: time first, then dynamics. The separate model's
+    three-route note and txt (6 Nov 08:44, read as data) add the scale-free form at x = s/s* and the one-anchor
+    recovery, both replayed symbolically here."""
+    z, s, rho = sp.symbols("z s rho", positive=True)
+    Bs = sp.Matrix(2, 2, sp.symbols("b11 b12 b21 b22", real=True))
+    Cs = sp.Matrix(2, 2, lambda i, j: sp.Symbol("c%d%d" % (min(i, j), max(i, j)), real=True))
+    Ks = sp.Matrix(2, 2, lambda i, j: sp.Symbol("k%d%d" % (min(i, j), max(i, j)), real=True))
+    Ls = sp.Matrix(2, 2, lambda i, j: sp.Symbol("l%d%d" % (min(i, j), max(i, j)), real=True))
+    Sig = lambda w, Bm=Bs, Cm=Cs: Bm * (w * sp.eye(2) + Cm).inv() * Bm.T
+    e_of = lambda w, Bm=Bs, Cm=Cs: (Sig(w, Bm, Cm) - Sig(4 * w, Bm, Cm)) / (3 * w)
+    SigN = lambda N, w: 3 * w * sum((4 ** j * e_of(4 ** j * w) for j in range(N)), sp.zeros(2, 2))
+    tails = [sp.simplify(Sig(z) - SigN(N, z) - Sig(4 ** N * z)) == sp.zeros(2, 2) for N in (1, 2, 3)]
+    load = sp.simplify((z * sp.eye(2) + Ks + Ls).inv().inv() - (z * sp.eye(2) + Ks).inv().inv() - Ls) == sp.zeros(2, 2)
+    # the measured secant under the physical normalization (B/rho, C/rho^2) and under the full generator K/rho^2
+    E1 = sp.simplify(e_of(s ** 2, Bs / rho, Cs / rho ** 2) - rho ** 2 * e_of(rho ** 2 * s ** 2)) == sp.zeros(2, 2)
+    E2 = sp.simplify(e_of(s ** 2, Bs / rho ** 2, Cs / rho ** 2) - e_of(rho ** 2 * s ** 2)) == sp.zeros(2, 2)
+    needs_rho = rho in e_of(s ** 2, Bs / rho, Cs / rho ** 2).free_symbols
+    # the scale-free form (the three-route note, 6 Nov 08:44, section 4): with the generator K/rho^2, E_phys(s) =
+    # e((rho s)^2); at x = s/s* with rho s* = sqrt(z*) the dyadic sum reads Sigma in model units from rate ratios alone
+    zs, x = sp.symbols("z_star x", positive=True)
+    E_phys = lambda w: e_of(w ** 2, Bs / rho ** 2, Cs / rho ** 2)
+    s_star = sp.sqrt(zs) / rho
+    bands_free = [(E_phys(2 ** n * s_star * x) - e_of(4 ** n * zs * x ** 2)).applyfunc(sp.cancel) == sp.zeros(2, 2)
+                  for n in (0, 1)]                                               # E_phys(2^n s* x) = e(4^n z* x^2), rho-free
+    scale_free = 3 * zs * x ** 2 * sum((4 ** n * e_of(4 ** n * zs * x ** 2) for n in range(2)), sp.zeros(2, 2))
+    sf_ok = all(bands_free) and (scale_free - (Sig(zs * x ** 2) - Sig(16 * zs * x ** 2))).applyfunc(sp.cancel) == sp.zeros(2, 2)
+    sf_free = rho not in scale_free.free_symbols
+    # the one-anchor recovery (the three-route txt, section 2): A from one full G(z0), then G(z)^-1 for every z
+    z0 = sp.Symbol("z0", positive=True)
+    As = sp.Matrix(2, 2, lambda i, j: sp.Symbol("a%d%d" % (min(i, j), max(i, j)), real=True))
+    Ginv = lambda w: w * sp.eye(2) + As - Sig(w)                                 # G(z)^-1 by definition
+    anchor_A = (Ginv(z0) - z0 * sp.eye(2) + Sig(z0) - As).applyfunc(sp.expand) == sp.zeros(2, 2)
+    anchor_G = (Ginv(z) - (Ginv(z0) + (z - z0) * sp.eye(2) + Sig(z0) - Sig(z))).applyfunc(sp.expand) == sp.zeros(2, 2)
+    Bn, Cn, An = sp.Matrix([[1, 2], [-1, 3]]), sp.Matrix([[5, 1], [1, 7]]), sp.Matrix([[2, sp.Rational(1, 2)], [sp.Rational(1, 2), 3]])
+    Sn = lambda w: Bn * (w * sp.eye(2) + Cn).inv() * Bn.T
+    Gn = lambda w: (w * sp.eye(2) + An - Sn(w)).inv()
+    anchor_inst = (Gn(1).inv() - sp.eye(2) + Sn(1) == An
+                   and (Gn(1).inv() + 2 * sp.eye(2) + Sn(1) - Sn(3)).inv() == Gn(3))
+    # the root-site instance
+    B, C, Bm, vis, hid, lam, sigma, resolvent_columns = _bind_rootsite()
+    S1, S4, S16 = sigma(1), sigma(4), sigma(16)
+    W1, cw = resolvent_columns(1)
+    e1, e4 = (S1 - S4) / 3, (S4 - S16) / 12
+    BBt = Bm * Bm.T
+    offrow = max(sum(-int(C[i, j]) for j in range(225) if j != i) for i in range(225))
+    diag = {int(C[i, i]) for i in range(225)}
+    psd = [_bind_psd(M) for M in (S4, BBt / 4 - S4, S16, BBt / 16 - S16)]
+    return {
+        "P01 symbolically: on a generic block (visible 2, hidden 2, B generic, C symmetric) with Sigma(z) = B (z + C)^-1 "
+        "B^T and e(z) = [Sigma(z) - Sigma(4z)]/(3z), Sigma(z) - 3z sum_(j < N) 4^j e(4^j z) = Sigma(4^N z) identically in "
+        "z for N = 1, 2, 3 (the sum telescopes)":
+            all(tails),
+        "on the root-site instance (master_response: the 15 bond atoms visible, the 225 other roots hidden, B = "
+        "(H_R)_(vis, hid) with entries in {0, -1}, C = (H_R)_(hid, hid) with diagonal 240 and off-diagonal row sums at "
+        "most 56 < 240, so C > 0 by Gershgorin; the five sector eigenvalues of B_R are 56, 28, 8, -2, -4) the exact "
+        "rational Sigma(1), Sigma(4), Sigma(16) from the block trick satisfy Sigma(1) - 3 e(1) = Sigma(4) and Sigma(1) - "
+        "3 [e(1) + 4 e(4)] = Sigma(16) (z = 1, N = 1, 2), and the block trick is certified at z = 1 by (1 + C) W = B^T "
+        "and Sigma(1) = B W (master_response's own check, replayed)":
+            set(int(v) for v in B.ravel()) <= {0, -1} and diag == {240} and offrow <= 56 < 240
+            and lam == [56, 28, 8, -2, -4] and S1 - 3 * e1 == S4 and S1 - 3 * (e1 + 4 * e4) == S16
+            and cw and S1 == Bm * W1,
+        "the Loewner tail bound by exact inertia: Sigma(4) >= 0, B B^T/4 - Sigma(4) >= 0, Sigma(16) >= 0 and B B^T/16 - "
+        "Sigma(16) >= 0, each with 15 positive pivots and no zero pivot in exact symmetric elimination, so 0 < Sigma(4^N "
+        "z) < B B^T/(4^N z) at z = 1, N = 1, 2 (B has rank 15 and C > 0)":
+            psd == [(15, 0)] * 4 and BBt.rank() == 15,
+        "the load identity symbolically: G_L(z)^-1 - G_0(z)^-1 = L for G_L = (z + K + L)^-1 on a generic symmetric 2 x "
+        "2 K and L (master_response's S_K^-1 - S_H^-1 = V, cited by tdc_frequency)":
+            load,
+        "the measured secant: with the hidden block in physical units (B/rho, C/rho^2) E_meas(s) = rho^2 e((rho s)^2), "
+        "P01's form; with the whole generator scaled, (B/rho^2, C/rho^2), it is e((rho s)^2), the crossover note's "
+        "form; either way E_meas depends on rho, and reconstructing Sigma_N at z = (rho s)^2 needs rho from "
+        "bind_time_map first: time before dynamics":
+            E1 and E2 and needs_rho,
+        "the scale-free form (the three-route note, 6 Nov 08:44): with the generator K/rho^2, E_phys(s) = e((rho s)^2), "
+        "and at x = s/s* with rho s* = sqrt(z*) the dyadic sum 3 z* x^2 sum_(n < N) 4^n E_phys(2^n s* x) equals "
+        "Sigma(z* x^2) - Sigma(4^N z* x^2) with rho cancelling (symbolic, N = 2, generic block): the memory's shape in "
+        "model units is read from rate ratios s/s* alone once the crossover s* is found, before any second is assigned; "
+        "the absolute Sigma_phys(s) = rho^-2 Sigma((rho s)^2) still needs rho":
+            sf_ok and sf_free,
+        "the one-anchor recovery (the three-route txt): for G(z) = (z + A - Sigma(z))^-1 with A symmetric, one full "
+        "G(z0) fixes A = G(z0)^-1 - z0 I + Sigma(z0), and then G(z)^-1 = G(z0)^-1 + (z - z0) I + Sigma(z0) - Sigma(z) "
+        "for every z (symbolic on the generic block): the full secant curve and one anchor give the compressed Green "
+        "function on the visible block, not the hidden realization (bridge_comparator's non-uniqueness); exact on a "
+        "rational instance (B = [[1, 2], [-1, 3]], C = [[5, 1], [1, 7]] > 0, A = [[2, 1/2], [1/2, 3]]) at z0 = 1, z = 3":
+            anchor_A and anchor_G and anchor_inst,
+    }
+
+
+def bind_selections():
+    """DYN_BIND's content as a checked table: the dynamics is the declared native action (the 'source' dot, q'' + 4q =
+    0 on ker M + ker M, native.run), and its completion family K_theta = H + theta (eps + J V J^T) = (1 - theta) H +
+    theta K19 (flower_homotopy) carries named selections, each fixed or recorded by a model function. The gates stay:
+    the solution installs maps (bind_time_map, bind_time_units, bind_dynamics_dyadic), not data."""
+    table = [
+        ("theta", "flower_homotopy", "the convex family K_theta = (1 - theta) H + theta K19 at the note's five theta"),
+        ("eps", "schur_zero_mode", "eps = 1 on the root-site instance (master_response's regulator)"),
+        ("alpha", "schur_zero_mode", "the admissible S_alpha at alpha = 1 (chiral_closures' F19 = D19^2 symbolic in alpha)"),
+        ("the mark", "mgm_marks", "the twelve Golden marks, their zero lines and their average"),
+        ("J", "schur_zero_mode", "J19 into the 45-channel section (master_readout's J15 and the dark four)"),
+        ("W_p", "literal_port", "the owner's W_p in boundary order (native_matrices_input.json, 73e07429...)"),
+        ("the adapter", "literal_port", "the reconstructed port up to a commutant element (parent_readers' marked adapter)"),
+        ("iota", "canon_flower_pullback", "the cycles' inclusion into the edge block of R^19, an isometry on L6"),
+        ("the parity", "zero_pole_parity", "the D10 parity of the zero-mode line against the golden time line"),
+        ("the readout", "master_readout", "the 45 channels and D45 = (2117, 967^8, 389^26, 127^6, 83^4)"),
+    ]
+    import inspect
+    names = {f for _, f, _ in table} | {"parent_readers", "master_response", "native"}
+    g = globals()
+    H, V, eps, th = sp.symbols("H V epsilon theta")
+    return {
+        "the dynamics is the declared native action: the 'source' dot reads q'' + 4q = 0 on ker M + ker M and "
+        "native.run(simulate, steps, dt) exists; the completion family K_theta = H + theta (eps + J V J^T) is "
+        "flower_homotopy's (1 - theta) H + theta K19 with K19 = H + eps + J V J^T (symbolic identity)":
+            DOTS["source"][1] == "q'' + 4q = 0 on ker M + ker M" and callable(getattr(native, "run", None))
+            and list(inspect.signature(native.run).parameters) == ["simulate", "steps", "dt"]
+            and sp.expand(H + th * (eps + V) - ((1 - th) * H + th * (H + eps + V))) == 0,
+        "the selection table: theta (flower_homotopy), eps and alpha and J (schur_zero_mode), the mark (mgm_marks), "
+        "W_p and the adapter (literal_port, parent_readers), iota (canon_flower_pullback), the parity "
+        "(zero_pole_parity), the readout (master_readout): every named function exists in oes.dots and is callable":
+            all(callable(g.get(n)) for n in names - {"native"}) and len(table) == 10,
+        "the gates stay: gates.GATES['TIME_BIND'] == 'UNBOUND' and gates.GATES['DYN_BIND'] == 'NOT_INSTALLED'; the "
+        "solution installs maps (bind_time_map, bind_time_units, bind_dynamics_dyadic), not data, and no physical "
+        "datum exists in the model":
+            gates.GATES["TIME_BIND"] == "UNBOUND" and gates.GATES["DYN_BIND"] == "NOT_INSTALLED"
+            and all(callable(g.get(n)) for n in ("bind_time_map", "bind_time_units", "bind_dynamics_dyadic")),
+    }
+
+
 # ------------------------------------------------------------------- unified at all levels (30 Oct): golden, torus
 
 def golden_cosine():
@@ -41767,6 +42200,16 @@ LEDGER_ROWS = [
     ("other typed branches and the obligation graph (marked note, filed 2 Nov 06:21 UTC, sections 9-10)", "H96, D23/DF, KO6, the 31-real quotient, SM data, BRST/BV, Maxwell/Einstein-Hilbert, cosmology and the other branches keep their own ownership; the 54-node graph (17, 1, 2, 1, 11, 5, 17); three new SymPy verifiers; the N44 archive SHA-256 54bc4f5c...c6d3", "the counts are onemodel_gates' and grand_registry's (54 rows, the open roots and the transitive dependents); the branches recorded; the three verifiers were not in the listing (their receipts: two replayed by adj_six_lines and adj_foam12, one absent); the SHA-256 recorded, not rehashed", T, "23"),
     ("the bridge delta's twelve groups (verify_n44_delta.py, filed 2 Nov 06:21 UTC, read as text, not run)", "K5 signed against signless (ranks 5, 4, 6, 5); the A4 exterior intertwiner onto ker B; the Golden polynomial, the Petersen Laplacian (traces 30, 120) and R^2 = 5 with D R D^-1 = -R; the 15D no-go and 19D completion (numerical at alpha = 0.1, 0.5, 1, 3); D21 = 7101, D45 = 21061, least 83, 35973/33856; the inverse-resolvent identity on a 3D toy; the wave defect's t^4/4 coefficient on a 3D toy (V4 = [[4, 2], [2, 1]], trace 5); E8 moments 60, 36, 30, 57/2, 39 and the octic harmonic; the CRT 2241/2080 and carry on all 4320; 45^2 - 1 = 2024 > 66; the path-to-cycle gap 1; six K5 SAT assignments", "every number holds and every group is already a model check: exterior and grand_lorentz (1-2), chiral_closures, join_petersen_waves (the Petersen spectrum 3, 1^5, (-2)^4), notes_2137 and f20_schur (3), chiral_closures symbolically in alpha (4), master_readout and notes_1512 (5), master_response on the lattice instance (6), chiral_time on a generic 4 x 4 (7), e8_anisotropy, notes_1757 and notes_2154 (8: H8 samples -3/2, 9, -1/6), notes_2117 (9), grand_tomography (10), grand_sat6 (11, 12); 'delta' is the additive N44 bridge layer, the typed registry's exact objects 01-03, 08, 09, 12, 14, 16, 18, 21, 25 recomputed; three of its assertions test nothing: the eleventh group's two characteristic-polynomial tests expand(p - factor(p)) == 0 and the fourth group's disjunction, which passes only through a repeat of the line before (mgm_delta_audit)", T, "23"),
     ("the typed objects (n44_typed_objects.json, filed 2 Nov 06:22 UTC)", "28 typed N44 bridge objects (domain, codomain, definition, evidence grade, constructed flag, dependencies, limitation), a provenance block and 13 external missing operands", "the 28 objects are field for field objects 01-28 of the 01:19 UTC typed_adapter_registry.json, whose mapping to the model is grand_registry's (constructed = false exactly for 04-07, 10, 15, 17, 20, 22-24, 27, 28; the model builds 04-07, 15, 17 and records 28's gates, the other six have physical input absent); grades EXACT_THIS_RUN for 01, 02, 03, 08, 16 (model checks), the dependency graph acyclic with every dependency earlier; new in this file: the provenance (N44 of 1 Nov, matrices 3820 sheets, repository 3775 sheets, library v31, two SHA-256 recorded with a four-copy receipt 'not rehashed this run', N45 not issued) and the 13 missing operands P_R1 (AUTH), A_MASTER, Phi_source, F_physical (DYN_BIND), M6_coframe (M6), D_F_original, K_regulator (NCG), O_phys (OBSERVER), Pi_C (BIND_Q31), tau_SI, kappa (TIME_BIND), SCR6_input (SCR6), counterevidence (ScientificGold), all UNBOUND with do_not_impute_zero, consistent with onemodel_gates (P_R1 absent, Pi_C uninstantiated); one definition corrected (OBJ-15's scale-free fingerprint is written C''''(0)/C(0)^2, which depends on tau; the denominator is C''(0)^2: mgm_delta_audit; the same formula stands in the 01:19 registry's OBJ-15); the registry's Schur objects (OBJ-07, 11, 12) use a 15-dimensional insertion J15 = Y45 U45,15 where the note's section 6 uses the 19-dimensional J19,m with F19,m = Dirac19,m^2: two selected injections of different rank, not a contradiction", T, "23"),
+    ("the binding solution (6 Nov): the time-binding map", "TIME_BIND is a closed-form map rho = T_half/u_half = (2117/Xi_mass)^(1/4) = sqrt(z*)/s* with one external input", "replayed (bind_time_map): the gauge and the three routes are identities in rho; the map has exactly one free symbol; TIME_BIND stays UNBOUND (no interval in the model)", T, "23"),
+    ("the binding solution (6 Nov): the rho-free invariants", "I1 = 2117 u_half^4, I2 = 389/z*^2, I3 = u_half sqrt(z*) with certified brackets", "replayed (bind_time_map): exact Fraction bounds from refclock_halfreturn's P8 endpoints (and its P10 decimals) and the crossover note's z* bracket; decimals labelled; 2117 and 389 are the two variances m2 - m1^2", T, "23"),
+    ("the binding solution (6 Nov): the crossover binding (TIME_BIND_RESOLUTION, 2 Nov)", "E(s) = e((rho s)^2) crosses 1/200 at a unique z* in (12200402860332943, 12200405718556069)/2^48; rho = sqrt(z*)/s*", "arithmetic replayed (389, 72928, -17320 from the stated m0..m3; the sqrt(z*) decimals consistent with the bracket); the z* certificate itself needs m0..m17 and is read as data (bind_time_map)", SR, "23"),
+    ("the binding solution (6 Nov): the dyadic memory certificate (P01)", "Sigma(z) - Sigma_N(z) = Sigma(4^N z) exactly, 0 <= Sigma(4^N z) <= B B^T/(4^N z)", "replayed (bind_dynamics_dyadic): symbolic for N = 1, 2, 3 and exact on master_response's root-site instance at z = 1, N = 1, 2 with the tail bound by exact inertia (15 positive pivots); the load identity G_L^-1 - G_0^-1 = L symbolic", T, "23"),
+    ("the binding solution (6 Nov): time before dynamics (T1-T5 audit, P04)", "tau^2 = delta_model/d from a measured shift, kappa = tau^2/rho^2 from rho; N/m over s^-2 is kg; E_meas(s) = rho^2 e((rho s)^2) needs rho", "replayed (bind_time_units, bind_dynamics_dyadic): the shift identity, the two steps, the units (sympy.physics.units and exponents) and both normalizations of the secant; CONDITIONAL on a measured interval and shift", gates.CONDITIONAL, "23"),
+    ("the binding solution (6 Nov): the selection table (DYN_BIND)", "the native action plus K_theta = H + theta (eps + J V J^T) with theta, eps, alpha, the mark, J, W_p, the adapter, iota each tagged by a model function", "replayed (bind_selections): every tagged function exists; the gates stay TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED; the selections are the separate model's, read as data", SR, "23"),
+    ("the Drive sources of the binding solution (6 Nov), read as data, nothing run", "TIME_BIND_RESOLUTION (2 Nov); TIME DYN P01-P20 (6 Nov 08:06); Five Gate-Pinching T1-T5 (6 Nov 08:03); G1-G6 corrective (08:32); the 08:28 model receipt SHA-256 ce49eddea0246212d1b6a558e76ef590716a6970ce25f4fcced5264eb4d41693", "recorded; the notes' statements used here are the z* bracket and sqrt(z*) decimals (TIME_BIND_RESOLUTION), the dyadic theorem and the load identity (P01, P04), the units repair (T1-T5); nothing in them binds time or installs dynamics: no measured interval, shift or response is in the model", RP, "23"),
+    ("the binding solution (6 Nov): the one relation and kappa's closure", "I2 = (389/2117) I1/I3^4 identically; d^2/Xi_q = delta^2/(389 kappa^2), so (T_half or s*, Xi_q, d) bind (tau, kappa); with kappa = 1 and the note's gap 8, 64/389", "replayed (bind_time_map, bind_time_units): symbolic identities; 2117/389, 10791/389 and 21061/389 exact; the static gap 8 is the three-route note's, read as data, a check and not a definition", T, "23"),
+    ("the separate model's three-route note (6 Nov 08:44) and its exact receipt (OES_CLOCK_RHO_DYADIC_THREE_ROUTE_20261106)", "three native event types (the mass half-return, a dressed source half-return, the crossover) constrain one rho_t; ratio brackets T_s/T_m, s* T_m, s* T_s; 19-source bands at z* with a trace bracket; the scale-free dyadic form at x = s/s*; the one-anchor recovery; 65 receipt checks all_pass; the gates stay", "arithmetic replayed from the stated endpoints (bind_time_map: the three brackets are outward roundings, the trace is the weighted band sum, the receipt's I2 fractions equal the model's); the scale-free form and the anchor replayed symbolically and on a rational instance (bind_dynamics_dyadic); the dressed half-return and the band values are its certificates, read as data; its verify_rho_dyadic.py read as text, not run; its type firewall (rho_t the time conversion, rho_src the source intensity) adopted in the wording", SR, "23"),
+    ("the 19-source hidden covariance as the dyadic tail", "D19 = 967 P8 + 389 P7 + 83 P4, norm 967, trace 10791; the odd ten-port's 127 P6 + 392 P4 is a different reader", "refclock_gain's eigenvalues cited and the arithmetic replayed (bind_time_map); the note's warning not to substitute one tail for the other recorded", T, "23"),
     ("the memory clock's stepping (layer 3)", "one circle step is one memory step: k -> A^k onto the order-90 clock, a selection", "unique up to the memory's symmetry: the circle maps onto <A> in 24 ways, one orbit of its normalizer in S_120, and every one reads the vortex and the time coordinate up to the doubling (30 Oct)", T, "23"),
     ("the pentagon operator (MODEL, 08:22-08:44)", "+1 on the pentagon steps, -1 on the pentagram steps: P^2 = 5I - J, (sqrt5 I + P)(sqrt5 I - P) = J, complementary only on the sum-zero four", "replayed: P is the tick's Gauss sum R + R^4 - R^2 - R^3 = 2(I + R + R^4) - I - J on the vertices, and P^2 = B B^T, so P is a symmetric square root of the K5 Laplacian, the sound operator", T, "23"),
     ("the sheet's Jacobi step (MODEL, 08:44; separate model, 09:07)", "27778 is not divisible by 138, so the third moment does not continue that Jacobi step", "corrected (the separate model, replayed): only an integer diagonal is excluded; the rational Jacobi matrix [[242, 138], [1, 13889/69]] gives 1, 242, 58702, 14267058 exactly", T, "23"),
@@ -42032,7 +42475,7 @@ def _checks():
         "cosmos_calibration": cosmos_calibration, "day_units": day_units, "frame_a8": frame_a8,
         "cube_frobenius": cube_frobenius, "grain_steps": grain_steps, "plane_synthemes": plane_synthemes,
         "icosians": icosians, "penrose_planes": penrose_planes, "notes_1250": notes_1250,
-        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
+        "notes_1751": notes_1751, "notes_1757": notes_1757, "notes_2122": notes_2122, "notes_2154": notes_2154, "one_quadratic": one_quadratic, "notes_2256": notes_2256, "notes_2327": notes_2327, "notes_0030": notes_0030, "notes_0101": notes_0101, "join_e8_V": join_e8_V, "join_e8_kerM": join_e8_kerM, "join_e8_petersen": join_e8_petersen, "join_e8_simplex": join_e8_simplex, "join_e8_waves": join_e8_waves, "join_e8_sixsite": join_e8_sixsite, "join_e8_triangle": join_e8_triangle, "join_e8_source": join_e8_source, "join_e8_goldenport": join_e8_goldenport, "join_e8_wedgeport": join_e8_wedgeport, "join_e8_readout": join_e8_readout, "join_e8_binding": join_e8_binding, "join_e8_binding_chirality": join_e8_binding_chirality, "join_e8_datum": join_e8_datum, "join_e8_air801": join_e8_air801, "join_e8_memory": join_e8_memory, "join_e8_coil": join_e8_coil, "join_e8_cube": join_e8_cube, "notes_0204": notes_0204, "notes_0258": notes_0258, "notes_1222": notes_1222, "notes_1340": notes_1340, "notes_1512": notes_1512, "notes_1725": notes_1725, "memory_not_seed": memory_not_seed, "notes_1931": notes_1931, "notes_2055": notes_2055, "notes_2137": notes_2137, "master_readout": master_readout, "master_response": master_response, "principal.singular_primary": principal.singular_primary, "principal.stage_frame": principal.stage_frame, "principal.decad_stabilizer": principal.decad_stabilizer, "principal.no_order_36": principal.no_order_36, "datum_frame": datum_frame, "literal_chart": literal_chart, "word_frames": word_frames, "air801_classes": air801_classes, "bind_time_map": bind_time_map, "bind_time_units": bind_time_units, "bind_dynamics_dyadic": bind_dynamics_dyadic, "bind_selections": bind_selections, "tdc_momentum": tdc_momentum, "tdc_leakage": tdc_leakage, "tdc_frequency": tdc_frequency, "tdc_nested": tdc_nested, "ff5_comparator": ff5_comparator, "ff5_bell": ff5_bell, "ff5_light_cone": ff5_light_cone, "ff5_intertwiner": ff5_intertwiner, "adj_clock_words": adj_clock_words, "adj_golden_carriers": adj_golden_carriers, "adj_relative_selector": adj_relative_selector, "adj_six_lines": adj_six_lines, "adj_foam12": adj_foam12, "adj_bridge_receipt": adj_bridge_receipt, "adj_bath_no_clock": adj_bath_no_clock, "mgm_marks": mgm_marks, "mgm_traces": mgm_traces, "mgm_dirac20": mgm_dirac20, "mgm_delta_audit": mgm_delta_audit, "canon_gram_traces": canon_gram_traces, "motif_source_moments": motif_source_moments, "motif_mode_floor": motif_mode_floor, "motif_spray": motif_spray, "motif_k5_gluing": motif_k5_gluing, "motif_reflection_859": motif_reflection_859, "motif_d14_table": motif_d14_table, "six_ref_source": six_ref_source, "six_ref_shape": six_ref_shape, "six_ref_court": six_ref_court, "six_ref_residual": six_ref_residual, "six_ref_decoder": six_ref_decoder, "six_ref_quartic": six_ref_quartic, "multipole_filtration": multipole_filtration, "multipole_dark_parity": multipole_dark_parity, "multipole_heat_law": multipole_heat_law, "multipole_two_step": multipole_two_step, "multipole_k5_source": multipole_k5_source, "multipole_k0_threshold": multipole_k0_threshold, "jacobi_channels": jacobi_channels, "jacobi_two_rung": jacobi_two_rung, "jacobi_fractional": jacobi_fractional, "open_clock_word": open_clock_word, "open_hodge_marker": open_hodge_marker, "open_golden_coupling": open_golden_coupling, "threshold_moments": threshold_moments, "threshold_action": threshold_action, "threshold_pole_toy": threshold_pole_toy, "threshold_five_faces": threshold_five_faces, "flower_homotopy": flower_homotopy, "flower_residues": flower_residues, "flower_sections": flower_sections, "flower_source": flower_source, "flower_twelve": flower_twelve, "usm_bulk_heat": usm_bulk_heat, "usm_spine_cubic": usm_spine_cubic, "usm_relheat_words": usm_relheat_words, "usm_relheat_comparator": usm_relheat_comparator, "usm_relheat_laplace": usm_relheat_laplace, "usm_wave_dirac": usm_wave_dirac, "joined_defect_series": joined_defect_series, "joined_current_lattice": joined_current_lattice, "joined_views": joined_views, "joined_hodge_859": joined_hodge_859, "joined_port_compare": joined_port_compare, "refclock_protected": refclock_protected, "refclock_halfreturn": refclock_halfreturn, "refclock_gain": refclock_gain, "refclock_calibration": refclock_calibration, "canon_flower_pullback": canon_flower_pullback, "canon_flower_spectral": canon_flower_spectral, "canon_flower_receipt": canon_flower_receipt, "canon_flower_nested": canon_flower_nested, "canon_flower_leaf": canon_flower_leaf, "w0_spanda": w0_spanda, "w0_oscillator": w0_oscillator, "w0_subsets": w0_subsets, "w0_firefly": w0_firefly, "video_ten_arithmetic": video_ten_arithmetic, "video_ten_defect": video_ten_defect, "video_ten_reduction": video_ten_reduction, "video_ten_chiral": video_ten_chiral, "video_ten_elsewhere": video_ten_elsewhere, "video_ten_codes": video_ten_codes, "video_ten_fisher": video_ten_fisher, "video_ten_mandala": video_ten_mandala, "video_ten_buffer": video_ten_buffer, "deep_wave_memory": deep_wave_memory, "deep_energy_exchange": deep_energy_exchange, "deep_softening": deep_softening, "deep_zero_pole": deep_zero_pole, "deep_saddles": deep_saddles, "deep_observer_algebra": deep_observer_algebra, "zero_pole_parity": zero_pole_parity, "zero_pole_toy": zero_pole_toy, "zero_pole_instance": zero_pole_instance, "bridge_memory_echo": bridge_memory_echo, "bridge_unitary_port": bridge_unitary_port, "shell_channels": shell_channels, "root_reflection": root_reflection, "branch_flips": branch_flips, "branch_counts": branch_counts, "bridge_workbench": bridge_workbench, "torsion_census": torsion_census, "torsion_golden": torsion_golden, "torsion_index": torsion_index, "saddle_density": saddle_density, "loewner_kernel": loewner_kernel, "grand_lorentz": grand_lorentz, "grand_fock": grand_fock, "grand_qec": grand_qec, "grand_tomography": grand_tomography, "grand_sat6": grand_sat6, "grand_registry": grand_registry, "sm_frame": sm_frame, "native_onset": native_onset, "band_closures": band_closures, "view_closures": view_closures, "code_closures": code_closures, "video_heterotic": video_heterotic, "video_lattices": video_lattices, "video_operators": video_operators, "chiral_closures": chiral_closures, "chiral_dark": chiral_dark, "chiral_time": chiral_time, "onemodel_closures": onemodel_closures, "onemodel_clock": onemodel_clock, "onemodel_gates": onemodel_gates, "f20_schur": f20_schur, "schur_zero_mode": schur_zero_mode, "localization_bound": localization_bound, "bridge_comparator": bridge_comparator, "e8_anisotropy": e8_anisotropy, "join_e8_atlas": join_e8_atlas, "join_e8_c27": join_e8_c27, "join_e8_circle": join_e8_circle, "join_e8_grain": join_e8_grain, "join_e8_miss": join_e8_miss, "join_e8_observer": join_e8_observer, "join_e8_stages": join_e8_stages, "join_e8_time": join_e8_time, "join_e8_vortex": join_e8_vortex, "join_e8_AGL": join_e8_AGL, "join_e8_G120": join_e8_G120, "join_e8_S5": join_e8_S5, "join_e8_clocks": join_e8_clocks, "join_e8_golden": join_e8_golden, "join_e8_pgl": join_e8_pgl, "join_e8_regular": join_e8_regular, "join_e8_residue": join_e8_residue, "join_e8_sun": join_e8_sun, "join_e8_words": join_e8_words, "join_e8_L0": join_e8_L0, "join_e8_carrier": join_e8_carrier, "join_e8_pauli": join_e8_pauli, "join_e8_pg25": join_e8_pg25, "join_e8_surface": join_e8_surface, "join_e8_synthemes": join_e8_synthemes, "join_e8_torus": join_e8_torus, "join_e8_triple": join_e8_triple, "join_e8_calibration": join_e8_calibration, "join_e8_charges": join_e8_charges, "join_e8_cosmology": join_e8_cosmology, "join_e8_darkport": join_e8_darkport, "join_e8_gksl": join_e8_gksl, "join_e8_gravity": join_e8_gravity, "join_e8_literal": join_e8_literal, "join_e8_measure": join_e8_measure, "join_e8_moments": join_e8_moments, "join_e8_parent": join_e8_parent, "join_e8_walks": join_e8_walks,
         "join_D5_binding": join_D5_binding,
         "join_census_charges": join_census_charges,
         "join_halfper_triple": join_halfper_triple,

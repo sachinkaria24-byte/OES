@@ -787,6 +787,12 @@ def test_the_drive_replays_of_2_nov_c():
         assert all(out.values()), out
 
 
+def test_the_binding_solution():
+    for check in (dots.bind_time_map, dots.bind_time_units, dots.bind_dynamics_dyadic, dots.bind_selections):
+        out = check()
+        assert all(out.values()), out
+
+
 def test_the_free_chain():
     out = dots.free_chain()
     assert all(out.values()), out
