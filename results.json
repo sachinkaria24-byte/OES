@@ -57,40 +57,40 @@
   }
  },
  "timing_s": {
-  "1-carrier": 0.62,
+  "1-carrier": 0.41,
   "2-spectral": 0.0,
-  "3-spacetime": 7.2,
-  "4-native": 87.36,
-  "5-observer": 4.43,
-  "6-gravity": 5.79,
-  "7-cosmology": 1.43,
-  "8-frontier": 42.04,
-  "9-joins": 7.95,
-  "10-literal": 35.88,
-  "11-glue": 0.13,
-  "12-binding": 0.03,
-  "13-gates": 0.1,
-  "14-recurrence": 38.87,
-  "15-court": 1.6,
-  "16-handover": 1.75,
-  "17-waves": 1.17,
-  "18-snapshot": 2.46,
-  "19-spine": 7.97,
-  "20-canon": 7.3,
-  "21-ledger": 39.14,
-  "22-counts": 20.54,
-  "23-dots": 1116.2,
-  "24-assignment": 4.53,
-  "25-unify": 4.52,
-  "26-primes": 4.37,
-  "27-places": 1.69,
-  "28-principal": 3.1
+  "3-spacetime": 4.26,
+  "4-native": 33.03,
+  "5-observer": 0.13,
+  "6-gravity": 2.89,
+  "7-cosmology": 0.81,
+  "8-frontier": 25.22,
+  "9-joins": 4.69,
+  "10-literal": 13.51,
+  "11-glue": 0.08,
+  "12-binding": 0.02,
+  "13-gates": 0.13,
+  "14-recurrence": 30.99,
+  "15-court": 1.16,
+  "16-handover": 0.72,
+  "17-waves": 0.31,
+  "18-snapshot": 0.45,
+  "19-spine": 1.94,
+  "20-canon": 4.39,
+  "21-ledger": 20.61,
+  "22-counts": 12.38,
+  "23-dots": 684.1,
+  "24-assignment": 1.86,
+  "25-unify": 2.65,
+  "26-primes": 2.4,
+  "27-places": 1.0,
+  "28-principal": 1.91
  },
  "fast": false,
  "summary": {
   "THEOREM": {
-   "passed": 1239,
-   "total": 1239
+   "passed": 1243,
+   "total": 1243
   },
   "OBSTRUCTION": {
    "passed": 108,
@@ -105,16 +105,16 @@
    "total": 45
   },
   "SELECTED_REFERENCE": {
-   "passed": 34,
-   "total": 34
+   "passed": 37,
+   "total": 37
   },
   "UNFORMED": {
    "passed": 24,
    "total": 24
   },
   "CONDITIONAL": {
-   "passed": 56,
-   "total": 56
+   "passed": 57,
+   "total": 57
   },
   "REPORTED": {
    "passed": 154,
@@ -16257,6 +16257,143 @@
   },
   {
    "layer": "23-dots",
+   "name": "calibration -> bath: for the generator (kappa/tau^2) K the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y depends on (tau, kappa) only through rho = tau/sqrt(kappa) (invariant under (c tau, c^2 kappa), annihilated by tau d/dtau + 2 kappa d/dkappa, equal to its value at (rho, 1)), and the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (TIME_BIND_RESOLUTION) each invert to rho; the map rho = T_half/u_half has exactly one free symbol, the measured interval, so TIME_BIND = exactly one measured interval and the SI second enters only there ('no internal clock', calibration's OBSTRUCTION join; TIME_BIND stays UNBOUND: no interval is in the model) (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the gauge: for the generator (kappa/tau^2) K on a generic symmetric 2 x 2 K = R(theta) diag(l1, l2) R(theta)^T the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y solves C'' + (kappa/tau^2) K C = 0, is invariant under (tau, kappa) -> (c tau, c^2 kappa), equals its own value at (tau, kappa) = (rho, 1) with rho = tau/sqrt(kappa), and is annihilated by tau d/dtau + 2 kappa d/dkappa (video_ten_fisher's null vector (tau, 2 kappa)): the physical response depends on (tau, kappa) only through rho": true,
+    "the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (the Drive note TIME_BIND_RESOLUTION) each invert to rho = T_half/u_half = (D/Xi)^(1/4) = sqrt(z*)/s*, identically in rho": true,
+    "the rho-free invariants are identities of the map: I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*), with rho cancelling symbolically": true,
+    "I1's certified bracket from the P8 half-return: 2117 lo^4 < I1 < 2117 hi^4 with lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760 (refclock_halfreturn's exact endpoints, printing 0.07744265626588037 and 0.07744280280333794), so 0.07614507 < I1 < 0.07614566 (decimals, labelled); with the P10 decimals 0.0774426666 < u_half < 0.0774426679 (refclock_halfreturn's m5, m6 bracket, cited), 0.07614511 < I1 < 0.07614513": true,
+    "I2's bracket from the crossover note: with z* in (12200402860332943/281474976710656, 12200405718556069/281474976710656) (denominator 2^48; the note's certificate, read as data), 389/z_hi^2 < I2 < 389/z_lo^2, so 0.20705257 < I2 < 0.20705268 (decimals, labelled)": true,
+    "I3's bracket: the note's decimals 6.583656896344280 < sqrt(z*) < 6.583657667530262 are consistent with the z* bracket (their squares lie outside it), so lo x 6.583656896344280 < I3 < hi x 6.583657667530262, giving 0.50985587 < I3 < 0.50985691 (decimals, labelled), and 0.50985594 < I3 < 0.50985602 with the P10 half-return": true,
+    "the two variances from the stated moments: 2117 = m2 - m1^2 = 35973 - 184^2 of the mass clock (D45's mass entry, master_readout) and 389 = m2 - m1^2 = 54213 - 232^2 of the quadratic source (D45's quadratic entry, notes_1512), with the crossover note's hidden-measure data as arithmetic from the stated m0..m3 (int c dnu = 72928 = m3 - m1^3 - 2 m1 (m2 - m1^2) and the central third moment m3 - 3 m1 m2 + 2 m1^3 = -17320), and D45 = (2117, 967^8, 389^26, 127^6, 83^4) has trace 21061 (deep_observer_algebra)": true,
+    "the no-go restated: 'no internal clock' is calibration's OBSTRUCTION join (circle-calibration) and gates.GATES keeps TIME_BIND UNBOUND; the map rho = T_half/u_half has exactly one free symbol, the measured interval T_half, so TIME_BIND = exactly one measured interval and the SI second enters only there (the preparation and the readout being external inputs, refclock_calibration)": true,
+    "the invariants carry one relation: I2 = (389/2117) I1/I3^4 identically (four readings T_half, Xi_mass, Xi_q, s* of one rho leave three independent rho-free numbers), so the independent set is the exact variance ratio Xi_mass/Xi_q = 2117/389 together with I1 and I3, and the three-route note's I1 = v19/v_q = 10791/389 is the 19-source trace 8 x 967 + 7 x 389 + 4 x 83 (refclock_gain's hid19 eigenvalues 967^8, 389^7, 83^4, cited) over the quadratic variance, and tr D45/389 = 21061/389, both exact": true,
+    "the separate model's three-route note (the Drive doc 'Triple-Route Time Invariant and Scale-Free Dyadic E8 Memory Reconstruction', 6 Nov 08:44, with its txt and exact receipt of 08:45), read as data: with its dressed zero-bulk-velocity source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md's certificate, 2 Nov, filed 3 Nov; not replayed) and the model's P8 mass endpoints and the sqrt(z*) decimals, the note's three brackets T_s/T_m in (4.77669338477, 4.77676420538), s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward roundings of the exact products of the stated endpoints (Fractions: lo_s/hi_m < u_s/u_m < hi_s/lo_m, and u sqrt(z*) with the outer sqrt(z*) decimals), and the receipt's exact I2 fractions 389/z_hi^2, 389/z_lo^2 (30819755218048827323888596680704 over 148849899697375630338714296732761 and over 148849829954420257058944811041249) equal the model's": true,
+    "the note's 19-source bands at z* (read as data, not replayed: 0.014725747504511457 < e_l < 0.014725754281094184, e_q = 1/200 by definition, 0.000842972528942191 < e_d < 0.000842972653468548 with multiplicities 8, 7, 4) sum to its trace bracket exactly: 8 e_l + 7/200 + 4 e_d has endpoints 0.156177870151860420 and 0.156177924862627664, the note's tr E(s*) bracket to the last digit; the multiplicities are refclock_gain's 19-source hidden covariance D19 = 967 P8 + 389 P7 + 83 P4; the doc's odd-ten port value 127 P6 + 392 P4 is its own (392 is no model number: the model's ten-port readers carry 389 I10 and 127 I6 in notes_1512's BB*), so neither tail substitutes for the other": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "calibration -> readout: I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*) are identities of the binding map with rho cancelling, carrying one relation I2 = (389/2117) I1/I3^4 (four readings of one rho leave three rho-free numbers: the exact variance ratio 2117/389 with I1 and I3), and certified brackets: 2117 lo^4 < I1 < 2117 hi^4 with refclock_halfreturn's exact P8 endpoints lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760 (0.07614507 < I1 < 0.07614566; 0.07614511 < I1 < 0.07614513 with its P10 decimals), 389/z_hi^2 < I2 < 389/z_lo^2 (0.20705257 < I2 < 0.20705268) and lo x 6.583656896344280 < I3 < hi x 6.583657667530262 (0.50985587 < I3 < 0.50985691), where 2117 = 35973 - 184^2 (master_readout's D45 mass entry) and 389 = 54213 - 232^2 (its quadratic entry, notes_1512); the three-route doc's own I1 = v19/v_q = 10791/389 is refclock_gain's 19-source trace 8 x 967 + 7 x 389 + 4 x 83 over the quadratic variance; relations any realization reading all three routes must satisfy (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "the gauge: for the generator (kappa/tau^2) K on a generic symmetric 2 x 2 K = R(theta) diag(l1, l2) R(theta)^T the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y solves C'' + (kappa/tau^2) K C = 0, is invariant under (tau, kappa) -> (c tau, c^2 kappa), equals its own value at (tau, kappa) = (rho, 1) with rho = tau/sqrt(kappa), and is annihilated by tau d/dtau + 2 kappa d/dkappa (video_ten_fisher's null vector (tau, 2 kappa)): the physical response depends on (tau, kappa) only through rho": true,
+    "the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (the Drive note TIME_BIND_RESOLUTION) each invert to rho = T_half/u_half = (D/Xi)^(1/4) = sqrt(z*)/s*, identically in rho": true,
+    "the rho-free invariants are identities of the map: I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*), with rho cancelling symbolically": true,
+    "I1's certified bracket from the P8 half-return: 2117 lo^4 < I1 < 2117 hi^4 with lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760 (refclock_halfreturn's exact endpoints, printing 0.07744265626588037 and 0.07744280280333794), so 0.07614507 < I1 < 0.07614566 (decimals, labelled); with the P10 decimals 0.0774426666 < u_half < 0.0774426679 (refclock_halfreturn's m5, m6 bracket, cited), 0.07614511 < I1 < 0.07614513": true,
+    "I2's bracket from the crossover note: with z* in (12200402860332943/281474976710656, 12200405718556069/281474976710656) (denominator 2^48; the note's certificate, read as data), 389/z_hi^2 < I2 < 389/z_lo^2, so 0.20705257 < I2 < 0.20705268 (decimals, labelled)": true,
+    "I3's bracket: the note's decimals 6.583656896344280 < sqrt(z*) < 6.583657667530262 are consistent with the z* bracket (their squares lie outside it), so lo x 6.583656896344280 < I3 < hi x 6.583657667530262, giving 0.50985587 < I3 < 0.50985691 (decimals, labelled), and 0.50985594 < I3 < 0.50985602 with the P10 half-return": true,
+    "the two variances from the stated moments: 2117 = m2 - m1^2 = 35973 - 184^2 of the mass clock (D45's mass entry, master_readout) and 389 = m2 - m1^2 = 54213 - 232^2 of the quadratic source (D45's quadratic entry, notes_1512), with the crossover note's hidden-measure data as arithmetic from the stated m0..m3 (int c dnu = 72928 = m3 - m1^3 - 2 m1 (m2 - m1^2) and the central third moment m3 - 3 m1 m2 + 2 m1^3 = -17320), and D45 = (2117, 967^8, 389^26, 127^6, 83^4) has trace 21061 (deep_observer_algebra)": true,
+    "the no-go restated: 'no internal clock' is calibration's OBSTRUCTION join (circle-calibration) and gates.GATES keeps TIME_BIND UNBOUND; the map rho = T_half/u_half has exactly one free symbol, the measured interval T_half, so TIME_BIND = exactly one measured interval and the SI second enters only there (the preparation and the readout being external inputs, refclock_calibration)": true,
+    "the invariants carry one relation: I2 = (389/2117) I1/I3^4 identically (four readings T_half, Xi_mass, Xi_q, s* of one rho leave three independent rho-free numbers), so the independent set is the exact variance ratio Xi_mass/Xi_q = 2117/389 together with I1 and I3, and the three-route note's I1 = v19/v_q = 10791/389 is the 19-source trace 8 x 967 + 7 x 389 + 4 x 83 (refclock_gain's hid19 eigenvalues 967^8, 389^7, 83^4, cited) over the quadratic variance, and tr D45/389 = 21061/389, both exact": true,
+    "the separate model's three-route note (the Drive doc 'Triple-Route Time Invariant and Scale-Free Dyadic E8 Memory Reconstruction', 6 Nov 08:44, with its txt and exact receipt of 08:45), read as data: with its dressed zero-bulk-velocity source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md's certificate, 2 Nov, filed 3 Nov; not replayed) and the model's P8 mass endpoints and the sqrt(z*) decimals, the note's three brackets T_s/T_m in (4.77669338477, 4.77676420538), s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward roundings of the exact products of the stated endpoints (Fractions: lo_s/hi_m < u_s/u_m < hi_s/lo_m, and u sqrt(z*) with the outer sqrt(z*) decimals), and the receipt's exact I2 fractions 389/z_hi^2, 389/z_lo^2 (30819755218048827323888596680704 over 148849899697375630338714296732761 and over 148849829954420257058944811041249) equal the model's": true,
+    "the note's 19-source bands at z* (read as data, not replayed: 0.014725747504511457 < e_l < 0.014725754281094184, e_q = 1/200 by definition, 0.000842972528942191 < e_d < 0.000842972653468548 with multiplicities 8, 7, 4) sum to its trace bracket exactly: 8 e_l + 7/200 + 4 e_d has endpoints 0.156177870151860420 and 0.156177924862627664, the note's tr E(s*) bracket to the last digit; the multiplicities are refclock_gain's 19-source hidden covariance D19 = 967 P8 + 389 P7 + 83 P4; the doc's odd-ten port value 127 P6 + 392 P4 is its own (392 is no model number: the model's ten-port readers carry 389 I10 and 127 I6 in notes_1512's BB*), so neither tail substitutes for the other": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "calibration -> source: the Drive note TIME_BIND_RESOLUTION (2 Nov, the separate model) certifies on the bare quadratic source (m0..m4 = 1, 232, 54213, 12740592, 3008062816; hidden measure total 389 = m2 - m1^2, int c dnu = 72928 = m3 - m1^3 - 2 m1 (m2 - m1^2), central third moment -17320, all checked as arithmetic from the stated moments) that the excess secant E(s) = [R(2s)^-1 - R(s)^-1]/(3 s^2) - 1 = e((rho s)^2) is strictly decreasing and crosses 1/200 at a unique z* in (12200402860332943, 12200405718556069)/2^48, so rho = sqrt(z*)/s* with 6.583656896344280 < sqrt(z*) < 6.583657667530262 (the decimals consistent with the bracket); the z* bracket is the note's certificate (it needs m0..m17, not in the model) and is read as SELECTED_REFERENCE data; the separate model's three-route doc (6 Nov 08:44, with its txt and exact receipt of 08:45) adds, read as data, the dressed source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md), whose three ratio brackets T_s/T_m, s* T_m (= I3) and s* T_s are outward roundings of the exact products of the stated endpoints (recomputed in Fractions), the receipt's exact I2 fractions (equal to the model's 389/z_hi^2, 389/z_lo^2), and its 19-source bands e_l, e_q = 1/200, e_d at z* with multiplicities 8, 7, 4 (refclock_gain's D19) summing to its trace bracket to the last digit (6 Nov)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the gauge: for the generator (kappa/tau^2) K on a generic symmetric 2 x 2 K = R(theta) diag(l1, l2) R(theta)^T the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y solves C'' + (kappa/tau^2) K C = 0, is invariant under (tau, kappa) -> (c tau, c^2 kappa), equals its own value at (tau, kappa) = (rho, 1) with rho = tau/sqrt(kappa), and is annihilated by tau d/dtau + 2 kappa d/dkappa (video_ten_fisher's null vector (tau, 2 kappa)): the physical response depends on (tau, kappa) only through rho": true,
+    "the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (the Drive note TIME_BIND_RESOLUTION) each invert to rho = T_half/u_half = (D/Xi)^(1/4) = sqrt(z*)/s*, identically in rho": true,
+    "the rho-free invariants are identities of the map: I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*), with rho cancelling symbolically": true,
+    "I1's certified bracket from the P8 half-return: 2117 lo^4 < I1 < 2117 hi^4 with lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760 (refclock_halfreturn's exact endpoints, printing 0.07744265626588037 and 0.07744280280333794), so 0.07614507 < I1 < 0.07614566 (decimals, labelled); with the P10 decimals 0.0774426666 < u_half < 0.0774426679 (refclock_halfreturn's m5, m6 bracket, cited), 0.07614511 < I1 < 0.07614513": true,
+    "I2's bracket from the crossover note: with z* in (12200402860332943/281474976710656, 12200405718556069/281474976710656) (denominator 2^48; the note's certificate, read as data), 389/z_hi^2 < I2 < 389/z_lo^2, so 0.20705257 < I2 < 0.20705268 (decimals, labelled)": true,
+    "I3's bracket: the note's decimals 6.583656896344280 < sqrt(z*) < 6.583657667530262 are consistent with the z* bracket (their squares lie outside it), so lo x 6.583656896344280 < I3 < hi x 6.583657667530262, giving 0.50985587 < I3 < 0.50985691 (decimals, labelled), and 0.50985594 < I3 < 0.50985602 with the P10 half-return": true,
+    "the two variances from the stated moments: 2117 = m2 - m1^2 = 35973 - 184^2 of the mass clock (D45's mass entry, master_readout) and 389 = m2 - m1^2 = 54213 - 232^2 of the quadratic source (D45's quadratic entry, notes_1512), with the crossover note's hidden-measure data as arithmetic from the stated m0..m3 (int c dnu = 72928 = m3 - m1^3 - 2 m1 (m2 - m1^2) and the central third moment m3 - 3 m1 m2 + 2 m1^3 = -17320), and D45 = (2117, 967^8, 389^26, 127^6, 83^4) has trace 21061 (deep_observer_algebra)": true,
+    "the no-go restated: 'no internal clock' is calibration's OBSTRUCTION join (circle-calibration) and gates.GATES keeps TIME_BIND UNBOUND; the map rho = T_half/u_half has exactly one free symbol, the measured interval T_half, so TIME_BIND = exactly one measured interval and the SI second enters only there (the preparation and the readout being external inputs, refclock_calibration)": true,
+    "the invariants carry one relation: I2 = (389/2117) I1/I3^4 identically (four readings T_half, Xi_mass, Xi_q, s* of one rho leave three independent rho-free numbers), so the independent set is the exact variance ratio Xi_mass/Xi_q = 2117/389 together with I1 and I3, and the three-route note's I1 = v19/v_q = 10791/389 is the 19-source trace 8 x 967 + 7 x 389 + 4 x 83 (refclock_gain's hid19 eigenvalues 967^8, 389^7, 83^4, cited) over the quadratic variance, and tr D45/389 = 21061/389, both exact": true,
+    "the separate model's three-route note (the Drive doc 'Triple-Route Time Invariant and Scale-Free Dyadic E8 Memory Reconstruction', 6 Nov 08:44, with its txt and exact receipt of 08:45), read as data: with its dressed zero-bulk-velocity source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md's certificate, 2 Nov, filed 3 Nov; not replayed) and the model's P8 mass endpoints and the sqrt(z*) decimals, the note's three brackets T_s/T_m in (4.77669338477, 4.77676420538), s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward roundings of the exact products of the stated endpoints (Fractions: lo_s/hi_m < u_s/u_m < hi_s/lo_m, and u sqrt(z*) with the outer sqrt(z*) decimals), and the receipt's exact I2 fractions 389/z_hi^2, 389/z_lo^2 (30819755218048827323888596680704 over 148849899697375630338714296732761 and over 148849829954420257058944811041249) equal the model's": true,
+    "the note's 19-source bands at z* (read as data, not replayed: 0.014725747504511457 < e_l < 0.014725754281094184, e_q = 1/200 by definition, 0.000842972528942191 < e_d < 0.000842972653468548 with multiplicities 8, 7, 4) sum to its trace bracket exactly: 8 e_l + 7/200 + 4 e_d has endpoints 0.156177870151860420 and 0.156177924862627664, the note's tr E(s*) bracket to the last digit; the multiplicities are refclock_gain's 19-source hidden covariance D19 = 967 P8 + 389 P7 + 83 P4; the doc's odd-ten port value 127 P6 + 392 P4 is its own (392 is no model number: the model's ten-port readers carry 389 I10 and 127 I6 in notes_1512's BB*), so neither tail substitutes for the other": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> spectral measures: P01 (TIME DYN P01-P20, 6 Nov): for Sigma(z) = B (z + C)^-1 B^T with C >= 0 and e(z) = [Sigma(z) - Sigma(4z)]/(3z) the dyadic partial sums leave the exact tail Sigma(z) - 3z sum_(j < N) 4^j e(4^j z) = Sigma(4^N z) (symbolic on a generic block for N = 1, 2, 3; the sum telescopes), with 0 <= Sigma(4^N z) <= B B^T/(4^N z) in Loewner order; on master_response's root-site instance (15 bond atoms visible, 225 roots hidden, exact rationals by its block trick, each of Sigma(1), Sigma(4), Sigma(16) certified by (w + C) W_w = B^T and Sigma(w) = B W_w) the tail bound holds by exact inertia (15 positive pivots, no zero pivot, for Sigma(4), B B^T/4 - Sigma(4), Sigma(16), B B^T/16 - Sigma(16)); the load identity G_L^-1 - G_0^-1 = L is master_response's source law; the three-route doc's scale-free form (at x = s/s* with rho s* = sqrt(z*) the dyadic sum 3 z* x^2 sum 4^n E_phys(2^n s* x) equals Sigma(z* x^2) - Sigma(4^N z* x^2) with rho cancelling) and its one-anchor recovery (A = G(z0)^-1 - z0 + Sigma(z0), G(z)^-1 = G(z0)^-1 + (z - z0) + Sigma(z0) - Sigma(z)) are symbolic identities on the generic block, recovering the visible compressed Green function only (the note's own caveat) (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "P01 symbolically: on a generic block (visible 2, hidden 2, B generic, C symmetric) with Sigma(z) = B (z + C)^-1 B^T and e(z) = [Sigma(z) - Sigma(4z)]/(3z), Sigma(z) - 3z sum_(j < N) 4^j e(4^j z) = Sigma(4^N z) identically in z for N = 1, 2, 3 (the sum telescopes)": true,
+    "on the root-site instance (master_response: the 15 bond atoms visible, the 225 other roots hidden, B = (H_R)_(vis, hid) with entries in {0, -1}, C = (H_R)_(hid, hid) with diagonal 240 and off-diagonal row sums at most 56 < 240, so C > 0 by Gershgorin; the five sector eigenvalues of B_R are 56, 28, 8, -2, -4) the exact rational Sigma(1), Sigma(4), Sigma(16) from the block trick are each certified by (w + C) W_w = B^T and Sigma(w) = B W_w at w = 1, 4, 16 (master_response's own check, replayed), and with e(1) = [Sigma(1) - Sigma(4)]/3 and e(4) = [Sigma(4) - Sigma(16)]/12 read off them, Sigma(1) - 3 e(1) = Sigma(4) and Sigma(1) - 3 [e(1) + 4 e(4)] = Sigma(16) (z = 1, N = 1, 2): the content is the three certified values, the subtraction being P01's identity": true,
+    "the Loewner tail bound by exact inertia: Sigma(4) >= 0, B B^T/4 - Sigma(4) >= 0, Sigma(16) >= 0 and B B^T/16 - Sigma(16) >= 0, each with 15 positive pivots and no zero pivot in exact symmetric elimination, so 0 < Sigma(4^N z) < B B^T/(4^N z) at z = 1, N = 1, 2 (B has rank 15 and C > 0)": true,
+    "the load identity symbolically: G_L(z)^-1 - G_0(z)^-1 = L for G_L = (z + K + L)^-1 on a generic symmetric 2 x 2 K and L (master_response's S_K^-1 - S_H^-1 = V, cited by tdc_frequency)": true,
+    "the measured secant: with the hidden block in physical units (B/rho, C/rho^2) E_meas(s) = rho^2 e((rho s)^2), P01's form; with the whole generator scaled, (B/rho^2, C/rho^2), it is e((rho s)^2), the crossover note's form; either way E_meas depends on rho, and reconstructing Sigma_N at z = (rho s)^2 needs rho from bind_time_map first: time before dynamics": true,
+    "the scale-free form (the three-route note, 6 Nov 08:44): with the generator K/rho^2, E_phys(s) = e((rho s)^2), and at x = s/s* with rho s* = sqrt(z*) the dyadic sum 3 z* x^2 sum_(n < N) 4^n E_phys(2^n s* x) equals Sigma(z* x^2) - Sigma(4^N z* x^2) with rho cancelling (symbolic, N = 2, generic block): the memory's shape in model units is read from rate ratios s/s* alone once the crossover s* is found, before any second is assigned; the absolute Sigma_phys(s) = rho^-2 Sigma((rho s)^2) still needs rho": true,
+    "the one-anchor recovery (the three-route txt): for G(z) = (z + A - Sigma(z))^-1 with A symmetric, one full G(z0) fixes A = G(z0)^-1 - z0 I + Sigma(z0), and then G(z)^-1 = G(z0)^-1 + (z - z0) I + Sigma(z0) - Sigma(z) for every z (symbolic on the generic block): the full secant curve and one anchor give the compressed Green function on the visible block, not the hidden realization (the note's own caveat; the model's comparator non-uniqueness is notes_1418's last diagonal 200 or 210); exact on a rational instance (B = [[1, 2], [-1, 3]], C = [[5, 1], [1, 7]] > 0, A = [[2, 1/2], [1/2, 3]]) at z0 = 1, z = 3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "bath -> calibration: the two bindings chain: for the gauge-covariant generator (kappa/tau^2)(K + delta_model e e^T) the inverse-response shift is (delta_model/rho^2) e e^T at every s, so a measured d (s^-2) fixes rho^2 = delta_model/d and never tau, kappa apart (in the kappa = 1 gauge of the T1-T5 audit this reads tau^2 = delta_model/d, tau = rho); d^2/Xi_q = delta_model^2/389 is a fourth rho-free relation (64/389 at the three-route note's static gap 8, read as data and 'to be tested, not used to define rho'; the model's dressed gap at alpha = 1 is deep_zero_pole's floor min(alpha lam-, 8) = (5 - sqrt5)/2, not 8); a stiffness step in N/m over d is a mass (kg), not s^2 (the T1-T5 audit, 6 Nov, sympy.physics.units); and the measured secant E_meas(s) = rho^2 e((rho s)^2) (P01's normalization B/rho, C/rho^2; e((rho s)^2) with the whole generator K/rho^2, the crossover note's form) needs rho to reconstruct Sigma_N at z = (rho s)^2 in absolute units: time first, then dynamics; CONDITIONAL on a measured interval and a measured shift, neither in the model (6 Nov)",
+   "status": "CONDITIONAL",
+   "passed": true,
+   "value": {
+    "the load shift is gauge-invariant and fixes rho only: for the gauge-covariant generator (kappa/tau^2) (K + delta e e^T) the inverse-response shift is (kappa delta/tau^2) e e^T = (delta/rho^2) e e^T (symbolic on a generic 2 x 2 K), so a measured d (s^-2) reads rho^2 = delta/d, unchanged by (c tau, c^2 kappa), as the three-route note's d = 8/rho^2 says, and never tau and kappa apart; with Xi_q = 389/rho^4 the ratio d^2/Xi_q = delta^2/389 is a fourth rho-free relation, 64/389 at the note's static gap delta = 8 (the receipt's d_squared_over_vq_if_static_gap_is_8, read as data; 'to be tested, not used to define rho'); that gap is the note's stiffness-eight branch, not the model's dressed gap: deep_zero_pole's floor is min(alpha lam-, 8) with lam- = (5 - sqrt5)/2 in (1.3819, 1.3820) (chiral_closures' factors), the gap at alpha = 1 (zero_pole_instance)": "True",
+    "the load shift is exact and frequency-free: for R(s) = (s^2 I + tau^-2 (K + delta e e^T))^-1 on a generic symmetric 2 x 2 K, R_L(s)^-1 - R_0(s)^-1 = (delta/tau^2) e e^T at every s (master_response's S_K^-1 - S_H^-1 = V, tdc_frequency's clock-scaled law)": true,
+    "the two steps in the kappa = 1 gauge (the T1-T5 audit's generator tau^-2 (K + delta_model e e^T)): step one, the measured shift d := delta_model/tau^2 (in s^-2) gives tau^2 = delta_model/d; step two, kappa = tau^2/rho^2 from rho = tau/sqrt(kappa) with rho from bind_time_map, which in this gauge is the consistency kappa = 1, tau = rho = sqrt(delta_model/d): the steps are time first (rho) then the load (a gauge choice), and tau, kappa apart stay unidentified (refclock_calibration)": true,
+    "the dimensional statement: a dimensionless delta_model over d (s^-2) is s^2, tau^2's unit, while a stiffness step in N/m over d (s^-2) is a mass, kg, not a time squared (sympy.physics.units and the (M, L, T) exponents (1, 0, -2) - (0, 0, -2) = (1, 0, 0))": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "source -> calibration: DYN_BIND's content as a checked table: the dynamics is the declared native action (the 'source' dot, q'' + 4q = 0 on ker M + ker M, native.run) and its completion family K_theta = H + theta (eps + J V J^T) = (1 - theta) H + theta K19 (flower_homotopy) carries named selections each tagged with a model function: theta (flower_homotopy), eps, alpha and J (schur_zero_mode), the mark (mgm_marks), W_p and the adapter (literal_port, parent_readers), iota (canon_flower_pullback), the parity (zero_pole_parity), the readout (master_readout); the check is that every named function exists in oes.dots (the tags' content is those functions' own statements, not rechecked), and gates.GATES keeps TIME_BIND UNBOUND and DYN_BIND NOT_INSTALLED: the solution installs maps, not data (the selections are the separate model's, read as data) (6 Nov)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the dynamics is the declared native action: the 'source' dot reads q'' + 4q = 0 on ker M + ker M and native.run(simulate, steps, dt) exists; the completion family K_theta = H + theta (eps + J V J^T) is flower_homotopy's (1 - theta) H + theta K19 with K19 = H + eps + J V J^T (symbolic identity)": true,
+    "the selection table: theta (flower_homotopy), eps and alpha and J (schur_zero_mode), the mark (mgm_marks), W_p and the adapter (literal_port, parent_readers), iota (canon_flower_pullback), the parity (zero_pole_parity), the readout (master_readout): every named function exists in oes.dots and is callable": true,
+    "the gates stay: gates.GATES['TIME_BIND'] == 'UNBOUND' and gates.GATES['DYN_BIND'] == 'NOT_INSTALLED'; the solution installs maps (bind_time_map, bind_time_units, bind_dynamics_dyadic), not data, and no physical datum exists in the model": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "readout -> bath: with the generator K/rho^2 the measured secant is E_phys(s) = e((rho s)^2) exactly (E_phys(2^n s* x) = e(4^n z* x^2), rho-free), and at x = s/s* with rho s* = sqrt(z*) the dyadic sum 3 z* x^2 sum_(n < N) 4^n E_phys(2^n s* x) = Sigma(z* x^2) - Sigma(4^N z* x^2) (symbolic on the generic block, N = 2): the memory's shape in model units is read from rate ratios alone once the crossover s* is found, before a second is assigned, while the absolute Sigma_phys(s) = rho^-2 Sigma((rho s)^2) still needs rho (the three-route doc, 6 Nov 08:44, section 4); one full normalized G(z0) then fixes A = G(z0)^-1 - z0 I + Sigma(z0) and G(z)^-1 = G(z0)^-1 + (z - z0) I + Sigma(z0) - Sigma(z) for every z (its txt, section 2; symbolic, and exact on a rational instance at z0 = 1, z = 3): the compressed Green function on the visible block, not the hidden realization (the note's own caveat; the model's comparator non-uniqueness is notes_1418's) (6 Nov)",
+   "status": "THEOREM",
+   "passed": true,
+   "value": {
+    "P01 symbolically: on a generic block (visible 2, hidden 2, B generic, C symmetric) with Sigma(z) = B (z + C)^-1 B^T and e(z) = [Sigma(z) - Sigma(4z)]/(3z), Sigma(z) - 3z sum_(j < N) 4^j e(4^j z) = Sigma(4^N z) identically in z for N = 1, 2, 3 (the sum telescopes)": true,
+    "on the root-site instance (master_response: the 15 bond atoms visible, the 225 other roots hidden, B = (H_R)_(vis, hid) with entries in {0, -1}, C = (H_R)_(hid, hid) with diagonal 240 and off-diagonal row sums at most 56 < 240, so C > 0 by Gershgorin; the five sector eigenvalues of B_R are 56, 28, 8, -2, -4) the exact rational Sigma(1), Sigma(4), Sigma(16) from the block trick are each certified by (w + C) W_w = B^T and Sigma(w) = B W_w at w = 1, 4, 16 (master_response's own check, replayed), and with e(1) = [Sigma(1) - Sigma(4)]/3 and e(4) = [Sigma(4) - Sigma(16)]/12 read off them, Sigma(1) - 3 e(1) = Sigma(4) and Sigma(1) - 3 [e(1) + 4 e(4)] = Sigma(16) (z = 1, N = 1, 2): the content is the three certified values, the subtraction being P01's identity": true,
+    "the Loewner tail bound by exact inertia: Sigma(4) >= 0, B B^T/4 - Sigma(4) >= 0, Sigma(16) >= 0 and B B^T/16 - Sigma(16) >= 0, each with 15 positive pivots and no zero pivot in exact symmetric elimination, so 0 < Sigma(4^N z) < B B^T/(4^N z) at z = 1, N = 1, 2 (B has rank 15 and C > 0)": true,
+    "the load identity symbolically: G_L(z)^-1 - G_0(z)^-1 = L for G_L = (z + K + L)^-1 on a generic symmetric 2 x 2 K and L (master_response's S_K^-1 - S_H^-1 = V, cited by tdc_frequency)": true,
+    "the measured secant: with the hidden block in physical units (B/rho, C/rho^2) E_meas(s) = rho^2 e((rho s)^2), P01's form; with the whole generator scaled, (B/rho^2, C/rho^2), it is e((rho s)^2), the crossover note's form; either way E_meas depends on rho, and reconstructing Sigma_N at z = (rho s)^2 needs rho from bind_time_map first: time before dynamics": true,
+    "the scale-free form (the three-route note, 6 Nov 08:44): with the generator K/rho^2, E_phys(s) = e((rho s)^2), and at x = s/s* with rho s* = sqrt(z*) the dyadic sum 3 z* x^2 sum_(n < N) 4^n E_phys(2^n s* x) equals Sigma(z* x^2) - Sigma(4^N z* x^2) with rho cancelling (symbolic, N = 2, generic block): the memory's shape in model units is read from rate ratios s/s* alone once the crossover s* is found, before any second is assigned; the absolute Sigma_phys(s) = rho^-2 Sigma((rho s)^2) still needs rho": true,
+    "the one-anchor recovery (the three-route txt): for G(z) = (z + A - Sigma(z))^-1 with A symmetric, one full G(z0) fixes A = G(z0)^-1 - z0 I + Sigma(z0), and then G(z)^-1 = G(z0)^-1 + (z - z0) I + Sigma(z0) - Sigma(z) for every z (symbolic on the generic block): the full secant curve and one anchor give the compressed Green function on the visible block, not the hidden realization (the note's own caveat; the model's comparator non-uniqueness is notes_1418's last diagonal 200 or 210); exact on a rational instance (B = [[1, 2], [-1, 3]], C = [[5, 1], [1, 7]] > 0, A = [[2, 1/2], [1/2, 3]]) at z0 = 1, z = 3": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
+   "name": "calibration -> spectral measures: the separate model's three-route doc (6 Nov 08:44; its txt and exact receipt in OES_CLOCK_RHO_DYADIC_THREE_ROUTE_20261106, 08:45), read as data: a dressed zero-bulk-velocity source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md, 2 Nov, filed 3 Nov) and the 19-source bands at z* (e_l in (0.014725747504511457, 0.014725754281094184), e_q = 1/200, e_d in (0.000842972528942191, 0.000842972653468548), multiplicities 8, 7, 4) are its certificates, not replayed; its brackets T_s/T_m in (4.77669338477, 4.77676420538), s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward roundings of the exact products of the stated endpoints (Fractions), its tr E(s*) bracket (0.156177870151860420, 0.156177924862627664) is 8 e_l + 7/200 + 4 e_d to the last digit, and its receipt's exact I2 fractions equal the model's 389/z_hi^2, 389/z_lo^2; the invariants carry one relation I2 = (389/2117) I1/I3^4, so the independent rho-free set is the exact ratio 2117/389 with I1 and I3 (the doc's own I1 = 10791/389 is refclock_gain's 19-source trace over the quadratic variance); D19 = 967 P8 + 389 P7 + 83 P4 (norm 967) is the 19-source dyadic tail, and the doc's odd-ten port value 127 P6 + 392 P4 is a different reader of its own (392 is no model number) (6 Nov)",
+   "status": "SELECTED_REFERENCE",
+   "passed": true,
+   "value": {
+    "the gauge: for the generator (kappa/tau^2) K on a generic symmetric 2 x 2 K = R(theta) diag(l1, l2) R(theta)^T the response C(t) = Y^T cos(t sqrt(kappa K)/tau) Y solves C'' + (kappa/tau^2) K C = 0, is invariant under (tau, kappa) -> (c tau, c^2 kappa), equals its own value at (tau, kappa) = (rho, 1) with rho = tau/sqrt(kappa), and is annihilated by tau d/dtau + 2 kappa d/dkappa (video_ten_fisher's null vector (tau, 2 kappa)): the physical response depends on (tau, kappa) only through rho": true,
+    "the three routes are one map in rho: the half-return T_half = rho u_half (refclock_calibration), the fourth jet Xi = D45/rho^4 (deep_observer_algebra, refclock_gain) and the crossover s* = sqrt(z*)/rho (the Drive note TIME_BIND_RESOLUTION) each invert to rho = T_half/u_half = (D/Xi)^(1/4) = sqrt(z*)/s*, identically in rho": true,
+    "the rho-free invariants are identities of the map: I1 = Xi_mass T_half^4 = 2117 u_half^4, I2 = Xi_q/s*^4 = 389/z*^2 and I3 = T_half s* = u_half sqrt(z*), with rho cancelling symbolically": true,
+    "I1's certified bracket from the P8 half-return: 2117 lo^4 < I1 < 2117 hi^4 with lo, hi = 892853037828096677/11529215046068469760, 892854727289957321/11529215046068469760 (refclock_halfreturn's exact endpoints, printing 0.07744265626588037 and 0.07744280280333794), so 0.07614507 < I1 < 0.07614566 (decimals, labelled); with the P10 decimals 0.0774426666 < u_half < 0.0774426679 (refclock_halfreturn's m5, m6 bracket, cited), 0.07614511 < I1 < 0.07614513": true,
+    "I2's bracket from the crossover note: with z* in (12200402860332943/281474976710656, 12200405718556069/281474976710656) (denominator 2^48; the note's certificate, read as data), 389/z_hi^2 < I2 < 389/z_lo^2, so 0.20705257 < I2 < 0.20705268 (decimals, labelled)": true,
+    "I3's bracket: the note's decimals 6.583656896344280 < sqrt(z*) < 6.583657667530262 are consistent with the z* bracket (their squares lie outside it), so lo x 6.583656896344280 < I3 < hi x 6.583657667530262, giving 0.50985587 < I3 < 0.50985691 (decimals, labelled), and 0.50985594 < I3 < 0.50985602 with the P10 half-return": true,
+    "the two variances from the stated moments: 2117 = m2 - m1^2 = 35973 - 184^2 of the mass clock (D45's mass entry, master_readout) and 389 = m2 - m1^2 = 54213 - 232^2 of the quadratic source (D45's quadratic entry, notes_1512), with the crossover note's hidden-measure data as arithmetic from the stated m0..m3 (int c dnu = 72928 = m3 - m1^3 - 2 m1 (m2 - m1^2) and the central third moment m3 - 3 m1 m2 + 2 m1^3 = -17320), and D45 = (2117, 967^8, 389^26, 127^6, 83^4) has trace 21061 (deep_observer_algebra)": true,
+    "the no-go restated: 'no internal clock' is calibration's OBSTRUCTION join (circle-calibration) and gates.GATES keeps TIME_BIND UNBOUND; the map rho = T_half/u_half has exactly one free symbol, the measured interval T_half, so TIME_BIND = exactly one measured interval and the SI second enters only there (the preparation and the readout being external inputs, refclock_calibration)": true,
+    "the invariants carry one relation: I2 = (389/2117) I1/I3^4 identically (four readings T_half, Xi_mass, Xi_q, s* of one rho leave three independent rho-free numbers), so the independent set is the exact variance ratio Xi_mass/Xi_q = 2117/389 together with I1 and I3, and the three-route note's I1 = v19/v_q = 10791/389 is the 19-source trace 8 x 967 + 7 x 389 + 4 x 83 (refclock_gain's hid19 eigenvalues 967^8, 389^7, 83^4, cited) over the quadratic variance, and tr D45/389 = 21061/389, both exact": true,
+    "the separate model's three-route note (the Drive doc 'Triple-Route Time Invariant and Scale-Free Dyadic E8 Memory Reconstruction', 6 Nov 08:44, with its txt and exact receipt of 08:45), read as data: with its dressed zero-bulk-velocity source half-return 0.3699205238490600 < u_s < 0.3699253084202434 (TIME_BIND_COMPLETE_CONTRACT.md's certificate, 2 Nov, filed 3 Nov; not replayed) and the model's P8 mass endpoints and the sqrt(z*) decimals, the note's three brackets T_s/T_m in (4.77669338477, 4.77676420538), s* T_m in (0.509855877996, 0.509856902472) (= I3) and s* T_s in (2.435429807938, 2.435461593195) are outward roundings of the exact products of the stated endpoints (Fractions: lo_s/hi_m < u_s/u_m < hi_s/lo_m, and u sqrt(z*) with the outer sqrt(z*) decimals), and the receipt's exact I2 fractions 389/z_hi^2, 389/z_lo^2 (30819755218048827323888596680704 over 148849899697375630338714296732761 and over 148849829954420257058944811041249) equal the model's": true,
+    "the note's 19-source bands at z* (read as data, not replayed: 0.014725747504511457 < e_l < 0.014725754281094184, e_q = 1/200 by definition, 0.000842972528942191 < e_d < 0.000842972653468548 with multiplicities 8, 7, 4) sum to its trace bracket exactly: 8 e_l + 7/200 + 4 e_d has endpoints 0.156177870151860420 and 0.156177924862627664, the note's tr E(s*) bracket to the last digit; the multiplicities are refclock_gain's 19-source hidden covariance D19 = 967 P8 + 389 P7 + 83 P4; the doc's odd-ten port value 127 P6 + 392 P4 is its own (392 is no model number: the model's ten-port readers carry 389 I10 and 127 I6 in notes_1512's BB*), so neither tail substitutes for the other": true
+   },
+   "note": ""
+  },
+  {
+   "layer": "23-dots",
    "name": "cycles -> golden companion: the cycle Laplacian 2I - C - C^-1 of the tick on the cycles and the golden band are one quadratic, x^2 - 5x + 5, at two scales: on the moving part the pentagon and pentagram Laplacians 2I - T - T^-1 and 2I - T^2 - T^-2 are its two roots (their sum and their product are both 5I minus the fixed sum, five times the rotor plane, inside the cycles where Agni = 5I - B^T B acts as 5), and twice the pentagon Laplacian is 4I + 2X with X = -(T + T^-1) the golden companion (X^2 = X + I), eigenvalues 5 -+ sqrt5 (31 Oct)",
    "status": "THEOREM",
    "passed": true,
@@ -16320,7 +16457,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "the 73 dots and 784 joins form one connected diagram (the obstructions left out)",
+   "name": "the 73 dots and 792 joins form one connected diagram (the obstructions left out)",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -16580,7 +16717,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "each level is joined to the next: number-symmetry 17, symmetry-combinatorics 38, combinatorics-lattice 24, lattice-operator 63, operator-physics 81 joins",
+   "name": "each level is joined to the next: number-symmetry 17, symmetry-combinatorics 38, combinatorics-lattice 24, lattice-operator 63, operator-physics 87 joins",
    "status": "THEOREM",
    "passed": true,
    "value": [
@@ -16815,7 +16952,13 @@
      "bath -> readout",
      "bath -> calibration",
      "bath -> readout",
-     "kerM -> readout"
+     "kerM -> readout",
+     "calibration -> bath",
+     "calibration -> source",
+     "bath -> calibration",
+     "source -> calibration",
+     "readout -> bath",
+     "calibration -> measure"
     ]
    ],
    "note": ""
@@ -16826,10 +16969,10 @@
    "status": "THEOREM",
    "passed": true,
    "value": {
-    "THEOREM": 672,
+    "THEOREM": 676,
     "OBSTRUCTION": 54,
-    "SELECTED_REFERENCE": 21,
-    "CONDITIONAL": 37
+    "SELECTED_REFERENCE": 24,
+    "CONDITIONAL": 38
    },
    "note": ""
   },
@@ -16846,7 +16989,7 @@
   },
   {
    "layer": "23-dots",
-   "name": "every pair of the six levels is joined directly by a map: number-symmetry 17, number-combinatorics 11, number-lattice 33, number-operator 9, number-physics 9, symmetry-combinatorics 38, symmetry-lattice 53, symmetry-operator 26, symmetry-physics 21, combinatorics-lattice 24, combinatorics-operator 42, combinatorics-physics 17, lattice-operator 63, lattice-physics 20, operator-physics 81",
+   "name": "every pair of the six levels is joined directly by a map: number-symmetry 17, number-combinatorics 11, number-lattice 33, number-operator 9, number-physics 9, symmetry-combinatorics 38, symmetry-lattice 53, symmetry-operator 26, symmetry-physics 21, combinatorics-lattice 24, combinatorics-operator 42, combinatorics-physics 17, lattice-operator 63, lattice-physics 20, operator-physics 87",
    "status": "THEOREM",
    "passed": true,
    "value": {
@@ -16858,7 +17001,7 @@
     "(0, 1)": 17,
     "(0, 2)": 11,
     "(1, 4)": 26,
-    "(4, 5)": 81,
+    "(4, 5)": 87,
     "(2, 5)": 17,
     "(3, 5)": 20,
     "(0, 3)": 33,
@@ -19567,7 +19710,7 @@
   },
   {
    "layer": "25-unify",
-   "name": "the derived part stands without the inputs: the 61 derived dots are connected by the 589 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
+   "name": "the derived part stands without the inputs: the 61 derived dots are connected by the 591 THEOREM maps between them, and removing any one such map, or any one derived dot with its maps, leaves the rest connected",
    "status": "THEOREM",
    "passed": true,
    "value": null,
