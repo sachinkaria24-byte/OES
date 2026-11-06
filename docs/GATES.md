@@ -72,4 +72,4 @@ The Drive counts the cut differently in every file (9 mincut rows, 6 blocking cl
 
 ## 6. What would change this page
 
-A signature, a certificate, a raw trace or a named group would each turn one null into a record and move one node. Until then the gates stay shut, and this page is the complete list of what is missing.
+A signature, a certificate, a raw trace or a named group would each turn one null into a record and move one node. Until then the gates stay shut, and this page is the complete list of what is missing. Which data already public or in the canon could serve these acts, and what stands between them and a crossed gate, is [`EVIDENCE.md`](EVIDENCE.md).

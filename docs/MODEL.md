@@ -2804,7 +2804,7 @@ The circle's highest point is the band's top, 256. It is reached only at the hal
 4. trigger the freeze (PredictionFreeze);
 5. allow sofacoustics.org and zenodo.org (T3081).
 
-The complete ordered list of the external acts that would cross every gate, with the model's own falsifier for each, is [`docs/GATES.md`](GATES.md) (6 Nov): nine unconditional acts and two conditional ones, none of them a computation.
+The complete ordered list of the external acts that would cross every gate, with the model's own falsifier for each, is [`docs/GATES.md`](GATES.md) (6 Nov): nine unconditional acts and two conditional ones, none of them a computation. Which existing public data (the firefly flash datasets, dEchorate, the neutrino fits) could serve them, and why none moves a gate today, is [`docs/EVIDENCE.md`](EVIDENCE.md).
 
 ## Sources read (Google Drive)
 
