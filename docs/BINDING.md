@@ -32,7 +32,7 @@ Here 2117 = m₂ − m₁² of the mass clock (moments 1, 184, 35973, …) and 3
 
 The separate model's three-route note (6 Nov 08:44) adds a dressed source clock with half-return u_s ∈ (0.3699205238490600, 0.3699253084202434), its own certificate read as data. From the stated endpoints its brackets T_s/T_m ∈ (4.77669338477, 4.77676420538), s*·T_m ∈ (0.509855877996, 0.509856902472) and s*·T_s ∈ (2.435429807938, 2.435461593195) are outward roundings of the exact products, its 19-source bands at z* sum to its trace bracket (0.156177870151860420, 0.156177924862627664) to the last digit, and its receipt's exact I₂ fractions equal the model's. Nothing in it moves the gates.
 
-**The second number.** With the physical generator τ⁻²(K + δ_model eeᵀ), a measured inverse-response shift d (in s⁻²) gives τ² = δ_model/d exactly, at every rate (`bind_time_units`). The shift and the quadratic jet then bind κ without a second: d²/Ξ_q = δ_model²/(389κ²) identically, so κ = δ_model√Ξ_q/(d√389) and τ = ρ√κ. Three measured numbers (T_half or s*, Ξ_q, d) bind (τ, κ) completely. Under the gauge convention κ = 1 the ratio is a fourth ρ-free check, d²/Ξ_q = δ_model²/389, which is 64/389 at the note's static gap 8: a test, not a definition of ρ. A stiffness step in N/m divided by d is a mass, not a time (the 6 Nov T1–T5 audit's repair).
+**A fourth route, not a second number.** For the gauge-covariant generator (κ/τ²)(K + δ_model eeᵀ) a load's inverse-response shift is (δ_model/ρ²)eeᵀ at every rate, so a measured shift d (in s⁻²) reads ρ² = δ_model/d and never τ and κ apart (`bind_time_units`); in the κ = 1 gauge of the T1–T5 audit this is τ² = δ_model/d, τ = ρ. With Ξ_q = 389/ρ⁴ the ratio d²/Ξ_q = δ_model²/389 is a fourth ρ-free relation, 64/389 at the note's static gap 8, a test and not a definition of ρ (the model's own dressed gap at α = 1 is (5 − √5)/2, `deep_zero_pole`'s floor, not 8). A stiffness step in N/m divided by d is a mass, not a time (the 6 Nov T1–T5 audit's repair). τ and κ separately are a gauge choice and stay unidentified.
 
 ## 2. Dynamics
 
@@ -54,11 +54,11 @@ DYN_BIND is "installed" when one member of that family is physically signed; mat
 
   Σ(z) − 3z Σ_{j<N} 4ʲ e(4ʲz) = Σ(4ᴺz),  0 ≤ Σ(4ᴺz) ≤ BBᵀ/(4ᴺz)
 
-exactly, in Loewner order (the 6 Nov P01 theorem; `bind_dynamics_dyadic` checks it symbolically and on `master_response`'s root-site instance, the tail bound by exact inertia). The static block A cancels. For the 19-source the tail constant is D19 = 967P₈ + 389P₇ + 83P₄, norm 967; the odd ten-port's 127P₆ + 392P₄ is a different reader and does not substitute for it.
+exactly, in Loewner order (the 6 Nov P01 theorem; `bind_dynamics_dyadic` checks it symbolically and on `master_response`'s root-site instance, the tail bound by exact inertia). The static block A cancels. For the 19-source the tail constant is D19 = 967P₈ + 389P₇ + 83P₄, norm 967 (`refclock_gain`); the three-route doc's odd-ten port value 127P₆ + 392P₄ is its own reader (392 is no model number) and does not substitute for it.
 
 **The scale-free form.** With E(s) = e(ρ²s²) and x = s/s*, the dyadic sum reads the memory in model units from rate ratios alone, ρ cancelling: 3z*x² Σ_{n<N} 4ⁿE(2ⁿs*x) = Σ(z*x²) − Σ(4ᴺz*x²). So the shape of the hidden memory is testable before a second is assigned; the absolute Σ_phys(s) = ρ⁻²Σ(ρ²s²) still needs ρ. Time is bound first and dynamics second.
 
-**One anchor.** One full normalised G(z₀) then fixes A = G(z₀)⁻¹ − z₀I + Σ(z₀) and G(z)⁻¹ = G(z₀)⁻¹ + (z − z₀)I + Σ(z₀) − Σ(z) for every z: the compressed Green function on the visible block, never the hidden realisation (`bridge_comparator`'s non-uniqueness). The exact load identity G_L⁻¹ − G₀⁻¹ = L on the visible block is the falsifier of any finite emulator.
+**One anchor.** One full normalised G(z₀) then fixes A = G(z₀)⁻¹ − z₀I + Σ(z₀) and G(z)⁻¹ = G(z₀)⁻¹ + (z − z₀)I + Σ(z₀) − Σ(z) for every z: the compressed Green function on the visible block, never the hidden realisation (the model's comparator non-uniqueness is `notes_1418`'s). The exact load identity G_L⁻¹ − G₀⁻¹ = L on the visible block is the falsifier of any finite emulator.
 
 **The noise floor.** With errors ≤ ε_j on the j-th dyadic sample, ‖Σ(z) − Σ_N^meas(z)‖ ≤ 3z Σ_{j<N} 4ʲε_j + ‖D‖/(4ᴺz): the tail falls and the error grows with N, so a finite N is chosen from a declared budget (recorded from the notes; the blind t → 0 limit's obstruction is `tdc_leakage`'s).
 
@@ -71,5 +71,5 @@ Read as data, nothing run: TIME_BIND_RESOLUTION (2 Nov), the TIME DYN P01–P20 
 Each is an external input; none is a computation:
 
 1. one measured T_half, Ξ or s* in SI units, on a preparation that passes the ρ-free invariants, binds ρ (TIME_BIND);
-2. one measured shift d of a declared load binds κ and τ;
+2. one measured shift d of a declared load is a fourth route to ρ, and against the jet a fourth ρ-free check;
 3. a full normalised secant curve at dyadic rates with one anchor G(z₀) recovers Σ and A on the visible block, and a physically signed member of the completion family installs the dynamics (DYN_BIND).
